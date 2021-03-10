@@ -10,20 +10,29 @@ const { functionsIn } = require("lodash");
 const { response } = require("express");
 const { check, oneOf } = require('express-validator');
 const validator = require('validator')
-const user = require("./user");
+// const user = require("./user");
 const path = require("path");
 const fs = require("fs");
 const MongoStore = require('connect-mongo')(session);
 require('dotenv').config();
 const router = express.Router();
-var User = require(__dirname + "/user.js");
-
-mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+//schemas
+var User = require(__dirname + "/models/user.js");
+//routes
+var index = require('./routes/index');
+//database
+mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/Art?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
   useCreateIndex: true,
 });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function () {
+});
+
 
 
 //Setting EJS as our view engine that fetches ejs files from views folder
@@ -38,11 +47,7 @@ app.use(bodyParser.urlencoded({
   limit: '50mb'
 }));
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-
-db.once('open', function () {
-});
+//session and cookies
 app.use(session({
   secret: process.env.SESSION_KEY,
   resave: true,
@@ -63,16 +68,15 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/', index);
 
 
-//Opening and starting our server on port 3000
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+//Opening and starting our server on port 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function() {
+  console.log("Server started on port",PORT);
 });
 
 
 
 
-app.get("/",function(req,res){
-  res.render("home");
-});
