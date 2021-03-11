@@ -1,8 +1,540 @@
-body{
-  background-color: powderBlue;
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb_Medium.eot");
+  src: url("../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb_Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb_Medium.woff") format("woff"), url("../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb_Medium.ttf") format("truetype");
+}
+/*#region General */
+body {
+  background-color: #f0f0f0;
+  color: #565656;
+  margin: 0;
+  padding: 0;
+  font-family: IRANSans;
+}
+
+.owl-carousel {
+  direction: ltr;
+}
+
+::placeholder {
+  opacity: 0.8;
+}
+
+.page {
+  max-width: 90rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/*#endregion */
+/*#region Product Cards */
+.hiddenItem {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  height: 0 !important;
+  margin: 0 !important;
+}
+
+.card.product {
+  transition: 0.4s;
+  box-shadow: none;
+  background-color: transparent;
+  height: 16rem;
+  padding: 0;
+  border-radius: 5px;
+  position: relative;
+  margin: 1rem 0.5rem;
+}
+.card.product .card-body {
+  padding: 0;
+  position: relative;
+}
+.card.product .card-body img {
+  transition: 0.4s;
+  max-height: 12rem;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 15px 7px 20px 2px #06060642;
+  max-width: 15rem;
+  width: auto;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card.product .card-body img:hover {
+  transition: 0.4s;
+  top: 49%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+}
+.card.product .card-footer {
+  height: 4rem;
+  background-color: transparent;
+  border: none;
+  padding: 1rem 0 0;
+}
+.card.product .card-footer p {
+  color: #565656;
+  text-align: center;
+  height: 1.5rem;
+  margin: 0;
+}
+
+/*#endregion */
+/*#region Header*/
+section.header {
+  width: 100%;
+}
+section.header .navbar {
+  box-shadow: none;
+  padding: 1rem 0.5rem 0;
+}
+section.header .navbar .container-fluid {
+  padding: 0;
+}
+section.header .navbar .container-fluid i {
+  transition: 0.4s;
+  font-size: 25px;
+  color: #565656;
+}
+section.header .navbar .container-fluid i:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.header .navbar .container-fluid .navbar-collapse ul.navbar-nav {
+  padding: 0;
+}
+section.header .navbar .container-fluid .navbar-collapse ul.navbar-nav li.nav-item {
+  width: fit-content;
+  padding: 0 0.75rem;
+  text-align: right;
+}
+section.header .navbar .container-fluid .navbar-collapse ul.navbar-nav li.nav-item a.nav-link {
+  padding: 0;
+}
+section.header .navbar .container-fluid .leftSide {
+  position: absolute;
+  text-align: left;
+  left: 1rem;
+  top: 1rem;
+  height: 3rem;
+}
+section.header .navbar .container-fluid .leftSide a {
+  position: absolute;
+  transition: 0.4s;
+}
+section.header .navbar .container-fluid .leftSide a.cart {
+  left: 0rem;
+}
+section.header .navbar .container-fluid .leftSide a.profile {
+  left: 2.5rem;
+}
+section.header .searchSection {
+  text-align: center;
+  margin-bottom: 3rem;
+  background-color: #0000000d;
+  border-radius: 5px;
+  max-width: 40rem;
+  margin: auto;
+  padding: 1rem 0.5rem;
+  width: 98%;
+}
+section.header .searchSection i {
+  cursor: pointer;
+  transition: 0.4s;
+  font-size: 25px;
+  position: absolute;
+  color: #565656;
+}
+section.header .searchSection i:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.header .searchSection input[type=text] {
+  transition: 0.4s;
+  border: none;
+  border-bottom: 2px solid #565656;
+  background-color: transparent;
+  height: 2.5rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 0.2rem;
+  color: #565656;
+}
+section.header .searchSection input[type=text]:focus {
+  transition: 0.4s;
+  outline: none;
+  border-bottom: 2px solid #00b4bb;
+}
+section.header .searchSection .general {
+  max-width: 40rem;
+  margin: auto;
+  position: relative;
+  padding: 0 2rem 0 1rem;
+}
+section.header .searchSection .general i.fa-search {
+  height: 2.5rem;
+  padding-top: 0.5rem;
+  width: 2rem;
+  left: 0.5rem;
+}
+section.header .searchSection .general i.fa-angle-down {
+  right: 0.5rem;
+  font-size: 40px;
+}
+section.header .searchSection .general .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
+}
+section.header .searchSection .advanced {
+  transition: 0.4s;
+  max-width: 40rem;
+  margin: auto;
+  position: relative;
+}
+section.header .searchSection .advanced .selected {
+  transition: 0.4s;
+  color: #00b4bb;
+  font-weight: bold;
+}
+section.header .searchSection .advanced input[type=radio] {
+  display: none;
+}
+section.header .searchSection .advanced label.radioLabel {
+  cursor: pointer;
+  transition: 0.4s;
+  text-align: right;
+  width: 100%;
+  margin: 0 0.5rem;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+}
+section.header .searchSection .advanced .options {
+  text-align: right;
+  display: flex;
+  width: 100%;
+}
+section.header .searchSection .advanced .tag {
+  margin: 1rem auto;
+  padding: 0 2rem 0 1rem;
+}
+section.header .searchSection .advanced .tag input {
+  padding: 0 0.1rem;
+}
+section.header .searchSection .advanced .category,
+section.header .searchSection .advanced .orientation {
+  padding: 1.5rem 0;
+  display: flex;
+}
+section.header .searchSection .advanced .category .title,
+section.header .searchSection .advanced .orientation .title {
+  width: 6rem;
+  text-align: right;
+  margin-right: 2rem;
+}
+@media (max-width: 580px) {
+  section.header .searchSection .advanced .category .title,
+section.header .searchSection .advanced .orientation .title {
+    margin-right: 1rem;
+  }
+}
+section.header .searchSection .advanced .price {
+  padding: 1.5rem 0;
+  display: flex;
+}
+section.header .searchSection .advanced .price .title {
+  width: 6rem;
+  text-align: right;
+  margin-right: 2rem;
+}
+@media (max-width: 580px) {
+  section.header .searchSection .advanced .price .title {
+    margin-right: 1rem;
+  }
+}
+section.header .searchSection .advancedHidden {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
+
+/*#endregion */
+/*#region Footer */
+section.footer {
+  /*background-color: $gray-color;*/
+}
+section.footer .container-fluid .social {
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+  max-width: 40rem;
+  width: 90%;
+}
+section.footer .container-fluid .social a {
+  width: 3rem;
+  display: inline-block;
   text-align: center;
 }
-h1{
-  color: white;
-  
+section.footer .container-fluid .social a i {
+  transition: 0.4s;
+  font-size: 25px;
+  color: #565656;
 }
+section.footer .container-fluid .social a i:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.footer .container-fluid .designedBy {
+  border-top: 1px solid #565656;
+  padding: 1rem;
+  text-align: center;
+}
+section.footer .container-fluid .designedBy p {
+  margin: 0;
+  color: #565656;
+  font-size: 14px;
+}
+section.footer .container-fluid .designedBy p span {
+  font-weight: bold;
+  color: #00b4bb;
+}
+
+/*#endregion */
+/*#region Home Page*/
+section.homePage section.contents .container-fluid .productTabs ul.nav-tabs {
+  padding: 2rem 1rem;
+}
+@media (max-width: 580px) {
+  section.homePage section.contents .container-fluid .productTabs ul.nav-tabs {
+    padding: 1rem 0;
+  }
+}
+@media (max-width: 580px) {
+  section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item {
+    display: flex;
+  }
+}
+@media (max-width: 480px) {
+  section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item {
+    width: 100%;
+  }
+}
+section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
+  transition: 0.4s;
+  background-color: transparent;
+  font-size: 30px;
+  color: #565656;
+  border: none;
+}
+@media (max-width: 991px) {
+  section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
+    font-size: 25px;
+  }
+}
+@media (max-width: 767px) {
+  section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
+    font-size: 19px;
+  }
+}
+@media (max-width: 580px) {
+  section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
+    padding-left: 0;
+    padding-right: 0;
+    margin: auto;
+  }
+}
+@media (max-width: 480px) {
+  section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
+    width: 14rem;
+  }
+}
+section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
+  transition: 0.4s;
+  background-color: #0000000d;
+  border-radius: 5px;
+}
+section.homePage section.contents .container-fluid .productTabs .tab-content {
+  padding: 1rem 1rem 5rem;
+}
+section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons {
+  padding-top: 4rem;
+  text-align: center;
+}
+section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore {
+  position: relative;
+  border: 1px solid #565656;
+  border-radius: 5px;
+  margin: auto;
+  font-size: 20px;
+  transition: 0.4s;
+  background-color: transparent;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  color: #565656;
+}
+section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore i {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  width: 2rem;
+  font-size: 30px;
+}
+section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+  border: 1px solid #00b4bb;
+}
+section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore:focus {
+  transition: 0.4s;
+  outline: none;
+}
+section.homePage section.contents .container-fluid .productSlider {
+  width: 95%;
+  margin: 2rem auto;
+}
+@media (min-width: 1440px) {
+  section.homePage section.contents .container-fluid .productSlider {
+    width: 90rem;
+  }
+}
+section.homePage section.contents .container-fluid .productSlider .sliderTitle h2 {
+  text-align: center;
+  color: #565656;
+  padding: 0.5rem 2rem;
+  width: fit-content;
+  margin: auto;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-item {
+  padding: 1rem;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-item .col-lg-3 {
+  padding: 1rem;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button {
+  margin-top: -3.2rem;
+  position: absolute;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button span {
+  font-size: 4rem;
+  transition: 0.4s;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button span:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button.owl-next {
+  right: -1rem;
+}
+section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button.owl-prev {
+  left: -1rem;
+}
+
+/*#endregion */
+/*#region Login Page */
+section.loginPage section.contents .container-fluid {
+  padding-top: 5rem;
+}
+section.loginPage section.contents .container-fluid .card {
+  margin-top: 5rem;
+  padding: 1rem;
+  max-width: 40rem;
+  margin: auto;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #0000000d;
+  box-shadow: none;
+}
+section.loginPage section.contents .container-fluid .card h4 {
+  padding: 2rem 0;
+}
+section.loginPage section.contents .container-fluid .card input {
+  transition: 0.4s;
+  border: none;
+  border-bottom: 2px solid #565656;
+  color: #565656;
+  background-color: transparent;
+  width: 100%;
+  height: 2.5rem;
+  padding-right: 0.2rem;
+}
+section.loginPage section.contents .container-fluid .card input.codeInput {
+  padding: 0;
+  text-align: center;
+  font-size: 25px;
+  width: 2rem;
+  margin: 0 0.5rem;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.loginPage section.contents .container-fluid .card input.codeInput {
+    width: 1.5rem;
+    margin: 0 0.3rem;
+  }
+}
+section.loginPage section.contents .container-fluid .card input:focus {
+  transition: 0.4s;
+  outline: none;
+  border-bottom: 2px solid #00b4bb;
+}
+section.loginPage section.contents .container-fluid .card .codeInputs {
+  direction: ltr;
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+}
+section.loginPage section.contents .container-fluid .card .buttons {
+  position: relative;
+  padding: 3rem 0;
+}
+section.loginPage section.contents .container-fluid .card .buttons a {
+  float: left;
+  margin-right: 1rem;
+  transition: 0.4s;
+  font-size: 20px;
+  display: block;
+  color: #565656;
+  border: 1px solid #565656;
+  border-radius: 5px;
+  width: 8rem;
+  text-align: center;
+}
+@media (max-width: 580px) {
+  section.loginPage section.contents .container-fluid .card .buttons a {
+    font-size: 18px;
+    width: 6rem;
+  }
+}
+section.loginPage section.contents .container-fluid .card .buttons a:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+  border-color: #00b4bb;
+}
+
+/*#endregion */
+/*#region Product Detail Page*/
+/*#endregion */
+/*#region Search Page */
+/*#endregion */
+/*#region Cart Page */
+/*#endregion */
+/*#region Dashboard Page */
+/*#endregion */
+/*#region User Page */
+/*#endregion */
+/*#region About Us Page */
+/*#endregion */
+/*#region Contact Us Page */
+/*#endregion */
+
+/*# sourceMappingURL=custom.css.map */

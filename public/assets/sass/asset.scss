@@ -1,0 +1,58 @@
+$blue-color: #00b4bb;
+$body-color: #f0f0f0;
+$pink-color: #be00f9;
+$gray-color: #0000000d;
+$text-color: #565656;
+
+$radious: 5px;
+
+$font: IRANSans;
+
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb_Medium.eot');
+    src: url('../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'),
+    /* FF39+,Chrome36+, Opera24+*/
+    url('../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb_Medium.woff') format('woff'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb_Medium.ttf') format('truetype');
+}
+
+@mixin xl {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: 991px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @media (max-width: 580px) {
+        @content;
+    }
+}
+
+@mixin xxs {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+

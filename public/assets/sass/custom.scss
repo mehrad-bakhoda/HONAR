@@ -1,0 +1,635 @@
+@import "asset.scss";
+/*#region General */
+body {
+    background-color: $body-color;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+    font-family: $font;
+}
+
+.owl-carousel {
+    direction: ltr;
+}
+
+::placeholder {
+    opacity: 0.8;
+}
+
+.page {
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*#endregion */
+/*#region Product Cards */
+.hiddenItem {
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    height: 0!important;
+    margin: 0 !important;
+}
+.card.product {
+    transition: 0.4s;
+    box-shadow: none;
+    background-color: transparent;
+    height: 16rem;
+    padding: 0;
+    border-radius: $radious;
+    position: relative;
+
+    margin: 1rem 0.5rem;
+    .card-body {
+        padding: 0;
+        position: relative;
+
+        img {
+            transition: 0.4s;
+            max-height: 12rem;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 15px 7px 20px 2px #06060642;
+            max-width: 15rem;
+            width: auto;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &:hover {
+                transition: 0.4s;
+                top: 49%;
+                left: 49%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .card-footer {
+        height: 4rem;
+        background-color: transparent;
+        border: none;
+        padding: 1rem 0 0;
+
+        p {
+            color: $text-color;
+            text-align: center;
+            height: 1.5rem;
+            margin: 0;
+        }
+    }
+}
+/*#endregion */
+
+/*#region Header*/
+section.header {
+    width: 100%;
+
+    .navbar {
+        box-shadow: none;
+        padding: 1rem 0.5rem 0;
+
+        .container-fluid {
+            padding: 0;
+
+            i {
+                transition: 0.4s;
+                font-size: 25px;
+                color: $text-color;
+            }
+
+            i:hover {
+                transition: 0.4s;
+                color: $blue-color;
+            }
+
+            .navbar-collapse {
+                ul.navbar-nav {
+                    padding: 0;
+
+                    li.nav-item {
+                        width: fit-content;
+                        padding: 0 0.75rem;
+                        text-align: right;
+
+                        a.nav-link {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+
+            .leftSide {
+                position: absolute;
+                text-align: left;
+                left: 1rem;
+                top: 1rem;
+                height: 3rem;
+
+                a {
+                    position: absolute;
+                    transition: 0.4s;
+
+                    &.cart {
+                        left: 0rem;
+                    }
+
+                    &.profile {
+                        left: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .searchSection {
+        text-align: center;
+        margin-bottom: 3rem;
+        background-color: #0000000d;
+        border-radius: 5px;
+        max-width: 40rem;
+        margin: auto;
+        padding: 1rem 0.5rem;
+        width: 98%;
+
+        i {
+            cursor: pointer;
+            transition: 0.4s;
+            font-size: 25px;
+            position: absolute;
+            color: $text-color;
+
+            &:hover {
+                transition: 0.4s;
+                color: $blue-color;
+            }
+        }
+
+        input[type=text] {
+            transition: 0.4s;
+            border: none;
+            border-bottom: 2px solid $text-color;
+            background-color: transparent;
+            height: 2.5rem;
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 0.2rem;
+            color: $text-color;
+
+            &:focus {
+                transition: 0.4s;
+                outline: none;
+                border-bottom: 2px solid $blue-color;
+            }
+        }
+
+        .general {
+            max-width: 40rem;
+            margin: auto;
+            position: relative;
+            padding: 0 2rem 0 1rem;
+
+            i {
+                &.fa-search {
+                    height: 2.5rem;
+                    padding-top: 0.5rem;
+                    width: 2rem;
+                    left: 0.5rem;
+                }
+
+                &.fa-angle-down {
+                    right: 0.5rem;
+                    font-size: 40px;
+                }
+            }
+
+            .rotated {
+                transition: 0.4s;
+                transform: rotate(180deg);
+            }
+        }
+
+        .advanced {
+            transition: 0.4s;
+            max-width: 40rem;
+            margin: auto;
+            position: relative;
+
+            .selected {
+                transition: 0.4s;
+                color: $blue-color;
+                font-weight: bold;
+            }
+
+            input[type=radio] {
+                display: none;
+            }
+
+            label.radioLabel {
+                cursor: pointer;
+                transition: 0.4s;
+                text-align: right;
+                width: 100%;
+                margin: 0 0.5rem;
+                text-align: center;
+                border: 1px solid;
+                border-radius: $radious;
+            }
+
+            .options {
+                text-align: right;
+                display: flex;
+                width: 100%;
+            }
+
+            .tag {
+                margin: 1rem auto;
+                padding: 0 2rem 0 1rem;
+
+                input {
+                    padding: 0 0.1rem;
+                }
+            }
+
+            .category,
+            .orientation {
+                padding: 1.5rem 0;
+                display: flex;
+
+                .title {
+                    width: 6rem;
+                    text-align: right;
+                    margin-right: 2rem;
+
+                    @include xs {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+
+            .price {
+                padding: 1.5rem 0;
+                display: flex;
+
+                .title {
+                    width: 6rem;
+                    text-align: right;
+                    margin-right: 2rem;
+
+                    @include xs {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+
+        .advancedHidden {
+            transition: 0.4s;
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+        }
+    }
+}
+/*#endregion */
+
+/*#region Footer */
+section.footer {
+    /*background-color: $gray-color;*/
+    .container-fluid {
+        .social {
+            padding: 1rem;
+            margin: auto;
+            text-align: center;
+            max-width: 40rem;
+            width: 90%;
+
+            a {
+                width: 3rem;
+                display: inline-block;
+                text-align: center;
+
+                i {
+                    transition: 0.4s;
+                    font-size: 25px;
+                    color: $text-color;
+                }
+
+                i:hover {
+                    transition: 0.4s;
+                    color: $blue-color;
+                }
+            }
+        }
+
+        .designedBy {
+            border-top: 1px solid $text-color;
+            padding: 1rem;
+            text-align: center;
+
+            p {
+                margin: 0;
+                color: $text-color;
+                font-size: 14px;
+
+                span {
+                    font-weight: bold;
+                    color: $blue-color;
+                }
+            }
+        }
+    }
+}
+/*#endregion */
+
+/*#region Home Page*/
+section.homePage {
+    section.contents {
+        .container-fluid {
+            .productTabs {
+                ul.nav-tabs {
+                    padding: 2rem 1rem;
+                    @include xs {
+                        padding: 1rem 0;
+                    }
+
+                    li.nav-item {
+                        @include xs {
+                            display: flex;
+                            
+                        }
+                        @include xxs {
+                            width: 100%;
+                        }
+
+                        a.nav-link {
+                            transition: 0.4s;
+                            background-color: transparent;
+                            font-size: 30px;
+                            color: $text-color;
+                            border: none;
+
+                            @include md {
+                                font-size: 25px;
+                            }
+
+                            @include sm {
+                                font-size: 19px;
+                            }
+
+                            @include xs {
+                                padding-left: 0;
+                                padding-right: 0;
+                                margin: auto;
+                                
+                            }
+                            @include xxs {
+                                width: 14rem;
+                            }
+
+                            &.active {
+                                transition: 0.4s;
+                                background-color: $gray-color;
+                                border-radius: $radious;
+                            }
+                        }
+                    }
+                }
+
+                .tab-content {
+                    padding: 1rem 1rem 5rem;
+
+                    .tab-pane {
+                        .col-lg-3 {
+                        }
+
+                        .buttons {
+                            padding-top: 4rem;
+                            text-align: center;
+
+                            button.seeMore {
+                                position: relative;
+                                border: 1px solid $text-color;
+                                border-radius: $radious;
+                                margin: auto;
+                                font-size: 20px;
+                                transition: 0.4s;
+                                background-color: transparent;
+                                padding: 0.5rem 1rem 0.5rem 2.5rem;
+                                color: $text-color;
+
+                                i {
+                                    position: absolute;
+                                    left: 0.5rem;
+                                    top: 0.5rem;
+                                    width: 2rem;
+                                    font-size: 30px;
+                                }
+
+                                &:hover {
+                                    transition: 0.4s;
+                                    color: $blue-color;
+                                    border: 1px solid $blue-color;
+                                }
+
+                                &:focus {
+                                    transition: 0.4s;
+                                    outline: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .productSlider {
+                width: 95%;
+                margin: 2rem auto;
+
+                @include xl {
+                    width: 90rem;
+                }
+
+                .sliderTitle {
+                    h2 {
+                        text-align: center;
+                        color: $text-color;
+                        padding: 0.5rem 2rem;
+                        width: fit-content;
+                        margin: auto;
+                    }
+                }
+
+                .owl-carousel {
+                    .owl-item {
+                        padding: 1rem;
+
+                        .col-lg-3 {
+                            padding: 1rem;
+                        }
+                    }
+
+                    .owl-nav {
+                        position: absolute;
+                        top: 50%;
+                        width: 100%;
+
+                        button {
+                            margin-top: -3.2rem;
+                            position: absolute;
+
+                            span {
+                                font-size: 4rem;
+                                transition: 0.4s;
+
+                                &:hover {
+                                    transition: 0.4s;
+                                    color: $blue-color;
+                                }
+                            }
+
+                            &.owl-next {
+                                right: -1rem;
+                            }
+
+                            &.owl-prev {
+                                left: -1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*#endregion */
+
+/*#region Login Page */
+section.loginPage {
+    section.contents {
+        .container-fluid {
+            padding-top: 5rem;
+
+            .card {
+                margin-top: 5rem;
+                padding: 1rem;
+                max-width: 40rem;
+                margin: auto;
+                width: 100%;
+                border-radius: $radious;
+                background-color: $gray-color;
+                box-shadow: none;
+
+                h4 {
+                    padding: 2rem 0;
+                }
+
+                input {
+                    transition: 0.4s;
+                    border: none;
+                    border-bottom: 2px solid $text-color;
+                    color: $text-color;
+                    background-color: transparent;
+                    width: 100%;
+                    height: 2.5rem;
+                    padding-right: 0.2rem;
+
+                    &.codeInput {
+                        padding: 0;
+                        text-align: center;
+                        font-size: 25px;
+                        width: 2rem;
+                        margin: 0 0.5rem;
+                        display: flex;
+
+                        @include xs {
+                            width: 1.5rem;
+                            margin: 0 0.3rem;
+                        }
+                    }
+                }
+
+                input:focus {
+                    transition: 0.4s;
+                    outline: none;
+                    border-bottom: 2px solid $blue-color;
+                }
+
+                .codeInputs {
+                    direction: ltr;
+                    display: flex;
+                    width: fit-content;
+                    margin: 0 auto;
+                }
+
+                .buttons {
+                    position: relative;
+                    padding: 3rem 0;
+
+                    a {
+                        float: left;
+                        margin-right: 1rem;
+                        transition: 0.4s;
+                        font-size: 20px;
+                        display: block;
+                        color: $text-color;
+                        border: 1px solid $text-color;
+                        border-radius: $radious;
+                        width: 8rem;
+                        text-align: center;
+
+                        @include xs {
+                            font-size: 18px;
+                            width: 6rem;
+                        }
+
+                        &:hover {
+                            transition: 0.4s;
+                            color: $blue-color;
+                            border-color: $blue-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*#endregion */
+
+/*#region Product Detail Page*/
+section.detailPage {
+}
+/*#endregion */
+
+/*#region Search Page */
+section.searchPage {
+}
+/*#endregion */
+
+/*#region Cart Page */
+section.cartPage {
+}
+/*#endregion */
+
+/*#region Dashboard Page */
+section.dashboardPage {
+}
+/*#endregion */
+
+/*#region User Page */
+section.userPage {
+}
+/*#endregion */
+
+/*#region About Us Page */
+section.aboutUsPage {
+}
+/*#endregion */
+
+/*#region Contact Us Page */
+section.contactUsPage {
+}
+/*#endregion */
