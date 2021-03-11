@@ -1,0 +1,351 @@
+<%-include("header");-%>
+
+
+    <section class="page homePage">
+        <section class="header">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <!-- Collapsible wrapper -->
+                    <div class="navbar-collapse justify-content"
+                         id="navbarCenteredExample">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/">
+                                    <i class="fal fa-home"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Collapsible wrapper -->
+
+                    <div class="leftSide">
+                        <a href="/start" class="profile">
+                            <i class="fal fa-user"></i>
+                        </a>
+                        <a href="/cart" class="cart">
+                            <i class="fal fa-shopping-bag"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <div class="searchSection">
+                <div class="general">
+                    <i class="fal fa-search"></i>
+                    <input type="text" placeholder="به دنبال چه هستید..." />
+                    <i class="fal fa-angle-down"></i>
+                </div>
+                <div class="advanced advancedHidden">
+                    <div class="category">
+                        <lable class="title"> نوع: </lable>
+
+                        <div class="options">
+                            <input type="radio" id="photography" value="photography">
+                            <label for="photography" class="radioLabel">عکاسی</label>
+
+                            <input type="radio" id="graphic" value="graphic">
+                            <label for="graphic" class="radioLabel">گرافیک</label>
+
+                            <input type="radio" id="clip" value="clip">
+                            <label for="clip" class="radioLabel">کلیپ</label>
+                        </div>
+                    </div>
+                    <div class="orientation">
+                        <lable class="title"> نسبت‌ابعاد: </lable>
+                        <div class="options">
+                            <input type="radio" id="portate" value="portrate">
+                            <label for="postrate" class="radioLabel">عمودی</label>
+
+                            <input type="radio" id="landscape" value="landscape">
+                            <label for="landscape" class="radioLabel">افقی</label>
+
+                            <input type="radio" id="square" value="square">
+                            <label for="square" class="radioLabel">مربع</label>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <lable class="title"> قیمت: </lable>
+                        <div class="options">
+                            <input type="radio" id="free" value="free">
+                            <label for="free" class="radioLabel">رایگان</label>
+
+                            <input type="radio" id="money" value="money">
+                            <label for="money" class="radioLabel">غیر رایگان</label>
+                        </div>
+                    </div>
+
+                    <div class="tag">
+                        <input type="text" placeholder="تگ های مورد نظر..." />
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <section class="contents">
+            <div class="container-fluid">
+                <div class="productTabs">
+                    <!-- Tabs navs -->
+                    <ul class="nav nav-tabs nav-fill mb-3" id="ex1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active"
+                               id="bestTabH"
+                               data-mdb-toggle="tab"
+                               href="#bestTabC"
+                               role="tab"
+                               aria-controls="bestTabC"
+                               aria-selected="true">پر طرفدارترین ها</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link"
+                               id="downTabH"
+                               data-mdb-toggle="tab"
+                               href="#downTabC"
+                               role="tab"
+                               aria-controls="downTabC"
+                               aria-selected="false">پر دانلودترین ها</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link"
+                               id="ex2-tab-3"
+                               data-mdb-toggle="tab"
+                               href="#ex2-tabs-3"
+                               role="tab"
+                               aria-controls="ex2-tabs-3"
+                               aria-selected="false">جدیدترین ها</a>
+                        </li>
+                    </ul>
+                    <!-- Tabs navs -->
+                    <!-- Tabs content -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active"
+                             id="bestTabC"
+                             role="tabpanel"
+                             aria-labelledby="bestTabH">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test1.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test2.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test3.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test2.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test4.png" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test3.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test1.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test.jpg" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="/Product">
+                                        <div class="card product hiddenItem">
+                                            <div class="card-body">
+                                                <img src="/assets/images/test4.png" />
+                                            </div>
+                                            <div class="card-footer">
+                                                <p> artist name </p>
+                                                <p> art name </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button type="button" class="seeMore">
+
+                                    مشاهده بیشتر
+                                    <i class="fal fa-angle-down"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade"
+                             id="downTabC"
+                             role="tabpanel"
+                             aria-labelledby="downTabH">
+
+                        </div>
+                        <div class="tab-pane fade"
+                             id="ex2-tabs-3"
+                             role="tabpanel"
+                             aria-labelledby="ex2-tab-3">
+
+                        </div>
+                    </div>
+                    <!-- Tabs content -->
+                </div>
+
+            </div>
+        </section>
+
+        <section class="footer">
+            <div class="container-fluid">
+                <div class="enamad">
+
+                </div>
+                <div class="social">
+                    <a href="#" class="twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="telegram">
+                        <i class="fal fa-paper-plane"></i>
+                    </a>
+                    <a href="#" class="whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="mail">
+                        <i class="fal fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="designedBy">
+                    <p> طراحی و اجرا توسط تیم <span> ST.ART.UP </span> </p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+
+<%-include("footer");-%>
+
+<!-- Scripts -->
+
+
+<!-- Custom -->
+<script src="/assets/js/header.js"></script>
+<script src="/assets/js/seeMore.js"></script>
+<script src="/assets/js/pageHeight.js"></script>
+<!-- Scripts -->

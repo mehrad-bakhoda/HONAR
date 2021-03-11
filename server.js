@@ -14,12 +14,15 @@ const validator = require('validator')
 const path = require("path");
 const fs = require("fs");
 const MongoStore = require('connect-mongo')(session);
-require('dotenv').config();
 const router = express.Router();
+require('dotenv').config();
+
 //schemas
 var User = require(__dirname + "/models/user.js");
+var User = require(__dirname + "/models/product.js");
 //routes
-var index = require('./routes/index');
+var routes= require(__dirname+"/routes/routes.js");
+
 //database
 mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/Art?retryWrites=true&w=majority", {
   useNewUrlParser: true,
@@ -27,11 +30,7 @@ mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/
   useFindAndModify: false,
   useCreateIndex: true,
 });
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
 
-db.once('open', function () {
-});
 
 
 
@@ -46,6 +45,12 @@ app.use(bodyParser.urlencoded({
   extended: true,
   limit: '50mb'
 }));
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function () {
+});
 
 //session and cookies
 app.use(session({
@@ -68,15 +73,13 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', index);
+app.use('/', routes);
 
 
-//Opening and starting our server on port 
+
+
+//Opening and starting our server on port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   console.log("Server started on port",PORT);
 });
-
-
-
-

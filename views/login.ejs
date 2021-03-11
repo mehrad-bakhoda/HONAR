@@ -1,0 +1,68 @@
+<%-include("header");-%>
+<section class="page loginPage">
+        <section class="header">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <!-- Collapsible wrapper -->
+                    <div class="navbar-collapse justify-content"
+                         id="navbarCenteredExample">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">
+                                    <i class="fal fa-home"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Collapsible wrapper -->
+                </div>
+            </nav>
+        </section>
+        <section class="contents">
+            <div class="container-fluid">
+                <div class="card login">
+                    <h4> شماره تماس یا ایمیل خود را وارد کنید</h4>
+                    <input type="text" class="phoneInput" placeholder="شماره تماس یا ایمیل"/>
+                    <div class="buttons">
+                        <a href="#" class="next">بعدی</a>
+                    </div>
+                </div>
+                <div class="card code">
+                    <h4> کد ارسال شده را وارد کنید</h4>
+                    <div class="codeInputs">
+                        <input type="text" class="codeInput" id="first" maxlength="1" />
+                        <input type="text" class="codeInput" id="second" maxlength="1" />
+                        <input type="text" class="codeInput" id="third" maxlength="1" />
+                        <input type="text" class="codeInput" id="fourth" maxlength="1" />
+                        <input type="text" class="codeInput" id="fifth" maxlength="1" />
+                        <input type="text" class="codeInput" id="sixth" maxlength="1" />
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="next">تایید</a>
+                        <a href="#" class="prev">قبلی</a>
+                    </div>
+                </div>
+                <div class="card password">
+                    <h4> رمز عبور خود را وارد وارد کنید </h4>
+                    <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه"/>
+                    <div class="buttons">
+                        <a href="#" class="next">تایید</a>
+                        <a href="#" class="prev">قبلی</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+
+
+<%-include("footer");-%>
+
+<!-- Scripts -->
+
+<!-- Custom -->
+<script src="/assets/js/header.js"></script>
+<script src="/assets/js/pageHeight.js"></script>
+<!-- Scripts -->
