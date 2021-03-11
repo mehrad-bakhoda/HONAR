@@ -28,6 +28,15 @@ body {
   margin: 0 auto;
 }
 
+section.contents {
+  padding-top: 5rem;
+}
+@media (max-width: 991px) {
+  section.contents {
+    padding-top: 2rem;
+  }
+}
+
 /*#endregion */
 /*#region Product Cards */
 .hiddenItem {
@@ -57,7 +66,7 @@ body {
   max-height: 12rem;
   margin: auto;
   border-radius: 5px;
-  box-shadow: 15px 7px 20px 2px #06060642;
+  box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 15rem;
   width: auto;
   margin: 0;
@@ -394,57 +403,9 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
   transition: 0.4s;
   outline: none;
 }
-section.homePage section.contents .container-fluid .productSlider {
-  width: 95%;
-  margin: 2rem auto;
-}
-@media (min-width: 1440px) {
-  section.homePage section.contents .container-fluid .productSlider {
-    width: 90rem;
-  }
-}
-section.homePage section.contents .container-fluid .productSlider .sliderTitle h2 {
-  text-align: center;
-  color: #565656;
-  padding: 0.5rem 2rem;
-  width: fit-content;
-  margin: auto;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-item {
-  padding: 1rem;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-item .col-lg-3 {
-  padding: 1rem;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button {
-  margin-top: -3.2rem;
-  position: absolute;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button span {
-  font-size: 4rem;
-  transition: 0.4s;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button span:hover {
-  transition: 0.4s;
-  color: #00b4bb;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button.owl-next {
-  right: -1rem;
-}
-section.homePage section.contents .container-fluid .productSlider .owl-carousel .owl-nav button.owl-prev {
-  left: -1rem;
-}
 
 /*#endregion */
 /*#region Login Page */
-section.loginPage section.contents .container-fluid {
-  padding-top: 5rem;
-}
 section.loginPage section.contents .container-fluid .card {
   margin-top: 5rem;
   padding: 1rem;
@@ -497,25 +458,26 @@ section.loginPage section.contents .container-fluid .card .buttons {
   position: relative;
   padding: 3rem 0;
 }
-section.loginPage section.contents .container-fluid .card .buttons a {
+section.loginPage section.contents .container-fluid .card .buttons button[type=submit] {
   float: left;
   margin-right: 1rem;
   transition: 0.4s;
   font-size: 20px;
   display: block;
   color: #565656;
+  background-color: transparent;
   border: 1px solid #565656;
   border-radius: 5px;
   width: 8rem;
   text-align: center;
 }
 @media (max-width: 580px) {
-  section.loginPage section.contents .container-fluid .card .buttons a {
+  section.loginPage section.contents .container-fluid .card .buttons button[type=submit] {
     font-size: 18px;
     width: 6rem;
   }
 }
-section.loginPage section.contents .container-fluid .card .buttons a:hover {
+section.loginPage section.contents .container-fluid .card .buttons button[type=submit]:hover {
   transition: 0.4s;
   color: #00b4bb;
   border-color: #00b4bb;
@@ -523,6 +485,262 @@ section.loginPage section.contents .container-fluid .card .buttons a:hover {
 
 /*#endregion */
 /*#region Product Detail Page*/
+section.detailPage section.contents .container-fluid .top .row .picture {
+  padding: 1rem;
+}
+section.detailPage section.contents .container-fluid .top .row .picture .card {
+  position: relative;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+@media (max-width: 991px) {
+  section.detailPage section.contents .container-fluid .top .row .picture .card {
+    margin-bottom: 2rem;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .picture .card img {
+  max-height: 18rem;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 18rem;
+  width: auto;
+}
+@media (max-width: 580px) {
+  section.detailPage section.contents .container-fluid .top .row .picture .card img {
+    max-height: 16rem;
+    max-width: 16rem;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card {
+  height: 100%;
+  padding: 1rem;
+  border: none;
+  box-shadow: none;
+  border-radius: 5px;
+  background-color: #0000000d;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .info {
+  margin: 0 1rem;
+  position: relative;
+  padding-top: 0.5rem;
+  min-height: 3rem;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .info {
+    display: block;
+    text-align: center;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .info label {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .info label {
+    position: relative;
+    text-align: center;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
+  position: absolute;
+  left: 0;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
+    position: relative;
+    text-align: center;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
+  display: flex;
+}
+@media (max-width: 1180px) and (min-width: 992px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
+    min-height: 6rem;
+  }
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
+    min-height: 6rem;
+    display: block;
+    text-align: center;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
+  width: 7rem;
+  height: 2rem;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
+    position: relative;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options {
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  padding-right: 7rem;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options {
+    position: relative;
+    text-align: center;
+    padding: 0;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options input[type=radio] {
+  display: none;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label.sizeOption {
+  font-weight: lighter;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.4s;
+  height: 2rem;
+  padding-top: 0.25rem;
+  text-align: right;
+  width: 23.2%;
+  margin: 0 0.4rem 0.4rem 0;
+  text-align: center;
+  border: 1px solid #565656;
+  border-radius: 5px;
+}
+@media (max-width: 1180px) and (min-width: 992px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label.sizeOption {
+    width: 47%;
+  }
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label.sizeOption {
+    text-align: center;
+    width: 15rem;
+  }
+}
+@media (max-width: 580px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label.sizeOption {
+    width: 12rem;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .selected {
+  transition: 0.4s;
+  color: #00b4bb;
+  border: 1px solid #00b4bb !important;
+  font-weight: bold;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons {
+  text-align: left;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .buttons {
+    text-align: center;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button {
+  position: relative;
+  border: 1px solid #565656;
+  border-radius: 5px;
+  margin: auto;
+  font-size: 20px;
+  transition: 0.4s;
+  background-color: transparent;
+  padding: 0.5rem;
+  width: 12rem;
+  color: #565656;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+  border: 1px solid #00b4bb;
+}
+@media (max-width: 580px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+section.detailPage section.contents .container-fluid .description {
+  margin-top: 2rem;
+  border-radius: 5px;
+  background-color: #0000000d;
+  padding: 2rem;
+}
+section.detailPage section.contents .container-fluid .description h4 {
+  padding: 0 0 1rem;
+}
+section.detailPage section.contents .container-fluid .description p {
+  text-align: justify;
+}
+section.detailPage section.contents .container-fluid .related {
+  padding: 2rem;
+}
+section.detailPage section.contents .container-fluid .related h2 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel {
+  position: relative;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-item {
+  /*padding: 1rem ;*/
+  position: relative;
+  height: 16rem;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-item img {
+  transition: 0.4s;
+  max-height: 12rem;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 12rem;
+  width: auto;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-item img:hover {
+  transition: 0.4s;
+  top: 49%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav {
+  position: absolute;
+  width: 100%;
+  top: 32%;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev {
+  position: absolute;
+  left: -1.5rem;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev span {
+  transition: 0.4s;
+  font-size: 4rem;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev span:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next {
+  position: absolute;
+  right: -1.5rem;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next span {
+  transition: 0.4s;
+  font-size: 4rem;
+}
+section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next span:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+
 /*#endregion */
 /*#region Search Page */
 /*#endregion */

@@ -1,2 +1,210 @@
 <%-include("header");-%>
+<section class="page detailPage">
+    <section class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <!-- Collapsible wrapper -->
+                <div class="navbar-collapse justify-content"
+                     id="navbarCenteredExample">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <i class="fal fa-home"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Collapsible wrapper -->
+
+                <div class="leftSide">
+                    <a href="#" class="profile">
+                        <i class="fal fa-user"></i>
+                    </a>
+                    <a href="#" class="cart">
+                        <i class="fal fa-shopping-bag"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="searchSection">
+            <div class="general">
+                <i class="fal fa-search"></i>
+                <input type="text" placeholder="به دنبال چه هستید..." />
+                <i class="fal fa-angle-down"></i>
+            </div>
+            <div class="advanced advancedHidden">
+                <div class="category">
+                    <lable class="title"> نوع: </lable>
+
+                    <div class="options">
+                        <input type="radio" id="photography" value="photography">
+                        <label for="photography" class="radioLabel">عکاسی</label>
+
+                        <input type="radio" id="graphic" value="graphic">
+                        <label for="graphic" class="radioLabel">گرافیک</label>
+
+                        <input type="radio" id="clip" value="clip">
+                        <label for="clip" class="radioLabel">کلیپ</label>
+                    </div>
+                </div>
+                <div class="orientation">
+                    <lable class="title"> نسبت‌ابعاد: </lable>
+                    <div class="options">
+                        <input type="radio" id="portate" value="portrate">
+                        <label for="postrate" class="radioLabel">عمودی</label>
+
+                        <input type="radio" id="landscape" value="landscape">
+                        <label for="landscape" class="radioLabel">افقی</label>
+
+                        <input type="radio" id="square" value="square">
+                        <label for="square" class="radioLabel">مربع</label>
+                    </div>
+                </div>
+                <div class="price">
+                    <lable class="title"> قیمت: </lable>
+                    <div class="options">
+                        <input type="radio" id="free" value="free">
+                        <label for="free" class="radioLabel">رایگان</label>
+
+                        <input type="radio" id="money" value="money">
+                        <label for="money" class="radioLabel">غیر رایگان</label>
+                    </div>
+                </div>
+
+                <div class="tag">
+                    <input type="text" placeholder="تگ های مورد نظر..." />
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section class="contents">
+
+        <div class="container-fluid">
+            <div class="top">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 picture">
+                        <div class="card">
+                            <img src="../assets/images/test2.jpg" />
+                        </div>
+
+                    </div>
+                    <div class="col-lg-8 col-md-12 infos">
+                        <div class="card">
+                            <div class="name info">
+                                <label>  نام اثر </label>
+                                <p> غروب خورشید </p>
+                            </div>
+                            <div class="artist info">
+                                <label> هنرمند</label>
+                                <p>  علیرضا هدایی </p>
+                            </div>
+                            <div class="tags info">
+                                <label> تگ ها </label>
+                                <p></p>
+                            </div>
+                            <div class="sizes info">
+                                <label> سایز های موجود </label>
+
+                                <div class="options">
+                                    <input type="radio" id="small" value="small">
+                                    <label for="small" class="sizeOption">کوچک(1000*1000)</label>
+
+                                    <input type="radio" id="medium" value="medium">
+                                    <label for="medium" class="sizeOption">متوسط(1500*1500)</label>
+
+                                    <input type="radio" id="large" value="large">
+                                    <label for="large" class="sizeOption"> بزرگ (2000*2000)</label>
+
+                                    <input type="radio" id="original" value="original">
+                                    <label for="original" class="sizeOption  selected"> اصلی(3000*3000)</label>
+                                </div>
+                            </div>
+                            <div class="price info">
+                                <label> قیمت </label>
+                                <!--<p class="small"> 5000T </p>
+                                <p class="medium"> 7000T </p>
+                                <p class="large"> 10000T </p>
+                                <p class="original"> 15000T </p>-->
+                                <p class="free"> رایگان </p>
+                            </div>
+                            <div class="buttons">
+                                <button type="submit" class="download"> دانلود </button>
+                                <button type="submit" class="addToCart"> افزودن به سبد خرید </button>
+                                <button type="submit" class="buy"> خرید </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <h4 class="title"> توضیحات </h4>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                </p>
+            </div>
+            <div class="related">
+                <h2> محصولات مرتبط </h2>
+                <div class="owl-carousel">
+                    <a href="#">
+                        <img src="../assets/images/test.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/test3.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/test1.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/test4.png" />
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/test2.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/test.jpg" />
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/test3.jpg" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="container-fluid">
+            <div class="enamad">
+
+            </div>
+            <div class="social">
+                <a href="#" class="twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="telegram">
+                    <i class="fal fa-paper-plane"></i>
+                </a>
+                <a href="#" class="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="mail">
+                    <i class="fal fa-envelope"></i>
+                </a>
+            </div>
+            <div class="designedBy">
+                <p> طراحی و اجرا توسط تیم <span> ST.ART.UP </span> </p>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
 <%-include("footer");-%>
+<script src="../assets/js/header.js"></script>
+<script src="../assets/js/size.js"></script>
+<script src="../assets/js/pageHeight.js"></script>
