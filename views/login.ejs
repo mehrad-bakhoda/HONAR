@@ -20,13 +20,16 @@
         </section>
         <section class="contents">
             <div class="container-fluid">
+                <% if(inputVerify ==true && inputFouned !=true){%>
                 <div class="card login">
                     <h4> شماره تماس یا ایمیل خود را وارد کنید</h4>
-                    <input type="text" class="phoneInput" placeholder="شماره تماس یا ایمیل"/>
+                    <input type="text" class="phoneInput" name="loginInput" placeholder="شماره تماس یا ایمیل"/>
                     <div class="buttons">
                         <a href="#" class="next">بعدی</a>
                     </div>
                 </div>
+                <% } %>
+                <%if(!inputVerify){%>
                 <div class="card code">
                     <h4> کد ارسال شده را وارد کنید</h4>
                     <div class="codeInputs">
@@ -42,6 +45,8 @@
                         <a href="#" class="prev">قبلی</a>
                     </div>
                 </div>
+                <% } %>
+                <%if(inputFouned == true && inputVerify == true  && newUser==true){%>
                 <div class="card password">
                     <h4> رمز عبور خود را وارد وارد کنید </h4>
                     <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه"/>
@@ -50,6 +55,7 @@
                         <a href="#" class="prev">قبلی</a>
                     </div>
                 </div>
+                <% } %>
             </div>
         </section>
     </section>

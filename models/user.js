@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
   password:{
     type:String
   },
-  verifyCode: Number,
+  verifyCode: String,
   hasPassword:{
     type: Boolean,
     default: false
