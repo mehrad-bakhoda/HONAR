@@ -894,6 +894,20 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
 
 /*#endregion */
 /*#region Search Page */
+section.searchPage section.header {
+  margin: auto;
+  max-width: 90rem;
+  position: fixed;
+  z-index: 90;
+  background-color: #f0f0f0;
+}
+section.searchPage section.contents {
+  padding-top: 8rem;
+}
+section.searchPage section.contents .container-fluid .row .result {
+  padding: 1rem;
+}
+
 /*#endregion */
 /*#region Cart Page */
 /*#endregion */

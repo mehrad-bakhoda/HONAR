@@ -1,22 +1,46 @@
-var startBest = 0;
+/* Variables */
 var showCount = 4;
+var starts = [0, 0, 0, 0];
+
+/* Show Best */
+$(".homePage #bestTabC button.seeMore").click(function () {
+    showMore("#bestTabC", 0);
+});
+hideItems(".homePage #bestTabC");
+showMore(".homePage #bestTabC", 0);
+
+/* Show Down */
+$(".homePage #downTabC button.seeMore").click(function () {
+    showMore("#downTabC", 1);
+});
+hideItems(".homePage #downTabC");
+showMore(".homePage #downTabC", 1);
+
+/* Show Latest */
+$(".homePage #latestTabC button.seeMore").click(function () {
+    showMore(".homePage #latestTabC", 2);
+});
+hideItems(".homePage #latestTabC");
+showMore(".homePage #latestTabC", 2);
+
+/* Show Search */
+$(".searchPage button.seeMore").click(function () {
+    showMore(".searchPage", 3);
+});
+hideItems(".searchPage");
+showMore(".searchPage", 3);
+
+/* Functions */
 function hideItems(tabID) {
     var products = $(tabID + " .card.product");
     for (var i = 0; i < products.length; i++) {
         $(products[i]).addClass("hiddenItem");
     }
 }
-function showMore(tabID) {
+function showMore(tabID, index) {
     var products = $(tabID + " .card.product");
-    for (var i = startBest; i < startBest + showCount; i++) {
+    for (var i = starts[index]; i < starts[index] + showCount; i++) {
         $(products[i]).removeClass("hiddenItem");
     }
-    startBest += showCount;
+    starts[index] += showCount;
 }
-
-$("button.seeMore").click(function () {
-    showMore("#bestTabC");
-});
-
-hideItems("#bestTabC");
-showMore("#bestTabC")

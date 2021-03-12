@@ -12,6 +12,9 @@ router.get("/",function(req,res){
     res.render("home");
   });
 
+router.get("/search", function (req, res) {
+    res.render("search");
+});
 
 router.get("/login",function(req,res){
   if (req.session.userId)

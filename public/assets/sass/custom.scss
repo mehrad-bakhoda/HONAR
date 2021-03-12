@@ -15,6 +15,7 @@ body {
 ::placeholder {
     opacity: 0.8;
 }
+
 @-webkit-keyframes autofill {
     0%,100% {
         color: $text-color;
@@ -70,6 +71,7 @@ section.contents {
         }
     }
 }
+
 .showNotif {
     transition: 0.4s;
     right: 0;
@@ -356,6 +358,7 @@ section.footer {
     .container-fluid {
         max-width: 90rem;
         margin: auto;
+
         .social {
             padding: 1rem;
             margin: auto;
@@ -464,8 +467,6 @@ section.homePage {
                     padding: 1rem 1rem 5rem;
 
                     .tab-pane {
-                        .col-lg-3 {
-                        }
 
                         .buttons {
                             padding-top: 4rem;
@@ -1032,6 +1033,24 @@ Section.uploadPage {
 
 /*#region Search Page */
 section.searchPage {
+    section.header {
+        margin: auto;
+        max-width: 90rem;
+        position: fixed;
+        z-index: 90;
+        background-color: $body-color;
+    }
+
+    section.contents {
+        padding-top: 8rem;
+        .container-fluid {
+            .row {
+                .result {
+                    padding: 1rem;
+                }
+            }
+        }
+    }
 }
 /*#endregion */
 
