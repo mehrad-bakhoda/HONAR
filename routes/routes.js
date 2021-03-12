@@ -8,6 +8,7 @@ const generateOTP = require("../localModules/generateOTP.js")
 
 
 router.get("/",function(req,res){
+  
     res.render("home");
   });
 
