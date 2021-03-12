@@ -25,7 +25,7 @@
                     <form action="/login" method="post">
                         <h4> شماره تماس یا ایمیل خود را وارد کنید</h4>
                         <input type="text" class="phoneInput" name="loginInput" placeholder="شماره تماس یا ایمیل"/>
-                        <p class="invalid-loginInput">لطفا یک شماره تماس یا ایمیل معتبر وارد کنید</p>
+                        <p class="invalid-loginInput invalidInput">لطفا یک شماره تماس یا ایمیل معتبر وارد کنید</p>
                         <div class="buttons">
                             <button type="submit" class="next">بعدی</button>
                         </div>
@@ -56,7 +56,7 @@
                 <div class="card password">
                     <form action="/signIn" method="post">
                         <input hidden name="loginInput" value =<%=loginInput%> />
-                        <h4> ثبت نام کنید </h4>
+                        <h4> اطلاعات خود را وارد کنید </h4>
                         <input type="firstName"  placeholder="نام"/>
                         <input type="lastName"  placeholder="نام خانوادگی"/>
                         <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه"/>
@@ -73,7 +73,7 @@
                         <form action="/signIn" method="post">
                             <input hidden name="loginInput" value =<%=loginInput%> />
                             <h4> رمز عبور خود را وارد کنید </h4>
-                            <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه"/>
+                            <input type="password" class="passwordInput" placeholder="رمز عبور "/>
                             <div class="buttons">
                                 <button type="submit" class="next">بعدی</button>
                                 <button type="submit" class="prev">قبلی</button>

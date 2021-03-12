@@ -202,9 +202,33 @@
     </section>
 </section>
 
-
-
 <%-include("footer");-%>
-<script src="../assets/js/header.js"></script>
 <script src="../assets/js/size.js"></script>
-<script src="../assets/js/pageHeight.js"></script>
+<!-- Owl Carousel -->
+<script src="/assets/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js"></script>
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        items: 4,
+        loop: false,
+        nav: true,
+        margin: 10,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 3
+            },
+            1280: {
+                items: 4
+            },
+            1440: {
+                items: 5
+            }
+        }
+    })
+</script>
