@@ -22,15 +22,24 @@ body {
     margin: 0 auto;
 }
 
+section.contents {
+    padding-top: 5rem;
+
+    @include md {
+        padding-top: 2rem;
+    }
+}
+
 /*#endregion */
 /*#region Product Cards */
 .hiddenItem {
     transition: 0.4s;
     opacity: 0;
     visibility: hidden;
-    height: 0!important;
+    height: 0 !important;
     margin: 0 !important;
 }
+
 .card.product {
     transition: 0.4s;
     box-shadow: none;
@@ -39,8 +48,8 @@ body {
     padding: 0;
     border-radius: $radious;
     position: relative;
-
     margin: 1rem 0.5rem;
+
     .card-body {
         padding: 0;
         position: relative;
@@ -50,7 +59,7 @@ body {
             max-height: 12rem;
             margin: auto;
             border-radius: 5px;
-            box-shadow: 15px 7px 20px 2px #06060642;
+            box-shadow: $image-shadow;
             max-width: 15rem;
             width: auto;
             margin: 0;
@@ -352,6 +361,7 @@ section.homePage {
             .productTabs {
                 ul.nav-tabs {
                     padding: 2rem 1rem;
+
                     @include xs {
                         padding: 1rem 0;
                     }
@@ -359,8 +369,8 @@ section.homePage {
                     li.nav-item {
                         @include xs {
                             display: flex;
-                            
                         }
+
                         @include xxs {
                             width: 100%;
                         }
@@ -384,8 +394,8 @@ section.homePage {
                                 padding-left: 0;
                                 padding-right: 0;
                                 margin: auto;
-                                
                             }
+
                             @include xxs {
                                 width: 14rem;
                             }
@@ -444,64 +454,6 @@ section.homePage {
                     }
                 }
             }
-
-            .productSlider {
-                width: 95%;
-                margin: 2rem auto;
-
-                @include xl {
-                    width: 90rem;
-                }
-
-                .sliderTitle {
-                    h2 {
-                        text-align: center;
-                        color: $text-color;
-                        padding: 0.5rem 2rem;
-                        width: fit-content;
-                        margin: auto;
-                    }
-                }
-
-                .owl-carousel {
-                    .owl-item {
-                        padding: 1rem;
-
-                        .col-lg-3 {
-                            padding: 1rem;
-                        }
-                    }
-
-                    .owl-nav {
-                        position: absolute;
-                        top: 50%;
-                        width: 100%;
-
-                        button {
-                            margin-top: -3.2rem;
-                            position: absolute;
-
-                            span {
-                                font-size: 4rem;
-                                transition: 0.4s;
-
-                                &:hover {
-                                    transition: 0.4s;
-                                    color: $blue-color;
-                                }
-                            }
-
-                            &.owl-next {
-                                right: -1rem;
-                            }
-
-                            &.owl-prev {
-                                left: -1rem;
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }
@@ -511,7 +463,6 @@ section.homePage {
 section.loginPage {
     section.contents {
         .container-fluid {
-            padding-top: 5rem;
 
             .card {
                 margin-top: 5rem;
@@ -533,7 +484,8 @@ section.loginPage {
                     border-bottom: 2px solid $text-color;
                     color: $text-color;
                     background-color: transparent;
-                    width: 100%;
+                    width: 96%;
+                    margin: 2%;
                     height: 2.5rem;
                     padding-right: 0.2rem;
 
@@ -569,13 +521,14 @@ section.loginPage {
                     position: relative;
                     padding: 3rem 0;
 
-                    a {
+                    button[type=submit] {
                         float: left;
                         margin-right: 1rem;
                         transition: 0.4s;
                         font-size: 20px;
                         display: block;
                         color: $text-color;
+                        background-color: transparent;
                         border: 1px solid $text-color;
                         border-radius: $radious;
                         width: 8rem;
@@ -601,6 +554,313 @@ section.loginPage {
 
 /*#region Product Detail Page*/
 section.detailPage {
+    section.contents {
+        .container-fluid {
+            .top {
+                .row {
+                    .picture {
+                        padding: 1rem;
+
+                        .card {
+                            position: relative;
+                            border: none;
+                            box-shadow: none;
+                            background-color: transparent;
+
+                            @include md {
+                                margin-bottom: 2rem;
+                            }
+
+                            img {
+                                max-height: 18rem;
+                                margin: auto;
+                                border-radius: 5px;
+                                box-shadow: $image-shadow;
+                                max-width: 18rem;
+                                width: auto;
+
+                                @include xs {
+                                    max-height: 16rem;
+                                    max-width: 16rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .infos {
+                        .card {
+                            height: 100%;
+                            padding: 1rem;
+                            border: none;
+                            box-shadow: none;
+                            border-radius: $radious;
+                            background-color: $gray-color;
+
+                            .info {
+                                margin: 0 1rem;
+                                position: relative;
+                                padding-top: 0.5rem;
+                                min-height: 3rem;
+
+                                @include sm {
+                                    display: block;
+                                    text-align: center;
+                                }
+
+                                label {
+                                    font-weight: bold;
+                                    position: absolute;
+                                    right: 0;
+
+                                    @include sm {
+                                        position: relative;
+                                        text-align: center;
+                                    }
+                                }
+
+                                p {
+                                    position: absolute;
+                                    left: 0;
+
+                                    @include sm {
+                                        position: relative;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+
+                            .name {
+                            }
+
+                            .artist {
+                            }
+
+                            .tags {
+                            }
+
+                            .sizes {
+                                display: flex;
+
+                                @media (max-width: 1180px) and (min-width: 992px) {
+                                    min-height: 6rem;
+                                }
+
+                                @include sm {
+                                    min-height: 6rem;
+                                    display: block;
+                                    text-align: center;
+                                }
+
+                                label {
+                                    width: 7rem;
+                                    height: 2rem;
+
+                                    @include sm {
+                                        position: relative;
+                                    }
+                                }
+
+                                .options {
+                                    text-align: left;
+                                    display: inline-block;
+                                    width: 100%;
+                                    position: absolute;
+                                    padding-right: 7rem;
+
+                                    @include sm {
+                                        position: relative;
+                                        text-align: center;
+                                        padding: 0;
+                                    }
+
+                                    input[type=radio] {
+                                        display: none;
+                                    }
+
+                                    label.sizeOption {
+                                        font-weight: lighter;
+                                        font-size: 14px;
+                                        position: relative;
+                                        cursor: pointer;
+                                        transition: 0.4s;
+                                        height: 2rem;
+                                        padding-top: 0.25rem;
+                                        text-align: right;
+                                        width: 23.2%;
+                                        margin: 0 0.4rem 0.4rem 0;
+                                        text-align: center;
+                                        border: 1px solid $text-color;
+                                        border-radius: $radious;
+
+                                        @media (max-width: 1180px) and (min-width: 992px) {
+                                            width: 47%;
+                                        }
+
+                                        @include sm {
+                                            text-align: center;
+                                            width: 15rem;
+                                        }
+
+                                        @include xs {
+                                            width: 12rem;
+                                        }
+                                    }
+
+                                    .selected {
+                                        transition: 0.4s;
+                                        color: $blue-color;
+                                        border: 1px solid $blue-color !important;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+
+                            .price {
+                                p {
+                                    transition: 0.4s;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    height: 0;
+                                    margin: 0;
+                                }
+
+                                .showPrice {
+                                    transition: 0.4s;
+                                    opacity: 1;
+                                    visibility: visible;
+                                    height: auto;
+                                    margin: auto;
+                                }
+                            }
+
+                            .buttons {
+                                padding-top: 1rem;
+                                text-align: left;
+
+                                @include sm {
+                                    text-align: center;
+                                }
+
+                                button {
+                                    position: relative;
+                                    border: 1px solid $text-color;
+                                    border-radius: $radious;
+                                    margin: auto auto 0.5rem;
+                                    font-size: 18px;
+                                    transition: 0.4s;
+                                    background-color: transparent;
+                                    padding: 0.5rem;
+                                    width: 12rem;
+                                    color: $text-color;
+
+                                    &:hover {
+                                        transition: 0.4s;
+                                        color: $blue-color;
+                                        border: 1px solid $blue-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .description {
+                margin-top: 2rem;
+                border-radius: $radious;
+                background-color: $gray-color;
+                padding: 2rem;
+
+                h4 {
+                    padding: 0 0 1rem;
+                }
+
+                p {
+                    text-align: justify;
+                }
+            }
+
+            .related {
+                padding: 2rem;
+
+                h2 {
+                    text-align: center;
+                    margin-top: 2rem;
+                    margin-bottom: -1rem;
+                }
+
+                .owl-carousel {
+                    position: relative;
+
+
+                    .owl-item {
+                        /*padding: 1rem ;*/
+                        position: relative;
+                        height: 16rem;
+
+
+                        img {
+                            transition: 0.4s;
+                            max-height: 12rem;
+                            margin: auto;
+                            border-radius: 5px;
+                            box-shadow: $image-shadow;
+                            max-width: 12rem;
+                            width: auto;
+                            margin: 0;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+
+                            &:hover {
+                                transition: 0.4s;
+                                top: 49%;
+                                left: 49%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+
+                    .owl-nav {
+                        position: absolute;
+                        width: 100%;
+                        top: 32%;
+
+                        .owl-prev {
+                            position: absolute;
+                            left: -1.5rem;
+
+                            span {
+                                transition: 0.4s;
+                                font-size: 4rem;
+
+                                &:hover {
+                                    transition: 0.4s;
+                                    color: $blue-color;
+                                }
+                            }
+                        }
+
+                        .owl-next {
+                            position: absolute;
+                            right: -1.5rem;
+
+                            span {
+                                transition: 0.4s;
+                                font-size: 4rem;
+
+                                &:hover {
+                                    transition: 0.4s;
+                                    color: $blue-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 /*#endregion */
 

@@ -108,26 +108,25 @@
                                 <label> سایز های موجود </label>
 
                                 <div class="options">
-                                    <input type="radio" id="small" value="small">
-                                    <label for="small" class="sizeOption">کوچک(1000*1000)</label>
+                                    <input type="radio" value="small">
+                                    <label for="small" class="sizeOption" id="small">کوچک(1000*1000)</label>
 
-                                    <input type="radio" id="medium" value="medium">
-                                    <label for="medium" class="sizeOption">متوسط(1500*1500)</label>
+                                    <input type="radio" value="medium">
+                                    <label for="medium" class="sizeOption" id="medium">متوسط(1500*1500)</label>
 
-                                    <input type="radio" id="large" value="large">
-                                    <label for="large" class="sizeOption"> بزرگ (2000*2000)</label>
+                                    <input type="radio" value="large">
+                                    <label for="large" class="sizeOption" id="large"> بزرگ (2000*2000)</label>
 
-                                    <input type="radio" id="original" value="original">
-                                    <label for="original" class="sizeOption  selected"> اصلی(3000*3000)</label>
+                                    <input type="radio" value="original">
+                                    <label for="original" class="sizeOption  selected" id="original"> اصلی(3000*3000)</label>
                                 </div>
                             </div>
                             <div class="price info">
                                 <label> قیمت </label>
-                                <!--<p class="small"> 5000T </p>
-                                <p class="medium"> 7000T </p>
-                                <p class="large"> 10000T </p>
-                                <p class="original"> 15000T </p>-->
-                                <p class="free"> رایگان </p>
+                                <p class="small "> <span>5000</span> تومان </p>
+                                <p class="medium"><span>7000</span> تومان </p>
+                                <p class="large"> <span>1000</span> تومان </p>
+                                <p class="original showPrice"> <span>15000</span> تومان </p>
                             </div>
                             <div class="buttons">
                                 <button type="submit" class="download"> دانلود </button>
@@ -202,9 +201,33 @@
     </section>
 </section>
 
-
-
 <%-include("footer");-%>
-<script src="../assets/js/header.js"></script>
-<script src="../assets/js/size.js"></script>
-<script src="../assets/js/pageHeight.js"></script>
+<script src="../assets/js/chooseSize.js"></script>
+<!-- Owl Carousel -->
+<script src="/assets/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js"></script>
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        items: 4,
+        loop: false,
+        nav: true,
+        margin: 10,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 3
+            },
+            1280: {
+                items: 4
+            },
+            1440: {
+                items: 5
+            }
+        }
+    })
+</script>

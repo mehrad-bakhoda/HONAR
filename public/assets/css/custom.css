@@ -425,7 +425,8 @@ section.loginPage section.contents .container-fluid .card input {
   border-bottom: 2px solid #565656;
   color: #565656;
   background-color: transparent;
-  width: 100%;
+  width: 96%;
+  margin: 2%;
   height: 2.5rem;
   padding-right: 0.2rem;
 }
@@ -632,7 +633,22 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   border: 1px solid #00b4bb !important;
   font-weight: bold;
 }
+section.detailPage section.contents .container-fluid .top .row .infos .card .price p {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .price .showPrice {
+  transition: 0.4s;
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  margin: auto;
+}
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons {
+  padding-top: 1rem;
   text-align: left;
 }
 @media (max-width: 767px) {
@@ -644,8 +660,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   position: relative;
   border: 1px solid #565656;
   border-radius: 5px;
-  margin: auto;
-  font-size: 20px;
+  margin: auto auto 0.5rem;
+  font-size: 18px;
   transition: 0.4s;
   background-color: transparent;
   padding: 0.5rem;
@@ -656,12 +672,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   transition: 0.4s;
   color: #00b4bb;
   border: 1px solid #00b4bb;
-}
-@media (max-width: 580px) {
-  section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
 }
 section.detailPage section.contents .container-fluid .description {
   margin-top: 2rem;
