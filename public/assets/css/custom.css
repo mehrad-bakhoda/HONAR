@@ -23,6 +23,18 @@ body {
   opacity: 0.8;
 }
 
+@-webkit-keyframes autofill {
+  0%, 100% {
+    color: #565656;
+    background: transparent;
+  }
+}
+input:-webkit-autofill {
+  -webkit-animation-delay: 0.4s;
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
 .page {
   max-width: 90rem;
   width: 100%;
@@ -305,8 +317,9 @@ section.header .searchSection .advancedHidden {
 
 /*#endregion */
 /*#region Footer */
-section.footer {
-  /*background-color: $gray-color;*/
+section.footer .container-fluid {
+  max-width: 90rem;
+  margin: auto;
 }
 section.footer .container-fluid .social {
   padding: 1rem;
@@ -319,6 +332,11 @@ section.footer .container-fluid .social a {
   width: 3rem;
   display: inline-block;
   text-align: center;
+}
+@media (max-width: 480px) {
+  section.footer .container-fluid .social a {
+    width: 2rem;
+  }
 }
 section.footer .container-fluid .social a i {
   transition: 0.4s;
@@ -790,12 +808,16 @@ Section.uploadPage section.contents .container-fluid .row {
   background-color: #0000000d;
   border-radius: 5px;
   margin: auto;
-  width: 96%;
+  width: 100%;
   max-width: 40rem;
 }
 Section.uploadPage section.contents .container-fluid .row .info label {
   font-size: 20px;
-  font-weight: bold;
+}
+@media (max-width: 480px) {
+  Section.uploadPage section.contents .container-fluid .row .info label {
+    font-size: 18px;
+  }
 }
 Section.uploadPage section.contents .container-fluid .row .info input {
   display: block;
@@ -839,17 +861,17 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic {
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic label {
   font-size: 20px;
-  font-weight: bold;
   display: block;
+  margin-bottom: 0.5rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file] {
-  font-size: 0;
+  visibility: hidden;
   width: 10rem;
   height: 3rem;
   position: relative;
-  border: none;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]::after {
+Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]::before {
+  visibility: visible;
   transition: 0.4s;
   content: "آپلود فایل";
   font-size: 18px;
@@ -864,7 +886,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   border: 1px solid #565656;
   border-radius: 5px;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]:hover::after {
+Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]:hover::before {
   transition: 0.4s;
   color: #00b4bb;
   border: 1px solid #00b4bb;

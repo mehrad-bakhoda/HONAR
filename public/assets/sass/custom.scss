@@ -15,6 +15,18 @@ body {
 ::placeholder {
     opacity: 0.8;
 }
+@-webkit-keyframes autofill {
+    0%,100% {
+        color: $text-color;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-delay: 0.4s;
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
 
 .page {
     max-width: 90rem;
@@ -341,8 +353,9 @@ section.header {
 
 /*#region Footer */
 section.footer {
-    /*background-color: $gray-color;*/
     .container-fluid {
+        max-width: 90rem;
+        margin: auto;
         .social {
             padding: 1rem;
             margin: auto;
@@ -354,6 +367,10 @@ section.footer {
                 width: 3rem;
                 display: inline-block;
                 text-align: center;
+
+                @include xxs {
+                    width: 2rem;
+                }
 
                 i {
                     transition: 0.4s;
@@ -902,6 +919,7 @@ section.detailPage {
 Section.uploadPage {
     section.contents {
         padding-top: 2rem;
+
         .container-fluid {
 
             .row {
@@ -909,14 +927,17 @@ Section.uploadPage {
                 background-color: $gray-color;
                 border-radius: $radious;
                 margin: auto;
-                width: 96%;
+                width: 100%;
                 max-width: 40rem;
 
                 .info {
 
                     label {
                         font-size: 20px;
-                        font-weight: bold;
+
+                        @include xxs {
+                            font-size: 18px;
+                        }
                     }
 
                     input {
@@ -967,18 +988,18 @@ Section.uploadPage {
 
                     label {
                         font-size: 20px;
-                        font-weight: bold;
                         display: block;
+                        margin-bottom: 0.5rem;
                     }
 
                     input[type=file] {
-                        font-size: 0;
+                        visibility: hidden;
                         width: 10rem;
                         height: 3rem;
                         position: relative;
-                        border: none;
 
-                        &::after {
+                        &::before {
+                            visibility: visible;
                             transition: 0.4s;
                             content: "آپلود فایل";
                             font-size: 18px;
@@ -995,7 +1016,7 @@ Section.uploadPage {
                         }
 
                         &:hover {
-                            &::after {
+                            &::before {
                                 transition: 0.4s;
                                 color: $blue-color;
                                 border: 1px solid $blue-color;
