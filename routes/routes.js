@@ -27,6 +27,11 @@ router.get("/dashboard",function(req,res){
   });
 
 
+router.get("/upload",function(req,res){
+  res.render("upload");
+  });
+
+
 router.get("/contact-us",function(req,res){
     res.render("contactUs");
   });
