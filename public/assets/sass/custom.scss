@@ -226,6 +226,7 @@ section.header {
             max-width: 40rem;
             margin: auto;
             position: relative;
+            max-height: 40rem;
 
             .selected {
                 transition: 0.4s;
@@ -297,9 +298,9 @@ section.header {
 
         .advancedHidden {
             transition: 0.4s;
-            opacity: 0;
+            max-height: 0;
             visibility: hidden;
-            height: 0;
+            opacity: 0;
         }
     }
 }
@@ -521,7 +522,7 @@ section.loginPage {
                     position: relative;
                     padding: 3rem 0;
 
-                    button[type=submit] {
+                    button {
                         float: left;
                         margin-right: 1rem;
                         transition: 0.4s;
@@ -853,6 +854,47 @@ section.detailPage {
                                 &:hover {
                                     transition: 0.4s;
                                     color: $blue-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*#endregion */
+
+/*#region Upload Page */
+Section.uploadPage {
+    section.contents {
+        .container-fluid {
+            .row {
+                .info {
+                    input {
+                        transition: 0.4s;
+                        height: 2.5rem;
+                        width: 96%;
+                        padding-right: 0.2rem;
+                        border-bottom: 2px solid $text-color;
+                        color: $text-color;
+                        background-color: transparent;
+
+                        &:focus {
+                            transition: 0.4s;
+                            outline: none;
+                            border-bottom: 2px solid $blue-color;
+                        }
+                    }
+                }
+
+                .upload {
+                    .accordion {
+                        .accordion-item {
+                            h2.accordion-header {
+                                button {
+                                    background-color: transparent;
+                                    font-size: 20px;
                                 }
                             }
                         }

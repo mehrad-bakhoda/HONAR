@@ -205,6 +205,7 @@ section.header .searchSection .advanced {
   max-width: 40rem;
   margin: auto;
   position: relative;
+  max-height: 40rem;
 }
 section.header .searchSection .advanced .selected {
   transition: 0.4s;
@@ -269,9 +270,9 @@ section.header .searchSection .advanced .price .title {
 }
 section.header .searchSection .advancedHidden {
   transition: 0.4s;
-  opacity: 0;
+  max-height: 0;
   visibility: hidden;
-  height: 0;
+  opacity: 0;
 }
 
 /*#endregion */
@@ -459,7 +460,7 @@ section.loginPage section.contents .container-fluid .card .buttons {
   position: relative;
   padding: 3rem 0;
 }
-section.loginPage section.contents .container-fluid .card .buttons button[type=submit] {
+section.loginPage section.contents .container-fluid .card .buttons button {
   float: left;
   margin-right: 1rem;
   transition: 0.4s;
@@ -473,12 +474,12 @@ section.loginPage section.contents .container-fluid .card .buttons button[type=s
   text-align: center;
 }
 @media (max-width: 580px) {
-  section.loginPage section.contents .container-fluid .card .buttons button[type=submit] {
+  section.loginPage section.contents .container-fluid .card .buttons button {
     font-size: 18px;
     width: 6rem;
   }
 }
-section.loginPage section.contents .container-fluid .card .buttons button[type=submit]:hover {
+section.loginPage section.contents .container-fluid .card .buttons button:hover {
   transition: 0.4s;
   color: #00b4bb;
   border-color: #00b4bb;
@@ -749,6 +750,27 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next span:hover {
   transition: 0.4s;
   color: #00b4bb;
+}
+
+/*#endregion */
+/*#region Upload Page */
+Section.uploadPage section.contents .container-fluid .row .info input {
+  transition: 0.4s;
+  height: 2.5rem;
+  width: 96%;
+  padding-right: 0.2rem;
+  border-bottom: 2px solid #565656;
+  color: #565656;
+  background-color: transparent;
+}
+Section.uploadPage section.contents .container-fluid .row .info input:focus {
+  transition: 0.4s;
+  outline: none;
+  border-bottom: 2px solid #00b4bb;
+}
+Section.uploadPage section.contents .container-fluid .row .upload .accordion .accordion-item h2.accordion-header button {
+  background-color: transparent;
+  font-size: 20px;
 }
 
 /*#endregion */
