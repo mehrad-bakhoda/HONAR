@@ -39,6 +39,33 @@ section.contents {
 }
 
 /*#endregion */
+/*#region Notification*/
+.notif {
+  padding: 1rem;
+  transition: 0.4s;
+  position: absolute;
+  top: 5rem;
+  right: -100rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #0000000d;
+  z-index: 100;
+}
+.notif.error p {
+  margin-bottom: 0;
+  color: #d14774;
+}
+.notif.success p {
+  margin-bottom: 0;
+  color: #47d15f;
+}
+
+.showNotif {
+  transition: 0.4s;
+  right: 0;
+}
+
+/*#endregion */
 /*#region Product Cards */
 .hiddenItem {
   transition: 0.4s;

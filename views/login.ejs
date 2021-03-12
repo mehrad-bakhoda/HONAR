@@ -1,99 +1,75 @@
-<%-include("header");-%>
+<%-include("head");-%>
 <section class="page loginPage">
-        <section class="header">
-            <nav class="navbar">
-                <div class="container-fluid">
-                    <!-- Collapsible wrapper -->
-                    <div class="navbar-collapse justify-content"
-                         id="navbarCenteredExample">
-                        <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">
-                                    <i class="fal fa-home"></i>
-                                </a>
-                            </li>
-                        </ul>
+    <%-include("headerN");-%>
+    <section class="contents">
+        <div class="container-fluid">
+            <% if(inputVerify ==true && inputFouned !=true){%>
+            <div class="card login">
+                <form action="/login" method="post">
+                    <h4> شماره تماس یا ایمیل خود را وارد کنید</h4>
+                    <input type="text" class="phoneInput" name="loginInput" placeholder="شماره تماس یا ایمیل" />
+                    <p class="invalid-loginInput invalidInput">لطفا یک شماره تماس یا ایمیل معتبر وارد کنید</p>
+                    <div class="buttons">
+                        <button type="submit" class="next">بعدی</button>
                     </div>
-                    <!-- Collapsible wrapper -->
-                </div>
-            </nav>
-        </section>
-        <section class="contents">
-            <div class="container-fluid">
-                <% if(inputVerify ==true && inputFouned !=true){%>
-                <div class="card login">
-                    <form action="/login" method="post">
-                        <h4> شماره تماس یا ایمیل خود را وارد کنید</h4>
-                        <input type="text" class="phoneInput" name="loginInput" placeholder="شماره تماس یا ایمیل"/>
-                        <p class="invalid-loginInput invalidInput">لطفا یک شماره تماس یا ایمیل معتبر وارد کنید</p>
-                        <div class="buttons">
-                            <button type="submit" class="next">بعدی</button>
-                        </div>
-                    </form>
-                </div>
-                <% } %>
-                <%if(!inputVerify){%>
-                <div class="card code">
-                    <form action="/register" method="post">
-                        <input hidden name="loginInput" value =<%=loginInput%> />
-                        <h4> کد ارسال شده را وارد کنید</h4>
-                        <div class="codeInputs">
-                            <input name="verifyCode1" type="text" class="codeInput" id="first" maxlength="1" />
-                            <input name="verifyCode2" type="text" class="codeInput" id="second" maxlength="1" />
-                            <input name="verifyCode3" type="text" class="codeInput" id="third" maxlength="1" />
-                            <input name="verifyCode4" type="text" class="codeInput" id="fourth" maxlength="1" />
-                            <input name="verifyCode5" type="text" class="codeInput" id="fifth" maxlength="1" />
-                            <input name="verifyCode6" type="text" class="codeInput" id="sixth" maxlength="1" />
-                        </div>
-                        <div class="buttons">
-                            <button type="submit" class="next">بعدی</button>
-                            <button type="submit" class="prev">قبلی</button>
-                        </div>
-                    </form>
-                </div>
-                <% } %>
-                <%if(inputFouned == true && inputVerify == true  && newUser==true){%>
-                <div class="card password">
-                    <form action="/signIn" method="post">
-                        <input hidden name="loginInput" value =<%=loginInput%> />
-                        <h4> اطلاعات خود را وارد کنید </h4>
-                        <input type="firstName"  placeholder="نام"/>
-                        <input type="lastName"  placeholder="نام خانوادگی"/>
-                        <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه"/>
-                        <input type="password" class="passwordInput" placeholder="تکرار رمز عبور"/>
-                        <div class="buttons">
-                            <button type="submit" class="next">بعدی</button>
-                        </div>
-                    </form>
-                </div>
-                <% } %>
-                <%if(inputFouned == true && inputVerify == true && newUser==false){%>
-                    <div class="card password">
-                        <form action="/signIn" method="post">
-                            <input hidden name="loginInput" value =<%=loginInput%> />
-                            <h4> رمز عبور خود را وارد کنید </h4>
-                            <input type="password" class="passwordInput" placeholder="رمز عبور "/>
-                            <div class="buttons">
-                                <button type="submit" class="next">بعدی</button>
-                                <button type="submit" class="prev">قبلی</button>
-                            </div>
-                        </form>
-                    </div>
-                <% } %>
+                </form>
             </div>
-        </section>
+            <% } %>
+            <%if(!inputVerify){%>
+            <div class="card code">
+                <form action="/register" method="post">
+                    <input hidden name="loginInput" value=<%=loginInput%> />
+                    <h4> کد ارسال شده را وارد کنید</h4>
+                    <div class="codeInputs">
+                        <input name="verifyCode1" type="text" class="codeInput" id="first" maxlength="1" />
+                        <input name="verifyCode2" type="text" class="codeInput" id="second" maxlength="1" />
+                        <input name="verifyCode3" type="text" class="codeInput" id="third" maxlength="1" />
+                        <input name="verifyCode4" type="text" class="codeInput" id="fourth" maxlength="1" />
+                        <input name="verifyCode5" type="text" class="codeInput" id="fifth" maxlength="1" />
+                        <input name="verifyCode6" type="text" class="codeInput" id="sixth" maxlength="1" />
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="next">بعدی</button>
+                        <button type="submit" class="prev">قبلی</button>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+            <%if(inputFouned == true && inputVerify == true  && newUser==true){%>
+            <div class="card password">
+                <form action="/signIn" method="post">
+                    <input hidden name="loginInput" value=<%=loginInput%> />
+                    <h4> اطلاعات خود را وارد کنید </h4>
+                    <input type="firstName" placeholder="نام" />
+                    <input type="lastName" placeholder="نام خانوادگی" />
+                    <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                    <input type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                    <div class="buttons">
+                        <button type="submit" class="next">بعدی</button>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+            <%if(inputFouned == true && inputVerify == true && newUser==false){%>
+            <div class="card password">
+                <form action="/signIn" method="post">
+                    <input hidden name="loginInput" value=<%=loginInput%> />
+                    <h4> رمز عبور خود را وارد کنید </h4>
+                    <input type="password" class="passwordInput" placeholder="رمز عبور " />
+                    <div class="buttons">
+                        <button type="submit" class="next">بعدی</button>
+                        <button type="submit" class="prev">قبلی</button>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+        </div>
     </section>
-
-
-
-
-
-<%-include("footer");-%>
+</section>
 
 <!-- Scripts -->
 
 <!-- Custom -->
-<script src="/assets/js/header.js"></script>
-<script src="/assets/js/pageHeight.js"></script>
+
 <script src="/assets/js/login.js"></script>
 <!-- Scripts -->
