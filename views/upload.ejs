@@ -1,116 +1,33 @@
-﻿<%-include("header");-%>
+﻿<%-include("head");-%>
 
 <section class="page uploadPage">
+    <%-include("headerN");-%>
     <section class="contents">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8 col-sm-12 info">
+                <div class="info">
                     <div class="name">
                         <label>
-                            نام اثر
+                            نام اثر:
                         </label>
                         <input type="text" class="nameInput" />
                     </div>
-                    <div class="description">
-                        <label>
-                            توضیحات اثر
-                        </label>
-                        <textarea class="descriptionText" maxlength="60"></textarea>
-                    </div>
                     <div class="tags">
                         <label>
-                            با استفاده از تگ ها بیشتر دیده شوید
+                            با استفاده از تگ ها بیشتر دیده شوید:
                         </label>
                         <input type="text" class="tagsInput" />
                     </div>
-
-                </div>
-                <div class="col-md-3 col-sm-12 uploadPic">
-                    <div class="accordion" id="accordionUpload">
-                        <div class="accordion-item original">
-                            <h2 class="accordion-header" id="headingOriginal">
-                                <button class="accordion-button"
-                                        type="button"
-                                        data-mdb-toggle="collapse"
-                                        data-mdb-target="#collapseOriginal"
-                                        aria-expanded="true"
-                                        aria-controls="collapseOriginal">
-                                    آپلود تصویر اصلی
-                                </button>
-                            </h2>
-                            <div id="collapseOriginal"
-                                 class="accordion-collapse collapse show"
-                                 aria-labelledby="headingOriginal"
-                                 data-mdb-parent="#accordionUpload">
-                                <div class="accordion-body">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item large">
-                            <h2 class="accordion-header" id="headingLarge">
-                                <button class="accordion-button"
-                                        type="button"
-                                        data-mdb-toggle="collapse"
-                                        data-mdb-target="#collapseLarge"
-                                        aria-expanded="true"
-                                        aria-controls="collapseLarge">
-                                    آپلود تصویر بزرگ
-                                </button>
-                            </h2>
-                            <div id="collapseLarge"
-                                 class="accordion-collapse collapse"
-                                 aria-labelledby="headingLarge"
-                                 data-mdb-parent="#accordionUpload">
-                                <div class="accordion-body">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item medium">
-                            <h2 class="accordion-header" id="headingMedium">
-                                <button class="accordion-button"
-                                        type="button"
-                                        data-mdb-toggle="collapse"
-                                        data-mdb-target="#collapseMedium"
-                                        aria-expanded="true"
-                                        aria-controls="collapseMedium">
-                                    آپلود تصویر متوسط
-                                </button>
-                            </h2>
-                            <div id="collapseMedium"
-                                 class="accordion-collapse collapse"
-                                 aria-labelledby="headingMedium"
-                                 data-mdb-parent="#accordionUpload">
-                                <div class="accordion-body">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item small">
-                            <h2 class="accordion-header" id="headingSmall">
-                                <button class="accordion-button"
-                                        type="button"
-                                        data-mdb-toggle="collapse"
-                                        data-mdb-target="#collapseSmall"
-                                        aria-expanded="true"
-                                        aria-controls="collapseSmall">
-                                    آپلود تصویر کوجک
-                                </button>
-                            </h2>
-                            <div id="collapseSmall"
-                                 class="accordion-collapse collapse"
-                                 aria-labelledby="headingSmall"
-                                 data-mdb-parent="#accordionUpload">
-                                <div class="accordion-body">
-
-                                </div>
-                            </div>
-                        </div>
+                    <div class="description">
+                        <label>
+                            توضیحات اثر:
+                        </label>
+                        <textarea class="descriptionText" maxlength="100"></textarea>
                     </div>
-
-
-
+                </div>
+                <div class="uploadPic">
+                    <label> تصویر خود را آپلود کنید </label>
+                    <input type="file" />
                 </div>
             </div>
         </div>

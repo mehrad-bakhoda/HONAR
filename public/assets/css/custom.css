@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: IRANSans;
   font-style: normal;
@@ -29,11 +30,11 @@ body {
 }
 
 section.contents {
-  padding-top: 5rem;
+  padding: 5rem 0;
 }
 @media (max-width: 991px) {
   section.contents {
-    padding-top: 2rem;
+    padding: 2rem 0;
   }
 }
 
@@ -184,7 +185,7 @@ section.header .searchSection .general {
   max-width: 40rem;
   margin: auto;
   position: relative;
-  padding: 0 2rem 0 1rem;
+  padding: 0 2rem 0 0.5rem;
 }
 section.header .searchSection .general i.fa-search {
   height: 2.5rem;
@@ -754,11 +755,29 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
 
 /*#endregion */
 /*#region Upload Page */
+Section.uploadPage section.contents {
+  padding-top: 2rem;
+}
+Section.uploadPage section.contents .container-fluid .row {
+  padding: 3rem 1rem;
+  background-color: #0000000d;
+  border-radius: 5px;
+  margin: auto;
+  width: 96%;
+  max-width: 40rem;
+}
+Section.uploadPage section.contents .container-fluid .row .info label {
+  font-size: 20px;
+  font-weight: bold;
+}
 Section.uploadPage section.contents .container-fluid .row .info input {
+  display: block;
+  margin-bottom: 4rem;
   transition: 0.4s;
   height: 2.5rem;
-  width: 96%;
+  width: 100%;
   padding-right: 0.2rem;
+  border: none;
   border-bottom: 2px solid #565656;
   color: #565656;
   background-color: transparent;
@@ -768,9 +787,60 @@ Section.uploadPage section.contents .container-fluid .row .info input:focus {
   outline: none;
   border-bottom: 2px solid #00b4bb;
 }
-Section.uploadPage section.contents .container-fluid .row .upload .accordion .accordion-item h2.accordion-header button {
-  background-color: transparent;
+Section.uploadPage section.contents .container-fluid .row .info input.nameInput {
+  max-width: 20rem;
+}
+Section.uploadPage section.contents .container-fluid .row .info textarea {
+  margin-top: 1rem;
+  transition: 0.4s;
+  height: 7rem;
+  resize: none;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  color: #565656;
+}
+Section.uploadPage section.contents .container-fluid .row .info textarea:focus {
+  outline: none;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic {
+  padding: 1rem 0;
+  text-align: center;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic label {
   font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file] {
+  font-size: 0;
+  width: 10rem;
+  height: 3rem;
+  position: relative;
+  border: none;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]::after {
+  transition: 0.4s;
+  content: "آپلود فایل";
+  font-size: 18px;
+  position: absolute;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  width: 10rem;
+  left: 0;
+  cursor: pointer;
+  text-align: center;
+  color: #565656;
+  border: 1px solid #565656;
+  border-radius: 5px;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]:hover::after {
+  transition: 0.4s;
+  color: #00b4bb;
+  border: 1px solid #00b4bb;
 }
 
 /*#endregion */
