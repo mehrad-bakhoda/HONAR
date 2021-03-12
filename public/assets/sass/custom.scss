@@ -715,7 +715,26 @@ section.detailPage {
                                 }
                             }
 
+                            .price {
+                                p {
+                                    transition: 0.4s;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    height: 0;
+                                    margin: 0;
+                                }
+
+                                .showPrice {
+                                    transition: 0.4s;
+                                    opacity: 1;
+                                    visibility: visible;
+                                    height: auto;
+                                    margin: auto;
+                                }
+                            }
+
                             .buttons {
+                                padding-top: 1rem;
                                 text-align: left;
 
                                 @include sm {
@@ -726,8 +745,8 @@ section.detailPage {
                                     position: relative;
                                     border: 1px solid $text-color;
                                     border-radius: $radious;
-                                    margin: auto;
-                                    font-size: 20px;
+                                    margin: auto auto 0.5rem;
+                                    font-size: 18px;
                                     transition: 0.4s;
                                     background-color: transparent;
                                     padding: 0.5rem;
@@ -738,11 +757,6 @@ section.detailPage {
                                         transition: 0.4s;
                                         color: $blue-color;
                                         border: 1px solid $blue-color;
-                                    }
-
-                                    @include xs {
-                                        display: block;
-                                        margin-bottom: 0.5rem;
                                     }
                                 }
                             }
