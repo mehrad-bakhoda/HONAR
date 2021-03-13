@@ -530,6 +530,31 @@ section.loginPage section.contents .container-fluid .card .buttons button:hover 
   color: #00b4bb;
   border-color: #00b4bb;
 }
+section.loginPage section.contents .container-fluid .card.password {
+  background-color: transparent;
+}
+section.loginPage section.contents .container-fluid .card.password ul.nav-tabs {
+  padding: 0;
+}
+section.loginPage section.contents .container-fluid .card.password ul.nav-tabs li.nav-item a.nav-link {
+  color: #565656;
+  font-size: 20px;
+  transition: 0.4s;
+  background-color: transparent;
+  border: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+section.loginPage section.contents .container-fluid .card.password ul.nav-tabs li.nav-item a.nav-link.active {
+  background-color: #0000000d;
+}
+section.loginPage section.contents .container-fluid .card.password .tab-content {
+  background-color: #0000000d;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 1rem;
+  border: none;
+}
 
 /*#endregion */
 /*#region Product Detail Page*/
@@ -804,12 +829,17 @@ Section.uploadPage section.contents {
   padding-top: 2rem;
 }
 Section.uploadPage section.contents .container-fluid .row {
-  padding: 3rem 1rem;
+  padding: 1rem 1rem 2rem;
   background-color: #0000000d;
   border-radius: 5px;
   margin: auto;
   width: 100%;
   max-width: 40rem;
+}
+Section.uploadPage section.contents .container-fluid .row .info h4 {
+  text-align: center;
+  padding: 1rem;
+  font-weight: bold;
 }
 Section.uploadPage section.contents .container-fluid .row .info label {
   font-size: 20px;
@@ -821,11 +851,11 @@ Section.uploadPage section.contents .container-fluid .row .info label {
 }
 Section.uploadPage section.contents .container-fluid .row .info input {
   display: block;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   transition: 0.4s;
   height: 2.5rem;
   width: 100%;
-  padding-right: 0.2rem;
+  padding-right: 0.4rem;
   border: none;
   border-bottom: 2px solid #565656;
   color: #565656;
@@ -842,7 +872,7 @@ Section.uploadPage section.contents .container-fluid .row .info input.nameInput 
 Section.uploadPage section.contents .container-fluid .row .info textarea {
   margin-top: 1rem;
   transition: 0.4s;
-  height: 7rem;
+  height: 9rem;
   resize: none;
   background-color: #f0f0f0;
   border: none;
@@ -856,30 +886,27 @@ Section.uploadPage section.contents .container-fluid .row .info textarea:focus {
   outline: none;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
-  padding: 1rem 0;
-  text-align: center;
+  padding: 1rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic label {
   font-size: 20px;
-  display: block;
   margin-bottom: 0.5rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file] {
   visibility: hidden;
-  width: 10rem;
-  height: 3rem;
+  width: 12rem;
+  height: 4rem;
   position: relative;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]::before {
   visibility: visible;
   transition: 0.4s;
-  content: "آپلود فایل";
+  content: "تصویر خود را آپلود کنید";
   font-size: 18px;
   position: absolute;
   background-color: transparent;
-  padding: 0.5rem 1rem;
-  width: 10rem;
-  left: 0;
+  padding: 0.25rem 1rem;
+  width: 12rem;
   cursor: pointer;
   text-align: center;
   color: #565656;
@@ -890,6 +917,34 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   transition: 0.4s;
   color: #00b4bb;
   border: 1px solid #00b4bb;
+}
+Section.uploadPage section.contents .container-fluid .row .buttons {
+  padding: 1rem;
+  text-align: center;
+}
+Section.uploadPage section.contents .container-fluid .row .buttons button {
+  padding: 0.5rem;
+  float: left;
+  transition: 0.4s;
+  font-size: 20px;
+  display: block;
+  color: #565656;
+  background-color: transparent;
+  border: 1px solid #565656;
+  border-radius: 5px;
+  width: 10rem;
+  text-align: center;
+}
+@media (max-width: 580px) {
+  Section.uploadPage section.contents .container-fluid .row .buttons button {
+    font-size: 18px;
+    width: 8rem;
+  }
+}
+Section.uploadPage section.contents .container-fluid .row .buttons button:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+  border-color: #00b4bb;
 }
 
 /*#endregion */

@@ -598,6 +598,38 @@ section.loginPage {
                         }
                     }
                 }
+
+                &.password {
+                    background-color: transparent;
+
+                    ul.nav-tabs {
+                        padding: 0;
+
+                        li.nav-item {
+                            a.nav-link {
+                                color: $text-color;
+                                font-size: 20px;
+                                transition: 0.4s;
+                                background-color: transparent;
+                                border: none;
+                                border-top-left-radius: $radious;
+                                border-top-right-radius: $radious;
+
+                                &.active {
+                                    background-color: $gray-color;
+                                }
+                            }
+                        }
+                    }
+
+                    .tab-content {
+                        background-color: $gray-color;
+                        border-bottom-left-radius: $radious;
+                        border-bottom-right-radius: $radious;
+                        padding: 1rem;
+                        border: none;
+                    }
+                }
             }
         }
     }
@@ -924,7 +956,7 @@ Section.uploadPage {
         .container-fluid {
 
             .row {
-                padding: 3rem 1rem;
+                padding: 1rem 1rem 2rem;
                 background-color: $gray-color;
                 border-radius: $radious;
                 margin: auto;
@@ -932,6 +964,11 @@ Section.uploadPage {
                 max-width: 40rem;
 
                 .info {
+                    h4 {
+                        text-align: center;
+                        padding: 1rem;
+                        font-weight: bold;
+                    }
 
                     label {
                         font-size: 20px;
@@ -943,11 +980,11 @@ Section.uploadPage {
 
                     input {
                         display: block;
-                        margin-bottom: 4rem;
+                        margin-bottom: 3rem;
                         transition: 0.4s;
                         height: 2.5rem;
                         width: 100%;
-                        padding-right: 0.2rem;
+                        padding-right: 0.4rem;
                         border: none;
                         border-bottom: 2px solid $text-color;
                         color: $text-color;
@@ -967,7 +1004,7 @@ Section.uploadPage {
                     textarea {
                         margin-top: 1rem;
                         transition: 0.4s;
-                        height: 7rem;
+                        height: 9rem;
                         resize: none;
                         background-color: $body-color;
                         border: none;
@@ -984,31 +1021,29 @@ Section.uploadPage {
                 }
 
                 .uploadPic {
-                    padding: 1rem 0;
-                    text-align: center;
+                    padding: 1rem;
 
                     label {
                         font-size: 20px;
-                        display: block;
                         margin-bottom: 0.5rem;
                     }
 
                     input[type=file] {
                         visibility: hidden;
-                        width: 10rem;
-                        height: 3rem;
+                        width: 12rem;
+                        height: 4rem;
                         position: relative;
 
                         &::before {
                             visibility: visible;
                             transition: 0.4s;
-                            content: "آپلود فایل";
+                            content: "تصویر خود را آپلود کنید";
                             font-size: 18px;
                             position: absolute;
                             background-color: transparent;
-                            padding: 0.5rem 1rem;
-                            width: 10rem;
-                            left: 0;
+                            padding: 0.25rem 1rem;
+                            width: 12rem;
+                            
                             cursor: pointer;
                             text-align: center;
                             color: $text-color;
@@ -1022,6 +1057,35 @@ Section.uploadPage {
                                 color: $blue-color;
                                 border: 1px solid $blue-color;
                             }
+                        }
+                    }
+                }
+
+                .buttons {
+                    padding: 1rem;
+                    text-align: center;
+                    button {
+                        padding: 0.5rem;
+                        float: left;
+                        transition: 0.4s;
+                        font-size: 20px;
+                        display: block;
+                        color: $text-color;
+                        background-color: transparent;
+                        border: 1px solid $text-color;
+                        border-radius: $radious;
+                        width: 10rem;
+                        text-align: center;
+
+                        @include xs {
+                            font-size: 18px;
+                            width: 8rem;
+                        }
+
+                        &:hover {
+                            transition: 0.4s;
+                            color: $blue-color;
+                            border-color: $blue-color;
                         }
                     }
                 }

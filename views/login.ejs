@@ -36,17 +36,65 @@
             <% } %>
             <%if(inputFouned == true && inputVerify == true  && newUser==true){%>
             <div class="card password">
-                <form action="/signIn" method="post">
-                    <input hidden name="loginInput" value=<%=loginInput%> />
-                    <h4> اطلاعات خود را وارد کنید </h4>
-                    <input type="firstName" placeholder="نام" />
-                    <input type="lastName" placeholder="نام خانوادگی" />
-                    <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                    <input type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
-                    <div class="buttons">
-                        <button type="submit" class="next">بعدی</button>
+                <!-- Tabs navs -->
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active"
+                           id="tabDownH"
+                           data-mdb-toggle="tab"
+                           href="#tabDownC"
+                           role="tab"
+                           aria-controls="tabDownC"
+                           aria-selected="true">دانلود کننده</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link"
+                           id="tabUpH"
+                           data-mdb-toggle="tab"
+                           href="#tabUpC"
+                           role="tab"
+                           aria-controls="tabUpC"
+                           aria-selected="false">آپلود کننده</a>
+                    </li>
+                </ul>
+                <!-- Tabs navs -->
+                <!-- Tabs content -->
+                <div class="tab-content">
+                    <div class="tab-pane fade show active"
+                         id="tabDownC"
+                         role="tabpanel"
+                         aria-labelledby="tabDownH">
+                        <form action="/signIn" method="post">
+                            <input hidden name="loginInput" value=<%=loginInput%> />
+                            <h4> اطلاعات خود را وارد کنید </h4>
+                            <input type="firstName" placeholder="نام" />
+                            <input type="lastName" placeholder="نام خانوادگی" />
+                            <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <input type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <div class="buttons">
+                                <button type="submit" class="next">بعدی</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                    <div class="tab-pane fade"
+                         id="tabUpC"
+                         role="tabpanel"
+                         aria-labelledby="tabUpH">
+                        <form action="/signIn" method="post">
+                            <input hidden name="loginInput" value=<%=loginInput%> />
+                            <h4> اطلاعات خود را وارد کنید </h4>
+                            <input type="firstName" placeholder="نام" />
+                            <input type="lastName" placeholder="نام خانوادگی" />
+                            <input type="text" placeholder="نام کاربری" />
+                            <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <input type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <div class="buttons">
+                                <button type="submit" class="next">بعدی</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
             <% } %>
             <%if(inputFouned == true && inputVerify == true && newUser==false){%>
@@ -67,8 +115,11 @@
 </section>
 
 <!-- Scripts -->
-
+<!-- MDB -->
+<script type="text/javascript" src="/assets/MDB5-free/js/mdb.min.js"></script>
+<!-- jQuery -->
+<script type="text/javascript" src="/assets/jquery/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="/assets/jquery/jquery-3.5.1.min.js"></script>
 <!-- Custom -->
-
 <script src="/assets/js/login.js"></script>
 <!-- Scripts -->

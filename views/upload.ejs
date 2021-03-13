@@ -7,28 +7,22 @@
             <%-include("notif");-%>
             <div class="row">
                 <div class="info">
+                    <h4> اطلاعات اثر خود را وارد کنید </h4>
                     <div class="name">
-                        <label>
-                            نام اثر:
-                        </label>
-                        <input type="text" class="nameInput" />
+                        <input type="text" class="nameInput" placeholder="نام اثر" />
                     </div>
                     <div class="tags">
-                        <label>
-                            با استفاده از تگ ها بیشتر دیده شوید:
-                        </label>
-                        <input type="text" class="tagsInput" />
+                        <input type="text" class="tagsInput" placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
                     </div>
                     <div class="description">
-                        <label>
-                            توضیحات اثر:
-                        </label>
-                        <textarea class="descriptionText" maxlength="100"></textarea>
+                        <textarea class="descriptionText" maxlength="100" placeholder="توضیحات اثر"></textarea>
                     </div>
                 </div>
                 <div class="uploadPic">
-                    <label> تصویر خود را آپلود کنید </label>
                     <input type="file" />
+                </div>
+                <div class="buttons">
+                    <button type="submit">تایید</button>
                 </div>
             </div>
         </div>
