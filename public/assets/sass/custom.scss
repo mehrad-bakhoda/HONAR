@@ -588,12 +588,42 @@ section.loginPage {
                             margin: 0 0.3rem;
                         }
                     }
+
+                    &.mail, &.twitter, &.instagram {
+                        padding-left: 2.5rem;
+                    }
                 }
 
                 input:focus {
                     transition: 0.4s;
                     outline: none;
                     border-bottom: 2px solid $blue-color;
+                }
+
+                textarea {
+                    transition: 0.4s;
+                    height: 9rem;
+                    resize: none;
+                    background-color: $body-color;
+                    border: none;
+                    border-radius: $radious;
+                    width: 100%;
+                    margin-bottom: 3rem;
+                    padding: 0.5rem;
+                    color: $text-color;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                i {
+                    font-size: 1.5rem;
+                    color: $text-color;
+                    width: 2rem;
+                    height: 2rem;
+                    margin-top: -4rem;
+                    float: left;
                 }
 
                 .codeInputs {
@@ -1037,7 +1067,9 @@ Section.uploadPage {
         padding-top: 2rem;
 
         .container-fluid {
-
+            @include xxs {
+                padding: 0;
+            }
             .row {
                 padding: 1rem 1rem 2rem;
                 background-color: $gray-color;
@@ -1148,15 +1180,16 @@ Section.uploadPage {
                 }
 
                 .pricing {
-                    margin-bottom: 3rem;
+                    margin-bottom: 1rem;
                     max-width: 20rem;
+                    font-size: 0.9rem;
 
                     input {
                         transition: 0.4s;
                         background-color: transparent;
                         border: none;
                         border-bottom: 2px solid $text-color;
-                        width: 10rem;
+                        width: 11rem;
                         height: 100%;
                         padding-left: 3rem;
 
@@ -1165,6 +1198,10 @@ Section.uploadPage {
                             outline: none;
                             border-bottom: 2px solid $blue-color;
                         }
+                    }
+
+                    &.small {
+                        margin-bottom: 3rem;
                     }
 
                     label {
@@ -1177,7 +1214,7 @@ Section.uploadPage {
                         }
 
                         &.free {
-                            padding: 0.1rem 0.5rem;
+                            padding: 0.4rem 0.3rem;
                             border: 1px solid $text-color;
                             border-radius: $radious;
                             cursor: pointer;
@@ -1369,7 +1406,7 @@ section.userPage {
 
                             .left {
                                 width: inherit;
-                                text-align: right;
+                                text-align: center;
 
                                 .name {
                                     padding: 0.5rem;

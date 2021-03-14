@@ -530,10 +530,36 @@ section.loginPage section.contents .container-fluid .card input.codeInput {
     margin: 0 0.3rem;
   }
 }
+section.loginPage section.contents .container-fluid .card input.mail, section.loginPage section.contents .container-fluid .card input.twitter, section.loginPage section.contents .container-fluid .card input.instagram {
+  padding-left: 2.5rem;
+}
 section.loginPage section.contents .container-fluid .card input:focus {
   transition: 0.4s;
   outline: none;
   border-bottom: 2px solid #00b4bb;
+}
+section.loginPage section.contents .container-fluid .card textarea {
+  transition: 0.4s;
+  height: 9rem;
+  resize: none;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 3rem;
+  padding: 0.5rem;
+  color: #565656;
+}
+section.loginPage section.contents .container-fluid .card textarea:focus {
+  outline: none;
+}
+section.loginPage section.contents .container-fluid .card i {
+  font-size: 1.5rem;
+  color: #565656;
+  width: 2rem;
+  height: 2rem;
+  margin-top: -4rem;
+  float: left;
 }
 section.loginPage section.contents .container-fluid .card .codeInputs {
   direction: ltr;
@@ -912,6 +938,11 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
 Section.uploadPage section.contents {
   padding-top: 2rem;
 }
+@media (max-width: 480px) {
+  Section.uploadPage section.contents .container-fluid {
+    padding: 0;
+  }
+}
 Section.uploadPage section.contents .container-fluid .row {
   padding: 1rem 1rem 2rem;
   background-color: #0000000d;
@@ -1008,15 +1039,16 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   border: 1px solid #00b4bb;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   max-width: 20rem;
+  font-size: 0.9rem;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing input {
   transition: 0.4s;
   background-color: transparent;
   border: none;
   border-bottom: 2px solid #565656;
-  width: 10rem;
+  width: 11rem;
   height: 100%;
   padding-left: 3rem;
 }
@@ -1024,6 +1056,9 @@ Section.uploadPage section.contents .container-fluid .row .pricing input:focus {
   transition: 0.4s;
   outline: none;
   border-bottom: 2px solid #00b4bb;
+}
+Section.uploadPage section.contents .container-fluid .row .pricing.small {
+  margin-bottom: 3rem;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label {
   color: #565656;
@@ -1034,7 +1069,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.toman {
   opacity: 0;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label.free {
-  padding: 0.1rem 0.5rem;
+  padding: 0.4rem 0.3rem;
   border: 1px solid #565656;
   border-radius: 5px;
   cursor: pointer;
@@ -1194,7 +1229,7 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .left {
   width: inherit;
-  text-align: right;
+  text-align: center;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .left .name {
   padding: 0.5rem;
