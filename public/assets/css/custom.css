@@ -37,6 +37,7 @@ input:-webkit-autofill {
 
 input {
   padding-right: 0.4rem;
+  color: #565656;
 }
 
 .page {
@@ -867,6 +868,11 @@ Section.uploadPage section.contents .container-fluid .row .info h4 {
   padding: 1rem;
   font-weight: bold;
 }
+@media (max-width: 580px) {
+  Section.uploadPage section.contents .container-fluid .row .info h4 {
+    padding: 1rem 0;
+  }
+}
 Section.uploadPage section.contents .container-fluid .row .info label {
   font-size: 20px;
 }
@@ -928,7 +934,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]::before {
   visibility: visible;
   transition: 0.4s;
-  content: "تصویر خود را آپلود کنید";
+  content: "اثر خود را آپلود کنید";
   font-size: 18px;
   position: absolute;
   background-color: transparent;
@@ -945,8 +951,55 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   color: #00b4bb;
   border: 1px solid #00b4bb;
 }
+Section.uploadPage section.contents .container-fluid .row .pricing input {
+  transition: 0.4s;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #565656;
+  width: 10rem;
+  height: 100%;
+  padding-left: 3rem;
+}
+Section.uploadPage section.contents .container-fluid .row .pricing input:focus {
+  transition: 0.4s;
+  outline: none;
+  border-bottom: 2px solid #00b4bb;
+}
+Section.uploadPage section.contents .container-fluid .row .pricing label {
+  color: #565656;
+  transition: 0.4s;
+}
+Section.uploadPage section.contents .container-fluid .row .pricing label.toman {
+  margin-right: -2.5rem;
+  opacity: 0;
+}
+Section.uploadPage section.contents .container-fluid .row .pricing label.free {
+  padding: 0.5rem;
+  border: 1px solid #565656;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 4rem;
+}
+@media (max-width: 580px) {
+  Section.uploadPage section.contents .container-fluid .row .pricing label.free {
+    margin-right: 0rem;
+    font-size: 0.9rem;
+    float: left;
+    padding: 0.4rem;
+  }
+}
+Section.uploadPage section.contents .container-fluid .row .pricing .selected {
+  transition: 0.4s;
+  border: 1px solid #00b4bb !important;
+  color: #00b4bb;
+  font-weight: bold;
+}
+Section.uploadPage section.contents .container-fluid .row .pricing .shown {
+  transition: 0.4s;
+  opacity: 1 !important;
+}
 Section.uploadPage section.contents .container-fluid .row .buttons {
-  padding: 1rem;
+  padding: 3rem 1rem 0;
   text-align: center;
 }
 Section.uploadPage section.contents .container-fluid .row .buttons button {

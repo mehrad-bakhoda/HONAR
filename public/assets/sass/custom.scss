@@ -31,6 +31,7 @@ input:-webkit-autofill {
 
 input {
     padding-right: 0.4rem;
+    color: $text-color;
 }
 
 .page {
@@ -195,6 +196,7 @@ section.header {
 
                     &.cart {
                         left: 0rem;
+
                         span {
                             position: absolute;
                             left: 0.8rem;
@@ -542,12 +544,14 @@ section.loginPage {
                 @include sm {
                     padding: 2rem 1rem;
                 }
+
                 @include xs {
                     padding: 2rem 0.5rem;
                 }
 
                 h4 {
                     padding: 2rem 0;
+
                     @include xxs {
                         font-size: 1.3rem;
                     }
@@ -989,6 +993,10 @@ Section.uploadPage {
                         text-align: center;
                         padding: 1rem;
                         font-weight: bold;
+
+                        @include xs {
+                            padding: 1rem 0;
+                        }
                     }
 
                     label {
@@ -1059,13 +1067,12 @@ Section.uploadPage {
                         &::before {
                             visibility: visible;
                             transition: 0.4s;
-                            content: "تصویر خود را آپلود کنید";
+                            content: "اثر خود را آپلود کنید";
                             font-size: 18px;
                             position: absolute;
                             background-color: transparent;
                             padding: 0.25rem 1rem;
                             width: 12rem;
-                            
                             cursor: pointer;
                             text-align: center;
                             color: $text-color;
@@ -1083,9 +1090,65 @@ Section.uploadPage {
                     }
                 }
 
+                .pricing {
+                    input {
+                        transition: 0.4s;
+                        background-color: transparent;
+                        border: none;
+                        border-bottom: 2px solid $text-color;
+                        width: 10rem;
+                        height: 100%;
+                        padding-left: 3rem;
+
+                        &:focus {
+                            transition: 0.4s;
+                            outline: none;
+                            border-bottom: 2px solid $blue-color;
+                        }
+                    }
+
+                    label {
+                        color: $text-color;
+                        transition: 0.4s;
+
+                        &.toman {
+                            margin-right: -2.5rem;
+                            opacity: 0;
+                        }
+
+                        &.free {
+                            padding: 0.5rem;
+                            border: 1px solid $text-color;
+                            border-radius: $radious;
+                            cursor: pointer;
+                            margin-right: 4rem;
+
+                            @include xs {
+                                margin-right: 0rem;
+                                font-size: 0.9rem;
+                                float: left;
+                                padding: 0.4rem;
+                            }
+                        }
+                    }
+
+                    .selected {
+                        transition: 0.4s;
+                        border: 1px solid $blue-color !important;
+                        color: $blue-color;
+                        font-weight: bold;
+                    }
+
+                    .shown {
+                        transition: 0.4s;
+                        opacity: 1 !important;
+                    }
+                }
+
                 .buttons {
-                    padding: 1rem;
+                    padding: 3rem 1rem 0;
                     text-align: center;
+
                     button {
                         padding: 0.5rem;
                         float: left;
@@ -1129,6 +1192,7 @@ section.searchPage {
 
     section.contents {
         padding-top: 8rem;
+
         .container-fluid {
             .row {
                 .result {
