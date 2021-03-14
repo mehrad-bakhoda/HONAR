@@ -538,6 +538,33 @@ section.loginPage section.contents .container-fluid .card input:focus {
   outline: none;
   border-bottom: 2px solid #00b4bb;
 }
+section.loginPage section.contents .container-fluid .card input[type=file] {
+  padding: 0;
+  visibility: hidden;
+  width: 12rem;
+  height: 2.6rem;
+  position: relative;
+}
+section.loginPage section.contents .container-fluid .card input[type=file]::before {
+  visibility: visible;
+  transition: 0.4s;
+  content: "آپلود تصویر کاربری";
+  font-size: 18px;
+  position: absolute;
+  background-color: transparent;
+  padding: 0.25rem 1rem;
+  width: 12rem;
+  cursor: pointer;
+  text-align: center;
+  color: #565656;
+  border: 1px solid #565656;
+  border-radius: 5px;
+}
+section.loginPage section.contents .container-fluid .card input[type=file]:hover::before {
+  transition: 0.4s;
+  color: #00b4bb;
+  border: 1px solid #00b4bb;
+}
 section.loginPage section.contents .container-fluid .card textarea {
   transition: 0.4s;
   height: 9rem;
@@ -546,7 +573,7 @@ section.loginPage section.contents .container-fluid .card textarea {
   border: none;
   border-radius: 5px;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   color: #565656;
 }
