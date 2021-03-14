@@ -542,6 +542,7 @@ section.loginPage {
             @include xxs {
                 padding: 0;
             }
+
             .card {
                 margin-top: 5rem;
                 padding: 2rem;
@@ -632,6 +633,31 @@ section.loginPage {
                     }
                 }
 
+                &.code {
+                    .buttons {
+                        padding-bottom: 0;
+                        float: left;
+                        max-width: 20rem;
+
+                        button.codeAgain {
+                            transition: 0.4s;
+                            margin-top: 1rem;
+                            width: 17rem;
+
+                            @include xs {
+                                width: 13rem;
+                            }
+                        }
+
+                        .hidden {
+                            transition: 0.4s;
+                            opacity: 0;
+                            visibility: hidden;
+                            height: 0;
+                        }
+                    }
+                }
+
                 &.password {
                     padding: 0;
                     background-color: transparent;
@@ -666,7 +692,6 @@ section.loginPage {
                         @include sm {
                             padding: 2rem 1rem;
                         }
-
                     }
                 }
             }

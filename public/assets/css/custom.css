@@ -569,6 +569,27 @@ section.loginPage section.contents .container-fluid .card .buttons button:hover 
   color: #00b4bb;
   border-color: #00b4bb;
 }
+section.loginPage section.contents .container-fluid .card.code .buttons {
+  padding-bottom: 0;
+  float: left;
+  max-width: 20rem;
+}
+section.loginPage section.contents .container-fluid .card.code .buttons button.codeAgain {
+  transition: 0.4s;
+  margin-top: 1rem;
+  width: 17rem;
+}
+@media (max-width: 580px) {
+  section.loginPage section.contents .container-fluid .card.code .buttons button.codeAgain {
+    width: 13rem;
+  }
+}
+section.loginPage section.contents .container-fluid .card.code .buttons .hidden {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
 section.loginPage section.contents .container-fluid .card.password {
   padding: 0;
   background-color: transparent;
