@@ -29,6 +29,10 @@ input:-webkit-autofill {
     -webkit-animation-fill-mode: both;
 }
 
+input {
+    padding-right: 0.4rem;
+}
+
 .page {
     max-width: 90rem;
     width: 100%;
@@ -535,8 +539,18 @@ section.loginPage {
                 background-color: $gray-color;
                 box-shadow: none;
 
+                @include sm {
+                    padding: 2rem 1rem;
+                }
+                @include xs {
+                    padding: 2rem 0.5rem;
+                }
+
                 h4 {
                     padding: 2rem 0;
+                    @include xxs {
+                        font-size: 1.3rem;
+                    }
                 }
 
                 input {
@@ -547,7 +561,6 @@ section.loginPage {
                     background-color: transparent;
                     width: 100%;
                     height: 2.5rem;
-                    padding-right: 0.2rem;
 
                     &.codeInput {
                         padding: 0;
