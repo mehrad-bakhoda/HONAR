@@ -575,6 +575,7 @@ section.loginPage section.contents .container-fluid .card.code .buttons {
   max-width: 20rem;
 }
 section.loginPage section.contents .container-fluid .card.code .buttons button.codeAgain {
+  transition: 0.4s;
   margin-top: 1rem;
   width: 17rem;
 }
@@ -582,6 +583,12 @@ section.loginPage section.contents .container-fluid .card.code .buttons button.c
   section.loginPage section.contents .container-fluid .card.code .buttons button.codeAgain {
     width: 13rem;
   }
+}
+section.loginPage section.contents .container-fluid .card.code .buttons .hidden {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
 }
 section.loginPage section.contents .container-fluid .card.password {
   padding: 0;
