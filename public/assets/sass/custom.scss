@@ -34,6 +34,12 @@ input {
     color: $text-color;
 }
 
+.inputError {
+    transition: 0.4s;
+    border-bottom: 2px solid $error-color;
+    color: $error-color;
+}
+
 .page {
     max-width: 90rem;
     width: 100%;
@@ -65,14 +71,14 @@ section.contents {
     &.error {
         p {
             margin-bottom: 0;
-            color: #d14774;
+            color: $error-color;
         }
     }
 
     &.success {
         p {
             margin-bottom: 0;
-            color: #47d15f;
+            color: $success-color;
         }
     }
 }
@@ -565,6 +571,7 @@ section.loginPage {
                     background-color: transparent;
                     width: 100%;
                     height: 2.5rem;
+                    margin-bottom: 2rem;
 
                     &.codeInput {
                         padding: 0;
@@ -625,6 +632,7 @@ section.loginPage {
                 }
 
                 &.password {
+                    padding: 0;
                     background-color: transparent;
 
                     ul.nav-tabs {
@@ -651,8 +659,16 @@ section.loginPage {
                         background-color: $gray-color;
                         border-bottom-left-radius: $radious;
                         border-bottom-right-radius: $radious;
-                        padding: 1rem;
+                        padding: 2rem;
                         border: none;
+
+                        @include sm {
+                            padding: 2rem 1rem;
+                        }
+
+                        @include xs {
+                            padding: 2rem 0.5rem;
+                        }
                     }
                 }
             }
@@ -697,6 +713,9 @@ section.detailPage {
                     }
 
                     .infos {
+                        @include xxs {
+                            padding: 0;
+                        }
                         .card {
                             height: 100%;
                             padding: 1rem;
