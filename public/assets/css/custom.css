@@ -213,6 +213,11 @@ section.header .searchSection {
   padding: 1rem 0.5rem;
   width: 98%;
 }
+@media (max-width: 480px) {
+  section.header .searchSection {
+    width: 100%;
+  }
+}
 section.header .searchSection i {
   cursor: pointer;
   transition: 0.4s;
@@ -801,10 +806,23 @@ section.detailPage section.contents .container-fluid .description {
   background-color: #0000000d;
   padding: 2rem;
 }
-section.detailPage section.contents .container-fluid .description h4 {
+@media (max-width: 480px) {
+  section.detailPage section.contents .container-fluid .description {
+    padding: 0;
+    background-color: transparent;
+  }
+}
+@media (max-width: 480px) {
+  section.detailPage section.contents .container-fluid .description .row {
+    background-color: #0000000d;
+    padding: 2rem 1rem;
+    border-radius: 5px;
+  }
+}
+section.detailPage section.contents .container-fluid .description .row h4 {
   padding: 0 0 1rem;
 }
-section.detailPage section.contents .container-fluid .description p {
+section.detailPage section.contents .container-fluid .description .row p {
   text-align: justify;
 }
 section.detailPage section.contents .container-fluid .related {

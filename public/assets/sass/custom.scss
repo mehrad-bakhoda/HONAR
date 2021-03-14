@@ -231,6 +231,9 @@ section.header {
         margin: auto;
         padding: 1rem 0.5rem;
         width: 98%;
+        @include xxs {
+            width: 100%;
+        }
 
         i {
             cursor: pointer;
@@ -716,6 +719,7 @@ section.detailPage {
                         @include xxs {
                             padding: 0;
                         }
+
                         .card {
                             height: 100%;
                             padding: 1rem;
@@ -899,12 +903,27 @@ section.detailPage {
                 background-color: $gray-color;
                 padding: 2rem;
 
-                h4 {
-                    padding: 0 0 1rem;
+                @include xxs {
+                    padding: 0;
+                    background-color: transparent;
                 }
 
-                p {
-                    text-align: justify;
+                .row {
+                    @include xxs {
+                        background-color: $gray-color;
+                        padding: 2rem 1rem;
+                        border-radius: $radious;
+                    }
+
+
+
+                    h4 {
+                        padding: 0 0 1rem;
+                    }
+
+                    p {
+                        text-align: justify;
+                    }
                 }
             }
 
