@@ -27,7 +27,12 @@ router.get("/login",function(req,res){
 
 router.get("/dashboard",function(req,res){
     res.render("dashboard");
-  });
+});
+
+router.get("/user", function (req, res) {
+    res.render("user");
+});
+
 
 
 router.get("/upload",function(req,res){

@@ -1130,6 +1130,113 @@ section.searchPage section.contents .container-fluid .row .result {
 /*#region Dashboard Page */
 /*#endregion */
 /*#region User Page */
+section.userPage section.contents .container-fluid .row.top {
+  padding: 1rem 2rem;
+}
+@media (max-width: 767px) {
+  section.userPage section.contents .container-fluid .row.top {
+    padding: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  section.userPage section.contents .container-fluid .row.top {
+    padding: 1rem 0;
+  }
+}
+section.userPage section.contents .container-fluid .row.top .info {
+  background-color: #0000000d;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  section.userPage section.contents .container-fluid .row.top .info {
+    text-align: right;
+  }
+}
+@media (max-width: 767px) {
+  section.userPage section.contents .container-fluid .row.top .info {
+    text-align: center;
+  }
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary {
+  display: inline-flex;
+  margin-bottom: 2rem;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .right {
+  width: fit-content;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture {
+  padding: 1rem;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 100%;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture i {
+  font-size: 4rem;
+  width: 7rem;
+  height: 7rem;
+  text-align: center;
+  color: #565656;
+  padding: 1rem;
+  border: 2px solid #565656;
+  border-radius: 100%;
+}
+@media (max-width: 580px) {
+  section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture i {
+    font-size: 3.5rem;
+    width: 6rem;
+    height: 6rem;
+  }
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left {
+  width: inherit;
+  text-align: right;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .name {
+  padding: 0.5rem;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .name p {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social {
+  display: inline-flex;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social a {
+  color: #565656;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social a i {
+  padding: 0.5rem;
+  transition: 0.4s;
+  color: #565656;
+  font-size: 1.5rem;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social a i:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social .mail {
+  width: fit-content;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social .instagram {
+  width: fit-content;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .stats .productsCount {
+  display: inline-flex;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .summary .left .stats .productsCount label, section.userPage section.contents .container-fluid .row.top .info .row .summary .left .stats .productsCount p {
+  padding: 1rem 0.25rem;
+}
+section.userPage section.contents .container-fluid .row.top .info .row .bio p {
+  text-align: justify;
+}
+section.userPage section.contents .container-fluid .row.top .products {
+  padding: 1rem;
+}
 /*#endregion */
 /*#region About Us Page */
 /*#endregion */
