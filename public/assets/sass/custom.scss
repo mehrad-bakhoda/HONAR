@@ -539,7 +539,9 @@ section.homePage {
 section.loginPage {
     section.contents {
         .container-fluid {
-
+            @include xxs {
+                padding: 0;
+            }
             .card {
                 margin-top: 5rem;
                 padding: 2rem;
@@ -552,10 +554,6 @@ section.loginPage {
 
                 @include sm {
                     padding: 2rem 1rem;
-                }
-
-                @include xs {
-                    padding: 2rem 0.5rem;
                 }
 
                 h4 {
@@ -669,9 +667,6 @@ section.loginPage {
                             padding: 2rem 1rem;
                         }
 
-                        @include xs {
-                            padding: 2rem 0.5rem;
-                        }
                     }
                 }
             }

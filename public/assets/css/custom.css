@@ -478,6 +478,11 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
 
 /*#endregion */
 /*#region Login Page */
+@media (max-width: 480px) {
+  section.loginPage section.contents .container-fluid {
+    padding: 0;
+  }
+}
 section.loginPage section.contents .container-fluid .card {
   margin-top: 5rem;
   padding: 2rem;
@@ -491,11 +496,6 @@ section.loginPage section.contents .container-fluid .card {
 @media (max-width: 767px) {
   section.loginPage section.contents .container-fluid .card {
     padding: 2rem 1rem;
-  }
-}
-@media (max-width: 580px) {
-  section.loginPage section.contents .container-fluid .card {
-    padding: 2rem 0.5rem;
   }
 }
 section.loginPage section.contents .container-fluid .card h4 {
@@ -598,11 +598,6 @@ section.loginPage section.contents .container-fluid .card.password .tab-content 
 @media (max-width: 767px) {
   section.loginPage section.contents .container-fluid .card.password .tab-content {
     padding: 2rem 1rem;
-  }
-}
-@media (max-width: 580px) {
-  section.loginPage section.contents .container-fluid .card.password .tab-content {
-    padding: 2rem 0.5rem;
   }
 }
 
