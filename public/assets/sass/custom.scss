@@ -631,7 +631,20 @@ section.loginPage {
                         }
                     }
                 }
-
+                &.code {
+                    .buttons {
+                        padding-bottom: 0;
+                        float: left;
+                        max-width: 20rem;
+                        button.codeAgain {
+                            margin-top: 1rem;
+                            width: 17rem;
+                            @include xs {
+                                width: 13rem;
+                            }
+                        }
+                    }
+                }
                 &.password {
                     padding: 0;
                     background-color: transparent;
