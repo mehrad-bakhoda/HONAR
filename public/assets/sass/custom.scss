@@ -1050,6 +1050,7 @@ Section.uploadPage {
                     }
 
                     input[type=file] {
+                        padding: 0;
                         visibility: hidden;
                         width: 12rem;
                         height: 4rem;

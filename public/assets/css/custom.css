@@ -919,6 +919,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic label {
   margin-bottom: 0.5rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file] {
+  padding: 0;
   visibility: hidden;
   width: 12rem;
   height: 4rem;
