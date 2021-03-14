@@ -21,8 +21,19 @@
                 <div class="uploadPic">
                     <input type="file" />
                 </div>
+                <div class="category">
+                    <lable class="title"> نوع: </lable>
+
+                    <div class="options">
+                        <label for="photography" class="radioLabel" id="photography">عکاسی</label>
+
+                        <label for="graphic" class="radioLabel" id="graphic">گرافیک</label>
+
+                        <label for="clip" class="radioLabel" id="clip" >کلیپ</label>
+                    </div>
+                </div>
                 <div class="pricing">
-                    <input type="text" class="price" placeholder="قیمت مورد نظر" maxlength="11"/>
+                    <input type="text" class="price" placeholder="قیمت مورد نظر" maxlength="11" />
                     <label class="toman"> تومان </label>
                     <label class="free"> رایگان </label>
                 </div>
@@ -37,6 +48,6 @@
 
 <%-include("scripts");-%>
 <!-- Custom -->
-<script src="../assets/js/uploadPrice.js"></script>
+<script src="../assets/js/uploadPage.js"></script>
 
 
