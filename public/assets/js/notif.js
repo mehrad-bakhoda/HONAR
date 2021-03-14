@@ -27,7 +27,7 @@ function validateEmail(input) {
 
 
 //login notif
-$(".next")
+$(".loginPage .next")
 .on('click', function(e) {
     var input = $(".phoneInput").val();
     $(".phoneInput").val(input);
