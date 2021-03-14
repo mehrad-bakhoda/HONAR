@@ -19,7 +19,7 @@
             <div class="card code">
                 <form action="/register" method="post">
                     <input hidden name="loginInput" value=<%=loginInput%> />
-                    <h4> کد ارسال شده را وارد کنید</h4>
+                    <h4> کد ارسال شده برای <%=loginInput%> را وارد کنید</h4>
                     <div class="codeInputs">
                         <input name="verifyCode1" type="text" class="codeInput" id="first" maxlength="1" />
                         <input name="verifyCode2" type="text" class="codeInput" id="second" maxlength="1" />
@@ -30,8 +30,7 @@
                     </div>
                     <div class="buttons">
                         <button type="submit" class="next">بعدی</button>
-                        <button type="button" class="prev">قبلی</button>
-
+                        <a href="/login"><button type="button" class="prev">قبلی</button></a>
                         <button type="button" class="codeAgain hidden">ارسال مجدد کد</button>
                     </div>
                 </form>
