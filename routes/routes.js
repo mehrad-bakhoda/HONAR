@@ -558,7 +558,7 @@ router.post("/upload", function(req, res){
             else{
               c = 1;
             }
-            const dir = __dirname + "/uploads/users/"+ found.unique_id +"/Products/" + c;
+            const dir = "./uploads/users/"+ found.unique_id +"/Products/" + c;
             if (!fs.existsSync(dir)) {
               fs.mkdirSync(dir, {
               recursive: true
@@ -571,9 +571,11 @@ router.post("/upload", function(req, res){
               console.log(fields.type);
               const newProduct = new Product({
                 productId:c,
+                type:fields.types,
                 fileName:fields.fileName,
                 tags:fields.tags,
                 description:fields.description,
+                filePath:files.productFiles.path,
                 orginalPrice:fields.orginalPrice,
                 largePrice:fields.largePrice,
                 mediumPrice:fields.mediumPrice,

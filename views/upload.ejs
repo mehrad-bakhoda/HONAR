@@ -20,17 +20,18 @@
                         </div>
                     </div>
                     <div class="uploadPic">
-                        <input type="file" />
+                        <input type="file" name="productFiles"/>
                     </div>
                     <div class="category">
                         <lable class="title"> نوع: </lable>
 
                         <div class="options">
-                            <input type="radio" name="type" value="photography">
+                            <input type="text" id="types" name = "types" style="display:none;" />
+                            
                             <label for="photography" class="radioLabel" id="photography">عکاسی</label>
-                            <input type="radio" name="type" value="graphic">   
+                               
                             <label for="graphic" class="radioLabel" id="graphic">گرافیک</label>
-                            <input type="radio" name="type" value="clip">
+                            
                             <label for="clip" class="radioLabel" id="clip">کلیپ</label>
                         </div>
                     </div>
