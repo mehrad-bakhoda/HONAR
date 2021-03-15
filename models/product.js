@@ -36,7 +36,6 @@ const productSchema = new mongoose.Schema({
   },
   filePath:{
     type: String,
-    required:true
   },
   coverPath:{
     type: String,
@@ -51,7 +50,22 @@ const productSchema = new mongoose.Schema({
     type:Number,
     default:0
   },
-  price: {
+  Orginalprice: {
+    type: Number,
+    min: 0,
+    default:0
+  },
+  largePrice: {
+    type: Number,
+    min: 0,
+    default:0
+  },
+  mediumPrice: {
+    type: Number,
+    min: 0,
+    default:0
+  },
+  smallPrice: {
     type: Number,
     min: 0,
     default:0

@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Product = require('../models/product');
 
+const fs = require("fs");
 const generateOTP = require("../localModules/generateOTP.js");
 const formidable = require('formidable');
 
@@ -38,7 +40,13 @@ router.get("/user", function (req, res) {
 
 
 router.get("/upload",function(req,res){
-  res.render("upload");
+  if(req.session.userId){
+    res.render("upload");
+  }
+  else{
+    res.redirect("/login");
+  }
+  
   });
 
 
@@ -532,6 +540,59 @@ router.post("/signIn", function(req, res) {
   
 });
 
+
+router.post("/upload", function(req, res){
+  var c;
+  User.findOne({unique_id: req.session.userId},
+    function(err,found)
+    {
+      if(!err)
+        if(found)
+        {
+          Product.findOne({}, {}, { sort: { "_id": -1 } },function(err,data)
+          {
+            if (data)
+            {
+              c = data.productId + 1;
+            }
+            else{
+              c = 1;
+            }
+            const dir = __dirname + "/uploads/users/"+ found.unique_id +"/Products/" + c;
+            if (!fs.existsSync(dir)) {
+              fs.mkdirSync(dir, {
+              recursive: true
+            });
+            }
+            const form = formidable({ multiples: true, uploadDir: dir});
+            form.keepExtensions=true;
+            form.maxFileSize=10*1024*1024;
+            form.parse(req, (err, fields, files) => {
+              console.log(fields.type);
+              const newProduct = new Product({
+                productId:c,
+                fileName:fields.fileName,
+                tags:fields.tags,
+                description:fields.description,
+                orginalPrice:fields.orginalPrice,
+                largePrice:fields.largePrice,
+                mediumPrice:fields.mediumPrice,
+                smallPrice:fields.smallPrice,
+                user:found
+              });
+              newProduct.save();
+              if (err) {
+                next(err);
+                return;
+              }
+              res.redirect("/");
+            });
+
+          });
+          
+        }
+    });
+});
 // END OF POST ROUTE'S
 
 
