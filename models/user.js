@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     unique: true
   },
+  type:{
+    type:String,
+    enum:["Downloader","Uploader"],
+  },
   phone: {
     type: String,
     unique: true,
@@ -32,6 +36,18 @@ const userSchema = new mongoose.Schema({
     sparse:true
   },
   password:{
+    type:String
+  },
+  bio:{
+    type:String
+  },
+  profilePicPath: {
+    type:String
+  },
+  twitter:{
+    type:String
+  },
+  instagram:{
     type:String
   },
   verifyCode: String,
