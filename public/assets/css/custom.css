@@ -799,7 +799,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
   width: 7rem;
-  height: 2rem;
+  /*height: 2rem;*/
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
@@ -810,7 +810,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   text-align: left;
   display: inline-block;
   width: 100%;
-  position: absolute;
   padding-right: 7rem;
 }
 @media (max-width: 767px) {
@@ -827,8 +826,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   font-weight: lighter;
   font-size: 14px;
   position: relative;
-  height: 2rem;
-  padding-top: 0.25rem;
   width: 23.2%;
   margin: 0 0.4rem 0.4rem 0;
   cursor: pointer;
@@ -837,7 +834,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   border: none;
   box-shadow: 7px 7px 8px -6px #a9a9a9;
   color: #565656;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   border-radius: 5px;
   background-color: transparent;
 }
@@ -876,9 +873,10 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .pri
   opacity: 1;
   visibility: visible;
   height: auto;
-  margin: auto;
+  margin-left: 1rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons {
+  margin: 0 1rem;
   padding-top: 1rem;
   text-align: left;
 }

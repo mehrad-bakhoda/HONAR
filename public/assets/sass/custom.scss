@@ -896,7 +896,7 @@ section.detailPage {
 
                                 label {
                                     width: 7rem;
-                                    height: 2rem;
+                                    /*height: 2rem;*/
 
                                     @include sm {
                                         position: relative;
@@ -907,7 +907,6 @@ section.detailPage {
                                     text-align: left;
                                     display: inline-block;
                                     width: 100%;
-                                    position: absolute;
                                     padding-right: 7rem;
 
                                     @include sm {
@@ -924,8 +923,6 @@ section.detailPage {
                                         font-weight: lighter;
                                         font-size: 14px;
                                         position: relative;
-                                        height: 2rem;
-                                        padding-top: 0.25rem;
                                         width: 23.2%;
                                         margin: 0 0.4rem 0.4rem 0;
                                         cursor: pointer;
@@ -934,7 +931,7 @@ section.detailPage {
                                         border: none;
                                         box-shadow: $box-shadow;
                                         color: $text-color;
-                                        padding: 0.5rem 1rem;
+                                        padding: 0.5rem 0;
                                         border-radius: $radious;
                                         background-color: transparent;
 
@@ -976,11 +973,12 @@ section.detailPage {
                                     opacity: 1;
                                     visibility: visible;
                                     height: auto;
-                                    margin: auto;
+                                    margin-left: 1rem;
                                 }
                             }
 
                             .buttons {
+                                margin: 0 1rem;
                                 padding-top: 1rem;
                                 text-align: left;
 
