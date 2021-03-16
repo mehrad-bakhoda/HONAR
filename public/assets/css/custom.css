@@ -317,7 +317,7 @@ section.header .searchSection .advanced label.radioLabel {
   border: none;
   box-shadow: 7px 7px 8px -6px #a9a9a9;
   color: #565656;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.4rem;
   border-radius: 5px;
   background-color: transparent;
 }
