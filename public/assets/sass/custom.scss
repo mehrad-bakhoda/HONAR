@@ -23,10 +23,13 @@ body {
     }
 }
 
-input:-webkit-autofill {
-    -webkit-animation-delay: 0.4s;
-    -webkit-animation-name: autofill;
-    -webkit-animation-fill-mode: both;
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    border-bottom: 2px solid $blue-color !important;
+    -webkit-text-fill-color: $blue-color;
+    -webkit-box-shadow: 0 0 0 1000px $gray-color inset !important;
+    transition: background-color 400s ease-in-out 0s;
+    background-color: $gray-color;
 }
 
 input {
@@ -47,7 +50,7 @@ input {
 }
 
 section.contents {
-    padding: 5rem 0;
+    padding: 5rem 0 1rem;
 
     @include md {
         padding: 2rem 0;
@@ -223,9 +226,10 @@ section.header {
     }
 
     .searchSection {
+        box-shadow: $box-shadow;
         text-align: center;
         margin-bottom: 3rem;
-        background-color: #0000000d;
+        background-color: $gray-color;
         border-radius: 5px;
         max-width: 40rem;
         margin: auto;
@@ -482,6 +486,7 @@ section.homePage {
                                 transition: 0.4s;
                                 background-color: $gray-color;
                                 border-radius: $radious;
+                                box-shadow: $box-shadow;
                             }
                         }
                     }
@@ -544,6 +549,7 @@ section.loginPage {
             }
 
             .card {
+                box-shadow: $box-shadow;
                 margin-top: 5rem;
                 padding: 2rem;
                 max-width: 40rem;
@@ -738,6 +744,7 @@ section.loginPage {
                                 border-top-right-radius: $radious;
 
                                 &.active {
+                                    box-shadow: $box-shadow;
                                     background-color: $gray-color;
                                 }
                             }
@@ -745,6 +752,7 @@ section.loginPage {
                     }
 
                     .tab-content {
+                        box-shadow: $box-shadow;
                         background-color: $gray-color;
                         border-bottom-left-radius: $radious;
                         border-bottom-right-radius: $radious;
@@ -809,6 +817,7 @@ section.detailPage {
                             box-shadow: none;
                             border-radius: $radious;
                             background-color: $gray-color;
+                            box-shadow: $box-shadow;
 
                             .info {
                                 margin: 0 1rem;
@@ -980,6 +989,7 @@ section.detailPage {
             }
 
             .description {
+                box-shadow: $box-shadow;
                 margin-top: 2rem;
                 border-radius: $radious;
                 background-color: $gray-color;
@@ -1102,7 +1112,9 @@ Section.uploadPage {
             @include xxs {
                 padding: 0;
             }
+
             .row {
+                box-shadow: $box-shadow;
                 padding: 1rem 1rem 2rem;
                 background-color: $gray-color;
                 border-radius: $radious;
@@ -1386,6 +1398,7 @@ section.userPage {
                 }
 
                 .info {
+                    box-shadow: $box-shadow;
                     background-color: $gray-color;
                     border-radius: $radious;
                     padding: 1rem;

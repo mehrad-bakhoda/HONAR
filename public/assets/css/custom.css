@@ -29,10 +29,13 @@ body {
     background: transparent;
   }
 }
-input:-webkit-autofill {
-  -webkit-animation-delay: 0.4s;
-  -webkit-animation-name: autofill;
-  -webkit-animation-fill-mode: both;
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  border-bottom: 2px solid #00b4bb !important;
+  -webkit-text-fill-color: #00b4bb;
+  -webkit-box-shadow: 0 0 0 1000px #dcdcdc inset !important;
+  transition: background-color 400s ease-in-out 0s;
+  background-color: #dcdcdc;
 }
 
 input {
@@ -53,7 +56,7 @@ input {
 }
 
 section.contents {
-  padding: 5rem 0;
+  padding: 5rem 0 1rem;
 }
 @media (max-width: 991px) {
   section.contents {
@@ -71,7 +74,7 @@ section.contents {
   right: -100rem;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: #0000000d;
+  background-color: #dcdcdc;
   z-index: 100;
 }
 .notif.error p {
@@ -204,9 +207,10 @@ section.header .navbar .container-fluid .leftSide a.profile {
   left: 2.5rem;
 }
 section.header .searchSection {
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
   text-align: center;
   margin-bottom: 3rem;
-  background-color: #0000000d;
+  background-color: #dcdcdc;
   border-radius: 5px;
   max-width: 40rem;
   margin: auto;
@@ -438,8 +442,9 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
-  background-color: #0000000d;
+  background-color: #dcdcdc;
   border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
   padding: 1rem 1rem 5rem;
@@ -484,13 +489,14 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
   }
 }
 section.loginPage section.contents .container-fluid .card {
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
   margin-top: 5rem;
   padding: 2rem;
   max-width: 40rem;
   margin: auto;
   width: 100%;
   border-radius: 5px;
-  background-color: #0000000d;
+  background-color: #dcdcdc;
   box-shadow: none;
 }
 @media (max-width: 767px) {
@@ -660,10 +666,12 @@ section.loginPage section.contents .container-fluid .card.password ul.nav-tabs l
   border-top-right-radius: 5px;
 }
 section.loginPage section.contents .container-fluid .card.password ul.nav-tabs li.nav-item a.nav-link.active {
-  background-color: #0000000d;
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
+  background-color: #dcdcdc;
 }
 section.loginPage section.contents .container-fluid .card.password .tab-content {
-  background-color: #0000000d;
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
+  background-color: #dcdcdc;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 2rem;
@@ -716,7 +724,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card {
   border: none;
   box-shadow: none;
   border-radius: 5px;
-  background-color: #0000000d;
+  background-color: #dcdcdc;
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info {
   margin: 0 1rem;
@@ -870,9 +879,10 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   border: 1px solid #00b4bb;
 }
 section.detailPage section.contents .container-fluid .description {
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
   margin-top: 2rem;
   border-radius: 5px;
-  background-color: #0000000d;
+  background-color: #dcdcdc;
   padding: 2rem;
 }
 @media (max-width: 480px) {
@@ -883,7 +893,7 @@ section.detailPage section.contents .container-fluid .description {
 }
 @media (max-width: 480px) {
   section.detailPage section.contents .container-fluid .description .row {
-    background-color: #0000000d;
+    background-color: #dcdcdc;
     padding: 2rem 1rem;
     border-radius: 5px;
   }
@@ -971,8 +981,9 @@ Section.uploadPage section.contents {
   }
 }
 Section.uploadPage section.contents .container-fluid .row {
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
   padding: 1rem 1rem 2rem;
-  background-color: #0000000d;
+  background-color: #dcdcdc;
   border-radius: 5px;
   margin: auto;
   width: 100%;
@@ -1206,7 +1217,8 @@ section.userPage section.contents .container-fluid .row.top {
   }
 }
 section.userPage section.contents .container-fluid .row.top .info {
-  background-color: #0000000d;
+  box-shadow: 2px 2px 5px 1px #c1c1c1;
+  background-color: #dcdcdc;
   border-radius: 5px;
   padding: 1rem;
   text-align: center;
