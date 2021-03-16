@@ -2,22 +2,57 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var Product = require('../models/product');
+const Jimp=require("jimp");
 
 const fs = require("fs");
 const generateOTP = require("../localModules/generateOTP.js");
 const formidable = require('formidable');
+const path = require("path");
+var date = require(__dirname + "/../date.js");
+
 
 
 // GET ROUTE'S
 
 
 router.get("/",function(req,res){
-  
-    res.render("home");
+  Product.find({}).limit(10).sort({downloadedCount: 'desc'})
+    .exec(function(err, bestSales)
+    {
+      Product.find({}).sort({rating: 'desc'})
+      .exec(function(err, bestOfAll)
+      {
+        Product.find({}).sort({dateAdded: 'desc'})
+        .exec(function(err, latest)
+        {
+
+      if(req.session.userId){
+        User.findOne({
+          unique_id:req.session.userId
+        },function(err,found){
+          if(!err){
+            if(found){
+              res.render("home",{loggedIn:true,bestOfAll:bestOfAll,bestSales:bestSales,latest:latest});
+            }
+          }
+        });
+      }
+      else{
+        res.render("home",{loggedIn:false,bestOfAll:bestOfAll,bestSales:bestSales,latest:latest});
+      }
+
+
+    });
+    });
+    });
   });
 
-router.get("/search", function (req, res) {
-    res.render("search");
+
+router.get("/search/:searchedItem",function(req,res){
+
+    res.render("search",{foundItem:req.params.searchedItem});
+
+
 });
 
 router.get("/login",function(req,res){
@@ -46,7 +81,7 @@ router.get("/upload",function(req,res){
   else{
     res.redirect("/login");
   }
-  
+
   });
 
 
@@ -65,8 +100,20 @@ router.get("/about-us",function(req,res){
   });
 
 
-router.get("/product",function(req,res){
-    res.render("productDetail");
+  router.get("/Product/:itemID/:itemName", function(req, res) {
+    const link = req.params.itemID;
+    let n = Product.findOne({
+      productId: link
+    }, function(err, found) {
+      if (found) {
+        res.render("productDetail", {
+          item:found
+        });
+      } else {
+        res.render("error404");
+      }
+
+    });
   });
 
 // END OF GET ROUTE'S
@@ -271,7 +318,7 @@ else{
 //verify Code register
 router.post("/register",function(req,res){
   var verifyCode = req.body.verifyCode1.concat(req.body.verifyCode2,req.body.verifyCode3,req.body.verifyCode4,req.body.verifyCode5,req.body.verifyCode6);
-  console.log(req.body); 
+  console.log(req.body);
   if(req.body.loginInput.includes("@")===true){
     User.findOne({
       email: req.body.loginInput
@@ -365,7 +412,7 @@ router.post("/signIn", function(req, res) {
                 console.log('"' + fields.loginInput+'"'+" login was successful!");
                 req.session.userId = found.unique_id;
                 console.log("Session created for"+'"' + fields.loginInput+'"');
-  
+
                 console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
                 res.redirect("/");
               }
@@ -433,13 +480,13 @@ router.post("/signIn", function(req, res) {
                 res.render("login",{inputVerify:false,inputFouned:false,loginInput:fields.loginInput,newUser:false});
               });
             }
-  
+
           }
-  
-  
+
+
         }
       });
-  
+
     }else{
       User.findOne({
         phone: fields.loginInput
@@ -451,7 +498,7 @@ router.post("/signIn", function(req, res) {
                 console.log('"' + fields.loginInput+'"'+" login was successful!");
                 req.session.userId = found.unique_id;
                 console.log("Session created for"+'"' + fields.loginInput+'"');
-  
+
                 console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
                 res.redirect("/");
               }
@@ -519,10 +566,10 @@ router.post("/signIn", function(req, res) {
                 res.render("login",{inputVerify:false,inputFouned:false,loginInput:fields.loginInput,newUser:false});
               });
             }
-  
+
           }
-  
-  
+
+
         }
       });
     }
@@ -537,7 +584,7 @@ router.post("/signIn", function(req, res) {
       return;
     }
   });
-  
+
 });
 
 
@@ -564,10 +611,62 @@ router.post("/upload", function(req, res){
               recursive: true
             });
             }
+
+            const editedImageDir="public/covers/users/"+ found.unique_id +"/Products/" + c;
+            if (!fs.existsSync(editedImageDir)) {
+              fs.mkdirSync(editedImageDir, {
+              recursive: true
+            });
+            }
+
+
+
+
+
+
+
+
+    //         let imgActive = 'active/image.jpg';
+    //
+    //         Jimp.read('raw/originalimage.png')
+    //   .then((tpl) => tpl.clone().write(imgActive))
+    //   .then(() => Jimp.read(imgActive))
+    //   .then((tpl) =>
+    //       Jimp.read('raw/logo.png').then((logoTpl) => {
+    //           logoTpl.opacity(0.2)
+    //           return tpl.composite(logoTpl, 512, 512, [Jimp.BLEND_DESTINATION_OVER])
+    //       }),
+    //   )
+    //   .then((tpl) => tpl.write('raw/watermark.png'))
+    // }
+
+
+
+
+
+
             const form = formidable({ multiples: true, uploadDir: dir});
             form.keepExtensions=true;
             form.maxFileSize=10*1024*1024;
             form.parse(req, (err, fields, files) => {
+              const fileName = path.basename(files.productFiles.path);
+              const databaseDestination = "covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
+              const destination ="public/covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
+
+              Jimp.read(files.productFiles.path)
+              .then(image =>{
+                image.gaussian(1);
+                image.quality(50);
+                Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(font => {
+                image.print(font, 0, 0, "@ART APP");
+              });
+                image.write(destination);
+              })
+              .catch(err =>{
+                console.log(err);
+              });
+
+
               console.log(fields.type);
               const newProduct = new Product({
                 productId:c,
@@ -576,13 +675,18 @@ router.post("/upload", function(req, res){
                 tags:fields.tags,
                 description:fields.description,
                 filePath:files.productFiles.path,
+                coverPath:databaseDestination,
                 orginalPrice:fields.orginalPrice,
                 largePrice:fields.largePrice,
                 mediumPrice:fields.mediumPrice,
                 smallPrice:fields.smallPrice,
-                user:found
+                user:found,
+                dateAdded:date
               });
               newProduct.save();
+
+
+
               if (err) {
                 next(err);
                 return;
@@ -591,10 +695,35 @@ router.post("/upload", function(req, res){
             });
 
           });
-          
+
         }
     });
+
+
+
+
+
+
+
+
+
 });
+
+
+router.post("/search",function(req,res){
+  Product.find({$text:{$search:req.body.searchedItem}})
+// .skip(20)
+// .limit(10)
+.exec(function(err,docs){
+  console.log(docs);
+  console.log(docs.fileType);
+
+});
+res.redirect("/search/" + req.body.searchedItem);
+
+
+});
+
 // END OF POST ROUTE'S
 
 

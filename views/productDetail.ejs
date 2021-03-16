@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-12 picture">
                         <div class="card">
-                            <img src="../assets/images/test2.jpg" />
+                            <img src="/<%=item.coverPath%>" />
                         </div>
 
                     </div>
@@ -16,15 +16,15 @@
                         <div class="card">
                             <div class="name info">
                                 <label>  نام اثر </label>
-                                <p> غروب خورشید </p>
+                                <p><%=item.fileName%> </p>
                             </div>
                             <div class="artist info">
                                 <label> هنرمند</label>
-                                <p>  علیرضا هدایی </p>
+                                <p> <%=item.user.firstName%> </p>
                             </div>
                             <div class="tags info">
                                 <label> تگ ها </label>
-                                <p></p>
+                                <p><%=item.tags%></p>
                             </div>
                             <div class="sizes info">
                                 <label> سایز های موجود </label>
@@ -45,10 +45,10 @@
                             </div>
                             <div class="price info">
                                 <label> قیمت </label>
-                                <p class="small "> <span>5000</span> تومان </p>
-                                <p class="medium"><span>7000</span> تومان </p>
-                                <p class="large"> <span>1000</span> تومان </p>
-                                <p class="original showPrice"> <span>15000</span> تومان </p>
+                                <p class="small "> <span><%=item.smallPrice%></span> تومان </p>
+                                <p class="medium"><span><%=item.mediumPrice%></span> تومان </p>
+                                <p class="large"> <span><%=item.largePrice%></span> تومان </p>
+                                <p class="original showPrice"> <span><%=item.orginalPrice%></span> تومان </p>
                             </div>
                             <div class="buttons">
                                 <button type="submit" class="download"> دانلود </button>
@@ -63,9 +63,7 @@
             <div class="description">
                 <div class="row">
                     <h4 class="title"> توضیحات </h4>
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                    </p>
+                    <p><%=item.description%></p>
                 </div>
             </div>
             <div class="related">
@@ -103,7 +101,7 @@
 <!-- Scripts -->
 <%-include("scripts");-%>
 <!-- Custom -->
-<script src="../assets/js/chooseSize.js"></script>
+<script src="/assets/js/chooseSize.js"></script>
 <!-- Owl Carousel -->
 <script src="/assets/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js"></script>
 <script type="text/javascript">

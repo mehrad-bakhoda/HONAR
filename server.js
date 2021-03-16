@@ -16,12 +16,14 @@ const fs = require("fs");
 const MongoStore = require('connect-mongo')(session);
 const router = express.Router();
 require('dotenv').config();
+const Jimp=require("jimp");
 
 //schemas
 var User = require(__dirname + "/models/user.js");
-var User = require(__dirname + "/models/product.js");
+var Product = require(__dirname + "/models/product.js");
 //routes
 var routes= require(__dirname+"/routes/routes.js");
+var date = require(__dirname + "/date.js");
 
 //database
 mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/Art?retryWrites=true&w=majority", {
@@ -74,6 +76,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', routes);
+
 
 
 
