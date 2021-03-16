@@ -69,27 +69,11 @@
             <div class="related">
                 <h2> محصولات مرتبط </h2>
                 <div class="owl-carousel">
-                    <a href="#">
-                        <img src="../assets/images/test.jpg" />
+                  <% searched.forEach(function(product) { %>
+                    <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
+                        <img src="/<%=product.coverPath%>" />
                     </a>
-                    <a href="#">
-                        <img src="../assets/images/test3.jpg" />
-                    </a>
-                    <a href="#">
-                        <img src="../assets/images/test1.jpg" />
-                    </a>
-                    <a href="#">
-                        <img src="../assets/images/test4.png" />
-                    </a>
-                    <a href="#">
-                        <img src="../assets/images/test2.jpg" />
-                    </a>
-                    <a href="#">
-                        <img src="../assets/images/test.jpg" />
-                    </a>
-                    <a href="#">
-                        <img src="../assets/images/test3.jpg" />
-                    </a>
+                    <% }) %>
                 </div>
             </div>
         </div>

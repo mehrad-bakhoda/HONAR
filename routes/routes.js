@@ -49,8 +49,15 @@ router.get("/",function(req,res){
 
 
 router.get("/search/:searchedItem",function(req,res){
+  Product.find({$text:{$search:req.params.searchedItem}})
+  // .skip(20)
+  // .limit(10)
+  .exec(function(err,found){
+    res.render("search",{searched:found});
 
-    res.render("search",{foundItem:req.params.searchedItem});
+  });
+
+
 
 
 });
@@ -102,19 +109,27 @@ router.get("/about-us",function(req,res){
 
   router.get("/Product/:itemID/:itemName", function(req, res) {
     const link = req.params.itemID;
-    let n = Product.findOne({
-      productId: link
-    }, function(err, found) {
-      if (found) {
-        res.render("productDetail", {
-          item:found
-        });
-      } else {
-        res.render("error404");
-      }
+    Product.find({$text:{$search:req.params.itemName}})
+    // .skip(20)
+    // .limit(10)
+    .exec(function(err,searchedItem){
+      let n = Product.findOne({
+        productId: link
+      }, function(err, found) {
+        if (found) {
+          res.render("productDetail", {
+            item:found,searched:searchedItem
+          });
+        } else {
+          res.render("error404");
+        }
+
+      });
 
     });
-  });
+
+
+});
 
 // END OF GET ROUTE'S
 
@@ -711,17 +726,8 @@ router.post("/upload", function(req, res){
 
 
 router.post("/search",function(req,res){
-  Product.find({$text:{$search:req.body.searchedItem}})
-// .skip(20)
-// .limit(10)
-.exec(function(err,docs){
-  console.log(docs);
-  console.log(docs.fileType);
 
-});
-res.redirect("/search/" + req.body.searchedItem);
-
-
+  res.redirect("/search/" + req.body.searchedItem);
 });
 
 // END OF POST ROUTE'S

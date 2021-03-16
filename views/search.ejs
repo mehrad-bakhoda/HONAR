@@ -6,45 +6,22 @@
     <section class="contents">
         <div class="container-fluid">
             <div class="row">
+              <% searched.forEach(function(product) { %>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
-                    <a href="/Product">
+                    <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
                         <div class="card product">
                             <div class="card-body">
-                                <img src="/assets/images/test1.jpg" />
+                                <img src="/<%=product.coverPath%>" />
                             </div>
                             <div class="card-footer">
-                                <p> artist name </p>
-                                <p> art name </p>
+                                <p> <%=product.fileName%> </p>
+                                <p> <%=product.user.firstName%> </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
-                    <a href="/Product">
-                        <div class="card product">
-                            <div class="card-body">
-                                <img src="/assets/images/test1.jpg" />
-                            </div>
-                            <div class="card-footer">
-                                <p> artist name </p>
-                                <p> art name </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
-                    <a href="/Product">
-                        <div class="card product">
-                            <div class="card-body">
-                                <img src="/assets/images/test1.jpg" />
-                            </div>
-                            <div class="card-footer">
-                                <p> artist name </p>
-                                <p> art name </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+
+                <% }) %>
             </div>
         </div>
     </section>

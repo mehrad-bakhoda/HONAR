@@ -74,7 +74,7 @@
                                             <img src="<%=product.coverPath%>" />
                                         </div>
                                         <div class="card-footer">
-                                            <p> <%=product.artist%> </p>
+                                            <p> <%=product.user.firstName%> </p>
                                             <p> <%=product.fileName%> </p>
                                         </div>
                                     </div>
@@ -233,13 +233,13 @@
                           <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
 
-                              <a href="/Product/<%=product.productId%>">
+                                <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
                                   <div class="card product hiddenItem">
                                       <div class="card-body">
                                           <img src="<%=product.coverPath%>"/>
                                       </div>
                                       <div class="card-footer">
-                                          <p> <%=product.artist%> </p>
+                                          <p> <%=product.user.firstName%> </p>
                                           <p> <%=product.fileName%> </p>
                                       </div>
                                   </div>
@@ -266,13 +266,13 @@
                           <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
 
-                              <a href="/Product/<%=product.productId%>">
+                                <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
                                   <div class="card product hiddenItem">
                                       <div class="card-body">
                                           <img src="<%=product.coverPath%>" />
                                       </div>
                                       <div class="card-footer">
-                                          <p> <%=product.artist%> </p>
+                                          <p> <%=product.user.firstName%> </p>
                                           <p> <%=product.fileName%> </p>
                                       </div>
                                   </div>

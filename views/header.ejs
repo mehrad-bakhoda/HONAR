@@ -26,9 +26,14 @@
         </div>
     </nav>
     <div class="searchSection">
+      <form name="searchForm" action="/search" method="post">
         <div class="general">
-            <i class="fal fa-search"></i>
-            <input type="text" placeholder="به دنبال چه هستید..." />
+
+
+
+
+            <a  onclick="submit_form(); return false;"><i class="fal fa-search"></i></a>
+            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />
             <i class="fal fa-angle-down"></i>
         </div>
         <div class="advanced advancedHidden">
@@ -75,6 +80,14 @@
             </div>
 
         </div>
+        </form>
 
     </div>
 </section>
+
+<script>
+function submit_form()
+{
+  document.searchForm.submit();
+}
+</script>
