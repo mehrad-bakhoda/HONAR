@@ -897,7 +897,6 @@ section.detailPage {
                                 label {
                                     width: 7rem;
                                     /*height: 2rem;*/
-
                                     @include sm {
                                         position: relative;
                                     }
@@ -1076,6 +1075,7 @@ section.detailPage {
                         top: 32%;
 
                         .owl-prev {
+                            box-shadow: none !important;
                             position: absolute;
                             left: -1.5rem;
 
@@ -1091,6 +1091,7 @@ section.detailPage {
                         }
 
                         .owl-next {
+                            box-shadow: none !important;
                             position: absolute;
                             right: -1.5rem;
 

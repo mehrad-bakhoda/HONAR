@@ -958,6 +958,7 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
   top: 32%;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev {
+  box-shadow: none !important;
   position: absolute;
   left: -1.5rem;
 }
@@ -970,6 +971,7 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
   color: #00b4bb;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next {
+  box-shadow: none !important;
   position: absolute;
   right: -1.5rem;
 }
