@@ -736,6 +736,12 @@ section.detailPage section.contents .container-fluid .top .row .picture .card im
   }
 }
 @media (max-width: 480px) {
+  section.detailPage section.contents .container-fluid .top .row .picture .card img {
+    max-height: 14rem;
+    max-width: 14rem;
+  }
+}
+@media (max-width: 480px) {
   section.detailPage section.contents .container-fluid .top .row .infos {
     padding: 0;
   }
