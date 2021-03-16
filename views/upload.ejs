@@ -6,55 +6,59 @@
         <div class="container-fluid">
             <%-include("notif");-%>
             <div class="row">
-                <div class="info">
-                    <h4> اطلاعات اثر خود را وارد کنید </h4>
-                    <div class="name">
-                        <input type="text" class="nameInput" placeholder="نام اثر" />
+                <form action="/upload" enctype="multipart/form-data" method="post">
+                    <div class="info">
+                        <h4> اطلاعات اثر خود را وارد کنید </h4>
+                        <div class="name">
+                            <input name="fileName" type="text" class="nameInput" placeholder="نام اثر" />
+                        </div>
+                        <div class="tags">
+                            <input name="tags" type="text" class="tagsInput" placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
+                        </div>
+                        <div class="description">
+                            <textarea name="description" class="descriptionText" maxlength="100" placeholder="توضیحات اثر"></textarea>
+                        </div>
                     </div>
-                    <div class="tags">
-                        <input type="text" class="tagsInput" placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
+                    <div class="uploadPic">
+                        <input type="file" name="productFiles"/>
                     </div>
-                    <div class="description">
-                        <textarea class="descriptionText" maxlength="100" placeholder="توضیحات اثر"></textarea>
-                    </div>
-                </div>
-                <div class="uploadPic">
-                    <input type="file" />
-                </div>
-                <div class="category">
-                    <lable class="title"> نوع: </lable>
+                    <div class="category">
+                        <lable class="title"> نوع: </lable>
 
-                    <div class="options">
-                        <label for="photography" class="radioLabel" id="photography">عکاسی</label>
-
-                        <label for="graphic" class="radioLabel" id="graphic">گرافیک</label>
-
-                        <label for="clip" class="radioLabel" id="clip">کلیپ</label>
+                        <div class="options">
+                            <input type="text" id="types" name = "types" style="display:none;" />
+                            
+                            <label for="photography" class="radioLabel" id="photography">عکاسی</label>
+                               
+                            <label for="graphic" class="radioLabel" id="graphic">گرافیک</label>
+                            
+                            <label for="clip" class="radioLabel" id="clip">کلیپ</label>
+                        </div>
                     </div>
-                </div>
-                <div class="pricing original">
-                    <input type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" />
-                    <label class="toman"> تومان </label>
-                    <label class="free"> رایگان </label>
-                </div>
-                <div class="pricing large">
-                    <input type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" />
-                    <label class="toman"> تومان </label>
-                    <label class="free"> رایگان </label>
-                </div>
-                <div class="pricing medium">
-                    <input type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" />
-                    <label class="toman"> تومان </label>
-                    <label class="free"> رایگان </label>
-                </div>
-                <div class="pricing small">
-                    <input type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" />
-                    <label class="toman"> تومان </label>
-                    <label class="free"> رایگان </label>
-                </div>
-                <div class="buttons">
-                    <button type="submit">تایید</button>
-                </div>
+                    <div class="pricing original">
+                        <input name ="orginalPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" />
+                        <label class="toman"> تومان </label>
+                        <label class="free"> رایگان </label>
+                    </div>
+                    <div class="pricing large">
+                        <input name ="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" />
+                        <label class="toman"> تومان </label>
+                        <label class="free"> رایگان </label>
+                    </div>
+                    <div class="pricing medium">
+                        <input name ="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" />
+                        <label class="toman"> تومان </label>
+                        <label class="free"> رایگان </label>
+                    </div>
+                    <div class="pricing small">
+                        <input name ="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" />
+                        <label class="toman"> تومان </label>
+                        <label class="free"> رایگان </label>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit">تایید</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

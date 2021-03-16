@@ -66,15 +66,16 @@
                          id="tabDownC"
                          role="tabpanel"
                          aria-labelledby="tabDownH">
-                        <form action="/signIn" method="post">
+                        <form action="/signIn" enctype="multipart/form-data" method="post">
                             <input hidden name="loginInput" value=<%=loginInput%> />
+                            <input hidden name="userType" value="Downloader"/>
                             <h4> اطلاعات خود را وارد کنید </h4>
-                            <input type="firstName" placeholder="نام" />
-                            <input type="lastName" placeholder="نام خانوادگی" />
-                            <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <input name="firstName" type="firstName" placeholder="نام" />
+                            <input name="lastName"  type="lastName" placeholder="نام خانوادگی" />
+                            <input name="password"  type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <input name="password"  type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
-                                <button type="submit" class="next">بعدی</button>
+                                <button type="submit" class="next">ثبت نام</button>
                             </div>
                         </form>
                     </div>
@@ -82,22 +83,23 @@
                          id="tabUpC"
                          role="tabpanel"
                          aria-labelledby="tabUpH">
-                        <form action="/signIn" method="post">
+                        <form action="/signIn" enctype="multipart/form-data" method="post">
                             <input hidden name="loginInput" value=<%=loginInput%> />
+                            <input hidden name="userType" value="Uploader"/>
                             <h4> اطلاعات خود را وارد کنید </h4>
-                            <input type="firstName" placeholder="نام" />
-                            <input type="lastName" placeholder="نام خانوادگی" />
-                            <input type="text" placeholder="نام کاربری" />
-                            <input type="email" class="mail" placeholder="ایمیل شما" />
+                            <input name="firstName" type="firstName" placeholder="نام" />
+                            <input name="lastName" type="lastName" placeholder="نام خانوادگی" />
+                            <input name="userName" type="text" placeholder="نام کاربری" />
+                            <input name="emial" type="email" class="mail" placeholder="ایمیل شما" />
                             <i class="fal fa-envelope"></i>
-                            <input type="url" class="instagram" placeholder="لینک اینستاگرام شما" />
+                            <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" />
                             <i class="fab fa-instagram"></i>
-                            <input type="url" class="twitter" placeholder="لینک توئیتر شما" />
+                            <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" />
                             <i class="fab fa-twitter"></i>
                             <textarea class="bio" placeholder="درباره شما..."></textarea>
-                            <input type="file" class="profilePic"/>
-                            <input type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <input name="profilePic" type="file" class="profilePic"/>
+                            <input name ="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <input name ="passwordRepeat" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
                             </div>
@@ -108,10 +110,10 @@
             <% } %>
             <%if(inputFouned == true && inputVerify == true && newUser==false){%>
             <div class="card password">
-                <form action="/signIn" method="post">
-                    <input hidden name="loginInput" value=<%=loginInput%> />
+                <form action="/signIn" enctype="multipart/form-data" method="post">
                     <h4> رمز عبور خود را وارد کنید </h4>
-                    <input type="password" class="passwordInput" placeholder="رمز عبور " />
+                    <input hidden name="loginInput" value=<%=loginInput%> />
+                    <input name ="password" type="password" class="passwordInput" placeholder="رمز عبور " />
                     <div class="buttons">
                         <button type="submit" class="next">ورود</button>
                     </div>

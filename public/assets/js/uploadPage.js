@@ -54,4 +54,12 @@ $(".category .options label.radioLabel").click(function () {
         $(labels[i]).removeClass("selected");
     }
     $(this).addClass("selected");
+    if($(this).text() === "گرافیک")
+        $("#types").val("graphic");
+    if($(this).text() === "عکاسی")
+        $("#types").val("photo");
+    if($(this).text() === "کلیپ")
+        $("#types").val("clip");
+    
+    
 });
