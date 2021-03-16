@@ -12,15 +12,27 @@ body {
     direction: ltr;
 }
 
-::placeholder {
-    opacity: 0.8;
+
+
+.page {
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
 }
 
-@-webkit-keyframes autofill {
-    0%,100% {
-        color: $text-color;
-        background: transparent;
+section.contents {
+    padding: 5rem 0 1rem;
+
+    @include md {
+        padding: 2rem 0;
     }
+}
+
+/*#endregion */
+
+/*#region Buttons and Inputs*/
+::placeholder {
+    opacity: 0.8;
 }
 
 input:-webkit-autofill,
@@ -43,25 +55,40 @@ input {
     color: $error-color;
 }
 
-.page {
-    max-width: 90rem;
-    width: 100%;
-    margin: 0 auto;
+button, input[type=file]::before {
+    text-align: center;
+    transition: 0.4s;
+    border: none;
+    box-shadow: $box-shadow;
+    color: $text-color;
+    padding: 0.5rem 1rem;
+    border-radius: $radious;
+    background-color: transparent;
 }
 
-section.contents {
-    padding: 5rem 0 1rem;
+button:hover, input[type=file]:hover {
+    transition: 0.4s;
+    border: none;
+    color: $blue-color;
+    box-shadow: $hover-shadow;
 
-    @include md {
-        padding: 2rem 0;
+    &::before {
+        transition: 0.4s;
+        border: none;
+        color: $blue-color !important;
+        box-shadow: $hover-shadow;
     }
+}
+button:focus,
+input:focus {
+    transition: 0.4s;
+    outline: none;
 }
 
 /*#endregion */
 
 /*#region Notification*/
 .notif {
-    padding: 1rem;
     transition: 0.4s;
     position: absolute;
     top: 5rem;
@@ -73,15 +100,19 @@ section.contents {
 
     &.error {
         p {
+            padding: 1rem;
             margin-bottom: 0;
             color: $error-color;
+            box-shadow: $error-shadow;
         }
     }
 
     &.success {
         p {
+            padding: 1rem;
             margin-bottom: 0;
             color: $success-color;
+            box-shadow: $success-shadow;
         }
     }
 }
@@ -235,6 +266,7 @@ section.header {
         margin: auto;
         padding: 1rem 0.5rem;
         width: 98%;
+
         @include xxs {
             width: 100%;
         }
@@ -303,25 +335,22 @@ section.header {
             position: relative;
             max-height: 40rem;
 
-            .selected {
-                transition: 0.4s;
-                color: $blue-color;
-                font-weight: bold;
-            }
-
             input[type=radio] {
                 display: none;
             }
 
             label.radioLabel {
                 cursor: pointer;
-                transition: 0.4s;
-                text-align: right;
                 width: 100%;
                 margin: 0 0.5rem;
                 text-align: center;
-                border: 1px solid;
+                transition: 0.4s;
+                border: none;
+                box-shadow: $box-shadow;
+                color: $text-color;
+                padding: 0.5rem 1rem;
                 border-radius: $radious;
+                background-color: transparent;
             }
 
             .options {
@@ -369,6 +398,14 @@ section.header {
                     }
                 }
             }
+        }
+
+        .selected {
+            transition: 0.4s;
+            border: none;
+            color: $blue-color !important;
+            box-shadow: $hover-shadow!important;
+            font-weight: bold;
         }
 
         .advancedHidden {
@@ -503,17 +540,18 @@ section.homePage {
 
                             button.seeMore {
                                 position: relative;
-                                border: 1px solid $text-color;
-                                border-radius: $radious;
+                                display: flex;
+                                /*border: 1px solid $text-color;
+                                border-radius: $radious;*/
                                 margin: auto;
                                 font-size: 20px;
                                 transition: 0.4s;
                                 background-color: transparent;
-                                padding: 0.5rem 1rem 0.5rem 2.5rem;
-                                color: $text-color;
+                                /*padding: 0.5rem 1rem 0.5rem 2.5rem;
+                                color: $text-color;*/
 
                                 i {
-                                    position: absolute;
+                                    /*position: absolute;*/
                                     left: 0.5rem;
                                     top: 0.5rem;
                                     width: 2rem;
@@ -522,8 +560,8 @@ section.homePage {
 
                                 &:hover {
                                     transition: 0.4s;
-                                    color: $blue-color;
-                                    border: 1px solid $blue-color;
+                                    /*color: $blue-color;
+                                    border: 1px solid $blue-color;*/
                                 }
 
                                 &:focus {
@@ -549,7 +587,6 @@ section.loginPage {
             }
 
             .card {
-                box-shadow: $box-shadow;
                 margin-top: 5rem;
                 padding: 2rem;
                 max-width: 40rem;
@@ -557,7 +594,6 @@ section.loginPage {
                 width: 100%;
                 border-radius: $radious;
                 background-color: $gray-color;
-                box-shadow: none;
 
                 @include sm {
                     padding: 2rem 1rem;
@@ -609,32 +645,25 @@ section.loginPage {
                 input[type=file] {
                     padding: 0;
                     visibility: hidden;
-                    width: 12rem;
-                    height: 2.6rem;
+                    width: 14rem;
+                    margin-right: -1rem;
+                    height: 3.5rem;
                     position: relative;
 
                     &::before {
                         visibility: visible;
+                        margin-right: 1rem;
                         transition: 0.4s;
                         content: "آپلود تصویر کاربری";
                         font-size: 18px;
                         position: absolute;
                         background-color: transparent;
-                        padding: 0.25rem 1rem;
-                        width: 12rem;
+                        padding: 0.5rem 1rem;
+                        width: 11rem;
                         cursor: pointer;
                         text-align: center;
                         color: $text-color;
-                        border: 1px solid $text-color;
                         border-radius: $radious;
-                    }
-
-                    &:hover {
-                        &::before {
-                            transition: 0.4s;
-                            color: $blue-color;
-                            border: 1px solid $blue-color;
-                        }
                     }
                 }
 
@@ -645,6 +674,7 @@ section.loginPage {
                     background-color: $body-color;
                     border: none;
                     border-radius: $radious;
+                    box-shadow: $box-shadow;
                     width: 100%;
                     margin-bottom: 1rem;
                     padding: 0.5rem;
@@ -678,25 +708,13 @@ section.loginPage {
                     button {
                         float: left;
                         margin-right: 1rem;
-                        transition: 0.4s;
                         font-size: 20px;
                         display: block;
-                        color: $text-color;
-                        background-color: transparent;
-                        border: 1px solid $text-color;
-                        border-radius: $radious;
                         width: 8rem;
-                        text-align: center;
 
                         @include xs {
                             font-size: 18px;
                             width: 6rem;
-                        }
-
-                        &:hover {
-                            transition: 0.4s;
-                            color: $blue-color;
-                            border-color: $blue-color;
                         }
                     }
                 }
@@ -734,6 +752,8 @@ section.loginPage {
                         padding: 0;
 
                         li.nav-item {
+                            background-color: transparent;
+
                             a.nav-link {
                                 color: $text-color;
                                 font-size: 20px;
@@ -904,16 +924,19 @@ section.detailPage {
                                         font-weight: lighter;
                                         font-size: 14px;
                                         position: relative;
-                                        cursor: pointer;
-                                        transition: 0.4s;
                                         height: 2rem;
                                         padding-top: 0.25rem;
-                                        text-align: right;
                                         width: 23.2%;
                                         margin: 0 0.4rem 0.4rem 0;
+                                        cursor: pointer;
                                         text-align: center;
-                                        border: 1px solid $text-color;
+                                        transition: 0.4s;
+                                        border: none;
+                                        box-shadow: $box-shadow;
+                                        color: $text-color;
+                                        padding: 0.5rem 1rem;
                                         border-radius: $radious;
+                                        background-color: transparent;
 
                                         @media (max-width: 1180px) and (min-width: 992px) {
                                             width: 47%;
@@ -931,8 +954,9 @@ section.detailPage {
 
                                     .selected {
                                         transition: 0.4s;
-                                        color: $blue-color;
-                                        border: 1px solid $blue-color !important;
+                                        border: none;
+                                        color: $blue-color !important;
+                                        box-shadow: $hover-shadow !important;
                                         font-weight: bold;
                                     }
                                 }
@@ -966,21 +990,9 @@ section.detailPage {
 
                                 button {
                                     position: relative;
-                                    border: 1px solid $text-color;
-                                    border-radius: $radious;
                                     margin: auto auto 0.5rem;
                                     font-size: 18px;
-                                    transition: 0.4s;
-                                    background-color: transparent;
-                                    padding: 0.5rem;
                                     width: 12rem;
-                                    color: $text-color;
-
-                                    &:hover {
-                                        transition: 0.4s;
-                                        color: $blue-color;
-                                        border: 1px solid $blue-color;
-                                    }
                                 }
                             }
                         }
@@ -1033,7 +1045,6 @@ section.detailPage {
 
 
                     .owl-item {
-                        /*padding: 1rem ;*/
                         position: relative;
                         height: 16rem;
 
@@ -1318,27 +1329,14 @@ Section.uploadPage {
                     text-align: center;
 
                     button {
-                        padding: 0.5rem;
                         float: left;
-                        transition: 0.4s;
                         font-size: 20px;
                         display: block;
-                        color: $text-color;
-                        background-color: transparent;
-                        border: 1px solid $text-color;
-                        border-radius: $radious;
                         width: 10rem;
-                        text-align: center;
 
                         @include xs {
                             font-size: 18px;
                             width: 8rem;
-                        }
-
-                        &:hover {
-                            transition: 0.4s;
-                            color: $blue-color;
-                            border-color: $blue-color;
                         }
                     }
                 }
