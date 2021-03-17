@@ -70,6 +70,10 @@ const productSchema = new mongoose.Schema({
     min: 0,
     default:0
   },
+  dateAdded:{
+    type:Date,
+
+  },
   comments: [{
     type: mongoose.Schema.Types.ObjectId, ref: "comment"
   }],
@@ -78,7 +82,7 @@ const productSchema = new mongoose.Schema({
   }
 
 });
-productSchema.index({fileType:"text",fileName:"text",subject:"text",field:"text",university:"text",teacher:"text",writer:"text"});
+productSchema.index({type:"text",fileName:"text",artist:"text",tags:"text"});
 
 //exporting noteSchema model
 module.exports =  mongoose.model("product", productSchema);
