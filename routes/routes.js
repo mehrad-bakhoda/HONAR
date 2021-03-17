@@ -113,7 +113,7 @@ router.get("/about-us",function(req,res){
     // .skip(20)
     // .limit(10)
     .exec(function(err,searchedItem){
-      let n = Product.findOne({
+       Product.findOne({
         productId: link
       }, function(err, found) {
         if (found) {
@@ -128,6 +128,24 @@ router.get("/about-us",function(req,res){
 
     });
 
+
+});
+
+
+router.get("/user/:userId/:userName",function(req,res){
+
+  User.findOne({
+    unique_id: req.params.userId
+  }, function(err, found) {
+    if (found) {
+      res.render("user", {
+        user:found
+      });
+    } else {
+      res.render("error404");
+    }
+
+  });
 
 });
 

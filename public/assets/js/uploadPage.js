@@ -9,7 +9,7 @@ function isNumberKey(evt){
 function chooseFree(element) {
     $(element + " label.free").addClass("selected");
     $(element + " label.toman").removeClass("shown");
-    $(element + " .price").val("");
+    $(element + " .price").val("0");
 }
 
 function chooseMoney(element) {
@@ -60,6 +60,6 @@ $(".category .options label.radioLabel").click(function () {
         $("#types").val("photo");
     if($(this).text() === "کلیپ")
         $("#types").val("clip");
-    
-    
+
+
 });

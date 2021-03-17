@@ -20,7 +20,12 @@
                             </div>
                             <div class="artist info">
                                 <label> هنرمند</label>
-                                <p> <%=item.user.firstName%> </p>
+
+
+                                  <a href="/user/<%=item.user.unique_id%>/<%=item.user.firstName%>">
+                                  <p> <%=item.user.firstName%> </p>
+                                </a>
+
                             </div>
                             <div class="tags info">
                                 <label> تگ ها </label>
@@ -45,10 +50,36 @@
                             </div>
                             <div class="price info">
                                 <label> قیمت </label>
-                                <p class="small "> <span><%=item.smallPrice%></span> تومان </p>
-                                <p class="medium"><span><%=item.mediumPrice%></span> تومان </p>
-                                <p class="large"> <span><%=item.largePrice%></span> تومان </p>
+                                <% if(item.orginalPrice === 0){%>
+                                  <p class="original showPrice">  رایگان </p>
+                              <%  }else{%>
                                 <p class="original showPrice"> <span><%=item.orginalPrice%></span> تومان </p>
+                              <%} %>
+                                <% if(item.largePrice === 0){%>
+                                  <p class="large">  رایگان </p >
+                                <% }else{%>
+                                  <p class="large"> <span><%=item.largePrice%></span> تومان </p>
+                                <%}%>
+                                <% if(item.mediumPrice === 0){%>
+                                  <p class="medium">  رایگان </p>
+                                <%}else{%>
+                                  <p class="medium"><span><%=item.mediumPrice%></span> تومان </p>
+                                <%}%>
+                                <% if(item.smallPrice === 0){%>
+                                  <p class="small">  رایگان </p>
+                                <%}else{%>
+                                    <p class="small "> <span><%=item.smallPrice%></span> تومان </p>
+                                <%}%>
+
+
+
+
+
+
+
+
+
+
                             </div>
                             <div class="buttons">
                                 <button type="submit" class="download"> دانلود </button>
