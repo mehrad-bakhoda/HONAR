@@ -64,10 +64,10 @@ button, input[type=file]::before {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   color: #565656;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: transparent;
 }
 
@@ -97,8 +97,8 @@ input:focus {
   position: absolute;
   top: 5rem;
   right: -100rem;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   background-color: #f0f0f0;
   z-index: 100;
 }
@@ -136,7 +136,7 @@ input:focus {
   background-color: transparent;
   height: 16rem;
   padding: 0;
-  border-radius: 5px;
+  border-radius: 8px;
   position: relative;
   margin: 1rem 0.5rem;
 }
@@ -236,11 +236,11 @@ section.header .navbar .container-fluid .leftSide a.profile {
   left: 2.5rem;
 }
 section.header .searchSection {
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   text-align: center;
   margin-bottom: 3rem;
   background-color: #f0f0f0;
-  border-radius: 5px;
+  border-radius: 8px;
   max-width: 40rem;
   margin: auto;
   padding: 1rem 0.5rem;
@@ -315,10 +315,10 @@ section.header .searchSection .advanced label.radioLabel {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   color: #565656;
   padding: 0.5rem 0.4rem;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: transparent;
 }
 section.header .searchSection .advanced .options {
@@ -477,8 +477,8 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
   background-color: #f0f0f0;
-  border-radius: 5px;
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  border-radius: 8px;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
   padding: 1rem 1rem 5rem;
@@ -491,7 +491,7 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
   position: relative;
   display: flex;
   /*border: 1px solid $text-color;
-  border-radius: $radious;*/
+  border-radius: $radius;*/
   margin: auto;
   font-size: 20px;
   transition: 0.4s;
@@ -529,7 +529,7 @@ section.loginPage section.contents .container-fluid .card {
   max-width: 40rem;
   margin: auto;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #f0f0f0;
 }
 @media (max-width: 767px) {
@@ -598,7 +598,7 @@ section.loginPage section.contents .container-fluid .card input[type=file]::befo
   cursor: pointer;
   text-align: center;
   color: #565656;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 section.loginPage section.contents .container-fluid .card textarea {
   transition: 0.4s;
@@ -606,8 +606,8 @@ section.loginPage section.contents .container-fluid .card textarea {
   resize: none;
   background-color: #f0f0f0;
   border: none;
-  border-radius: 5px;
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  border-radius: 8px;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -684,18 +684,18 @@ section.loginPage section.contents .container-fluid .card.password ul.nav-tabs l
   transition: 0.4s;
   background-color: transparent;
   border: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 section.loginPage section.contents .container-fluid .card.password ul.nav-tabs li.nav-item a.nav-link.active {
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 4px -6px 8px -6px #a9a9a9, 8px 12px 8px -6px #a9a9a9;
   background-color: #f0f0f0;
 }
 section.loginPage section.contents .container-fluid .card.password .tab-content {
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   background-color: #f0f0f0;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   padding: 2rem;
   border: none;
 }
@@ -751,9 +751,9 @@ section.detailPage section.contents .container-fluid .top .row .infos .card {
   padding: 1rem;
   border: none;
   box-shadow: none;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #f0f0f0;
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info {
   margin: 0 1rem;
@@ -838,10 +838,10 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   color: #565656;
   padding: 0.5rem 0;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: transparent;
 }
 @media (max-width: 1180px) and (min-width: 992px) {
@@ -898,9 +898,9 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   width: 12rem;
 }
 section.detailPage section.contents .container-fluid .description {
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   margin-top: 2rem;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #f0f0f0;
   padding: 2rem;
 }
@@ -914,7 +914,7 @@ section.detailPage section.contents .container-fluid .description {
   section.detailPage section.contents .container-fluid .description .row {
     background-color: #f0f0f0;
     padding: 2rem 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
   }
 }
 section.detailPage section.contents .container-fluid .description .row h4 {
@@ -1001,10 +1001,10 @@ Section.uploadPage section.contents {
   }
 }
 Section.uploadPage section.contents .container-fluid .row {
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   padding: 1rem 1rem 2rem;
   background-color: #f0f0f0;
-  border-radius: 5px;
+  border-radius: 8px;
   margin: auto;
   width: 100%;
   max-width: 40rem;
@@ -1053,7 +1053,7 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   resize: none;
   background-color: #f0f0f0;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 100%;
   margin-bottom: 3rem;
   padding: 0.5rem;
@@ -1089,7 +1089,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   text-align: center;
   color: #565656;
   border: 1px solid #565656;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]:hover::before {
   transition: 0.4s;
@@ -1129,7 +1129,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.toman {
 Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   padding: 0.4rem 0.3rem;
   border: 1px solid #565656;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   float: left;
 }
@@ -1165,7 +1165,7 @@ Section.uploadPage section.contents .container-fluid .row .category label.radioL
   margin: 0 0.5rem 0 0;
   text-align: center;
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 Section.uploadPage section.contents .container-fluid .row .category .options {
   text-align: right;
@@ -1225,9 +1225,9 @@ section.userPage section.contents .container-fluid .row.top {
   }
 }
 section.userPage section.contents .container-fluid .row.top .info {
-  box-shadow: 7px 7px 8px -6px #a9a9a9;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
   background-color: #f0f0f0;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 1rem;
   text-align: center;
 }

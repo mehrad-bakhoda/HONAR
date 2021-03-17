@@ -62,7 +62,7 @@ button, input[type=file]::before {
     box-shadow: $box-shadow;
     color: $text-color;
     padding: 0.5rem 1rem;
-    border-radius: $radious;
+    border-radius: $radius;
     background-color: transparent;
 }
 
@@ -93,8 +93,8 @@ input:focus {
     position: absolute;
     top: 5rem;
     right: -100rem;
-    border-top-left-radius: $radious;
-    border-bottom-left-radius: $radious;
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
     background-color: $gray-color;
     z-index: 100;
 
@@ -138,7 +138,7 @@ input:focus {
     background-color: transparent;
     height: 16rem;
     padding: 0;
-    border-radius: $radious;
+    border-radius: $radius;
     position: relative;
     margin: 1rem 0.5rem;
 
@@ -261,7 +261,7 @@ section.header {
         text-align: center;
         margin-bottom: 3rem;
         background-color: $gray-color;
-        border-radius: 5px;
+        border-radius: $radius;
         max-width: 40rem;
         margin: auto;
         padding: 1rem 0.5rem;
@@ -349,7 +349,7 @@ section.header {
                 box-shadow: $box-shadow;
                 color: $text-color;
                 padding: 0.5rem 0.4rem;
-                border-radius: $radious;
+                border-radius: $radius;
                 background-color: transparent;
             }
 
@@ -522,7 +522,7 @@ section.homePage {
                             &.active {
                                 transition: 0.4s;
                                 background-color: $gray-color;
-                                border-radius: $radious;
+                                border-radius: $radius;
                                 box-shadow: $box-shadow;
                             }
                         }
@@ -542,7 +542,7 @@ section.homePage {
                                 position: relative;
                                 display: flex;
                                 /*border: 1px solid $text-color;
-                                border-radius: $radious;*/
+                                border-radius: $radius;*/
                                 margin: auto;
                                 font-size: 20px;
                                 transition: 0.4s;
@@ -592,7 +592,7 @@ section.loginPage {
                 max-width: 40rem;
                 margin: auto;
                 width: 100%;
-                border-radius: $radious;
+                border-radius: $radius;
                 background-color: $gray-color;
 
                 @include sm {
@@ -663,7 +663,7 @@ section.loginPage {
                         cursor: pointer;
                         text-align: center;
                         color: $text-color;
-                        border-radius: $radious;
+                        border-radius: $radius;
                     }
                 }
 
@@ -673,7 +673,7 @@ section.loginPage {
                     resize: none;
                     background-color: $body-color;
                     border: none;
-                    border-radius: $radious;
+                    border-radius: $radius;
                     box-shadow: $box-shadow;
                     width: 100%;
                     margin-bottom: 1rem;
@@ -760,11 +760,11 @@ section.loginPage {
                                 transition: 0.4s;
                                 background-color: transparent;
                                 border: none;
-                                border-top-left-radius: $radious;
-                                border-top-right-radius: $radious;
+                                border-top-left-radius: $radius;
+                                border-top-right-radius: $radius;
 
                                 &.active {
-                                    box-shadow: $box-shadow;
+                                    box-shadow: 4px -6px 8px -6px #a9a9a9, 8px 12px 8px -6px #a9a9a9;
                                     background-color: $gray-color;
                                 }
                             }
@@ -774,8 +774,8 @@ section.loginPage {
                     .tab-content {
                         box-shadow: $box-shadow;
                         background-color: $gray-color;
-                        border-bottom-left-radius: $radious;
-                        border-bottom-right-radius: $radious;
+                        border-bottom-left-radius: $radius;
+                        border-bottom-right-radius: $radius;
                         padding: 2rem;
                         border: none;
 
@@ -840,7 +840,7 @@ section.detailPage {
                             padding: 1rem;
                             border: none;
                             box-shadow: none;
-                            border-radius: $radious;
+                            border-radius: $radius;
                             background-color: $gray-color;
                             box-shadow: $box-shadow;
 
@@ -936,7 +936,7 @@ section.detailPage {
                                         box-shadow: $box-shadow;
                                         color: $text-color;
                                         padding: 0.5rem 0;
-                                        border-radius: $radious;
+                                        border-radius: $radius;
                                         background-color: transparent;
 
                                         @media (max-width: 1180px) and (min-width: 992px) {
@@ -1005,7 +1005,7 @@ section.detailPage {
             .description {
                 box-shadow: $box-shadow;
                 margin-top: 2rem;
-                border-radius: $radious;
+                border-radius: $radius;
                 background-color: $gray-color;
                 padding: 2rem;
 
@@ -1018,7 +1018,7 @@ section.detailPage {
                     @include xxs {
                         background-color: $gray-color;
                         padding: 2rem 1rem;
-                        border-radius: $radious;
+                        border-radius: $radius;
                     }
 
 
@@ -1132,7 +1132,7 @@ Section.uploadPage {
                 box-shadow: $box-shadow;
                 padding: 1rem 1rem 2rem;
                 background-color: $gray-color;
-                border-radius: $radious;
+                border-radius: $radius;
                 margin: auto;
                 width: 100%;
                 max-width: 40rem;
@@ -1185,7 +1185,7 @@ Section.uploadPage {
                         resize: none;
                         background-color: $body-color;
                         border: none;
-                        border-radius: $radious;
+                        border-radius: $radius;
                         width: 100%;
                         margin-bottom: 3rem;
                         padding: 0.5rem;
@@ -1225,7 +1225,7 @@ Section.uploadPage {
                             text-align: center;
                             color: $text-color;
                             border: 1px solid $text-color;
-                            border-radius: $radious;
+                            border-radius: $radius;
                         }
 
                         &:hover {
@@ -1275,7 +1275,7 @@ Section.uploadPage {
                         &.free {
                             padding: 0.4rem 0.3rem;
                             border: 1px solid $text-color;
-                            border-radius: $radious;
+                            border-radius: $radius;
                             cursor: pointer;
                             float: left;
                         }
@@ -1318,7 +1318,7 @@ Section.uploadPage {
                         margin: 0 0.5rem 0 0;
                         text-align: center;
                         border: 1px solid;
-                        border-radius: $radious;
+                        border-radius: $radius;
                     }
 
                     .options {
@@ -1402,7 +1402,7 @@ section.userPage {
                 .info {
                     box-shadow: $box-shadow;
                     background-color: $gray-color;
-                    border-radius: $radious;
+                    border-radius: $radius;
                     padding: 1rem;
                     text-align: center;
 
