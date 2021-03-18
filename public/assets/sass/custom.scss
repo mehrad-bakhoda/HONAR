@@ -79,6 +79,7 @@ button:hover, input[type=file]:hover {
         box-shadow: $hover-shadow;
     }
 }
+
 button:focus,
 input:focus {
     transition: 0.4s;
@@ -150,7 +151,7 @@ input:focus {
             transition: 0.4s;
             max-height: 12rem;
             margin: auto;
-            border-radius: 5px;
+            border-radius: $radius;
             box-shadow: $image-shadow;
             max-width: 15rem;
             width: auto;
@@ -363,23 +364,33 @@ section.header {
                 margin: 1rem auto;
                 padding: 0 2rem 0 1rem;
 
+                @include xs {
+                    padding: 0 0.5rem;
+                }
+
                 input {
                     padding: 0 0.1rem;
                 }
             }
 
             .category,
-            .orientation {
+            .orientation, .type {
                 padding: 1.5rem 0;
                 display: flex;
 
+                @include xs {
+                    display: block;
+                    padding: 0.5rem 0 1.5rem 0;
+                }
+
                 .title {
+                    padding-top: 0.5rem;
                     width: 6rem;
                     text-align: right;
                     margin-right: 2rem;
 
                     @include xs {
-                        margin-right: 1rem;
+                        margin-right: 0;
                     }
                 }
             }
@@ -388,13 +399,19 @@ section.header {
                 padding: 1.5rem 0;
                 display: flex;
 
+                @include xs {
+                    display: block;
+                    padding: 0.5rem 0 1.5rem 0;
+                }
+
                 .title {
+                    padding-top: 0.5rem;
                     width: 6rem;
                     text-align: right;
                     margin-right: 2rem;
 
                     @include xs {
-                        margin-right: 1rem;
+                        margin-right: 0;
                     }
                 }
             }
@@ -404,7 +421,7 @@ section.header {
             transition: 0.4s;
             border: none;
             color: $blue-color !important;
-            box-shadow: $hover-shadow!important;
+            box-shadow: $hover-shadow !important;
             font-weight: bold;
         }
 
@@ -549,7 +566,6 @@ section.homePage {
                                 background-color: transparent;
                                 /*padding: 0.5rem 1rem 0.5rem 2.5rem;
                                 color: $text-color;*/
-
                                 i {
                                     /*position: absolute;*/
                                     left: 0.5rem;
@@ -744,9 +760,8 @@ section.loginPage {
                     }
                 }
 
-                &.password {
+                &.info {
                     padding: 0;
-                    background-color: transparent;
 
                     ul.nav-tabs {
                         padding: 0;
@@ -866,7 +881,8 @@ section.detailPage {
                                     }
                                 }
 
-                                p {
+                                a, p {
+                                    color: $text-color;
                                     position: absolute;
                                     left: 0;
 
@@ -1386,11 +1402,210 @@ section.searchPage {
 
 /*#region Cart Page */
 section.cartPage {
+    section.contents {
+        .container-fluid {
+            .row.top {
+                .items {
+                    padding: 1rem;
+
+                    .row.middle {
+                        .col-md-12 {
+                            .item {
+                                box-shadow: $box-shadow;
+                                background-color: transparent;
+                                padding: 1rem;
+
+                                .image {
+                                    padding: 0;
+                                    position: relative;
+                                    padding-right: 1rem;
+
+                                    img {
+                                        transition: 0.4s;
+                                        max-height: 4rem;
+                                        border-radius: $radius;
+                                        box-shadow: $image-shadow;
+                                        max-width: 4rem;
+                                        width: auto;
+
+                                        @include xs {
+                                            margin: 0;
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
+                                        }
+                                    }
+                                }
+
+                                .detail {
+                                }
+
+                                .buttons {
+                                    padding: 1rem;
+
+                                    button.delete {
+                                        float: left;
+                                        color: $error-color;
+                                        box-shadow: 7px 7px 8px -6px #d14774;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .total {
+                    padding: 1rem;
+
+                    .card {
+                        box-shadow: $box-shadow;
+                        background-color: transparent;
+                        padding: 2rem 1rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
 }
 /*#endregion */
 
 /*#region Dashboard Page */
 section.dashboardPage {
+    section.contents {
+        .container-fluid {
+            .part {
+                max-width: 40rem;
+                margin: 1rem auto;
+                box-shadow: $box-shadow;
+                padding: 1rem;
+                border-radius: $radius;
+
+                .header {
+                    text-align: center;
+                    cursor: pointer;
+                    background-color: transparent;
+
+
+                    h4 {
+                        color: $text-color;
+
+                        i.fa-angle-down {
+                            width: 2rem;
+                        }
+                    }
+                }
+
+                &.personalInfo {
+                    .collapseContent {
+                        input {
+                            transition: 0.4s;
+                            border: none;
+                            border-bottom: 2px solid $text-color;
+                            color: $text-color;
+                            background-color: transparent;
+                            width: 100%;
+                            height: 2.5rem;
+                            margin-bottom: 2rem;
+
+                            &.codeInput {
+                                padding: 0;
+                                text-align: center;
+                                font-size: 25px;
+                                width: 2rem;
+                                margin: 0 0.5rem;
+                                display: flex;
+
+                                @include xs {
+                                    width: 1.5rem;
+                                    margin: 0 0.3rem;
+                                }
+                            }
+
+                            &.mail, &.twitter, &.instagram {
+                                padding-left: 2.5rem;
+                            }
+                        }
+
+                        input:focus {
+                            transition: 0.4s;
+                            outline: none;
+                            border-bottom: 2px solid $blue-color;
+                        }
+
+                        input[type=file] {
+                            padding: 0;
+                            visibility: hidden;
+                            width: 14rem;
+                            margin-right: -1rem;
+                            height: 3.5rem;
+                            position: relative;
+
+                            &::before {
+                                visibility: visible;
+                                margin-right: 1rem;
+                                transition: 0.4s;
+                                content: "آپلود تصویر کاربری";
+                                font-size: 18px;
+                                position: absolute;
+                                background-color: transparent;
+                                padding: 0.5rem 1rem;
+                                width: 11rem;
+                                cursor: pointer;
+                                text-align: center;
+                                color: $text-color;
+                                border-radius: $radius;
+                            }
+                        }
+
+                        textarea {
+                            transition: 0.4s;
+                            height: 9rem;
+                            resize: none;
+                            background-color: $body-color;
+                            border: none;
+                            border-radius: $radius;
+                            box-shadow: $box-shadow;
+                            width: 100%;
+                            margin-bottom: 1rem;
+                            padding: 0.5rem;
+                            color: $text-color;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        i {
+                            font-size: 1.5rem;
+                            color: $text-color;
+                            width: 2rem;
+                            height: 2rem;
+                            margin-top: -4rem;
+                            float: left;
+                        }
+                    }
+                }
+
+                .collapseContent {
+                    transition: 0.4s;
+                    max-width: 40rem;
+                    margin: auto;
+                    position: relative;
+                    max-height: 70rem;
+                    background-color: transparent;
+                }
+
+                .contentHidden {
+                    transition: 0.4s;
+                    max-height: 0;
+                    visibility: hidden;
+                    opacity: 0;
+                }
+            }
+        }
+    }
 }
 /*#endregion */
 
@@ -1426,42 +1641,37 @@ section.userPage {
 
                     .row {
                         .summary {
-                            display: inline-flex;
                             margin-bottom: 2rem;
 
-                            .right {
-                                width: fit-content;
+                            .picture {
+                                padding: 1rem;
+                                text-align: center;
+                                img {
+                                    width: 7rem;
+                                    height: 7rem;
+                                    object-fit: cover;
+                                    border-radius: 100%;
+                                }
 
-                                .picture {
+                                i {
+                                    font-size: 4rem;
+                                    width: 7rem;
+                                    height: 7rem;
+                                    text-align: center;
+                                    color: $text-color;
                                     padding: 1rem;
+                                    border: 2px solid $text-color;
+                                    border-radius: 100%;
 
-                                    img {
-                                        width: 7rem;
-                                        height: 7rem;
-                                        object-fit: cover;
-                                        border-radius: 100%;
-                                    }
-
-                                    i {
-                                        font-size: 4rem;
-                                        width: 7rem;
-                                        height: 7rem;
-                                        text-align: center;
-                                        color: $text-color;
-                                        padding: 1rem;
-                                        border: 2px solid $text-color;
-                                        border-radius: 100%;
-
-                                        @include xs {
-                                            font-size: 3.5rem;
-                                            width: 6rem;
-                                            height: 6rem;
-                                        }
+                                    @include xs {
+                                        font-size: 3.5rem;
+                                        width: 6rem;
+                                        height: 6rem;
                                     }
                                 }
                             }
 
-                            .left {
+                            .bottom {
                                 width: inherit;
                                 text-align: center;
 
@@ -1474,7 +1684,7 @@ section.userPage {
                                     }
                                 }
 
-                                .social {
+                                .socialStats {
                                     display: inline-flex;
 
                                     a {
@@ -1500,9 +1710,7 @@ section.userPage {
                                     .instagram {
                                         width: fit-content;
                                     }
-                                }
 
-                                .stats {
                                     .productsCount {
                                         display: inline-flex;
 
