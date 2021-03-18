@@ -1259,6 +1259,9 @@ section.searchPage section.contents .container-fluid .row .result {
 section.cartPage section.contents .container-fluid .row.top .items {
   padding: 1rem;
 }
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 {
+  padding: 1rem;
+}
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
   box-shadow: 7px 7px 8px -6px #d3d3d3;
   background-color: transparent;
