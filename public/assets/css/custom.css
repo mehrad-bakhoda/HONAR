@@ -176,6 +176,10 @@ input:focus {
   height: 1.5rem;
   margin: 0;
 }
+.card.product .card-footer p i {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
 
 /*#endregion */
 /*#region Header*/
@@ -801,12 +805,17 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
   color: #565656;
   position: absolute;
   left: 0;
+  display: flex;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
     position: relative;
     text-align: center;
   }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .info a i, section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
+  margin-right: 0.5rem;
+  font-weight: bold;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
   display: flex;
@@ -895,6 +904,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .pri
   margin: 0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price .showPrice {
+  font-size: 1rem;
   transition: 0.4s;
   opacity: 1;
   visibility: visible;
@@ -913,9 +923,18 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button {
   position: relative;
-  margin: auto auto 0.5rem;
+  margin: auto auto 1rem;
   font-size: 18px;
   width: 12rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart {
+  transition: 0.4s;
+  color: #47d15f;
+  box-shadow: 7px 7px 8px -6px #47d15f;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy:hover, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #47d15f;
 }
 section.detailPage section.contents .container-fluid .description {
   box-shadow: 7px 7px 8px -6px #d3d3d3;
@@ -1248,7 +1267,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image {
   padding: 0;
   position: relative;
-  padding-right: 1rem;
+  padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
   transition: 0.4s;
@@ -1257,23 +1276,23 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 4rem;
   width: auto;
+  margin: 0 auto;
 }
-@media (max-width: 580px) {
-  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .detail {
+  padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons {
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons button.delete {
+  transition: 0.4s;
   float: left;
   color: #d14774;
   box-shadow: 7px 7px 8px -6px #d14774;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons button.delete:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #d14774;
 }
 section.cartPage section.contents .container-fluid .row.top .total {
   padding: 1rem;
@@ -1283,6 +1302,16 @@ section.cartPage section.contents .container-fluid .row.top .total .card {
   background-color: transparent;
   padding: 2rem 1rem;
   text-align: center;
+}
+section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
+  transition: 0.4s;
+  padding: 1rem 3rem;
+  color: #47d15f;
+  box-shadow: 7px 7px 8px -6px #47d15f;
+}
+section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #47d15f;
 }
 
 /*#endregion */

@@ -181,6 +181,11 @@ input:focus {
             text-align: center;
             height: 1.5rem;
             margin: 0;
+
+            i {
+                margin-right: 0.5rem;
+                font-weight: bold;
+            }
         }
     }
 }
@@ -885,10 +890,17 @@ section.detailPage {
                                     color: $text-color;
                                     position: absolute;
                                     left: 0;
+                                    display: flex;
+
 
                                     @include sm {
                                         position: relative;
                                         text-align: center;
+                                    }
+
+                                    i {
+                                        margin-right: 0.5rem;
+                                        font-weight: bold;
                                     }
                                 }
                             }
@@ -989,6 +1001,7 @@ section.detailPage {
                                 }
 
                                 .showPrice {
+                                    font-size: 1rem;
                                     transition: 0.4s;
                                     opacity: 1;
                                     visibility: visible;
@@ -1008,9 +1021,20 @@ section.detailPage {
 
                                 button {
                                     position: relative;
-                                    margin: auto auto 0.5rem;
+                                    margin: auto auto 1rem;
                                     font-size: 18px;
                                     width: 12rem;
+
+                                    &.buy, &.addToCart {
+                                        transition: 0.4s;
+                                        color: $success-color;
+                                        box-shadow: 7px 7px 8px -6px #47d15f;
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            box-shadow: $success-shadow;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1418,7 +1442,7 @@ section.cartPage {
                                 .image {
                                     padding: 0;
                                     position: relative;
-                                    padding-right: 1rem;
+                                    padding: 1rem;
 
                                     img {
                                         transition: 0.4s;
@@ -1427,27 +1451,27 @@ section.cartPage {
                                         box-shadow: $image-shadow;
                                         max-width: 4rem;
                                         width: auto;
-
-                                        @include xs {
-                                            margin: 0;
-                                            position: absolute;
-                                            top: 50%;
-                                            left: 50%;
-                                            transform: translate(-50%, -50%);
-                                        }
+                                        margin: 0 auto;
                                     }
                                 }
 
                                 .detail {
+                                    padding: 1rem;
                                 }
 
                                 .buttons {
                                     padding: 1rem;
 
                                     button.delete {
+                                        transition: 0.4s;
                                         float: left;
                                         color: $error-color;
                                         box-shadow: 7px 7px 8px -6px #d14774;
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            box-shadow: $error-shadow;
+                                        }
                                     }
                                 }
                             }
@@ -1463,6 +1487,20 @@ section.cartPage {
                         background-color: transparent;
                         padding: 2rem 1rem;
                         text-align: center;
+                    }
+
+                    .buttons {
+                        button.payment {
+                            transition: 0.4s;
+                            padding: 1rem 3rem;
+                            color: $success-color;
+                            box-shadow: 7px 7px 8px -6px #47d15f;
+
+                            &:hover {
+                                transition: 0.4s;
+                                box-shadow: $success-shadow;
+                            }
+                        }
                     }
                 }
             }
