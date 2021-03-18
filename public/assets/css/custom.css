@@ -1267,10 +1267,15 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   background-color: transparent;
   padding: 1rem;
 }
+@media (max-width: 580px) {
+  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
+    text-align: center;
+  }
+}
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image {
-  padding: 0;
   position: relative;
   padding: 1rem;
+  text-align: center;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
   transition: 0.4s;
@@ -1281,11 +1286,20 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   width: auto;
   margin: 0 auto;
 }
+@media (max-width: 580px) {
+  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
+    max-height: 6rem;
+    max-width: 6rem;
+  }
+}
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .detail {
   padding: 1rem;
 }
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .detail p {
+  margin-bottom: 0;
+}
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons {
-  padding: 1rem;
+  padding: 0rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons button.delete {
   transition: 0.4s;

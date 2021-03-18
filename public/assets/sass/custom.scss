@@ -1435,15 +1435,20 @@ section.cartPage {
                     .row.middle {
                         .col-md-12 {
                             padding: 1rem;
+
                             .item {
+                                @include xs {
+                                    text-align: center;
+                                }
+
                                 box-shadow: $box-shadow;
                                 background-color: transparent;
                                 padding: 1rem;
 
                                 .image {
-                                    padding: 0;
                                     position: relative;
                                     padding: 1rem;
+                                    text-align: center;
 
                                     img {
                                         transition: 0.4s;
@@ -1453,15 +1458,23 @@ section.cartPage {
                                         max-width: 4rem;
                                         width: auto;
                                         margin: 0 auto;
+
+                                        @include xs {
+                                            max-height: 6rem;
+                                            max-width: 6rem;
+                                        }
                                     }
                                 }
 
                                 .detail {
                                     padding: 1rem;
+                                    p {
+                                        margin-bottom: 0;
+                                    }
                                 }
 
                                 .buttons {
-                                    padding: 1rem;
+                                    padding: 0rem;
 
                                     button.delete {
                                         transition: 0.4s;
