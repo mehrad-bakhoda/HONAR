@@ -23,7 +23,6 @@ var User = require(__dirname + "/models/user.js");
 var Product = require(__dirname + "/models/product.js");
 //routes
 var routes= require(__dirname+"/routes/routes.js");
-var date = require(__dirname + "/date.js");
 
 //database
 mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/Art?retryWrites=true&w=majority", {

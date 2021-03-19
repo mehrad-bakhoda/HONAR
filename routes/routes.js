@@ -3,12 +3,14 @@ var router = express.Router();
 var User = require('../models/user');
 var Product = require('../models/product');
 const Jimp=require("jimp");
+const bodyParser=require("body-parser");
+const {check,validationResult}=require("express-validator");
 
 const fs = require("fs");
 const generateOTP = require("../localModules/generateOTP.js");
 const formidable = require('formidable');
+const urlencodedParser =bodyParser.urlencoded({extended:false});
 const path = require("path");
-var date = require(__dirname + "/../date.js");
 
 
 
@@ -156,7 +158,19 @@ router.get("/user/:userId/:userName",function(req,res){
 // POST ROUTE's
 
 
-router.post("/login", function(req,res){
+router.post("/login",urlencodedParser,[
+  check("loginInput","it cant be empty")
+  .exists()
+  .isMobilePhone()
+  .isLength({min:10},{max:10})
+
+],(req,res)=>{
+  const errors=validationResult(req);
+  if(!errors.isEmpty()){
+    console.log("errorrrrrrrrrrrrrrrrrrr");
+
+  }
+
   if(req.body.loginInput.includes("@")===true){
     console.log("Email "+'"'+ req.body.loginInput +'"'+ " received");
 
@@ -428,7 +442,27 @@ router.post("/register",function(req,res){
 });
 
 
-router.post("/signIn", function(req, res) {
+router.post("/signIn",urlencodedParser,[
+check('password').not().isEmpty().isLength({min:8}),
+check('firstName').not().isEmpty().isLength({min:3}),
+
+// check('passwordConfirmation').not().isEmpty().isLength({min:8}).custom((value,{req}) =>{
+//   if(value != req.body.password){
+//     throw new Error("Password confirmation does not match password");
+//   }
+//   return true;
+//
+// }),
+
+
+
+],(req, res)=> {
+const errors=validationResult(req);
+if(errors.isEmpty()){
+  console.log(errors);
+}
+
+
   const form = formidable({ multiples: true, uploadDir: "./uploads"});
   form.keepExtensions=true;
   form.maxFileSize=10*1024*1024;
@@ -618,6 +652,8 @@ router.post("/signIn", function(req, res) {
     }
   });
 
+
+
 });
 
 
@@ -714,7 +750,7 @@ router.post("/upload", function(req, res){
                 mediumPrice:fields.mediumPrice,
                 smallPrice:fields.smallPrice,
                 user:found,
-                dateAdded:date
+                dateAdded:new Date()
               });
               newProduct.save();
 
