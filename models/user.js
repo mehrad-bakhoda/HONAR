@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 //using other database models
 
 //Connecting to the DataBase on port 27017
-mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/Art?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
+// mongoose.connect("mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/Art?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
 
 //User data base schema
 const userSchema = new mongoose.Schema({
@@ -41,9 +41,9 @@ const userSchema = new mongoose.Schema({
   bio:{
     type:String
   },
-  profilePicPath: {
-    type:String
-  },
+  profilePhotoLocation: {
+      type: String,
+    },
   twitter:{
     type:String
   },
