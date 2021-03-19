@@ -200,6 +200,21 @@ router.get("/user/:userId/:userName",function(req,res){
 
 });
 
+
+router.get('/logout', function (req, res, next) {
+	console.log("logout")
+	if (req.session.userId) {
+    // delete session object
+    req.session.destroy(function (err) {
+    	if (err) {
+    		return next(err);
+    	} else {
+    		return res.redirect('/');
+    	}
+    });
+}
+});
+
 // END OF GET ROUTE'S
 
 
