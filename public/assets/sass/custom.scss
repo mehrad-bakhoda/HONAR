@@ -376,6 +376,29 @@ section.header {
                 input {
                     padding: 0 0.1rem;
                 }
+
+                .usedTags {
+                    text-align: right;
+                    display: inline-block;
+                    padding-top: 1rem; 
+
+                    p {
+                        display: inline-block;
+                        display: inline-block;
+                        box-shadow: $box-shadow;
+                        color: $text-color;
+                        padding: 0.5rem 1rem;
+                        border-radius: $radius;
+                        background-color: transparent;
+                        margin-bottom: 0;
+
+                        i {
+                            font-size: 20px;
+                            position: relative;
+                            font-weight: 500;
+                        }
+                    }
+                }
             }
 
             .category,
@@ -1542,7 +1565,7 @@ section.dashboardPage {
 
                     h4 {
                         color: $text-color;
-
+                        margin-bottom: 0;
                         i.fa-angle-down {
                             transition: 0.4s;
                             width: 2rem;
@@ -1621,11 +1644,7 @@ section.dashboardPage {
                                     }
                                 }
 
-                                .mail {
-                                    width: fit-content;
-                                }
-
-                                .instagram {
+                                .mail, .instagram, .twitter {
                                     width: fit-content;
                                 }
 
@@ -1900,11 +1919,7 @@ section.userPage {
                                         }
                                     }
 
-                                    .mail {
-                                        width: fit-content;
-                                    }
-
-                                    .instagram {
+                                    .mail, .instagram, .twitter {
                                         width: fit-content;
                                     }
 

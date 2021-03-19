@@ -342,6 +342,26 @@ section.header .searchSection .advanced .tag {
 section.header .searchSection .advanced .tag input {
   padding: 0 0.1rem;
 }
+section.header .searchSection .advanced .tag .usedTags {
+  text-align: right;
+  display: inline-block;
+  padding-top: 1rem;
+}
+section.header .searchSection .advanced .tag .usedTags p {
+  display: inline-block;
+  display: inline-block;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  color: #565656;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: transparent;
+  margin-bottom: 0;
+}
+section.header .searchSection .advanced .tag .usedTags p i {
+  font-size: 20px;
+  position: relative;
+  font-weight: 500;
+}
 section.header .searchSection .advanced .category,
 section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
   padding: 1.5rem 0;
@@ -1347,6 +1367,7 @@ section.dashboardPage section.contents .container-fluid .part .header {
 }
 section.dashboardPage section.contents .container-fluid .part .header h4 {
   color: #565656;
+  margin-bottom: 0;
 }
 section.dashboardPage section.contents .container-fluid .part .header h4 i.fa-angle-down {
   transition: 0.4s;
@@ -1414,10 +1435,7 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
   transition: 0.4s;
   color: #00b4bb;
 }
-section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail {
-  width: fit-content;
-}
-section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram {
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
   width: fit-content;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount {
@@ -1650,10 +1668,7 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
   transition: 0.4s;
   color: #00b4bb;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail {
-  width: fit-content;
-}
-section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
   width: fit-content;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount {
