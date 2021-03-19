@@ -1556,6 +1556,98 @@ section.dashboardPage {
                     }
                 }
 
+                &.top {
+                    .summary {
+                        margin-bottom: 2rem;
+
+                        .picture {
+                            padding: 1rem;
+                            text-align: center;
+
+                            img {
+                                width: 7rem;
+                                height: 7rem;
+                                object-fit: cover;
+                                border-radius: 100%;
+                            }
+
+                            i {
+                                font-size: 4rem;
+                                width: 7rem;
+                                height: 7rem;
+                                text-align: center;
+                                color: $text-color;
+                                padding: 1rem;
+                                border: 2px solid $text-color;
+                                border-radius: 100%;
+
+                                @include xs {
+                                    font-size: 3.5rem;
+                                    width: 6rem;
+                                    height: 6rem;
+                                }
+                            }
+                        }
+
+                        .bottom {
+                            width: inherit;
+                            text-align: center;
+
+                            .name {
+                                padding: 0.5rem;
+
+                                p {
+                                    font-size: 1.3rem;
+                                    margin-bottom: 0;
+                                }
+                            }
+
+                            .socialStats {
+                                display: inline-flex;
+
+                                a {
+                                    color: $text-color;
+
+                                    i {
+                                        padding: 0.5rem;
+                                        transition: 0.4s;
+                                        color: $text-color;
+                                        font-size: 1.5rem;
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            color: $blue-color;
+                                        }
+                                    }
+                                }
+
+                                .mail {
+                                    width: fit-content;
+                                }
+
+                                .instagram {
+                                    width: fit-content;
+                                }
+
+                                .productsCount {
+                                    display: inline-flex;
+
+                                    label, p {
+                                        padding: 1rem 0.25rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                    .bio {
+                        p {
+                            text-align: justify;
+                        }
+                    }
+                }
+
                 &.personalInfo {
                     .collapseContent {
                         input {
@@ -1648,6 +1740,7 @@ section.dashboardPage {
                         .buttons {
                             text-align: left;
                             position: relative;
+
                             button {
                                 transition: 0.4s;
                                 width: 10rem;
@@ -1680,7 +1773,7 @@ section.dashboardPage {
                                 transition: 0.4s;
                                 width: 0;
                                 position: absolute;
-                                left: 0;                               
+                                left: 0;
                                 opacity: 0;
                                 visibility: hidden;
                             }

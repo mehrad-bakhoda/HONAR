@@ -1357,6 +1357,78 @@ section.dashboardPage section.contents .container-fluid .part .header h4 .rotate
   transition: 0.4s;
   transform: rotate(180deg);
 }
+section.dashboardPage section.contents .container-fluid .part.top .summary {
+  margin-bottom: 2rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .picture {
+  padding: 1rem;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .picture img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 100%;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .picture i {
+  font-size: 4rem;
+  width: 7rem;
+  height: 7rem;
+  text-align: center;
+  color: #565656;
+  padding: 1rem;
+  border: 2px solid #565656;
+  border-radius: 100%;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.top .summary .picture i {
+    font-size: 3.5rem;
+    width: 6rem;
+    height: 6rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom {
+  width: inherit;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .name {
+  padding: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .name p {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats {
+  display: inline-flex;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a {
+  color: #565656;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i {
+  padding: 0.5rem;
+  transition: 0.4s;
+  color: #565656;
+  font-size: 1.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail {
+  width: fit-content;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram {
+  width: fit-content;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount {
+  display: inline-flex;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount label, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount p {
+  padding: 1rem 0.25rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .bio p {
+  text-align: justify;
+}
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
   transition: 0.4s;
   border: none;
