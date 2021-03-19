@@ -257,6 +257,11 @@ section.header {
                     &.profile {
                         left: 2.5rem;
                     }
+
+                    &.signOut {
+                        padding-top: 0.2rem;
+                        left: 5rem;
+                    }
                 }
             }
         }
@@ -380,7 +385,7 @@ section.header {
                 .usedTags {
                     text-align: right;
                     display: inline-block;
-                    padding-top: 1rem; 
+                    padding-top: 1rem;
 
                     p {
                         display: inline-block;
@@ -568,7 +573,7 @@ section.homePage {
                                 transition: 0.4s;
                                 border-radius: $radius;
                                 box-shadow: $hover-shadow;
-                                color:$blue-color;
+                                color: $blue-color;
                             }
                         }
                     }
@@ -890,7 +895,7 @@ section.detailPage {
                             .info {
                                 margin: 0 1rem;
                                 position: relative;
-                                padding-top: 0.5rem;
+                                padding-top: 1rem;
                                 min-height: 3rem;
 
                                 @include sm {
@@ -911,13 +916,11 @@ section.detailPage {
 
                                 a, p {
                                     color: $text-color;
-                                    position: absolute;
-                                    left: 0;
-                                    display: flex;
+                                    float: left;
 
 
                                     @include sm {
-                                        position: relative;
+                                        float: none;
                                         text-align: center;
                                     }
 
@@ -935,6 +938,24 @@ section.detailPage {
                             }
 
                             .tags {
+                                label {
+                                    padding-top: 0.5rem;
+                                }
+                                .tagLinks {
+                                    padding-right: 6rem;
+                                    @include sm {
+                                        padding-right: 0;
+                                    }
+                                    a {
+                                        transition: 0.4s;
+                                        float: left;
+                                        color: $text-color;
+                                        margin: 0 1rem 0.5rem 0;
+                                        box-shadow: $box-shadow;
+                                        border-radius: $radius;
+                                        padding: 0.5rem 1rem;
+                                    }
+                                }
                             }
 
                             .sizes {
@@ -952,7 +973,8 @@ section.detailPage {
 
                                 label {
                                     width: 7rem;
-                                    /*height: 2rem;*/
+                                    padding-top:0.5rem;
+
                                     @include sm {
                                         position: relative;
                                     }
@@ -1015,12 +1037,14 @@ section.detailPage {
                             }
 
                             .price {
+
+                                padding-left: 1rem;
+
                                 p {
                                     transition: 0.4s;
                                     opacity: 0;
                                     visibility: hidden;
                                     height: 0;
-                                    margin: 0;
                                 }
 
                                 .showPrice {
@@ -1029,7 +1053,7 @@ section.detailPage {
                                     opacity: 1;
                                     visibility: visible;
                                     height: auto;
-                                    margin-left: 1rem;
+                                    width: auto;
                                 }
                             }
 
@@ -1491,6 +1515,7 @@ section.cartPage {
 
                                 .detail {
                                     padding: 1rem;
+
                                     p {
                                         margin-bottom: 0;
                                     }
@@ -1566,6 +1591,7 @@ section.dashboardPage {
                     h4 {
                         color: $text-color;
                         margin-bottom: 0;
+
                         i.fa-angle-down {
                             transition: 0.4s;
                             width: 2rem;

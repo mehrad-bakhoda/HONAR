@@ -239,6 +239,10 @@ section.header .navbar .container-fluid .leftSide a.cart span {
 section.header .navbar .container-fluid .leftSide a.profile {
   left: 2.5rem;
 }
+section.header .navbar .container-fluid .leftSide a.signOut {
+  padding-top: 0.2rem;
+  left: 5rem;
+}
 section.header .searchSection {
   box-shadow: 7px 7px 8px -6px #d3d3d3;
   text-align: center;
@@ -801,7 +805,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card {
 section.detailPage section.contents .container-fluid .top .row .infos .card .info {
   margin: 0 1rem;
   position: relative;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   min-height: 3rem;
 }
 @media (max-width: 767px) {
@@ -823,19 +827,37 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
   color: #565656;
-  position: absolute;
-  left: 0;
-  display: flex;
+  float: left;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
-    position: relative;
+    float: none;
     text-align: center;
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a i, section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
   margin-right: 0.5rem;
   font-weight: 500;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .tags label {
+  padding-top: 0.5rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks {
+  padding-right: 6rem;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks {
+    padding-right: 0;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks a {
+  transition: 0.4s;
+  float: left;
+  color: #565656;
+  margin: 0 1rem 0.5rem 0;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
   display: flex;
@@ -854,7 +876,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
   width: 7rem;
-  /*height: 2rem;*/
+  padding-top: 0.5rem;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
@@ -916,12 +938,14 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   box-shadow: 7px 7px 8px -6px #00b4bb !important;
   font-weight: bold;
 }
+section.detailPage section.contents .container-fluid .top .row .infos .card .price {
+  padding-left: 1rem;
+}
 section.detailPage section.contents .container-fluid .top .row .infos .card .price p {
   transition: 0.4s;
   opacity: 0;
   visibility: hidden;
   height: 0;
-  margin: 0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price .showPrice {
   font-size: 1rem;
@@ -929,7 +953,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .pri
   opacity: 1;
   visibility: visible;
   height: auto;
-  margin-left: 1rem;
+  width: auto;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons {
   margin: 0 1rem;
