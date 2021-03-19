@@ -178,7 +178,7 @@ input:focus {
 }
 .card.product .card-footer p i {
   margin-right: 0.5rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /*#endregion */
@@ -238,6 +238,10 @@ section.header .navbar .container-fluid .leftSide a.cart span {
 }
 section.header .navbar .container-fluid .leftSide a.profile {
   left: 2.5rem;
+}
+section.header .navbar .container-fluid .leftSide a.signOut {
+  padding-top: 0.2rem;
+  left: 5rem;
 }
 section.header .searchSection {
   box-shadow: 7px 7px 8px -6px #d3d3d3;
@@ -341,6 +345,26 @@ section.header .searchSection .advanced .tag {
 }
 section.header .searchSection .advanced .tag input {
   padding: 0 0.1rem;
+}
+section.header .searchSection .advanced .tag .usedTags {
+  text-align: right;
+  display: inline-block;
+  padding-top: 1rem;
+}
+section.header .searchSection .advanced .tag .usedTags p {
+  display: inline-block;
+  display: inline-block;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  color: #565656;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: transparent;
+  margin-bottom: 0;
+}
+section.header .searchSection .advanced .tag .usedTags p i {
+  font-size: 20px;
+  position: relative;
+  font-weight: 500;
 }
 section.header .searchSection .advanced .category,
 section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
@@ -500,9 +524,9 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
-  background-color: #f0f0f0;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+  color: #00b4bb;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
   padding: 1rem 1rem 5rem;
@@ -781,7 +805,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card {
 section.detailPage section.contents .container-fluid .top .row .infos .card .info {
   margin: 0 1rem;
   position: relative;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   min-height: 3rem;
 }
 @media (max-width: 767px) {
@@ -803,19 +827,37 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
   color: #565656;
-  position: absolute;
-  left: 0;
-  display: flex;
+  float: left;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
-    position: relative;
+    float: none;
     text-align: center;
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a i, section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
   margin-right: 0.5rem;
-  font-weight: bold;
+  font-weight: 500;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .tags label {
+  padding-top: 0.5rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks {
+  padding-right: 6rem;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks {
+    padding-right: 0;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks a {
+  transition: 0.4s;
+  float: left;
+  color: #565656;
+  margin: 0 1rem 0.5rem 0;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
   display: flex;
@@ -834,7 +876,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
   width: 7rem;
-  /*height: 2rem;*/
+  padding-top: 0.5rem;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .sizes label {
@@ -896,12 +938,14 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   box-shadow: 7px 7px 8px -6px #00b4bb !important;
   font-weight: bold;
 }
+section.detailPage section.contents .container-fluid .top .row .infos .card .price {
+  padding-left: 1rem;
+}
 section.detailPage section.contents .container-fluid .top .row .infos .card .price p {
   transition: 0.4s;
   opacity: 0;
   visibility: hidden;
   height: 0;
-  margin: 0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price .showPrice {
   font-size: 1rem;
@@ -909,7 +953,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .pri
   opacity: 1;
   visibility: visible;
   height: auto;
-  margin-left: 1rem;
+  width: auto;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons {
   margin: 0 1rem;
@@ -1347,9 +1391,85 @@ section.dashboardPage section.contents .container-fluid .part .header {
 }
 section.dashboardPage section.contents .container-fluid .part .header h4 {
   color: #565656;
+  margin-bottom: 0;
 }
 section.dashboardPage section.contents .container-fluid .part .header h4 i.fa-angle-down {
+  transition: 0.4s;
   width: 2rem;
+  font-weight: 500;
+}
+section.dashboardPage section.contents .container-fluid .part .header h4 .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary {
+  margin-bottom: 2rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .picture {
+  padding: 1rem;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .picture img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 100%;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .picture i {
+  font-size: 4rem;
+  width: 7rem;
+  height: 7rem;
+  text-align: center;
+  color: #565656;
+  padding: 1rem;
+  border: 2px solid #565656;
+  border-radius: 100%;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.top .summary .picture i {
+    font-size: 3.5rem;
+    width: 6rem;
+    height: 6rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom {
+  width: inherit;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .name {
+  padding: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .name p {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats {
+  display: inline-flex;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a {
+  color: #565656;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i {
+  padding: 0.5rem;
+  transition: 0.4s;
+  color: #565656;
+  font-size: 1.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
+  width: fit-content;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount {
+  display: inline-flex;
+}
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount label, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount p {
+  padding: 1rem 0.25rem;
+}
+section.dashboardPage section.contents .container-fluid .part.top .bio p {
+  text-align: justify;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
   transition: 0.4s;
@@ -1430,6 +1550,41 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   margin-top: -4rem;
   float: left;
 }
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons {
+  text-align: left;
+  position: relative;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button {
+  transition: 0.4s;
+  width: 10rem;
+  padding: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
+  transition: 0.4s;
+  color: #47d15f;
+  box-shadow: 7px 7px 8px -6px #47d15f;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #47d15f;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel {
+  transition: 0.4s;
+  color: #d14774;
+  box-shadow: 7px 7px 8px -6px #d14774;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #d14774;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons .hiddenButton {
+  transition: 0.4s;
+  width: 0;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+}
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   transition: 0.4s;
   max-width: 40rem;
@@ -1443,6 +1598,7 @@ section.dashboardPage section.contents .container-fluid .part .contentHidden {
   max-height: 0;
   visibility: hidden;
   opacity: 0;
+  overflow: hidden;
 }
 
 /*#endregion */
@@ -1536,10 +1692,7 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
   transition: 0.4s;
   color: #00b4bb;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail {
-  width: fit-content;
-}
-section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
   width: fit-content;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount {

@@ -184,7 +184,7 @@ input:focus {
 
             i {
                 margin-right: 0.5rem;
-                font-weight: bold;
+                font-weight: 500;
             }
         }
     }
@@ -256,6 +256,11 @@ section.header {
 
                     &.profile {
                         left: 2.5rem;
+                    }
+
+                    &.signOut {
+                        padding-top: 0.2rem;
+                        left: 5rem;
                     }
                 }
             }
@@ -375,6 +380,29 @@ section.header {
 
                 input {
                     padding: 0 0.1rem;
+                }
+
+                .usedTags {
+                    text-align: right;
+                    display: inline-block;
+                    padding-top: 1rem;
+
+                    p {
+                        display: inline-block;
+                        display: inline-block;
+                        box-shadow: $box-shadow;
+                        color: $text-color;
+                        padding: 0.5rem 1rem;
+                        border-radius: $radius;
+                        background-color: transparent;
+                        margin-bottom: 0;
+
+                        i {
+                            font-size: 20px;
+                            position: relative;
+                            font-weight: 500;
+                        }
+                    }
                 }
             }
 
@@ -543,9 +571,9 @@ section.homePage {
 
                             &.active {
                                 transition: 0.4s;
-                                background-color: $gray-color;
                                 border-radius: $radius;
-                                box-shadow: $box-shadow;
+                                box-shadow: $hover-shadow;
+                                color: $blue-color;
                             }
                         }
                     }
@@ -867,7 +895,7 @@ section.detailPage {
                             .info {
                                 margin: 0 1rem;
                                 position: relative;
-                                padding-top: 0.5rem;
+                                padding-top: 1rem;
                                 min-height: 3rem;
 
                                 @include sm {
@@ -888,19 +916,17 @@ section.detailPage {
 
                                 a, p {
                                     color: $text-color;
-                                    position: absolute;
-                                    left: 0;
-                                    display: flex;
+                                    float: left;
 
 
                                     @include sm {
-                                        position: relative;
+                                        float: none;
                                         text-align: center;
                                     }
 
                                     i {
                                         margin-right: 0.5rem;
-                                        font-weight: bold;
+                                        font-weight: 500;
                                     }
                                 }
                             }
@@ -912,6 +938,24 @@ section.detailPage {
                             }
 
                             .tags {
+                                label {
+                                    padding-top: 0.5rem;
+                                }
+                                .tagLinks {
+                                    padding-right: 6rem;
+                                    @include sm {
+                                        padding-right: 0;
+                                    }
+                                    a {
+                                        transition: 0.4s;
+                                        float: left;
+                                        color: $text-color;
+                                        margin: 0 1rem 0.5rem 0;
+                                        box-shadow: $box-shadow;
+                                        border-radius: $radius;
+                                        padding: 0.5rem 1rem;
+                                    }
+                                }
                             }
 
                             .sizes {
@@ -929,7 +973,8 @@ section.detailPage {
 
                                 label {
                                     width: 7rem;
-                                    /*height: 2rem;*/
+                                    padding-top:0.5rem;
+
                                     @include sm {
                                         position: relative;
                                     }
@@ -992,12 +1037,14 @@ section.detailPage {
                             }
 
                             .price {
+
+                                padding-left: 1rem;
+
                                 p {
                                     transition: 0.4s;
                                     opacity: 0;
                                     visibility: hidden;
                                     height: 0;
-                                    margin: 0;
                                 }
 
                                 .showPrice {
@@ -1006,7 +1053,7 @@ section.detailPage {
                                     opacity: 1;
                                     visibility: visible;
                                     height: auto;
-                                    margin-left: 1rem;
+                                    width: auto;
                                 }
                             }
 
@@ -1468,6 +1515,7 @@ section.cartPage {
 
                                 .detail {
                                     padding: 1rem;
+
                                     p {
                                         margin-bottom: 0;
                                     }
@@ -1542,9 +1590,105 @@ section.dashboardPage {
 
                     h4 {
                         color: $text-color;
+                        margin-bottom: 0;
 
                         i.fa-angle-down {
+                            transition: 0.4s;
                             width: 2rem;
+                            font-weight: 500;
+                        }
+
+                        .rotated {
+                            transition: 0.4s;
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                &.top {
+                    .summary {
+                        margin-bottom: 2rem;
+
+                        .picture {
+                            padding: 1rem;
+                            text-align: center;
+
+                            img {
+                                width: 7rem;
+                                height: 7rem;
+                                object-fit: cover;
+                                border-radius: 100%;
+                            }
+
+                            i {
+                                font-size: 4rem;
+                                width: 7rem;
+                                height: 7rem;
+                                text-align: center;
+                                color: $text-color;
+                                padding: 1rem;
+                                border: 2px solid $text-color;
+                                border-radius: 100%;
+
+                                @include xs {
+                                    font-size: 3.5rem;
+                                    width: 6rem;
+                                    height: 6rem;
+                                }
+                            }
+                        }
+
+                        .bottom {
+                            width: inherit;
+                            text-align: center;
+
+                            .name {
+                                padding: 0.5rem;
+
+                                p {
+                                    font-size: 1.3rem;
+                                    margin-bottom: 0;
+                                }
+                            }
+
+                            .socialStats {
+                                display: inline-flex;
+
+                                a {
+                                    color: $text-color;
+
+                                    i {
+                                        padding: 0.5rem;
+                                        transition: 0.4s;
+                                        color: $text-color;
+                                        font-size: 1.5rem;
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            color: $blue-color;
+                                        }
+                                    }
+                                }
+
+                                .mail, .instagram, .twitter {
+                                    width: fit-content;
+                                }
+
+                                .productsCount {
+                                    display: inline-flex;
+
+                                    label, p {
+                                        padding: 1rem 0.25rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                    .bio {
+                        p {
+                            text-align: justify;
                         }
                     }
                 }
@@ -1637,6 +1781,48 @@ section.dashboardPage {
                             margin-top: -4rem;
                             float: left;
                         }
+
+                        .buttons {
+                            text-align: left;
+                            position: relative;
+
+                            button {
+                                transition: 0.4s;
+                                width: 10rem;
+                                padding: 0.5rem;
+
+                                &.save {
+                                    transition: 0.4s;
+                                    color: $success-color;
+                                    box-shadow: 7px 7px 8px -6px #47d15f;
+
+                                    &:hover {
+                                        transition: 0.4s;
+                                        box-shadow: $success-shadow;
+                                    }
+                                }
+
+                                &.cancel {
+                                    transition: 0.4s;
+                                    color: $error-color;
+                                    box-shadow: 7px 7px 8px -6px #d14774;
+
+                                    &:hover {
+                                        transition: 0.4s;
+                                        box-shadow: $error-shadow;
+                                    }
+                                }
+                            }
+
+                            .hiddenButton {
+                                transition: 0.4s;
+                                width: 0;
+                                position: absolute;
+                                left: 0;
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+                        }
                     }
                 }
 
@@ -1654,6 +1840,7 @@ section.dashboardPage {
                     max-height: 0;
                     visibility: hidden;
                     opacity: 0;
+                    overflow: hidden;
                 }
             }
         }
@@ -1758,11 +1945,7 @@ section.userPage {
                                         }
                                     }
 
-                                    .mail {
-                                        width: fit-content;
-                                    }
-
-                                    .instagram {
+                                    .mail, .instagram, .twitter {
                                         width: fit-content;
                                     }
 

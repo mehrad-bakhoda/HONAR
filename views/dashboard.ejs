@@ -5,6 +5,40 @@
     <%-include("headerN");-%>
     <section class="contents">
         <div class="container-fluid">
+            <div class="top part">
+                <div class="col-12 summary">
+                    <div class="picture">
+                        <!--<img src="" />-->
+                        <i class="fal fa-user fa-3x"></i>
+                    </div>
+                    <div class="bottom">
+                        <div class="name">
+                            <p> alireza </p>
+                        </div>
+                        <div class="socialStats">
+                            <div class="mail">
+                                <a href="#"><i class="fal fa-envelope"></i></a>
+                            </div>
+                            <div class="instagram">
+
+                                <a href="#"> <i class="fab fa-instagram"></i> </a>
+                            </div>
+                            <div class="twitter">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <div class="productsCount">
+                                <label> تعداد آثار:</label>
+                                <p> 12 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6 col-sm-12 bio">
+                    <p>
+                         
+                    </p>
+                </div>
+            </div>
             <div class="personalInfo part">
                 <div class="header" onClick="openContent('personalInfo')">
                     <h4>
@@ -12,7 +46,7 @@
                         <i class="fal fa-angle-down"></i>
                     </h4>
                 </div>
-                <div class="collapseContent">
+                <div class="collapseContent contentHidden">
                     <input name="firstName" type="firstName" placeholder="نام" />
                     <input name="lastName" type="lastName" placeholder="نام خانوادگی" />
                     <input name="userName" type="text" placeholder="نام کاربری" />
@@ -27,7 +61,9 @@
                     <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
                     <input name="passwordRepeat" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                     <div class="buttons">
-                        <button type="submit" class="next">ثبت نام</button>
+                        <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
+                        <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
+                        <button type="submit" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
                     </div>
 
                 </div>
@@ -49,17 +85,6 @@
                     <div class="bestSeller">
 
                     </div>
-                </div>
-            </div>
-            <div class="uploads part">
-                <div class="header" onClick="openContent('uploads')">
-                    <h4>
-                        آپلودهای شما
-                        <i class="fal fa-angle-down"></i>
-                    </h4>
-                </div>
-                <div class="collapseContent contentHidden">
-                    sdfghjkl.
                 </div>
             </div>
             <div class="downloads part">
