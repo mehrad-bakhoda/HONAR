@@ -9,7 +9,7 @@
                 <div class="header" onClick="openContent('personalInfo')">
                     <h4>
                         مشخصات شما
-                        <i class="fal fa-angle-down"></i>
+                        <i class="fal fa-angle-down rotated"></i>
                     </h4>
                 </div>
                 <div class="collapseContent">
@@ -27,7 +27,9 @@
                     <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
                     <input name="passwordRepeat" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                     <div class="buttons">
-                        <button type="submit" class="next">ثبت نام</button>
+                        <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
+                        <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
+                        <button type="submit" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
                     </div>
 
                 </div>

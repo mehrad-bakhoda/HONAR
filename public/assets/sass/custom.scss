@@ -184,7 +184,7 @@ input:focus {
 
             i {
                 margin-right: 0.5rem;
-                font-weight: bold;
+                font-weight: 500;
             }
         }
     }
@@ -900,7 +900,7 @@ section.detailPage {
 
                                     i {
                                         margin-right: 0.5rem;
-                                        font-weight: bold;
+                                        font-weight: 500;
                                     }
                                 }
                             }
@@ -1544,7 +1544,14 @@ section.dashboardPage {
                         color: $text-color;
 
                         i.fa-angle-down {
+                            transition: 0.4s;
                             width: 2rem;
+                            font-weight: 500;
+                        }
+
+                        .rotated {
+                            transition: 0.4s;
+                            transform: rotate(180deg);
                         }
                     }
                 }
@@ -1636,6 +1643,47 @@ section.dashboardPage {
                             height: 2rem;
                             margin-top: -4rem;
                             float: left;
+                        }
+
+                        .buttons {
+                            text-align: left;
+                            position: relative;
+                            button {
+                                transition: 0.4s;
+                                width: 10rem;
+                                padding: 0.5rem;
+
+                                &.save {
+                                    transition: 0.4s;
+                                    color: $success-color;
+                                    box-shadow: 7px 7px 8px -6px #47d15f;
+
+                                    &:hover {
+                                        transition: 0.4s;
+                                        box-shadow: $success-shadow;
+                                    }
+                                }
+
+                                &.cancel {
+                                    transition: 0.4s;
+                                    color: $error-color;
+                                    box-shadow: 7px 7px 8px -6px #d14774;
+
+                                    &:hover {
+                                        transition: 0.4s;
+                                        box-shadow: $error-shadow;
+                                    }
+                                }
+                            }
+
+                            .hiddenButton {
+                                transition: 0.4s;
+                                width: 0;
+                                position: absolute;
+                                left: 0;                               
+                                opacity: 0;
+                                visibility: hidden;
+                            }
                         }
                     }
                 }

@@ -178,7 +178,7 @@ input:focus {
 }
 .card.product .card-footer p i {
   margin-right: 0.5rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /*#endregion */
@@ -815,7 +815,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a i, section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
   margin-right: 0.5rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
   display: flex;
@@ -1349,7 +1349,13 @@ section.dashboardPage section.contents .container-fluid .part .header h4 {
   color: #565656;
 }
 section.dashboardPage section.contents .container-fluid .part .header h4 i.fa-angle-down {
+  transition: 0.4s;
   width: 2rem;
+  font-weight: 500;
+}
+section.dashboardPage section.contents .container-fluid .part .header h4 .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
   transition: 0.4s;
@@ -1429,6 +1435,41 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   height: 2rem;
   margin-top: -4rem;
   float: left;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons {
+  text-align: left;
+  position: relative;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button {
+  transition: 0.4s;
+  width: 10rem;
+  padding: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
+  transition: 0.4s;
+  color: #47d15f;
+  box-shadow: 7px 7px 8px -6px #47d15f;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #47d15f;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel {
+  transition: 0.4s;
+  color: #d14774;
+  box-shadow: 7px 7px 8px -6px #d14774;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #d14774;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons .hiddenButton {
+  transition: 0.4s;
+  width: 0;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   transition: 0.4s;
