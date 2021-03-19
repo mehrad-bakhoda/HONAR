@@ -148,7 +148,7 @@ input:focus {
   transition: 0.4s;
   max-height: 12rem;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 15rem;
   width: auto;
@@ -175,6 +175,10 @@ input:focus {
   text-align: center;
   height: 1.5rem;
   margin: 0;
+}
+.card.product .card-footer p i {
+  margin-right: 0.5rem;
+  font-weight: bold;
 }
 
 /*#endregion */
@@ -330,38 +334,58 @@ section.header .searchSection .advanced .tag {
   margin: 1rem auto;
   padding: 0 2rem 0 1rem;
 }
+@media (max-width: 580px) {
+  section.header .searchSection .advanced .tag {
+    padding: 0 0.5rem;
+  }
+}
 section.header .searchSection .advanced .tag input {
   padding: 0 0.1rem;
 }
 section.header .searchSection .advanced .category,
-section.header .searchSection .advanced .orientation {
+section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
   padding: 1.5rem 0;
   display: flex;
 }
+@media (max-width: 580px) {
+  section.header .searchSection .advanced .category,
+section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
+    display: block;
+    padding: 0.5rem 0 1.5rem 0;
+  }
+}
 section.header .searchSection .advanced .category .title,
-section.header .searchSection .advanced .orientation .title {
+section.header .searchSection .advanced .orientation .title, section.header .searchSection .advanced .type .title {
+  padding-top: 0.5rem;
   width: 6rem;
   text-align: right;
   margin-right: 2rem;
 }
 @media (max-width: 580px) {
   section.header .searchSection .advanced .category .title,
-section.header .searchSection .advanced .orientation .title {
-    margin-right: 1rem;
+section.header .searchSection .advanced .orientation .title, section.header .searchSection .advanced .type .title {
+    margin-right: 0;
   }
 }
 section.header .searchSection .advanced .price {
   padding: 1.5rem 0;
   display: flex;
 }
+@media (max-width: 580px) {
+  section.header .searchSection .advanced .price {
+    display: block;
+    padding: 0.5rem 0 1.5rem 0;
+  }
+}
 section.header .searchSection .advanced .price .title {
+  padding-top: 0.5rem;
   width: 6rem;
   text-align: right;
   margin-right: 2rem;
 }
 @media (max-width: 580px) {
   section.header .searchSection .advanced .price .title {
-    margin-right: 1rem;
+    margin-right: 0;
   }
 }
 section.header .searchSection .selected {
@@ -668,17 +692,16 @@ section.loginPage section.contents .container-fluid .card.code .buttons .hidden 
   visibility: hidden;
   height: 0;
 }
-section.loginPage section.contents .container-fluid .card.password {
-  padding: 0;
-  background-color: transparent;
-}
-section.loginPage section.contents .container-fluid .card.password ul.nav-tabs {
+section.loginPage section.contents .container-fluid .card.info {
   padding: 0;
 }
-section.loginPage section.contents .container-fluid .card.password ul.nav-tabs li.nav-item {
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs {
+  padding: 0;
+}
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item {
   background-color: transparent;
 }
-section.loginPage section.contents .container-fluid .card.password ul.nav-tabs li.nav-item a.nav-link {
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item a.nav-link {
   color: #565656;
   font-size: 20px;
   transition: 0.4s;
@@ -687,11 +710,11 @@ section.loginPage section.contents .container-fluid .card.password ul.nav-tabs l
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
-section.loginPage section.contents .container-fluid .card.password ul.nav-tabs li.nav-item a.nav-link.active {
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item a.nav-link.active {
   box-shadow: 4px -6px 8px -6px #a9a9a9, 8px 12px 8px -6px #a9a9a9;
   background-color: #f0f0f0;
 }
-section.loginPage section.contents .container-fluid .card.password .tab-content {
+section.loginPage section.contents .container-fluid .card.info .tab-content {
   box-shadow: 7px 7px 8px -6px #d3d3d3;
   background-color: #f0f0f0;
   border-bottom-left-radius: 8px;
@@ -700,7 +723,7 @@ section.loginPage section.contents .container-fluid .card.password .tab-content 
   border: none;
 }
 @media (max-width: 767px) {
-  section.loginPage section.contents .container-fluid .card.password .tab-content {
+  section.loginPage section.contents .container-fluid .card.info .tab-content {
     padding: 2rem 1rem;
   }
 }
@@ -778,15 +801,21 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
     text-align: center;
   }
 }
-section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
+section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
+  color: #565656;
   position: absolute;
   left: 0;
+  display: flex;
 }
 @media (max-width: 767px) {
-  section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
     position: relative;
     text-align: center;
   }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .info a i, section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
+  margin-right: 0.5rem;
+  font-weight: bold;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
   display: flex;
@@ -875,6 +904,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .pri
   margin: 0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price .showPrice {
+  font-size: 1rem;
   transition: 0.4s;
   opacity: 1;
   visibility: visible;
@@ -893,9 +923,18 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button {
   position: relative;
-  margin: auto auto 0.5rem;
+  margin: auto auto 1rem;
   font-size: 18px;
   width: 12rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart {
+  transition: 0.4s;
+  color: #47d15f;
+  box-shadow: 7px 7px 8px -6px #47d15f;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy:hover, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #47d15f;
 }
 section.detailPage section.contents .container-fluid .description {
   box-shadow: 7px 7px 8px -6px #d3d3d3;
@@ -1058,6 +1097,7 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   margin-bottom: 3rem;
   padding: 0.5rem;
   color: #565656;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
 }
 Section.uploadPage section.contents .container-fluid .row .info textarea:focus {
   outline: none;
@@ -1072,29 +1112,25 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic label {
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file] {
   padding: 0;
   visibility: hidden;
-  width: 12rem;
-  height: 2.5rem;
+  width: 14rem;
+  margin-right: -1rem;
+  height: 3.5rem;
   position: relative;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]::before {
   visibility: visible;
+  margin-right: 1rem;
   transition: 0.4s;
   content: "اثر خود را آپلود کنید";
   font-size: 18px;
   position: absolute;
   background-color: transparent;
-  padding: 0.25rem 1rem;
-  width: 12rem;
+  padding: 0.5rem 1rem;
+  width: 11rem;
   cursor: pointer;
   text-align: center;
   color: #565656;
-  border: 1px solid #565656;
   border-radius: 8px;
-}
-Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]:hover::before {
-  transition: 0.4s;
-  color: #00b4bb;
-  border: 1px solid #00b4bb;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing {
   margin-bottom: 1rem;
@@ -1127,17 +1163,19 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.toman {
   opacity: 0;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label.free {
-  padding: 0.4rem 0.3rem;
-  border: 1px solid #565656;
-  border-radius: 8px;
+  margin: 0 0.5rem 0 0;
   cursor: pointer;
-  float: left;
-}
-Section.uploadPage section.contents .container-fluid .row .pricing .selected {
+  margin: 0 0.5rem;
+  text-align: center;
   transition: 0.4s;
-  border: 1px solid #00b4bb !important;
-  color: #00b4bb;
-  font-weight: bold;
+  border: none;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  color: #565656;
+  padding: 0.5rem 0.4rem;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 0.4rem 0.3rem;
+  float: left;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing .shown {
   transition: 0.4s;
@@ -1158,14 +1196,18 @@ Section.uploadPage section.contents .container-fluid .row .category .selected {
   font-weight: bold;
 }
 Section.uploadPage section.contents .container-fluid .row .category label.radioLabel {
-  cursor: pointer;
-  transition: 0.4s;
-  text-align: right;
-  width: 100%;
   margin: 0 0.5rem 0 0;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 0.5rem;
   text-align: center;
-  border: 1px solid;
+  transition: 0.4s;
+  border: none;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  color: #565656;
+  padding: 0.5rem 0.4rem;
   border-radius: 8px;
+  background-color: transparent;
 }
 Section.uploadPage section.contents .container-fluid .row .category .options {
   text-align: right;
@@ -1188,6 +1230,13 @@ Section.uploadPage section.contents .container-fluid .row .buttons button {
     width: 8rem;
   }
 }
+Section.uploadPage section.contents .container-fluid .row .selected {
+  transition: 0.4s;
+  border: none;
+  color: #00b4bb !important;
+  box-shadow: 7px 7px 8px -6px #00b4bb !important;
+  font-weight: bold;
+}
 
 /*#endregion */
 /*#region Search Page */
@@ -1207,8 +1256,195 @@ section.searchPage section.contents .container-fluid .row .result {
 
 /*#endregion */
 /*#region Cart Page */
+section.cartPage section.contents .container-fluid .row.top .items {
+  padding: 1rem;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 {
+  padding: 1rem;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 1rem;
+}
+@media (max-width: 580px) {
+  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
+    text-align: center;
+  }
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image {
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
+  transition: 0.4s;
+  max-height: 4rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 4rem;
+  width: auto;
+  margin: 0 auto;
+}
+@media (max-width: 580px) {
+  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
+    max-height: 6rem;
+    max-width: 6rem;
+  }
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .detail {
+  padding: 1rem;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .detail p {
+  margin-bottom: 0;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons {
+  padding: 0rem;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons button.delete {
+  transition: 0.4s;
+  float: left;
+  color: #d14774;
+  box-shadow: 7px 7px 8px -6px #d14774;
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons button.delete:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #d14774;
+}
+section.cartPage section.contents .container-fluid .row.top .total {
+  padding: 1rem;
+}
+section.cartPage section.contents .container-fluid .row.top .total .card {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
+  transition: 0.4s;
+  padding: 1rem 3rem;
+  color: #47d15f;
+  box-shadow: 7px 7px 8px -6px #47d15f;
+}
+section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #47d15f;
+}
+
 /*#endregion */
 /*#region Dashboard Page */
+section.dashboardPage section.contents .container-fluid .part {
+  max-width: 40rem;
+  margin: 1rem auto;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  padding: 1rem;
+  border-radius: 8px;
+}
+section.dashboardPage section.contents .container-fluid .part .header {
+  text-align: center;
+  cursor: pointer;
+  background-color: transparent;
+}
+section.dashboardPage section.contents .container-fluid .part .header h4 {
+  color: #565656;
+}
+section.dashboardPage section.contents .container-fluid .part .header h4 i.fa-angle-down {
+  width: 2rem;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
+  transition: 0.4s;
+  border: none;
+  border-bottom: 2px solid #565656;
+  color: #565656;
+  background-color: transparent;
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 2rem;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input.codeInput {
+  padding: 0;
+  text-align: center;
+  font-size: 25px;
+  width: 2rem;
+  margin: 0 0.5rem;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input.codeInput {
+    width: 1.5rem;
+    margin: 0 0.3rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input.mail, section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input.twitter, section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input.instagram {
+  padding-left: 2.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input:focus {
+  transition: 0.4s;
+  outline: none;
+  border-bottom: 2px solid #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input[type=file] {
+  padding: 0;
+  visibility: hidden;
+  width: 14rem;
+  margin-right: -1rem;
+  height: 3.5rem;
+  position: relative;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input[type=file]::before {
+  visibility: visible;
+  margin-right: 1rem;
+  transition: 0.4s;
+  content: "آپلود تصویر کاربری";
+  font-size: 18px;
+  position: absolute;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  width: 11rem;
+  cursor: pointer;
+  text-align: center;
+  color: #565656;
+  border-radius: 8px;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent textarea {
+  transition: 0.4s;
+  height: 9rem;
+  resize: none;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  color: #565656;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent textarea:focus {
+  outline: none;
+}
+section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent i {
+  font-size: 1.5rem;
+  color: #565656;
+  width: 2rem;
+  height: 2rem;
+  margin-top: -4rem;
+  float: left;
+}
+section.dashboardPage section.contents .container-fluid .part .collapseContent {
+  transition: 0.4s;
+  max-width: 40rem;
+  margin: auto;
+  position: relative;
+  max-height: 70rem;
+  background-color: transparent;
+}
+section.dashboardPage section.contents .container-fluid .part .contentHidden {
+  transition: 0.4s;
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
 /*#endregion */
 /*#region User Page */
 section.userPage section.contents .container-fluid .row.top {
@@ -1230,6 +1466,8 @@ section.userPage section.contents .container-fluid .row.top .info {
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
+  max-width: 40rem;
+  margin: auto;
 }
 @media (max-width: 991px) {
   section.userPage section.contents .container-fluid .row.top .info {
@@ -1242,22 +1480,19 @@ section.userPage section.contents .container-fluid .row.top .info {
   }
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary {
-  display: inline-flex;
   margin-bottom: 2rem;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .right {
-  width: fit-content;
-}
-section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .picture {
   padding: 1rem;
+  text-align: center;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture img {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .picture img {
   width: 7rem;
   height: 7rem;
   object-fit: cover;
   border-radius: 100%;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture i {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .picture i {
   font-size: 4rem;
   width: 7rem;
   height: 7rem;
@@ -1268,49 +1503,49 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
   border-radius: 100%;
 }
 @media (max-width: 580px) {
-  section.userPage section.contents .container-fluid .row.top .info .row .summary .right .picture i {
+  section.userPage section.contents .container-fluid .row.top .info .row .summary .picture i {
     font-size: 3.5rem;
     width: 6rem;
     height: 6rem;
   }
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom {
   width: inherit;
   text-align: center;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .name {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .name {
   padding: 0.5rem;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .name p {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .name p {
   font-size: 1.3rem;
   margin-bottom: 0;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats {
   display: inline-flex;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social a {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a {
   color: #565656;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social a i {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i {
   padding: 0.5rem;
   transition: 0.4s;
   color: #565656;
   font-size: 1.5rem;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social a i:hover {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i:hover {
   transition: 0.4s;
   color: #00b4bb;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social .mail {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail {
   width: fit-content;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .social .instagram {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram {
   width: fit-content;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .stats .productsCount {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount {
   display: inline-flex;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .left .stats .productsCount label, section.userPage section.contents .container-fluid .row.top .info .row .summary .left .stats .productsCount p {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount label, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount p {
   padding: 1rem 0.25rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .bio p {

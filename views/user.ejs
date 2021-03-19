@@ -6,20 +6,18 @@
     <section class="contents">
         <div class="container-fluid">
             <div class="row top">
-                <div class="col-lg-4 info">
+                <div class="col-12 info">
                     <div class="row">
-                        <div class="ccol-12 summary">
-                            <div class="right">
-                                <div class="picture">
-                                    <!--<img src="" />-->
-                                    <i class="fal fa-user fa-3x"></i>
-                                </div>
+                        <div class="col-12 summary">
+                            <div class="picture">
+                                <!--<img src="" />-->
+                                <i class="fal fa-user fa-3x"></i>
                             </div>
-                            <div class="left">
+                            <div class="bottom">
                                 <div class="name">
                                     <p> <%=user.firstName%> </p>
                                 </div>
-                                <div class="social">
+                                <div class="socialStats">
                                     <div class="mail">
                                         <a href="mailto:<%=user.email%>"><i class="fal fa-envelope"></i></a>
                                     </div>
@@ -27,26 +25,25 @@
 
                                         <a href="<%=user.instagram%>"> <i class="fab fa-instagram"></i> </a>
                                     </div>
-                                </div>
-
-                                <div class="stats">
                                     <div class="productsCount">
                                         <label> تعداد آثار:</label>
                                         <p> 12 </p>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-6 col-sm-12 bio">
                             <p>
                                 <%=user.bio%>
-                              </p>
+                            </p>
                         </div>
                     </div>
 
 
                 </div>
-                <div class="col-lg-8 products">
+                <div class="col-12 products">
                     <div class="row">
                         <div class="col-lg-6 col-sm-6 col-xs-12 col-xl-4">
                             <a href="/Product">

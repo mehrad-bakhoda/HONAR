@@ -45,23 +45,6 @@
                          aria-labelledby="bestTabH">
                         <div class="row">
 
-
-<!--
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test1.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
- -->
-
                             <% bestOfAll.forEach(function(product) { %>
 
 
@@ -74,145 +57,18 @@
                                             <img src="<%=product.coverPath%>" />
                                         </div>
                                         <div class="card-footer">
-                                            <p> <%=product.user.firstName%> </p>
+
                                             <p> <%=product.fileName%> </p>
+                                            <p>
+                                                <%=product.user.firstName%>
+                                                <i class="fal fa-user"></i>
+                                            </p>
                                         </div>
                                     </div>
                                 </a>
 
                             </div>
                             <% }) %>
-
-                            <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test2.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test3.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test2.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test4.png" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test3.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test1.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test.jpg" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a href="/Product">
-                                    <div class="card product hiddenItem">
-                                        <div class="card-body">
-                                            <img src="/assets/images/test4.png" />
-                                        </div>
-                                        <div class="card-footer">
-                                            <p> artist name </p>
-                                            <p> art name </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div> -->
                         </div>
                         <div class="buttons">
                             <button type="button" class="seeMore">
@@ -228,25 +84,29 @@
                          role="tabpanel"
                          aria-labelledby="downTabH">
                         <div class="row">
-                          <% bestSales.forEach(function(product) { %>
+                            <% bestSales.forEach(function(product) { %>
 
-                          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
 
                                 <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                                  <div class="card product hiddenItem">
-                                      <div class="card-body">
-                                          <img src="<%=product.coverPath%>"/>
-                                      </div>
-                                      <div class="card-footer">
-                                          <p> <%=product.user.firstName%> </p>
-                                          <p> <%=product.fileName%> </p>
-                                      </div>
-                                  </div>
-                              </a>
+                                    <div class="card product hiddenItem">
+                                        <div class="card-body">
+                                            <img src="<%=product.coverPath%>" />
+                                        </div>
+                                        <div class="card-footer">
 
-                          </div>
-                          <% }) %>
+                                            <p> <%=product.fileName%> </p>
+                                            <p>
+                                                <%=product.user.firstName%>
+                                                <i class="fal fa-user"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <% }) %>
 
 
                         </div>
@@ -262,23 +122,27 @@
                          role="tabpanel"
                          aria-labelledby="latestTabH">
                         <div class="row">
-                          <% latest.forEach(function(product) { %>
-                          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <% latest.forEach(function(product) { %>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
 
                                 <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                                  <div class="card product hiddenItem">
-                                      <div class="card-body">
-                                          <img src="<%=product.coverPath%>" />
-                                      </div>
-                                      <div class="card-footer">
-                                          <p> <%=product.user.firstName%> </p>
-                                          <p> <%=product.fileName%> </p>
-                                      </div>
-                                  </div>
-                              </a>
+                                    <div class="card product hiddenItem">
+                                        <div class="card-body">
+                                            <img src="<%=product.coverPath%>" />
+                                        </div>
+                                        <div class="card-footer">
 
-                          </div>
+                                            <p> <%=product.fileName%> </p>
+                                            <p>
+                                                <%=product.user.firstName%>
+                                                <i class="fal fa-user"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
                             <% }) %>
 
 
