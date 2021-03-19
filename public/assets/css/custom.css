@@ -1556,6 +1556,7 @@ section.dashboardPage section.contents .container-fluid .part .contentHidden {
   max-height: 0;
   visibility: hidden;
   opacity: 0;
+  overflow: hidden;
 }
 
 /*#endregion */
