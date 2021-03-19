@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var Product = require('../models/product');
-var Cart = require("../models/cart.js");
+var Cart = require("../cart");
 const Jimp=require("jimp");
 const bodyParser=require("body-parser");
 const {check,validationResult}=require("express-validator");
@@ -106,11 +106,21 @@ router.get("/cart", function(req,res)
   {
     res.redirect("/login");
   }
-  var cart = new Cart(req.session.cart);
-  res.render("cart",{products:cart.generateArray(),totalPrice:cart.totalPrice,});
+  var cart = new Cart(req.session.cart || {});
+  res.render("cart",{products:cart.generateArray(),totalPrice:cart.totalPrice,totalQty:cart.totalQty});
 });
 
+router.get("/delete-from-cart/:id",function(req,res){
+  if(req.session.userId)
+  {
+    var productId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    cart.delete(productId);
+    req.session.cart = cart;
+    res.redirect('/cart');
+  }
 
+});
 router.get("/add-to-cart/:id/:size", function(req, res){
   if(req.session.userId)
   {
@@ -126,10 +136,9 @@ router.get("/add-to-cart/:id/:size", function(req, res){
           console.log("item adding failed");
           return
         }
-        cart.add(product,product.id,size);
+        cart.add(product,product.productId,size);
         req.session.cart = cart;
-        console.log(req.session.cart.items);
-        // res.redirect('/cart');
+        res.redirect('/cart');
     });
     }
     else{

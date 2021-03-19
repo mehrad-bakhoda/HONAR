@@ -6,89 +6,109 @@
             <div class="row top">
                 <div class="col-md-9 col-sm-12 items">
                     <div class="row middle">
+                        <% products.forEach(function(product) { %>
                         <div class="col-md-12 col-lg-6">
                             <div class="card item">
                                 <div class="row bottom">
                                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                        <a href="#">
-                                            <img src="../assets/images/test0.jpg" />
+                                        <a href="/product/<%=product.item.productId%>/<%=product.item.fileName%>">
+                                            <img src="<%=product.item.coverPath%>" />
                                         </a>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
                                         <h6 class="name">
-                                            نام محصول
+                                            <%=product.item.fileName%>
                                         </h6>
-                                        <p class="price">
-                                            <span>10000</span> تومان
+                                        <p>سایز:
+                                            <% if (product.size == "orginal"){%>
+                                                اصلی
+                                            <% } %>
+                                            <% if (product.size == "large"){%>
+                                                بزرگ
+                                            <% } %>
+                                            <% if (product.size == "medium"){%>
+                                                متوسط
+                                            <% } %>
+                                            <% if (product.size == "small"){%>
+                                                کوچک
+                                            <% } %>
                                         </p>
+                                        <p class="price">
+                                        <% if (product.size == "orginal"){%>
+                                            <% if(product.item.orginalPrice == 0){%>
+                                                رایگان
+                                            <% } %>
+                                            <% if(product.item.orginalPrice != 0){%>
+                                                <span><%=product.item.orginalPrice%></span>
+                                                تومان
+                                            <% } %>
+                                            
+                                        <%} %>
+                                        <% if (product.size == "large"){%>
+                                            <% if(product.item.largePrice == 0){%>
+                                                رایگان
+                                            <% } %>
+                                            <% if(product.item.largePrice != 0){%>
+                                                <span><%=product.item.largePrice%></span>
+                                                تومان
+                                            <% } %>
+                                            
+                                        <%} %>
+                                        <% if (product.size == "medium"){%>
+                                            <% if(product.item.mediumPrice == 0){%>
+                                                رایگان
+                                            <% } %>
+                                            <% if(product.item.mediumPrice != 0){%>
+                                                <span><%=product.item.mediumPrice%></span>
+                                                تومان
+                                            <% } %>
+                                            
+                                        <%} %>
+                                        <% if (product.size == "small"){%>
+                                            <% if(product.item.smallPrice == 0){%>
+                                                رایگان
+                                            <% } %>
+                                            <% if(product.item.smallPrice != 0){%>
+                                                <span><%=product.item.smallPrice%></span>
+                                                تومان
+                                            <% } %>
+                                            
+                                        <%} %>
+                                             
+                                        </p>
+                                        
                                     </div>
                                     <div class="col-sm-12 buttons">
-                                        <button type="submit" class="delete">
+                                    <a href="/delete-from-cart/<%=product.item.productId%>">
+                                        <button type="button" class="delete">
                                             حذف محصول
                                         </button>
+                                    </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-6">
-                            <div class="card item">
-                                <div class="row bottom">
-                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                        <a href="#">
-                                            <img src="../assets/images/test2.jpg" />
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                        <h6 class="name">
-                                            نام محصول
-                                        </h6>
-                                        <p class="price">
-                                            <span>15500</span> تومان
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-12 buttons">
-                                        <button type="submit" class="delete">
-                                            حذف محصول
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-6">
-                            <div class="card item">
-                                <div class="row bottom">
-                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                        <a href="#">
-                                            <img src="../assets/images/test3.jpg" />
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                        <h6 class="name">
-                                            نام محصول
-                                        </h6>
-                                        <p class="price">
-                                            <span>75000</span> تومان
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-12 buttons">
-                                        <button type="submit" class="delete">
-                                            حذف محصول
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <% }); %>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 total">
                     <div class="card">
                         <div class="count">
                             <h4> تعداد کالاها </h4>
-                            <p> 12 </p>
+                            <p> <%=totalQty%> </p>
                         </div>
                         <div class="cost">
                             <h4> قیمت نهایی </h4>
-                            <p> 124000 <span> تومان </span></p>
+                            <p>
+                            <% if(totalPrice == 0){%>
+                                رایگان
+                            <% } %>
+                            <% if(totalPrice != 0){%>
+                                <%=totalPrice %> 
+                                <span> تومان </span>
+                            <% } %>
+                            
+                            </p>
                         </div>
                         <div class="buttons">
                             <button type="submit" class="payment">
