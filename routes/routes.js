@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var Product = require('../models/product');
+var Cart = require("../models/cart.js");
 const Jimp=require("jimp");
 const bodyParser=require("body-parser");
 const {check,validationResult}=require("express-validator");
@@ -99,9 +100,48 @@ router.get("/contact-us",function(req,res){
   });
 
 
-router.get("/cart",function(req,res){
-    res.render("cart");
-  });
+router.get("/cart", function(req,res)
+{
+  if(!req.session.userId)
+  {
+    res.redirect("/login");
+  }
+  var cart = new Cart(req.session.cart);
+  res.render("cart",{products:cart.generateArray(),totalPrice:cart.totalPrice,});
+});
+
+
+router.get("/add-to-cart/:id/:size", function(req, res){
+  if(req.session.userId)
+  {
+    var productId = req.params.id;
+    var size = req.params.size;
+    if(size == "orginal" || size == "large" || size == "medium" || size == "small")
+    {
+      var cart = new Cart(req.session.cart ? req.session.cart : {});
+      let product = Product.findOne({
+        _id: productId
+      }, function(err, product) {
+        if(err){
+          console.log("item adding failed");
+          return
+        }
+        cart.add(product,product.id,size);
+        req.session.cart = cart;
+        console.log(req.session.cart.items);
+        // res.redirect('/cart');
+    });
+    }
+    else{
+      res.render("error404");
+    }
+    
+  }
+  else{
+    res.redirect("/login");
+  }
+  
+});
 
 
 router.get("/about-us",function(req,res){
