@@ -520,9 +520,9 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
-  background-color: #f0f0f0;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+  color: #00b4bb;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
   padding: 1rem 1rem 5rem;

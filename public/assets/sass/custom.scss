@@ -566,9 +566,9 @@ section.homePage {
 
                             &.active {
                                 transition: 0.4s;
-                                background-color: $gray-color;
                                 border-radius: $radius;
-                                box-shadow: $box-shadow;
+                                box-shadow: $hover-shadow;
+                                color:$blue-color;
                             }
                         }
                     }
