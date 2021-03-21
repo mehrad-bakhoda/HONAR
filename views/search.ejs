@@ -1,6 +1,6 @@
 <%-include("head");-%>
 
-
+<%-include("uploadButton");-%>
 <section class="page searchPage">
     <%-include("header");-%>
     <section class="contents">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="row">
-              <% searched.forEach(function(product) { %>
+                <% searched.forEach(function(product) { %>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
                     <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
                         <div class="card product">

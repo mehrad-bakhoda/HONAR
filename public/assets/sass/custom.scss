@@ -124,6 +124,46 @@ input:focus {
 }
 /*#endregion */
 
+/*#region upload Buttton*/
+section.uploadButton {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: $body-color;
+    text-align: center;
+    z-index: 100;
+
+    a {
+        border-radius: $radius;
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 0.5rem;
+        color: $blue-color;
+        box-shadow: $hover-shadow;
+        text-align: center;
+
+        i {
+            font-size: 2.5rem;
+        }
+    }
+
+    @include sm {
+        bottom: 1rem;
+        left: 1rem;
+
+        a {
+            width: 3rem;
+            height: 3rem;
+
+            i {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+/*#endregion */
+
 /*#region Product Cards */
 .hiddenItem {
     transition: 0.4s;
@@ -1698,6 +1738,7 @@ section.dashboardPage {
 
                                 .mail, .instagram, .twitter {
                                     width: fit-content;
+                                    padding-top:0.5rem;
                                 }
 
                                 .productsCount {
@@ -1972,6 +2013,7 @@ section.userPage {
 
                                     .mail, .instagram, .twitter {
                                         width: fit-content;
+                                        padding-top:0.5rem;
                                     }
 
                                     .productsCount {

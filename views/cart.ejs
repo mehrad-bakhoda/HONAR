@@ -1,4 +1,6 @@
 ﻿<%-include("head");-%>
+
+<%-include("uploadButton");-%>
 <section class="page cartPage">
     <%-include("headerN");-%>
     <section class="contents">
@@ -19,71 +21,72 @@
                                         <h6 class="name">
                                             <%=product.item.fileName%>
                                         </h6>
-                                        <p>سایز:
+                                        <p>
+                                            سایز:
                                             <% if (product.size == "orginal"){%>
-                                                اصلی
+                                            اصلی
                                             <% } %>
                                             <% if (product.size == "large"){%>
-                                                بزرگ
+                                            بزرگ
                                             <% } %>
                                             <% if (product.size == "medium"){%>
-                                                متوسط
+                                            متوسط
                                             <% } %>
                                             <% if (product.size == "small"){%>
-                                                کوچک
+                                            کوچک
                                             <% } %>
                                         </p>
                                         <p class="price">
-                                        <% if (product.size == "orginal"){%>
+                                            <% if (product.size == "orginal"){%>
                                             <% if(product.item.orginalPrice == 0){%>
-                                                رایگان
+                                            رایگان
                                             <% } %>
                                             <% if(product.item.orginalPrice != 0){%>
-                                                <span><%=product.item.orginalPrice%></span>
-                                                تومان
+                                            <span><%=product.item.orginalPrice%></span>
+                                            تومان
                                             <% } %>
-                                            
-                                        <%} %>
-                                        <% if (product.size == "large"){%>
+
+                                            <%} %>
+                                            <% if (product.size == "large"){%>
                                             <% if(product.item.largePrice == 0){%>
-                                                رایگان
+                                            رایگان
                                             <% } %>
                                             <% if(product.item.largePrice != 0){%>
-                                                <span><%=product.item.largePrice%></span>
-                                                تومان
+                                            <span><%=product.item.largePrice%></span>
+                                            تومان
                                             <% } %>
-                                            
-                                        <%} %>
-                                        <% if (product.size == "medium"){%>
+
+                                            <%} %>
+                                            <% if (product.size == "medium"){%>
                                             <% if(product.item.mediumPrice == 0){%>
-                                                رایگان
+                                            رایگان
                                             <% } %>
                                             <% if(product.item.mediumPrice != 0){%>
-                                                <span><%=product.item.mediumPrice%></span>
-                                                تومان
+                                            <span><%=product.item.mediumPrice%></span>
+                                            تومان
                                             <% } %>
-                                            
-                                        <%} %>
-                                        <% if (product.size == "small"){%>
+
+                                            <%} %>
+                                            <% if (product.size == "small"){%>
                                             <% if(product.item.smallPrice == 0){%>
-                                                رایگان
+                                            رایگان
                                             <% } %>
                                             <% if(product.item.smallPrice != 0){%>
-                                                <span><%=product.item.smallPrice%></span>
-                                                تومان
+                                            <span><%=product.item.smallPrice%></span>
+                                            تومان
                                             <% } %>
-                                            
-                                        <%} %>
-                                             
+
+                                            <%} %>
+
                                         </p>
-                                        
+
                                     </div>
                                     <div class="col-sm-12 buttons">
-                                    <a href="/delete-from-cart/<%=product.item.productId%>">
-                                        <button type="button" class="delete">
-                                            حذف محصول
-                                        </button>
-                                    </a>
+                                        <a href="/delete-from-cart/<%=product.item.productId%>">
+                                            <button type="button" class="delete">
+                                                حذف محصول
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -100,14 +103,14 @@
                         <div class="cost">
                             <h4> قیمت نهایی </h4>
                             <p>
-                            <% if(totalPrice == 0){%>
+                                <% if(totalPrice == 0){%>
                                 رایگان
-                            <% } %>
-                            <% if(totalPrice != 0){%>
-                                <%=totalPrice %> 
+                                <% } %>
+                                <% if(totalPrice != 0){%>
+                                <%=totalPrice %>
                                 <span> تومان </span>
-                            <% } %>
-                            
+                                <% } %>
+
                             </p>
                         </div>
                         <div class="buttons">

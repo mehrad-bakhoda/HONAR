@@ -121,6 +121,43 @@ input:focus {
 }
 
 /*#endregion */
+/*#region upload Buttton*/
+section.uploadButton {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: #f0f0f0;
+  text-align: center;
+  z-index: 100;
+}
+section.uploadButton a {
+  border-radius: 8px;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 0.5rem;
+  color: #00b4bb;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+  text-align: center;
+}
+section.uploadButton a i {
+  font-size: 2.5rem;
+}
+@media (max-width: 767px) {
+  section.uploadButton {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  section.uploadButton a {
+    width: 3rem;
+    height: 3rem;
+  }
+  section.uploadButton a i {
+    font-size: 2rem;
+  }
+}
+
+/*#endregion */
 /*#region Product Cards */
 .hiddenItem {
   transition: 0.4s;
@@ -1483,6 +1520,7 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
   width: fit-content;
+  padding-top: 0.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount {
   display: inline-flex;
@@ -1716,6 +1754,7 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
   width: fit-content;
+  padding-top: 0.5rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount {
   display: inline-flex;
