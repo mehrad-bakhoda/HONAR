@@ -81,7 +81,23 @@ router.get("/login",function(req,res){
 
 
 router.get("/dashboard",function(req,res){
-    res.render("dashboard");
+  if(req.session.userId)
+  {
+    User.findOne({
+      unique_id: req.session.userId
+    }, function(err, found) {
+      if (found) {
+        Product.find({"user.userName":found.userName})
+        .exec(function(err,products){
+          res.render("dashboard",{user:found,searched:products});
+        }); 
+      } 
+      else {
+        res.render("notFound");
+      }
+    });
+  }
+  
 });
 
 router.get("/order", function (req, res) {
@@ -231,7 +247,7 @@ router.get("/:userName",function(req,res){
         }); 
       } 
       else {
-        res.render("error404");
+        res.render("notFound");
       }
     });
   }
