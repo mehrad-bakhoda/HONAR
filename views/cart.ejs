@@ -42,7 +42,7 @@
                                                 <span><%=product.item.orginalPrice%></span>
                                                 تومان
                                             <% } %>
-                                            
+
                                         <%} %>
                                         <% if (product.size == "large"){%>
                                             <% if(product.item.largePrice == 0){%>
@@ -52,7 +52,7 @@
                                                 <span><%=product.item.largePrice%></span>
                                                 تومان
                                             <% } %>
-                                            
+
                                         <%} %>
                                         <% if (product.size == "medium"){%>
                                             <% if(product.item.mediumPrice == 0){%>
@@ -62,7 +62,7 @@
                                                 <span><%=product.item.mediumPrice%></span>
                                                 تومان
                                             <% } %>
-                                            
+
                                         <%} %>
                                         <% if (product.size == "small"){%>
                                             <% if(product.item.smallPrice == 0){%>
@@ -72,11 +72,11 @@
                                                 <span><%=product.item.smallPrice%></span>
                                                 تومان
                                             <% } %>
-                                            
+
                                         <%} %>
-                                             
+
                                         </p>
-                                        
+
                                     </div>
                                     <div class="col-sm-12 buttons">
                                     <a href="/delete-from-cart/<%=product.item.productId%>">
@@ -104,10 +104,10 @@
                                 رایگان
                             <% } %>
                             <% if(totalPrice != 0){%>
-                                <%=totalPrice %> 
+                                <%=totalPrice %>
                                 <span> تومان </span>
                             <% } %>
-                            
+
                             </p>
                         </div>
                         <div class="buttons">

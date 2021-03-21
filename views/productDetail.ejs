@@ -68,22 +68,22 @@
                             <div class="price info">
                                 <label> قیمت </label>
                                 <% if(item.orginalPrice === 0){%>
-                                <p class="original showPrice">  رایگان </p>
+                                <p class="original showPrice">رایگان </p>
                                 <%  }else{%>
                                 <p class="original showPrice"> <span><%=item.orginalPrice%></span> تومان </p>
                                 <%} %>
                                 <% if(item.largePrice === 0){%>
-                                <p class="large">  رایگان </p>
+                                <p class="large">رایگان </p>
                                 <% }else{%>
                                 <p class="large"> <span><%=item.largePrice%></span> تومان </p>
                                 <%}%>
                                 <% if(item.mediumPrice === 0){%>
-                                <p class="medium">  رایگان </p>
+                                <p class="medium">رایگان </p>
                                 <%}else{%>
                                 <p class="medium"><span><%=item.mediumPrice%></span> تومان </p>
                                 <%}%>
                                 <% if(item.smallPrice === 0){%>
-                                <p class="small">  رایگان </p>
+                                <p class="small">رایگان </p>
                                 <%}else{%>
                                 <p class="small "> <span><%=item.smallPrice%></span> تومان </p>
                                 <%}%>
@@ -99,9 +99,13 @@
 
                             </div>
                             <div class="buttons">
-                                <button type="submit" class="download"> دانلود </button>
+                                <% if(item.orginalPrice === 0){%>
+                              <a href="/download/<%=item.id%>/orginal"> <button type="button" class="download"> دانلود </button></a>
+                              <%}else{%>
                                 <a href="/add-to-cart/<%=item.id%>/orginal"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
-                                <button type="submit" class="buy"> خرید </button>
+                              <a href="/buy/<%=item.id%>/orginal">  <button type="button" class="buy"> خرید </button></a>
+                              <%}%>
+
                             </div>
                         </div>
 
