@@ -15,7 +15,7 @@
                             </div>
                             <div class="bottom">
                                 <div class="name">
-                                    <p> <%=user.firstName%> </p>
+                                    <p> <%=user.userName%> </p>
                                 </div>
                                 <div class="socialStats">
                                     <div class="mail">
@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="productsCount">
                                         <label> تعداد آثار:</label>
-                                        <p> 12 </p>
+                                        <p> <%=searched.length%> </p>
                                     </div>
                                 </div>
 
@@ -49,90 +49,21 @@
                 </div>
                 <div class="col-12 products">
                     <div class="row">
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="/assets/images/test.jpg" />
+                        <% for (var i = 0; i < searched.length; i++){%>
+                            <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
+                                <a href="/Product">
+                                    <div class="card product">
+                                        <div class="card-body">
+                                            <img src="<%=searched[i].coverPath%>" />
+                                        </div>
+                                        <div class="card-footer">
+                                            <p> <%=searched[i].fileName%> </p>
+                                        </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <p> art name </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="/assets/images/test.jpg" />
-                                    </div>
-                                    <div class="card-footer">
-                                        <p> art name </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="/assets/images/test.jpg" />
-                                    </div>
-                                    <div class="card-footer">
-                                        <p> art name </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="/assets/images/test.jpg" />
-                                    </div>
-                                    <div class="card-footer">
-                                        <p> art name </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="/assets/images/test.jpg" />
-                                    </div>
-                                    <div class="card-footer">
-                                        <p> art name </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="/assets/images/test.jpg" />
-                                    </div>
-                                    <div class="card-footer">
-                                        <p> art name </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="/assets/images/test.jpg" />
-                                    </div>
-                                    <div class="card-footer">
-                                        <p> art name </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        <%}%>
+                        
                     </div>
                     <div class="buttons">
                         <button type="button" class="seeMore">

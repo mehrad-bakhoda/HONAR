@@ -96,7 +96,15 @@ router.get("/user", function (req, res) {
 
 router.get("/upload",function(req,res){
   if(req.session.userId){
-    res.render("upload");
+    User.findOne({unique_id:req.session.userId},function(err,user){
+      if(user.type == "Uploader")
+        res.render("upload");
+      else{
+        res.redirect("/dashboard");
+      }
+
+    });
+    
   }
   else{
     res.redirect("/login");
@@ -192,25 +200,6 @@ router.get("/about-us",function(req,res){
 
 });
 
-
-router.get("/user/:userId/:userName",function(req,res){
-
-  User.findOne({
-    unique_id: req.params.userId
-  }, function(err, found) {
-    if (found) {
-      res.render("user", {
-        user:found
-      });
-    } else {
-      res.render("error404");
-    }
-
-  });
-
-});
-
-
 router.get('/logout', function (req, res, next) {
 	console.log("logout")
 	if (req.session.userId) {
@@ -224,6 +213,31 @@ router.get('/logout', function (req, res, next) {
     });
 }
 });
+
+
+router.get("/:userName",function(req,res){
+  if(req.params.userName.toLowerCase() != "logout")
+  {
+    User.findOne({
+      userName: req.params.userName.toLowerCase()
+    }, function(err, found) {
+      if (found) {
+        Product.find({"user.userName":found.userName})
+        .exec(function(err,products){
+          res.render("user",{user:found,searched:products});
+        }); 
+      } 
+      else {
+        res.render("error404");
+      }
+    });
+  }
+  
+
+});
+
+
+
 
 // END OF GET ROUTE'S
 
@@ -592,7 +606,7 @@ if(errors.isEmpty()){
                   type:"Uploader",
                   firstName:fields.firstName,
                   lastName:fields.lastName,
-                  userName:fields.userName,
+                  userName:fields.userName.toLowerCase(),
                   instagram:fields.instagram,
                   twitter:fields.twitter,
                   bio:fields.bio,
@@ -678,7 +692,7 @@ if(errors.isEmpty()){
                   type:"Uploader",
                   firstName:fields.firstName,
                   lastName:fields.lastName,
-                  userName:fields.userName,
+                  userName:fields.userName.toLowerCase(),
                   instagram:fields.instagram,
                   twitter:fields.twitter,
                   bio:fields.bio,
@@ -818,7 +832,7 @@ router.post("/upload", function(req, res){
                 }
               }
               tagsarr = tagsarr.filter(function(e){return e});
-              console.log(fields.type);
+              console.log(found);
               const newProduct = new Product({
                 productId:c,
                 type:fields.types,
@@ -835,6 +849,10 @@ router.post("/upload", function(req, res){
                 dateAdded:new Date()
               });
               newProduct.save();
+              found.products.push(newProduct);
+              found.save();
+              
+              
 
 
 

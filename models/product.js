@@ -78,7 +78,7 @@ const productSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId, ref: "comment"
   }],
   user: {
-    type: mongoose.Schema.Types, ref: "user"
+    type: mongoose.Schema.Types, ref: "User"
   }
 
 });
