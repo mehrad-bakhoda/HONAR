@@ -2014,6 +2014,7 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 .i
   text-align: center;
 }
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image a {
+  display: contents;
   position: absolute;
   top: 50%;
   left: 50%;
