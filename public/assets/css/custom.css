@@ -2041,6 +2041,20 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 .i
 }
 
 /*#endregion */
+/*#region NOT FOUND page*/
+section.notFoundPage section.contents .container-fluid {
+  text-align: center;
+}
+section.notFoundPage section.contents .container-fluid h1 {
+  color: #565656;
+  font-weight: bold;
+}
+section.notFoundPage section.contents .container-fluid h1.top {
+  padding: 2rem;
+  font-size: 5rem;
+}
+
+/*#endregion */
 /*#region About Us Page */
 /*#endregion */
 /*#region Contact Us Page */

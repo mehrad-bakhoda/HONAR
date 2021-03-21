@@ -2380,6 +2380,26 @@ section.orderPage {
 }
 /*#endregion */
 
+/*#region NOT FOUND page*/
+section.notFoundPage {
+    section.contents {
+        .container-fluid {
+            text-align: center;
+
+            h1 {
+                color: $text-color;
+                font-weight: bold;
+
+                &.top {
+                    padding: 2rem;
+                    font-size: 5rem;
+                }
+            }
+        }
+    }
+}
+/*#endregion */
+
 /*#region About Us Page */
 section.aboutUsPage {
 }
