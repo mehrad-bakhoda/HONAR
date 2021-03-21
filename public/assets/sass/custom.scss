@@ -1561,18 +1561,25 @@ section.cartPage {
                                     padding: 1rem;
                                     text-align: center;
 
-                                    img {
-                                        transition: 0.4s;
-                                        max-height: 4rem;
-                                        border-radius: $radius;
-                                        box-shadow: $image-shadow;
-                                        max-width: 4rem;
-                                        width: auto;
-                                        margin: 0 auto;
+                                    a {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
 
-                                        @include xs {
-                                            max-height: 6rem;
-                                            max-width: 6rem;
+                                        img {
+                                            transition: 0.4s;
+                                            max-height: 4rem;
+                                            border-radius: $radius;
+                                            box-shadow: $image-shadow;
+                                            max-width: 4rem;
+                                            width: auto;
+                                            margin: 0 auto;
+
+                                            @include xs {
+                                                max-height: 6rem;
+                                                max-width: 6rem;
+                                            }
                                         }
                                     }
                                 }
@@ -1931,20 +1938,50 @@ section.dashboardPage {
                                             top: 50%;
                                             left: 50%;
                                             transform: translate(-50%, -50%);
+
+                                            &.top {
+                                                z-index: 10;
+                                                top: 50%;
+                                                left: 50%;
+                                                transform: translate(-50%, -50%);
+                                            }
+
+                                            &.middle {
+                                                z-index: 9;
+                                                top: 48%;
+                                                left: 52%;
+                                                transform: translate(-50%, -50%);
+                                            }
+
+                                            &.bottom {
+                                                z-index: 8;
+                                                top: 46%;
+                                                left: 54%;
+                                                transform: translate(-50%, -50%);
+                                            }
                                         }
                                     }
 
                                     .detail {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
                                         text-align: center;
                                         z-index: 50;
 
                                         a {
                                             transition: 0.4s;
                                             color: $text-color;
+                                            box-shadow: $box-shadow;
+                                            background-color: $body-color;
+                                            padding: 0.5rem 1rem;
+                                            border-radius: $radius;
 
                                             &:hover {
                                                 transition: 0.4s;
                                                 color: $blue-color;
+                                                box-shadow: $hover-shadow;
                                             }
                                         }
                                     }
@@ -1964,18 +2001,25 @@ section.dashboardPage {
                                         padding: 1rem;
                                         text-align: center;
 
-                                        img {
-                                            transition: 0.4s;
-                                            max-height: 4rem;
-                                            border-radius: $radius;
-                                            box-shadow: $image-shadow;
-                                            max-width: 4rem;
-                                            width: auto;
-                                            margin: 0 auto;
+                                        a {
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
 
-                                            @include xs {
-                                                max-height: 6rem;
-                                                max-width: 6rem;
+                                            img {
+                                                transition: 0.4s;
+                                                max-height: 4rem;
+                                                border-radius: $radius;
+                                                box-shadow: $image-shadow;
+                                                max-width: 4rem;
+                                                width: auto;
+                                                margin: 0 auto;
+
+                                                @include xs {
+                                                    max-height: 6rem;
+                                                    max-width: 6rem;
+                                                }
                                             }
                                         }
                                     }
@@ -2032,9 +2076,11 @@ section.dashboardPage {
                         .buttons {
                             padding: 1rem;
                             text-align: left;
+
                             @include xs {
                                 text-align: center;
                             }
+
                             a {
                                 /*display: block;*/
                                 text-align: center;
@@ -2295,18 +2341,25 @@ section.orderPage {
                                 padding: 1rem;
                                 text-align: center;
 
-                                img {
-                                    transition: 0.4s;
-                                    max-height: 4rem;
-                                    border-radius: $radius;
-                                    box-shadow: $image-shadow;
-                                    max-width: 4rem;
-                                    width: auto;
-                                    margin: 0 auto;
+                                a {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
 
-                                    @include xs {
-                                        max-height: 6rem;
-                                        max-width: 6rem;
+                                    img {
+                                        transition: 0.4s;
+                                        max-height: 4rem;
+                                        border-radius: $radius;
+                                        box-shadow: $image-shadow;
+                                        max-width: 4rem;
+                                        width: auto;
+                                        margin: 0 auto;
+
+                                        @include xs {
+                                            max-height: 6rem;
+                                            max-width: 6rem;
+                                        }
                                     }
                                 }
                             }
