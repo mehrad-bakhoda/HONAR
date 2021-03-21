@@ -1377,6 +1377,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   text-align: center;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image a {
+  display: contents;
   position: absolute;
   top: 50%;
   left: 50%;
