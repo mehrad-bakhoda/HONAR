@@ -52,17 +52,23 @@ router.get("/",function(req,res){
 
 
 router.get("/search/:searchedItem",function(req,res){
+  
   Product.find({$text:{$search:req.params.searchedItem}})
   // .skip(20)
   // .limit(10)
   .exec(function(err,found){
     res.render("search",{searched:found});
-
   });
+});
 
 
-
-
+router.get("/tags/:tag",function(req,res){
+  tagss ="#" + req.params.tag;
+  console.log(tagss);
+  Product.find({tags:{$in:tagss}})
+  .exec(function(err,found){
+    res.render("search",{searched:found});
+  });
 });
 
 router.get("/login",function(req,res){
@@ -799,13 +805,21 @@ router.post("/upload", function(req, res){
                 console.log(err);
               });
 
-
+              tagsarr = fields.tags.split(" ");
+              for (var i = 0; i < tagsarr.length; i++)
+              {
+                if((tagsarr[i].includes("#") && tagsarr[i].length == 1) || !tagsarr[i].includes("#"))
+                {
+                  delete tagsarr[i];
+                }
+              }
+              tagsarr = tagsarr.filter(function(e){return e});
               console.log(fields.type);
               const newProduct = new Product({
                 productId:c,
                 type:fields.types,
                 fileName:fields.fileName,
-                tags:fields.tags,
+                tags:tagsarr,
                 description:fields.description,
                 filePath:files.productFiles.path,
                 coverPath:databaseDestination,
@@ -844,8 +858,14 @@ router.post("/upload", function(req, res){
 
 
 router.post("/search",function(req,res){
-
-  res.redirect("/search/" + req.body.searchedItem);
+  if(req.body.searchedItem == "")
+  {
+    res.redirect("/");
+  }
+  else{
+    res.redirect("/search/" + req.body.searchedItem);
+  }
+  
 });
 
 // END OF POST ROUTE'S
