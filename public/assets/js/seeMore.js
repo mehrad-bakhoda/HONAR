@@ -1,6 +1,6 @@
 /* Variables */
 var showCount = 4;
-var starts = [0, 0, 0, 0];
+var starts = [0, 0, 0, 0, 0];
 
 /* Show Best */
 $(".homePage #bestTabC button.seeMore").click(function () {
@@ -29,6 +29,13 @@ $(".searchPage button.seeMore").click(function () {
 });
 hideItems(".searchPage");
 showMore(".searchPage", 3);
+
+/* Show User's Art */
+$(".userPage button.seeMore").click(function () {
+    showMore(".userPage", 4);
+});
+hideItems(".userPage");
+showMore(".userPage", 4);
 
 /* Functions */
 function hideItems(tabID) {

@@ -631,16 +631,11 @@ section.homePage {
                             button.seeMore {
                                 position: relative;
                                 display: flex;
-                                /*border: 1px solid $text-color;
-                                border-radius: $radius;*/
                                 margin: auto;
                                 font-size: 20px;
                                 transition: 0.4s;
                                 background-color: transparent;
-                                /*padding: 0.5rem 1rem 0.5rem 2.5rem;
-                                color: $text-color;*/
                                 i {
-                                    /*position: absolute;*/
                                     left: 0.5rem;
                                     top: 0.5rem;
                                     width: 2rem;
@@ -649,8 +644,6 @@ section.homePage {
 
                                 &:hover {
                                     transition: 0.4s;
-                                    /*color: $blue-color;
-                                    border: 1px solid $blue-color;*/
                                 }
 
                                 &:focus {
@@ -1538,6 +1531,7 @@ section.searchPage {
     }
 }
 /*#endregion */
+
 /*#region Cart Page */
 section.cartPage {
     section.contents {
@@ -1637,6 +1631,7 @@ section.cartPage {
     }
 }
 /*#endregion */
+
 /*#region Dashboard Page */
 section.dashboardPage {
     section.contents {
@@ -1673,7 +1668,6 @@ section.dashboardPage {
 
                 &.top {
                     .summary {
-                        margin-bottom: 2rem;
 
                         .picture {
                             padding: 1rem;
@@ -1914,12 +1908,13 @@ section.dashboardPage {
     }
 }
 /*#endregion */
+
 /*#region User Page */
 section.userPage {
     section.contents {
         .container-fluid {
             .row.top {
-                padding: 1rem 2rem;
+                padding: 1rem;
 
                 @include sm {
                     padding: 1rem;
@@ -1948,7 +1943,6 @@ section.userPage {
 
                     .row {
                         .summary {
-                            margin-bottom: 2rem;
 
                             .picture {
                                 padding: 1rem;
@@ -2013,7 +2007,7 @@ section.userPage {
 
                                     .mail, .instagram, .twitter {
                                         width: fit-content;
-                                        padding-top:0.5rem;
+                                        padding-top: 0.5rem;
                                     }
 
                                     .productsCount {
@@ -2041,12 +2035,43 @@ section.userPage {
 
                     .row {
                     }
+
+                    .buttons {
+                        padding-top: 4rem;
+                        text-align: center;
+
+                        button.seeMore {
+                            position: relative;
+                            display: flex;
+                            margin: auto;
+                            font-size: 20px;
+                            transition: 0.4s;
+                            background-color: transparent;
+
+                            i {
+                                left: 0.5rem;
+                                top: 0.5rem;
+                                width: 2rem;
+                                font-size: 30px;
+                            }
+
+                            &:hover {
+                                transition: 0.4s;
+                            }
+
+                            &:focus {
+                                transition: 0.4s;
+                                outline: none;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
 /*#endregion */
+
 /*#region About Us Page */
 section.aboutUsPage {
 }
