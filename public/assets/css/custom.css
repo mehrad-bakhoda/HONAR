@@ -1294,7 +1294,29 @@ section.searchPage section.header {
 section.searchPage section.contents {
   padding-top: 8rem;
 }
-section.searchPage section.contents .container-fluid .row .result {
+section.searchPage section.contents .container-fluid .popularTags {
+  text-align: center;
+}
+section.searchPage section.contents .container-fluid .popularTags .card {
+  margin: auto;
+  max-width: 40rem;
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  padding: 1rem;
+  display: inline-block;
+}
+section.searchPage section.contents .container-fluid .popularTags .card a {
+  display: inline-block;
+  transition: 0.4s;
+  color: #565656;
+  padding: 0 0.5rem;
+}
+section.searchPage section.contents .container-fluid .popularTags .card a:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.searchPage section.contents .container-fluid .popularTags .row .result {
   padding: 1rem;
 }
 

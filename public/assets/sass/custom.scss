@@ -941,11 +941,14 @@ section.detailPage {
                                 label {
                                     padding-top: 0.5rem;
                                 }
+
                                 .tagLinks {
                                     padding-right: 6rem;
+
                                     @include sm {
                                         padding-right: 0;
                                     }
+
                                     a {
                                         transition: 0.4s;
                                         float: left;
@@ -973,7 +976,7 @@ section.detailPage {
 
                                 label {
                                     width: 7rem;
-                                    padding-top:0.5rem;
+                                    padding-top: 0.5rem;
 
                                     @include sm {
                                         position: relative;
@@ -1037,7 +1040,6 @@ section.detailPage {
                             }
 
                             .price {
-
                                 padding-left: 1rem;
 
                                 p {
@@ -1461,16 +1463,41 @@ section.searchPage {
         padding-top: 8rem;
 
         .container-fluid {
-            .row {
-                .result {
+            .popularTags {
+                text-align: center;
+
+                .card {
+                    margin: auto;
+                    max-width: 40rem;
+                    border-radius: $radius;
+                    background-color: transparent;
+                    box-shadow: $box-shadow;
                     padding: 1rem;
+                    display: inline-block;
+
+                    a {
+                        display: inline-block;
+                        transition: 0.4s;
+                        color: $text-color;
+                        padding: 0 0.5rem;
+
+                        &:hover {
+                            transition: 0.4s;
+                            color: $blue-color;
+                        }
+                    }
+                }
+
+                .row {
+                    .result {
+                        padding: 1rem;
+                    }
                 }
             }
         }
     }
 }
 /*#endregion */
-
 /*#region Cart Page */
 section.cartPage {
     section.contents {
@@ -1570,7 +1597,6 @@ section.cartPage {
     }
 }
 /*#endregion */
-
 /*#region Dashboard Page */
 section.dashboardPage {
     section.contents {
@@ -1847,7 +1873,6 @@ section.dashboardPage {
     }
 }
 /*#endregion */
-
 /*#region User Page */
 section.userPage {
     section.contents {
@@ -1980,12 +2005,10 @@ section.userPage {
     }
 }
 /*#endregion */
-
 /*#region About Us Page */
 section.aboutUsPage {
 }
 /*#endregion */
-
 /*#region Contact Us Page */
 section.contactUsPage {
 }
