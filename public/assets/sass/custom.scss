@@ -81,9 +81,14 @@ button:hover, input[type=file]:hover {
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
     transition: 0.4s;
     outline: none;
+}
+
+textarea:focus {
+    box-shadow: $hover-shadow !important;
 }
 
 /*#endregion */
@@ -635,6 +640,7 @@ section.homePage {
                                 font-size: 20px;
                                 transition: 0.4s;
                                 background-color: transparent;
+
                                 i {
                                     left: 0.5rem;
                                     top: 0.5rem;
@@ -1313,10 +1319,6 @@ Section.uploadPage {
                         padding: 0.5rem;
                         color: $text-color;
                         box-shadow: $box-shadow;
-
-                        &:focus {
-                            outline: none;
-                        }
                     }
                 }
 
@@ -1420,6 +1422,7 @@ Section.uploadPage {
                     margin-bottom: 3rem;
 
                     .title {
+                        padding-top: 0.5rem;
                         width: 3rem;
                         text-align: right;
                     }
@@ -1732,7 +1735,7 @@ section.dashboardPage {
 
                                 .mail, .instagram, .twitter {
                                     width: fit-content;
-                                    padding-top:0.5rem;
+                                    padding-top: 0.5rem;
                                 }
 
                                 .productsCount {
@@ -2072,6 +2075,92 @@ section.userPage {
 }
 /*#endregion */
 
+/*#region Order Detail Page */
+section.orderPage {
+    section.contents {
+        .container-fluid {
+            .details {
+                padding: 1rem 0.5rem;
+                background-color: $body-color;
+                box-shadow: $hover-shadow;
+                border-radius: $radius;
+                max-width: 40rem;
+                margin: auto;
+                margin-bottom: 2rem;
+
+                .row.top {
+                    .col-sm-4 {
+                        text-align: center;
+
+                        @include xs {
+                            display: inline-block;
+
+                            p {
+                                float: left;
+                            }
+
+                            label {
+                                float: right;
+                            }
+                        }
+
+                        label, p {
+                            color: $text-color;
+                        }
+                    }
+                }
+            }
+
+            .products {
+                .row {
+                    .col-sm-12 {
+                        padding: 1rem;
+
+                        .item {
+                            @include xs {
+                                text-align: center;
+                            }
+
+                            box-shadow: $box-shadow;
+                            background-color: transparent;
+                            padding: 1rem;
+
+                            .image {
+                                position: relative;
+                                padding: 1rem;
+                                text-align: center;
+
+                                img {
+                                    transition: 0.4s;
+                                    max-height: 4rem;
+                                    border-radius: $radius;
+                                    box-shadow: $image-shadow;
+                                    max-width: 4rem;
+                                    width: auto;
+                                    margin: 0 auto;
+
+                                    @include xs {
+                                        max-height: 6rem;
+                                        max-width: 6rem;
+                                    }
+                                }
+                            }
+
+                            .detail {
+                                padding: 1rem;
+
+                                p {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*#endregion */
 /*#region About Us Page */
 section.aboutUsPage {
 }

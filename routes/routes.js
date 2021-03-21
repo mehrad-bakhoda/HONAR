@@ -84,6 +84,10 @@ router.get("/dashboard",function(req,res){
     res.render("dashboard");
 });
 
+router.get("/order", function (req, res) {
+    res.render("order");
+});
+
 router.get("/user", function (req, res) {
     res.render("user");
 });

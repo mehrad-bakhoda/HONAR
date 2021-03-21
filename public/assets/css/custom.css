@@ -85,9 +85,14 @@ button:hover::before, input[type=file]:hover::before {
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
   transition: 0.4s;
   outline: none;
+}
+
+textarea:focus {
+  box-shadow: 7px 7px 8px -6px #00b4bb !important;
 }
 
 /*#endregion */
@@ -1173,9 +1178,6 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   color: #565656;
   box-shadow: 7px 7px 8px -6px #d3d3d3;
 }
-Section.uploadPage section.contents .container-fluid .row .info textarea:focus {
-  outline: none;
-}
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
   margin-bottom: 3rem;
 }
@@ -1261,6 +1263,7 @@ Section.uploadPage section.contents .container-fluid .row .category {
   margin-bottom: 3rem;
 }
 Section.uploadPage section.contents .container-fluid .row .category .title {
+  padding-top: 0.5rem;
   width: 3rem;
   text-align: right;
 }
@@ -1779,6 +1782,74 @@ section.userPage section.contents .container-fluid .row.top .products .buttons b
 section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore:focus {
   transition: 0.4s;
   outline: none;
+}
+
+/*#endregion */
+/*#region Order Detail Page */
+section.orderPage section.contents .container-fluid .details {
+  padding: 1rem 0.5rem;
+  background-color: #f0f0f0;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+  border-radius: 8px;
+  max-width: 40rem;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 {
+  text-align: center;
+}
+@media (max-width: 580px) {
+  section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 {
+    display: inline-block;
+  }
+  section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 p {
+    float: left;
+  }
+  section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 label {
+    float: right;
+  }
+}
+section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 label, section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 p {
+  color: #565656;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 {
+  padding: 1rem;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 1rem;
+}
+@media (max-width: 580px) {
+  section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item {
+    text-align: center;
+  }
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image {
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image img {
+  transition: 0.4s;
+  max-height: 4rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 4rem;
+  width: auto;
+  margin: 0 auto;
+}
+@media (max-width: 580px) {
+  section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image img {
+    max-height: 6rem;
+    max-width: 6rem;
+  }
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .detail {
+  padding: 1rem;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .detail p {
+  margin-bottom: 0;
 }
 
 /*#endregion */
