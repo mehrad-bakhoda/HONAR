@@ -38,14 +38,11 @@
                             <div class="tags info">
                                 <label> تگ ها </label>
                                 <div class="tagLinks">
-                                    <a href="#"> tag jsvcshvdhavwdvvwkjfvkhdv1 </a>
-                                    <a href="#"> tag 2 </a>
-                                    <a href="#"> tabhvhvhg 3 </a>
-                                    <a href="#"> tag 4 </a>
-                                    <a href="#"> tajhcjghvhjvg 5 </a>
-                                    <a href="#"> tajcygchjcg 6 </a>
-                                    <a href="#"> tag 7 </a>
-                                    <a href="#"> tag 8 </a>
+                                    <% for(var i=0; i < item.tags.length ;i++){ %>
+                                        <% var tag = item.tags[i] %>
+                                        <% var path = item.tags[i].replace("#","") %>
+                                        <a href="/tags/<%=path%>"> <%=tag%> </a>
+                                    <% } %>
                                 </div>
                             </div>
                             <div class="sizes info">
@@ -101,7 +98,7 @@
                             <div class="buttons">
                                 <button type="submit" class="download"> دانلود </button>
                                 <a id = "addToCart" href="/add-to-cart/<%=item.id%>/orginal"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
-                                <button type="submit" class="buy"> خرید </button>
+                                <button type="submit" class="buy" hidden> خرید </button>
                             </div>
                         </div>
 
