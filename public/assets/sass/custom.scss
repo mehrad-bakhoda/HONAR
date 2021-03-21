@@ -12,8 +12,6 @@ body {
     direction: ltr;
 }
 
-
-
 .page {
     max-width: 90rem;
     width: 100%;
@@ -81,9 +79,14 @@ button:hover, input[type=file]:hover {
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
     transition: 0.4s;
     outline: none;
+}
+
+textarea:focus {
+    box-shadow: $hover-shadow !important;
 }
 
 /*#endregion */
@@ -121,6 +124,46 @@ input:focus {
 .showNotif {
     transition: 0.4s;
     right: 0;
+}
+/*#endregion */
+
+/*#region upload Buttton*/
+section.uploadButton {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: $body-color;
+    text-align: center;
+    z-index: 100;
+
+    a {
+        border-radius: $radius;
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        padding-top: 0.5rem;
+        color: $blue-color;
+        box-shadow: $hover-shadow;
+        text-align: center;
+
+        i {
+            font-size: 2.5rem;
+        }
+    }
+
+    @include sm {
+        bottom: 1rem;
+        left: 1rem;
+
+        a {
+            width: 3rem;
+            height: 3rem;
+
+            i {
+                font-size: 2rem;
+            }
+        }
+    }
 }
 /*#endregion */
 
@@ -591,16 +634,12 @@ section.homePage {
                             button.seeMore {
                                 position: relative;
                                 display: flex;
-                                /*border: 1px solid $text-color;
-                                border-radius: $radius;*/
                                 margin: auto;
                                 font-size: 20px;
                                 transition: 0.4s;
                                 background-color: transparent;
-                                /*padding: 0.5rem 1rem 0.5rem 2.5rem;
-                                color: $text-color;*/
+
                                 i {
-                                    /*position: absolute;*/
                                     left: 0.5rem;
                                     top: 0.5rem;
                                     width: 2rem;
@@ -609,8 +648,6 @@ section.homePage {
 
                                 &:hover {
                                     transition: 0.4s;
-                                    /*color: $blue-color;
-                                    border: 1px solid $blue-color;*/
                                 }
 
                                 &:focus {
@@ -941,11 +978,14 @@ section.detailPage {
                                 label {
                                     padding-top: 0.5rem;
                                 }
+
                                 .tagLinks {
                                     padding-right: 6rem;
+
                                     @include sm {
                                         padding-right: 0;
                                     }
+
                                     a {
                                         transition: 0.4s;
                                         float: left;
@@ -973,7 +1013,7 @@ section.detailPage {
 
                                 label {
                                     width: 7rem;
-                                    padding-top:0.5rem;
+                                    padding-top: 0.5rem;
 
                                     @include sm {
                                         position: relative;
@@ -1037,23 +1077,27 @@ section.detailPage {
                             }
 
                             .price {
-
                                 padding-left: 1rem;
+                                position: relative;
 
                                 p {
                                     transition: 0.4s;
+                                    font-size: 1rem;
                                     opacity: 0;
                                     visibility: hidden;
                                     height: 0;
+                                    position: absolute;
+                                    left: 1rem;
                                 }
 
                                 .showPrice {
-                                    font-size: 1rem;
                                     transition: 0.4s;
                                     opacity: 1;
                                     visibility: visible;
                                     height: auto;
                                     width: auto;
+                                    position: relative;
+                                    left: 0;
                                 }
                             }
 
@@ -1278,10 +1322,6 @@ Section.uploadPage {
                         padding: 0.5rem;
                         color: $text-color;
                         box-shadow: $box-shadow;
-
-                        &:focus {
-                            outline: none;
-                        }
                     }
                 }
 
@@ -1385,6 +1425,7 @@ Section.uploadPage {
                     margin-bottom: 3rem;
 
                     .title {
+                        padding-top: 0.5rem;
                         width: 3rem;
                         text-align: right;
                     }
@@ -1461,9 +1502,35 @@ section.searchPage {
         padding-top: 8rem;
 
         .container-fluid {
-            .row {
-                .result {
+            .popularTags {
+                text-align: center;
+
+                .card {
+                    margin: auto;
+                    max-width: 40rem;
+                    border-radius: $radius;
+                    background-color: transparent;
+                    box-shadow: $box-shadow;
                     padding: 1rem;
+                    display: inline-block;
+
+                    a {
+                        display: inline-block;
+                        transition: 0.4s;
+                        color: $text-color;
+                        padding: 0 0.5rem;
+
+                        &:hover {
+                            transition: 0.4s;
+                            color: $blue-color;
+                        }
+                    }
+                }
+
+                .row {
+                    .result {
+                        padding: 1rem;
+                    }
                 }
             }
         }
@@ -1497,18 +1564,26 @@ section.cartPage {
                                     padding: 1rem;
                                     text-align: center;
 
-                                    img {
-                                        transition: 0.4s;
-                                        max-height: 4rem;
-                                        border-radius: $radius;
-                                        box-shadow: $image-shadow;
-                                        max-width: 4rem;
-                                        width: auto;
-                                        margin: 0 auto;
+                                    a {
+                                        display: contents;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
 
-                                        @include xs {
-                                            max-height: 6rem;
-                                            max-width: 6rem;
+                                        img {
+                                            transition: 0.4s;
+                                            max-height: 4rem;
+                                            border-radius: $radius;
+                                            box-shadow: $image-shadow;
+                                            max-width: 4rem;
+                                            width: auto;
+                                            margin: 0 auto;
+
+                                            @include xs {
+                                                max-height: 6rem;
+                                                max-width: 6rem;
+                                            }
                                         }
                                     }
                                 }
@@ -1607,7 +1682,6 @@ section.dashboardPage {
 
                 &.top {
                     .summary {
-                        margin-bottom: 2rem;
 
                         .picture {
                             padding: 1rem;
@@ -1672,6 +1746,7 @@ section.dashboardPage {
 
                                 .mail, .instagram, .twitter {
                                     width: fit-content;
+                                    padding-top: 0.5rem;
                                 }
 
                                 .productsCount {
@@ -1826,6 +1901,211 @@ section.dashboardPage {
                     }
                 }
 
+                &.downloads {
+                    .collapseContent {
+                        .owl-carousel {
+                            transition: 0.4s;
+
+                            .owl-item {
+                                direction: rtl;
+                                padding: 2rem;
+
+                                .card {
+                                    height: 10rem;
+
+                                    @include xs {
+                                        height: 18rem;
+                                    }
+                                }
+
+                                .itemPack {
+                                    box-shadow: $box-shadow;
+                                    background-color: transparent;
+                                    padding: 1rem;
+
+                                    .background {
+                                        height: 8rem;
+                                        padding: 1rem;
+                                        position: relative;
+                                        z-index: 0;
+                                        filter: blur(3px);
+
+                                        img {
+                                            transition: 0.4s;
+                                            max-height: 8rem;
+                                            border-radius: $radius;
+                                            box-shadow: $image-shadow;
+                                            max-width: 8rem;
+                                            width: auto;
+                                            margin: 0;
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
+
+                                            &.top {
+                                                z-index: 10;
+                                                top: 50%;
+                                                left: 50%;
+                                                transform: translate(-50%, -50%);
+                                            }
+
+                                            &.middle {
+                                                z-index: 9;
+                                                top: 48%;
+                                                left: 52%;
+                                                transform: translate(-50%, -50%);
+                                            }
+
+                                            &.bottom {
+                                                z-index: 8;
+                                                top: 46%;
+                                                left: 54%;
+                                                transform: translate(-50%, -50%);
+                                            }
+                                        }
+                                    }
+
+                                    .detail {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        text-align: center;
+                                        z-index: 50;
+
+                                        a {
+                                            
+                                            transition: 0.4s;
+                                            color: $text-color;
+                                            box-shadow: $box-shadow;
+                                            background-color: $body-color;
+                                            padding: 0.5rem 1rem;
+                                            border-radius: $radius;
+
+                                            &:hover {
+                                                transition: 0.4s;
+                                                color: $blue-color;
+                                                box-shadow: $hover-shadow;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .item {
+                                    @include xs {
+                                        text-align: center;
+                                    }
+
+                                    box-shadow: $box-shadow;
+                                    background-color: transparent;
+                                    padding: 1rem;
+
+                                    .image {
+                                        position: relative;
+                                        padding: 1rem;
+                                        text-align: center;
+
+                                        a {
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
+
+                                            img {
+                                                transition: 0.4s;
+                                                max-height: 4rem;
+                                                border-radius: $radius;
+                                                box-shadow: $image-shadow;
+                                                max-width: 4rem;
+                                                width: auto;
+                                                margin: 0 auto;
+
+                                                @include xs {
+                                                    max-height: 6rem;
+                                                    max-width: 6rem;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .detail {
+                                        padding: 1rem;
+
+                                        p {
+                                            margin-bottom: 0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .owl-nav {
+                                position: absolute;
+                                width: 100%;
+                                top: 32%;
+
+                                .owl-prev {
+                                    box-shadow: none !important;
+                                    position: absolute;
+                                    left: 0;
+
+                                    span {
+                                        transition: 0.4s;
+                                        font-size: 4rem;
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            color: $blue-color;
+                                        }
+                                    }
+                                }
+
+                                .owl-next {
+                                    box-shadow: none !important;
+                                    position: absolute;
+                                    right: 0;
+
+                                    span {
+                                        transition: 0.4s;
+                                        font-size: 4rem;
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            color: $blue-color;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .buttons {
+                            padding: 1rem;
+                            text-align: left;
+
+                            @include xs {
+                                text-align: center;
+                            }
+
+                            a {
+                                /*display: block;*/
+                                text-align: center;
+                                transition: 0.4s;
+                                box-shadow: $box-shadow;
+                                color: $text-color;
+                                padding: 0.5rem 2rem;
+                                border-radius: $radius;
+                                background-color: transparent;
+
+                                &:hover {
+                                    transition: 0.4s;
+                                    color: $blue-color !important;
+                                    box-shadow: $hover-shadow;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 .collapseContent {
                     transition: 0.4s;
                     max-width: 40rem;
@@ -1853,7 +2133,7 @@ section.userPage {
     section.contents {
         .container-fluid {
             .row.top {
-                padding: 1rem 2rem;
+                padding: 1rem;
 
                 @include sm {
                     padding: 1rem;
@@ -1882,7 +2162,6 @@ section.userPage {
 
                     .row {
                         .summary {
-                            margin-bottom: 2rem;
 
                             .picture {
                                 padding: 1rem;
@@ -1947,6 +2226,7 @@ section.userPage {
 
                                     .mail, .instagram, .twitter {
                                         width: fit-content;
+                                        padding-top: 0.5rem;
                                     }
 
                                     .productsCount {
@@ -1974,6 +2254,151 @@ section.userPage {
 
                     .row {
                     }
+
+                    .buttons {
+                        padding-top: 4rem;
+                        text-align: center;
+
+                        button.seeMore {
+                            position: relative;
+                            display: flex;
+                            margin: auto;
+                            font-size: 20px;
+                            transition: 0.4s;
+                            background-color: transparent;
+
+                            i {
+                                left: 0.5rem;
+                                top: 0.5rem;
+                                width: 2rem;
+                                font-size: 30px;
+                            }
+
+                            &:hover {
+                                transition: 0.4s;
+                            }
+
+                            &:focus {
+                                transition: 0.4s;
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*#endregion */
+
+/*#region Order Detail Page */
+section.orderPage {
+    section.contents {
+        .container-fluid {
+            .details {
+                padding: 1rem 0.5rem;
+                background-color: $body-color;
+                box-shadow: $hover-shadow;
+                border-radius: $radius;
+                max-width: 40rem;
+                margin: auto;
+                margin-bottom: 2rem;
+
+                .row.top {
+                    .col-sm-4 {
+                        text-align: center;
+
+                        @include xs {
+                            display: inline-block;
+
+                            p {
+                                float: left;
+                            }
+
+                            label {
+                                float: right;
+                            }
+                        }
+
+                        label, p {
+                            color: $text-color;
+                        }
+                    }
+                }
+            }
+
+            .products {
+                .row {
+                    .col-sm-12 {
+                        padding: 1rem;
+
+                        .item {
+                            @include xs {
+                                text-align: center;
+                            }
+
+                            box-shadow: $box-shadow;
+                            background-color: transparent;
+                            padding: 1rem;
+
+                            .image {
+                                position: relative;
+                                padding: 1rem;
+                                text-align: center;
+
+                                a {
+                                    display: contents;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+
+                                    img {
+                                        transition: 0.4s;
+                                        max-height: 4rem;
+                                        border-radius: $radius;
+                                        box-shadow: $image-shadow;
+                                        max-width: 4rem;
+                                        width: auto;
+                                        margin: 0 auto;
+
+                                        @include xs {
+                                            max-height: 6rem;
+                                            max-width: 6rem;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .detail {
+                                padding: 1rem;
+
+                                p {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*#endregion */
+
+/*#region NOT FOUND page*/
+section.notFoundPage {
+    section.contents {
+        .container-fluid {
+            text-align: center;
+
+            h1 {
+                color: $text-color;
+                font-weight: bold;
+
+                &.top {
+                    padding: 2rem;
+                    font-size: 5rem;
                 }
             }
         }
@@ -1985,7 +2410,6 @@ section.userPage {
 section.aboutUsPage {
 }
 /*#endregion */
-
 /*#region Contact Us Page */
 section.contactUsPage {
 }

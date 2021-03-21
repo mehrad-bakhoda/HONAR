@@ -13,5 +13,7 @@ $(".infos .sizes label.sizeOption").click(function () {
     for (var i = 0; i < prices.length; i++) {
         $(prices[i]).removeClass("showPrice");
     }
+    var href = $('#addToCart').attr('href');
+    $('#addToCart').attr('href',href.replace(href.split("/")[3],currentID))
     currentPrice.addClass("showPrice");
 })

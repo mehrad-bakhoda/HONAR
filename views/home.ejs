@@ -1,6 +1,6 @@
 <%-include("head");-%>
 
-
+<%-include("uploadButton");-%>
 <section class="page homePage">
     <%-include("header");-%>
     <section class="contents">
@@ -60,7 +60,7 @@
 
                                             <p> <%=product.fileName%> </p>
                                             <p>
-                                                <%=product.user.firstName%>
+                                                <%=product.user.userName%>
                                                 <i class="fal fa-user"></i>
                                             </p>
                                         </div>
@@ -98,7 +98,7 @@
 
                                             <p> <%=product.fileName%> </p>
                                             <p>
-                                                <%=product.user.firstName%>
+                                                <%=product.user.userName%>
                                                 <i class="fal fa-user"></i>
                                             </p>
                                         </div>
@@ -135,7 +135,7 @@
 
                                             <p> <%=product.fileName%> </p>
                                             <p>
-                                                <%=product.user.firstName%>
+                                                <%=product.user.userName%>
                                                 <i class="fal fa-user"></i>
                                             </p>
                                         </div>
@@ -161,6 +161,4 @@
 
 <!-- Scripts -->
 <%-include("scripts");-%>
-<!-- Custom -->
-<script src="/assets/js/seeMore.js"></script>
 <!-- Scripts -->

@@ -85,9 +85,14 @@ button:hover::before, input[type=file]:hover::before {
 }
 
 button:focus,
-input:focus {
+input:focus,
+textarea:focus {
   transition: 0.4s;
   outline: none;
+}
+
+textarea:focus {
+  box-shadow: 7px 7px 8px -6px #00b4bb !important;
 }
 
 /*#endregion */
@@ -118,6 +123,43 @@ input:focus {
 .showNotif {
   transition: 0.4s;
   right: 0;
+}
+
+/*#endregion */
+/*#region upload Buttton*/
+section.uploadButton {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: #f0f0f0;
+  text-align: center;
+  z-index: 100;
+}
+section.uploadButton a {
+  border-radius: 8px;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 0.5rem;
+  color: #00b4bb;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+  text-align: center;
+}
+section.uploadButton a i {
+  font-size: 2.5rem;
+}
+@media (max-width: 767px) {
+  section.uploadButton {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  section.uploadButton a {
+    width: 3rem;
+    height: 3rem;
+  }
+  section.uploadButton a i {
+    font-size: 2rem;
+  }
 }
 
 /*#endregion */
@@ -538,17 +580,12 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore {
   position: relative;
   display: flex;
-  /*border: 1px solid $text-color;
-  border-radius: $radius;*/
   margin: auto;
   font-size: 20px;
   transition: 0.4s;
   background-color: transparent;
-  /*padding: 0.5rem 1rem 0.5rem 2.5rem;
-  color: $text-color;*/
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore i {
-  /*position: absolute;*/
   left: 0.5rem;
   top: 0.5rem;
   width: 2rem;
@@ -556,8 +593,6 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore:hover {
   transition: 0.4s;
-  /*color: $blue-color;
-  border: 1px solid $blue-color;*/
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore:focus {
   transition: 0.4s;
@@ -940,20 +975,25 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price {
   padding-left: 1rem;
+  position: relative;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price p {
   transition: 0.4s;
+  font-size: 1rem;
   opacity: 0;
   visibility: hidden;
   height: 0;
+  position: absolute;
+  left: 1rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price .showPrice {
-  font-size: 1rem;
   transition: 0.4s;
   opacity: 1;
   visibility: visible;
   height: auto;
   width: auto;
+  position: relative;
+  left: 0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons {
   margin: 0 1rem;
@@ -1143,9 +1183,6 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   color: #565656;
   box-shadow: 7px 7px 8px -6px #d3d3d3;
 }
-Section.uploadPage section.contents .container-fluid .row .info textarea:focus {
-  outline: none;
-}
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
   margin-bottom: 3rem;
 }
@@ -1231,6 +1268,7 @@ Section.uploadPage section.contents .container-fluid .row .category {
   margin-bottom: 3rem;
 }
 Section.uploadPage section.contents .container-fluid .row .category .title {
+  padding-top: 0.5rem;
   width: 3rem;
   text-align: right;
 }
@@ -1294,7 +1332,29 @@ section.searchPage section.header {
 section.searchPage section.contents {
   padding-top: 8rem;
 }
-section.searchPage section.contents .container-fluid .row .result {
+section.searchPage section.contents .container-fluid .popularTags {
+  text-align: center;
+}
+section.searchPage section.contents .container-fluid .popularTags .card {
+  margin: auto;
+  max-width: 40rem;
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  padding: 1rem;
+  display: inline-block;
+}
+section.searchPage section.contents .container-fluid .popularTags .card a {
+  display: inline-block;
+  transition: 0.4s;
+  color: #565656;
+  padding: 0 0.5rem;
+}
+section.searchPage section.contents .container-fluid .popularTags .card a:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.searchPage section.contents .container-fluid .popularTags .row .result {
   padding: 1rem;
 }
 
@@ -1321,7 +1381,14 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   padding: 1rem;
   text-align: center;
 }
-section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image a {
+  display: contents;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image a img {
   transition: 0.4s;
   max-height: 4rem;
   border-radius: 8px;
@@ -1331,7 +1398,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   margin: 0 auto;
 }
 @media (max-width: 580px) {
-  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image img {
+  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image a img {
     max-height: 6rem;
     max-width: 6rem;
   }
@@ -1402,9 +1469,6 @@ section.dashboardPage section.contents .container-fluid .part .header h4 .rotate
   transition: 0.4s;
   transform: rotate(180deg);
 }
-section.dashboardPage section.contents .container-fluid .part.top .summary {
-  margin-bottom: 2rem;
-}
 section.dashboardPage section.contents .container-fluid .part.top .summary .picture {
   padding: 1rem;
   text-align: center;
@@ -1461,6 +1525,7 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
   width: fit-content;
+  padding-top: 0.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount {
   display: inline-flex;
@@ -1585,6 +1650,182 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   opacity: 0;
   visibility: hidden;
 }
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel {
+  transition: 0.4s;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item {
+  direction: rtl;
+  padding: 2rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .card {
+  height: 10rem;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .card {
+    height: 18rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 1rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background {
+  height: 8rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 0;
+  filter: blur(3px);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background img {
+  transition: 0.4s;
+  max-height: 8rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 8rem;
+  width: auto;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background img.top {
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background img.middle {
+  z-index: 9;
+  top: 48%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background img.bottom {
+  z-index: 8;
+  top: 46%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 50;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a {
+  transition: 0.4s;
+  color: #565656;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 1rem;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
+    text-align: center;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image {
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image a img {
+  transition: 0.4s;
+  max-height: 4rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 4rem;
+  width: auto;
+  margin: 0 auto;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image a img {
+    max-height: 6rem;
+    max-width: 6rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .detail {
+  padding: 1rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .detail p {
+  margin-bottom: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav {
+  position: absolute;
+  width: 100%;
+  top: 32%;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev {
+  box-shadow: none !important;
+  position: absolute;
+  left: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span {
+  transition: 0.4s;
+  font-size: 4rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next {
+  box-shadow: none !important;
+  position: absolute;
+  right: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span {
+  transition: 0.4s;
+  font-size: 4rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons {
+  padding: 1rem;
+  text-align: left;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons {
+    text-align: center;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a {
+  /*display: block;*/
+  text-align: center;
+  transition: 0.4s;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  color: #565656;
+  padding: 0.5rem 2rem;
+  border-radius: 8px;
+  background-color: transparent;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
+  transition: 0.4s;
+  color: #00b4bb !important;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+}
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   transition: 0.4s;
   max-width: 40rem;
@@ -1604,7 +1845,7 @@ section.dashboardPage section.contents .container-fluid .part .contentHidden {
 /*#endregion */
 /*#region User Page */
 section.userPage section.contents .container-fluid .row.top {
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
 @media (max-width: 767px) {
   section.userPage section.contents .container-fluid .row.top {
@@ -1634,9 +1875,6 @@ section.userPage section.contents .container-fluid .row.top .info {
   section.userPage section.contents .container-fluid .row.top .info {
     text-align: center;
   }
-}
-section.userPage section.contents .container-fluid .row.top .info .row .summary {
-  margin-bottom: 2rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .picture {
   padding: 1rem;
@@ -1694,6 +1932,7 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
   width: fit-content;
+  padding-top: 0.5rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount {
   display: inline-flex;
@@ -1707,6 +1946,121 @@ section.userPage section.contents .container-fluid .row.top .info .row .bio p {
 section.userPage section.contents .container-fluid .row.top .products {
   padding: 1rem;
 }
+section.userPage section.contents .container-fluid .row.top .products .buttons {
+  padding-top: 4rem;
+  text-align: center;
+}
+section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore {
+  position: relative;
+  display: flex;
+  margin: auto;
+  font-size: 20px;
+  transition: 0.4s;
+  background-color: transparent;
+}
+section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore i {
+  left: 0.5rem;
+  top: 0.5rem;
+  width: 2rem;
+  font-size: 30px;
+}
+section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore:hover {
+  transition: 0.4s;
+}
+section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore:focus {
+  transition: 0.4s;
+  outline: none;
+}
+
+/*#endregion */
+/*#region Order Detail Page */
+section.orderPage section.contents .container-fluid .details {
+  padding: 1rem 0.5rem;
+  background-color: #f0f0f0;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+  border-radius: 8px;
+  max-width: 40rem;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 {
+  text-align: center;
+}
+@media (max-width: 580px) {
+  section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 {
+    display: inline-block;
+  }
+  section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 p {
+    float: left;
+  }
+  section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 label {
+    float: right;
+  }
+}
+section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 label, section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 p {
+  color: #565656;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 {
+  padding: 1rem;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 1rem;
+}
+@media (max-width: 580px) {
+  section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item {
+    text-align: center;
+  }
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image {
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image a {
+  display: contents;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image a img {
+  transition: 0.4s;
+  max-height: 4rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 4rem;
+  width: auto;
+  margin: 0 auto;
+}
+@media (max-width: 580px) {
+  section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image a img {
+    max-height: 6rem;
+    max-width: 6rem;
+  }
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .detail {
+  padding: 1rem;
+}
+section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .detail p {
+  margin-bottom: 0;
+}
+
+/*#endregion */
+/*#region NOT FOUND page*/
+section.notFoundPage section.contents .container-fluid {
+  text-align: center;
+}
+section.notFoundPage section.contents .container-fluid h1 {
+  color: #565656;
+  font-weight: bold;
+}
+section.notFoundPage section.contents .container-fluid h1.top {
+  padding: 2rem;
+  font-size: 5rem;
+}
+
 /*#endregion */
 /*#region About Us Page */
 /*#endregion */

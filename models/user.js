@@ -62,7 +62,10 @@ const userSchema = new mongoose.Schema({
   verified:{
     type: Boolean,
     default: false
-  }
+  },
+  products: [{
+    type: mongoose.Schema.Types.ObjectId, ref: "Product"
+  }]
 });
 // userSchema.plugin(passportLocalMongoose);
 //exporting the userSchema model

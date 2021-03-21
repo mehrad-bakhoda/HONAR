@@ -1,4 +1,6 @@
 <%-include("head");-%>
+
+<%-include("uploadButton");-%>
 <section class="page detailPage">
     <%-include("header");-%>
     <section class="contents">
@@ -22,9 +24,9 @@
                                 <label> هنرمند</label>
 
 
-                                <a href="/user/<%=item.user.unique_id%>/<%=item.user.firstName%>">
+                                <a href="/<%=item.user.userName%>">
                                     <p>
-                                        <%=item.user.firstName%>
+                                        <%=item.user.userName%>
                                         <i class="fal fa-user"></i>
                                     </p>
 
@@ -38,14 +40,11 @@
                             <div class="tags info">
                                 <label> تگ ها </label>
                                 <div class="tagLinks">
-                                    <a href="#"> tag jsvcshvdhavwdvvwkjfvkhdv1 </a>
-                                    <a href="#"> tag 2 </a>
-                                    <a href="#"> tabhvhvhg 3 </a>
-                                    <a href="#"> tag 4 </a>
-                                    <a href="#"> tajhcjghvhjvg 5 </a>
-                                    <a href="#"> tajcygchjcg 6 </a>
-                                    <a href="#"> tag 7 </a>
-                                    <a href="#"> tag 8 </a>
+                                    <% for(var i=0; i < item.tags.length ;i++){ %>
+                                        <% var tag = item.tags[i] %>
+                                        <% var path = item.tags[i].replace("#","") %>
+                                        <a href="/tags/<%=path%>"> <%=tag%> </a>
+                                    <% } %>
                                 </div>
                             </div>
                             <div class="sizes info">
@@ -139,7 +138,6 @@
 <!-- Custom -->
 <script src="/assets/js/chooseSize.js"></script>
 <!-- Owl Carousel -->
-<script src="/assets/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js"></script>
 <script type="text/javascript">
     $('.owl-carousel').owlCarousel({
         items: 4,

@@ -13,7 +13,7 @@
                     </div>
                     <div class="bottom">
                         <div class="name">
-                            <p> alireza </p>
+                            <p><%=user.userName%></p>
                         </div>
                         <div class="socialStats">
                             <div class="mail">
@@ -28,14 +28,14 @@
                             </div>
                             <div class="productsCount">
                                 <label> تعداد آثار:</label>
-                                <p> 12 </p>
+                                <p> <%=searched.length%> </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-6 col-sm-12 bio">
                     <p>
-                         
+
                     </p>
                 </div>
             </div>
@@ -47,16 +47,16 @@
                     </h4>
                 </div>
                 <div class="collapseContent contentHidden">
-                    <input name="firstName" type="firstName" placeholder="نام" />
-                    <input name="lastName" type="lastName" placeholder="نام خانوادگی" />
-                    <input name="userName" type="text" placeholder="نام کاربری" />
-                    <input name="emial" type="email" class="mail" placeholder="ایمیل شما" />
+                    <input name="firstName" type="firstName" placeholder="نام" value="<%=user.firstName%>" />
+                    <input name="lastName" type="lastName" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
+                    <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
+                    <input name="emial" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
                     <i class="fal fa-envelope"></i>
-                    <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" />
+                    <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" value="<%=user.instagram%>"  />
                     <i class="fab fa-instagram"></i>
-                    <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" />
+                    <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" value="<%=user.twitter%>" />
                     <i class="fab fa-twitter"></i>
-                    <textarea class="bio" placeholder="درباره شما..."></textarea>
+                    <textarea class="bio" placeholder="درباره شما..." value="<%=user.bio%>"></textarea>
                     <input name="profilePic" type="file" class="profilePic" />
                     <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
                     <input name="passwordRepeat" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
@@ -83,22 +83,111 @@
                         <h6>  تعداد آثار شما </h6>
                     </div>
                     <div class="bestSeller">
-
+                        <h6> پرفروش ترین اثر شما </h6>
                     </div>
                 </div>
             </div>
             <div class="downloads part">
                 <div class="header" onClick="openContent('downloads')">
                     <h4>
-                        دانلودهای شما
+                        خریدهای شما
                         <i class="fal fa-angle-down"></i>
                     </h4>
                 </div>
                 <div class="collapseContent contentHidden">
-                    sdfghjkl;
+                    <div class="owl-carousel">
+                        <div class="card item">
+                            <div class="row bottom">
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                    <a href="#">
+                                        <img src="../assets/images/test0.jpg" />
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                    <h6 class="name">
+                                        product name
+                                    </h6>
+                                    <p>
+                                        سایز اصلی
+                                    </p>
+                                    <p class="price">
+                                        <span> 12000 </span>
+                                        تومان
+                                    </p>
+                                    <p class="date">
+                                        12/09/99
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card item">
+                            <div class="row bottom">
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                    <a href="#">
+                                        <img src="../assets/images/test0.jpg" />
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                    <h6 class="name">
+                                        product name
+                                    </h6>
+                                    <p>
+                                        سایز اصلی
+                                    </p>
+                                    <p class="price">
+                                        <span> 12000 </span>
+                                        تومان
+                                    </p>
+                                    <p class="date">
+                                        12/09/99
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card itemPack">
+                            <div class="background">
+                                <img class="top" src="../assets/images/test1.jpg" />
+                                <img class="middle" src="../assets/images/test2.jpg" />
+                                <img class="bottom" src="../assets/images/test3.jpg" />
+                            </div>
+                            <div class="detail">
+                                <a href="/order"> مشاهده جزئیات خرید</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="/orders"> مشاهده همه </a>
+                    </div>
                 </div>
             </div>
-            
+            <div class="col-12 products">
+                <div class="row">
+                    <% for (var i = 0; i < searched.length; i++){%>
+                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
+                            <a href="/Product">
+                                <div class="card product">
+                                    <div class="card-body">
+                                        <img src="<%=searched[i].coverPath%>" />
+                                    </div>
+                                    <div class="card-footer">
+                                        <p> <%=searched[i].fileName%> </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <%}%>
+                    
+                </div>
+                <div class="buttons">
+                    <button type="button" class="seeMore">
+                        مشاهده بیشتر
+                        <i class="fal fa-angle-down"></i>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </section>
     <%-include("footer");-%>
@@ -106,3 +195,13 @@
 
 <%-include("scripts");-%>
 <script src="/assets/js/dashboard.js"></script>
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        margin: 10,
+        responsiveClass: true,
+    })
+</script>
+

@@ -1,15 +1,26 @@
 <%-include("head");-%>
 
-
+<%-include("uploadButton");-%>
 <section class="page searchPage">
     <%-include("header");-%>
     <section class="contents">
         <div class="container-fluid">
             <div class="popularTags">
-
+                <div class="card">
+                    <a href="#"> ptag1 </a>
+                    <a href="#"> ptag2 </a>
+                    <a href="#"> ptag3 </a>
+                    <a href="#"> ptag4 </a>
+                    <a href="#"> ptag5 </a>
+                    <a href="#"> ptag6 </a>
+                    <a href="#"> ptag7 </a>
+                    <a href="#"> ptag8 </a>
+                    <a href="#"> ptag9 </a>
+                    <a href="#"> ptag10 </a>
+                </div>
             </div>
             <div class="row">
-              <% searched.forEach(function(product) { %>
+                <% searched.forEach(function(product) { %>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
                     <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
                         <div class="card product">
@@ -19,7 +30,7 @@
                             <div class="card-footer">
                                 <p> <%=product.fileName%> </p>
                                 <p>
-                                    <%=product.user.firstName%>
+                                    <%=product.user.userName%>
                                     <i class="fal fa-user"></i>
                                 </p>
                             </div>
@@ -35,6 +46,4 @@
 </section>
 <!-- Scripts -->
 <%-include("scripts");-%>
-<!-- Custom -->
-<script src="/assets/js/seeMore.js"></script>
 <!-- Scripts -->

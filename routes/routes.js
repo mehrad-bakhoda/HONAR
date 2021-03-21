@@ -52,17 +52,23 @@ router.get("/",function(req,res){
 
 
 router.get("/search/:searchedItem",function(req,res){
+  
   Product.find({$text:{$search:req.params.searchedItem}})
   // .skip(20)
   // .limit(10)
   .exec(function(err,found){
     res.render("search",{searched:found});
-
   });
+});
 
 
-
-
+router.get("/tags/:tag",function(req,res){
+  tagss ="#" + req.params.tag;
+  console.log(tagss);
+  Product.find({tags:{$in:tagss}})
+  .exec(function(err,found){
+    res.render("search",{searched:found});
+  });
 });
 
 router.get("/login",function(req,res){
@@ -75,7 +81,30 @@ router.get("/login",function(req,res){
 
 
 router.get("/dashboard",function(req,res){
-    res.render("dashboard");
+  if(req.session.userId)
+  {
+    User.findOne({
+      unique_id: req.session.userId
+    }, function(err, found) {
+      if (found) {
+        Product.find({"user.userName":found.userName})
+        .exec(function(err,products){
+          res.render("dashboard",{user:found,searched:products});
+        }); 
+      } 
+      else {
+        res.render("notFound");
+      }
+    });
+  }
+  
+});
+
+router.get("/order", function (req, res) {
+    res.render("order");
+});
+router.get("/orders", function (req, res) {
+    res.render("orders");
 });
 
 router.get("/user", function (req, res) {
@@ -86,7 +115,15 @@ router.get("/user", function (req, res) {
 
 router.get("/upload",function(req,res){
   if(req.session.userId){
-    res.render("upload");
+    User.findOne({unique_id:req.session.userId},function(err,user){
+      if(user.type == "Uploader")
+        res.render("upload");
+      else{
+        res.redirect("/dashboard");
+      }
+
+    });
+    
   }
   else{
     res.redirect("/login");
@@ -182,25 +219,6 @@ router.get("/about-us",function(req,res){
 
 });
 
-
-router.get("/user/:userId/:userName",function(req,res){
-
-  User.findOne({
-    unique_id: req.params.userId
-  }, function(err, found) {
-    if (found) {
-      res.render("user", {
-        user:found
-      });
-    } else {
-      res.render("error404");
-    }
-
-  });
-
-});
-
-
 router.get('/logout', function (req, res, next) {
 	console.log("logout")
 	if (req.session.userId) {
@@ -214,6 +232,31 @@ router.get('/logout', function (req, res, next) {
     });
 }
 });
+
+
+router.get("/:userName",function(req,res){
+  if(req.params.userName.toLowerCase() != "logout")
+  {
+    User.findOne({
+      userName: req.params.userName.toLowerCase()
+    }, function(err, found) {
+      if (found) {
+        Product.find({"user.userName":found.userName})
+        .exec(function(err,products){
+          res.render("user",{user:found,searched:products});
+        }); 
+      } 
+      else {
+        res.render("notFound");
+      }
+    });
+  }
+  
+
+});
+
+
+
 
 // END OF GET ROUTE'S
 
@@ -582,7 +625,7 @@ if(errors.isEmpty()){
                   type:"Uploader",
                   firstName:fields.firstName,
                   lastName:fields.lastName,
-                  userName:fields.userName,
+                  userName:fields.userName.toLowerCase(),
                   instagram:fields.instagram,
                   twitter:fields.twitter,
                   bio:fields.bio,
@@ -668,7 +711,7 @@ if(errors.isEmpty()){
                   type:"Uploader",
                   firstName:fields.firstName,
                   lastName:fields.lastName,
-                  userName:fields.userName,
+                  userName:fields.userName.toLowerCase(),
                   instagram:fields.instagram,
                   twitter:fields.twitter,
                   bio:fields.bio,
@@ -799,13 +842,21 @@ router.post("/upload", function(req, res){
                 console.log(err);
               });
 
-
-              console.log(fields.type);
+              tagsarr = fields.tags.split(" ");
+              for (var i = 0; i < tagsarr.length; i++)
+              {
+                if((tagsarr[i].includes("#") && tagsarr[i].length == 1) || !tagsarr[i].includes("#"))
+                {
+                  delete tagsarr[i];
+                }
+              }
+              tagsarr = tagsarr.filter(function(e){return e});
+              console.log(found);
               const newProduct = new Product({
                 productId:c,
                 type:fields.types,
                 fileName:fields.fileName,
-                tags:fields.tags,
+                tags:tagsarr,
                 description:fields.description,
                 filePath:files.productFiles.path,
                 coverPath:databaseDestination,
@@ -817,6 +868,10 @@ router.post("/upload", function(req, res){
                 dateAdded:new Date()
               });
               newProduct.save();
+              found.products.push(newProduct);
+              found.save();
+              
+              
 
 
 
@@ -844,8 +899,14 @@ router.post("/upload", function(req, res){
 
 
 router.post("/search",function(req,res){
-
-  res.redirect("/search/" + req.body.searchedItem);
+  if(req.body.searchedItem == "")
+  {
+    res.redirect("/");
+  }
+  else{
+    res.redirect("/search/" + req.body.searchedItem);
+  }
+  
 });
 
 // END OF POST ROUTE'S
