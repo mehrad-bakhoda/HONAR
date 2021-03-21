@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-12 col-md-6 col-sm-12 bio">
                     <p>
-                         
+
                     </p>
                 </div>
             </div>
@@ -90,31 +90,79 @@
             <div class="downloads part">
                 <div class="header" onClick="openContent('downloads')">
                     <h4>
-                        دانلودهای شما
+                        خریدهای شما
                         <i class="fal fa-angle-down"></i>
                     </h4>
                 </div>
                 <div class="collapseContent contentHidden">
-                    <a href="/Product">
-                        <div class="card product">
-                            <div class="card-body">
-                                <img src="/assets/images/test.jpg" />
-                            </div>
-                            <div class="card-footer">
-                                <p> art name </p>
-                                <p>
-                                    artsit name
-                                    <i class="fal fa-user"></i>
-                                </p>
-                                <p>
-                                    12/09/99
-                                </p>
+                    <div class="owl-carousel">
+                        <div class="card item">
+                            <div class="row bottom">
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                    <a href="#">
+                                        <img src="../assets/images/test0.jpg" />
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                    <h6 class="name">
+                                        product name
+                                    </h6>
+                                    <p>
+                                        سایز اصلی
+                                    </p>
+                                    <p class="price">
+                                        <span> 12000 </span>
+                                        تومان
+                                    </p>
+                                    <p class="date">
+                                        12/09/99
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </a>
+                        <div class="card item">
+                            <div class="row bottom">
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                    <a href="#">
+                                        <img src="../assets/images/test0.jpg" />
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                    <h6 class="name">
+                                        product name
+                                    </h6>
+                                    <p>
+                                        سایز اصلی
+                                    </p>
+                                    <p class="price">
+                                        <span> 12000 </span>
+                                        تومان
+                                    </p>
+                                    <p class="date">
+                                        12/09/99
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card itemPack">
+                            <div class="background">
+                                <img class="top" src="../assets/images/test1.jpg" />
+                                <img class="middle" src="../assets/images/test2.jpg" />
+                                <img class="bottom" src="../assets/images/test3.jpg" />
+                            </div>
+                            <div class="detail">
+                                <a href="/order"> مشاهده جزئیات خرید</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="/orders"> مشاهده همه </a>
+                    </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
     <%-include("footer");-%>
@@ -122,3 +170,13 @@
 
 <%-include("scripts");-%>
 <script src="/assets/js/dashboard.js"></script>
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        margin: 10,
+        responsiveClass: true,
+    })
+</script>
+
