@@ -1638,6 +1638,149 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   opacity: 0;
   visibility: hidden;
 }
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel {
+  transition: 0.4s;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item {
+  direction: rtl;
+  padding: 2rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .card {
+  height: 10rem;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .card {
+    height: 18rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 1rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background {
+  height: 8rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 0;
+  filter: blur(3px);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background img {
+  transition: 0.4s;
+  max-height: 8rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 8rem;
+  width: auto;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail {
+  text-align: center;
+  z-index: 50;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a {
+  transition: 0.4s;
+  color: #565656;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: transparent;
+  padding: 1rem;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
+    text-align: center;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image {
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image img {
+  transition: 0.4s;
+  max-height: 4rem;
+  border-radius: 8px;
+  box-shadow: 10px 10px 15px 0px #06060642;
+  max-width: 4rem;
+  width: auto;
+  margin: 0 auto;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image img {
+    max-height: 6rem;
+    max-width: 6rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .detail {
+  padding: 1rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .detail p {
+  margin-bottom: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav {
+  position: absolute;
+  width: 100%;
+  top: 32%;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev {
+  box-shadow: none !important;
+  position: absolute;
+  left: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span {
+  transition: 0.4s;
+  font-size: 4rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next {
+  box-shadow: none !important;
+  position: absolute;
+  right: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span {
+  transition: 0.4s;
+  font-size: 4rem;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span:hover {
+  transition: 0.4s;
+  color: #00b4bb;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons {
+  padding: 1rem;
+  text-align: left;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons {
+    text-align: center;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a {
+  /*display: block;*/
+  text-align: center;
+  transition: 0.4s;
+  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  color: #565656;
+  padding: 0.5rem 2rem;
+  border-radius: 8px;
+  background-color: transparent;
+}
+section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
+  transition: 0.4s;
+  color: #00b4bb !important;
+  box-shadow: 7px 7px 8px -6px #00b4bb;
+}
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   transition: 0.4s;
   max-width: 40rem;
