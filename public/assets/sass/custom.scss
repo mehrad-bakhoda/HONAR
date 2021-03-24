@@ -1624,6 +1624,7 @@ section.cartPage {
                         background-color: transparent;
                         padding: 2rem 1rem;
                         text-align: center;
+                        border-radius: $radius;
                     }
 
                     .buttons {
@@ -1666,8 +1667,10 @@ section.dashboardPage {
                     h4 {
                         color: $text-color;
                         margin-bottom: 0;
+                        text-align: right;
 
                         i.fa-angle-down {
+                            float: left;
                             transition: 0.4s;
                             width: 2rem;
                             font-weight: 500;
@@ -2087,7 +2090,6 @@ section.dashboardPage {
                             }
 
                             a {
-                                /*display: block;*/
                                 text-align: center;
                                 transition: 0.4s;
                                 box-shadow: $box-shadow;
@@ -2107,6 +2109,7 @@ section.dashboardPage {
                 }
 
                 .collapseContent {
+                    padding-top: 1rem;
                     transition: 0.4s;
                     max-width: 40rem;
                     margin: auto;

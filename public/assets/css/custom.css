@@ -1430,6 +1430,7 @@ section.cartPage section.contents .container-fluid .row.top .total .card {
   background-color: transparent;
   padding: 2rem 1rem;
   text-align: center;
+  border-radius: 8px;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
   transition: 0.4s;
@@ -1459,8 +1460,10 @@ section.dashboardPage section.contents .container-fluid .part .header {
 section.dashboardPage section.contents .container-fluid .part .header h4 {
   color: #565656;
   margin-bottom: 0;
+  text-align: right;
 }
 section.dashboardPage section.contents .container-fluid .part .header h4 i.fa-angle-down {
+  float: left;
   transition: 0.4s;
   width: 2rem;
   font-weight: 500;
@@ -1812,7 +1815,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   }
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a {
-  /*display: block;*/
   text-align: center;
   transition: 0.4s;
   box-shadow: 7px 7px 8px -6px #d3d3d3;
@@ -1827,6 +1829,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   box-shadow: 7px 7px 8px -6px #00b4bb;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
+  padding-top: 1rem;
   transition: 0.4s;
   max-width: 40rem;
   margin: auto;
