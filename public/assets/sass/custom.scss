@@ -86,7 +86,7 @@ textarea:focus {
 }
 
 textarea:focus {
-    box-shadow: $hover-shadow !important;
+    box-shadow: $pink-shadow !important;
 }
 
 /*#endregion */
@@ -137,17 +137,23 @@ section.uploadButton {
     z-index: 100;
 
     a {
+        transition: 0.4s;
         border-radius: $radius;
         display: block;
         width: 4rem;
         height: 4rem;
         padding-top: 0.5rem;
-        color: $blue-color;
-        box-shadow: $hover-shadow;
+        color: $pink-color;
+        box-shadow: $pink-shadow;
         text-align: center;
 
         i {
             font-size: 2.5rem;
+        }
+
+        &:hover {
+            transition: 0.4s;
+            box-shadow: -7px 7px 12px -6px $pink-color;
         }
     }
 
@@ -311,7 +317,7 @@ section.header {
     }
 
     .searchSection {
-        box-shadow: $box-shadow;
+        box-shadow: $pink-shadow;
         text-align: center;
         margin-bottom: 3rem;
         background-color: $gray-color;
@@ -330,29 +336,29 @@ section.header {
             transition: 0.4s;
             font-size: 25px;
             position: absolute;
-            color: $text-color;
+            color: $pink-color;
 
             &:hover {
                 transition: 0.4s;
-                color: $blue-color;
+                color: $pink-color;
             }
         }
 
         input[type=text] {
             transition: 0.4s;
             border: none;
-            border-bottom: 2px solid $text-color;
+            border-bottom: 2px solid $pink-color;
             background-color: transparent;
             height: 2.5rem;
             width: 100%;
             padding-left: 2rem;
             padding-right: 0.2rem;
-            color: $text-color;
+            color: $pink-color;
 
             &:focus {
                 transition: 0.4s;
                 outline: none;
-                border-bottom: 2px solid $blue-color;
+                border-bottom: 2px solid $pink-color;
             }
         }
 
@@ -441,6 +447,7 @@ section.header {
                         margin-bottom: 0;
 
                         i {
+                            color:$text-color;
                             font-size: 20px;
                             position: relative;
                             font-weight: 500;
@@ -496,8 +503,8 @@ section.header {
         .selected {
             transition: 0.4s;
             border: none;
-            color: $blue-color !important;
-            box-shadow: $hover-shadow !important;
+            color: $pink-color !important;
+            box-shadow: $pink-shadow !important;
             font-weight: bold;
         }
 

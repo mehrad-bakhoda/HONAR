@@ -1,15 +1,16 @@
-$blue-color: #00b4bb;
-$body-color: #f0f0f0;
-$pink-color: #be00f9;
-$gray-color: #f0f0f0;
+$blue-color: #00afb5;
+$body-color: #d6d6d6;
+$pink-color: #6c008e;
+$gray-color: #d6d6d6;
 $text-color: #565656;
 
 $error-color: #d14774;
 $success-color: #47d15f;
 
 $image-shadow: 10px 10px 15px 0px #06060642;
-$box-shadow: 7px 7px 8px -6px #d3d3d3;
-$hover-shadow: 7px 7px 8px -6px #00b4bb;
+$box-shadow: 7px 7px 8px -6px #b0b0b0;
+$hover-shadow: 7px 7px 8px -6px $blue-color;
+$pink-shadow: 7px 7px 12px -6px $pink-color;
 $error-shadow: -7px 7px 8px -6px #d14774;
 $success-shadow: -7px 7px 8px -6px #47d15f;
 

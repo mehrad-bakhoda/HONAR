@@ -8,7 +8,7 @@
 }
 /*#region General */
 body {
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   color: #565656;
   margin: 0;
   padding: 0;
@@ -42,11 +42,11 @@ section.contents {
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  border-bottom: 2px solid #00b4bb !important;
-  -webkit-text-fill-color: #00b4bb;
-  -webkit-box-shadow: 0 0 0 1000px #f0f0f0 inset !important;
+  border-bottom: 2px solid #00afb5 !important;
+  -webkit-text-fill-color: #00afb5;
+  -webkit-box-shadow: 0 0 0 1000px #d6d6d6 inset !important;
   transition: background-color 400s ease-in-out 0s;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
 }
 
 input {
@@ -64,7 +64,7 @@ button, input[type=file]::before {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   color: #565656;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -74,14 +74,14 @@ button, input[type=file]::before {
 button:hover, input[type=file]:hover {
   transition: 0.4s;
   border: none;
-  color: #00b4bb;
-  box-shadow: 7px 7px 8px -6px #00b4bb;
+  color: #00afb5;
+  box-shadow: 7px 7px 8px -6px #00afb5;
 }
 button:hover::before, input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
-  color: #00b4bb !important;
-  box-shadow: 7px 7px 8px -6px #00b4bb;
+  color: #00afb5 !important;
+  box-shadow: 7px 7px 8px -6px #00afb5;
 }
 
 button:focus,
@@ -92,7 +92,7 @@ textarea:focus {
 }
 
 textarea:focus {
-  box-shadow: 7px 7px 8px -6px #00b4bb !important;
+  box-shadow: 7px 7px 12px -6px #6c008e !important;
 }
 
 /*#endregion */
@@ -104,7 +104,7 @@ textarea:focus {
   right: -100rem;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   z-index: 100;
 }
 .notif.error p {
@@ -131,22 +131,27 @@ section.uploadButton {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   text-align: center;
   z-index: 100;
 }
 section.uploadButton a {
+  transition: 0.4s;
   border-radius: 8px;
   display: block;
   width: 4rem;
   height: 4rem;
   padding-top: 0.5rem;
-  color: #00b4bb;
-  box-shadow: 7px 7px 8px -6px #00b4bb;
+  color: #6c008e;
+  box-shadow: 7px 7px 12px -6px #6c008e;
   text-align: center;
 }
 section.uploadButton a i {
   font-size: 2.5rem;
+}
+section.uploadButton a:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 12px -6px #6c008e;
 }
 @media (max-width: 767px) {
   section.uploadButton {
@@ -242,7 +247,7 @@ section.header .navbar .container-fluid i {
 }
 section.header .navbar .container-fluid i:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.header .navbar .container-fluid .navbar-collapse ul.navbar-nav {
   padding: 0;
@@ -274,8 +279,8 @@ section.header .navbar .container-fluid .leftSide a.cart span {
   left: 0.8rem;
   top: 1rem;
   height: 1rem;
-  background-color: #f0f0f0;
-  color: #00b4bb;
+  background-color: #d6d6d6;
+  color: #00afb5;
   border-radius: 1px;
 }
 section.header .navbar .container-fluid .leftSide a.profile {
@@ -286,10 +291,10 @@ section.header .navbar .container-fluid .leftSide a.signOut {
   left: 5rem;
 }
 section.header .searchSection {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 12px -6px #6c008e;
   text-align: center;
   margin-bottom: 3rem;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   border-radius: 8px;
   max-width: 40rem;
   margin: auto;
@@ -306,27 +311,27 @@ section.header .searchSection i {
   transition: 0.4s;
   font-size: 25px;
   position: absolute;
-  color: #565656;
+  color: #6c008e;
 }
 section.header .searchSection i:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #6c008e;
 }
 section.header .searchSection input[type=text] {
   transition: 0.4s;
   border: none;
-  border-bottom: 2px solid #565656;
+  border-bottom: 2px solid #6c008e;
   background-color: transparent;
   height: 2.5rem;
   width: 100%;
   padding-left: 2rem;
   padding-right: 0.2rem;
-  color: #565656;
+  color: #6c008e;
 }
 section.header .searchSection input[type=text]:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00b4bb;
+  border-bottom: 2px solid #6c008e;
 }
 section.header .searchSection .general {
   max-width: 40rem;
@@ -365,7 +370,7 @@ section.header .searchSection .advanced label.radioLabel {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   color: #565656;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
@@ -396,7 +401,7 @@ section.header .searchSection .advanced .tag .usedTags {
 section.header .searchSection .advanced .tag .usedTags p {
   display: inline-block;
   display: inline-block;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   color: #565656;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -404,6 +409,7 @@ section.header .searchSection .advanced .tag .usedTags p {
   margin-bottom: 0;
 }
 section.header .searchSection .advanced .tag .usedTags p i {
+  color: #565656;
   font-size: 20px;
   position: relative;
   font-weight: 500;
@@ -457,8 +463,8 @@ section.header .searchSection .advanced .price .title {
 section.header .searchSection .selected {
   transition: 0.4s;
   border: none;
-  color: #00b4bb !important;
-  box-shadow: 7px 7px 8px -6px #00b4bb !important;
+  color: #6c008e !important;
+  box-shadow: 7px 7px 12px -6px #6c008e !important;
   font-weight: bold;
 }
 section.header .searchSection .advancedHidden {
@@ -498,7 +504,7 @@ section.footer .container-fluid .social a i {
 }
 section.footer .container-fluid .social a i:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.footer .container-fluid .designedBy {
   border-top: 1px solid #565656;
@@ -512,7 +518,7 @@ section.footer .container-fluid .designedBy p {
 }
 section.footer .container-fluid .designedBy p span {
   font-weight: bold;
-  color: #00b4bb;
+  color: #00afb5;
 }
 
 /*#endregion */
@@ -567,8 +573,8 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -6px #00b4bb;
-  color: #00b4bb;
+  box-shadow: 7px 7px 8px -6px #00afb5;
+  color: #00afb5;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
   padding: 1rem 1rem 5rem;
@@ -613,7 +619,7 @@ section.loginPage section.contents .container-fluid .card {
   margin: auto;
   width: 100%;
   border-radius: 8px;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
 }
 @media (max-width: 767px) {
   section.loginPage section.contents .container-fluid .card {
@@ -658,7 +664,7 @@ section.loginPage section.contents .container-fluid .card input.mail, section.lo
 section.loginPage section.contents .container-fluid .card input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00b4bb;
+  border-bottom: 2px solid #00afb5;
 }
 section.loginPage section.contents .container-fluid .card input[type=file] {
   padding: 0;
@@ -687,10 +693,10 @@ section.loginPage section.contents .container-fluid .card textarea {
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   border: none;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -771,11 +777,11 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item a.nav-link.active {
   box-shadow: 4px -6px 8px -6px #a9a9a9, 8px 12px 8px -6px #a9a9a9;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
-  background-color: #f0f0f0;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
+  background-color: #d6d6d6;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 2rem;
@@ -834,8 +840,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card {
   border: none;
   box-shadow: none;
   border-radius: 8px;
-  background-color: #f0f0f0;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  background-color: #d6d6d6;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info {
   margin: 0 1rem;
@@ -890,7 +896,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .tag
   float: left;
   color: #565656;
   margin: 0 1rem 0.5rem 0;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   border-radius: 8px;
   padding: 0.5rem 1rem;
 }
@@ -944,7 +950,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   color: #565656;
   padding: 0.5rem 0;
   border-radius: 8px;
@@ -969,8 +975,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .selected {
   transition: 0.4s;
   border: none;
-  color: #00b4bb !important;
-  box-shadow: 7px 7px 8px -6px #00b4bb !important;
+  color: #00afb5 !important;
+  box-shadow: 7px 7px 8px -6px #00afb5 !important;
   font-weight: bold;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price {
@@ -1021,10 +1027,10 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   box-shadow: -7px 7px 8px -6px #47d15f;
 }
 section.detailPage section.contents .container-fluid .description {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   margin-top: 2rem;
   border-radius: 8px;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   padding: 2rem;
 }
 @media (max-width: 480px) {
@@ -1035,7 +1041,7 @@ section.detailPage section.contents .container-fluid .description {
 }
 @media (max-width: 480px) {
   section.detailPage section.contents .container-fluid .description .row {
-    background-color: #f0f0f0;
+    background-color: #d6d6d6;
     padding: 2rem 1rem;
     border-radius: 8px;
   }
@@ -1097,7 +1103,7 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev span:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next {
   box-shadow: none !important;
@@ -1110,7 +1116,7 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next span:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 
 /*#endregion */
@@ -1124,9 +1130,9 @@ Section.uploadPage section.contents {
   }
 }
 Section.uploadPage section.contents .container-fluid .row {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   padding: 1rem 1rem 2rem;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   border-radius: 8px;
   margin: auto;
   width: 100%;
@@ -1165,7 +1171,7 @@ Section.uploadPage section.contents .container-fluid .row .info input {
 Section.uploadPage section.contents .container-fluid .row .info input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00b4bb;
+  border-bottom: 2px solid #00afb5;
 }
 Section.uploadPage section.contents .container-fluid .row .info input.nameInput {
   max-width: 20rem;
@@ -1174,14 +1180,14 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   border: none;
   border-radius: 8px;
   width: 100%;
   margin-bottom: 3rem;
   padding: 0.5rem;
   color: #565656;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
   margin-bottom: 3rem;
@@ -1230,7 +1236,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing input {
 Section.uploadPage section.contents .container-fluid .row .pricing input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00b4bb;
+  border-bottom: 2px solid #00afb5;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing.small {
   margin-bottom: 3rem;
@@ -1250,7 +1256,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   color: #565656;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
@@ -1274,7 +1280,7 @@ Section.uploadPage section.contents .container-fluid .row .category .title {
 }
 Section.uploadPage section.contents .container-fluid .row .category .selected {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
   font-weight: bold;
 }
 Section.uploadPage section.contents .container-fluid .row .category label.radioLabel {
@@ -1285,7 +1291,7 @@ Section.uploadPage section.contents .container-fluid .row .category label.radioL
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   color: #565656;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
@@ -1315,8 +1321,8 @@ Section.uploadPage section.contents .container-fluid .row .buttons button {
 Section.uploadPage section.contents .container-fluid .row .selected {
   transition: 0.4s;
   border: none;
-  color: #00b4bb !important;
-  box-shadow: 7px 7px 8px -6px #00b4bb !important;
+  color: #00afb5 !important;
+  box-shadow: 7px 7px 8px -6px #00afb5 !important;
   font-weight: bold;
 }
 
@@ -1327,7 +1333,7 @@ section.searchPage section.header {
   max-width: 90rem;
   position: fixed;
   z-index: 90;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
 }
 section.searchPage section.contents {
   padding-top: 8rem;
@@ -1340,7 +1346,7 @@ section.searchPage section.contents .container-fluid .popularTags .card {
   max-width: 40rem;
   border-radius: 8px;
   background-color: transparent;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   padding: 1rem;
   display: inline-block;
 }
@@ -1352,7 +1358,7 @@ section.searchPage section.contents .container-fluid .popularTags .card a {
 }
 section.searchPage section.contents .container-fluid .popularTags .card a:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.searchPage section.contents .container-fluid .popularTags .row .result {
   padding: 1rem;
@@ -1367,7 +1373,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   background-color: transparent;
   padding: 1rem;
 }
@@ -1426,7 +1432,7 @@ section.cartPage section.contents .container-fluid .row.top .total {
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .total .card {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   background-color: transparent;
   padding: 2rem 1rem;
   text-align: center;
@@ -1448,7 +1454,7 @@ section.cartPage section.contents .container-fluid .row.top .total .buttons butt
 section.dashboardPage section.contents .container-fluid .part {
   max-width: 40rem;
   margin: 1rem auto;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   padding: 1rem;
   border-radius: 8px;
 }
@@ -1524,7 +1530,7 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
   width: fit-content;
@@ -1569,7 +1575,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00b4bb;
+  border-bottom: 2px solid #00afb5;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input[type=file] {
   padding: 0;
@@ -1598,10 +1604,10 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #f0f0f0;
+  background-color: #d6d6d6;
   border: none;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -1669,7 +1675,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   }
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   background-color: transparent;
   padding: 1rem;
 }
@@ -1722,18 +1728,18 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a {
   transition: 0.4s;
   color: #565656;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
-  background-color: #f0f0f0;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
+  background-color: #d6d6d6;
   padding: 0.5rem 1rem;
   border-radius: 8px;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a:hover {
   transition: 0.4s;
-  color: #00b4bb;
-  box-shadow: 7px 7px 8px -6px #00b4bb;
+  color: #00afb5;
+  box-shadow: 7px 7px 8px -6px #00afb5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   background-color: transparent;
   padding: 1rem;
 }
@@ -1790,7 +1796,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next {
   box-shadow: none !important;
@@ -1803,7 +1809,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons {
   padding: 1rem;
@@ -1817,7 +1823,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a {
   text-align: center;
   transition: 0.4s;
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   color: #565656;
   padding: 0.5rem 2rem;
   border-radius: 8px;
@@ -1825,8 +1831,8 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
   transition: 0.4s;
-  color: #00b4bb !important;
-  box-shadow: 7px 7px 8px -6px #00b4bb;
+  color: #00afb5 !important;
+  box-shadow: 7px 7px 8px -6px #00afb5;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   padding-top: 1rem;
@@ -1861,8 +1867,8 @@ section.userPage section.contents .container-fluid .row.top {
   }
 }
 section.userPage section.contents .container-fluid .row.top .info {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
-  background-color: #f0f0f0;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
+  background-color: #d6d6d6;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
@@ -1931,7 +1937,7 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i:hover {
   transition: 0.4s;
-  color: #00b4bb;
+  color: #00afb5;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
   width: fit-content;
@@ -1979,8 +1985,8 @@ section.userPage section.contents .container-fluid .row.top .products .buttons b
 /*#region Order Detail Page */
 section.orderPage section.contents .container-fluid .details {
   padding: 1rem 0.5rem;
-  background-color: #f0f0f0;
-  box-shadow: 7px 7px 8px -6px #00b4bb;
+  background-color: #d6d6d6;
+  box-shadow: 7px 7px 8px -6px #00afb5;
   border-radius: 8px;
   max-width: 40rem;
   margin: auto;
@@ -2007,7 +2013,7 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 {
   padding: 1rem;
 }
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item {
-  box-shadow: 7px 7px 8px -6px #d3d3d3;
+  box-shadow: 7px 7px 8px -6px #b0b0b0;
   background-color: transparent;
   padding: 1rem;
 }
