@@ -325,11 +325,7 @@ section.header {
         max-width: 40rem;
         margin: auto;
         padding: 1rem 0.5rem;
-        width: 98%;
-
-        @include xxs {
-            width: 100%;
-        }
+        width: 96%;
 
         i {
             cursor: pointer;
@@ -1118,19 +1114,34 @@ section.detailPage {
                                 }
 
                                 button {
+                                    transition: 0.4s;
                                     position: relative;
-                                    margin: auto auto 1rem;
+                                    margin: auto 1rem 1rem auto;
                                     font-size: 18px;
                                     width: 12rem;
 
                                     &.buy, &.addToCart {
-                                        transition: 0.4s;
-                                        color: $success-color;
-                                        box-shadow: 7px 7px 8px -6px #47d15f;
+                                        color: $blue-color;
+                                        box-shadow: $hover-shadow;
 
                                         &:hover {
                                             transition: 0.4s;
-                                            box-shadow: $success-shadow;
+                                            box-shadow: -7px 7px 8px -6px $blue-color;
+                                        }
+                                    }
+
+                                    &.report {
+                                        float: right;
+                                        color: $pink-color;
+                                        box-shadow: $pink-shadow;
+
+                                        @include sm {
+                                            float: none;
+                                        }
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            box-shadow: -7px 7px 8px -6px $pink-shadow;
                                         }
                                     }
                                 }

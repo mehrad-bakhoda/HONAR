@@ -299,12 +299,7 @@ section.header .searchSection {
   max-width: 40rem;
   margin: auto;
   padding: 1rem 0.5rem;
-  width: 98%;
-}
-@media (max-width: 480px) {
-  section.header .searchSection {
-    width: 100%;
-  }
+  width: 96%;
 }
 section.header .searchSection i {
   cursor: pointer;
@@ -1012,19 +1007,33 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button {
+  transition: 0.4s;
   position: relative;
-  margin: auto auto 1rem;
+  margin: auto 1rem 1rem auto;
   font-size: 18px;
   width: 12rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart {
-  transition: 0.4s;
-  color: #47d15f;
-  box-shadow: 7px 7px 8px -6px #47d15f;
+  color: #00afb5;
+  box-shadow: 7px 7px 8px -6px #00afb5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy:hover, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -6px #47d15f;
+  box-shadow: -7px 7px 8px -6px #00afb5;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
+  float: right;
+  color: #6c008e;
+  box-shadow: 7px 7px 12px -6px #6c008e;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
+    float: none;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px 7px 7px 12px -6px #6c008e;
 }
 section.detailPage section.contents .container-fluid .description {
   box-shadow: 7px 7px 8px -6px #b0b0b0;
