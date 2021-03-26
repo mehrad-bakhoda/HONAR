@@ -9,7 +9,7 @@
 /*#region General */
 body {
   background-color: #d6d6d6;
-  color: #565656;
+  color: #333333;
   margin: 0;
   padding: 0;
   font-family: IRANSans;
@@ -51,7 +51,7 @@ input:-webkit-autofill:focus {
 
 input {
   padding-right: 0.4rem;
-  color: #565656;
+  color: #333333;
 }
 
 .inputError {
@@ -65,7 +65,7 @@ button, input[type=file]::before {
   transition: 0.4s;
   border: none;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
-  color: #565656;
+  color: #333333;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   background-color: transparent;
@@ -218,7 +218,7 @@ section.uploadButton a:hover {
   padding: 1rem 0 0;
 }
 .card.product .card-footer p {
-  color: #565656;
+  color: #333333;
   text-align: center;
   height: 1.5rem;
   margin: 0;
@@ -243,7 +243,7 @@ section.header .navbar .container-fluid {
 section.header .navbar .container-fluid i {
   transition: 0.4s;
   font-size: 25px;
-  color: #565656;
+  color: #333333;
 }
 section.header .navbar .container-fluid i:hover {
   transition: 0.4s;
@@ -366,7 +366,7 @@ section.header .searchSection .advanced label.radioLabel {
   transition: 0.4s;
   border: none;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
-  color: #565656;
+  color: #333333;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
   background-color: transparent;
@@ -397,14 +397,14 @@ section.header .searchSection .advanced .tag .usedTags p {
   display: inline-block;
   display: inline-block;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
-  color: #565656;
+  color: #333333;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   background-color: transparent;
   margin-bottom: 0;
 }
 section.header .searchSection .advanced .tag .usedTags p i {
-  color: #565656;
+  color: #333333;
   font-size: 20px;
   position: relative;
   font-weight: 500;
@@ -495,20 +495,20 @@ section.footer .container-fluid .social a {
 section.footer .container-fluid .social a i {
   transition: 0.4s;
   font-size: 25px;
-  color: #565656;
+  color: #333333;
 }
 section.footer .container-fluid .social a i:hover {
   transition: 0.4s;
   color: #00afb5;
 }
 section.footer .container-fluid .designedBy {
-  border-top: 1px solid #565656;
+  border-top: 1px solid #333333;
   padding: 1rem;
   text-align: center;
 }
 section.footer .container-fluid .designedBy p {
   margin: 0;
-  color: #565656;
+  color: #333333;
   font-size: 14px;
 }
 section.footer .container-fluid .designedBy p span {
@@ -540,7 +540,7 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
   transition: 0.4s;
   background-color: transparent;
   font-size: 30px;
-  color: #565656;
+  color: #333333;
   border: none;
 }
 @media (max-width: 991px) {
@@ -632,8 +632,8 @@ section.loginPage section.contents .container-fluid .card h4 {
 section.loginPage section.contents .container-fluid .card input {
   transition: 0.4s;
   border: none;
-  border-bottom: 2px solid #565656;
-  color: #565656;
+  border-bottom: 2px solid #333333;
+  color: #333333;
   background-color: transparent;
   width: 100%;
   height: 2.5rem;
@@ -681,7 +681,7 @@ section.loginPage section.contents .container-fluid .card input[type=file]::befo
   width: 11rem;
   cursor: pointer;
   text-align: center;
-  color: #565656;
+  color: #333333;
   border-radius: 8px;
 }
 section.loginPage section.contents .container-fluid .card textarea {
@@ -695,14 +695,14 @@ section.loginPage section.contents .container-fluid .card textarea {
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  color: #565656;
+  color: #333333;
 }
 section.loginPage section.contents .container-fluid .card textarea:focus {
   outline: none;
 }
 section.loginPage section.contents .container-fluid .card i {
   font-size: 1.5rem;
-  color: #565656;
+  color: #333333;
   width: 2rem;
   height: 2rem;
   margin-top: -4rem;
@@ -762,7 +762,7 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   background-color: transparent;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item a.nav-link {
-  color: #565656;
+  color: #333333;
   font-size: 20px;
   transition: 0.4s;
   background-color: transparent;
@@ -862,7 +862,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
-  color: #565656;
+  color: #333333;
   float: left;
 }
 @media (max-width: 767px) {
@@ -889,7 +889,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .tag
 section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks a {
   transition: 0.4s;
   float: left;
-  color: #565656;
+  color: #333333;
   margin: 0 1rem 0.5rem 0;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
   border-radius: 8px;
@@ -946,7 +946,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   transition: 0.4s;
   border: none;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
-  color: #565656;
+  color: #333333;
   padding: 0.5rem 0;
   border-radius: 8px;
   background-color: transparent;
@@ -1173,8 +1173,8 @@ Section.uploadPage section.contents .container-fluid .row .info input {
   width: 100%;
   padding-right: 0.4rem;
   border: none;
-  border-bottom: 2px solid #565656;
-  color: #565656;
+  border-bottom: 2px solid #333333;
+  color: #333333;
   background-color: transparent;
 }
 Section.uploadPage section.contents .container-fluid .row .info input:focus {
@@ -1195,7 +1195,7 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   width: 100%;
   margin-bottom: 3rem;
   padding: 0.5rem;
-  color: #565656;
+  color: #333333;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
@@ -1225,7 +1225,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   width: 11rem;
   cursor: pointer;
   text-align: center;
-  color: #565656;
+  color: #333333;
   border-radius: 8px;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing {
@@ -1237,7 +1237,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing input {
   transition: 0.4s;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #565656;
+  border-bottom: 2px solid #333333;
   width: 11rem;
   height: 100%;
   padding-left: 3rem;
@@ -1251,7 +1251,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing.small {
   margin-bottom: 3rem;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label {
-  color: #565656;
+  color: #333333;
   transition: 0.4s;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label.toman {
@@ -1266,7 +1266,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   transition: 0.4s;
   border: none;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
-  color: #565656;
+  color: #333333;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
   background-color: transparent;
@@ -1301,7 +1301,7 @@ Section.uploadPage section.contents .container-fluid .row .category label.radioL
   transition: 0.4s;
   border: none;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
-  color: #565656;
+  color: #333333;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
   background-color: transparent;
@@ -1362,7 +1362,7 @@ section.searchPage section.contents .container-fluid .popularTags .card {
 section.searchPage section.contents .container-fluid .popularTags .card a {
   display: inline-block;
   transition: 0.4s;
-  color: #565656;
+  color: #333333;
   padding: 0 0.5rem;
 }
 section.searchPage section.contents .container-fluid .popularTags .card a:hover {
@@ -1473,7 +1473,7 @@ section.dashboardPage section.contents .container-fluid .part .header {
   background-color: transparent;
 }
 section.dashboardPage section.contents .container-fluid .part .header h4 {
-  color: #565656;
+  color: #333333;
   margin-bottom: 0;
   text-align: right;
 }
@@ -1502,9 +1502,9 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .pict
   width: 7rem;
   height: 7rem;
   text-align: center;
-  color: #565656;
+  color: #333333;
   padding: 1rem;
-  border: 2px solid #565656;
+  border: 2px solid #333333;
   border-radius: 100%;
 }
 @media (max-width: 580px) {
@@ -1529,12 +1529,12 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
   display: inline-flex;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a {
-  color: #565656;
+  color: #333333;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i {
   padding: 0.5rem;
   transition: 0.4s;
-  color: #565656;
+  color: #333333;
   font-size: 1.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i:hover {
@@ -1557,8 +1557,8 @@ section.dashboardPage section.contents .container-fluid .part.top .bio p {
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
   transition: 0.4s;
   border: none;
-  border-bottom: 2px solid #565656;
-  color: #565656;
+  border-bottom: 2px solid #333333;
+  color: #333333;
   background-color: transparent;
   width: 100%;
   height: 2.5rem;
@@ -1606,7 +1606,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   width: 11rem;
   cursor: pointer;
   text-align: center;
-  color: #565656;
+  color: #333333;
   border-radius: 8px;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent textarea {
@@ -1620,14 +1620,14 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  color: #565656;
+  color: #333333;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent textarea:focus {
   outline: none;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent i {
   font-size: 1.5rem;
-  color: #565656;
+  color: #333333;
   width: 2rem;
   height: 2rem;
   margin-top: -4rem;
@@ -1736,7 +1736,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a {
   transition: 0.4s;
-  color: #565656;
+  color: #333333;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
   background-color: #d6d6d6;
   padding: 0.5rem 1rem;
@@ -1833,7 +1833,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   text-align: center;
   transition: 0.4s;
   box-shadow: 7px 7px 8px -6px #b0b0b0;
-  color: #565656;
+  color: #333333;
   padding: 0.5rem 2rem;
   border-radius: 8px;
   background-color: transparent;
@@ -1909,9 +1909,9 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
   width: 7rem;
   height: 7rem;
   text-align: center;
-  color: #565656;
+  color: #333333;
   padding: 1rem;
-  border: 2px solid #565656;
+  border: 2px solid #333333;
   border-radius: 100%;
 }
 @media (max-width: 580px) {
@@ -1936,12 +1936,12 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
   display: inline-flex;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a {
-  color: #565656;
+  color: #333333;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i {
   padding: 0.5rem;
   transition: 0.4s;
-  color: #565656;
+  color: #333333;
   font-size: 1.5rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i:hover {
@@ -2016,7 +2016,7 @@ section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 
   }
 }
 section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 label, section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 p {
-  color: #565656;
+  color: #333333;
 }
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 {
   padding: 1rem;
@@ -2071,7 +2071,7 @@ section.notFoundPage section.contents .container-fluid {
   text-align: center;
 }
 section.notFoundPage section.contents .container-fluid h1 {
-  color: #565656;
+  color: #333333;
   font-weight: bold;
 }
 section.notFoundPage section.contents .container-fluid h1.top {
