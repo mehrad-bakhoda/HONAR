@@ -92,7 +92,7 @@ textarea:focus {
 }
 
 textarea:focus {
-  box-shadow: 7px 7px 12px -6px #6c008e !important;
+  box-shadow: 7px 7px 8px -6px #00afb5 !important;
 }
 
 /*#endregion */
@@ -1026,14 +1026,14 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   color: #6c008e;
   box-shadow: 7px 7px 12px -6px #6c008e;
 }
+section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report:hover {
+  transition: 0.4s;
+  box-shadow: -7px 7px 8px -6px #6c008e;
+}
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
     float: none;
   }
-}
-section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report:hover {
-  transition: 0.4s;
-  box-shadow: -7px 7px 8px -6px 7px 7px 12px -6px #6c008e;
 }
 section.detailPage section.contents .container-fluid .description {
   box-shadow: 7px 7px 8px -6px #b0b0b0;
@@ -1451,11 +1451,11 @@ section.cartPage section.contents .container-fluid .row.top .total .buttons butt
   transition: 0.4s;
   padding: 1rem 3rem;
   color: #47d15f;
-  box-shadow: 7px 7px 8px -6px #47d15f;
+  box-shadow: 7px 7px 8px -6px #00afb5;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -6px #47d15f;
+  box-shadow: -7px 7px 8px -6px #00afb5;
 }
 
 /*#endregion */

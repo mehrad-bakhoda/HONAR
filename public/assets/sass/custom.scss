@@ -86,7 +86,7 @@ textarea:focus {
 }
 
 textarea:focus {
-    box-shadow: $pink-shadow !important;
+    box-shadow: $hover-shadow !important;
 }
 
 /*#endregion */
@@ -1135,13 +1135,13 @@ section.detailPage {
                                         color: $pink-color;
                                         box-shadow: $pink-shadow;
 
-                                        @include sm {
-                                            float: none;
-                                        }
-
                                         &:hover {
                                             transition: 0.4s;
-                                            box-shadow: -7px 7px 8px -6px $pink-shadow;
+                                            box-shadow: -7px 7px 8px -6px $pink-color;
+                                        }
+
+                                        @include sm {
+                                            float: none;
                                         }
                                     }
                                 }
@@ -1650,11 +1650,11 @@ section.cartPage {
                             transition: 0.4s;
                             padding: 1rem 3rem;
                             color: $success-color;
-                            box-shadow: 7px 7px 8px -6px #47d15f;
+                            box-shadow: $hover-shadow;
 
                             &:hover {
                                 transition: 0.4s;
-                                box-shadow: $success-shadow;
+                                box-shadow: -7px 7px 8px -6px $blue-color;
                             }
                         }
                     }
