@@ -606,13 +606,13 @@ section.homePage {
                             }
 
                             @include xs {
-                                padding-left: 0;
-                                padding-right: 0;
+                                padding-left: 1rem;
+                                padding-right: 1rem;
                                 margin: auto;
                             }
 
                             @include xxs {
-                                width: 14rem;
+                                width: 90%;
                             }
 
                             &.active {
