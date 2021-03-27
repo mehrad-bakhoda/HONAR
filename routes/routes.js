@@ -163,7 +163,7 @@ router.get("/add-to-cart/:id/:size", function(req, res){
   {
     var productId = req.params.id;
     var size = req.params.size;
-    if(size == "orginal" || size == "large" || size == "medium" || size == "small")
+    if(size == "original" || size == "large" || size == "medium" || size == "small")
     {
       var cart = new Cart(req.session.cart ? req.session.cart : {});
       let product = Product.findOne({
@@ -593,7 +593,7 @@ if(errors.isEmpty()){
               }
               if(found.password !== fields.password) {
                      console.log('"' + fields.loginInput+'"'+" entered the wrong password!");
-                     res.render("login",{inputFouned:true,inputVerify:true,loginInput:fields.loginInput,newUser:true});
+                     res.render("login",{inputFouned:true,inputVerify:true,loginInput:fields.loginInput,newUser:false});
                    }
             }
             if(!found.hasPassword){
@@ -702,7 +702,7 @@ if(errors.isEmpty()){
               }
               if(found.password !== fields.password) {
                      console.log('"' + fields.loginInput+'"'+" entered the wrong password!");
-                     res.render("login",{inputFouned:true,inputVerify:true,loginInput:fields.loginInput,newUser:true});
+                     res.render("login",{inputFouned:true,inputVerify:true,loginInput:fields.loginInput,newUser:false});
                    }
             }
             if(!found.hasPassword){
