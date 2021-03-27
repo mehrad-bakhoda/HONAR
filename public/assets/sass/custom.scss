@@ -13,6 +13,7 @@ body {
 }
 
 .page {
+    display: none;
     max-width: 90rem;
     width: 100%;
     margin: 0 auto;
@@ -129,6 +130,7 @@ textarea:focus {
 
 /*#region upload Buttton*/
 section.uploadButton {
+    display: none;
     position: fixed;
     bottom: 2rem;
     left: 2rem;
