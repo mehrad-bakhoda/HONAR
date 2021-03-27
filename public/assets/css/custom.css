@@ -1452,7 +1452,7 @@ section.cartPage section.contents .container-fluid .row.top .total .card {
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
   transition: 0.4s;
   padding: 1rem 3rem;
-  color: #47d15f;
+  color: #00afb5;
   box-shadow: 7px 7px 8px -6px #00afb5;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {

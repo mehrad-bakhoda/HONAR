@@ -1651,7 +1651,7 @@ section.cartPage {
                         button.payment {
                             transition: 0.4s;
                             padding: 1rem 3rem;
-                            color: $success-color;
+                            color: $blue-color;
                             box-shadow: $hover-shadow;
 
                             &:hover {
@@ -2433,6 +2433,7 @@ section.notFoundPage {
 section.aboutUsPage {
 }
 /*#endregion */
+
 /*#region Contact Us Page */
 section.contactUsPage {
 }
