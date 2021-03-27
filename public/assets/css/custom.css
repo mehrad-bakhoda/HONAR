@@ -555,14 +555,14 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 }
 @media (max-width: 580px) {
   section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin: auto;
   }
 }
 @media (max-width: 480px) {
   section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
-    width: 14rem;
+    width: 90%;
   }
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
