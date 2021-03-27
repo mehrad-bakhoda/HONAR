@@ -37,6 +37,9 @@ const productSchema = new mongoose.Schema({
   filePath:{
     type: String,
   },
+  fileType:{
+    type: String,
+  },
   coverPath:{
     type: String,
   },

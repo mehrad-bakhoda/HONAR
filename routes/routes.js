@@ -569,12 +569,13 @@ if(errors.isEmpty()){
   console.log(errors);
 }
 
-
-  const form = formidable({ multiples: true, uploadDir: "./uploads"});
+  var dir ="public/covers/users/";
+  const form = formidable({ multiples: true, uploadDir: dir});
   form.keepExtensions=true;
   form.maxFileSize=10*1024*1024;
   form.parse(req, (err, fields, files) => {
-    console.log(fields.loginInput);
+    
+    console.log(files.profilePic);
     if(fields.loginInput.includes("@")===true){
       User.findOne({
         email: fields.loginInput
@@ -619,6 +620,28 @@ if(errors.isEmpty()){
               }
               if (fields.userType ==="Uploader")
               {
+                var profilePicPath = "";
+                var fileName = (files.profilePic.path).substring(20);
+                console.log(fileName);
+                var oldPath =files.profilePic.path;
+                var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
+                const dir = "public/covers/users/" + found.unique_id
+                if (!fs.existsSync(dir)) {
+                  fs.mkdirSync(dir, {
+                  recursive: true
+                });
+                }
+                if (files.profilePic.size != 0)
+                    profilePicPath = newPath.substring(7);
+                else
+                    profilePicPath = "no picture";
+                fs.rename(oldPath,newPath,function(err)
+                {
+                  if(err) throw err
+                  console.log("successfully");
+                  
+
+                });
                 User.updateMany({
                   email: fields.loginInput
                 }, {
@@ -629,6 +652,7 @@ if(errors.isEmpty()){
                   instagram:fields.instagram,
                   twitter:fields.twitter,
                   bio:fields.bio,
+                  profilePhotoLocation:profilePicPath,
                   password: fields.password,
                   hasPassword:true
                 }, function(err, docs) {
@@ -705,6 +729,28 @@ if(errors.isEmpty()){
               }
               if (fields.userType ==="Uploader")
               {
+                var profilePicPath = "";
+                var fileName = (files.profilePic.path).substring(20);
+                console.log(fileName);
+                var oldPath =files.profilePic.path;
+                var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
+                const dir = "public/covers/users/" + found.unique_id
+                if (!fs.existsSync(dir)) {
+                  fs.mkdirSync(dir, {
+                  recursive: true
+                });
+                }
+                if (files.profilePic.size != 0)
+                    profilePicPath = newPath.substring(7);
+                else
+                    profilePicPath = "no picture";
+                fs.rename(oldPath,newPath,function(err)
+                {
+                  if(err) throw err
+                  console.log("successfully");
+                  
+
+                });
                 User.updateMany({
                   phone: fields.loginInput
                 }, {
@@ -715,6 +761,7 @@ if(errors.isEmpty()){
                   instagram:fields.instagram,
                   twitter:fields.twitter,
                   bio:fields.bio,
+                  profilePhotoLocation:profilePicPath,
                   password: fields.password,
                   hasPassword:true
                 }, function(err, docs) {
@@ -851,7 +898,7 @@ router.post("/upload", function(req, res){
                 }
               }
               tagsarr = tagsarr.filter(function(e){return e});
-              console.log(found);
+              console.log(files);
               const newProduct = new Product({
                 productId:c,
                 type:fields.types,
@@ -859,6 +906,7 @@ router.post("/upload", function(req, res){
                 tags:tagsarr,
                 description:fields.description,
                 filePath:files.productFiles.path,
+                fileType:files.productFiles.type,
                 coverPath:databaseDestination,
                 orginalPrice:fields.orginalPrice,
                 largePrice:fields.largePrice,
