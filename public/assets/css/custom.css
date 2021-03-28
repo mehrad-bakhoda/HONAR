@@ -936,6 +936,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
+  transition: 0.4s;
   color: #333333;
   float: left;
 }
@@ -948,6 +949,14 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a i, section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
   margin-right: 0.5rem;
   font-weight: 500;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .info a:hover {
+  transition: 0.4s;
+  color: #00afb5 !important;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .info a:hover p {
+  transition: 0.4s;
+  color: #00afb5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .tags label {
   padding-top: 0.5rem;

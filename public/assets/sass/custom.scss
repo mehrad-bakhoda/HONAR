@@ -1045,6 +1045,7 @@ section.detailPage {
                                 }
 
                                 a, p {
+                                    transition: 0.4s;
                                     color: $text-color;
                                     float: left;
 
@@ -1057,6 +1058,16 @@ section.detailPage {
                                     i {
                                         margin-right: 0.5rem;
                                         font-weight: 500;
+                                    }
+                                }
+
+                                a:hover {
+                                    transition: 0.4s;
+                                    color: $blue-color !important;
+
+                                    p {
+                                        transition: 0.4s;
+                                        color: $blue-color;
                                     }
                                 }
                             }
