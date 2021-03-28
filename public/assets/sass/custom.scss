@@ -928,7 +928,7 @@ section.loginPage {
                                 }
 
                                 textarea:focus {
-                                    box-shadow: $pink-shadow;
+                                    box-shadow: $pink-shadow !important;
                                 }
 
                                 input[type=file]:hover {

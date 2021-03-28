@@ -838,7 +838,7 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   border-bottom: 2px solid #6c008e;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active textarea:focus {
-  box-shadow: 7px 7px 12px -3px #6c008e;
+  box-shadow: 7px 7px 12px -3px #6c008e !important;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input[type=file]:hover::before {
   transition: 0.4s;
