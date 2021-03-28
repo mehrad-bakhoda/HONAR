@@ -1284,6 +1284,7 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
   margin-bottom: 3rem;
+  position: relative;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic label {
   font-size: 1.2rem;
@@ -1317,7 +1318,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic i {
   right: 12rem;
   color: #333333;
   font-size: 1.2rem;
-  top: 5rem;
+  top: 1rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic i.fa-check-circle {
   color: #00afb5;

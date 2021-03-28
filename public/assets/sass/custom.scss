@@ -1447,7 +1447,7 @@ Section.uploadPage {
 
                 .uploadPic {
                     margin-bottom: 3rem;
-
+                    position: relative;
                     label {
                         font-size: 1.2rem;
                         margin-bottom: 0.5rem;
@@ -1483,7 +1483,7 @@ Section.uploadPage {
                         right: 12rem;
                         color: $text-color;
                         font-size: 1.2rem;
-                        top: 5rem;
+                        top: 1rem;
 
                         &.fa-check-circle {
                             color: $blue-color;
