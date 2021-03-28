@@ -977,6 +977,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .tag
   box-shadow: 7px 7px 8px -3px #b0b0b0;
   border-radius: 8px;
   padding: 0.5rem 1rem;
+  display: inline-block;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes {
   display: flex;
