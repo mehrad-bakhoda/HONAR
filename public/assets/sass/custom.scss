@@ -850,6 +850,7 @@ section.loginPage {
                     ul.nav-tabs {
                         padding: 0;
                         z-index: 2;
+                        background-color: $body-color;
 
                         li.nav-item {
                             background-color: transparent;
@@ -869,7 +870,7 @@ section.loginPage {
                             }
 
                             #tabUpH.active {
-                                box-shadow: -7px -7px 8px -3px $pink-color;
+                                box-shadow: -7px -7px 8px -3px $pink-color, 0 0 0 0;
                             }
                         }
                     }

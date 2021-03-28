@@ -768,6 +768,7 @@ section.loginPage section.contents .container-fluid .card.info {
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs {
   padding: 0;
   z-index: 2;
+  background-color: #d6d6d6;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item {
   background-color: transparent;
@@ -785,7 +786,7 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   box-shadow: 7px -7px 8px -3px #00afb5;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH.active {
-  box-shadow: -7px -7px 8px -3px #6c008e;
+  box-shadow: -7px -7px 8px -3px #6c008e, 0 0 0 0;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content {
   margin-top: -2rem;
