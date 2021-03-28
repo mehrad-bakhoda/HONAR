@@ -445,7 +445,7 @@ section.header {
                         margin-bottom: 0;
 
                         i {
-                            color:$text-color;
+                            color: $text-color;
                             font-size: 20px;
                             position: relative;
                             font-weight: 500;
@@ -685,6 +685,11 @@ section.loginPage {
                 width: 100%;
                 border-radius: $radius;
                 background-color: $gray-color;
+                box-shadow: $hover-shadow;
+
+                &.info {
+                    box-shadow: none;
+                }
 
                 @include sm {
                     padding: 2rem 1rem;
@@ -840,6 +845,7 @@ section.loginPage {
 
                     ul.nav-tabs {
                         padding: 0;
+                        z-index: 2;
 
                         li.nav-item {
                             background-color: transparent;
@@ -858,19 +864,70 @@ section.loginPage {
                                     background-color: $gray-color;
                                 }
                             }
+
+                            #tabDownH.active {
+                                box-shadow: 7px -7px 8px -6px $blue-color;
+                            }
+
+                            #tabUpH.active {
+                                box-shadow: -7px -7px 8px -6px $pink-color;
+                            }
                         }
                     }
 
                     .tab-content {
-                        box-shadow: $box-shadow;
-                        background-color: $gray-color;
-                        border-bottom-left-radius: $radius;
-                        border-bottom-right-radius: $radius;
-                        padding: 2rem;
-                        border: none;
+                        margin-top: -2rem;
+                        /*box-shadow: $box-shadow;*/
+                        .tab-pane {
+                            padding: 2rem;
+                            border: none;
+                            background-color: $gray-color;
+                            border-bottom-left-radius: $radius;
+                            border-bottom-right-radius: $radius;
 
-                        @include sm {
-                            padding: 2rem 1rem;
+                            @include sm {
+                                padding: 2rem 1rem;
+                            }
+
+                            &#tabUpC.active {
+                                box-shadow: -7px 7px 12px -6px $pink-color;
+
+                                input:focus {
+                                    border-bottom: 2px solid $pink-color;
+                                }
+
+                                textarea:focus {
+                                    box-shadow: $pink-shadow;
+                                }
+
+                                input[type=file]:hover {
+
+                                    &::before {
+                                        transition: 0.4s;
+                                        border: none;
+                                        color: $pink-color !important;
+                                        box-shadow: $pink-shadow;
+                                    }
+                                }
+
+                                input:-webkit-autofill,
+                                input:-webkit-autofill:focus {
+                                    border-bottom: 2px solid $pink-color !important;
+                                    -webkit-text-fill-color: $pink-color;
+                                    -webkit-box-shadow: 0 0 0 1000px $gray-color inset !important;
+                                    transition: background-color 400s ease-in-out 0s;
+                                    background-color: $gray-color;
+                                }
+
+                                button:hover {
+                                    box-shadow: $pink-shadow;
+                                    color: $pink-color;
+                                }
+                            }
+
+                            &#tabDownC.active {
+                                box-shadow: $hover-shadow;
+                            }
                         }
                     }
                 }
@@ -1998,7 +2055,6 @@ section.dashboardPage {
                                         z-index: 50;
 
                                         a {
-                                            
                                             transition: 0.4s;
                                             color: $text-color;
                                             box-shadow: $box-shadow;

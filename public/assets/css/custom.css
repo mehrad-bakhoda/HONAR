@@ -617,6 +617,10 @@ section.loginPage section.contents .container-fluid .card {
   width: 100%;
   border-radius: 8px;
   background-color: #d6d6d6;
+  box-shadow: 7px 7px 8px -6px #00afb5;
+}
+section.loginPage section.contents .container-fluid .card.info {
+  box-shadow: none;
 }
 @media (max-width: 767px) {
   section.loginPage section.contents .container-fluid .card {
@@ -759,6 +763,7 @@ section.loginPage section.contents .container-fluid .card.info {
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs {
   padding: 0;
+  z-index: 2;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item {
   background-color: transparent;
@@ -776,18 +781,57 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   box-shadow: 4px -6px 8px -6px #a9a9a9, 8px 12px 8px -6px #a9a9a9;
   background-color: #d6d6d6;
 }
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabDownH.active {
+  box-shadow: 7px -7px 8px -6px #00afb5;
+}
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH.active {
+  box-shadow: -7px -7px 8px -6px #6c008e;
+}
 section.loginPage section.contents .container-fluid .card.info .tab-content {
-  box-shadow: 7px 7px 8px -6px #b0b0b0;
+  margin-top: -2rem;
+  /*box-shadow: $box-shadow;*/
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane {
+  padding: 2rem;
+  border: none;
   background-color: #d6d6d6;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  padding: 2rem;
-  border: none;
 }
 @media (max-width: 767px) {
-  section.loginPage section.contents .container-fluid .card.info .tab-content {
+  section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane {
     padding: 2rem 1rem;
   }
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active {
+  box-shadow: -7px 7px 12px -6px #6c008e;
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:focus {
+  border-bottom: 2px solid #6c008e;
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active textarea:focus {
+  box-shadow: 7px 7px 12px -6px #6c008e;
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input[type=file]:hover::before {
+  transition: 0.4s;
+  border: none;
+  color: #6c008e !important;
+  box-shadow: 7px 7px 12px -6px #6c008e;
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill,
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill:focus {
+  border-bottom: 2px solid #6c008e !important;
+  -webkit-text-fill-color: #6c008e;
+  -webkit-box-shadow: 0 0 0 1000px #d6d6d6 inset !important;
+  transition: background-color 400s ease-in-out 0s;
+  background-color: #d6d6d6;
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
+  box-shadow: 7px 7px 12px -6px #6c008e;
+  color: #6c008e;
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabDownC.active {
+  box-shadow: 7px 7px 8px -6px #00afb5;
 }
 
 /*#endregion */
