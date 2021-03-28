@@ -941,7 +941,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
-    float: none;
+    float: none !important;
     text-align: center;
   }
 }

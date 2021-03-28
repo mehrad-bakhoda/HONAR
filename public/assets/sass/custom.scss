@@ -1050,7 +1050,7 @@ section.detailPage {
 
 
                                     @include sm {
-                                        float: none;
+                                        float: none !important;
                                         text-align: center;
                                     }
 
