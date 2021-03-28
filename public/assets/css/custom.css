@@ -679,7 +679,10 @@ section.loginPage section.contents .container-fluid .card input:focus {
   outline: none;
   border-bottom: 2px solid #00afb5;
 }
-section.loginPage section.contents .container-fluid .card input[type=file] {
+section.loginPage section.contents .container-fluid .card .uploadPic {
+  position: relative;
+}
+section.loginPage section.contents .container-fluid .card .uploadPic input[type=file] {
   padding: 0;
   visibility: hidden;
   width: 14rem;
@@ -687,7 +690,7 @@ section.loginPage section.contents .container-fluid .card input[type=file] {
   height: 3.5rem;
   position: relative;
 }
-section.loginPage section.contents .container-fluid .card input[type=file]::before {
+section.loginPage section.contents .container-fluid .card .uploadPic input[type=file]::before {
   visibility: visible;
   margin-right: 1rem;
   transition: 0.4s;
@@ -701,6 +704,23 @@ section.loginPage section.contents .container-fluid .card input[type=file]::befo
   text-align: center;
   color: #333333;
   border-radius: 8px;
+}
+section.loginPage section.contents .container-fluid .card .uploadPic i {
+  position: absolute;
+  right: 12rem;
+  color: #333333;
+  font-size: 1.2rem;
+  top: 5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+section.loginPage section.contents .container-fluid .card .uploadPic i.fa-check-circle {
+  color: #6c008e;
+}
+section.loginPage section.contents .container-fluid .card .uploadPic .hidden {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
 }
 section.loginPage section.contents .container-fluid .card textarea {
   transition: 0.4s;
@@ -1281,6 +1301,21 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   text-align: center;
   color: #333333;
   border-radius: 8px;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic i {
+  position: absolute;
+  right: 12rem;
+  color: #333333;
+  font-size: 1.2rem;
+  top: 5rem;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic i.fa-check-circle {
+  color: #00afb5;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadPic .hidden {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing {
   margin-bottom: 1rem;
