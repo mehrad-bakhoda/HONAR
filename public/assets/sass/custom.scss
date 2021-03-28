@@ -105,6 +105,8 @@ textarea:focus {
 
     &.error {
         p {
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
             padding: 1rem;
             margin-bottom: 0;
             color: $error-color;
@@ -114,6 +116,8 @@ textarea:focus {
 
     &.success {
         p {
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
             padding: 1rem;
             margin-bottom: 0;
             color: $success-color;
@@ -155,7 +159,7 @@ section.uploadButton {
 
         &:hover {
             transition: 0.4s;
-            box-shadow: -7px 7px 12px -6px $pink-color;
+            box-shadow: -7px 7px 12px -3px $pink-color;
         }
     }
 
@@ -858,26 +862,20 @@ section.loginPage {
                                 border: none;
                                 border-top-left-radius: $radius;
                                 border-top-right-radius: $radius;
-
-                                &.active {
-                                    box-shadow: 4px -6px 8px -6px #a9a9a9, 8px 12px 8px -6px #a9a9a9;
-                                    background-color: $gray-color;
-                                }
                             }
 
                             #tabDownH.active {
-                                box-shadow: 7px -7px 8px -6px $blue-color;
+                                box-shadow: 7px -7px 8px -3px $blue-color;
                             }
 
                             #tabUpH.active {
-                                box-shadow: -7px -7px 8px -6px $pink-color;
+                                box-shadow: -7px -7px 8px -3px $pink-color;
                             }
                         }
                     }
 
                     .tab-content {
                         margin-top: -2rem;
-                        /*box-shadow: $box-shadow;*/
                         .tab-pane {
                             padding: 2rem;
                             border: none;
@@ -890,7 +888,7 @@ section.loginPage {
                             }
 
                             &#tabUpC.active {
-                                box-shadow: -7px 7px 12px -6px $pink-color;
+                                box-shadow: -7px 7px 12px -3px $pink-color;
 
                                 input:focus {
                                     border-bottom: 2px solid $pink-color;
@@ -1185,7 +1183,7 @@ section.detailPage {
 
                                         &:hover {
                                             transition: 0.4s;
-                                            box-shadow: -7px 7px 8px -6px $blue-color;
+                                            box-shadow: -7px 7px 8px -3px $blue-color;
                                         }
                                     }
 
@@ -1196,7 +1194,7 @@ section.detailPage {
 
                                         &:hover {
                                             transition: 0.4s;
-                                            box-shadow: -7px 7px 8px -6px $pink-color;
+                                            box-shadow: -7px 7px 8px -3px $pink-color;
                                         }
 
                                         @include sm {
@@ -1680,7 +1678,7 @@ section.cartPage {
                                         transition: 0.4s;
                                         float: left;
                                         color: $error-color;
-                                        box-shadow: 7px 7px 8px -6px #d14774;
+                                        box-shadow: 7px 7px 8px -3px #d14774;
 
                                         &:hover {
                                             transition: 0.4s;
@@ -1713,7 +1711,7 @@ section.cartPage {
 
                             &:hover {
                                 transition: 0.4s;
-                                box-shadow: -7px 7px 8px -6px $blue-color;
+                                box-shadow: -7px 7px 8px -3px $blue-color;
                             }
                         }
                     }
@@ -1949,7 +1947,7 @@ section.dashboardPage {
                                 &.save {
                                     transition: 0.4s;
                                     color: $success-color;
-                                    box-shadow: 7px 7px 8px -6px #47d15f;
+                                    box-shadow: 7px 7px 8px -3px #47d15f;
 
                                     &:hover {
                                         transition: 0.4s;
@@ -1960,7 +1958,7 @@ section.dashboardPage {
                                 &.cancel {
                                     transition: 0.4s;
                                     color: $error-color;
-                                    box-shadow: 7px 7px 8px -6px #d14774;
+                                    box-shadow: 7px 7px 8px -3px #d14774;
 
                                     &:hover {
                                         transition: 0.4s;
