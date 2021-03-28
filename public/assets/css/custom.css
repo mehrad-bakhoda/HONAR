@@ -404,16 +404,24 @@ section.header .searchSection .advanced .tag .usedTags p {
   display: inline-block;
   box-shadow: 7px 7px 8px -3px #b0b0b0;
   color: #333333;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
   border-radius: 8px;
   background-color: transparent;
   margin-bottom: 0;
+  position: relative;
 }
 section.header .searchSection .advanced .tag .usedTags p i {
+  transition: 0.4s;
   color: #333333;
   font-size: 20px;
   position: relative;
   font-weight: 500;
+  position: absolute;
+  right: 0.5rem;
+}
+section.header .searchSection .advanced .tag .usedTags p i:hover {
+  transition: 0.4s;
+  color: #6c008e;
 }
 section.header .searchSection .advanced .category,
 section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {

@@ -443,16 +443,24 @@ section.header {
                         display: inline-block;
                         box-shadow: $box-shadow;
                         color: $text-color;
-                        padding: 0.5rem 1rem;
+                        padding: 0.5rem 1.5rem 0.5rem 1rem;
                         border-radius: $radius;
                         background-color: transparent;
                         margin-bottom: 0;
+                        position: relative;
 
                         i {
+                            transition: 0.4s;
                             color: $text-color;
                             font-size: 20px;
                             position: relative;
                             font-weight: 500;
+                            position: absolute;
+                            right: 0.5rem;
+                            &:hover {
+                                transition: 0.4s;
+                                color:$pink-color;
+                            }
                         }
                     }
                 }
