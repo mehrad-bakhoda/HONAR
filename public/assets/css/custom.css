@@ -1569,6 +1569,15 @@ section.searchPage section.contents .container-fluid .popularTags .row .result {
 
 /*#endregion */
 /*#region Cart Page */
+section.cartPage section.contents .container-fluid .empty {
+  text-align: center;
+  max-width: 40rem;
+  padding: 2rem 1rem;
+  margin: auto;
+}
+section.cartPage section.contents .container-fluid .empty h1 {
+  color: #6c008e;
+}
 section.cartPage section.contents .container-fluid .row.top .items {
   padding: 1rem;
 }
