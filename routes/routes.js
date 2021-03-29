@@ -154,6 +154,7 @@ router.get("/delete-from-cart/:id",function(req,res){
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     cart.delete(productId);
     req.session.cart = cart;
+    req.session.save();
     res.redirect('/cart');
   }
 
@@ -175,6 +176,7 @@ router.get("/add-to-cart/:id/:size", function(req, res){
         }
         cart.add(product,product.productId,size);
         req.session.cart = cart;
+        req.session.save();
         res.redirect('/cart');
     });
     }
@@ -548,7 +550,213 @@ router.post("/register",function(req,res){
 
 });
 
+router.post("/signUpD",function(req,res)
+{
+  const form = formidable({ multiples: true});
+  form.keepExtensions=true;
+  form.maxFileSize=10*1024*1024;
+  form.parse(req, (err, fields, files) => {
+    
+    console.log(files.profilePic);
+    if(fields.loginInput.includes("@")===true){
+      User.findOne({
+        email: fields.loginInput
+      }, function(err, found) {
+        if (!err) {
+          if(found){
+            if(!found.hasPassword){
+                console.log("he's a Downloader");
+                User.updateMany({
+                  email: fields.loginInput
+                }, {
+                  type:"Downloader",
+                  firstName:fields.firstName,
+                  lastName:fields.lastName,
+                  password: fields.password,
+                  hasPassword:true
+                }, function(err, docs) {
+                  if (!err) {
+                    console.log('"' + fields.loginInput+'"'+" now has a password!");
+                    req.session.userId = found.unique_id;
+                    req.session.save();
+                    console.log("Session created for"+'"' + fields.loginInput+'"');
+                    console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
+                    res.redirect("/");
+                  }
+                });
+            }
+          }
+        }
+      });
 
+    }else{
+      User.findOne({
+        phone: fields.loginInput
+      }, function(err, found) {
+        if (!err) {
+          if(found){
+            if(!found.hasPassword){
+              console.log("he's a Downloader");
+              User.updateMany({
+                phone: fields.loginInput
+              }, {
+                type:"Downloader",
+                firstName:fields.firstName,
+                lastName:fields.lastName,
+                password: fields.password,
+                hasPassword:true
+              }, function(err, docs) {
+                if (!err) {
+                  console.log('"' + fields.loginInput+'"'+" now has a password!");
+                  req.session.userId = found.unique_id;
+                  req.session.save();
+                  console.log("Session created for"+'"' + fields.loginInput+'"');
+                  console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
+                  res.redirect("/");
+                }
+              });
+            }
+          }
+        }
+      });
+    }
+    if (err) {
+      next(err);
+      return;
+    }
+  });
+
+});
+router.post("/signUpU",function(req, res){
+  var dir ="public/covers/users/";
+  const form = formidable({ multiples: true, uploadDir: dir});
+  form.keepExtensions=true;
+  form.maxFileSize=10*1024*1024;
+  form.parse(req, (err, fields, files) => {
+    
+    console.log(files.profilePic);
+    if(fields.loginInput.includes("@")===true){
+      User.findOne({
+        email: fields.loginInput
+      }, function(err, found) {
+        if (!err) {
+          if(found){
+            if(!found.hasPassword){
+              var profilePicPath = "";
+              var fileName = (files.profilePic.path).substring(20);
+              console.log(fileName);
+              var oldPath =files.profilePic.path;
+              var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
+              const dir = "public/covers/users/" + found.unique_id
+              if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir, {
+                recursive: true
+              });
+              }
+              if (files.profilePic.size != 0)
+                  profilePicPath = newPath.substring(7);
+              else
+                  profilePicPath = "no picture";
+              fs.rename(oldPath,newPath,function(err)
+              {
+                if(err) throw err
+                console.log("successfully");
+                
+
+              });
+              User.updateMany({
+                email: fields.loginInput
+              }, {
+                type:"Uploader",
+                firstName:fields.firstName,
+                lastName:fields.lastName,
+                userName:fields.userName.toLowerCase(),
+                instagram:fields.instagram,
+                twitter:fields.twitter,
+                bio:fields.bio,
+                profilePhotoLocation:profilePicPath,
+                password: fields.password,
+                hasPassword:true
+              }, function(err, docs) {
+                if (!err) {
+                  console.log('"' + fields.loginInput+'"'+" now has a password!");
+                  req.session.userId = found.unique_id;
+                  req.session.save();
+                  console.log("Session created for"+'"' + fields.loginInput+'"');
+                  console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
+                  res.redirect("/");
+                }
+              });
+            }
+          }
+        }
+      });
+
+    }else{
+      User.findOne({
+        phone: fields.loginInput
+      }, function(err, found) {
+        if (!err) {
+          if(found){
+            if(!found.hasPassword){
+              var profilePicPath = "";
+              var fileName = (files.profilePic.path).substring(20);
+              console.log(fileName);
+              var oldPath =files.profilePic.path;
+              var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
+              const dir = "public/covers/users/" + found.unique_id
+              if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir, {
+                recursive: true
+              });
+              }
+              if (files.profilePic.size != 0)
+                  profilePicPath = newPath.substring(7);
+              else
+                  profilePicPath = "no picture";
+              fs.rename(oldPath,newPath,function(err)
+              {
+                if(err) throw err
+                console.log("successfully");
+                
+
+              });
+              User.updateMany({
+                phone: fields.loginInput
+              }, {
+                type:"Uploader",
+                firstName:fields.firstName,
+                lastName:fields.lastName,
+                userName:fields.userName.toLowerCase(),
+                instagram:fields.instagram,
+                twitter:fields.twitter,
+                bio:fields.bio,
+                profilePhotoLocation:profilePicPath,
+                password: fields.password,
+                hasPassword:true
+              }, function(err, docs) {
+                if (!err) {
+                  console.log('"' + fields.loginInput+'"'+" now has a password!");
+                  req.session.userId = found.unique_id;
+                  req.session.save();
+                  console.log("Session created for"+'"' + fields.loginInput+'"');
+                  console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
+                  res.redirect("/");
+                }
+              });
+            }
+          }
+        }
+      });
+    }
+
+    if (err) {
+      next(err);
+      return;
+    }
+  });
+
+});
 router.post("/signIn"
 // check('passwordConfirmation').not().isEmpty().isLength({min:8}).custom((value,{req}) =>{
 //   if(value != req.body.password){
@@ -583,6 +791,7 @@ if(errors.isEmpty()){
               if (found.password === fields.password) {
                 console.log('"' + fields.loginInput+'"'+" login was successful!");
                 req.session.userId = found.unique_id;
+                req.session.save();
                 console.log("Session created for"+'"' + fields.loginInput+'"');
 
                 console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
@@ -596,92 +805,7 @@ if(errors.isEmpty()){
                      req.session.save();
                    }
             }
-            if(!found.hasPassword){
-              if (fields.userType ==="Downloader")
-              {
-                console.log("he's a Downloader");
-                User.updateMany({
-                  email: fields.loginInput
-                }, {
-                  type:"Downloader",
-                  firstName:fields.firstName,
-                  lastName:fields.lastName,
-                  password: fields.password,
-                  hasPassword:true
-                }, function(err, docs) {
-                  if (!err) {
-                    console.log('"' + fields.loginInput+'"'+" now has a password!");
-                    req.session.userId = found.unique_id;
-                    console.log("Session created for"+'"' + fields.loginInput+'"');
-                    console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
-                    res.redirect("/");
-                  }
-                });
-              }
-              if (fields.userType ==="Uploader")
-              {
-                var profilePicPath = "";
-                var fileName = (files.profilePic.path).substring(20);
-                console.log(fileName);
-                var oldPath =files.profilePic.path;
-                var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
-                const dir = "public/covers/users/" + found.unique_id
-                if (!fs.existsSync(dir)) {
-                  fs.mkdirSync(dir, {
-                  recursive: true
-                });
-                }
-                if (files.profilePic.size != 0)
-                    profilePicPath = newPath.substring(7);
-                else
-                    profilePicPath = "no picture";
-                fs.rename(oldPath,newPath,function(err)
-                {
-                  if(err) throw err
-                  console.log("successfully");
-                  
-
-                });
-                User.updateMany({
-                  email: fields.loginInput
-                }, {
-                  type:"Uploader",
-                  firstName:fields.firstName,
-                  lastName:fields.lastName,
-                  userName:fields.userName.toLowerCase(),
-                  instagram:fields.instagram,
-                  twitter:fields.twitter,
-                  bio:fields.bio,
-                  profilePhotoLocation:profilePicPath,
-                  password: fields.password,
-                  hasPassword:true
-                }, function(err, docs) {
-                  if (!err) {
-                    console.log('"' + fields.loginInput+'"'+" now has a password!");
-                    req.session.userId = found.unique_id;
-                    console.log("Session created for"+'"' + fields.loginInput+'"');
-                    console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
-                    res.redirect("/");
-                  }
-                });
-              }
-            }
-            if(!found.verified){
-              User.updateOne({
-                email: fields.loginInput
-              }, {
-                verifyCode: generateOTP.createNewOTP(),
-              }, function(err, docs) {
-                if (!err) {
-                  console.log('"' + fields.loginInput+'"'+" verify code updated");
-                }
-                res.render("login",{inputVerify:false,inputFouned:false,loginInput:fields.loginInput,newUser:false});
-              });
-            }
-
           }
-
-
         }
       });
 
@@ -695,6 +819,7 @@ if(errors.isEmpty()){
               if (found.password === fields.password) {
                 console.log('"' + fields.loginInput+'"'+" login was successful!");
                 req.session.userId = found.unique_id;
+                req.session.save();
                 console.log("Session created for"+'"' + fields.loginInput+'"');
 
                 console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
@@ -709,96 +834,11 @@ if(errors.isEmpty()){
                      
                    }
             }
-            if(!found.hasPassword){
-              if (fields.userType ==="Downloader")
-              {
-                console.log("he's a Downloader");
-                User.updateMany({
-                  phone: fields.loginInput
-                }, {
-                  type:"Downloader",
-                  firstName:fields.firstName,
-                  lastName:fields.lastName,
-                  password: fields.password,
-                  hasPassword:true
-                }, function(err, docs) {
-                  if (!err) {
-                    console.log('"' + fields.loginInput+'"'+" now has a password!");
-                    req.session.userId = found.unique_id;
-                    console.log("Session created for"+'"' + fields.loginInput+'"');
-                    console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
-                    res.redirect("/");
-                  }
-                });
-              }
-              if (fields.userType ==="Uploader")
-              {
-                var profilePicPath = "";
-                var fileName = (files.profilePic.path).substring(20);
-                console.log(fileName);
-                var oldPath =files.profilePic.path;
-                var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
-                const dir = "public/covers/users/" + found.unique_id
-                if (!fs.existsSync(dir)) {
-                  fs.mkdirSync(dir, {
-                  recursive: true
-                });
-                }
-                if (files.profilePic.size != 0)
-                    profilePicPath = newPath.substring(7);
-                else
-                    profilePicPath = "no picture";
-                fs.rename(oldPath,newPath,function(err)
-                {
-                  if(err) throw err
-                  console.log("successfully");
-                  
-
-                });
-                User.updateMany({
-                  phone: fields.loginInput
-                }, {
-                  type:"Uploader",
-                  firstName:fields.firstName,
-                  lastName:fields.lastName,
-                  userName:fields.userName.toLowerCase(),
-                  instagram:fields.instagram,
-                  twitter:fields.twitter,
-                  bio:fields.bio,
-                  profilePhotoLocation:profilePicPath,
-                  password: fields.password,
-                  hasPassword:true
-                }, function(err, docs) {
-                  if (!err) {
-                    console.log('"' + fields.loginInput+'"'+" now has a password!");
-                    req.session.userId = found.unique_id;
-                    console.log("Session created for"+'"' + fields.loginInput+'"');
-                    console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
-                    res.redirect("/");
-                  }
-                });
-              }
-            }
-            if(!found.verified){
-              User.updateOne({
-                phone: fields.loginInput
-              }, {
-                verifyCode: generateOTP.createNewOTP(),
-              }, function(err, docs) {
-                if (!err) {
-                  console.log('"' + fields.loginInput+'"'+" verify code updated");
-                }
-                res.render("login",{inputVerify:false,inputFouned:false,loginInput:fields.loginInput,newUser:false});
-              });
-            }
-
           }
-
-
         }
       });
     }
-    
+
     if (err) {
       next(err);
       return;
