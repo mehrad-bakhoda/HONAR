@@ -1,0 +1,43 @@
+﻿<%-include("head");-%>
+
+<%-include("uploadButton");-%>
+<section class="page forgotPassPage">
+    <%-include("headerN");-%>
+    <section class="contents">
+        <div class="container-fluid">
+            <div class="card contact">
+                <h4> شماره تماس یا ایمیل خود را وارد کنید</h4>
+                <input type="text" class="phoneInput" name="loginInput" placeholder="شماره تماس یا ایمیل" />
+                <div class="buttons">
+                    <button type="submit" class="next">بعدی</button>
+                </div>
+            </div>
+            <div class="card code">
+                <h4> کد ارسال شده را وارد کنید</h4>
+                <div class="codeInputs">
+                    <input name="verifyCode1" type="text" class="codeInput" id="first" maxlength="1" />
+                    <input name="verifyCode2" type="text" class="codeInput" id="second" maxlength="1" />
+                    <input name="verifyCode3" type="text" class="codeInput" id="third" maxlength="1" />
+                    <input name="verifyCode4" type="text" class="codeInput" id="fourth" maxlength="1" />
+                    <input name="verifyCode5" type="text" class="codeInput" id="fifth" maxlength="1" />
+                    <input name="verifyCode6" type="text" class="codeInput" id="sixth" maxlength="1" />
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="next">بعدی</button>
+                    <a href="/login"><button type="button" class="prev">قبلی</button></a>
+                    <button type="button" class="codeAgain hidden">ارسال مجدد کد</button>
+                </div>
+            </div>
+            <div class="card newPass">
+                <h4> رمز عبور جدید را وارد کنید </h4>
+                <input type="text" class="newPass" placeholder="رمز عبور جدید" />
+                <input type="text" class="newPassConfirm" placeholder="رمز عبور جدید را تایید کنید" />
+                <div class="buttons">
+                    <button type="submit" class="confirm">تایید</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%-include("footer");-%>
+</section>
+<%-include("scripts");-%>

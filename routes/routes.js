@@ -111,6 +111,10 @@ router.get("/user", function (req, res) {
     res.render("user");
 });
 
+router.get("/forgotPass", function (req, res) {
+    res.render("forgotPass");
+});
+
 
 
 router.get("/upload",function(req,res){

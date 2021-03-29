@@ -968,6 +968,115 @@ section.loginPage {
 }
 /*#endregion */
 
+/*#region Forgot Pass*/
+section.forgotPassPage {
+    section.contents {
+        .container-fluid {
+            .card {
+                margin-top: 5rem;
+                padding: 2rem;
+                max-width: 40rem;
+                margin: auto;
+                width: 100%;
+                border-radius: $radius;
+                background-color: $gray-color;
+                box-shadow: $hover-shadow;
+
+                h4 {
+                    padding: 2rem 0;
+
+                    @include xxs {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                input {
+                    transition: 0.4s;
+                    border: none;
+                    border-bottom: 2px solid $text-color;
+                    color: $text-color;
+                    background-color: transparent;
+                    width: 100%;
+                    height: 2.5rem;
+                    margin-bottom: 2rem;
+
+                    &.codeInput {
+                        padding: 0;
+                        text-align: center;
+                        font-size: 25px;
+                        width: 2rem;
+                        margin: 0 0.5rem;
+                        display: flex;
+
+                        @include xs {
+                            width: 1.5rem;
+                            margin: 0 0.3rem;
+                        }
+                    }
+                }
+
+                input:focus {
+                    transition: 0.4s;
+                    outline: none;
+                    border-bottom: 2px solid $blue-color;
+                }
+
+                .codeInputs {
+                    direction: ltr;
+                    display: flex;
+                    width: fit-content;
+                    margin: 0 auto;
+                }
+
+                .buttons {
+                    position: relative;
+                    padding: 3rem 0;
+
+                    button {
+                        float: left;
+                        margin-right: 1rem;
+                        font-size: 20px;
+                        display: block;
+                        width: 8rem;
+
+                        @include xs {
+                            font-size: 18px;
+                            width: 6rem;
+                        }
+                    }
+                }
+
+                &.code {
+                    .buttons {
+                        padding-bottom: 0;
+                        float: left;
+                        max-width: 20rem;
+
+                        button.codeAgain {
+                            transition: 0.4s;
+                            margin-top: 1rem;
+                            width: 17rem;
+
+                            @include xs {
+                                width: 13rem;
+                            }
+                        }
+
+                        .hidden {
+                            transition: 0.4s;
+                            opacity: 0;
+                            visibility: hidden;
+                            height: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*#endregion */
+
 /*#region Product Detail Page*/
 section.detailPage {
     section.contents {
