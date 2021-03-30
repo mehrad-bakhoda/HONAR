@@ -556,7 +556,15 @@ router.post("/signUpD",function(req,res)
   form.keepExtensions=true;
   form.maxFileSize=10*1024*1024;
   form.parse(req, (err, fields, files) => {
+    console.log(check(fields.firstName).not().isEmpty());
     
+    const errors=validationResult(req).array();
+    if(errors.length != 0)
+    {
+      req.session.errors = errors;
+      res.redirect("/login");
+      return next();
+    }
     console.log(files.profilePic);
     if(fields.loginInput.includes("@")===true){
       User.findOne({
