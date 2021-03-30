@@ -9,15 +9,16 @@
                 <div class="col-12 summary">
                     <div class="picture">
                         <% if (user.profilePhotoLocation == "no picture" || user.profilePhotoLocation === undefined){%>
-                            <i class="fal fa-user fa-3x"></i>
+                        <i class="fal fa-user fa-3x"></i>
                         <%}else{%>
-                            <img src="/<%=user.profilePhotoLocation%>" />
+                        <img src="/<%=user.profilePhotoLocation%>" />
                         <% }%>
                     </div>
                     <div class="bottom">
                         <div class="name">
                             <p><%=user.userName%></p>
                         </div>
+                        <% if(user.type =="Uploader"){%>
                         <div class="socialStats">
                             <div class="mail">
                                 <a href="#"><i class="fal fa-envelope"></i></a>
@@ -34,6 +35,7 @@
                                 <p> <%=searched.length%> </p>
                             </div>
                         </div>
+                        <%}%>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-6 col-sm-12 bio">
@@ -55,7 +57,7 @@
                     <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
                     <input name="emial" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
                     <i class="fal fa-envelope"></i>
-                    <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" value="<%=user.instagram%>"  />
+                    <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" value="<%=user.instagram%>" />
                     <i class="fab fa-instagram"></i>
                     <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" value="<%=user.twitter%>" />
                     <i class="fab fa-twitter"></i>
@@ -71,6 +73,7 @@
 
                 </div>
             </div>
+            <% if(user.type =="Uploader"){%>
             <div class="stats part">
                 <div class="header" onClick="openContent('stats')">
                     <h4>
@@ -90,6 +93,7 @@
                     </div>
                 </div>
             </div>
+            <%}%>
             <div class="downloads part">
                 <div class="header" onClick="openContent('downloads')">
                     <h4>
@@ -165,23 +169,24 @@
                     </div>
                 </div>
             </div>
+            <% if(user.type =="Uploader"){%>
             <div class="col-12 products">
                 <div class="row">
                     <% for (var i = 0; i < searched.length; i++){%>
-                        <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                            <a href="/Product">
-                                <div class="card product">
-                                    <div class="card-body">
-                                        <img src="<%=searched[i].coverPath%>" />
-                                    </div>
-                                    <div class="card-footer">
-                                        <p> <%=searched[i].fileName%> </p>
-                                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
+                        <a href="/Product">
+                            <div class="card product">
+                                <div class="card-body">
+                                    <img src="<%=searched[i].coverPath%>" />
                                 </div>
-                            </a>
-                        </div>
+                                <div class="card-footer">
+                                    <p> <%=searched[i].fileName%> </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     <%}%>
-                    
+
                 </div>
                 <div class="buttons">
                     <button type="button" class="seeMore">
@@ -190,7 +195,7 @@
                     </button>
                 </div>
             </div>
-
+            <%}%>
         </div>
     </section>
     <%-include("footer");-%>
