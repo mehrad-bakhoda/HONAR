@@ -1797,6 +1797,14 @@ section.cartPage {
                 h1 {
                     color: $pink-color;
                 }
+                i {
+                    color: $pink-color;
+                    font-size: 8rem;
+                    padding: 2rem;
+                    @include xs {
+                        font-size: 5rem;
+                    }
+                }
             }
             .row.top {
                 .items {

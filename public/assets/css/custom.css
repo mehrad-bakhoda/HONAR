@@ -1578,6 +1578,16 @@ section.cartPage section.contents .container-fluid .empty {
 section.cartPage section.contents .container-fluid .empty h1 {
   color: #6c008e;
 }
+section.cartPage section.contents .container-fluid .empty i {
+  color: #6c008e;
+  font-size: 8rem;
+  padding: 2rem;
+}
+@media (max-width: 580px) {
+  section.cartPage section.contents .container-fluid .empty i {
+    font-size: 5rem;
+  }
+}
 section.cartPage section.contents .container-fluid .row.top .items {
   padding: 1rem;
 }
