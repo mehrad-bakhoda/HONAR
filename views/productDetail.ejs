@@ -120,11 +120,14 @@
             <div class="related">
                 <h2> محصولات مرتبط </h2>
                 <div class="owl-carousel">
-                    <% searched.forEach(function(product) { %>
-                    <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                        <img src="/<%=product.coverPath%>" />
-                    </a>
-                    <% }) %>
+                    <% if(searched){%>
+                        <% searched.forEach(function(product) { %>
+                            <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
+                                <img src="/<%=product.coverPath%>" />
+                            </a>
+                            <% }) %>
+                    <% } %>
+                    
                 </div>
             </div>
         </div>

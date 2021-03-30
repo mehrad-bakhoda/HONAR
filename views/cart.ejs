@@ -5,9 +5,12 @@
     <%-include("headerN");-%>
     <section class="contents">
         <div class="container-fluid">
-            <div class="empty">
-                <h1> سبد خرید شما خالی است !</h1>
-            </div>
+            <% if(products.length == 0){%>
+                <div class="empty">
+                    <i class="fad fa-shopping-cart" style="color:#00afb5;font-size: 10rem;"></i>
+                    <h1> سبد خرید شما خالی است !</h1>
+                </div>
+            <%}else{%>
             <div class="row top">
                 <div class="col-md-9 col-sm-12 items">
                     <div class="row middle">
@@ -25,7 +28,7 @@
                                             <%=product.item.fileName%>
                                         </h6>
                                         <p>سایز
-                                            <% if (product.size == "orginal"){%>
+                                            <% if (product.size == "original"){%>
                                             اصلی
                                             <% } %>
                                             <% if (product.size == "large"){%>
@@ -39,7 +42,7 @@
                                             <% } %>
                                         </p>
                                         <p class="price">
-                                            <% if (product.size == "orginal"){%>
+                                            <% if (product.size == "original"){%>
                                             <% if(product.item.orginalPrice == 0){%>
                                             رایگان
                                             <% } %>
@@ -123,6 +126,7 @@
                     </div>
                 </div>
             </div>
+            <%}%>
         </div>
     </section>
     <%-include("footer");-%>
