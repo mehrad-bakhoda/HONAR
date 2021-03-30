@@ -2124,11 +2124,12 @@ section.dashboardPage {
                                 transition: 0.4s;
                                 width: 10rem;
                                 padding: 0.5rem;
+                                margin-right: 1rem;
 
                                 &.save {
                                     transition: 0.4s;
                                     color: $success-color;
-                                    box-shadow: 7px 7px 8px -3px #47d15f;
+                                    box-shadow: $hover-shadow;
 
                                     &:hover {
                                         transition: 0.4s;
@@ -2379,6 +2380,38 @@ section.dashboardPage {
                     visibility: hidden;
                     opacity: 0;
                     overflow: hidden;
+                }
+            }
+
+            .products {
+                .buttons {
+                    padding-top: 4rem;
+                    text-align: center;
+
+                    button.seeMore {
+                        position: relative;
+                        display: flex;
+                        margin: auto;
+                        font-size: 20px;
+                        transition: 0.4s;
+                        background-color: transparent;
+
+                        i {
+                            left: 0.5rem;
+                            top: 0.5rem;
+                            width: 2rem;
+                            font-size: 30px;
+                        }
+
+                        &:hover {
+                            transition: 0.4s;
+                        }
+
+                        &:focus {
+                            transition: 0.4s;
+                            outline: none;
+                        }
+                    }
                 }
             }
         }

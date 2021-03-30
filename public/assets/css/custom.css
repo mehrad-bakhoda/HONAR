@@ -1844,11 +1844,12 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   transition: 0.4s;
   width: 10rem;
   padding: 0.5rem;
+  margin-right: 1rem;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
   transition: 0.4s;
   color: #00afb5;
-  box-shadow: 7px 7px 8px -3px #47d15f;
+  box-shadow: 7px 7px 8px -3px #00afb5;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
   transition: 0.4s;
@@ -2061,6 +2062,31 @@ section.dashboardPage section.contents .container-fluid .part .contentHidden {
   visibility: hidden;
   opacity: 0;
   overflow: hidden;
+}
+section.dashboardPage section.contents .container-fluid .products .buttons {
+  padding-top: 4rem;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore {
+  position: relative;
+  display: flex;
+  margin: auto;
+  font-size: 20px;
+  transition: 0.4s;
+  background-color: transparent;
+}
+section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore i {
+  left: 0.5rem;
+  top: 0.5rem;
+  width: 2rem;
+  font-size: 30px;
+}
+section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore:hover {
+  transition: 0.4s;
+}
+section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore:focus {
+  transition: 0.4s;
+  outline: none;
 }
 
 /*#endregion */
