@@ -159,7 +159,7 @@ section.uploadButton {
 
         &:hover {
             transition: 0.4s;
-            box-shadow: -7px 7px 12px -3px $pink-color;
+            box-shadow: -7px 7px 8px -3px $pink-color;
         }
     }
 
@@ -921,7 +921,7 @@ section.loginPage {
                             }
 
                             &#tabUpC.active {
-                                box-shadow: -7px 7px 12px -3px $pink-color;
+                                box-shadow: -7px 7px 8px -3px $pink-color;
 
                                 input:focus {
                                     border-bottom: 2px solid $pink-color;

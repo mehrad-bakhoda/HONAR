@@ -149,7 +149,7 @@ section.uploadButton a {
   height: 4rem;
   padding-top: 0.5rem;
   color: #6c008e;
-  box-shadow: 7px 7px 12px -3px #6c008e;
+  box-shadow: 7px 7px 8px -3px #6c008e;
   text-align: center;
 }
 section.uploadButton a i {
@@ -157,7 +157,7 @@ section.uploadButton a i {
 }
 section.uploadButton a:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 12px -3px #6c008e;
+  box-shadow: -7px 7px 8px -3px #6c008e;
 }
 @media (max-width: 767px) {
   section.uploadButton {
@@ -297,7 +297,7 @@ section.header .navbar .container-fluid .leftSide a.signOut {
   left: 5rem;
 }
 section.header .searchSection {
-  box-shadow: 7px 7px 12px -3px #6c008e;
+  box-shadow: 7px 7px 8px -3px #6c008e;
   text-align: center;
   margin-bottom: 3rem;
   background-color: #d6d6d6;
@@ -473,7 +473,7 @@ section.header .searchSection .selected {
   transition: 0.4s;
   border: none;
   color: #6c008e !important;
-  box-shadow: 7px 7px 12px -3px #6c008e !important;
+  box-shadow: 7px 7px 8px -3px #6c008e !important;
   font-weight: bold;
 }
 section.header .searchSection .advancedHidden {
@@ -832,19 +832,19 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   }
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active {
-  box-shadow: -7px 7px 12px -3px #6c008e;
+  box-shadow: -7px 7px 8px -3px #6c008e;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:focus {
   border-bottom: 2px solid #6c008e;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active textarea:focus {
-  box-shadow: 7px 7px 12px -3px #6c008e !important;
+  box-shadow: 7px 7px 8px -3px #6c008e !important;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
   color: #6c008e !important;
-  box-shadow: 7px 7px 12px -3px #6c008e;
+  box-shadow: 7px 7px 8px -3px #6c008e;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill,
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill:focus {
@@ -855,7 +855,7 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   background-color: #d6d6d6;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
-  box-shadow: 7px 7px 12px -3px #6c008e;
+  box-shadow: 7px 7px 8px -3px #6c008e;
   color: #6c008e;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabDownC.active {
@@ -1202,7 +1202,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
   float: right;
   color: #6c008e;
-  box-shadow: 7px 7px 12px -3px #6c008e;
+  box-shadow: 7px 7px 8px -3px #6c008e;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report:hover {
   transition: 0.4s;
