@@ -9,6 +9,10 @@
 /*#region General */
 body {
   background-color: #d6d6d6;
+  /*background: url("../images/background.jpg") center;
+  background-repeat: repeat-y;
+  background-size: inherit;*/
+  /*background-image: linear-gradient(to left, $body-color, $blue-color);*/
   color: #333333;
   margin: 0;
   padding: 0;
@@ -43,8 +47,8 @@ section.contents {
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  border-bottom: 2px solid #00afb5 !important;
-  -webkit-text-fill-color: #00afb5;
+  border-bottom: 2px solid #00a4b5 !important;
+  -webkit-text-fill-color: #00a4b5;
   -webkit-box-shadow: 0 0 0 1000px #d6d6d6 inset !important;
   transition: background-color 400s ease-in-out 0s;
   background-color: #d6d6d6;
@@ -75,14 +79,14 @@ button, input[type=file]::before {
 button:hover, input[type=file]:hover {
   transition: 0.4s;
   border: none;
-  color: #00afb5;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  color: #00a4b5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 button:hover::before, input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
-  color: #00afb5 !important;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  color: #00a4b5 !important;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 
 button:focus,
@@ -93,7 +97,7 @@ textarea:focus {
 }
 
 textarea:focus {
-  box-shadow: 7px 7px 8px -3px #00afb5 !important;
+  box-shadow: 7px 7px 8px -3px #00a4b5 !important;
 }
 
 /*#endregion */
@@ -121,8 +125,8 @@ textarea:focus {
   border-bottom-left-radius: 8px;
   padding: 1rem;
   margin-bottom: 0;
-  color: #00afb5;
-  box-shadow: -7px 7px 8px -3px #00afb5;
+  color: #00a4b5;
+  box-shadow: -7px 7px 8px -3px #00a4b5;
 }
 
 .showNotif {
@@ -253,7 +257,7 @@ section.header .navbar .container-fluid i {
 }
 section.header .navbar .container-fluid i:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.header .navbar .container-fluid .navbar-collapse ul.navbar-nav {
   padding: 0;
@@ -286,7 +290,7 @@ section.header .navbar .container-fluid .leftSide a.cart span {
   top: 1rem;
   height: 1rem;
   background-color: #d6d6d6;
-  color: #00afb5;
+  color: #00a4b5;
   border-radius: 1px;
 }
 section.header .navbar .container-fluid .leftSide a.profile {
@@ -513,7 +517,7 @@ section.footer .container-fluid .social a i {
 }
 section.footer .container-fluid .social a i:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.footer .container-fluid .designedBy {
   border-top: 1px solid #333333;
@@ -527,7 +531,7 @@ section.footer .container-fluid .designedBy p {
 }
 section.footer .container-fluid .designedBy p span {
   font-weight: bold;
-  color: #00afb5;
+  color: #00a4b5;
 }
 
 /*#endregion */
@@ -582,8 +586,8 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -3px #00afb5;
-  color: #00afb5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
+  color: #00a4b5;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
   padding: 1rem 1rem 5rem;
@@ -629,7 +633,7 @@ section.loginPage section.contents .container-fluid .card {
   width: 100%;
   border-radius: 8px;
   background-color: #d6d6d6;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 section.loginPage section.contents .container-fluid .card.info {
   box-shadow: none;
@@ -677,7 +681,7 @@ section.loginPage section.contents .container-fluid .card input.mail, section.lo
 section.loginPage section.contents .container-fluid .card input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00afb5;
+  border-bottom: 2px solid #00a4b5;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic {
   position: relative;
@@ -811,7 +815,7 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   border-top-right-radius: 8px;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabDownH.active {
-  box-shadow: 7px -7px 8px -3px #00afb5;
+  box-shadow: 7px -7px 8px -3px #00a4b5;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH.active {
   box-shadow: -7px -7px 8px -3px #6c008e, 0 0 0 0;
@@ -859,7 +863,7 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   color: #6c008e;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabDownC.active {
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 
 /*#endregion */
@@ -872,7 +876,7 @@ section.forgotPassPage section.contents .container-fluid .card {
   width: 100%;
   border-radius: 8px;
   background-color: #d6d6d6;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 section.forgotPassPage section.contents .container-fluid .card h4 {
   padding: 2rem 0;
@@ -909,7 +913,7 @@ section.forgotPassPage section.contents .container-fluid .card input.codeInput {
 section.forgotPassPage section.contents .container-fluid .card input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00afb5;
+  border-bottom: 2px solid #00a4b5;
 }
 section.forgotPassPage section.contents .container-fluid .card .codeInputs {
   direction: ltr;
@@ -1046,11 +1050,11 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a:hover {
   transition: 0.4s;
-  color: #00afb5 !important;
+  color: #00a4b5 !important;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a:hover p {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .tags label {
   padding-top: 0.5rem;
@@ -1148,8 +1152,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .selected {
   transition: 0.4s;
   border: none;
-  color: #00afb5 !important;
-  box-shadow: 7px 7px 8px -3px #00afb5 !important;
+  color: #00a4b5 !important;
+  box-shadow: 7px 7px 8px -3px #00a4b5 !important;
   font-weight: bold;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price {
@@ -1192,12 +1196,12 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   width: 12rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart {
-  color: #00afb5;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  color: #00a4b5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy:hover, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #00afb5;
+  box-shadow: -7px 7px 8px -3px #00a4b5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
   float: right;
@@ -1290,7 +1294,7 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev span:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next {
   box-shadow: none !important;
@@ -1303,7 +1307,7 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next span:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 
 /*#endregion */
@@ -1358,7 +1362,7 @@ Section.uploadPage section.contents .container-fluid .row .info input {
 Section.uploadPage section.contents .container-fluid .row .info input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00afb5;
+  border-bottom: 2px solid #00a4b5;
 }
 Section.uploadPage section.contents .container-fluid .row .info input.nameInput {
   max-width: 20rem;
@@ -1415,7 +1419,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic i {
   top: 1rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic i.fa-check-circle {
-  color: #00afb5;
+  color: #00a4b5;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic .hidden {
   transition: 0.4s;
@@ -1439,7 +1443,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing input {
 Section.uploadPage section.contents .container-fluid .row .pricing input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00afb5;
+  border-bottom: 2px solid #00a4b5;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing.small {
   margin-bottom: 3rem;
@@ -1483,7 +1487,7 @@ Section.uploadPage section.contents .container-fluid .row .category .title {
 }
 Section.uploadPage section.contents .container-fluid .row .category .selected {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
   font-weight: bold;
 }
 Section.uploadPage section.contents .container-fluid .row .category label.radioLabel {
@@ -1524,8 +1528,8 @@ Section.uploadPage section.contents .container-fluid .row .buttons button {
 Section.uploadPage section.contents .container-fluid .row .selected {
   transition: 0.4s;
   border: none;
-  color: #00afb5 !important;
-  box-shadow: 7px 7px 8px -3px #00afb5 !important;
+  color: #00a4b5 !important;
+  box-shadow: 7px 7px 8px -3px #00a4b5 !important;
   font-weight: bold;
 }
 
@@ -1561,7 +1565,7 @@ section.searchPage section.contents .container-fluid .popularTags .card a {
 }
 section.searchPage section.contents .container-fluid .popularTags .card a:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.searchPage section.contents .container-fluid .popularTags .row .result {
   padding: 1rem;
@@ -1663,12 +1667,12 @@ section.cartPage section.contents .container-fluid .row.top .total .card {
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
   transition: 0.4s;
   padding: 1rem 3rem;
-  color: #00afb5;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  color: #00a4b5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #00afb5;
+  box-shadow: -7px 7px 8px -3px #00a4b5;
 }
 
 /*#endregion */
@@ -1752,7 +1756,7 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
   width: fit-content;
@@ -1797,7 +1801,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #00afb5;
+  border-bottom: 2px solid #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input[type=file] {
   padding: 0;
@@ -1858,12 +1862,12 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
   transition: 0.4s;
-  color: #00afb5;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  color: #00a4b5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #00afb5;
+  box-shadow: -7px 7px 8px -3px #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel {
   transition: 0.4s;
@@ -1958,8 +1962,8 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a:hover {
   transition: 0.4s;
-  color: #00afb5;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  color: #00a4b5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
   box-shadow: 7px 7px 8px -3px #b0b0b0;
@@ -2019,7 +2023,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next {
   box-shadow: none !important;
@@ -2032,7 +2036,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons {
   padding: 1rem;
@@ -2054,8 +2058,8 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
   transition: 0.4s;
-  color: #00afb5 !important;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  color: #00a4b5 !important;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   padding-top: 1rem;
@@ -2185,7 +2189,7 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i:hover {
   transition: 0.4s;
-  color: #00afb5;
+  color: #00a4b5;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
   width: fit-content;
@@ -2234,7 +2238,7 @@ section.userPage section.contents .container-fluid .row.top .products .buttons b
 section.orderPage section.contents .container-fluid .details {
   padding: 1rem 0.5rem;
   background-color: #d6d6d6;
-  box-shadow: 7px 7px 8px -3px #00afb5;
+  box-shadow: 7px 7px 8px -3px #00a4b5;
   border-radius: 8px;
   max-width: 40rem;
   margin: auto;

@@ -2,6 +2,10 @@
 /*#region General */
 body {
     background-color: $body-color;
+    /*background: url("../images/background.jpg") center;
+    background-repeat: repeat-y;
+    background-size: inherit;*/
+    /*background-image: linear-gradient(to left, $body-color, $blue-color);*/
     color: $text-color;
     margin: 0;
     padding: 0;
