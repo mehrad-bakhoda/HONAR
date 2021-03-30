@@ -5,9 +5,12 @@
     <%-include("headerN");-%>
     <section class="contents">
         <div class="container-fluid">
-            <div class="empty">
-                <h1> سبد خرید شما خالی است !</h1>
-            </div>
+            <% if(products.length == 0){%>
+                <div class="empty">
+                    <i class="fad fa-shopping-cart" style="color:#00afb5;font-size: 10rem;"></i>
+                    <h1> سبد خرید شما خالی است !</h1>
+                </div>
+            <%}else{%>
             <div class="row top">
                 <div class="col-md-9 col-sm-12 items">
                     <div class="row middle">
@@ -123,6 +126,7 @@
                     </div>
                 </div>
             </div>
+            <%}%>
         </div>
     </section>
     <%-include("footer");-%>
