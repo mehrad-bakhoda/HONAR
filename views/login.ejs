@@ -66,14 +66,14 @@
                          id="tabDownC"
                          role="tabpanel"
                          aria-labelledby="tabDownH">
-                        <form action="/signIn" enctype="multipart/form-data" method="post">
+                        <form name="downloaderForm" action="/signIn" enctype="multipart/form-data" onsubmit="return validateForm()" method="post">
                             <input hidden name="loginInput" value=<%=loginInput%> />
                             <input hidden name="userType" value="Downloader"/>
                             <h4> اطلاعات خود را وارد کنید </h4>
-                            <input name="firstName" type="firstName" placeholder="نام" />
+                            <input name="firstName" class="firstNameInput" type="firstName" placeholder="نام" />
                             <input name="lastName"  type="lastName" placeholder="نام خانوادگی" />
                             <input name="password"  type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input name="passwordConfirmation"  type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <input name="passwordConfirmation"  type="password" class="passwordConfirmationInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
                             </div>
@@ -131,5 +131,5 @@
 <!-- Scripts -->
 <%-include("scripts");-%>
 <!-- Custom -->
-<script src="../assets/js/codeInput.js"></script>
+<script src="./assets/js/codeInput.js"></script>
 <!-- Scripts -->
