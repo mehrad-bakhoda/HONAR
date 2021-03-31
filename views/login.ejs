@@ -83,7 +83,7 @@
                          id="tabUpC"
                          role="tabpanel"
                          aria-labelledby="tabUpH">
-                        <form action="/signIn" enctype="multipart/form-data" method="post">
+                        <form action="/signUpU" enctype="multipart/form-data" method="post">
                             <input hidden name="loginInput" value=<%=loginInput%> />
                             <input hidden name="userType" value="Uploader"/>
                             <h4> اطلاعات خود را وارد کنید </h4>
@@ -98,7 +98,7 @@
                             <i class="fab fa-twitter"></i>
                             <textarea class="bio" placeholder="درباره شما..."></textarea>
                             <div class="uploadPic">
-                                <input name="profilePic" type="file" class="profilePic" accept="image/*" />
+                                <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
                                 <i class="far fa-spinner-third fa-spin hidden"></i>
                                 <i class="far fa-check-circle hidden"></i>
                             </div>
@@ -130,6 +130,7 @@
 
 <!-- Scripts -->
 <%-include("scripts");-%>
+<%console.log(session.errors);%>
 <!-- Custom -->
 <script src="./assets/js/codeInput.js"></script>
 <!-- Scripts -->
