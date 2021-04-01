@@ -1,8 +1,6 @@
-$(".loginPage .tab-pane .uploadPic input").click(function () {
-    $(".loginPage .tab-pane .uploadPic i.fa-spinner-third").removeClass("hidden");
-})
 const reader = new FileReader();
 $("#fileUploader").change(event =>{
+    $(".loginPage .tab-pane .uploadPic i.fa-spinner-third").removeClass("hidden");
     const files = event.target.files;
     const file = files[0];
     reader.readAsDataURL(file);

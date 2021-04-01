@@ -2,6 +2,10 @@
 /*#region General */
 body {
     background-color: $body-color;
+    /*background: url("../images/background.jpg") center;
+    background-repeat: repeat-y;
+    background-size: inherit;*/
+    /*background-image: linear-gradient(to left, $body-color, $blue-color);*/
     color: $text-color;
     margin: 0;
     padding: 0;
@@ -159,7 +163,7 @@ section.uploadButton {
 
         &:hover {
             transition: 0.4s;
-            box-shadow: -7px 7px 12px -3px $pink-color;
+            box-shadow: -7px 7px 8px -3px $pink-color;
         }
     }
 
@@ -921,7 +925,7 @@ section.loginPage {
                             }
 
                             &#tabUpC.active {
-                                box-shadow: -7px 7px 12px -3px $pink-color;
+                                box-shadow: -7px 7px 8px -3px $pink-color;
 
                                 input:focus {
                                     border-bottom: 2px solid $pink-color;
@@ -1797,6 +1801,14 @@ section.cartPage {
                 h1 {
                     color: $pink-color;
                 }
+                i {
+                    color: $pink-color;
+                    font-size: 8rem;
+                    padding: 2rem;
+                    @include xs {
+                        font-size: 5rem;
+                    }
+                }
             }
             .row.top {
                 .items {
@@ -2124,11 +2136,12 @@ section.dashboardPage {
                                 transition: 0.4s;
                                 width: 10rem;
                                 padding: 0.5rem;
+                                margin-right: 1rem;
 
                                 &.save {
                                     transition: 0.4s;
                                     color: $success-color;
-                                    box-shadow: 7px 7px 8px -3px #47d15f;
+                                    box-shadow: $hover-shadow;
 
                                     &:hover {
                                         transition: 0.4s;
@@ -2379,6 +2392,38 @@ section.dashboardPage {
                     visibility: hidden;
                     opacity: 0;
                     overflow: hidden;
+                }
+            }
+
+            .products {
+                .buttons {
+                    padding-top: 4rem;
+                    text-align: center;
+
+                    button.seeMore {
+                        position: relative;
+                        display: flex;
+                        margin: auto;
+                        font-size: 20px;
+                        transition: 0.4s;
+                        background-color: transparent;
+
+                        i {
+                            left: 0.5rem;
+                            top: 0.5rem;
+                            width: 2rem;
+                            font-size: 30px;
+                        }
+
+                        &:hover {
+                            transition: 0.4s;
+                        }
+
+                        &:focus {
+                            transition: 0.4s;
+                            outline: none;
+                        }
+                    }
                 }
             }
         }
