@@ -66,7 +66,7 @@
                          id="tabDownC"
                          role="tabpanel"
                          aria-labelledby="tabDownH">
-                        <form name="downloaderForm" action="/signIn" enctype="multipart/form-data" onsubmit="return validateForm()" method="post">
+                        <form name="downloaderForm" action="/signIn" enctype="multipart/form-data" onsubmit="return validateDownloaderForm()" method="post">
                             <input hidden name="loginInput" value=<%=loginInput%> />
                             <input hidden name="userType" value="Downloader"/>
                             <h4> اطلاعات خود را وارد کنید </h4>
@@ -83,14 +83,14 @@
                          id="tabUpC"
                          role="tabpanel"
                          aria-labelledby="tabUpH">
-                        <form action="/signUpU" enctype="multipart/form-data" method="post">
+                        <form name="uploaderForm" onsubmit="return validateUploaderForm()" action="/signUpU" enctype="multipart/form-data" method="post">
                             <input hidden name="loginInput" value=<%=loginInput%> />
                             <input hidden name="userType" value="Uploader"/>
                             <h4> اطلاعات خود را وارد کنید </h4>
-                            <input name="firstName" type="firstName" placeholder="نام" />
+                            <input class="firstNameInput" name="firstName" type="firstName" placeholder="نام" />
                             <input name="lastName" type="lastName" placeholder="نام خانوادگی" />
-                            <input name="userName" type="text" placeholder="نام کاربری" />
-                            <input name="emial" type="email" class="mail" placeholder="ایمیل شما" />
+                            <input class="userNameInput" name="userName" type="text" placeholder="نام کاربری" />
+                            <input name="email" type="email" class="mail" placeholder="ایمیل شما" />
                             <i class="fal fa-envelope"></i>
                             <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" />
                             <i class="fab fa-instagram"></i>
@@ -102,8 +102,8 @@
                                 <i class="far fa-spinner-third fa-spin hidden"></i>
                                 <i class="far fa-check-circle hidden"></i>
                             </div>
-                            <input name ="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input name ="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <input class="passwordInput" name ="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <input class="passwordConfirmationInput" name ="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
                             </div>
