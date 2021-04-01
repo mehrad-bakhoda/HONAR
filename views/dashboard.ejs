@@ -15,6 +15,9 @@
                         <% }%>
                     </div>
                     <div class="bottom">
+                      <form class="" action="/changeUserInfo" method="post">
+
+
                         <div class="name">
                             <p><%=user.userName%></p>
                         </div>
@@ -52,8 +55,11 @@
                     </h4>
                 </div>
                 <div class="collapseContent contentHidden">
-                    <input name="firstName" type="firstName" placeholder="نام" value="<%=user.firstName%>" />
-                    <input name="lastName" type="lastName" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
+                  <form name="changInformationForm" action="/changeUserInfo" enctype="multipart/form-data" onsubmit="return validateForm()" method="post">
+
+
+                      <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
+                    <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
                     <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
                     <input name="emial" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
                     <i class="fal fa-envelope"></i>
@@ -61,15 +67,16 @@
                     <i class="fab fa-instagram"></i>
                     <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" value="<%=user.twitter%>" />
                     <i class="fab fa-twitter"></i>
-                    <textarea class="bio" placeholder="درباره شما..." value="<%=user.bio%>"></textarea>
-                    <input name="profilePic" type="file" class="profilePic" />
+                    <textarea name="bio" class="bio" placeholder="درباره شما..." value="<%=user.bio%>"></textarea>
+                    <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
                     <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                    <input name="passwordRepeat" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                    <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                     <div class="buttons">
                         <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
                         <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
                         <button type="submit" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
                     </div>
+                    </form>
 
                 </div>
             </div>
@@ -202,7 +209,7 @@
 </section>
 
 <%-include("scripts");-%>
-<script src="/assets/js/dashboard.js"></script>
+<script src="./assets/js/dashboard.js"></script>
 <script type="text/javascript">
     $('.owl-carousel').owlCarousel({
         items: 1,
@@ -212,4 +219,3 @@
         responsiveClass: true,
     })
 </script>
-

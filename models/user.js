@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
   bio:{
     type:String
   },
-  profilePhotoLocation: {
+  profilePicPath: {
       type: String,
     },
   twitter:{

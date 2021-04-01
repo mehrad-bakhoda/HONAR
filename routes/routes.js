@@ -52,7 +52,7 @@ router.get("/",function(req,res){
 
 
 router.get("/search/:searchedItem",function(req,res){
-  
+
   Product.find({$text:{$search:req.params.searchedItem}})
   // .skip(20)
   // .limit(10)
@@ -90,14 +90,14 @@ router.get("/dashboard",function(req,res){
         Product.find({"user.userName":found.userName})
         .exec(function(err,products){
           res.render("dashboard",{user:found,searched:products});
-        }); 
-      } 
+        });
+      }
       else {
         res.render("notFound");
       }
     });
   }
-  
+
 });
 
 router.get("/order", function (req, res) {
@@ -127,7 +127,7 @@ router.get("/upload",function(req,res){
       }
 
     });
-    
+
   }
   else{
     res.redirect("/login");
@@ -187,12 +187,12 @@ router.get("/add-to-cart/:id/:size", function(req, res){
     else{
       res.render("error404");
     }
-    
+
   }
   else{
     res.redirect("/login");
   }
-  
+
 });
 
 
@@ -250,14 +250,14 @@ router.get("/:userName",function(req,res){
         Product.find({"user.userName":found.userName})
         .exec(function(err,products){
           res.render("user",{user:found,searched:products});
-        }); 
-      } 
+        });
+      }
       else {
         res.render("notFound");
       }
     });
   }
-  
+
 
 });
 
@@ -281,7 +281,7 @@ router.post("/login",[
     res.redirect("/login");
     return next();
   }
-  
+
   if(req.body.loginInput.includes("@")===true){
     console.log("Email "+'"'+ req.body.loginInput +'"'+ " received");
 
@@ -561,7 +561,7 @@ router.post("/signUpD",function(req,res)
   form.maxFileSize=10*1024*1024;
   form.parse(req, (err, fields, files) => {
     console.log(check(fields.firstName).not().isEmpty());
-    
+
     const errors=validationResult(req).array();
     if(errors.length != 0)
     {
@@ -645,7 +645,7 @@ router.post("/signUpU",function(req, res){
   form.keepExtensions=true;
   form.maxFileSize=10*1024*1024;
   form.parse(req, (err, fields, files) => {
-    
+
     console.log(files.profilePic);
     if(fields.loginInput.includes("@")===true){
       User.findOne({
@@ -673,7 +673,7 @@ router.post("/signUpU",function(req, res){
               {
                 if(err) throw err
                 console.log("successfully");
-                
+
 
               });
               User.updateMany({
@@ -730,7 +730,7 @@ router.post("/signUpU",function(req, res){
               {
                 if(err) throw err
                 console.log("successfully");
-                
+
 
               });
               User.updateMany({
@@ -779,7 +779,7 @@ router.post("/signIn"
 // }),
 
 
-   
+
 ,(req, res)=> {
 const errors=validationResult(req);
 if(errors.isEmpty()){
@@ -791,7 +791,7 @@ if(errors.isEmpty()){
   form.keepExtensions=true;
   form.maxFileSize=10*1024*1024;
   form.parse(req, (err, fields, files) => {
-    
+
     console.log(files.profilePic);
     if(fields.loginInput.includes("@")===true){
       User.findOne({
@@ -843,7 +843,7 @@ if(errors.isEmpty()){
                      res.render("login",{inputFouned:true,inputVerify:true,loginInput:fields.loginInput,newUser:false});
                      req.session.errors = null;
                      req.session.save();
-                     
+
                    }
             }
           }
@@ -969,8 +969,8 @@ router.post("/upload", function(req, res){
               newProduct.save();
               found.products.push(newProduct);
               found.save();
-              
-              
+
+
 
 
 
@@ -995,6 +995,115 @@ router.post("/upload", function(req, res){
 
 
 });
+router.post("/changeUserInfo",function(req,res){
+  User.findOne({unique_id: req.session.userId},
+    function(err,found)
+    {
+      if(!err)
+        if(found)
+        {
+
+
+
+            const dir = "./uploads/profilePic/users/"+ found.unique_id;
+              fs.mkdirSync(dir, {
+              recursive: true
+            });
+
+            const form = formidable({ multiples: true, uploadDir: dir});
+            form.keepExtensions=true;
+            form.maxFileSize=10*1024*1024;
+            form.parse(req, (err, fields, files) => {
+              console.log(req.session.userId);
+
+              if(fields.lastName!==null && fields.lastName!==""){
+              User.updateOne({
+                unique_id:req.session.userId
+              },{lastName:fields.lastName},function(err,doc){
+                if(!err){console.log("successfly changed ");}
+              });
+
+            }
+            if(fields.firstName!==null){
+            User.updateOne({
+              unique_id:req.session.userId
+            },{firstName:fields.firstName},function(err,doc){
+              if(!err){console.log("successfly changed ");}
+            });
+
+          }
+          if(fields.userName!==null){
+          User.updateOne({
+            unique_id:req.session.userId
+          },{userName:fields.userName},function(err,doc){
+            if(!err){console.log("successfly changed ");}
+          });
+
+        }
+        if(fields.email!==null){
+        User.updateOne({
+          unique_id:req.session.userId
+        },{email:fields.email},function(err,doc){
+          if(!err){console.log("successfly changed ");}
+        });
+
+      }
+      if(fields.instagram!==null){
+      User.updateOne({
+        unique_id:req.session.userId
+      },{instagram:fields.instagram},function(err,doc){
+        if(!err){console.log("successfly changed ");}
+      });
+
+    }
+    if(fields.twitter!==null){
+    User.updateOne({
+      unique_id:req.session.userId
+    },{twitter:fields.twitter},function(err,doc){
+      if(!err){console.log("successfly changed ");}
+    });
+
+  }
+  if(fields.bio!==null){
+  User.updateOne({
+    unique_id:req.session.userId
+  },{bio:fields.bio},function(err,doc){
+    if(!err){console.log("successfly changed ");}
+  });
+
+}
+if(fields.password!==null && fields.passwordConfirmation !==null && fields.password===fields.passwordConfirmation){
+User.updateOne({
+  unique_id:req.session.userId
+},{password:fields.password},function(err,doc){
+  if(!err){console.log("successfly changed ");}
+});
+
+}
+
+            User.updateOne({
+              unique_id:req.session.userId
+            },{profilePicPath:files.profilePic.path},function(err,doc){
+              if(!err){console.log("successfly changed ");}
+            });
+          });
+
+
+
+
+
+
+
+}
+          });
+
+
+
+
+res.redirect("/dashboard");
+
+
+});
 
 
 router.post("/search",function(req,res){
@@ -1005,7 +1114,7 @@ router.post("/search",function(req,res){
   else{
     res.redirect("/search/" + req.body.searchedItem);
   }
-  
+
 });
 
 // END OF POST ROUTE'S
