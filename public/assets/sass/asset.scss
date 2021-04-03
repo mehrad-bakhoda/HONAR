@@ -21,12 +21,12 @@ $font: IRANSans;
     font-family: IRANSans;
     font-style: normal;
     font-weight: normal;
-    src: url('../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb_Medium.eot');
-    src: url('../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb.eot');
+    src: url('../fonts/IRANSans4/WebFonts/fonts/eot/IRANSansWeb.eot?#iefix') format('embedded-opentype'),
     /* FF39+,Chrome36+, Opera24+*/
-    url('../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb_Medium.woff') format('woff'),
+    url('../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb.woff') format('woff'),
     /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url('../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb_Medium.ttf') format('truetype');
+    url('../fonts/IRANSans4/WebFonts/fonts/woff/IRANSansWeb.ttf') format('truetype');
 }
 
 @mixin xl {

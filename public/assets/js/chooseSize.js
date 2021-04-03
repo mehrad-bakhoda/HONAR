@@ -1,5 +1,6 @@
 $(".infos .sizes label.sizeOption").click(function () {
     var sizes = $(".infos .sizes label.sizeOption");
+    $(".infos .sizes label.selectedSize").text($(this).text());
 
     for (var i = 0; i < sizes.length; i++) {
         $(sizes[i]).removeClass("selected");
@@ -8,7 +9,6 @@ $(".infos .sizes label.sizeOption").click(function () {
 
     var prices = $(".infos .price p");
     var currentID = $(this).attr("id");
-    console.log(currentID);
     var currentPrice = $(".infos .price p." + currentID);
     for (var i = 0; i < prices.length; i++) {
         $(prices[i]).removeClass("showPrice");
@@ -18,3 +18,9 @@ $(".infos .sizes label.sizeOption").click(function () {
     $('#addToCart').attr('href',href.replace(href.split("/")[3],currentID))
     
 })
+
+$(".infos .sizes .shownSize").click(function () {
+    $(".infos .sizes .options").toggleClass("opened");
+    $(".infos .sizes label.sizeOption").toggleClass("show");
+    $(".infos .sizes i").toggleClass("rotated");
+});

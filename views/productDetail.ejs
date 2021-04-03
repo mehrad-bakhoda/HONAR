@@ -8,13 +8,13 @@
         <div class="container-fluid">
             <div class="top">
                 <div class="row">
-                    <div class="col-lg-4 col-md-12 picture">
+                    <div class="picture">
                         <div class="card">
                             <img src="/<%=item.coverPath%>" />
                         </div>
 
                     </div>
-                    <div class="col-lg-8 col-md-12 infos">
+                    <div class="infos">
                         <div class="card">
                             <div class="name info">
                                 <label>  نام اثر </label>
@@ -41,9 +41,9 @@
                                 <label> تگ ها </label>
                                 <div class="tagLinks">
                                     <% for(var i=0; i < item.tags.length ;i++){ %>
-                                        <% var tag = item.tags[i] %>
-                                        <% var path = item.tags[i].replace("#","") %>
-                                        <a href="/tags/<%=path%>"> <%=tag%> </a>
+                                    <% var tag = item.tags[i] %>
+                                    <% var path = item.tags[i].replace("#","") %>
+                                    <a href="/tags/<%=path%>"> <%=tag%> </a>
                                     <% } %>
                                 </div>
                             </div>
@@ -51,6 +51,13 @@
                                 <label> سایز های موجود </label>
 
                                 <div class="options">
+                                    <div class="shownSize">
+                                        <label class="selectedSize">
+                                            اصلی(<span>3000*3000</span>)
+
+                                        </label>
+                                        <i class="far fa-angle-down"></i>
+                                    </div>
                                     <input type="radio" value="small">
                                     <label for="small" class="sizeOption" id="small">کوچک(<span>1000*1000</span>)</label>
 
@@ -61,7 +68,7 @@
                                     <label for="large" class="sizeOption" id="large"> بزرگ (<span>2000*2000</span>)</label>
 
                                     <input type="radio" value="original">
-                                    <label for="original" class="sizeOption  selected" id="original"> اصلی(<span>3000*3000</span>)</label>
+                                    <label for="original" class="sizeOption selected" id="original"> اصلی(<span>3000*3000</span>)</label>
                                 </div>
                             </div>
                             <div class="price info">
@@ -101,7 +108,7 @@
                                 <% if(item.orginalPrice === 0){%>
                                 <a href="/download/<%=item.id%>/original"> <button type="button" class="download"> دانلود </button></a>
                                 <%}else{%>
-                                <a id ="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
+                                <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
                                 <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy"> خرید </button></a>
                                 <%}%>
                                 <button type="button" class="report"> ریپورت </button></a>
@@ -112,22 +119,20 @@
                 </div>
             </div>
             <div class="description">
-                <div class="row">
-                    <h4 class="title"> توضیحات </h4>
-                    <p><%=item.description%></p>
-                </div>
+                <h4 class="title"> توضیحات </h4>
+                <p><%=item.description%></p>
             </div>
             <div class="related">
                 <h2> محصولات مرتبط </h2>
                 <div class="owl-carousel">
                     <% if(searched){%>
-                        <% searched.forEach(function(product) { %>
-                            <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                                <img src="/<%=product.coverPath%>" />
-                            </a>
-                            <% }) %>
+                    <% searched.forEach(function(product) { %>
+                    <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
+                        <img src="/<%=product.coverPath%>" />
+                    </a>
+                    <% }) %>
                     <% } %>
-                    
+
                 </div>
             </div>
         </div>

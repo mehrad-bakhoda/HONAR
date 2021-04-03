@@ -1089,8 +1089,11 @@ section.detailPage {
         .container-fluid {
             .top {
                 .row {
+                    margin: auto;
+                    max-width: 40rem;
+
                     .picture {
-                        padding: 1rem;
+                        padding: 0 1rem 2rem;
 
                         .card {
                             position: relative;
@@ -1107,17 +1110,11 @@ section.detailPage {
                                 margin: auto;
                                 border-radius: 5px;
                                 box-shadow: $image-shadow;
-                                max-width: 18rem;
+                                max-width: 100%;
                                 width: auto;
 
                                 @include xs {
                                     max-height: 16rem;
-                                    max-width: 16rem;
-                                }
-
-                                @include xxs {
-                                    max-height: 14rem;
-                                    max-width: 14rem;
                                 }
                             }
                         }
@@ -1214,91 +1211,108 @@ section.detailPage {
                                         border-radius: $radius;
                                         padding: 0.5rem 1rem;
                                         display: inline-block;
+
+                                        @include sm {
+                                            margin: 0.5rem;
+                                        }
                                     }
                                 }
                             }
 
                             .sizes {
-                                display: flex;
-
-                                @media (max-width: 1180px) and (min-width: 992px) {
-                                    min-height: 6rem;
-                                }
-
-                                @include sm {
-                                    min-height: 6rem;
-                                    display: block;
-                                    text-align: center;
-                                }
-
-                                label {
-                                    width: 7rem;
-                                    padding-top: 0.5rem;
-
-                                    @include sm {
-                                        position: relative;
-                                    }
-                                }
+                                margin-top: 0.5rem;
+                                margin-bottom: 0.5rem;
 
                                 .options {
-                                    text-align: left;
-                                    display: inline-block;
-                                    width: 100%;
-                                    padding-right: 7rem;
+                                    margin-top: -0.5rem;
+                                    max-height: 2.5rem;
+                                    display: block;
+                                    float: left;
+                                    width: fit-content;
+                                    transition: 0.4s;
+                                    box-shadow: $box-shadow;
+                                    padding: 0.1rem 0 0;
+                                    border-radius: $radius;
 
                                     @include sm {
+                                        float: none;
+                                        margin: 1rem auto;
+                                    }
+
+                                    .shownSize {
+                                        transition: 0.4s;
+                                        cursor: pointer;
                                         position: relative;
+                                        padding-left: 2rem;
+
+                                        &:hover {
+                                            color: $blue-color;
+                                        }
+
+                                        label {
+                                            transition: 0.4s;
+                                            display: inline-block;
+                                        }
+
+                                        i {
+                                            transition: 0.4s;
+                                            top: 0.5rem;
+                                            position: absolute;
+                                            left: 1rem;
+                                            font-size: 1.5rem;
+                                        }
+
+                                        .rotated {
+                                            transition: 0.4s;
+                                            transform: rotate(180deg);
+                                        }
+                                    }
+
+                                    label {
                                         text-align: center;
-                                        padding: 0;
+                                        cursor: pointer;
+                                        padding: 0.5rem;
+                                        position: relative;
+                                        display: block;
+
+                                        &.sizeOption {
+                                            opacity: 0;
+                                            visibility: hidden;
+                                            max-height: 0;
+                                        }
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            color: $blue-color;
+                                        }
+                                    }
+
+                                    .show {
+                                        transition: 0.4s;
+                                        opacity: 1 !important;
+                                        visibility: visible !important;
+                                        max-height: 2.5rem !important;
                                     }
 
                                     input[type=radio] {
                                         display: none;
                                     }
+                                }
 
-                                    label.sizeOption {
-                                        font-weight: lighter;
-                                        font-size: 14px;
-                                        position: relative;
-                                        width: 23.2%;
-                                        margin: 0 0.4rem 0.4rem 0;
-                                        cursor: pointer;
-                                        text-align: center;
-                                        transition: 0.4s;
-                                        border: none;
-                                        box-shadow: $box-shadow;
-                                        color: $text-color;
-                                        padding: 0.5rem 0;
-                                        border-radius: $radius;
-                                        background-color: transparent;
-
-                                        @media (max-width: 1180px) and (min-width: 992px) {
-                                            width: 47%;
-                                        }
-
-                                        @include sm {
-                                            text-align: center;
-                                            width: 15rem;
-                                        }
-
-                                        @include xs {
-                                            width: 12rem;
-                                        }
-                                    }
-
-                                    .selected {
-                                        transition: 0.4s;
-                                        border: none;
-                                        color: $blue-color !important;
-                                        box-shadow: $hover-shadow !important;
-                                        font-weight: bold;
-                                    }
+                                .opened {
+                                    transition: 0.4s;
+                                    max-height: 100%;
+                                    padding-bottom: 0.5rem;
                                 }
                             }
 
                             .price {
                                 padding-left: 1rem;
                                 position: relative;
+
+                                @include sm {
+                                    padding-left: 0;
+                                }
 
                                 p {
                                     transition: 0.4s;
@@ -1324,7 +1338,7 @@ section.detailPage {
                             .buttons {
                                 margin: 0 1rem;
                                 padding-top: 1rem;
-                                text-align: left;
+                                text-align: center;
 
                                 @include sm {
                                     text-align: center;
@@ -1343,18 +1357,18 @@ section.detailPage {
 
                                         &:hover {
                                             transition: 0.4s;
-                                            box-shadow: -6px 6px 8px -5px $blue-color;
+                                            box-shadow: -6px 6px 8px -5px $blue-color, 2px -2px 10px -2px white;
                                         }
                                     }
 
                                     &.report {
-                                        float: right;
+                                        
                                         color: $pink-color;
                                         box-shadow: $pink-shadow;
 
                                         &:hover {
                                             transition: 0.4s;
-                                            box-shadow: -6px 6px 8px -5px $pink-color;
+                                            box-shadow: -6px 6px 8px -5px $pink-color, 2px -2px 10px -2px white;
                                         }
 
                                         @include sm {
@@ -1369,33 +1383,20 @@ section.detailPage {
             }
 
             .description {
+                margin: auto;
+                max-width: 40rem;
                 box-shadow: $box-shadow;
                 margin-top: 2rem;
                 border-radius: $radius;
                 background-color: $gray-color;
-                padding: 2rem;
+                padding: 1rem;
 
-                @include xxs {
-                    padding: 0;
-                    background-color: transparent;
+                h4 {
+                    padding: 0 0 1rem;
                 }
 
-                .row {
-                    @include xxs {
-                        background-color: $gray-color;
-                        padding: 2rem 1rem;
-                        border-radius: $radius;
-                    }
-
-
-
-                    h4 {
-                        padding: 0 0 1rem;
-                    }
-
-                    p {
-                        text-align: justify;
-                    }
+                p {
+                    text-align: justify;
                 }
             }
 
@@ -1563,6 +1564,7 @@ Section.uploadPage {
                 .uploadPic {
                     margin-bottom: 3rem;
                     position: relative;
+
                     label {
                         font-size: 1.2rem;
                         margin-bottom: 0.5rem;
@@ -1800,18 +1802,22 @@ section.cartPage {
                 max-width: 40rem;
                 padding: 2rem 1rem;
                 margin: auto;
+
                 h1 {
                     color: $pink-color;
                 }
+
                 i {
                     color: $pink-color;
                     font-size: 8rem;
                     padding: 2rem;
+
                     @include xs {
                         font-size: 5rem;
                     }
                 }
             }
+
             .row.top {
                 .items {
                     padding: 1rem;
