@@ -8,7 +8,7 @@
 }
 /*#region General */
 body {
-  background-color: #d6d6d6;
+  background-color: #dedede;
   /*background: url("../images/background.jpg") center;
   background-repeat: repeat-y;
   background-size: inherit;*/
@@ -49,9 +49,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
   border-bottom: 2px solid #00a4b5 !important;
   -webkit-text-fill-color: #00a4b5;
-  -webkit-box-shadow: 0 0 0 1000px #d6d6d6 inset !important;
+  -webkit-box-shadow: 0 0 0 1000px #dedede inset !important;
   transition: background-color 400s ease-in-out 0s;
-  background-color: #d6d6d6;
+  background-color: #dedede;
 }
 
 input {
@@ -69,7 +69,7 @@ button, input[type=file]::before {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   color: #333333;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -80,13 +80,13 @@ button:hover, input[type=file]:hover {
   transition: 0.4s;
   border: none;
   color: #00a4b5;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 button:hover::before, input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
   color: #00a4b5 !important;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 
 button:focus,
@@ -97,7 +97,7 @@ textarea:focus {
 }
 
 textarea:focus {
-  box-shadow: 7px 7px 8px -3px #00a4b5 !important;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white !important;
 }
 
 /*#endregion */
@@ -109,7 +109,7 @@ textarea:focus {
   right: -100rem;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   z-index: 100;
 }
 .notif.error p {
@@ -118,7 +118,7 @@ textarea:focus {
   padding: 1rem;
   margin-bottom: 0;
   color: #d14774;
-  box-shadow: -7px 7px 8px -3px #d14774;
+  box-shadow: -6px 6px 8px -5px #d14774, 2px -2px 10px -2px white;
 }
 .notif.success p {
   border-top-left-radius: 8px;
@@ -126,7 +126,7 @@ textarea:focus {
   padding: 1rem;
   margin-bottom: 0;
   color: #00a4b5;
-  box-shadow: -7px 7px 8px -3px #00a4b5;
+  box-shadow: -6px 6px 8px -5px #00a4b5, 2px -2px 10px -2px white;
 }
 
 .showNotif {
@@ -141,7 +141,7 @@ section.uploadButton {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   text-align: center;
   z-index: 100;
 }
@@ -152,8 +152,8 @@ section.uploadButton a {
   width: 4rem;
   height: 4rem;
   padding-top: 0.5rem;
-  color: #6c008e;
-  box-shadow: 7px 7px 8px -3px #6c008e;
+  color: #6a00de;
+  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
   text-align: center;
 }
 section.uploadButton a i {
@@ -161,7 +161,7 @@ section.uploadButton a i {
 }
 section.uploadButton a:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #6c008e;
+  box-shadow: -6px 6px 8px -5px #6a00de;
 }
 @media (max-width: 767px) {
   section.uploadButton {
@@ -289,7 +289,7 @@ section.header .navbar .container-fluid .leftSide a.cart span {
   left: 0.8rem;
   top: 1rem;
   height: 1rem;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   color: #00a4b5;
   border-radius: 1px;
 }
@@ -301,10 +301,10 @@ section.header .navbar .container-fluid .leftSide a.signOut {
   left: 5rem;
 }
 section.header .searchSection {
-  box-shadow: 7px 7px 8px -3px #6c008e;
+  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
   text-align: center;
   margin-bottom: 3rem;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   border-radius: 8px;
   max-width: 40rem;
   margin: auto;
@@ -316,27 +316,27 @@ section.header .searchSection i {
   transition: 0.4s;
   font-size: 25px;
   position: absolute;
-  color: #6c008e;
+  color: #6a00de;
 }
 section.header .searchSection i:hover {
   transition: 0.4s;
-  color: #6c008e;
+  color: #6a00de;
 }
 section.header .searchSection input[type=text] {
   transition: 0.4s;
   border: none;
-  border-bottom: 2px solid #6c008e;
+  border-bottom: 2px solid #6a00de;
   background-color: transparent;
   height: 2.5rem;
   width: 100%;
   padding-left: 2rem;
   padding-right: 0.2rem;
-  color: #6c008e;
+  color: #6a00de;
 }
 section.header .searchSection input[type=text]:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #6c008e;
+  border-bottom: 2px solid #6a00de;
 }
 section.header .searchSection .general {
   max-width: 40rem;
@@ -375,7 +375,7 @@ section.header .searchSection .advanced label.radioLabel {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   color: #333333;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
@@ -406,12 +406,12 @@ section.header .searchSection .advanced .tag .usedTags {
 section.header .searchSection .advanced .tag .usedTags p {
   display: inline-block;
   display: inline-block;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   color: #333333;
   padding: 0.5rem 1.5rem 0.5rem 1rem;
   border-radius: 8px;
   background-color: transparent;
-  margin-bottom: 0;
+  margin: 0rem 0.25rem 1rem;
   position: relative;
 }
 section.header .searchSection .advanced .tag .usedTags p i {
@@ -425,7 +425,7 @@ section.header .searchSection .advanced .tag .usedTags p i {
 }
 section.header .searchSection .advanced .tag .usedTags p i:hover {
   transition: 0.4s;
-  color: #6c008e;
+  color: #6a00de;
 }
 section.header .searchSection .advanced .category,
 section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
@@ -476,8 +476,8 @@ section.header .searchSection .advanced .price .title {
 section.header .searchSection .selected {
   transition: 0.4s;
   border: none;
-  color: #6c008e !important;
-  box-shadow: 7px 7px 8px -3px #6c008e !important;
+  color: #6a00de !important;
+  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white !important;
   font-weight: bold;
 }
 section.header .searchSection .advancedHidden {
@@ -586,7 +586,7 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
   color: #00a4b5;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
@@ -632,8 +632,8 @@ section.loginPage section.contents .container-fluid .card {
   margin: auto;
   width: 100%;
   border-radius: 8px;
-  background-color: #d6d6d6;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  background-color: #dedede;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 section.loginPage section.contents .container-fluid .card.info {
   box-shadow: none;
@@ -719,7 +719,7 @@ section.loginPage section.contents .container-fluid .card .uploadPic i {
   height: 1.2rem;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic i.fa-check-circle {
-  color: #6c008e;
+  color: #6a00de;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic .hidden {
   transition: 0.4s;
@@ -730,10 +730,10 @@ section.loginPage section.contents .container-fluid .card textarea {
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   border: none;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -800,7 +800,7 @@ section.loginPage section.contents .container-fluid .card.info {
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs {
   padding: 0;
   z-index: 2;
-  background-color: #d6d6d6;
+  background-color: #dedede;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item {
   background-color: transparent;
@@ -818,7 +818,7 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   box-shadow: 7px -7px 8px -3px #00a4b5;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH.active {
-  box-shadow: -7px -7px 8px -3px #6c008e, 0 0 0 0;
+  box-shadow: -7px -7px 8px -3px #6a00de, 0 0 0 0;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content {
   margin-top: -2rem;
@@ -826,7 +826,7 @@ section.loginPage section.contents .container-fluid .card.info .tab-content {
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane {
   padding: 2rem;
   border: none;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -836,34 +836,34 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   }
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active {
-  box-shadow: -7px 7px 8px -3px #6c008e;
+  box-shadow: -6px 6px 8px -5px #6a00de, 2px -2px 10px -2px white;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:focus {
-  border-bottom: 2px solid #6c008e;
+  border-bottom: 2px solid #6a00de;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active textarea:focus {
-  box-shadow: 7px 7px 8px -3px #6c008e !important;
+  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white !important;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
-  color: #6c008e !important;
-  box-shadow: 7px 7px 8px -3px #6c008e;
+  color: #6a00de !important;
+  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill,
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill:focus {
-  border-bottom: 2px solid #6c008e !important;
-  -webkit-text-fill-color: #6c008e;
-  -webkit-box-shadow: 0 0 0 1000px #d6d6d6 inset !important;
+  border-bottom: 2px solid #6a00de !important;
+  -webkit-text-fill-color: #6a00de;
+  -webkit-box-shadow: 0 0 0 1000px #dedede inset !important;
   transition: background-color 400s ease-in-out 0s;
-  background-color: #d6d6d6;
+  background-color: #dedede;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
-  box-shadow: 7px 7px 8px -3px #6c008e;
-  color: #6c008e;
+  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
+  color: #6a00de;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabDownC.active {
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 
 /*#endregion */
@@ -875,8 +875,8 @@ section.forgotPassPage section.contents .container-fluid .card {
   margin: auto;
   width: 100%;
   border-radius: 8px;
-  background-color: #d6d6d6;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  background-color: #dedede;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 section.forgotPassPage section.contents .container-fluid .card h4 {
   padding: 2rem 0;
@@ -1007,8 +1007,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card {
   border: none;
   box-shadow: none;
   border-radius: 8px;
-  background-color: #d6d6d6;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  background-color: #dedede;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info {
   margin: 0 1rem;
@@ -1072,7 +1072,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .tag
   float: left;
   color: #333333;
   margin: 0 1rem 0.5rem 0;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   border-radius: 8px;
   padding: 0.5rem 1rem;
   display: inline-block;
@@ -1127,7 +1127,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   color: #333333;
   padding: 0.5rem 0;
   border-radius: 8px;
@@ -1153,7 +1153,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   transition: 0.4s;
   border: none;
   color: #00a4b5 !important;
-  box-shadow: 7px 7px 8px -3px #00a4b5 !important;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white !important;
   font-weight: bold;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price {
@@ -1197,20 +1197,20 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart {
   color: #00a4b5;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy:hover, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #00a4b5;
+  box-shadow: -6px 6px 8px -5px #00a4b5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
   float: right;
-  color: #6c008e;
-  box-shadow: 7px 7px 8px -3px #6c008e;
+  color: #6a00de;
+  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #6c008e;
+  box-shadow: -6px 6px 8px -5px #6a00de;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
@@ -1218,10 +1218,10 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   }
 }
 section.detailPage section.contents .container-fluid .description {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   margin-top: 2rem;
   border-radius: 8px;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   padding: 2rem;
 }
 @media (max-width: 480px) {
@@ -1232,7 +1232,7 @@ section.detailPage section.contents .container-fluid .description {
 }
 @media (max-width: 480px) {
   section.detailPage section.contents .container-fluid .description .row {
-    background-color: #d6d6d6;
+    background-color: #dedede;
     padding: 2rem 1rem;
     border-radius: 8px;
   }
@@ -1321,9 +1321,9 @@ Section.uploadPage section.contents {
   }
 }
 Section.uploadPage section.contents .container-fluid .row {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   padding: 1rem 1rem 2rem;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   border-radius: 8px;
   margin: auto;
   width: 100%;
@@ -1371,14 +1371,14 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   border: none;
   border-radius: 8px;
   width: 100%;
   margin-bottom: 3rem;
   padding: 0.5rem;
   color: #333333;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
   margin-bottom: 3rem;
@@ -1463,7 +1463,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   color: #333333;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
@@ -1498,7 +1498,7 @@ Section.uploadPage section.contents .container-fluid .row .category label.radioL
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   color: #333333;
   padding: 0.5rem 0.4rem;
   border-radius: 8px;
@@ -1529,7 +1529,7 @@ Section.uploadPage section.contents .container-fluid .row .selected {
   transition: 0.4s;
   border: none;
   color: #00a4b5 !important;
-  box-shadow: 7px 7px 8px -3px #00a4b5 !important;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white !important;
   font-weight: bold;
 }
 
@@ -1540,7 +1540,7 @@ section.searchPage section.header {
   max-width: 90rem;
   position: fixed;
   z-index: 90;
-  background-color: #d6d6d6;
+  background-color: #dedede;
 }
 section.searchPage section.contents {
   padding-top: 8rem;
@@ -1553,7 +1553,7 @@ section.searchPage section.contents .container-fluid .popularTags .card {
   max-width: 40rem;
   border-radius: 8px;
   background-color: transparent;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   padding: 1rem;
   display: inline-block;
 }
@@ -1580,10 +1580,10 @@ section.cartPage section.contents .container-fluid .empty {
   margin: auto;
 }
 section.cartPage section.contents .container-fluid .empty h1 {
-  color: #6c008e;
+  color: #6a00de;
 }
 section.cartPage section.contents .container-fluid .empty i {
-  color: #6c008e;
+  color: #6a00de;
   font-size: 8rem;
   padding: 2rem;
 }
@@ -1599,7 +1599,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   background-color: transparent;
   padding: 1rem;
 }
@@ -1648,17 +1648,17 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   transition: 0.4s;
   float: left;
   color: #d14774;
-  box-shadow: 7px 7px 8px -3px #d14774;
+  box-shadow: 6px 6px 8px -5px #d14774;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons button.delete:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #d14774;
+  box-shadow: -6px 6px 8px -5px #d14774, 2px -2px 10px -2px white;
 }
 section.cartPage section.contents .container-fluid .row.top .total {
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .total .card {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   background-color: transparent;
   padding: 2rem 1rem;
   text-align: center;
@@ -1668,11 +1668,11 @@ section.cartPage section.contents .container-fluid .row.top .total .buttons butt
   transition: 0.4s;
   padding: 1rem 3rem;
   color: #00a4b5;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #00a4b5;
+  box-shadow: -6px 6px 8px -5px #00a4b5;
 }
 
 /*#endregion */
@@ -1680,7 +1680,7 @@ section.cartPage section.contents .container-fluid .row.top .total .buttons butt
 section.dashboardPage section.contents .container-fluid .part {
   max-width: 40rem;
   margin: 1rem auto;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   padding: 1rem;
   border-radius: 8px;
 }
@@ -1830,10 +1830,10 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #d6d6d6;
+  background-color: #dedede;
   border: none;
   border-radius: 8px;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -1863,11 +1863,11 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
   transition: 0.4s;
   color: #00a4b5;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #00a4b5;
+  box-shadow: -6px 6px 8px -5px #00a4b5, 2px -2px 10px -2px white;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel {
   transition: 0.4s;
@@ -1876,7 +1876,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel:hover {
   transition: 0.4s;
-  box-shadow: -7px 7px 8px -3px #d14774;
+  box-shadow: -6px 6px 8px -5px #d14774, 2px -2px 10px -2px white;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons .hiddenButton {
   transition: 0.4s;
@@ -1902,7 +1902,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   }
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   background-color: transparent;
   padding: 1rem;
 }
@@ -1955,18 +1955,18 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a {
   transition: 0.4s;
   color: #333333;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
-  background-color: #d6d6d6;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
+  background-color: #dedede;
   padding: 0.5rem 1rem;
   border-radius: 8px;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a:hover {
   transition: 0.4s;
   color: #00a4b5;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   background-color: transparent;
   padding: 1rem;
 }
@@ -2050,7 +2050,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a {
   text-align: center;
   transition: 0.4s;
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   color: #333333;
   padding: 0.5rem 2rem;
   border-radius: 8px;
@@ -2059,7 +2059,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
   transition: 0.4s;
   color: #00a4b5 !important;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   padding-top: 1rem;
@@ -2119,8 +2119,8 @@ section.userPage section.contents .container-fluid .row.top {
   }
 }
 section.userPage section.contents .container-fluid .row.top .info {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
-  background-color: #d6d6d6;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
+  background-color: #dedede;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
@@ -2237,8 +2237,8 @@ section.userPage section.contents .container-fluid .row.top .products .buttons b
 /*#region Order Detail Page */
 section.orderPage section.contents .container-fluid .details {
   padding: 1rem 0.5rem;
-  background-color: #d6d6d6;
-  box-shadow: 7px 7px 8px -3px #00a4b5;
+  background-color: #dedede;
+  box-shadow: 6px 6px 8px -5px #00a4b5, -2px -2px 10px -2px white;
   border-radius: 8px;
   max-width: 40rem;
   margin: auto;
@@ -2265,7 +2265,7 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 {
   padding: 1rem;
 }
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item {
-  box-shadow: 7px 7px 8px -3px #b0b0b0;
+  box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
   background-color: transparent;
   padding: 1rem;
 }
