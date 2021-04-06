@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require('../models/user');
 var Product = require('../models/product');
 var Cart = require("../cart");
+var Order = require('../models/order');
 const Jimp=require("jimp");
 // const bodyParser=require("body-parser");
 const { check, validationResult } = require('express-validator');
@@ -190,6 +191,48 @@ router.get("/add-to-cart/:id/:size", function(req, res){
   }
 
 });
+
+router.get("/orderConfirm",function(req, res)
+{
+  if(req.session.userId)
+  {
+    User.findOne({
+      unique_id: req.session.userId
+    }, function(err, found){
+      if(found)
+      {
+        
+        if(req.session.cart)
+        {
+          const cart =new Cart(req.session.cart).generateArray();
+          console.log(cart.length);
+          const order = new Order({
+            user:found,
+          });
+          for(var i = 0; i < cart.length;i++)
+          {
+            var product = {
+               product:cart[i].item,
+               size:cart[i].size
+            }
+            console.log(product);
+            order.products.push(product);
+          }
+          order.save();
+          req.session.cart = null;
+          req.session.save();
+          res.redirect("/cart")
+        }
+
+      }
+      else{
+        res.redirect("/login");
+      }
+
+    });
+    
+  }
+})
 
 
 router.get("/about-us",function(req,res){

@@ -9,7 +9,7 @@ module.exports = function Cart(oldCart){
             console.log("adding");
             storedItem = this.items[id] = {item: item, qty:0,price:0,size:size};
             storedItem.qty++;
-            if(size == "orginal")
+            if(size == "original")
                 storedItem.price = storedItem.item.orginalPrice;
             else if(size == "large")
                 storedItem.price = storedItem.item.largePrice;
@@ -21,7 +21,7 @@ module.exports = function Cart(oldCart){
             this.totalPrice += storedItem.price;
         }
         else if (storedItem.size != size){
-            if(storedItem.size == "orginal")
+            if(storedItem.size == "original")
                 this.totalPrice -= storedItem.item.orginalPrice;
             else if(storedItem.size == "large")
                 this.totalPrice -= storedItem.item.largePrice;
@@ -30,7 +30,7 @@ module.exports = function Cart(oldCart){
             else if(storedItem.size == "small")
                 this.totalPrice -= storedItem.item.smallPrice;
             this.items[id].size = size;
-            if(size == "orginal")
+            if(size == "original")
                 this.totalPrice += storedItem.item.orginalPrice;
             else if(size == "large")
                 this.totalPrice += storedItem.item.largePrice;
@@ -44,7 +44,7 @@ module.exports = function Cart(oldCart){
         var storedItem = this.items[id];
         if (storedItem){
             console.log("deleting");
-            if(storedItem.size == "orginal")
+            if(storedItem.size == "original")
                 this.totalPrice -= storedItem.item.orginalPrice;
             else if(storedItem.size == "large")
                 this.totalPrice -= storedItem.item.largePrice;
