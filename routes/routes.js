@@ -208,6 +208,8 @@ router.get("/orderConfirm",function(req, res)
           console.log(cart.length);
           const order = new Order({
             user:found,
+            quantity:req.session.cart.totalQty,
+            totalPrice:req.session.cart.totalPrice,
           });
           for(var i = 0; i < cart.length;i++)
           {
@@ -217,8 +219,10 @@ router.get("/orderConfirm",function(req, res)
             }
             console.log(product);
             order.products.push(product);
+            found.products.push(product);
           }
           order.save();
+          found.save();
           req.session.cart = null;
           req.session.save();
           res.redirect("/cart")

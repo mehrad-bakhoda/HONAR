@@ -14,5 +14,14 @@ const orderSchema = new mongoose.Schema({
         type:String,
         }
     }],
+    quantity: {
+        type: Number,
+      },
+    totalPrice: {
+        type: Number,
+      },
+    status:{
+        type:String,
+    }
 });
 module.exports = mongoose.model("order",orderSchema);

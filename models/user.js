@@ -63,9 +63,14 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  products: [{
-    type: mongoose.Schema.Types.ObjectId, ref: "Product"
-  }]
+  products:[{
+    product:{
+    type: mongoose.Schema.Types, ref: "product", 
+    },
+    size:{
+    type:String,
+    }
+}],
 });
 // userSchema.plugin(passportLocalMongoose);
 //exporting the userSchema model
