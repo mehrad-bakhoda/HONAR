@@ -1775,9 +1775,11 @@ section.searchPage {
                 width: fit-content;
                 transition: 0.4s;
                 padding: 0.1rem 0 0 2rem;
-
+                z-index: 50;
+                position: relative;
 
                 .sorting {
+                    background-color: $body-color;
                     box-shadow: $box-shadow;
                     width: 10rem;
                     border-radius: 0.5rem;
