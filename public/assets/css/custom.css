@@ -242,6 +242,8 @@ section.uploadButton a:hover {
 /*#region Header*/
 section.header {
   width: 100%;
+  position: relative;
+  min-height: 8rem;
 }
 section.header .navbar {
   box-shadow: none;
@@ -301,13 +303,19 @@ section.header .navbar .container-fluid .leftSide a.signOut {
   left: 5rem;
 }
 section.header .searchSection {
+  z-index: 100;
+  position: absolute;
+  margin: 0;
+  top: 3.5rem;
+  left: 50%;
+  transform: translate(-50%);
   box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
   text-align: center;
   margin-bottom: 3rem;
   background-color: #dedede;
   border-radius: 8px;
   max-width: 40rem;
-  margin: auto;
+  /*margin: auto;*/
   padding: 1rem 0.5rem;
   width: 96%;
 }
@@ -483,7 +491,7 @@ section.header .searchSection .selected {
 section.header .searchSection .advancedHidden {
   transition: 0.4s;
   max-height: 0;
-  visibility: hidden;
+  overflow: hidden;
   opacity: 0;
 }
 
@@ -1091,7 +1099,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   width: fit-content;
   transition: 0.4s;
   box-shadow: 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
-  padding: 0.1rem 0 0;
+  padding: 0.1rem 0 0 2rem;
   border-radius: 8px;
 }
 @media (max-width: 767px) {
@@ -1117,7 +1125,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   transition: 0.4s;
   top: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: -1rem;
   font-size: 1.5rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .shownSize .rotated {
@@ -1125,15 +1133,17 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   transform: rotate(180deg);
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label {
-  text-align: center;
   cursor: pointer;
   padding: 0.5rem;
   position: relative;
   display: block;
+  font-size: 0.9rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label.sizeOption {
+  padding: 0;
+  transition: 0.4s;
   opacity: 0;
-  visibility: hidden;
+  overflow: hidden;
   max-height: 0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label:hover {
@@ -1141,10 +1151,10 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   color: #0098c5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .show {
-  transition: 0.4s;
-  opacity: 1 !important;
-  visibility: visible !important;
+  padding: 0.5rem !important;
+  opacity: 0.8 !important;
   max-height: 2.5rem !important;
+  text-align: right;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options input[type=radio] {
   display: none;

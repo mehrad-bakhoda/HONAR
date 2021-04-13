@@ -13,6 +13,11 @@ $(".infos .sizes label.sizeOption").click(function () {
     for (var i = 0; i < prices.length; i++) {
         $(prices[i]).removeClass("showPrice");
     }
+
+    $(".infos .sizes .options").toggleClass("opened");
+    $(".infos .sizes label.sizeOption").toggleClass("show");
+    $(".infos .sizes i").toggleClass("rotated");
+
     currentPrice.addClass("showPrice");
     var href = $('#addToCart').attr('href');
     $('#addToCart').attr('href',href.replace(href.split("/")[3],currentID))
