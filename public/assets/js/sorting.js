@@ -1,8 +1,8 @@
-$(".soring label.sortOption").click(function () {
+$(".sorting label.sortOption").click(function () {
     var sorts = $(".soring label.sortOption");
     $(".sorting label.selectedSort").text($(this).text());
 
-    for (var i = 0; i < sizes.length; i++) {
+    for (var i = 0; i < sorts.length; i++) {
         $(sorts[i]).removeClass("selected");
     }
     $(this).toggleClass("selected");
