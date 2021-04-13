@@ -1768,35 +1768,83 @@ section.searchPage {
         padding-top: 8rem;
 
         .container-fluid {
-            .popularTags {
-                text-align: center;
+            .sortSection {
+                max-height: 2.5rem;
+                display: block;
+                margin: 1rem auto 1rem 0;
+                width: fit-content;
+                transition: 0.4s;
+                padding: 0.1rem 0 0 2rem;
 
-                .card {
-                    margin: auto;
-                    max-width: 40rem;
-                    border-radius: $radius;
-                    background-color: transparent;
+
+                .sorting {
                     box-shadow: $box-shadow;
-                    padding: 1rem;
-                    display: inline-block;
+                    width: calc(100% + 2rem);
+                    border-radius: 0.5rem;
+                    border-radius: $radius;
 
-                    a {
-                        display: inline-block;
+                    .shownSort {
                         transition: 0.4s;
-                        color: $text-color;
-                        padding: 0 0.5rem;
+                        cursor: pointer;
+                        position: relative;
+                        padding-left: 2rem;
+
+                        &:hover {
+                            color: $blue-color;
+                        }
+
+                        label {
+                            transition: 0.4s;
+                            display: inline-block;
+                        }
+
+                        i {
+                            transition: 0.4s;
+                            top: 0.5rem;
+                            position: absolute;
+                            left: 1rem;
+                            font-size: 1.5rem;
+                        }
+
+                        .rotated {
+                            transition: 0.4s;
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    label {
+                        cursor: pointer;
+                        padding: 0.5rem;
+                        position: relative;
+                        display: block;
+                        font-size: 0.9rem;
+
+                        &.sortOption {
+                            padding: 0;
+                            transition: 0.4s;
+                            opacity: 0;
+                            overflow: hidden;
+                            max-height: 0;
+                        }
 
                         &:hover {
                             transition: 0.4s;
                             color: $blue-color;
                         }
                     }
+
+                    .show {
+                        padding: 0.5rem !important;
+                        opacity: 0.8 !important;
+                        max-height: 2.5rem !important;
+                        text-align: right;
+                    }
                 }
 
-                .row {
-                    .result {
-                        padding: 1rem;
-                    }
+                .opened {
+                    transition: 0.4s;
+                    max-height: 100%;
+                    padding-bottom: 0.5rem;
                 }
             }
         }

@@ -1,11 +1,11 @@
-<%-include("head");-%>
+﻿<%-include("head");-%>
 
 <%-include("uploadButton");-%>
 <section class="page searchPage">
     <%-include("header");-%>
     <section class="contents">
         <div class="container-fluid">
-            <div class="popularTags">
+            <!--<div class="popularTags">
                 <div class="card">
                     <a href="#"> ptag1 </a>
                     <a href="#"> ptag2 </a>
@@ -17,6 +17,23 @@
                     <a href="#"> ptag8 </a>
                     <a href="#"> ptag9 </a>
                     <a href="#"> ptag10 </a>
+                </div>
+            </div>-->
+            <div class="sortSection">
+                <div class="sorting">
+                    <div class="shownSort">
+                        <label class="selectedSize">
+                            بیشترین بازدید
+                        </label>
+                        <i class="far fa-angle-down"></i>
+                    </div>
+                    <label for="cheap" class="sortOption" id="cheap">ارزان ترین</label>
+
+                    <label for="expensive" class="sortOption" id="expensive">گرانترین</label>
+
+                    <label for="related" class="sortOption" id="related"> مرتبط ترین</label>
+
+                    <label for="best" class="sortOption selected" id="best">  بیشترین بازدید</label>
                 </div>
             </div>
             <div class="row">
