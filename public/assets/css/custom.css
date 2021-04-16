@@ -187,6 +187,14 @@ section.uploadButton a:hover {
   margin: 0 !important;
 }
 
+.imageShadow {
+  border-radius: 8px;
+  width: fit-content;
+  padding: 0.5rem;
+  box-shadow: inset 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
+  margin: auto;
+}
+
 .card.product {
   transition: 0.4s;
   box-shadow: none;
@@ -197,29 +205,25 @@ section.uploadButton a:hover {
   position: relative;
   margin: 1rem 0.5rem;
 }
-.card.product .card-body {
-  padding: 0;
-  position: relative;
-}
-.card.product .card-body img {
+.card.product .imageShadow {
   transition: 0.4s;
-  max-height: 12rem;
-  margin: auto;
   border-radius: 8px;
-  box-shadow: 10px 10px 15px 0px #06060642;
-  max-width: 15rem;
-  width: auto;
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.card.product .card-body img:hover {
-  transition: 0.4s;
-  top: 49%;
-  left: 49%;
-  transform: translate(-50%, -50%);
+.card.product .card-body {
+  padding: 0;
+  position: relative;
+}
+.card.product .card-body img {
+  max-width: 15rem;
+  width: auto;
+  max-height: 12rem;
+  width: 100%;
+  border-radius: 8px;
 }
 .card.product .card-footer {
   height: 4rem;
@@ -991,8 +995,7 @@ section.detailPage section.contents .container-fluid .top .row .picture .card {
 section.detailPage section.contents .container-fluid .top .row .picture .card img {
   max-height: 18rem;
   margin: auto;
-  border-radius: 5px;
-  box-shadow: 10px 10px 15px 0px #06060642;
+  border-radius: 8px;
   max-width: 100%;
   width: auto;
 }

@@ -10,7 +10,9 @@
                 <div class="row">
                     <div class="picture">
                         <div class="card">
-                            <img src="/<%=item.coverPath%>" />
+                            <div class="imageShadow">
+                                <img src="/<%=item.coverPath%>" />
+                            </div>
                         </div>
 
                     </div>
@@ -118,7 +120,9 @@
                     <% if(searched){%>
                     <% searched.forEach(function(product) { %>
                     <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                        <img src="/<%=product.coverPath%>" />
+                        <div class="imageShadow">
+                            <img src="/<%=product.coverPath%>" />
+                        </div>
                     </a>
                     <% }) %>
                     <% } %>

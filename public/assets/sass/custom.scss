@@ -191,7 +191,13 @@ section.uploadButton {
     height: 0 !important;
     margin: 0 !important;
 }
-
+.imageShadow {
+    border-radius: $radius;
+    width: fit-content;
+    padding: 0.5rem;
+    box-shadow: inset 6px 6px 8px -5px #b0b0b0, -2px -2px 10px -2px white;
+    margin: auto;
+}
 .card.product {
     transition: 0.4s;
     box-shadow: none;
@@ -202,30 +208,26 @@ section.uploadButton {
     position: relative;
     margin: 1rem 0.5rem;
 
+    .imageShadow {
+        transition: 0.4s;
+        border-radius: $radius;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .card-body {
         padding: 0;
         position: relative;
 
         img {
-            transition: 0.4s;
-            max-height: 12rem;
-            margin: auto;
-            border-radius: $radius;
-            box-shadow: $image-shadow;
             max-width: 15rem;
             width: auto;
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            &:hover {
-                transition: 0.4s;
-                top: 49%;
-                left: 49%;
-                transform: translate(-50%, -50%);
-            }
+            max-height: 12rem;
+            width: 100%;
+            border-radius: $radius;
         }
     }
 
@@ -1118,8 +1120,7 @@ section.detailPage {
                             img {
                                 max-height: 18rem;
                                 margin: auto;
-                                border-radius: 5px;
-                                box-shadow: $image-shadow;
+                                border-radius: $radius;
                                 max-width: 100%;
                                 width: auto;
 
