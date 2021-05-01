@@ -8,7 +8,7 @@
 }
 /*#region General */
 body {
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
   /*background: url("../images/background.jpg") center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,12 +31,16 @@ body {
 }
 
 section.contents {
-  padding: 5rem 0 1rem;
+  padding: 3rem 0 1rem;
 }
 @media (max-width: 991px) {
   section.contents {
     padding: 2rem 0;
   }
+}
+
+.card {
+  box-shadow: none;
 }
 
 /*#endregion */
@@ -47,11 +51,10 @@ section.contents {
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  border-bottom: 2px solid #0098c5 !important;
   -webkit-text-fill-color: #0098c5;
-  -webkit-box-shadow: 0 0 0 1000px #e8e8e8 inset !important;
+  -webkit-box-shadow: 0 0 0 1000px #f5f5f5 inset !important;
   transition: background-color 400s ease-in-out 0s;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
 }
 
 input {
@@ -69,24 +72,24 @@ button, input[type=file]::before {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
-  color: #333333;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  background-color: transparent;
+  color: #f5f5f5;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  border: 2px solid #0098c5;
+  color: #0098c5;
 }
 
 button:hover, input[type=file]:hover {
   transition: 0.4s;
-  border: none;
-  color: #0098c5;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
+  border: 2px solid #B03066;
+  color: #B03066;
 }
 button:hover::before, input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
-  color: #0098c5 !important;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
+  border: 2px solid #B03066;
+  color: #B03066;
 }
 
 button:focus,
@@ -97,7 +100,8 @@ textarea:focus {
 }
 
 textarea:focus {
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white !important;
+  transition: 0.4s;
+  border: 2px solid #0098c5;
 }
 
 /*#endregion */
@@ -107,26 +111,28 @@ textarea:focus {
   position: absolute;
   top: 5rem;
   right: -100rem;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  background-color: #e8e8e8;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  background-color: #f5f5f5;
   z-index: 100;
 }
 .notif.error p {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
   padding: 1rem;
   margin-bottom: 0;
   color: #d14774;
-  box-shadow: -6px 6px 8px -5px #d14774, 2px -2px 10px -2px white;
+  border: 2px solid #d14774;
+  border-right: none;
 }
 .notif.success p {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
   padding: 1rem;
   margin-bottom: 0;
   color: #0098c5;
-  box-shadow: -6px 6px 8px -5px #0098c5, 2px -2px 10px -2px white;
+  border: 2px solid #0098c5;
+  border-right: none;
 }
 
 .showNotif {
@@ -141,19 +147,19 @@ section.uploadButton {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
-  background-color: #e8e8e8;
   text-align: center;
   z-index: 100;
 }
 section.uploadButton a {
   transition: 0.4s;
-  border-radius: 8px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
   display: block;
   width: 4rem;
   height: 4rem;
   padding-top: 0.5rem;
-  color: #6a00de;
-  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
+  color: #B03066;
+  border: 2px solid lightGray;
   text-align: center;
 }
 section.uploadButton a i {
@@ -161,7 +167,7 @@ section.uploadButton a i {
 }
 section.uploadButton a:hover {
   transition: 0.4s;
-  box-shadow: -6px 6px 8px -5px #6a00de;
+  border: 2px solid #B03066;
 }
 @media (max-width: 767px) {
   section.uploadButton {
@@ -188,10 +194,9 @@ section.uploadButton a:hover {
 }
 
 .imageShadow {
-  border-radius: 8px;
+  border-radius: 12px;
   width: fit-content;
   padding: 0.5rem;
-  box-shadow: inset 6px 6px 8px -8px #b0b0b0, inset -6px -6px 8px -8px #b0b0b0;
   margin: auto;
 }
 
@@ -201,13 +206,13 @@ section.uploadButton a:hover {
   background-color: transparent;
   height: 16rem;
   padding: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   position: relative;
   margin: 1rem 0.5rem;
 }
 .card.product .imageShadow {
   transition: 0.4s;
-  border-radius: 8px;
+  border-radius: 12px;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -223,7 +228,7 @@ section.uploadButton a:hover {
   width: auto;
   max-height: 12rem;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .card.product .card-footer {
   height: 4rem;
@@ -295,9 +300,9 @@ section.header .navbar .container-fluid .leftSide a.cart span {
   left: 0.8rem;
   top: 1rem;
   height: 1rem;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
   color: #0098c5;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 section.header .navbar .container-fluid .leftSide a.profile {
   left: 2.5rem;
@@ -313,69 +318,93 @@ section.header .searchSection {
   top: 3.5rem;
   left: 50%;
   transform: translate(-50%);
-  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
   text-align: center;
   margin-bottom: 3rem;
-  background-color: #e8e8e8;
-  border-radius: 8px;
   max-width: 40rem;
-  /*margin: auto;*/
-  padding: 1rem 0.5rem;
+  padding: 0;
   width: 96%;
+}
+section.header .searchSection form {
+  background-color: #f5f5f5;
+  margin-bottom: 1rem;
 }
 section.header .searchSection i {
   cursor: pointer;
   transition: 0.4s;
   font-size: 25px;
   position: absolute;
-  color: #6a00de;
+  color: #B03066;
 }
 section.header .searchSection i:hover {
   transition: 0.4s;
-  color: #6a00de;
+  color: #B03066;
 }
 section.header .searchSection input[type=text] {
   transition: 0.4s;
   border: none;
-  border-bottom: 2px solid #6a00de;
   background-color: transparent;
-  height: 2.5rem;
+  height: 3.5rem;
   width: 100%;
-  padding-left: 2rem;
-  padding-right: 0.2rem;
-  color: #6a00de;
+  padding: 0.25rem 0.5rem 0.25rem 4rem;
+  color: #B03066;
+  border-radius: 12px;
+  border: 2px solid lightGray;
 }
 section.header .searchSection input[type=text]:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #6a00de;
 }
 section.header .searchSection .general {
   max-width: 40rem;
   margin: auto;
   position: relative;
-  padding: 0 2rem 0 0.5rem;
+  padding: 0;
 }
 section.header .searchSection .general i.fa-search {
-  height: 2.5rem;
-  padding-top: 0.5rem;
-  width: 2rem;
-  left: 0.5rem;
+  transition: 0.4s;
+  height: 3.5rem;
+  padding-top: 0.75rem;
+  width: 3.5rem;
+  left: 0rem;
+  background-color: #f5f5f5;
+  color: #0098c5;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border: 2px solid #0098c5;
 }
-section.header .searchSection .general i.fa-angle-down {
-  right: 0.5rem;
-  font-size: 40px;
+section.header .searchSection .general i.fa-search:hover {
+  transition: 0.4s;
+  color: #B03066;
+  border-color: #B03066;
 }
-section.header .searchSection .general .rotated {
+section.header .searchSection .seeAdvanced {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  display: none;
+  cursor: pointer;
+}
+section.header .searchSection .seeAdvanced p {
+  color: #B03066;
+}
+section.header .searchSection .seeAdvanced i.fa-angle-down {
+  left: -1rem;
+  top: -0.2rem;
+  font-size: 30px;
+}
+section.header .searchSection .seeAdvanced .rotated {
   transition: 0.4s;
   transform: rotate(180deg);
 }
 section.header .searchSection .advanced {
+  background-color: #f5f5f5;
   transition: 0.4s;
   max-width: 40rem;
   margin: auto;
   position: relative;
   max-height: 40rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
 }
 section.header .searchSection .advanced input[type=radio] {
   display: none;
@@ -387,10 +416,10 @@ section.header .searchSection .advanced label.radioLabel {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   color: #333333;
   padding: 0.5rem 0.4rem;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: transparent;
 }
 section.header .searchSection .advanced .options {
@@ -418,10 +447,10 @@ section.header .searchSection .advanced .tag .usedTags {
 section.header .searchSection .advanced .tag .usedTags p {
   display: inline-block;
   display: inline-block;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   color: #333333;
   padding: 0.5rem 1.5rem 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: transparent;
   margin: 0rem 0.25rem 1rem;
   position: relative;
@@ -437,7 +466,7 @@ section.header .searchSection .advanced .tag .usedTags p i {
 }
 section.header .searchSection .advanced .tag .usedTags p i:hover {
   transition: 0.4s;
-  color: #6a00de;
+  color: #B03066;
 }
 section.header .searchSection .advanced .category,
 section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
@@ -488,8 +517,8 @@ section.header .searchSection .advanced .price .title {
 section.header .searchSection .selected {
   transition: 0.4s;
   border: none;
-  color: #6a00de !important;
-  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white !important;
+  color: #B03066 !important;
+  box-shadow: 6px 6px 8px -5px #B03066, -2px -2px 10px -2px white !important;
   font-weight: bold;
 }
 section.header .searchSection .advancedHidden {
@@ -532,7 +561,6 @@ section.footer .container-fluid .social a i:hover {
   color: #0098c5;
 }
 section.footer .container-fluid .designedBy {
-  border-top: 1px solid #333333;
   padding: 1rem;
   text-align: center;
 }
@@ -568,19 +596,20 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs {
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
   transition: 0.4s;
+  border-radius: 12px;
   background-color: transparent;
-  font-size: 30px;
+  font-size: 20px;
   color: #333333;
   border: none;
 }
 @media (max-width: 991px) {
   section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
-    font-size: 25px;
+    font-size: 18px;
   }
 }
 @media (max-width: 767px) {
   section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
-    font-size: 19px;
+    font-size: 16px;
   }
 }
 @media (max-width: 580px) {
@@ -597,9 +626,8 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
   transition: 0.4s;
-  border-radius: 8px;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
   color: #0098c5;
+  border: 2px solid #0098c5;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content {
   padding: 1rem 1rem 5rem;
@@ -612,15 +640,13 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
   position: relative;
   display: flex;
   margin: auto;
-  font-size: 20px;
+  font-size: 16px;
   transition: 0.4s;
-  background-color: transparent;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore i {
-  left: 0.5rem;
-  top: 0.5rem;
-  width: 2rem;
-  font-size: 30px;
+  width: 1rem;
+  margin-right: 1rem;
+  font-size: 24px;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore:hover {
   transition: 0.4s;
@@ -643,9 +669,9 @@ section.loginPage section.contents .container-fluid .card {
   max-width: 40rem;
   margin: auto;
   width: 100%;
-  border-radius: 8px;
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  border: 2px solid lightgray;
 }
 section.loginPage section.contents .container-fluid .card.info {
   box-shadow: none;
@@ -666,12 +692,13 @@ section.loginPage section.contents .container-fluid .card h4 {
 section.loginPage section.contents .container-fluid .card input {
   transition: 0.4s;
   border: none;
-  border-bottom: 2px solid #333333;
+  border: 2px solid lightgray;
   color: #333333;
   background-color: transparent;
   width: 100%;
-  height: 2.5rem;
+  height: 3rem;
   margin-bottom: 2rem;
+  border-radius: 12px;
 }
 section.loginPage section.contents .container-fluid .card input.codeInput {
   padding: 0;
@@ -693,7 +720,6 @@ section.loginPage section.contents .container-fluid .card input.mail, section.lo
 section.loginPage section.contents .container-fluid .card input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic {
   position: relative;
@@ -719,7 +745,7 @@ section.loginPage section.contents .container-fluid .card .uploadPic input[type=
   cursor: pointer;
   text-align: center;
   color: #333333;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic i {
   position: absolute;
@@ -731,7 +757,7 @@ section.loginPage section.contents .container-fluid .card .uploadPic i {
   height: 1.2rem;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic i.fa-check-circle {
-  color: #6a00de;
+  color: #B03066;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic .hidden {
   transition: 0.4s;
@@ -742,10 +768,10 @@ section.loginPage section.contents .container-fluid .card textarea {
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
   border: none;
-  border-radius: 8px;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border-radius: 12px;
+  border: 2px solid lightGray;
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -775,13 +801,13 @@ section.loginPage section.contents .container-fluid .card .buttons {
 section.loginPage section.contents .container-fluid .card .buttons button {
   float: left;
   margin-right: 1rem;
-  font-size: 20px;
+  font-size: 18px;
   display: block;
   width: 8rem;
 }
 @media (max-width: 580px) {
   section.loginPage section.contents .container-fluid .card .buttons button {
-    font-size: 18px;
+    font-size: 16px;
     width: 6rem;
   }
 }
@@ -810,27 +836,31 @@ section.loginPage section.contents .container-fluid .card.info {
   padding: 0;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs {
+  border-radius: 12px;
   padding: 0;
   z-index: 2;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item {
   background-color: transparent;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item a.nav-link {
+  border: 2px solid lightGray;
   color: #333333;
   font-size: 20px;
   transition: 0.4s;
   background-color: transparent;
-  border: none;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-bottom: none;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabDownH.active {
-  box-shadow: 7px -7px 8px -3px #0098c5;
+  border: 2px solid #0098c5;
+  border-bottom: 0;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH.active {
-  box-shadow: -7px -7px 8px -3px #6a00de, 0 0 0 0;
+  border: 2px solid #B03066;
+  border-bottom: 0;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content {
   margin-top: -2rem;
@@ -838,9 +868,9 @@ section.loginPage section.contents .container-fluid .card.info .tab-content {
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane {
   padding: 2rem;
   border: none;
-  background-color: #e8e8e8;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 @media (max-width: 767px) {
   section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane {
@@ -848,34 +878,27 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   }
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active {
-  box-shadow: -6px 6px 8px -5px #6a00de, 2px -2px 10px -2px white;
-}
-section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:focus {
-  border-bottom: 2px solid #6a00de;
-}
-section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active textarea:focus {
-  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white !important;
+  border: 2px solid #B03066;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
-  color: #6a00de !important;
-  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
+  color: #B03066 !important;
+  border: 2px solid lightGray;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill,
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill:focus {
-  border-bottom: 2px solid #6a00de !important;
-  -webkit-text-fill-color: #6a00de;
-  -webkit-box-shadow: 0 0 0 1000px #e8e8e8 inset !important;
+  -webkit-text-fill-color: #B03066;
+  -webkit-box-shadow: 0 0 0 1000px #f5f5f5 inset !important;
   transition: background-color 400s ease-in-out 0s;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
-  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
-  color: #6a00de;
+  border: 2px solid lightGray;
+  color: #B03066;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabDownC.active {
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
+  border: 2px solid #0098c5;
 }
 
 /*#endregion */
@@ -886,9 +909,9 @@ section.forgotPassPage section.contents .container-fluid .card {
   max-width: 40rem;
   margin: auto;
   width: 100%;
-  border-radius: 8px;
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  border: 2px solid lightGray;
 }
 section.forgotPassPage section.contents .container-fluid .card h4 {
   padding: 2rem 0;
@@ -995,7 +1018,7 @@ section.detailPage section.contents .container-fluid .top .row .picture .card {
 section.detailPage section.contents .container-fluid .top .row .picture .card img {
   max-height: 18rem;
   margin: auto;
-  border-radius: 8px;
+  border-radius: 12px;
   max-width: 100%;
   width: auto;
 }
@@ -1004,19 +1027,17 @@ section.detailPage section.contents .container-fluid .top .row .picture .card im
     max-height: 16rem;
   }
 }
-@media (max-width: 480px) {
-  section.detailPage section.contents .container-fluid .top .row .infos {
-    padding: 0;
-  }
+section.detailPage section.contents .container-fluid .top .row .infos {
+  padding: 0;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card {
   height: 100%;
   padding: 1rem;
   border: none;
   box-shadow: none;
-  border-radius: 8px;
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  border: 2px solid lightGray;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info {
   margin: 0 1rem;
@@ -1080,9 +1101,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .tag
   float: left;
   color: #333333;
   margin: 0 1rem 0.5rem 0;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  padding: 0.5rem;
   display: inline-block;
 }
 @media (max-width: 767px) {
@@ -1101,9 +1121,9 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   float: left;
   width: fit-content;
   transition: 0.4s;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
-  padding: 0.1rem 0 0 2rem;
-  border-radius: 8px;
+  border: 2px solid lightGray;
+  padding: 0 0 0 2rem;
+  border-radius: 12px;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options {
@@ -1208,24 +1228,8 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   transition: 0.4s;
   position: relative;
   margin: auto 1rem 1rem auto;
-  font-size: 18px;
-  width: 12rem;
-}
-section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart {
-  color: #0098c5;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
-}
-section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.buy:hover, section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.addToCart:hover {
-  transition: 0.4s;
-  box-shadow: -6px 6px 8px -5px #0098c5, 2px -2px 10px -2px white;
-}
-section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
-  color: #6a00de;
-  box-shadow: 6px 6px 8px -5px #6a00de, -2px -2px 10px -2px white;
-}
-section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report:hover {
-  transition: 0.4s;
-  box-shadow: -6px 6px 8px -5px #6a00de, 2px -2px 10px -2px white;
+  font-size: 16px;
+  width: 11rem;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button.report {
@@ -1235,13 +1239,13 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
 section.detailPage section.contents .container-fluid .description {
   margin: auto;
   max-width: 40rem;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   margin-top: 2rem;
-  border-radius: 8px;
-  background-color: #e8e8e8;
+  border-radius: 12px;
+  background-color: #f5f5f5;
   padding: 1rem;
 }
-section.detailPage section.contents .container-fluid .description h4 {
+section.detailPage section.contents .container-fluid .description h5 {
   padding: 0 0 1rem;
 }
 section.detailPage section.contents .container-fluid .description p {
@@ -1250,7 +1254,7 @@ section.detailPage section.contents .container-fluid .description p {
 section.detailPage section.contents .container-fluid .related {
   padding: 2rem;
 }
-section.detailPage section.contents .container-fluid .related h2 {
+section.detailPage section.contents .container-fluid .related h4 {
   text-align: center;
   margin-top: 2rem;
   margin-bottom: -1rem;
@@ -1266,8 +1270,7 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
   transition: 0.4s;
   max-height: 12rem;
   margin: auto;
-  border-radius: 5px;
-  box-shadow: 10px 10px 15px 0px #06060642;
+  border-radius: 12px;
   max-width: 12rem;
   width: auto;
   margin: 0;
@@ -1325,10 +1328,10 @@ Section.uploadPage section.contents {
   }
 }
 Section.uploadPage section.contents .container-fluid .row {
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   padding: 1rem 1rem 2rem;
-  background-color: #e8e8e8;
-  border-radius: 8px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
   margin: auto;
   width: 100%;
   max-width: 40rem;
@@ -1375,14 +1378,14 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 100%;
   margin-bottom: 3rem;
   padding: 0.5rem;
   color: #333333;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic {
   margin-bottom: 3rem;
@@ -1413,7 +1416,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=
   cursor: pointer;
   text-align: center;
   color: #333333;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadPic i {
   position: absolute;
@@ -1467,10 +1470,10 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   color: #333333;
   padding: 0.5rem 0.4rem;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: transparent;
   padding: 0.4rem 0.3rem;
   float: left;
@@ -1502,10 +1505,10 @@ Section.uploadPage section.contents .container-fluid .row .category label.radioL
   text-align: center;
   transition: 0.4s;
   border: none;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   color: #333333;
   padding: 0.5rem 0.4rem;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: transparent;
 }
 Section.uploadPage section.contents .container-fluid .row .category .options {
@@ -1533,7 +1536,7 @@ Section.uploadPage section.contents .container-fluid .row .selected {
   transition: 0.4s;
   border: none;
   color: #0098c5 !important;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white !important;
+  border: 2px solid lightGray !important;
   font-weight: bold;
 }
 
@@ -1544,7 +1547,10 @@ section.searchPage section.header {
   max-width: 90rem;
   position: fixed;
   z-index: 90;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
+}
+section.searchPage section.header .searchSection .seeAdvanced {
+  display: block;
 }
 section.searchPage section.contents {
   padding-top: 8rem;
@@ -1560,11 +1566,11 @@ section.searchPage section.contents .container-fluid .sortSection {
   position: relative;
 }
 section.searchPage section.contents .container-fluid .sortSection .sorting {
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  background-color: #f5f5f5;
+  border: 2px solid lightGray;
   width: 10rem;
   border-radius: 0.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 section.searchPage section.contents .container-fluid .sortSection .sorting .shownSort {
   transition: 0.4s;
@@ -1629,10 +1635,10 @@ section.cartPage section.contents .container-fluid .empty {
   margin: auto;
 }
 section.cartPage section.contents .container-fluid .empty h1 {
-  color: #6a00de;
+  color: #B03066;
 }
 section.cartPage section.contents .container-fluid .empty i {
-  color: #6a00de;
+  color: #B03066;
   font-size: 8rem;
   padding: 2rem;
 }
@@ -1648,7 +1654,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   background-color: transparent;
   padding: 1rem;
 }
@@ -1672,8 +1678,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image a img {
   transition: 0.4s;
   max-height: 4rem;
-  border-radius: 8px;
-  box-shadow: 10px 10px 15px 0px #06060642;
+  border-radius: 12px;
   max-width: 4rem;
   width: auto;
   margin: 0 auto;
@@ -1697,31 +1702,23 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   transition: 0.4s;
   float: left;
   color: #d14774;
-  box-shadow: 6px 6px 8px -5px #d14774;
-}
-section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .buttons button.delete:hover {
-  transition: 0.4s;
-  box-shadow: -6px 6px 8px -5px #d14774, 2px -2px 10px -2px white;
+  border: 2px solid #d14774;
 }
 section.cartPage section.contents .container-fluid .row.top .total {
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .total .card {
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   background-color: transparent;
   padding: 2rem 1rem;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
   transition: 0.4s;
   padding: 1rem 3rem;
   color: #0098c5;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
-}
-section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
-  transition: 0.4s;
-  box-shadow: -6px 6px 8px -5px #0098c5;
+  border: 2px solid lightGray;
 }
 
 /*#endregion */
@@ -1729,9 +1726,9 @@ section.cartPage section.contents .container-fluid .row.top .total .buttons butt
 section.dashboardPage section.contents .container-fluid .part {
   max-width: 40rem;
   margin: 1rem auto;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 section.dashboardPage section.contents .container-fluid .part .header {
   text-align: center;
@@ -1823,7 +1820,7 @@ section.dashboardPage section.contents .container-fluid .part.top .bio p {
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
   transition: 0.4s;
   border: none;
-  border-bottom: 2px solid #333333;
+  border: 2px solid lightgray;
   color: #333333;
   background-color: transparent;
   width: 100%;
@@ -1850,7 +1847,6 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input:focus {
   transition: 0.4s;
   outline: none;
-  border-bottom: 2px solid #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input[type=file] {
   padding: 0;
@@ -1872,17 +1868,16 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   width: 11rem;
   cursor: pointer;
   text-align: center;
-  color: #333333;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent textarea {
   transition: 0.4s;
   height: 9rem;
   resize: none;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
   border: none;
-  border-radius: 8px;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border-radius: 12px;
+  border: 2px solid lightGray;
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -1912,20 +1907,12 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
   transition: 0.4s;
   color: #0098c5;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
-}
-section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
-  transition: 0.4s;
-  box-shadow: -6px 6px 8px -5px #0098c5, 2px -2px 10px -2px white;
+  border: 2px solid #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel {
   transition: 0.4s;
   color: #d14774;
-  box-shadow: 7px 7px 8px -3px #d14774;
-}
-section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel:hover {
-  transition: 0.4s;
-  box-shadow: -6px 6px 8px -5px #d14774, 2px -2px 10px -2px white;
+  border: 2px solid #d14774;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons .hiddenButton {
   transition: 0.4s;
@@ -1951,7 +1938,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   }
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack {
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   background-color: transparent;
   padding: 1rem;
 }
@@ -1965,7 +1952,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background img {
   transition: 0.4s;
   max-height: 8rem;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 8rem;
   width: auto;
@@ -2004,18 +1991,18 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a {
   transition: 0.4s;
   color: #333333;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
-  background-color: #e8e8e8;
+  border: 2px solid lightGray;
+  background-color: #f5f5f5;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a:hover {
   transition: 0.4s;
   color: #0098c5;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   background-color: transparent;
   padding: 1rem;
 }
@@ -2038,7 +2025,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image a img {
   transition: 0.4s;
   max-height: 4rem;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 4rem;
   width: auto;
@@ -2099,16 +2086,16 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a {
   text-align: center;
   transition: 0.4s;
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   color: #333333;
   padding: 0.5rem 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: transparent;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
   transition: 0.4s;
   color: #0098c5 !important;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   padding-top: 1rem;
@@ -2168,9 +2155,9 @@ section.userPage section.contents .container-fluid .row.top {
   }
 }
 section.userPage section.contents .container-fluid .row.top .info {
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
-  background-color: #e8e8e8;
-  border-radius: 8px;
+  border: 2px solid lightGray;
+  background-color: #f5f5f5;
+  border-radius: 12px;
   padding: 1rem;
   text-align: center;
   max-width: 40rem;
@@ -2286,9 +2273,9 @@ section.userPage section.contents .container-fluid .row.top .products .buttons b
 /*#region Order Detail Page */
 section.orderPage section.contents .container-fluid .details {
   padding: 1rem 0.5rem;
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 8px -5px #0098c5, -2px -2px 10px -2px white;
-  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid lightGray;
+  border-radius: 12px;
   max-width: 40rem;
   margin: auto;
   margin-bottom: 2rem;
@@ -2314,7 +2301,7 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 {
   padding: 1rem;
 }
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item {
-  box-shadow: 6px 6px 8px -5px #cacaca, -2px -2px 10px -2px white;
+  border: 2px solid lightGray;
   background-color: transparent;
   padding: 1rem;
 }
@@ -2338,7 +2325,7 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 .i
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image a img {
   transition: 0.4s;
   max-height: 4rem;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 4rem;
   width: auto;

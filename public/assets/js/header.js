@@ -1,4 +1,4 @@
-$(".header .searchSection i.fa-angle-down").click(function () {
+$(".header .searchSection .seeAdvanced").click(function () {
     $(".header .searchSection .advanced").toggleClass("advancedHidden");
     $(".header .searchSection i.fa-angle-down").toggleClass("rotated");
 })

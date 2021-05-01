@@ -24,11 +24,15 @@ body {
 }
 
 section.contents {
-    padding: 5rem 0 1rem;
+    padding: 3rem 0 1rem;
 
     @include md {
         padding: 2rem 0;
     }
+}
+
+.card {
+    box-shadow: none;
 }
 
 /*#endregion */
@@ -40,7 +44,6 @@ section.contents {
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-    border-bottom: 2px solid $blue-color !important;
     -webkit-text-fill-color: $blue-color;
     -webkit-box-shadow: 0 0 0 1000px $gray-color inset !important;
     transition: background-color 400s ease-in-out 0s;
@@ -62,24 +65,24 @@ button, input[type=file]::before {
     text-align: center;
     transition: 0.4s;
     border: none;
-    box-shadow: $box-shadow;
-    color: $text-color;
-    padding: 0.5rem 1rem;
+    color: $body-color;
+    padding: 0.4rem 1rem;
     border-radius: $radius;
-    background-color: transparent;
+    background-color: $body-color;
+    border: 2px solid $blue-color;
+    color: $blue-color;
 }
 
 button:hover, input[type=file]:hover {
     transition: 0.4s;
-    border: none;
-    color: $blue-color;
-    box-shadow: $hover-shadow;
+    border: 2px solid $pink-color;
+    color: $pink-color;
 
     &::before {
         transition: 0.4s;
         border: none;
-        color: $blue-color !important;
-        box-shadow: $hover-shadow;
+        border: 2px solid $pink-color;
+        color: $pink-color;
     }
 }
 
@@ -91,7 +94,8 @@ textarea:focus {
 }
 
 textarea:focus {
-    box-shadow: $hover-shadow !important;
+    transition: 0.4s;
+    border: 2px solid $blue-color;
 }
 
 /*#endregion */
@@ -114,7 +118,8 @@ textarea:focus {
             padding: 1rem;
             margin-bottom: 0;
             color: $error-color;
-            box-shadow: $error-shadow;
+            border: 2px solid $error-color;
+            border-right: none;
         }
     }
 
@@ -125,7 +130,8 @@ textarea:focus {
             padding: 1rem;
             margin-bottom: 0;
             color: $success-color;
-            box-shadow: $success-shadow;
+            border: 2px solid $success-color;
+            border-right: none;
         }
     }
 }
@@ -142,19 +148,19 @@ section.uploadButton {
     position: fixed;
     bottom: 2rem;
     left: 2rem;
-    background-color: $body-color;
     text-align: center;
     z-index: 100;
 
     a {
         transition: 0.4s;
+        background-color: $body-color;
         border-radius: $radius;
         display: block;
         width: 4rem;
         height: 4rem;
         padding-top: 0.5rem;
         color: $pink-color;
-        box-shadow: $pink-shadow;
+        border: 2px solid lightGray;
         text-align: center;
 
         i {
@@ -163,7 +169,7 @@ section.uploadButton {
 
         &:hover {
             transition: 0.4s;
-            box-shadow: -6px 6px 8px -5px $pink-color;
+            border: 2px solid $pink-color;
         }
     }
 
@@ -191,13 +197,14 @@ section.uploadButton {
     height: 0 !important;
     margin: 0 !important;
 }
+
 .imageShadow {
     border-radius: $radius;
     width: fit-content;
     padding: 0.5rem;
-    box-shadow: inset 6px 6px 8px -8px #b0b0b0, inset -6px -6px 8px -8px #b0b0b0;
     margin: auto;
 }
+
 .card.product {
     transition: 0.4s;
     box-shadow: none;
@@ -313,7 +320,7 @@ section.header {
                             height: 1rem;
                             background-color: $body-color;
                             color: $blue-color;
-                            border-radius: 1px;
+                            border-radius: 2px;
                         }
                     }
 
@@ -337,16 +344,16 @@ section.header {
         top: 3.5rem;
         left: 50%;
         transform: translate(-50%);
-        box-shadow: $pink-shadow;
         text-align: center;
         margin-bottom: 3rem;
-        background-color: $gray-color;
-        border-radius: $radius;
         max-width: 40rem;
-        /*margin: auto;*/
-        padding: 1rem 0.5rem;
+        padding: 0;
         width: 96%;
 
+        form {
+            background-color: $body-color;
+            margin-bottom: 1rem;
+        }
 
 
         i {
@@ -365,18 +372,17 @@ section.header {
         input[type=text] {
             transition: 0.4s;
             border: none;
-            border-bottom: 2px solid $pink-color;
             background-color: transparent;
-            height: 2.5rem;
+            height: 3.5rem;
             width: 100%;
-            padding-left: 2rem;
-            padding-right: 0.2rem;
+            padding: 0.25rem 0.5rem 0.25rem 4rem;
             color: $pink-color;
+            border-radius: $radius;
+            border: 2px solid lightGray;
 
             &:focus {
                 transition: 0.4s;
                 outline: none;
-                border-bottom: 2px solid $pink-color;
             }
         }
 
@@ -384,20 +390,43 @@ section.header {
             max-width: 40rem;
             margin: auto;
             position: relative;
-            padding: 0 2rem 0 0.5rem;
+            padding: 0;
 
-            i {
-                &.fa-search {
-                    height: 2.5rem;
-                    padding-top: 0.5rem;
-                    width: 2rem;
-                    left: 0.5rem;
-                }
+            i.fa-search {
+                transition: 0.4s;
+                height: 3.5rem;
+                padding-top: 0.75rem;
+                width: 3.5rem;
+                left: 0rem;
+                background-color: $body-color;
+                color: $blue-color;
+                border-top-left-radius: $radius;
+                border-bottom-left-radius: $radius;
+                border: 2px solid $blue-color;
 
-                &.fa-angle-down {
-                    right: 0.5rem;
-                    font-size: 40px;
+                &:hover {
+                    transition: 0.4s;
+                    color: $pink-color;
+                    border-color: $pink-color;
                 }
+            }
+        }
+
+        .seeAdvanced {
+            position: relative;
+            width: fit-content;
+            margin: auto;
+            display: none;
+            cursor: pointer;
+
+            p {
+                color: $pink-color;
+            }
+
+            i.fa-angle-down {
+                left: -1rem;
+                top: -0.2rem;
+                font-size: 30px;
             }
 
             .rotated {
@@ -407,11 +436,14 @@ section.header {
         }
 
         .advanced {
+            background-color: $body-color;
             transition: 0.4s;
             max-width: 40rem;
             margin: auto;
             position: relative;
             max-height: 40rem;
+            border: 2px solid lightgray;
+            border-radius: $radius;
 
             input[type=radio] {
                 display: none;
@@ -424,7 +456,7 @@ section.header {
                 text-align: center;
                 transition: 0.4s;
                 border: none;
-                box-shadow: $box-shadow;
+                border: 2px solid lightGray;
                 color: $text-color;
                 padding: 0.5rem 0.4rem;
                 border-radius: $radius;
@@ -457,7 +489,7 @@ section.header {
                     p {
                         display: inline-block;
                         display: inline-block;
-                        box-shadow: $box-shadow;
+                        border: 2px solid lightGray;
                         color: $text-color;
                         padding: 0.5rem 1.5rem 0.5rem 1rem;
                         border-radius: $radius;
@@ -581,7 +613,6 @@ section.footer {
         }
 
         .designedBy {
-            border-top: 1px solid $text-color;
             padding: 1rem;
             text-align: center;
 
@@ -623,17 +654,18 @@ section.homePage {
 
                         a.nav-link {
                             transition: 0.4s;
+                            border-radius: $radius;
                             background-color: transparent;
-                            font-size: 30px;
+                            font-size: 20px;
                             color: $text-color;
                             border: none;
 
                             @include md {
-                                font-size: 25px;
+                                font-size: 18px;
                             }
 
                             @include sm {
-                                font-size: 19px;
+                                font-size: 16px;
                             }
 
                             @include xs {
@@ -648,9 +680,8 @@ section.homePage {
 
                             &.active {
                                 transition: 0.4s;
-                                border-radius: $radius;
-                                box-shadow: $hover-shadow;
                                 color: $blue-color;
+                                border: 2px solid $blue-color;
                             }
                         }
                     }
@@ -669,15 +700,13 @@ section.homePage {
                                 position: relative;
                                 display: flex;
                                 margin: auto;
-                                font-size: 20px;
+                                font-size: 16px;
                                 transition: 0.4s;
-                                background-color: transparent;
 
                                 i {
-                                    left: 0.5rem;
-                                    top: 0.5rem;
-                                    width: 2rem;
-                                    font-size: 30px;
+                                    width: 1rem;
+                                    margin-right: 1rem;
+                                    font-size: 24px;
                                 }
 
                                 &:hover {
@@ -714,7 +743,7 @@ section.loginPage {
                 width: 100%;
                 border-radius: $radius;
                 background-color: $gray-color;
-                box-shadow: $hover-shadow;
+                border: 2px solid lightgray;
 
                 &.info {
                     box-shadow: none;
@@ -735,12 +764,13 @@ section.loginPage {
                 input {
                     transition: 0.4s;
                     border: none;
-                    border-bottom: 2px solid $text-color;
+                    border: 2px solid lightgray;
                     color: $text-color;
                     background-color: transparent;
                     width: 100%;
-                    height: 2.5rem;
+                    height: 3rem;
                     margin-bottom: 2rem;
+                    border-radius: $radius;
 
                     &.codeInput {
                         padding: 0;
@@ -764,7 +794,6 @@ section.loginPage {
                 input:focus {
                     transition: 0.4s;
                     outline: none;
-                    border-bottom: 2px solid $blue-color;
                 }
 
                 .uploadPic {
@@ -823,7 +852,7 @@ section.loginPage {
                     background-color: $body-color;
                     border: none;
                     border-radius: $radius;
-                    box-shadow: $box-shadow;
+                    border: 2px solid lightGray;
                     width: 100%;
                     margin-bottom: 1rem;
                     padding: 0.5rem;
@@ -857,12 +886,12 @@ section.loginPage {
                     button {
                         float: left;
                         margin-right: 1rem;
-                        font-size: 20px;
+                        font-size: 18px;
                         display: block;
                         width: 8rem;
 
                         @include xs {
-                            font-size: 18px;
+                            font-size: 16px;
                             width: 6rem;
                         }
                     }
@@ -897,6 +926,7 @@ section.loginPage {
                     padding: 0;
 
                     ul.nav-tabs {
+                        border-radius: $radius;
                         padding: 0;
                         z-index: 2;
                         background-color: $body-color;
@@ -905,21 +935,24 @@ section.loginPage {
                             background-color: transparent;
 
                             a.nav-link {
+                                border: 2px solid lightGray;
                                 color: $text-color;
                                 font-size: 20px;
                                 transition: 0.4s;
                                 background-color: transparent;
-                                border: none;
+                                border-bottom: none;
                                 border-top-left-radius: $radius;
                                 border-top-right-radius: $radius;
                             }
 
                             #tabDownH.active {
-                                box-shadow: 7px -7px 8px -3px $blue-color;
+                                border: 2px solid $blue-color;
+                                border-bottom: 0;
                             }
 
                             #tabUpH.active {
-                                box-shadow: -7px -7px 8px -3px $pink-color, 0 0 0 0;
+                                border: 2px solid $pink-color;
+                                border-bottom: 0;
                             }
                         }
                     }
@@ -939,15 +972,7 @@ section.loginPage {
                             }
 
                             &#tabUpC.active {
-                                box-shadow: -6px 6px 8px -5px $pink-color, 2px -2px 10px -2px white;
-
-                                input:focus {
-                                    border-bottom: 2px solid $pink-color;
-                                }
-
-                                textarea:focus {
-                                    box-shadow: $pink-shadow !important;
-                                }
+                                border: 2px solid $pink-color;
 
                                 input[type=file]:hover {
 
@@ -955,13 +980,12 @@ section.loginPage {
                                         transition: 0.4s;
                                         border: none;
                                         color: $pink-color !important;
-                                        box-shadow: $pink-shadow;
+                                        border: 2px solid lightGray;
                                     }
                                 }
 
                                 input:-webkit-autofill,
                                 input:-webkit-autofill:focus {
-                                    border-bottom: 2px solid $pink-color !important;
                                     -webkit-text-fill-color: $pink-color;
                                     -webkit-box-shadow: 0 0 0 1000px $gray-color inset !important;
                                     transition: background-color 400s ease-in-out 0s;
@@ -969,13 +993,13 @@ section.loginPage {
                                 }
 
                                 button:hover {
-                                    box-shadow: $pink-shadow;
+                                    border: 2px solid lightGray;
                                     color: $pink-color;
                                 }
                             }
 
                             &#tabDownC.active {
-                                box-shadow: $hover-shadow;
+                                border: 2px solid $blue-color;
                             }
                         }
                     }
@@ -998,7 +1022,7 @@ section.forgotPassPage {
                 width: 100%;
                 border-radius: $radius;
                 background-color: $gray-color;
-                box-shadow: $hover-shadow;
+                border: 2px solid lightGray;
 
                 h4 {
                     padding: 2rem 0;
@@ -1132,9 +1156,7 @@ section.detailPage {
                     }
 
                     .infos {
-                        @include xxs {
-                            padding: 0;
-                        }
+                        padding: 0;
 
                         .card {
                             height: 100%;
@@ -1143,7 +1165,7 @@ section.detailPage {
                             box-shadow: none;
                             border-radius: $radius;
                             background-color: $gray-color;
-                            box-shadow: $box-shadow;
+                            border: 2px solid lightGray;
 
                             .info {
                                 margin: 0 1rem;
@@ -1218,9 +1240,8 @@ section.detailPage {
                                         float: left;
                                         color: $text-color;
                                         margin: 0 1rem 0.5rem 0;
-                                        box-shadow: $box-shadow;
                                         border-radius: $radius;
-                                        padding: 0.5rem 1rem;
+                                        padding: 0.5rem;
                                         display: inline-block;
 
                                         @include sm {
@@ -1241,8 +1262,8 @@ section.detailPage {
                                     float: left;
                                     width: fit-content;
                                     transition: 0.4s;
-                                    box-shadow: $box-shadow;
-                                    padding: 0.1rem 0 0 2rem;
+                                    border: 2px solid lightGray;
+                                    padding: 0 0 0 2rem;
                                     border-radius: $radius;
 
                                     @include sm {
@@ -1361,27 +1382,10 @@ section.detailPage {
                                     transition: 0.4s;
                                     position: relative;
                                     margin: auto 1rem 1rem auto;
-                                    font-size: 18px;
-                                    width: 12rem;
-
-                                    &.buy, &.addToCart {
-                                        color: $blue-color;
-                                        box-shadow: $hover-shadow;
-
-                                        &:hover {
-                                            transition: 0.4s;
-                                            box-shadow: -6px 6px 8px -5px $blue-color, 2px -2px 10px -2px white;
-                                        }
-                                    }
+                                    font-size: 16px;
+                                    width: 11rem;
 
                                     &.report {
-                                        color: $pink-color;
-                                        box-shadow: $pink-shadow;
-
-                                        &:hover {
-                                            transition: 0.4s;
-                                            box-shadow: -6px 6px 8px -5px $pink-color, 2px -2px 10px -2px white;
-                                        }
 
                                         @include sm {
                                             float: none;
@@ -1397,13 +1401,13 @@ section.detailPage {
             .description {
                 margin: auto;
                 max-width: 40rem;
-                box-shadow: $box-shadow;
+                border: 2px solid lightGray;
                 margin-top: 2rem;
                 border-radius: $radius;
                 background-color: $gray-color;
                 padding: 1rem;
 
-                h4 {
+                h5 {
                     padding: 0 0 1rem;
                 }
 
@@ -1415,7 +1419,7 @@ section.detailPage {
             .related {
                 padding: 2rem;
 
-                h2 {
+                h4 {
                     text-align: center;
                     margin-top: 2rem;
                     margin-bottom: -1rem;
@@ -1434,8 +1438,7 @@ section.detailPage {
                             transition: 0.4s;
                             max-height: 12rem;
                             margin: auto;
-                            border-radius: 5px;
-                            box-shadow: $image-shadow;
+                            border-radius: $radius;
                             max-width: 12rem;
                             width: auto;
                             margin: 0;
@@ -1508,7 +1511,7 @@ Section.uploadPage {
             }
 
             .row {
-                box-shadow: $box-shadow;
+                border: 2px solid lightGray;
                 padding: 1rem 1rem 2rem;
                 background-color: $gray-color;
                 border-radius: $radius;
@@ -1569,7 +1572,7 @@ Section.uploadPage {
                         margin-bottom: 3rem;
                         padding: 0.5rem;
                         color: $text-color;
-                        box-shadow: $box-shadow;
+                        border: 2px solid lightGray;
                     }
                 }
 
@@ -1667,7 +1670,7 @@ Section.uploadPage {
                             text-align: center;
                             transition: 0.4s;
                             border: none;
-                            box-shadow: $box-shadow;
+                            border: 2px solid lightGray;
                             color: $text-color;
                             padding: 0.5rem 0.4rem;
                             border-radius: $radius;
@@ -1711,7 +1714,7 @@ Section.uploadPage {
                         text-align: center;
                         transition: 0.4s;
                         border: none;
-                        box-shadow: $box-shadow;
+                        border: 2px solid lightGray;
                         color: $text-color;
                         padding: 0.5rem 0.4rem;
                         border-radius: $radius;
@@ -1746,7 +1749,7 @@ Section.uploadPage {
                     transition: 0.4s;
                     border: none;
                     color: $blue-color !important;
-                    box-shadow: $hover-shadow !important;
+                    border: 2px solid lightGray !important;
                     font-weight: bold;
                 }
             }
@@ -1763,6 +1766,10 @@ section.searchPage {
         position: fixed;
         z-index: 90;
         background-color: $body-color;
+
+        .searchSection .seeAdvanced {
+            display: block;
+        }
     }
 
     section.contents {
@@ -1781,7 +1788,7 @@ section.searchPage {
 
                 .sorting {
                     background-color: $body-color;
-                    box-shadow: $box-shadow;
+                    border: 2px solid lightGray;
                     width: 10rem;
                     border-radius: 0.5rem;
                     border-radius: $radius;
@@ -1893,7 +1900,7 @@ section.cartPage {
                                     text-align: center;
                                 }
 
-                                box-shadow: $box-shadow;
+                                border: 2px solid lightGray;
                                 background-color: transparent;
                                 padding: 1rem;
 
@@ -1913,7 +1920,6 @@ section.cartPage {
                                             transition: 0.4s;
                                             max-height: 4rem;
                                             border-radius: $radius;
-                                            box-shadow: $image-shadow;
                                             max-width: 4rem;
                                             width: auto;
                                             margin: 0 auto;
@@ -1941,12 +1947,7 @@ section.cartPage {
                                         transition: 0.4s;
                                         float: left;
                                         color: $error-color;
-                                        box-shadow: 6px 6px 8px -5px #d14774;
-
-                                        &:hover {
-                                            transition: 0.4s;
-                                            box-shadow: $error-shadow;
-                                        }
+                                        border: 2px solid $error-color;
                                     }
                                 }
                             }
@@ -1958,7 +1959,7 @@ section.cartPage {
                     padding: 1rem;
 
                     .card {
-                        box-shadow: $box-shadow;
+                        border: 2px solid lightGray;
                         background-color: transparent;
                         padding: 2rem 1rem;
                         text-align: center;
@@ -1970,12 +1971,7 @@ section.cartPage {
                             transition: 0.4s;
                             padding: 1rem 3rem;
                             color: $blue-color;
-                            box-shadow: $hover-shadow;
-
-                            &:hover {
-                                transition: 0.4s;
-                                box-shadow: -6px 6px 8px -5px $blue-color;
-                            }
+                            border: 2px solid lightGray;
                         }
                     }
                 }
@@ -1992,7 +1988,7 @@ section.dashboardPage {
             .part {
                 max-width: 40rem;
                 margin: 1rem auto;
-                box-shadow: $box-shadow;
+                border: 2px solid lightGray;
                 padding: 1rem;
                 border-radius: $radius;
 
@@ -2114,7 +2110,7 @@ section.dashboardPage {
                         input {
                             transition: 0.4s;
                             border: none;
-                            border-bottom: 2px solid $text-color;
+                            border: 2px solid lightgray;
                             color: $text-color;
                             background-color: transparent;
                             width: 100%;
@@ -2143,7 +2139,6 @@ section.dashboardPage {
                         input:focus {
                             transition: 0.4s;
                             outline: none;
-                            border-bottom: 2px solid $blue-color;
                         }
 
                         input[type=file] {
@@ -2166,7 +2161,6 @@ section.dashboardPage {
                                 width: 11rem;
                                 cursor: pointer;
                                 text-align: center;
-                                color: $text-color;
                                 border-radius: $radius;
                             }
                         }
@@ -2178,7 +2172,7 @@ section.dashboardPage {
                             background-color: $body-color;
                             border: none;
                             border-radius: $radius;
-                            box-shadow: $box-shadow;
+                            border: 2px solid lightGray;
                             width: 100%;
                             margin-bottom: 1rem;
                             padding: 0.5rem;
@@ -2211,23 +2205,13 @@ section.dashboardPage {
                                 &.save {
                                     transition: 0.4s;
                                     color: $success-color;
-                                    box-shadow: $hover-shadow;
-
-                                    &:hover {
-                                        transition: 0.4s;
-                                        box-shadow: $success-shadow;
-                                    }
+                                    border: 2px solid $success-color;
                                 }
 
                                 &.cancel {
                                     transition: 0.4s;
                                     color: $error-color;
-                                    box-shadow: 7px 7px 8px -3px #d14774;
-
-                                    &:hover {
-                                        transition: 0.4s;
-                                        box-shadow: $error-shadow;
-                                    }
+                                    border: 2px solid $error-color;
                                 }
                             }
 
@@ -2261,7 +2245,7 @@ section.dashboardPage {
                                 }
 
                                 .itemPack {
-                                    box-shadow: $box-shadow;
+                                    border: 2px solid lightGray;
                                     background-color: transparent;
                                     padding: 1rem;
 
@@ -2319,7 +2303,7 @@ section.dashboardPage {
                                         a {
                                             transition: 0.4s;
                                             color: $text-color;
-                                            box-shadow: $box-shadow;
+                                            border: 2px solid lightGray;
                                             background-color: $body-color;
                                             padding: 0.5rem 1rem;
                                             border-radius: $radius;
@@ -2327,7 +2311,7 @@ section.dashboardPage {
                                             &:hover {
                                                 transition: 0.4s;
                                                 color: $blue-color;
-                                                box-shadow: $hover-shadow;
+                                                border: 2px solid lightGray;
                                             }
                                         }
                                     }
@@ -2338,7 +2322,7 @@ section.dashboardPage {
                                         text-align: center;
                                     }
 
-                                    box-shadow: $box-shadow;
+                                    border: 2px solid lightGray;
                                     background-color: transparent;
                                     padding: 1rem;
 
@@ -2430,7 +2414,7 @@ section.dashboardPage {
                             a {
                                 text-align: center;
                                 transition: 0.4s;
-                                box-shadow: $box-shadow;
+                                border: 2px solid lightGray;
                                 color: $text-color;
                                 padding: 0.5rem 2rem;
                                 border-radius: $radius;
@@ -2439,7 +2423,7 @@ section.dashboardPage {
                                 &:hover {
                                     transition: 0.4s;
                                     color: $blue-color !important;
-                                    box-shadow: $hover-shadow;
+                                    border: 2px solid lightGray;
                                 }
                             }
                         }
@@ -2517,7 +2501,7 @@ section.userPage {
                 }
 
                 .info {
-                    box-shadow: $box-shadow;
+                    border: 2px solid lightGray;
                     background-color: $gray-color;
                     border-radius: $radius;
                     padding: 1rem;
@@ -2671,7 +2655,7 @@ section.orderPage {
             .details {
                 padding: 1rem 0.5rem;
                 background-color: $body-color;
-                box-shadow: $hover-shadow;
+                border: 2px solid lightGray;
                 border-radius: $radius;
                 max-width: 40rem;
                 margin: auto;
@@ -2710,7 +2694,7 @@ section.orderPage {
                                 text-align: center;
                             }
 
-                            box-shadow: $box-shadow;
+                            border: 2px solid lightGray;
                             background-color: transparent;
                             padding: 1rem;
 
