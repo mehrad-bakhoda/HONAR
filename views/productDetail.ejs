@@ -10,7 +10,9 @@
                 <div class="row">
                     <div class="picture">
                         <div class="card">
-                            <img src="/<%=item.coverPath%>" />
+                            <div class="imageShadow">
+                                <img src="/<%=item.coverPath%>" />
+                            </div>
                         </div>
 
                     </div>
@@ -109,16 +111,18 @@
                 </div>
             </div>
             <div class="description">
-                <h4 class="title"> توضیحات </h4>
+                <h5 class="title"> توضیحات </h5>
                 <p><%=item.description%></p>
             </div>
             <div class="related">
-                <h2> محصولات مرتبط </h2>
+                <h4> محصولات مرتبط </h4>
                 <div class="owl-carousel">
                     <% if(searched){%>
                     <% searched.forEach(function(product) { %>
                     <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                        <img src="/<%=product.coverPath%>" />
+                        <div class="imageShadow">
+                            <img src="/<%=product.coverPath%>" />
+                        </div>
                     </a>
                     <% }) %>
                     <% } %>

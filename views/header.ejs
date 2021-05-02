@@ -35,15 +35,16 @@
         </div>
     </nav>
     <div class="searchSection">
-      <form name="searchForm" action="/search" method="post">
-        <div class="general">
+        <form name="searchForm" action="/search" method="post">
+            <div class="general">
+                <a onclick="submit_form(); return false;"><i class="fal fa-search"></i></a>
+                <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />
+                
+            </div>
 
-
-
-
-            <a  onclick="submit_form(); return false;"><i class="fal fa-search"></i></a>
-            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />
-            <i class="fal fa-angle-down"></i>
+        </form>
+        <div class="seeAdvanced">
+            <p>جستجوی پیشرفته <i class="fal fa-angle-down"></i></p>
         </div>
         <div class="advanced advancedHidden">
             <div class="category">
@@ -101,23 +102,8 @@
                 </div>
             </div>
 
-            <!--<div class="tag">
-                <input type="text" placeholder="تگ های مورد نظر..." />
-                <div class="usedTags">
-                    <p><i class="fa fa-times" aria-hidden="true"></i> art </p>
-                    <p><i class="fa fa-times" aria-hidden="true"></i> sunset </p>
-                    <p><i class="fa fa-times" aria-hidden="true"></i> art </p>
-                    <p><i class="fa fa-times" aria-hidden="true"></i> sunset </p>
-                    <p><i class="fa fa-times" aria-hidden="true"></i> art </p>
-                    <p><i class="fa fa-times" aria-hidden="true"></i> sunset </p>
-                    <p><i class="fa fa-times" aria-hidden="true"></i> art </p>
-                    <p><i class="fa fa-times" aria-hidden="true"></i> sunset </p>
-                </div>
-            </div>-->
 
         </div>
-        </form>
-
     </div>
 </section>
 
