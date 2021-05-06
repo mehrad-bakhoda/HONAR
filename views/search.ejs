@@ -5,20 +5,69 @@
     <%-include("header");-%>
     <section class="contents">
         <div class="container-fluid">
-            <!--<div class="popularTags">
-                <div class="card">
-                    <a href="#"> ptag1 </a>
-                    <a href="#"> ptag2 </a>
-                    <a href="#"> ptag3 </a>
-                    <a href="#"> ptag4 </a>
-                    <a href="#"> ptag5 </a>
-                    <a href="#"> ptag6 </a>
-                    <a href="#"> ptag7 </a>
-                    <a href="#"> ptag8 </a>
-                    <a href="#"> ptag9 </a>
-                    <a href="#"> ptag10 </a>
+            <div class="advancedSection">
+                <div class="seeAdvanced">
+                    <p>جستجوی پیشرفته <i class="fal fa-angle-down"></i></p>
                 </div>
-            </div>-->
+                <div class="advanced advancedHidden">
+                    <div class="category">
+                        <lable class="title"> نوع </lable>
+
+                        <div class="options">
+                            <input type="radio" id="photography" value="photography">
+                            <label for="photography" class="radioLabel">عکاسی</label>
+
+                            <input type="radio" id="graphic" value="graphic">
+                            <label for="graphic" class="radioLabel">گرافیک</label>
+
+                            <input type="radio" id="clip" value="clip">
+                            <label for="clip" class="radioLabel">کلیپ</label>
+                        </div>
+                    </div>
+                    <div class="orientation">
+                        <lable class="title"> نسبت‌ابعاد </lable>
+                        <div class="options">
+                            <input type="radio" id="portate" value="portrate">
+                            <label for="portrate" class="radioLabel">عمودی</label>
+
+                            <input type="radio" id="landscape" value="landscape">
+                            <label for="landscape" class="radioLabel">افقی</label>
+
+                            <input type="radio" id="square" value="square">
+                            <label for="square" class="radioLabel">مربع</label>
+                        </div>
+                    </div>
+                    <div class="type">
+                        <lable class="title"> فایل </lable>
+                        <div class="options">
+                            <input type="radio" id="portate" value="jpg">
+                            <label for="jpg" class="radioLabel">jpg</label>
+
+                            <input type="radio" id="portate" value="png">
+                            <label for="png" class="radioLabel">png</label>
+
+                            <input type="radio" id="portate" value="svg">
+                            <label for="svg" class="radioLabel">svg</label>
+
+                            <input type="radio" id="portate" value="psd">
+                            <label for="psd" class="radioLabel">psd</label>
+
+                        </div>
+                    </div>
+                    <div class="price">
+                        <lable class="title"> قیمت </lable>
+                        <div class="options">
+                            <input type="radio" id="free" value="free">
+                            <label for="free" class="radioLabel">رایگان</label>
+
+                            <input type="radio" id="money" value="money">
+                            <label for="money" class="radioLabel">غیر رایگان</label>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
             <div class="sortSection">
                 <div class="sorting">
                     <div class="shownSort">
