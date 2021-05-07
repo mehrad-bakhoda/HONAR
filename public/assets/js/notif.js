@@ -20,9 +20,8 @@ function notifSucces(message) {
 }
 
 function validateEmail(input) {
-    const email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const phone = /^[0-9]{11}$/;
-    return email.test(String(input).toLowerCase()) || phone.test(input)
+    return phone.test(input)
 }
 
 
@@ -34,8 +33,8 @@ $(".loginPage .login .next")
     $(".phoneInput").val(input);
     if (!validateEmail(input))
     {
-        placeholderError(".phoneInput","لطفا ایمیل یا شماره تلفن معتبر وارد نمایید");
-        notifError("لطفا ایمیل یا شماره تلفن معتبر وارد نمایید");
+        placeholderError(".phoneInput","لطفا شماره تلفن معتبر وارد نمایید");
+        notifError("لطفا شماره تلفن معتبر وارد نمایید");
         e.preventDefault();
 
     }

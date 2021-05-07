@@ -616,38 +616,6 @@ router.post("/signUpD",function(req,res)
       return next();
     }
     console.log(files.profilePic);
-    if(fields.loginInput.includes("@")===true){
-      User.findOne({
-        email: fields.loginInput
-      }, function(err, found) {
-        if (!err) {
-          if(found){
-            if(!found.hasPassword){
-                console.log("he's a Downloader");
-                User.updateMany({
-                  email: fields.loginInput
-                }, {
-                  type:"Downloader",
-                  firstName:fields.firstName,
-                  lastName:fields.lastName,
-                  password: fields.password,
-                  hasPassword:true
-                }, function(err, docs) {
-                  if (!err) {
-                    console.log('"' + fields.loginInput+'"'+" now has a password!");
-                    req.session.userId = found.unique_id;
-                    req.session.save();
-                    console.log("Session created for"+'"' + fields.loginInput+'"');
-                    console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
-                    res.redirect("/");
-                  }
-                });
-            }
-          }
-        }
-      });
-
-    }else{
       User.findOne({
         phone: fields.loginInput
       }, function(err, found) {
@@ -677,7 +645,7 @@ router.post("/signUpD",function(req,res)
           }
         }
       });
-    }
+
     if (err) {
       next(err);
       return;
@@ -693,64 +661,6 @@ router.post("/signUpU",function(req, res){
   form.parse(req, (err, fields, files) => {
 
     console.log(files.profilePic);
-    if(fields.loginInput.includes("@")===true){
-      User.findOne({
-        email: fields.loginInput
-      }, function(err, found) {
-        if (!err) {
-          if(found){
-            if(!found.hasPassword){
-              var profilePicPath = "";
-              var fileName = (files.profilePic.path).substring(20);
-              console.log(fileName);
-              var oldPath =files.profilePic.path;
-              var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
-              const dir = "public/covers/users/" + found.unique_id
-              if (!fs.existsSync(dir)) {
-                fs.mkdirSync(dir, {
-                recursive: true
-              });
-              }
-              if (files.profilePic.size != 0)
-                  profilePicPath = newPath.substring(7);
-              else
-                  profilePicPath = "no picture";
-              fs.rename(oldPath,newPath,function(err)
-              {
-                if(err) throw err
-                console.log("successfully");
-
-
-              });
-              User.updateMany({
-                email: fields.loginInput
-              }, {
-                type:"Uploader",
-                firstName:fields.firstName,
-                lastName:fields.lastName,
-                userName:fields.userName.toLowerCase(),
-                instagram:fields.instagram,
-                twitter:fields.twitter,
-                bio:fields.bio,
-                profilePhotoLocation:profilePicPath,
-                password: fields.password,
-                hasPassword:true
-              }, function(err, docs) {
-                if (!err) {
-                  console.log('"' + fields.loginInput+'"'+" now has a password!");
-                  req.session.userId = found.unique_id;
-                  req.session.save();
-                  console.log("Session created for"+'"' + fields.loginInput+'"');
-                  console.log("Redirecting "+'"' + fields.loginInput+'"'+" to home!");
-                  res.redirect("/");
-                }
-              });
-            }
-          }
-        }
-      });
-
-    }else{
       User.findOne({
         phone: fields.loginInput
       }, function(err, found) {
@@ -806,7 +716,7 @@ router.post("/signUpU",function(req, res){
           }
         }
       });
-    }
+
 
     if (err) {
       next(err);

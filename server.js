@@ -17,7 +17,6 @@ const MongoStore = require('connect-mongo')(session);
 const router = express.Router();
 require('dotenv').config();
 const Jimp=require("jimp");
-const { default: AdminBro } = require("admin-bro");
 
 
 
@@ -26,8 +25,6 @@ var User = require(__dirname + "/models/user.js");
 var Product = require(__dirname + "/models/product.js");
 //routes
 var routes= require(__dirname+"/routes/routes.js");
-const options=require(__dirname+"/routes/admin.options.js");
-const buildAdminRouter = require (__dirname+"/routes/admin.router.js")
 
 const PORT = process.env.PORT || 3000;
 
@@ -49,9 +46,7 @@ const run= async()=>{
     useFindAndModify: false,
     useCreateIndex: true,
   });
-  const admin=new AdminBro(options);
-  const router = buildAdminRouter(admin);
-  app.use(admin.options.rootPath,router);
+
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
     extended: true,
