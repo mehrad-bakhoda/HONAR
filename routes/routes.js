@@ -168,6 +168,7 @@ router.get("/add-to-cart/:id/:size", function(req, res){
     var size = req.params.size;
     if(size == "original" || size == "large" || size == "medium" || size == "small")
     {
+      console.log(req.session.cart);
       var cart = new Cart(req.session.cart ? req.session.cart : {});
       let product = Product.findOne({
         _id: productId
@@ -179,6 +180,7 @@ router.get("/add-to-cart/:id/:size", function(req, res){
         cart.add(product,product.productId,size);
         req.session.cart = cart;
         req.session.save();
+
         res.redirect('/cart');
     });
     }
