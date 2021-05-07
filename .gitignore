@@ -1,6 +1,5 @@
 /uploads
 /public/covers
 
-.vercel
 node_modules
 npm-debug.log

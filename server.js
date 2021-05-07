@@ -19,7 +19,6 @@ require('dotenv').config();
 const Jimp=require("jimp");
 
 
-
 //schemas
 var User = require(__dirname + "/models/user.js");
 var Product = require(__dirname + "/models/product.js");
@@ -27,15 +26,6 @@ var Product = require(__dirname + "/models/product.js");
 var routes= require(__dirname+"/routes/routes.js");
 
 const PORT = process.env.PORT || 3000;
-
-
-
-
-
-
-
-
-
 
 
 
@@ -92,13 +82,7 @@ const run= async()=>{
 
   app.use('/', routes);
 
-
+  //Opening and starting our server on port
   app.listen(PORT, ()=>console.log("Server started on port",PORT));
 }
 module.exports=run;
-
-
-
-
-
-//Opening and starting our server on port
