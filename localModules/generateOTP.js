@@ -15,8 +15,9 @@ const generateOTP={
     const hash = crypto.createHmac("sha256", process.env.VERIFY_KEY).update(data).digest("hex"); // creating SHA256 hash of the data
     const fullHash = `${hash}.${expires}`; // Hash.expires, format to send to the user
     // you have to implement the function to send SMS yourself. For demo purpose. let's assume it's called sendSMS
-    console.log(`Your OTP is ${otp}. it will expire in 1 minutes`);
     return otp;
   }
+
 };
+
 module.exports = generateOTP;

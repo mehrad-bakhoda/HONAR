@@ -5,6 +5,7 @@ var Product = require('../models/product');
 var Cart = require("../cart");
 var Order = require('../models/order');
 const Jimp=require("jimp");
+		const request = require('request');
 // const bodyParser=require("body-parser");
 const { check, validationResult } = require('express-validator');
 
@@ -329,94 +330,7 @@ router.post("/login",[
     return next();
   }
 
-  if(req.body.loginInput.includes("@")===true){
-    console.log("Email "+'"'+ req.body.loginInput +'"'+ " received");
 
-
-    User.findOne({
-      email: req.body.loginInput
-    }, function(err, found) {
-      if (!err) {
-        if (found) {
-          if(found.verified){
-            if(found.hasPassword){
-              console.log('"' + req.body.loginInput+'"'+" is verified and has password");
-
-              res.render("login",{inputFouned:true,inputVerify:true,loginInput:req.body.loginInput,newUser:false});
-            }
-            if(!found.hasPassword){
-              console.log('"' + req.body.loginInput+'"'+" is verified but hasn't set the password");
-              User.updateMany({email: req.body.loginInput},
-              {
-                verifyCode: generateOTP.createNewOTP(),
-                verified: false
-              },
-              function(err, docs) {
-                if (!err) {
-                  console.log('"' + req.body.loginInput+'"'+" verify code updated!");
-                }
-              });
-
-              res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
-            }
-          }
-          if(!found.verified){
-            console.log('"' + req.body.loginInput+'"'+" is not verified");
-            User.updateMany({email: req.body.loginInput},
-            {
-              verifyCode: generateOTP.createNewOTP(),
-              verified: false
-            },
-            function(err, docs) {
-              if (!err) {
-                console.log('"' + req.body.loginInput+'"'+" verify code updated!");
-              }
-            });
-
-            res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
-          }
-
-
-        }
-        if (!found) {
-          console.log("---------------------- "+'"' + req.body.loginInput+'"'+" is a new User ----------------------");
-          var c;
-          User.findOne({},function(err,data)
-          {
-            if (data)
-            {
-              c = data.unique_id + 1;
-            }
-            else{
-              c = 1;
-            }
-            const user = new User({
-              unique_id: c,
-              email: req.body.loginInput,
-              verifyCode: generateOTP.createNewOTP(),
-              verified: "false",
-              registered: "false",
-              hasPassword:"false",
-            });
-            console.log(user.verifyCode)
-            user.save(function(err, docs) {
-              if (!err) {
-                console.log("verify Code initiated!");
-              }
-              else{
-                console.log(err)
-              }
-            });
-
-          }).sort({_id: -1}).limit(1);
-          console.log("Created a user for "+'"' + req.body.loginInput+'"');
-          res.render("login",{inputVerify:false,inputFouned:false,loginInput:req.body.loginInput,newUser:false});
-        }
-      }
-    });
-  }
-
-else{
     console.log("Phone Number "+'"' + req.body.loginInput+'"' + " received");
     User.findOne({
       phone: req.body.loginInput
@@ -435,6 +349,7 @@ else{
               console.log('"' + req.body.loginInput+'"'+" is verified but hasn't set the password");
               User.updateMany({phone: req.body.loginInput},
               {
+
                 verifyCode: generateOTP.createNewOTP(),
                 verified: false
               },
@@ -443,6 +358,31 @@ else{
                   console.log('"' + req.body.loginInput+'"'+" verify code updated!");
                 }
               });
+              const request = require('request');
+                                request.post({
+                                    url: 'http://ippanel.com/api/select',
+                                    body: {
+        					"op":"pattern",
+        					"user":"09191234617",
+        					"pass":"0063246155",
+        					"fromNum":"3000505",
+        					"toNum":`${req.body.loginInput}`,
+        					"patternCode":"7p5vaacw1w",
+        					"inputData":[
+        							{"code":found.verifyCode},
+        						]
+        				},
+                                    json: true,
+                                }, function (error, response, body) {
+                                    if (!error && response.statusCode === 200) {
+        				//YOU‌ CAN‌ CHECK‌ THE‌ RESPONSE‌ AND SEE‌ ERROR‌ OR‌ SUCCESS‌ MESSAGE
+                                        console.log(response.body);
+                                    } else {
+        				console.log("failed");
+
+                                    }
+                                });
+
               res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
             }
           }
@@ -458,6 +398,30 @@ else{
                 console.log('"' + req.body.loginInput+'"'+" verify code updated!");
               }
             });
+            const request = require('request');
+                              request.post({
+                                  url: 'http://ippanel.com/api/select',
+                                  body: {
+      					"op":"pattern",
+      					"user":"09191234617",
+      					"pass":"0063246155",
+      					"fromNum":"3000505",
+      					"toNum":`${req.body.loginInput}`,
+      					"patternCode":"7p5vaacw1w",
+      					"inputData":[
+      							{"code":found.verifyCode},
+      						]
+      				},
+                                  json: true,
+                              }, function (error, response, body) {
+                                  if (!error && response.statusCode === 200) {
+      				//YOU‌ CAN‌ CHECK‌ THE‌ RESPONSE‌ AND SEE‌ ERROR‌ OR‌ SUCCESS‌ MESSAGE
+                                      console.log(response.body);
+                                  } else {
+      				console.log("failed");
+
+                                  }
+                              });
 
             res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
           }
@@ -476,10 +440,36 @@ else{
             else{
               c = 1;
             }
+            let verification=generateOTP.createNewOTP();
+            const request = require('request');
+                              request.post({
+                                  url: 'http://ippanel.com/api/select',
+                                  body: {
+      					"op":"pattern",
+      					"user":"09191234617",
+      					"pass":"0063246155",
+      					"fromNum":"3000505",
+      					"toNum":`${req.body.loginInput}`,
+      					"patternCode":"7p5vaacw1w",
+      					"inputData":[
+      							{"code":verification},
+      						]
+      				},
+                                  json: true,
+                              }, function (error, response, body) {
+                                  if (!error && response.statusCode === 200) {
+      				//YOU‌ CAN‌ CHECK‌ THE‌ RESPONSE‌ AND SEE‌ ERROR‌ OR‌ SUCCESS‌ MESSAGE
+                                      console.log(response.body);
+                                  } else {
+      				console.log("failed");
+
+                                  }
+                              });
+
             const user = new User({
               unique_id: c,
               phone: req.body.loginInput,
-              verifyCode: generateOTP.createNewOTP(),
+              verifyCode: verification,
               verified: "false",
               registered: "false",
               hasPassword:"false",
@@ -509,6 +499,7 @@ else{
           // }, 60000);
           console.log("Created a user for "+'"' + req.body.loginInput+'"');
 
+
           res.render("login",{inputVerify:false,inputFouned:false,loginInput:req.body.loginInput,newUser:false});
 
         }
@@ -516,7 +507,6 @@ else{
 
 
     });
-  }
 
 });
 
