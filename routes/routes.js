@@ -654,41 +654,34 @@ router.post("/signUpD",function(req,res)
 
 });
 router.post("/signUpU",function(req, res){
-  var dir ="public/covers/users/";
+  const dir =path.join(__dirname,"/../public/profilePic/users/");
+  console.log(dir);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, {
+    recursive: true
+  });
+  }
   const form = formidable({ multiples: true, uploadDir: dir});
   form.keepExtensions=true;
   form.maxFileSize=10*1024*1024;
   form.parse(req, (err, fields, files) => {
 
-    console.log(files.profilePic);
       User.findOne({
         phone: fields.loginInput
       }, function(err, found) {
+       
         if (!err) {
           if(found){
             if(!found.hasPassword){
               var profilePicPath = "";
-              var fileName = (files.profilePic.path).substring(20);
-              console.log(fileName);
-              var oldPath =files.profilePic.path;
-              var newPath = "public/covers/users/" + found.unique_id + "/" + fileName;
-              const dir = "public/covers/users/" + found.unique_id
-              if (!fs.existsSync(dir)) {
-                fs.mkdirSync(dir, {
-                recursive: true
-              });
-              }
+              var fileName = path.basename(files.profilePic.path);
+              var newPath = path.join("/profilePic/users/"+fileName);
+    
               if (files.profilePic.size != 0)
-                  profilePicPath = newPath.substring(7);
+                  profilePicPath = newPath;
               else
                   profilePicPath = "no picture";
-              fs.rename(oldPath,newPath,function(err)
-              {
-                if(err) throw err
-                console.log("successfully");
-
-
-              });
+  
               User.updateMany({
                 phone: fields.loginInput
               }, {
@@ -699,7 +692,7 @@ router.post("/signUpU",function(req, res){
                 instagram:fields.instagram,
                 twitter:fields.twitter,
                 bio:fields.bio,
-                profilePhotoLocation:profilePicPath,
+                profilePicPath:profilePicPath,
                 password: fields.password,
                 hasPassword:true
               }, function(err, docs) {
