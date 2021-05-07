@@ -23,7 +23,6 @@
   "dependencies": {
     "@admin-bro/express": "^3.1.0",
     "@admin-bro/mongoose": "^1.1.0",
-    "admin-bro": "^3.4.0",
     "admin-bro-expressjs": "^2.1.1",
     "admin-bro-mongoose": "^0.5.2",
     "argon2": "^0.27.1",
