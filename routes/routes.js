@@ -676,7 +676,7 @@ router.post("/signUpU",function(req, res){
             if(!found.hasPassword){
               var profilePicPath = "";
               var fileName = path.basename(files.profilePic.path);
-              var newPath = path.join("/profilePic/users/"+fileName);
+              var newPath = path.join("/profilePic/users/",fileName);
 
               if (files.profilePic.size != 0)
                   profilePicPath = newPath;
@@ -829,18 +829,19 @@ router.post("/upload", function(req, res){
             else{
               c = 1;
             }
-            const dir=path.join(__dirname,"/../uploads/users/",found.unique_id ,"/Products/" ,c);
+            const dir=__dirname+"/../uploads/users/"+found.unique_id +"/Products/" +c;
             if (!fs.existsSync(dir)) {
               fs.mkdirSync(dir, {
               recursive: true
             });
             }
-            const etitedImageDir=path.join(__dirname,"/../public/covers/users/",found.unique_id ,"/Products/" ,c);
+            const editedImageDir=__dirname+"/../public/covers/users/"+found.unique_id +"/Products/" +c;
             if (!fs.existsSync(editedImageDir)) {
               fs.mkdirSync(editedImageDir, {
               recursive: true
             });
             }
+            console.log(__dirname+"/../uploads/users/"+found.unique_id +"/Products/" +c)
 
 
 
