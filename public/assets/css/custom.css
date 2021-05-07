@@ -377,156 +377,6 @@ section.header .searchSection .general i.fa-search:hover {
   color: #B03066;
   border-color: #B03066;
 }
-section.header .searchSection .seeAdvanced {
-  position: relative;
-  width: fit-content;
-  margin: auto;
-  display: none;
-  cursor: pointer;
-}
-section.header .searchSection .seeAdvanced p {
-  color: #B03066;
-}
-section.header .searchSection .seeAdvanced i.fa-angle-down {
-  left: -1rem;
-  top: -0.2rem;
-  font-size: 30px;
-}
-section.header .searchSection .seeAdvanced .rotated {
-  transition: 0.4s;
-  transform: rotate(180deg);
-}
-section.header .searchSection .advanced {
-  background-color: #f5f5f5;
-  transition: 0.4s;
-  max-width: 40rem;
-  margin: auto;
-  position: relative;
-  max-height: 40rem;
-  border: 2px solid lightgray;
-  border-radius: 12px;
-}
-section.header .searchSection .advanced input[type=radio] {
-  display: none;
-}
-section.header .searchSection .advanced label.radioLabel {
-  cursor: pointer;
-  width: 100%;
-  margin: 0 0.5rem;
-  text-align: center;
-  transition: 0.4s;
-  border: none;
-  border: 2px solid lightGray;
-  color: #333333;
-  padding: 0.5rem 0.4rem;
-  border-radius: 12px;
-  background-color: transparent;
-}
-section.header .searchSection .advanced .options {
-  text-align: right;
-  display: flex;
-  width: 100%;
-}
-section.header .searchSection .advanced .tag {
-  margin: 1rem auto;
-  padding: 0 2rem 0 1rem;
-}
-@media (max-width: 580px) {
-  section.header .searchSection .advanced .tag {
-    padding: 0 0.5rem;
-  }
-}
-section.header .searchSection .advanced .tag input {
-  padding: 0 0.1rem;
-}
-section.header .searchSection .advanced .tag .usedTags {
-  text-align: right;
-  display: inline-block;
-  padding-top: 1rem;
-}
-section.header .searchSection .advanced .tag .usedTags p {
-  display: inline-block;
-  display: inline-block;
-  border: 2px solid lightGray;
-  color: #333333;
-  padding: 0.5rem 1.5rem 0.5rem 1rem;
-  border-radius: 12px;
-  background-color: transparent;
-  margin: 0rem 0.25rem 1rem;
-  position: relative;
-}
-section.header .searchSection .advanced .tag .usedTags p i {
-  transition: 0.4s;
-  color: #333333;
-  font-size: 20px;
-  position: relative;
-  font-weight: 500;
-  position: absolute;
-  right: 0.5rem;
-}
-section.header .searchSection .advanced .tag .usedTags p i:hover {
-  transition: 0.4s;
-  color: #B03066;
-}
-section.header .searchSection .advanced .category,
-section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
-  padding: 1.5rem 0;
-  display: flex;
-}
-@media (max-width: 580px) {
-  section.header .searchSection .advanced .category,
-section.header .searchSection .advanced .orientation, section.header .searchSection .advanced .type {
-    display: block;
-    padding: 0.5rem 0 1.5rem 0;
-  }
-}
-section.header .searchSection .advanced .category .title,
-section.header .searchSection .advanced .orientation .title, section.header .searchSection .advanced .type .title {
-  padding-top: 0.5rem;
-  width: 6rem;
-  text-align: right;
-  margin-right: 2rem;
-}
-@media (max-width: 580px) {
-  section.header .searchSection .advanced .category .title,
-section.header .searchSection .advanced .orientation .title, section.header .searchSection .advanced .type .title {
-    margin-right: 0;
-  }
-}
-section.header .searchSection .advanced .price {
-  padding: 1.5rem 0;
-  display: flex;
-}
-@media (max-width: 580px) {
-  section.header .searchSection .advanced .price {
-    display: block;
-    padding: 0.5rem 0 1.5rem 0;
-  }
-}
-section.header .searchSection .advanced .price .title {
-  padding-top: 0.5rem;
-  width: 6rem;
-  text-align: right;
-  margin-right: 2rem;
-}
-@media (max-width: 580px) {
-  section.header .searchSection .advanced .price .title {
-    margin-right: 0;
-  }
-}
-section.header .searchSection .selected {
-  transition: 0.4s;
-  border: none;
-  color: #B03066 !important;
-  box-shadow: 6px 6px 8px -5px #B03066, -2px -2px 10px -2px white !important;
-  font-weight: bold;
-}
-section.header .searchSection .advancedHidden {
-  transition: 0.4s;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-}
 
 /*#endregion */
 /*#region Footer */
@@ -747,8 +597,14 @@ section.loginPage section.contents .container-fluid .card .uploadPic input[type=
   width: 11rem;
   cursor: pointer;
   text-align: center;
-  color: #333333;
+  color: #B03066;
+  border: 2px solid #B03066;
   border-radius: 12px;
+}
+section.loginPage section.contents .container-fluid .card .uploadPic input[type=file]:hover::before {
+  transition: 0.4s;
+  color: #0098c5 !important;
+  border: 2px solid #0098c5 !important;
 }
 section.loginPage section.contents .container-fluid .card .uploadPic i {
   position: absolute;
@@ -837,6 +693,7 @@ section.loginPage section.contents .container-fluid .card.code .buttons .hidden 
 }
 section.loginPage section.contents .container-fluid .card.info {
   padding: 0;
+  border: 0;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs {
   border-radius: 12px;
@@ -848,7 +705,6 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   background-color: transparent;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item a.nav-link {
-  border: 2px solid lightGray;
   color: #333333;
   font-size: 20px;
   transition: 0.4s;
@@ -857,9 +713,17 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabDownH {
+  border-right: 2px solid #f5f5f5;
+  border-bottom: 2px solid #B03066;
+}
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabDownH.active {
   border: 2px solid #0098c5;
   border-bottom: 0;
+}
+section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH {
+  border-left: 2px solid #f5f5f5;
+  border-bottom: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH.active {
   border: 2px solid #B03066;
@@ -896,9 +760,14 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   transition: background-color 400s ease-in-out 0s;
   background-color: #f5f5f5;
 }
-section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
-  border: 2px solid lightGray;
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button {
   color: #B03066;
+  border: 2px solid #B03066;
+}
+section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
+  transition: 0.4s;
+  border: 2px solid #0098c5;
+  color: #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabDownC.active {
   border: 2px solid #0098c5;
@@ -1552,13 +1421,170 @@ section.searchPage section.header {
   z-index: 90;
   background-color: #f5f5f5;
 }
-section.searchPage section.header .searchSection .seeAdvanced {
-  display: block;
-}
 section.searchPage section.contents {
   padding-top: 8rem;
 }
-section.searchPage section.contents .container-fluid .sortSection {
+section.searchPage section.contents .container-fluid .advancedSection {
+  text-align: right;
+  width: fit-content;
+  float: right;
+  margin-bottom: -1rem;
+}
+section.searchPage section.contents .container-fluid .advancedSection .seeAdvanced {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  cursor: pointer;
+}
+section.searchPage section.contents .container-fluid .advancedSection .seeAdvanced p {
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  padding: 0.5rem 0.5rem 0.5rem 3rem;
+  font-size: 0.9rem;
+}
+section.searchPage section.contents .container-fluid .advancedSection .seeAdvanced i.fa-angle-down {
+  left: 1rem;
+  top: 0.4rem;
+  font-size: 30px;
+  position: absolute;
+}
+section.searchPage section.contents .container-fluid .advancedSection .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
+}
+section.searchPage section.contents .container-fluid .advanced {
+  background-color: #f5f5f5;
+  transition: 0.4s;
+  max-width: 40rem;
+  margin: auto;
+  position: absolute;
+  max-height: 40rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  z-index: 100;
+}
+section.searchPage section.contents .container-fluid .advanced input[type=radio] {
+  display: none;
+}
+section.searchPage section.contents .container-fluid .advanced label.radioLabel {
+  cursor: pointer;
+  width: 100%;
+  margin: 0 0.5rem;
+  text-align: center;
+  transition: 0.4s;
+  border: none;
+  border: 2px solid lightGray;
+  color: #333333;
+  padding: 0.5rem 0.4rem;
+  border-radius: 12px;
+  background-color: transparent;
+}
+section.searchPage section.contents .container-fluid .advanced .options {
+  text-align: right;
+  display: flex;
+  width: 100%;
+}
+section.searchPage section.contents .container-fluid .advanced .tag {
+  margin: 1rem auto;
+  padding: 0 2rem 0 1rem;
+}
+@media (max-width: 580px) {
+  section.searchPage section.contents .container-fluid .advanced .tag {
+    padding: 0 0.5rem;
+  }
+}
+section.searchPage section.contents .container-fluid .advanced .tag input {
+  padding: 0 0.1rem;
+}
+section.searchPage section.contents .container-fluid .advanced .tag .usedTags {
+  text-align: right;
+  display: inline-block;
+  padding-top: 1rem;
+}
+section.searchPage section.contents .container-fluid .advanced .tag .usedTags p {
+  display: inline-block;
+  display: inline-block;
+  border: 2px solid lightGray;
+  color: #333333;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+  border-radius: 12px;
+  background-color: transparent;
+  margin: 0rem 0.25rem 1rem;
+  position: relative;
+}
+section.searchPage section.contents .container-fluid .advanced .tag .usedTags p i {
+  transition: 0.4s;
+  color: #333333;
+  font-size: 20px;
+  position: relative;
+  font-weight: 500;
+  position: absolute;
+  right: 0.5rem;
+}
+section.searchPage section.contents .container-fluid .advanced .tag .usedTags p i:hover {
+  transition: 0.4s;
+  color: #B03066;
+}
+section.searchPage section.contents .container-fluid .advanced .category,
+section.searchPage section.contents .container-fluid .advanced .orientation, section.searchPage section.contents .container-fluid .advanced .type {
+  padding: 1.5rem 0;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.searchPage section.contents .container-fluid .advanced .category,
+section.searchPage section.contents .container-fluid .advanced .orientation, section.searchPage section.contents .container-fluid .advanced .type {
+    display: block;
+    padding: 0.5rem 0 1.5rem 0;
+  }
+}
+section.searchPage section.contents .container-fluid .advanced .category .title,
+section.searchPage section.contents .container-fluid .advanced .orientation .title, section.searchPage section.contents .container-fluid .advanced .type .title {
+  padding-top: 0.5rem;
+  width: 6rem;
+  text-align: right;
+  margin-right: 2rem;
+}
+@media (max-width: 580px) {
+  section.searchPage section.contents .container-fluid .advanced .category .title,
+section.searchPage section.contents .container-fluid .advanced .orientation .title, section.searchPage section.contents .container-fluid .advanced .type .title {
+    margin-right: 0;
+  }
+}
+section.searchPage section.contents .container-fluid .advanced .price {
+  padding: 1.5rem 0;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.searchPage section.contents .container-fluid .advanced .price {
+    display: block;
+    padding: 0.5rem 0 1.5rem 0;
+  }
+}
+section.searchPage section.contents .container-fluid .advanced .price .title {
+  padding-top: 0.5rem;
+  width: 6rem;
+  text-align: right;
+  margin-right: 2rem;
+}
+@media (max-width: 580px) {
+  section.searchPage section.contents .container-fluid .advanced .price .title {
+    margin-right: 0;
+  }
+}
+section.searchPage section.contents .container-fluid .selected {
+  transition: 0.4s;
+  border: none;
+  color: #B03066 !important;
+  box-shadow: 6px 6px 8px -5px #B03066, -2px -2px 10px -2px white !important;
+  font-weight: bold;
+}
+section.searchPage section.contents .container-fluid .advancedHidden {
+  transition: 0.4s;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+section.searchPage section.contents .sortSection {
   max-height: 2.5rem;
   display: block;
   margin: 1rem auto 1rem 0;
@@ -1568,62 +1594,62 @@ section.searchPage section.contents .container-fluid .sortSection {
   z-index: 50;
   position: relative;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting {
+section.searchPage section.contents .sortSection .sorting {
   background-color: #f5f5f5;
   border: 2px solid lightGray;
   width: 10rem;
   border-radius: 0.5rem;
   border-radius: 12px;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting .shownSort {
+section.searchPage section.contents .sortSection .sorting .shownSort {
   transition: 0.4s;
   cursor: pointer;
   position: relative;
   padding-left: 2rem;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting .shownSort:hover {
+section.searchPage section.contents .sortSection .sorting .shownSort:hover {
   color: #0098c5;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting .shownSort label {
+section.searchPage section.contents .sortSection .sorting .shownSort label {
   transition: 0.4s;
   display: inline-block;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting .shownSort i {
+section.searchPage section.contents .sortSection .sorting .shownSort i {
   transition: 0.4s;
   top: 0.5rem;
   position: absolute;
   left: 1rem;
   font-size: 1.5rem;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting .shownSort .rotated {
+section.searchPage section.contents .sortSection .sorting .shownSort .rotated {
   transition: 0.4s;
   transform: rotate(180deg);
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting label {
+section.searchPage section.contents .sortSection .sorting label {
   cursor: pointer;
   padding: 0.5rem;
   position: relative;
   display: block;
   font-size: 0.9rem;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting label.sortOption {
+section.searchPage section.contents .sortSection .sorting label.sortOption {
   padding: 0;
   transition: 0.4s;
   opacity: 0;
   overflow: hidden;
   max-height: 0;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting label:hover {
+section.searchPage section.contents .sortSection .sorting label:hover {
   transition: 0.4s;
   color: #0098c5;
 }
-section.searchPage section.contents .container-fluid .sortSection .sorting .show {
+section.searchPage section.contents .sortSection .sorting .show {
   padding: 0.5rem !important;
   opacity: 0.8 !important;
   max-height: 2.5rem !important;
   text-align: right;
 }
-section.searchPage section.contents .container-fluid .sortSection .opened {
+section.searchPage section.contents .sortSection .opened {
   transition: 0.4s;
   max-height: 100%;
   padding-bottom: 0.5rem;

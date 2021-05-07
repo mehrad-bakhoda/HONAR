@@ -412,167 +412,6 @@ section.header {
             }
         }
 
-        .seeAdvanced {
-            position: relative;
-            width: fit-content;
-            margin: auto;
-            display: none;
-            cursor: pointer;
-
-            p {
-                color: $pink-color;
-            }
-
-            i.fa-angle-down {
-                left: -1rem;
-                top: -0.2rem;
-                font-size: 30px;
-            }
-
-            .rotated {
-                transition: 0.4s;
-                transform: rotate(180deg);
-            }
-        }
-
-        .advanced {
-            background-color: $body-color;
-            transition: 0.4s;
-            max-width: 40rem;
-            margin: auto;
-            position: relative;
-            max-height: 40rem;
-            border: 2px solid lightgray;
-            border-radius: $radius;
-
-            input[type=radio] {
-                display: none;
-            }
-
-            label.radioLabel {
-                cursor: pointer;
-                width: 100%;
-                margin: 0 0.5rem;
-                text-align: center;
-                transition: 0.4s;
-                border: none;
-                border: 2px solid lightGray;
-                color: $text-color;
-                padding: 0.5rem 0.4rem;
-                border-radius: $radius;
-                background-color: transparent;
-            }
-
-            .options {
-                text-align: right;
-                display: flex;
-                width: 100%;
-            }
-
-            .tag {
-                margin: 1rem auto;
-                padding: 0 2rem 0 1rem;
-
-                @include xs {
-                    padding: 0 0.5rem;
-                }
-
-                input {
-                    padding: 0 0.1rem;
-                }
-
-                .usedTags {
-                    text-align: right;
-                    display: inline-block;
-                    padding-top: 1rem;
-
-                    p {
-                        display: inline-block;
-                        display: inline-block;
-                        border: 2px solid lightGray;
-                        color: $text-color;
-                        padding: 0.5rem 1.5rem 0.5rem 1rem;
-                        border-radius: $radius;
-                        background-color: transparent;
-                        margin: 0rem 0.25rem 1rem;
-                        position: relative;
-
-                        i {
-                            transition: 0.4s;
-                            color: $text-color;
-                            font-size: 20px;
-                            position: relative;
-                            font-weight: 500;
-                            position: absolute;
-                            right: 0.5rem;
-
-                            &:hover {
-                                transition: 0.4s;
-                                color: $pink-color;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .category,
-            .orientation, .type {
-                padding: 1.5rem 0;
-                display: flex;
-
-                @include xs {
-                    display: block;
-                    padding: 0.5rem 0 1.5rem 0;
-                }
-
-                .title {
-                    padding-top: 0.5rem;
-                    width: 6rem;
-                    text-align: right;
-                    margin-right: 2rem;
-
-                    @include xs {
-                        margin-right: 0;
-                    }
-                }
-            }
-
-            .price {
-                padding: 1.5rem 0;
-                display: flex;
-
-                @include xs {
-                    display: block;
-                    padding: 0.5rem 0 1.5rem 0;
-                }
-
-                .title {
-                    padding-top: 0.5rem;
-                    width: 6rem;
-                    text-align: right;
-                    margin-right: 2rem;
-
-                    @include xs {
-                        margin-right: 0;
-                    }
-                }
-            }
-        }
-
-        .selected {
-            transition: 0.4s;
-            border: none;
-            color: $pink-color !important;
-            box-shadow: $pink-shadow !important;
-            font-weight: bold;
-        }
-
-        .advancedHidden {
-            transition: 0.4s;
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-        }
     }
 }
 /*#endregion */
@@ -821,8 +660,17 @@ section.loginPage {
                             width: 11rem;
                             cursor: pointer;
                             text-align: center;
-                            color: $text-color;
+                            color: $pink-color;
+                            border: 2px solid $pink-color;
                             border-radius: $radius;
+                        }
+
+                        &:hover {
+                            &::before {
+                                transition: 0.4s;
+                                color: $blue-color !important;
+                                border: 2px solid $blue-color !important;
+                            }
                         }
                     }
 
@@ -926,6 +774,7 @@ section.loginPage {
 
                 &.info {
                     padding: 0;
+                    border: 0;
 
                     ul.nav-tabs {
                         border-radius: $radius;
@@ -937,7 +786,6 @@ section.loginPage {
                             background-color: transparent;
 
                             a.nav-link {
-                                border: 2px solid lightGray;
                                 color: $text-color;
                                 font-size: 20px;
                                 transition: 0.4s;
@@ -947,9 +795,19 @@ section.loginPage {
                                 border-top-right-radius: $radius;
                             }
 
+                            #tabDownH {
+                                border-right: 2px solid $body-color;
+                                border-bottom: 2px solid $pink-color;
+                            }
+
                             #tabDownH.active {
                                 border: 2px solid $blue-color;
                                 border-bottom: 0;
+                            }
+
+                            #tabUpH {
+                                border-left: 2px solid $body-color;
+                                border-bottom: 2px solid $blue-color;
                             }
 
                             #tabUpH.active {
@@ -993,10 +851,14 @@ section.loginPage {
                                     transition: background-color 400s ease-in-out 0s;
                                     background-color: $gray-color;
                                 }
-
-                                button:hover {
-                                    border: 2px solid lightGray;
+                                button {
                                     color: $pink-color;
+                                    border: 2px solid $pink-color;
+                                }
+                                button:hover {
+                                    transition: 0.4s;
+                                    border: 2px solid $blue-color;
+                                    color: $blue-color;
                                 }
                             }
 
@@ -1768,100 +1630,270 @@ section.searchPage {
         position: fixed;
         z-index: 90;
         background-color: $body-color;
-
-        .searchSection .seeAdvanced {
-            display: block;
-        }
     }
 
     section.contents {
         padding-top: 8rem;
 
         .container-fluid {
-            .sortSection {
-                max-height: 2.5rem;
-                display: block;
-                margin: 1rem auto 1rem 0;
+            .advancedSection {
+                text-align: right;
                 width: fit-content;
+                float: right;
+                margin-bottom: -1rem;
+
+                .seeAdvanced {
+                    position: relative;
+                    width: fit-content;
+                    margin: auto;
+                    cursor: pointer;
+
+                    p {
+                        border: 2px solid lightgray;
+                        border-radius: $radius;
+                        padding: 0.5rem 0.5rem 0.5rem 3rem;
+                        font-size: 0.9rem;
+                    }
+
+                    i.fa-angle-down {
+                        left: 1rem;
+                        top: 0.4rem;
+                        font-size: 30px;
+                        position: absolute;
+                    }
+                }
+
+                .rotated {
+                    transition: 0.4s;
+                    transform: rotate(180deg);
+                }
+            }
+
+            .advanced {
+                background-color: $body-color;
                 transition: 0.4s;
-                padding: 0.1rem 0 0 2rem;
-                z-index: 50;
-                position: relative;
+                max-width: 40rem;
+                margin: auto;
+                position: absolute;
+                max-height: 40rem;
+                border: 2px solid lightgray;
+                border-radius: $radius;
+                z-index: 100;
 
-                .sorting {
-                    background-color: $body-color;
+                input[type=radio] {
+                    display: none;
+                }
+
+                label.radioLabel {
+                    cursor: pointer;
+                    width: 100%;
+                    margin: 0 0.5rem;
+                    text-align: center;
+                    transition: 0.4s;
+                    border: none;
                     border: 2px solid lightGray;
-                    width: 10rem;
-                    border-radius: 0.5rem;
+                    color: $text-color;
+                    padding: 0.5rem 0.4rem;
                     border-radius: $radius;
+                    background-color: transparent;
+                }
 
-                    .shownSort {
-                        transition: 0.4s;
-                        cursor: pointer;
-                        position: relative;
-                        padding-left: 2rem;
+                .options {
+                    text-align: right;
+                    display: flex;
+                    width: 100%;
+                }
 
-                        &:hover {
-                            color: $blue-color;
-                        }
+                .tag {
+                    margin: 1rem auto;
+                    padding: 0 2rem 0 1rem;
 
-                        label {
-                            transition: 0.4s;
+                    @include xs {
+                        padding: 0 0.5rem;
+                    }
+
+                    input {
+                        padding: 0 0.1rem;
+                    }
+
+                    .usedTags {
+                        text-align: right;
+                        display: inline-block;
+                        padding-top: 1rem;
+
+                        p {
                             display: inline-block;
-                        }
+                            display: inline-block;
+                            border: 2px solid lightGray;
+                            color: $text-color;
+                            padding: 0.5rem 1.5rem 0.5rem 1rem;
+                            border-radius: $radius;
+                            background-color: transparent;
+                            margin: 0rem 0.25rem 1rem;
+                            position: relative;
 
-                        i {
-                            transition: 0.4s;
-                            top: 0.5rem;
-                            position: absolute;
-                            left: 1rem;
-                            font-size: 1.5rem;
-                        }
+                            i {
+                                transition: 0.4s;
+                                color: $text-color;
+                                font-size: 20px;
+                                position: relative;
+                                font-weight: 500;
+                                position: absolute;
+                                right: 0.5rem;
 
-                        .rotated {
-                            transition: 0.4s;
-                            transform: rotate(180deg);
+                                &:hover {
+                                    transition: 0.4s;
+                                    color: $pink-color;
+                                }
+                            }
                         }
+                    }
+                }
+
+                .category,
+                .orientation, .type {
+                    padding: 1.5rem 0;
+                    display: flex;
+
+                    @include xs {
+                        display: block;
+                        padding: 0.5rem 0 1.5rem 0;
+                    }
+
+                    .title {
+                        padding-top: 0.5rem;
+                        width: 6rem;
+                        text-align: right;
+                        margin-right: 2rem;
+
+                        @include xs {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                .price {
+                    padding: 1.5rem 0;
+                    display: flex;
+
+                    @include xs {
+                        display: block;
+                        padding: 0.5rem 0 1.5rem 0;
+                    }
+
+                    .title {
+                        padding-top: 0.5rem;
+                        width: 6rem;
+                        text-align: right;
+                        margin-right: 2rem;
+
+                        @include xs {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+
+            .selected {
+                transition: 0.4s;
+                border: none;
+                color: $pink-color !important;
+                box-shadow: $pink-shadow !important;
+                font-weight: bold;
+            }
+
+            .advancedHidden {
+                transition: 0.4s;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+            }
+        }
+
+        .sortSection {
+            max-height: 2.5rem;
+            display: block;
+            margin: 1rem auto 1rem 0;
+            width: fit-content;
+            transition: 0.4s;
+            padding: 0.1rem 0 0 2rem;
+            z-index: 50;
+            position: relative;
+
+            .sorting {
+                background-color: $body-color;
+                border: 2px solid lightGray;
+                width: 10rem;
+                border-radius: 0.5rem;
+                border-radius: $radius;
+
+                .shownSort {
+                    transition: 0.4s;
+                    cursor: pointer;
+                    position: relative;
+                    padding-left: 2rem;
+
+                    &:hover {
+                        color: $blue-color;
                     }
 
                     label {
-                        cursor: pointer;
-                        padding: 0.5rem;
-                        position: relative;
-                        display: block;
-                        font-size: 0.9rem;
-
-                        &.sortOption {
-                            padding: 0;
-                            transition: 0.4s;
-                            opacity: 0;
-                            overflow: hidden;
-                            max-height: 0;
-                        }
-
-                        &:hover {
-                            transition: 0.4s;
-                            color: $blue-color;
-                        }
+                        transition: 0.4s;
+                        display: inline-block;
                     }
 
-                    .show {
-                        padding: 0.5rem !important;
-                        opacity: 0.8 !important;
-                        max-height: 2.5rem !important;
-                        text-align: right;
+                    i {
+                        transition: 0.4s;
+                        top: 0.5rem;
+                        position: absolute;
+                        left: 1rem;
+                        font-size: 1.5rem;
+                    }
+
+                    .rotated {
+                        transition: 0.4s;
+                        transform: rotate(180deg);
                     }
                 }
 
-                .opened {
-                    transition: 0.4s;
-                    max-height: 100%;
-                    padding-bottom: 0.5rem;
+                label {
+                    cursor: pointer;
+                    padding: 0.5rem;
+                    position: relative;
+                    display: block;
+                    font-size: 0.9rem;
+
+                    &.sortOption {
+                        padding: 0;
+                        transition: 0.4s;
+                        opacity: 0;
+                        overflow: hidden;
+                        max-height: 0;
+                    }
+
+                    &:hover {
+                        transition: 0.4s;
+                        color: $blue-color;
+                    }
                 }
+
+                .show {
+                    padding: 0.5rem !important;
+                    opacity: 0.8 !important;
+                    max-height: 2.5rem !important;
+                    text-align: right;
+                }
+            }
+
+            .opened {
+                transition: 0.4s;
+                max-height: 100%;
+                padding-bottom: 0.5rem;
             }
         }
     }
 }
+
 /*#endregion */
 
 /*#region Cart Page */
