@@ -404,6 +404,7 @@ router.post("/login",[
               c = 1;
             }
             let verification=generateOTP.createNewOTP();
+  
             smsPannel.sendSMS(verification,req.body.loginInput);
 
             const user = new User({
@@ -826,6 +827,12 @@ router.post("/upload", function(req, res){
                 if((tagsarr[i].includes("#") && tagsarr[i].length == 1) || !tagsarr[i].includes("#"))
                 {
                   delete tagsarr[i];
+                }else{
+                  systemError=[
+                    errorMessage="تگ های شما ثپت نشد از # استفاده کنید",
+                    code="111"
+                  ]
+
                 }
               }
               tagsarr = tagsarr.filter(function(e){return e});
@@ -844,7 +851,8 @@ router.post("/upload", function(req, res){
                 mediumPrice:fields.mediumPrice,
                 smallPrice:fields.smallPrice,
                 user:found,
-                dateAdded:new Date()
+                dateAdded:new Date(),
+                systemMessage:systemError
               });
               newProduct.save();
               found.products.push(newProduct);

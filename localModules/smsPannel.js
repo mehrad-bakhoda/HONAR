@@ -3,18 +3,20 @@ const generateOTP = require("./generateOTP.js");
 		const request = require('request');
 
     function sendSMS(verificationCode,phoneNumber){
+
       const request = require('request');
                         request.post({
                             url: 'http://ippanel.com/api/select',
                             body: {
           "op":"pattern",
-          "user":process.env.SMS_PANNEL_USER,
-          "pass":process.env.SMS_PANNEL_PASSWORD,
-          "fromNum":process.env.SMS_PANNEL_USING_NUMBER,
+          "user":`${process.env.SMS_PANNEL_USER}`,
+          "pass":`${process.env.SMS_PANNEL_PASSWORD}`,
+          "fromNum":`${process.env.SMS_PANNEL_USING_NUMBER}`,
           "toNum":`${phoneNumber}`,
-          "patternCode":process.env.SMS_PANNEL_PATTERN_KEY,
+          "patternCode":`${process.env.SMS_PANNEL_PATTERN_KEY}`,
           "inputData":[
-              {"code":verificationCode},
+              {"verification-code":verificationCode},
+              
             ]
         },
                             json: true,

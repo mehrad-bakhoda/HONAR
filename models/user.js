@@ -71,6 +71,10 @@ const userSchema = new mongoose.Schema({
     type:String,
     }
 }],
+systemMessage:[{
+  message:String,
+  code:String
+}]
 });
 // userSchema.plugin(passportLocalMongoose);
 //exporting the userSchema model
