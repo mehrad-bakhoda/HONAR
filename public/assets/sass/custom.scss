@@ -21,6 +21,7 @@ body {
     max-width: 90rem;
     width: 100%;
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 section.contents {
@@ -103,7 +104,7 @@ textarea:focus {
 /*#region Notification*/
 .notif {
     transition: 0.4s;
-    position: absolute;
+    position: fixed;
     top: 5rem;
     right: -100rem;
     border-top-left-radius: $radius;
@@ -321,6 +322,7 @@ section.header {
                             background-color: $body-color;
                             color: $blue-color;
                             border-radius: 2px;
+                            min-width: 1rem;
                         }
                     }
 
@@ -571,6 +573,13 @@ section.homePage {
 /*#region Login Page */
 section.loginPage {
     section.contents {
+        padding: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+
         .container-fluid {
             @include xxs {
                 padding: 0;
@@ -851,10 +860,12 @@ section.loginPage {
                                     transition: background-color 400s ease-in-out 0s;
                                     background-color: $gray-color;
                                 }
+
                                 button {
                                     color: $pink-color;
                                     border: 2px solid $pink-color;
                                 }
+
                                 button:hover {
                                     transition: 0.4s;
                                     border: 2px solid $blue-color;
@@ -1276,6 +1287,7 @@ section.detailPage {
                 }
 
                 p {
+                    padding-right: 1rem;
                     text-align: justify;
                 }
             }
@@ -1914,6 +1926,7 @@ section.cartPage {
                     color: $pink-color;
                     font-size: 8rem;
                     padding: 2rem;
+                    display: block;
 
                     @include xs {
                         font-size: 5rem;
@@ -1934,9 +1947,15 @@ section.cartPage {
                                     text-align: center;
                                 }
 
+                                border-radius: $radius;
                                 border: 2px solid lightGray;
                                 background-color: transparent;
                                 padding: 1rem;
+
+                                .row.bottom {
+                                    width:100%;
+                                    margin: auto;
+                                }
 
                                 .image {
                                     position: relative;
@@ -1989,6 +2008,36 @@ section.cartPage {
                     }
                 }
 
+                .sale {
+                    position: relative;
+                    padding: 1rem 0 2rem;
+                    input {
+                        padding:0.5rem;
+                        height: 2.5rem;
+                        border-radius: $radius;
+                        width: 100%;
+                        border: 2px solid lightgray;
+                        background-color: $body-color;
+                    }
+
+                    button {
+                        left:0;
+                        position: absolute;
+                        transition: 0.4s;
+                        padding: 0.3rem 1rem;
+                        color: $blue-color;
+                        border: 2px solid $blue-color;
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+
+                        &:hover {
+                            transition: 0.4s;
+                            color: $pink-color;
+                            border: 2px solid $pink-color;
+                        }
+                    }
+                }
+
                 .total {
                     padding: 1rem;
 
@@ -2003,9 +2052,15 @@ section.cartPage {
                     .buttons {
                         button.payment {
                             transition: 0.4s;
-                            padding: 1rem 3rem;
+                            padding: 0.5rem 2rem;
                             color: $blue-color;
-                            border: 2px solid lightGray;
+                            border: 2px solid $blue-color;
+
+                            &:hover {
+                                transition: 0.4s;
+                                color: $pink-color;
+                                border: 2px solid $pink-color;
+                            }
                         }
                     }
                 }
@@ -2020,6 +2075,7 @@ section.dashboardPage {
     section.contents {
         .container-fluid {
             .part {
+                transition:0.4s;
                 max-width: 40rem;
                 margin: 1rem auto;
                 border: 2px solid lightGray;
@@ -2032,7 +2088,8 @@ section.dashboardPage {
                     background-color: transparent;
 
 
-                    h4 {
+                    h5 {
+                        transition: 0.4s;
                         color: $text-color;
                         margin-bottom: 0;
                         text-align: right;
@@ -2040,7 +2097,6 @@ section.dashboardPage {
                         i.fa-angle-down {
                             float: left;
                             transition: 0.4s;
-                            width: 2rem;
                             font-weight: 500;
                         }
 
@@ -2139,6 +2195,43 @@ section.dashboardPage {
                     }
                 }
 
+                &.notifs {
+                    .card.notifCard {
+                        
+                        border-radius: $radius;
+                        border: 2px solid lightgray;
+                        margin: 1rem auto;
+                        background-color: $body-color;
+                        .title {
+                            padding: 0.5rem;
+                            color: $blue-color;
+                            border-bottom: 1px solid lightgray;
+                        }
+
+                        p {
+                            padding: 0.5rem 1rem;
+                            color: $text-color;
+                        }
+
+                        &.error .title {
+                            color: $error-color;
+                        }
+
+                        &.success .title {
+                            color: #00ec07;
+                        }
+                    }
+
+                    .collapseContent {
+                        max-height: 40rem;
+                        overflow: auto;
+                    }
+
+                    .contentHidden{
+                        max-height: 0;
+                    }
+                }
+
                 &.personalInfo {
                     .collapseContent {
                         input {
@@ -2150,6 +2243,7 @@ section.dashboardPage {
                             width: 100%;
                             height: 2.5rem;
                             margin-bottom: 2rem;
+                            border-radius: $radius;
 
                             &.codeInput {
                                 padding: 0;
@@ -2359,6 +2453,7 @@ section.dashboardPage {
                                     border: 2px solid lightGray;
                                     background-color: transparent;
                                     padding: 1rem;
+                                    border-radius: $radius;
 
                                     .image {
                                         position: relative;
@@ -2375,7 +2470,6 @@ section.dashboardPage {
                                                 transition: 0.4s;
                                                 max-height: 4rem;
                                                 border-radius: $radius;
-                                                box-shadow: $image-shadow;
                                                 max-width: 4rem;
                                                 width: auto;
                                                 margin: 0 auto;
@@ -2457,7 +2551,7 @@ section.dashboardPage {
                                 &:hover {
                                     transition: 0.4s;
                                     color: $blue-color !important;
-                                    border: 2px solid lightGray;
+                                    border: 2px solid $blue-color;
                                 }
                             }
                         }
@@ -2475,11 +2569,21 @@ section.dashboardPage {
                 }
 
                 .contentHidden {
+                    padding-top: 0;
                     transition: 0.4s;
                     max-height: 0;
                     visibility: hidden;
                     opacity: 0;
                     overflow: hidden;
+                }
+            }
+
+            .opened {
+                transition:0.4s;
+                border: 2px solid $blue-color;
+                .header h5 {
+                    transition: 0.4s;
+                    color:$blue-color;
                 }
             }
 

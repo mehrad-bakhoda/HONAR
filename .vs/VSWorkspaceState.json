@@ -3,12 +3,10 @@
     "",
     "\\public",
     "\\public\\assets",
-    "\\public\\assets\\images",
     "\\public\\assets\\js",
-    "\\public\\assets\\sass",
     "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\public\\assets\\js\\header.js",
+  "SelectedNode": "\\public\\assets\\js\\dashboard.js",
   "PreviewInSolutionExplorer": false
 }
