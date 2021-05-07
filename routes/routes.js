@@ -5,15 +5,23 @@ var Product = require('../models/product');
 var Cart = require("../cart");
 var Order = require('../models/order');
 const Jimp=require("jimp");
-		const request = require('request');
+
 // const bodyParser=require("body-parser");
 const { check, validationResult } = require('express-validator');
 
 const fs = require("fs");
 const generateOTP = require("../localModules/generateOTP.js");
+const smsPannel = require("../localModules/smsPannel.js");
 const formidable = require('formidable');
 // const urlencodedParser =bodyParser.urlencoded({extended:false});
 const path = require("path");
+
+
+
+
+
+
+
 
 
 
@@ -358,30 +366,8 @@ router.post("/login",[
                   console.log('"' + req.body.loginInput+'"'+" verify code updated!");
                 }
               });
-              const request = require('request');
-                                request.post({
-                                    url: 'http://ippanel.com/api/select',
-                                    body: {
-        					"op":"pattern",
-        					"user":"09191234617",
-        					"pass":"0063246155",
-        					"fromNum":"3000505",
-        					"toNum":`${req.body.loginInput}`,
-        					"patternCode":"7p5vaacw1w",
-        					"inputData":[
-        							{"code":found.verifyCode},
-        						]
-        				},
-                                    json: true,
-                                }, function (error, response, body) {
-                                    if (!error && response.statusCode === 200) {
-        				//YOU‌ CAN‌ CHECK‌ THE‌ RESPONSE‌ AND SEE‌ ERROR‌ OR‌ SUCCESS‌ MESSAGE
-                                        console.log(response.body);
-                                    } else {
-        				console.log("failed");
 
-                                    }
-                                });
+              smsPannel.sendSMS(found.verifyCode,req.body.loginInput);
 
               res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
             }
@@ -398,30 +384,7 @@ router.post("/login",[
                 console.log('"' + req.body.loginInput+'"'+" verify code updated!");
               }
             });
-            const request = require('request');
-                              request.post({
-                                  url: 'http://ippanel.com/api/select',
-                                  body: {
-      					"op":"pattern",
-      					"user":"09191234617",
-      					"pass":"0063246155",
-      					"fromNum":"3000505",
-      					"toNum":`${req.body.loginInput}`,
-      					"patternCode":"7p5vaacw1w",
-      					"inputData":[
-      							{"code":found.verifyCode},
-      						]
-      				},
-                                  json: true,
-                              }, function (error, response, body) {
-                                  if (!error && response.statusCode === 200) {
-      				//YOU‌ CAN‌ CHECK‌ THE‌ RESPONSE‌ AND SEE‌ ERROR‌ OR‌ SUCCESS‌ MESSAGE
-                                      console.log(response.body);
-                                  } else {
-      				console.log("failed");
-
-                                  }
-                              });
+            smsPannel.sendSMS(found.verifyCode,req.body.loginInput);
 
             res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
           }
@@ -441,30 +404,7 @@ router.post("/login",[
               c = 1;
             }
             let verification=generateOTP.createNewOTP();
-            const request = require('request');
-                              request.post({
-                                  url: 'http://ippanel.com/api/select',
-                                  body: {
-      					"op":"pattern",
-      					"user":"09191234617",
-      					"pass":"0063246155",
-      					"fromNum":"3000505",
-      					"toNum":`${req.body.loginInput}`,
-      					"patternCode":"7p5vaacw1w",
-      					"inputData":[
-      							{"code":verification},
-      						]
-      				},
-                                  json: true,
-                              }, function (error, response, body) {
-                                  if (!error && response.statusCode === 200) {
-      				//YOU‌ CAN‌ CHECK‌ THE‌ RESPONSE‌ AND SEE‌ ERROR‌ OR‌ SUCCESS‌ MESSAGE
-                                      console.log(response.body);
-                                  } else {
-      				console.log("failed");
-
-                                  }
-                              });
+            smsPannel.sendSMS(verification,req.body.loginInput);
 
             const user = new User({
               unique_id: c,
