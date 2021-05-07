@@ -2,3 +2,4 @@
 /public/covers
 
 .vercel
+node_modules
