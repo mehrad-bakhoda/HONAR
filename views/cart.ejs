@@ -1,6 +1,4 @@
 ﻿<%-include("head");-%>
-
-<%-include("uploadButton");-%>
 <section class="page cartPage">
     <%-include("headerN");-%>
     <section class="contents">
@@ -105,11 +103,11 @@
                 <div class="col-md-3 col-sm-12 total">
                     <div class="card">
                         <div class="count">
-                            <h4> تعداد کالاها </h4>
+                            <h5> تعداد کالاها </h5>
                             <p> <%=totalQty%> </p>
                         </div>
                         <div class="cost">
-                            <h4> قیمت نهایی </h4>
+                            <h5> قیمت نهایی </h5>
                             <p>
                                 <% if(totalPrice == 0){%>
                                 رایگان
@@ -121,6 +119,10 @@
 
                             </p>
                         </div>
+                        <form class="sale">
+                            <input type="text" placeholder="کد تخفیف..."/>
+                            <button type="submit"> تایید کد </button> 
+                        </form>
                         <div class="buttons">
                             <a href="/orderConfirm">
                             <button type="button" class="payment">

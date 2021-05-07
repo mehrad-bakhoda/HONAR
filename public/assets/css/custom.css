@@ -28,6 +28,7 @@ body {
   max-width: 90rem;
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 section.contents {
@@ -108,7 +109,7 @@ textarea:focus {
 /*#region Notification*/
 .notif {
   transition: 0.4s;
-  position: absolute;
+  position: fixed;
   top: 5rem;
   right: -100rem;
   border-top-left-radius: 12px;
@@ -303,6 +304,7 @@ section.header .navbar .container-fluid .leftSide a.cart span {
   background-color: #f5f5f5;
   color: #0098c5;
   border-radius: 2px;
+  min-width: 1rem;
 }
 section.header .navbar .container-fluid .leftSide a.profile {
   left: 2.5rem;
@@ -511,6 +513,14 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
 
 /*#endregion */
 /*#region Login Page */
+section.loginPage section.contents {
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
 @media (max-width: 480px) {
   section.loginPage section.contents .container-fluid {
     padding: 0;
@@ -1121,6 +1131,7 @@ section.detailPage section.contents .container-fluid .description h5 {
   padding: 0 0 1rem;
 }
 section.detailPage section.contents .container-fluid .description p {
+  padding-right: 1rem;
   text-align: justify;
 }
 section.detailPage section.contents .container-fluid .related {
@@ -1670,6 +1681,7 @@ section.cartPage section.contents .container-fluid .empty i {
   color: #B03066;
   font-size: 8rem;
   padding: 2rem;
+  display: block;
 }
 @media (max-width: 580px) {
   section.cartPage section.contents .container-fluid .empty i {
@@ -1683,6 +1695,7 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   padding: 1rem;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
+  border-radius: 12px;
   border: 2px solid lightGray;
   background-color: transparent;
   padding: 1rem;
@@ -1691,6 +1704,10 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item {
     text-align: center;
   }
+}
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .row.bottom {
+  width: 100%;
+  margin: auto;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-md-12 .item .image {
   position: relative;
@@ -1733,6 +1750,33 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   color: #d14774;
   border: 2px solid #d14774;
 }
+section.cartPage section.contents .container-fluid .row.top .sale {
+  position: relative;
+  padding: 1rem 0 2rem;
+}
+section.cartPage section.contents .container-fluid .row.top .sale input {
+  padding: 0.5rem;
+  height: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  border: 2px solid lightgray;
+  background-color: #f5f5f5;
+}
+section.cartPage section.contents .container-fluid .row.top .sale button {
+  left: 0;
+  position: absolute;
+  transition: 0.4s;
+  padding: 0.3rem 1rem;
+  color: #0098c5;
+  border: 2px solid #0098c5;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+section.cartPage section.contents .container-fluid .row.top .sale button:hover {
+  transition: 0.4s;
+  color: #B03066;
+  border: 2px solid #B03066;
+}
 section.cartPage section.contents .container-fluid .row.top .total {
   padding: 1rem;
 }
@@ -1745,14 +1789,20 @@ section.cartPage section.contents .container-fluid .row.top .total .card {
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
   transition: 0.4s;
-  padding: 1rem 3rem;
+  padding: 0.5rem 2rem;
   color: #0098c5;
-  border: 2px solid lightGray;
+  border: 2px solid #0098c5;
+}
+section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
+  transition: 0.4s;
+  color: #B03066;
+  border: 2px solid #B03066;
 }
 
 /*#endregion */
 /*#region Dashboard Page */
 section.dashboardPage section.contents .container-fluid .part {
+  transition: 0.4s;
   max-width: 40rem;
   margin: 1rem auto;
   border: 2px solid lightGray;
@@ -1764,18 +1814,18 @@ section.dashboardPage section.contents .container-fluid .part .header {
   cursor: pointer;
   background-color: transparent;
 }
-section.dashboardPage section.contents .container-fluid .part .header h4 {
+section.dashboardPage section.contents .container-fluid .part .header h5 {
+  transition: 0.4s;
   color: #333333;
   margin-bottom: 0;
   text-align: right;
 }
-section.dashboardPage section.contents .container-fluid .part .header h4 i.fa-angle-down {
+section.dashboardPage section.contents .container-fluid .part .header h5 i.fa-angle-down {
   float: left;
   transition: 0.4s;
-  width: 2rem;
   font-weight: 500;
 }
-section.dashboardPage section.contents .container-fluid .part .header h4 .rotated {
+section.dashboardPage section.contents .container-fluid .part .header h5 .rotated {
   transition: 0.4s;
   transform: rotate(180deg);
 }
@@ -1846,6 +1896,34 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
 section.dashboardPage section.contents .container-fluid .part.top .bio p {
   text-align: justify;
 }
+section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard {
+  border-radius: 12px;
+  border: 2px solid lightgray;
+  margin: 1rem auto;
+  background-color: #f5f5f5;
+}
+section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard .title {
+  padding: 0.5rem;
+  color: #0098c5;
+  border-bottom: 1px solid lightgray;
+}
+section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard p {
+  padding: 0.5rem 1rem;
+  color: #333333;
+}
+section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard.error .title {
+  color: #d14774;
+}
+section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard.success .title {
+  color: #00ec07;
+}
+section.dashboardPage section.contents .container-fluid .part.notifs .collapseContent {
+  max-height: 40rem;
+  overflow: auto;
+}
+section.dashboardPage section.contents .container-fluid .part.notifs .contentHidden {
+  max-height: 0;
+}
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
   transition: 0.4s;
   border: none;
@@ -1855,6 +1933,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   width: 100%;
   height: 2.5rem;
   margin-bottom: 2rem;
+  border-radius: 12px;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input.codeInput {
   padding: 0;
@@ -2034,6 +2113,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   border: 2px solid lightGray;
   background-color: transparent;
   padding: 1rem;
+  border-radius: 12px;
 }
 @media (max-width: 580px) {
   section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item {
@@ -2055,7 +2135,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   transition: 0.4s;
   max-height: 4rem;
   border-radius: 12px;
-  box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 4rem;
   width: auto;
   margin: 0 auto;
@@ -2124,7 +2203,7 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
   transition: 0.4s;
   color: #0098c5 !important;
-  border: 2px solid lightGray;
+  border: 2px solid #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   padding-top: 1rem;
@@ -2136,11 +2215,20 @@ section.dashboardPage section.contents .container-fluid .part .collapseContent {
   background-color: transparent;
 }
 section.dashboardPage section.contents .container-fluid .part .contentHidden {
+  padding-top: 0;
   transition: 0.4s;
   max-height: 0;
   visibility: hidden;
   opacity: 0;
   overflow: hidden;
+}
+section.dashboardPage section.contents .container-fluid .opened {
+  transition: 0.4s;
+  border: 2px solid #0098c5;
+}
+section.dashboardPage section.contents .container-fluid .opened .header h5 {
+  transition: 0.4s;
+  color: #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .products .buttons {
   padding-top: 4rem;
