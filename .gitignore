@@ -1,2 +1,5 @@
 /uploads
 /public/covers
+
+node_modules
+npm-debug.log

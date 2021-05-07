@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,30 +21,28 @@
   },
   "homepage": "https://github.com/BlueShdw/HONAR#readme",
   "dependencies": {
-    "@admin-bro/express": "^3.1.0",
-    "@admin-bro/mongoose": "^1.1.0",
-    "admin-bro": "^3.4.0",
-    "admin-bro-expressjs": "^2.1.1",
-    "admin-bro-mongoose": "^0.5.2",
-    "argon2": "^0.27.1",
+    "argon2": "^0.27.2",
     "body-parser": "^1.19.0",
-    "connect-mongo": "^4.4.0",
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^9.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.1",
-    "express-validator": "^6.10.0",
+    "express-validator": "^6.10.1",
     "formidable": "^1.2.2",
     "fs": "0.0.1-security",
     "jimp": "^0.16.1",
     "lodash": "^4.17.21",
-    "mongodb": "^3.6.5",
-    "mongoose": "^5.12.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.7",
+    "otp-generator": "^2.0.0",
     "path": "^0.12.7",
-    "react": "^17.0.1",
-    "sass": "^1.32.8",
-    "tslib": "^2.1.0"
+    "react": "^17.0.2",
+    "sass": "^1.32.12",
+    "tslib": "^2.2.0"
   },
   "devDependencies": {
-    "@rollup/plugin-replace": "^2.4.1"
+    "@rollup/plugin-replace": "^2.4.2"
   }
 }

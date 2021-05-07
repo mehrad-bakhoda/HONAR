@@ -8,10 +8,10 @@
             <div class="top part">
                 <div class="col-12 summary">
                     <div class="picture">
-                        <% if (user.profilePhotoLocation == "no picture" || user.profilePhotoLocation === undefined){%>
+                        <% if (user.profilePicPath == "no picture" || user.profilePicPath === undefined){%>
                         <i class="fal fa-user fa-3x"></i>
                         <%}else{%>
-                        <img src="/<%=user.profilePhotoLocation%>" />
+                        <img src="<%=user.profilePicPath%>" />
                         <% }%>
                     </div>
                     <div class="bottom">
