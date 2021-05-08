@@ -15,6 +15,8 @@ const smsPannel = require("../localModules/smsPannel.js");
 const formidable = require('formidable');
 // const urlencodedParser =bodyParser.urlencoded({extended:false});
 const path = require("path");
+let statusMessage=[];
+
 
 
 
@@ -849,13 +851,27 @@ router.post("/upload", function(req, res){
                 dateAdded:new Date(),
                
               });
-              let statusMessage=[];
+             
+              if (statusMessage.length===4){
+                statusMessage=[];
+                }
               statusMessage.push({message:`${fields.fileName} upload was succesfull`,code:"000"});
-              User.updateOne({unique_id: req.session.userId},{message:statusMessage});
+
+              User.bulkWrite([
+                {
+                updateMany:{
+                  filter:{unique_id:req.session.userId},
+                  update:{message:statusMessage
+                }
+                }
+              }
+              ]).then(err=>{console.log("Status updated succesfuly");})
+
+
               newProduct.save();
               found.products.push(newProduct);
               found.save();
-              console.log(statusMessage);
+
 
 
 

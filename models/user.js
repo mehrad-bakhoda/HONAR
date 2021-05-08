@@ -64,8 +64,8 @@ const userSchema = new mongoose.Schema({
     default: false
   },
   message: [{
-      type:String,
-
+    message:String,
+    code:String 
   }],
   products:[{
     product:{

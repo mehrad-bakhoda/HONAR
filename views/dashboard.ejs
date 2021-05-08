@@ -58,7 +58,8 @@
                     
                 </div>
                 <div class="collapseContent contentHidden">
-                    <% statusMessage.forEach(function(message) { %>
+                    <%if(statusMessage.length){%>
+                    <% statusMessage.slice().reverse().forEach(function(message) { %>
  
                         <%if(message.code==="000"){%>
                             <div class="card notifCard success">
@@ -92,15 +93,17 @@
                                 </div>
                             </div>
 
+
                        <% }%>
                        <% })%>
-                       <%if(statusMessage.length=1){%>
+                       <%}else{%>
                         <div class="card notifCard">
                             <div class="mesage">
                                 <p> هیج پیامی ندارید</p>
                             </div>
                         </div>
                        <%}%>
+
 
                 </div>
             </div>
@@ -252,16 +255,21 @@
                     <%}%>
 
                 </div>
-                <% if (searched.legth >= 4) { %>
-                <div class="buttons">
+               <% for(var i=4;i<searched.length;i=i+4){%>
+                    <% if (searched.length>i) { %>
 
-                    <button type="button" class="seeMore">
-                        مشاهده بیشتر
-                        <i class="fal fa-angle-down"></i>
-                    </button>
+                            <div class="buttons">
+        
+                                <button type="button" class="seeMore">
+                                    مشاهده بیشتر
+                                    <i class="fal fa-angle-down"></i>
+                                </button>
+            
+                            </div>
+                        
+                        <% } %>
+                <%}%>
 
-                </div>
-                <% } %>
             </div>
             <%}%>
         </div>
