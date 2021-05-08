@@ -1696,6 +1696,12 @@ section.searchPage {
                     transition: 0.4s;
                     transform: rotate(180deg);
                 }
+
+                @include xxs {
+                    p {
+                        padding: 0.5rem 0.5rem 0.5rem 2rem !important;
+                    }
+                }
             }
 
             .advanced {
@@ -1915,6 +1921,14 @@ section.searchPage {
                     opacity: 0.8 !important;
                     max-height: 2.5rem !important;
                     text-align: right;
+                }
+
+                @include xxs {
+                    width: 9rem;
+
+                    i {
+                        left: 0.5rem !important;
+                    }
                 }
             }
 
