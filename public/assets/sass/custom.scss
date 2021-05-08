@@ -25,6 +25,7 @@ body {
 }
 
 section.contents {
+    min-height: calc(100vh - 10rem);
     padding: 3rem 0 1rem;
 
     @include md {
@@ -343,7 +344,7 @@ section.header {
         z-index: 100;
         position: absolute;
         margin: 0;
-        top: 3.5rem;
+        top: 4rem;
         left: 50%;
         transform: translate(-50%);
         text-align: center;
@@ -375,7 +376,7 @@ section.header {
             transition: 0.4s;
             border: none;
             background-color: transparent;
-            height: 3.5rem;
+            height: 3rem;
             width: 100%;
             padding: 0.25rem 0.5rem 0.25rem 4rem;
             color: $text-color;
@@ -396,7 +397,7 @@ section.header {
 
             i.fa-search {
                 transition: 0.4s;
-                height: 3.5rem;
+                height: 3rem;
                 padding-top: 0.75rem;
                 width: 3.5rem;
                 left: 0rem;
@@ -574,11 +575,8 @@ section.homePage {
 section.loginPage {
     section.contents {
         padding: 0;
-        position: absolute;
-        left: 50%;
-        top: 50%;
         width: 100%;
-        transform: translate(-50%, -50%);
+        position: relative;
 
         .container-fluid {
             @include xxs {
@@ -586,6 +584,10 @@ section.loginPage {
             }
 
             .card {
+                left: 50%;
+                top: calc(50% - 4rem);
+                transform: translate(-50%, -50%);
+                position: absolute;
                 margin-top: 5rem;
                 padding: 2rem;
                 max-width: 40rem;
@@ -597,6 +599,8 @@ section.loginPage {
 
                 &.info {
                     box-shadow: none;
+                    top: 0;
+                    transform: translate(-50%, 0);
                 }
 
                 @include sm {
@@ -626,12 +630,12 @@ section.loginPage {
                         padding: 0;
                         text-align: center;
                         font-size: 25px;
-                        width: 2rem;
+                        width: 2.5rem;
                         margin: 0 0.5rem;
                         display: flex;
 
                         @include xs {
-                            width: 1.5rem;
+                            width: 1.8rem;
                             margin: 0 0.3rem;
                         }
                     }
@@ -646,63 +650,7 @@ section.loginPage {
                     outline: none;
                 }
 
-                .uploadPic {
-                    position: relative;
 
-                    input[type=file] {
-                        padding: 0;
-                        visibility: hidden;
-                        width: 14rem;
-                        margin-right: -1rem;
-                        height: 3.5rem;
-                        position: relative;
-
-                        &::before {
-                            visibility: visible;
-                            margin-right: 1rem;
-                            transition: 0.4s;
-                            content: "آپلود تصویر کاربری";
-                            font-size: 18px;
-                            position: absolute;
-                            background-color: transparent;
-                            padding: 0.5rem 1rem;
-                            width: 11rem;
-                            cursor: pointer;
-                            text-align: center;
-                            color: $pink-color;
-                            border: 2px solid $pink-color;
-                            border-radius: $radius;
-                        }
-
-                        &:hover {
-                            &::before {
-                                transition: 0.4s;
-                                color: $blue-color !important;
-                                border: 2px solid $blue-color !important;
-                            }
-                        }
-                    }
-
-                    i {
-                        position: absolute;
-                        right: 12rem;
-                        color: $text-color;
-                        font-size: 1.2rem;
-                        top: 5rem;
-                        width: 1.2rem;
-                        height: 1.2rem;
-
-                        &.fa-check-circle {
-                            color: $pink-color;
-                        }
-                    }
-
-                    .hidden {
-                        transition: 0.4s;
-                        opacity: 0;
-                        visibility: hidden;
-                    }
-                }
 
                 textarea {
                     transition: 0.4s;
@@ -870,6 +818,64 @@ section.loginPage {
                                     transition: 0.4s;
                                     border: 2px solid $blue-color;
                                     color: $blue-color;
+                                }
+
+                                .uploadPic {
+                                    position: relative;
+
+                                    input[type=file] {
+                                        padding: 0;
+                                        visibility: hidden;
+                                        width: 14rem;
+                                        margin-right: -1rem;
+                                        height: 3.5rem;
+                                        position: relative;
+
+                                        &::before {
+                                            visibility: visible;
+                                            margin-right: 1rem;
+                                            transition: 0.4s;
+                                            content: "آپلود تصویر کاربری";
+                                            font-size: 18px;
+                                            position: absolute;
+                                            background-color: transparent;
+                                            padding: 0.5rem 1rem;
+                                            width: 11rem;
+                                            cursor: pointer;
+                                            text-align: center;
+                                            color: $pink-color;
+                                            border: 2px solid $pink-color;
+                                            border-radius: $radius;
+                                        }
+
+                                        &:hover {
+                                            &::before {
+                                                transition: 0.4s;
+                                                color: $blue-color !important;
+                                                border: 2px solid $blue-color !important;
+                                            }
+                                        }
+                                    }
+
+                                    i {
+                                        position: absolute;
+                                        right: 12rem;
+                                        color: $text-color;
+                                        font-size: 1.2rem;
+                                        top: 5rem;
+                                        width: 1.2rem;
+                                        height: 1.2rem;
+
+                                        &.fa-check-circle {
+                                            color: $pink-color;
+                                        }
+                                    }
+
+                                    .hidden {
+                                        transition: 0.4s;
+                                        opacity: 0;
+                                        visibility: hidden;
+                                    }
                                 }
                             }
 
@@ -1422,14 +1428,14 @@ Section.uploadPage {
                         width: 100%;
                         padding-right: 0.4rem;
                         border: none;
-                        border-bottom: 2px solid $text-color;
+                        border: 2px solid lightgray;
                         color: $text-color;
                         background-color: transparent;
+                        border-radius: $radius;
 
                         &:focus {
                             transition: 0.4s;
                             outline: none;
-                            border-bottom: 2px solid $blue-color;
                         }
 
                         &.nameInput {
@@ -1481,10 +1487,19 @@ Section.uploadPage {
                             width: 11rem;
                             cursor: pointer;
                             text-align: center;
-                            color: $text-color;
+                            color: $blue-color;
                             border-radius: $radius;
                         }
+
+                        &:hover {
+                            &::before {
+                                transition: 0.4s;
+                                color: $pink-color !important;
+                                border: 2px solid $pink-color !important;
+                            }
+                        }
                     }
+
 
                     i {
                         position: absolute;
@@ -1514,15 +1529,17 @@ Section.uploadPage {
                         transition: 0.4s;
                         background-color: transparent;
                         border: none;
-                        border-bottom: 2px solid $text-color;
+                        border: 2px solid lightgray;
                         width: 11rem;
                         height: 100%;
+                        height: 2.5rem;
+                        padding: 0.5rem;
+                        border-radius: $radius;
                         padding-left: 3rem;
 
                         &:focus {
                             transition: 0.4s;
                             outline: none;
-                            border-bottom: 2px solid $blue-color;
                         }
                     }
 
@@ -1625,7 +1642,7 @@ Section.uploadPage {
                     transition: 0.4s;
                     border: none;
                     color: $blue-color !important;
-                    border: 2px solid lightGray !important;
+                    border: 2px solid $blue-color !important;
                     font-weight: bold;
                 }
             }
@@ -1679,6 +1696,12 @@ section.searchPage {
                     transition: 0.4s;
                     transform: rotate(180deg);
                 }
+
+                @include xxs {
+                    p {
+                        padding: 0.5rem 0.5rem 0.5rem 2rem !important;
+                    }
+                }
             }
 
             .advanced {
@@ -1691,6 +1714,11 @@ section.searchPage {
                 border: 2px solid lightgray;
                 border-radius: $radius;
                 z-index: 100;
+
+                @include sm {
+                    width: calc(100% - 1.7rem);
+                    padding: 0.5rem;
+                }
 
                 input[type=radio] {
                     display: none;
@@ -1804,14 +1832,14 @@ section.searchPage {
                         }
                     }
                 }
-            }
 
-            .selected {
-                transition: 0.4s;
-                border: none;
-                color: $pink-color !important;
-                box-shadow: $pink-shadow !important;
-                font-weight: bold;
+                .selected {
+                    transition: 0.4s;
+                    border: none;
+                    color: $pink-color !important;
+                    border: 2px solid $pink-color !important;
+                    font-weight: bold;
+                }
             }
 
             .advancedHidden {
@@ -1828,7 +1856,6 @@ section.searchPage {
             margin: 1rem auto 1rem 0;
             width: fit-content;
             transition: 0.4s;
-            padding: 0.1rem 0 0 2rem;
             z-index: 50;
             position: relative;
 
@@ -1894,6 +1921,14 @@ section.searchPage {
                     opacity: 0.8 !important;
                     max-height: 2.5rem !important;
                     text-align: right;
+                }
+
+                @include xxs {
+                    width: 9rem;
+
+                    i {
+                        left: 0.5rem !important;
+                    }
                 }
             }
 
@@ -2072,10 +2107,186 @@ section.cartPage {
 
 /*#region Dashboard Page */
 section.dashboardPage {
+    .supportButton {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        text-align: center;
+        z-index: 100;
+
+        a {
+            transition: 0.4s;
+            background-color: $body-color;
+            border-radius: $radius;
+            display: block;
+            width: 4rem;
+            height: 4rem;
+            padding-top: 0.5rem;
+            color: $blue-color;
+            border: 2px solid lightGray;
+            text-align: center;
+
+            i {
+                font-size: 2.5rem;
+            }
+
+            &:hover {
+                transition: 0.4s;
+                border: 2px solid $blue-color;
+            }
+        }
+
+        @include sm {
+            bottom: 1rem;
+            right: 1rem;
+
+            a {
+                width: 3rem;
+                height: 3rem;
+
+                i {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    .walletButton {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        text-align: center;
+        z-index: 100;
+
+        a {
+            transition: 0.4s;
+            background-color: $body-color;
+            border-radius: $radius;
+            display: block;
+            width: 4rem;
+            height: 4rem;
+            padding-top: 0.5rem;
+            color: green;
+            border: 2px solid lightGray;
+            text-align: center;
+
+            i {
+                font-size: 2.5rem;
+            }
+
+            &:hover {
+                transition: 0.4s;
+                border: 2px solid green;
+            }
+        }
+
+        @include sm {
+            bottom: 1rem;
+            left: 1rem;
+
+            a {
+                width: 3rem;
+                height: 3rem;
+
+                i {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    .modal {
+        .modal-content {
+            width: 95%;
+            max-width: 40rem;
+            border-radius: $radius;
+            background-color: $body-color;
+
+            .moal-body {
+            }
+        }
+
+        &#walletModal {
+            input {
+                transition: 0.8s;
+                background-color: $body-color;
+                border-radius: $radius;
+                border: 2px solid lightgray;
+                height: 2.5rem;
+                padding: 0.5rem;
+                width: 100%;
+                margin: 0.5rem auto;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            a {
+                text-align: center;
+                display: block;
+                width: 8rem;
+                border-radius: $radius;
+                padding: 0.5rem 1rem;
+                transition: 0.4s;
+                color: $blue-color;
+                border: 2px solid $blue-color;
+
+                &:hover {
+                    transition: 0.4s;
+                    color: $pink-color;
+                    border: 2px solid $pink-color;
+                }
+            }
+
+            .credit {
+                padding: 1rem 0;
+                border-bottom: 2px solid lightgray;
+            }
+
+            .increase {
+                padding: 1rem 0;
+                border-bottom: 2px solid lightgray;
+            }
+
+            .cash {
+                padding: 1rem 0;
+
+                p.add {
+                    border-radius: $radius;
+                    text-align: center;
+                    padding: 0.5rem 1rem;
+                    transition: 0.4s;
+                    color: $blue-color;
+                    border: 2px solid $blue-color;
+                    cursor: pointer;
+
+                    &:hover {
+                        transition: 0.4s;
+                        color: $pink-color;
+                        border: 2px solid $pink-color;
+                    }
+                }
+
+                .carts {
+                    transition: 0.4s;
+                    max-height: 30rem;
+                    overflow: auto;
+                }
+
+                .hidden {
+                    transition: 0.4s;
+                    max-height: 0;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+
     section.contents {
         .container-fluid {
             .part {
-                transition:0.4s;
+                transition: 0.4s;
                 max-width: 40rem;
                 margin: 1rem auto;
                 border: 2px solid lightGray;
@@ -2197,11 +2408,11 @@ section.dashboardPage {
 
                 &.notifs {
                     .card.notifCard {
-                        
                         border-radius: $radius;
                         border: 2px solid lightgray;
                         margin: 1rem auto;
                         background-color: $body-color;
+
                         .title {
                             padding: 0.5rem;
                             color: $blue-color;
@@ -2227,7 +2438,7 @@ section.dashboardPage {
                         overflow: auto;
                     }
 
-                    .contentHidden{
+                    .contentHidden {
                         max-height: 0;
                     }
                 }
@@ -2566,6 +2777,7 @@ section.dashboardPage {
                     position: relative;
                     max-height: 70rem;
                     background-color: transparent;
+                    overflow: auto;
                 }
 
                 .contentHidden {
@@ -2579,11 +2791,12 @@ section.dashboardPage {
             }
 
             .opened {
-                transition:0.4s;
+                transition: 0.4s;
                 border: 2px solid $blue-color;
+
                 .header h5 {
                     transition: 0.4s;
-                    color:$blue-color;
+                    color: $blue-color;
                 }
             }
 
