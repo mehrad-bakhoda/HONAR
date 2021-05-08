@@ -1,5 +1,6 @@
 /uploads
 /public/covers
+/public/profilePic
 
 node_modules
 npm-debug.log
