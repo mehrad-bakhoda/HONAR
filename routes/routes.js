@@ -15,6 +15,8 @@ const smsPannel = require("../localModules/smsPannel.js");
 const formidable = require('formidable');
 // const urlencodedParser =bodyParser.urlencoded({extended:false});
 const path = require("path");
+const { __classPrivateFieldSet } = require('tslib');
+const user = require('../models/user');
 let statusMessage=[];
 
 
@@ -898,107 +900,76 @@ router.post("/upload", function(req, res){
 
 
 });
-router.post("/changeUserInfo",function(req,res){
-  User.findOne({unique_id: req.session.userId},
-    function(err,found)
-    {
-      if(!err)
-        if(found)
-        {
+router.post("/changeUserInfo",function(req,res,next){
 
+  const dir =path.join(__dirname,"/../public/profilePic/users/");
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, {
+    recursive: true
+  });
+  }
+  
+  const form = formidable({ multiples: true, uploadDir: dir});
+  form.keepExtensions=true;
+  form.maxFileSize=10*1024*1024;
+  form.parse(req, (err, fields, files) => {
+    console.log("ass");
 
+      User.findOne({
+        unique_id:req.session.userId
+      }, function(err, found) {
 
-            const dir = "./uploads/profilePic/users/"+ found.unique_id;
-              fs.mkdirSync(dir, {
-              recursive: true
-            });
+        if (!err) {
+          if(found){
+            console.log(req.session.userId);
+            if(fields.profilePic){
+              var profilePicPath = "";
+              var fileName = path.basename(files.profilePic.path);
+              var newPath = path.join("/profilePic/users/",fileName);
 
-            const form = formidable({ multiples: true, uploadDir: dir});
-            form.keepExtensions=true;
-            form.maxFileSize=10*1024*1024;
-            form.parse(req, (err, fields, files) => {
-              console.log(req.session.userId);
-
-              if(fields.lastName!==null && fields.lastName!==""){
-              User.updateOne({
+              if (files.profilePic.size != 0)
+                  profilePicPath = newPath;
+              else
+                  profilePicPath = "no picture";
+            
+              User.updateMany({
                 unique_id:req.session.userId
-              },{lastName:fields.lastName},function(err,doc){
-                if(!err){console.log("successfly changed ");}
+              }, {
+                firstName:fields.firstName,
+                lastName:fields.lastName,
+                userName:fields.userName.toLowerCase(),
+                instagram:fields.instagram,
+                twitter:fields.twitter,
+                bio:fields.bio,
+                profilePicPath:profilePicPath,
+                password: fields.password,
+                hasPassword:true
               });
 
-            }
-            if(fields.firstName!==null){
-            User.updateOne({
+          }else{
+            User.updateMany({
               unique_id:req.session.userId
-            },{firstName:fields.firstName},function(err,doc){
-              if(!err){console.log("successfly changed ");}
+            }, {
+              firstName:fields.firstName,
+              lastName:fields.lastName,
+              userName:fields.userName.toLowerCase(),
+              instagram:fields.instagram,
+              twitter:fields.twitter,
+              bio:fields.bio,
+              password: fields.password,
+              hasPassword:true
             });
-
           }
-          if(fields.userName!==null){
-          User.updateOne({
-            unique_id:req.session.userId
-          },{userName:fields.userName},function(err,doc){
-            if(!err){console.log("successfly changed ");}
-          });
-
         }
-        if(fields.email!==null){
-        User.updateOne({
-          unique_id:req.session.userId
-        },{email:fields.email},function(err,doc){
-          if(!err){console.log("successfly changed ");}
-        });
-
-      }
-      if(fields.instagram!==null){
-      User.updateOne({
-        unique_id:req.session.userId
-      },{instagram:fields.instagram},function(err,doc){
-        if(!err){console.log("successfly changed ");}
+        }
       });
 
+
+    if (err) {
+      next(err);
+      return;
     }
-    if(fields.twitter!==null){
-    User.updateOne({
-      unique_id:req.session.userId
-    },{twitter:fields.twitter},function(err,doc){
-      if(!err){console.log("successfly changed ");}
-    });
-
-  }
-  if(fields.bio!==null){
-  User.updateOne({
-    unique_id:req.session.userId
-  },{bio:fields.bio},function(err,doc){
-    if(!err){console.log("successfly changed ");}
   });
-
-}
-if(fields.password!==null && fields.passwordConfirmation !==null && fields.password===fields.passwordConfirmation){
-User.updateOne({
-  unique_id:req.session.userId
-},{password:fields.password},function(err,doc){
-  if(!err){console.log("successfly changed ");}
-});
-
-}
-
-            User.updateOne({
-              unique_id:req.session.userId
-            },{profilePicPath:files.profilePic.path},function(err,doc){
-              if(!err){console.log("successfly changed ");}
-            });
-          });
-
-
-
-
-
-
-
-}
-          });
 
 
 
