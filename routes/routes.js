@@ -855,17 +855,7 @@ router.post("/upload", function(req, res){
                
               });
              
-              let successfulUpload={message:`${fields.fileName} upload was succesfull`,code:"000"};
-              User.updateOne({
-                unique_id:req.session.userId
-              },
-              {
-                $push:{message:successfulUpload}
-              },function(err){
-                if(!err){
-                  console.log("added status");
-                }
-              });
+           
 
 
               newProduct.save();
@@ -879,7 +869,31 @@ router.post("/upload", function(req, res){
 
               if (err) {
                 next(err);
+                let failedUpload={message:`${fields.fileName} upload failed`,code:"222"};
+                User.updateOne({
+                  unique_id:req.session.userId
+                },
+                {
+                  $push:{message:failedUpload}
+                },function(err){
+                  if(!err){
+                    console.log("added status");
+                  }
+                });
                 return;
+              }
+              if(!err){
+                let successfulUpload={message:`${fields.fileName} upload was succesfull`,code:"000"};
+                User.updateOne({
+                  unique_id:req.session.userId
+                },
+                {
+                  $push:{message:successfulUpload}
+                },function(err){
+                  if(!err){
+                    console.log("added status");
+                  }
+                });
               }
               res.redirect("/");
             });

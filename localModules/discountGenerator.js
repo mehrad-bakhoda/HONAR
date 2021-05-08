@@ -9,6 +9,5 @@ function getDiscount(time,percent,amount,user){
         charset: voucher_codes.charset("alphanumeric")
     });
 
-
 }
 exports.getDiscount = getDiscount;
