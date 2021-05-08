@@ -2,14 +2,16 @@ const mongoose = require("mongoose");
 
 const discountSchema = new mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types, ref: "user",
-        required: true
+        type: mongoose.Schema.Types, ref: "User"
       },
-    product:{
-        type: mongoose.Schema.Types, ref: "product", 
-        required: true
-    },
+      code: [{
+        time:Number,
+        amount:String,
+        percent:Number,
+        usage:Number,
+        discount:[type=String]
 
+      }],
 
 });
 module.exports = mongoose.model("discount",discountSchema);
