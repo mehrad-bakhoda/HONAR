@@ -853,24 +853,12 @@ router.post("/upload", function(req, res){
                
               });
              
-
-              // statusMessage.push({message:`${fields.fileName} upload was succesfull`,code:"000"});
-
-              // User.bulkWrite([
-              //   {
-              //   updateMany:{
-              //     filter:{unique_id:req.session.userId},
-              //     update:{message:statusMessage
-              //   }
-              //   }
-              // }
-              // ]).then(err=>{console.log("Status updated succesfuly");})
-              let success={message:`${fields.fileName} upload was succesfull`,code:"000"};
+              let successfulUpload={message:`${fields.fileName} upload was succesfull`,code:"000"};
               User.updateOne({
                 unique_id:req.session.userId
               },
               {
-                $push:{message:success}
+                $push:{message:successfulUpload}
               },function(err){
                 if(!err){
                   console.log("added status");
@@ -929,7 +917,7 @@ router.post("/changeUserInfo",function(req,res,next){
         if (!err) {
           if(found){
    
-            if(files.profilePic){
+            if(files.profilePic != found.profilePic && files.profilePic && files.profilePic.size!=0){
               console.log("true");
               var profilePicPath = "";
               var fileName = path.basename(files.profilePic.path);
@@ -946,6 +934,19 @@ router.post("/changeUserInfo",function(req,res,next){
                 profilePicPath:profilePicPath,
               },function(err){
                 if(!err){
+                  let successfulProfilePicChange={message:`Profile picture updated`,code:"111"};
+                  User.updateOne({
+                    unique_id:req.session.userId
+                  },
+                  {
+                    $push:{message:successfulProfilePicChange}
+                  },function(err){
+                    if(!err){
+                      console.log("added status");
+                    }
+                  });
+
+  
                   console.log("sucess!");
   
                 }
@@ -953,92 +954,283 @@ router.post("/changeUserInfo",function(req,res,next){
 
           }
 
-        
-          if(fields.firstName){
+
+          if(fields.firstName != found.firstName && fields.firstName){
             User.updateOne({
               unique_id:req.session.userId
             }, {
               firstName:fields.firstName,
             },function(err){
               if(!err){
+                let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111"};
+                User.updateOne({
+                  unique_id:req.session.userId
+                },
+                {
+                  $push:{message:successfulNamechange}
+                },function(err){
+                  if(!err){
+                    console.log("added status");
+                  }
+                });
                 console.log("sucess!");
 
               }
             });
-          }if(fields.lastName){
+          }if(fields.lastName != found.lastName && fields.lastName){
             User.updateOne({
               unique_id:req.session.userId
             }, {
               lastName:fields.lastName,
           },function(err){
             if(!err){
+              let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111"};
+                  User.updateOne({
+                    unique_id:req.session.userId
+                  },
+                  {
+                    $push:{message:successfullLastNameChange}
+                  },function(err){
+                    if(!err){
+                      console.log("added status");
+                    }
+                  });
+
               console.log("sucess!");
 
             }
           });
-        }if(fields.userName){
+        }if(fields.userName != found.userName && fields.userName){
           User.updateOne({
             unique_id:req.session.userId
           }, {
             userName:fields.userName.toLowerCase(),
         },function(err){
           if(!err){
+            let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111"};
+                  User.updateOne({
+                    unique_id:req.session.userId
+                  },
+                  {
+                    $push:{message:successfullUserNameChange}
+                  },function(err){
+                    if(!err){
+                      console.log("added status");
+                    }
+                  });
+
             console.log("sucess!");
 
           }
         });
-      }if(fields.instagram){
+      }
+      if(found.instagram && !fields.instagram){
+          User.updateOne({
+            unique_id:req.session.userId
+          }, {
+            instagram:fields.instagram,
+          },function(err){
+            if(!err){
+              let successfulInstagramchange={message:`instagram link removed`,code:"111"};
+              User.updateOne({
+                unique_id:req.session.userId
+              },
+              {
+                $push:{message:successfulInstagramchange}
+              },function(err){
+                if(!err){
+                  console.log("added status");
+                }
+              });
+              console.log("sucess!");
+
+            }
+          });
+
+      }
+      if(fields.instagram != found.instagram && fields.instagram){
         User.updateOne({
           unique_id:req.session.userId
         }, {
           instagram:fields.instagram,
       },function(err){
         if(!err){
+          let successfullInstagramChange={message:`Instagram link updated`,code:"111"};
+                  User.updateOne({
+                    unique_id:req.session.userId
+                  },
+                  {
+                    $push:{message:successfullInstagramChange}
+                  },function(err){
+                    if(!err){
+                      console.log("added status");
+                    }
+                  });
           console.log("sucess!");
 
         }
       });
-    }if(fields.twitter){
+    }
+    if(found.twitter && !fields.twitter){
+      User.updateOne({
+        unique_id:req.session.userId
+      }, {
+        twitter:fields.twitter,
+      },function(err){
+        if(!err){
+          let successfulTwitterchange={message:`twitter link removed`,code:"111"};
+          User.updateOne({
+            unique_id:req.session.userId
+          },
+          {
+            $push:{message:successfulTwitterchange}
+          },function(err){
+            if(!err){
+              console.log("added status");
+            }
+          });
+          console.log("sucess!");
+
+        }
+      });
+
+  }
+    if(fields.twitter != found.twitter && fields.twitter){
       User.updateOne({
         unique_id:req.session.userId
       }, {
         twitter:fields.twitter,
     },function(err){
       if(!err){
+        let successfullTwitterChange={message:`Twitter link updated`,code:"111"};
+        User.updateOne({
+          unique_id:req.session.userId
+        },
+        {
+          $push:{message:successfullTwitterChange}
+        },function(err){
+          if(!err){
+            console.log("added status");
+          }
+        });
         console.log("sucess!");
 
       }
     });
-  }if(fields.bio){
+  }
+  if(found.bio && !fields.bio){
+    User.updateOne({
+      unique_id:req.session.userId
+    }, {
+      bio:fields.bio,
+    },function(err){
+      if(!err){
+        let successfulBioChange={message:`bio removed`,code:"111"};
+        User.updateOne({
+          unique_id:req.session.userId
+        },
+        {
+          $push:{message:successfulBioChange}
+        },function(err){
+          if(!err){
+            console.log("added status");
+          }
+        });
+        console.log("sucess!");
+
+      }
+    });
+
+}
+  
+  if(fields.bio != found.bio && fields.bio){
     User.updateOne({
       unique_id:req.session.userId
     }, {
       bio:fields.bio,
   },function(err){
     if(!err){
+      let successfullBioChange={message:`bio updated`,code:"111"};
+      User.updateOne({
+        unique_id:req.session.userId
+      },
+      {
+        $push:{message:successfullBioChange}
+      },function(err){
+        if(!err){
+          console.log("added status");
+        }
+      });
       console.log("sucess!");
 
     }
   });
 }
-if(fields.email){
+
+if(found.email && !fields.email){
+  User.updateOne({
+    unique_id:req.session.userId
+  }, {
+    email:fields.email,
+  },function(err){
+    if(!err){
+      let successfulEmailchange={message:`email removed`,code:"111"};
+      User.updateOne({
+        unique_id:req.session.userId
+      },
+      {
+        $push:{message:successfulEmailchange}
+      },function(err){
+        if(!err){
+          console.log("added status");
+        }
+      });
+      console.log("sucess!");
+
+    }
+  });
+
+}
+if(fields.email != found.email && fields.email){
   User.updateOne({
     unique_id:req.session.userId
   }, {
     email:fields.email,
 },function(err){
   if(!err){
+    let successfullEmailChange={message:`Email updated`,code:"111"};
+    User.updateOne({
+      unique_id:req.session.userId
+    },
+    {
+      $push:{message:successfullEmailChange}
+    },function(err){
+      if(!err){
+        console.log("added status");
+      }
+    });
     console.log("sucess!");
 
   }
 });
-}if(fields.password && fields.passwordConfirmation && fields.password===fields.passwordConfirmation){
+}if(fields.password && fields.passwordConfirmation && fields.password===fields.passwordConfirmation && fields.password != found.password){
   User.updateOne({
     unique_id:req.session.userId
   }, {
     password:fields.password,
 },function(err){
   if(!err){
+    let successfullPasswordChange={message:`password changed`,code:"111"};
+    User.updateOne({
+      unique_id:req.session.userId
+    },
+    {
+      $push:{message:successfullPasswordChange}
+    },function(err){
+      if(!err){
+        console.log("added status");
+      }
+    });
     console.log("sucess!");
 
   }
@@ -1056,7 +1248,7 @@ if(fields.email){
       return;
     }
     if(!err){
-      setTimeout(function(){ res.redirect("/dashboard"); }, 100);
+      setTimeout(function(){ res.redirect("/dashboard"); }, 200);
       
     }
   });
