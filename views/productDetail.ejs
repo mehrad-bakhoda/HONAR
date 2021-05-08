@@ -102,13 +102,26 @@
                                 <%}%>
                             </div>
                             <div class="buttons">
-                                <% if(item.orginalPrice === 0){%>
-                                <a href="/download/<%=item.id%>/original"> <button type="button" class="download"> دانلود </button></a>
-                                <%}else{%>
-                                <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
-                                <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy"> خرید </button></a>
+
+                               <% if(admin==="true"){ %>
+                                    <a href="/edit/<%=item.id%>/original"> <button type="button" class="download"> ادیت </button></a>
+                                    <button type="button" class="report"> حذف </button></a>
                                 <%}%>
-                                <button type="button" class="report"> ریپورت </button></a>
+                                <%if(admin === "false"){ %>
+                                    <% if(item.orginalPrice === 0){%>
+                                        <a href="/download/<%=item.id%>/original"> <button type="button" class="download"> دانلود </button></a>
+                                        <%}else{%>
+                                        <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
+                                        <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy"> خرید </button></a>
+                                        <%}%>
+                                        <button type="button" class="report"> ریپورت </button></a>
+        
+
+                                <%}%>
+
+                                
+
+
                             </div>
                         </div>
 

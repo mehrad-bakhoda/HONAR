@@ -262,6 +262,11 @@ router.get("/about-us",function(req,res){
   });
 
 
+
+
+
+
+
   router.get("/Product/:itemID/:itemName", function(req, res) {
     const link = req.params.itemID;
     Product.find({$text:{$search:req.params.itemName}})
@@ -272,10 +277,18 @@ router.get("/about-us",function(req,res){
         productId: link
       }, function(err, found) {
         if (found) {
-          res.render("productDetail", {
-            item:found,searched:searchedItem
-          });
-        } else {
+            if(found.user.unique_id=req.session.userId){
+
+              res.render("productDetail", {
+                item:found,searched:searchedItem,admin:"true"
+              });
+            }else{
+              res.render("productDetail", {
+                item:found,searched:searchedItem,admin:"false"
+              });
+            }
+            }
+           else {
           res.render("error404");
         }
 

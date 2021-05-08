@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 var voucher_codes = require('voucher-code-generator');
 var Discount = require('../models/discount');
 
