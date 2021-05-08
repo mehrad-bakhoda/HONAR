@@ -104,7 +104,7 @@
                             <div class="buttons">
 
                                <% if(admin==="true"){ %>
-                                    <a href="/edit/<%=item.id%>/original"> <button type="button" class="download"> ادیت </button></a>
+                                    <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="download"> ادیت </button></a>
                                     <button type="button" class="report"> حذف </button></a>
                                 <%}%>
                                 <%if(admin === "false"){ %>

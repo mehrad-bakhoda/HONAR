@@ -66,6 +66,11 @@ router.get("/",function(req,res){
   });
 
 
+
+
+
+
+
 router.get("/search/:searchedItem",function(req,res){
 
   Product.find({$text:{$search:req.params.searchedItem}})
@@ -75,6 +80,7 @@ router.get("/search/:searchedItem",function(req,res){
     res.render("search",{searched:found});
   });
 });
+
 
 
 router.get("/tags/:tag",function(req,res){
@@ -200,7 +206,7 @@ router.get("/add-to-cart/:id/:size", function(req, res){
     });
     }
     else{
-      res.render("error404");
+      res.render("notFound");
     }
 
   }
@@ -264,6 +270,33 @@ router.get("/about-us",function(req,res){
 
 
 
+  router.get("/edit/:uniqueId/:itemID/:itemName",function(req,res){
+    if(req.session.userId==req.params.uniqueId){
+      Product.find({$text:{$search:req.params.itemName}})
+      // .skip(20)
+      // .limit(10)
+      .exec(function(err,searchedItem){
+        Product.findOne({
+          productId: req.params.itemID
+        }, function(err, found) {
+          if (found) {
+              res.render("editProduct",{product:found});
+              }
+             else {
+            res.render("notFound");
+          }
+  
+        });
+
+        
+      });
+
+    }else{
+      res.render("notFound");
+    }
+
+
+  });
 
 
 
@@ -277,7 +310,7 @@ router.get("/about-us",function(req,res){
         productId: link
       }, function(err, found) {
         if (found) {
-            if(found.user.unique_id=req.session.userId){
+            if(found.user.unique_id==req.session.userId){
 
               res.render("productDetail", {
                 item:found,searched:searchedItem,admin:"true"
@@ -289,7 +322,7 @@ router.get("/about-us",function(req,res){
             }
             }
            else {
-          res.render("error404");
+          res.render("notFound");
         }
 
       });
@@ -925,7 +958,289 @@ router.post("/upload", function(req, res){
 
 
 });
+
+
+
+
+
+
+
+router.post("/editProduct",function(req,res,next){
+
+  // productId:c,
+  // type:fields.types,
+  // fileName:fields.fileName,
+  // tags:tagsarr,
+  // description:fields.description,
+  
+  // orginalPrice:fields.orginalPrice,
+  // largePrice:fields.largePrice,
+  // mediumPrice:fields.mediumPrice,
+  // smallPrice:fields.smallPrice,
+  // user:found,
+  // dateAdded:new Date(),
+
+  var c;
+  User.findOne({unique_id: req.session.userId},
+    function(err,found)
+    {
+      if(!err)
+        if(found)
+        {
+          Product.findOne({}, {}, { sort: { "_id": -1 } },function(err,data)
+          {
+            if (data)
+            {
+              c = data.productId + 1;
+            }
+            else{
+              c = 1;
+            }
+            const dir=__dirname+"/../uploads/users/"+found.unique_id +"/Products/" +c;
+            if (!fs.existsSync(dir)) {
+              fs.mkdirSync(dir, {
+              recursive: true
+            });
+            }
+            const editedImageDir=__dirname+"/../public/covers/users/"+found.unique_id +"/Products/" +c;
+            if (!fs.existsSync(editedImageDir)) {
+              fs.mkdirSync(editedImageDir, {
+              recursive: true
+            });
+            }
+            console.log(__dirname+"/../uploads/users/"+found.unique_id +"/Products/" +c)
+
+
+            const form = formidable({ multiples: true, uploadDir: dir});
+            form.keepExtensions=true;
+            form.maxFileSize=10*1024*1024;
+            form.parse(req, (err, fields, files) => {
+              const fileName = path.basename(files.productFiles.path);
+              const databaseDestination = "covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
+              const destination ="public/covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
+
+ 
+
+
+              if(files.productFiles && files.productFiles.size!=0){
+
+                Jimp.read(files.productFiles.path)
+                .then(image =>{
+                  image.gaussian(1);
+                  image.quality(50);
+                  Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(font => {
+                  image.print(font, 0, 0, "@ART APP");
+                });
+                  image.write(destination);
+                })
+                .catch(err =>{
+                  console.log(err);
+                });
+                console.log(fields.productId);
+                Product.updateMany({
+                  productId:fields.productId
+                }, {
+                  filePath:files.productFiles.path,
+                  fileType:files.productFiles.type,
+                  coverPath:databaseDestination,
+                  dateAdded:new Date(),
+                },function(err){
+                  if(!err){
+
+                    console.log("sucess!");
+    
+                  }
+                });
+  
+            }
+            if(fields.tags != found.tags && fields.tags){
+              tagsarr = fields.tags.split(" ");
+              for (var i = 0; i < tagsarr.length; i++)
+              {
+                if((tagsarr[i].includes("#") && tagsarr[i].length == 1) || !tagsarr[i].includes("#"))
+                {
+                  delete tagsarr[i];
+                }
+
+              }
+              tagsarr = tagsarr.filter(function(e){return e});
+
+              Product.updateOne({
+                productId:fields.productId
+              }, {
+                tags:tagsarr,
+              },function(err){
+                if(!err){
+
+                  console.log("sucess!");
+  
+                }
+              });
+
+
+            }
+
+            if(fields.fileName != found.fileName && fields.fileName){
+    
+              Product.updateOne({
+                productId:fields.productId
+              }, {
+                fileName:fields.fileName,
+              },function(err){
+                if(!err){
+
+                  console.log("sucess!");
+  
+                }
+              });
+
+
+            }
+            if(fields.description != found.description && fields.description){
+    
+              Product.updateOne({
+                productId:fields.productId
+              }, {
+                description:fields.description,
+              },function(err){
+                if(!err){
+
+                  console.log("sucess!");
+  
+                }
+              });
+
+
+            }
+            if(fields.orginalPrice != found.orginalPrice && fields.orginalPrice){
+    
+              Product.updateOne({
+                productId:fields.productId
+              }, {
+                orginalPrice:fields.orginalPrice,
+              },function(err){
+                if(!err){
+
+                  console.log("sucess!");
+  
+                }
+              });
+
+
+            }
+            if(fields.mediumPrice != found.mediumPrice && fields.mediumPrice){
+    
+              Product.updateOne({
+                productId:fields.productId
+              }, {
+                mediumPrice:fields.mediumPrice,
+              },function(err){
+                if(!err){
+
+                  console.log("sucess!");
+  
+                }
+              });
+
+
+            }
+
+            if(fields.largePrice != found.largePrice && fields.largePrice){
+    
+              Product.updateOne({
+                productId:fields.productId
+              }, {
+                largePrice:fields.largePrice,
+              },function(err){
+                if(!err){
+
+                  console.log("sucess!");
+  
+                }
+              });
+
+
+            }
+            if(fields.smallPrice != found.smallPrice && fields.smallPrice){
+    
+              Product.updateOne({
+                productId:fields.productId
+              }, {
+                smallPrice:fields.smallPrice,
+              },function(err){
+                if(!err){
+
+                  console.log("sucess!");
+  
+                }
+              });
+
+
+            }
+            
+
+            if (err) {
+              next(err);
+              let failedUpload={message:`${fields.fileName} upload failed`,code:"222"};
+              User.updateOne({
+                unique_id:req.session.userId
+              },
+              {
+                $push:{message:failedUpload}
+              },function(err){
+                if(!err){
+                  console.log("added status");
+                }
+              });
+              return;
+            }
+            if(!err){
+              Product.findOne({productId:fields.productId},function(err,found){
+                if(!err){
+                  let successfulUpload={message:`${found.fileName} changed`,code:"000"};
+                  User.updateOne({
+                    unique_id:req.session.userId
+                  },
+                  {
+                    $push:{message:successfulUpload}
+                  },function(err){
+                    if(!err){
+                      console.log("added status");
+                    }
+                  });
+                }
+              });
+
+            }
+            res.redirect("/");
+          });
+
+        });
+
+      }
+  });
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
 router.post("/changeUserInfo",function(req,res,next){
+
+
+
+
+
 
   const dir =path.join(__dirname,"/../public/profilePic/users/");
   if (!fs.existsSync(dir)) {
