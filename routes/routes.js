@@ -17,7 +17,6 @@ const formidable = require('formidable');
 const path = require("path");
 const { __classPrivateFieldSet } = require('tslib');
 const user = require('../models/user');
-let statusMessage=[];
 
 
 
@@ -855,17 +854,28 @@ router.post("/upload", function(req, res){
               });
              
 
-              statusMessage.push({message:`${fields.fileName} upload was succesfull`,code:"000"});
+              // statusMessage.push({message:`${fields.fileName} upload was succesfull`,code:"000"});
 
-              User.bulkWrite([
-                {
-                updateMany:{
-                  filter:{unique_id:req.session.userId},
-                  update:{message:statusMessage
+              // User.bulkWrite([
+              //   {
+              //   updateMany:{
+              //     filter:{unique_id:req.session.userId},
+              //     update:{message:statusMessage
+              //   }
+              //   }
+              // }
+              // ]).then(err=>{console.log("Status updated succesfuly");})
+              let success={message:`${fields.fileName} upload was succesfull`,code:"000"};
+              User.updateOne({
+                unique_id:req.session.userId
+              },
+              {
+                $push:{message:success}
+              },function(err){
+                if(!err){
+                  console.log("added status");
                 }
-                }
-              }
-              ]).then(err=>{console.log("Status updated succesfuly");})
+              });
 
 
               newProduct.save();
