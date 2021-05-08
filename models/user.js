@@ -63,7 +63,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  message: [{
+      type:String,
 
+  }],
   products:[{
     product:{
     type: mongoose.Schema.Types, ref: "product", 
