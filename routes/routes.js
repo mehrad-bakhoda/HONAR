@@ -854,9 +854,7 @@ router.post("/upload", function(req, res){
                
               });
              
-              if (statusMessage.length===4){
-                statusMessage=[];
-                }
+
               statusMessage.push({message:`${fields.fileName} upload was succesfull`,code:"000"});
 
               User.bulkWrite([
@@ -913,7 +911,6 @@ router.post("/changeUserInfo",function(req,res,next){
   form.keepExtensions=true;
   form.maxFileSize=10*1024*1024;
   form.parse(req, (err, fields, files) => {
-    console.log("ass");
 
       User.findOne({
         unique_id:req.session.userId
@@ -921,8 +918,9 @@ router.post("/changeUserInfo",function(req,res,next){
 
         if (!err) {
           if(found){
-            console.log(req.session.userId);
-            if(fields.profilePic){
+   
+            if(files.profilePic){
+              console.log("true");
               var profilePicPath = "";
               var fileName = path.basename(files.profilePic.path);
               var newPath = path.join("/profilePic/users/",fileName);
@@ -932,34 +930,112 @@ router.post("/changeUserInfo",function(req,res,next){
               else
                   profilePicPath = "no picture";
             
-              User.updateMany({
+              User.updateOne({
                 unique_id:req.session.userId
               }, {
-                firstName:fields.firstName,
-                lastName:fields.lastName,
-                userName:fields.userName.toLowerCase(),
-                instagram:fields.instagram,
-                twitter:fields.twitter,
-                bio:fields.bio,
                 profilePicPath:profilePicPath,
-                password: fields.password,
-                hasPassword:true
+              },function(err){
+                if(!err){
+                  console.log("sucess!");
+  
+                }
               });
 
-          }else{
-            User.updateMany({
+          }
+
+        
+          if(fields.firstName){
+            User.updateOne({
               unique_id:req.session.userId
             }, {
               firstName:fields.firstName,
-              lastName:fields.lastName,
-              userName:fields.userName.toLowerCase(),
-              instagram:fields.instagram,
-              twitter:fields.twitter,
-              bio:fields.bio,
-              password: fields.password,
-              hasPassword:true
+            },function(err){
+              if(!err){
+                console.log("sucess!");
+
+              }
             });
+          }if(fields.lastName){
+            User.updateOne({
+              unique_id:req.session.userId
+            }, {
+              lastName:fields.lastName,
+          },function(err){
+            if(!err){
+              console.log("sucess!");
+
+            }
+          });
+        }if(fields.userName){
+          User.updateOne({
+            unique_id:req.session.userId
+          }, {
+            userName:fields.userName.toLowerCase(),
+        },function(err){
+          if(!err){
+            console.log("sucess!");
+
           }
+        });
+      }if(fields.instagram){
+        User.updateOne({
+          unique_id:req.session.userId
+        }, {
+          instagram:fields.instagram,
+      },function(err){
+        if(!err){
+          console.log("sucess!");
+
+        }
+      });
+    }if(fields.twitter){
+      User.updateOne({
+        unique_id:req.session.userId
+      }, {
+        twitter:fields.twitter,
+    },function(err){
+      if(!err){
+        console.log("sucess!");
+
+      }
+    });
+  }if(fields.bio){
+    User.updateOne({
+      unique_id:req.session.userId
+    }, {
+      bio:fields.bio,
+  },function(err){
+    if(!err){
+      console.log("sucess!");
+
+    }
+  });
+}
+if(fields.email){
+  User.updateOne({
+    unique_id:req.session.userId
+  }, {
+    email:fields.email,
+},function(err){
+  if(!err){
+    console.log("sucess!");
+
+  }
+});
+}if(fields.password && fields.passwordConfirmation && fields.password===fields.passwordConfirmation){
+  User.updateOne({
+    unique_id:req.session.userId
+  }, {
+    password:fields.password,
+},function(err){
+  if(!err){
+    console.log("sucess!");
+
+  }
+});
+
+}
+          
         }
         }
       });
@@ -969,12 +1045,16 @@ router.post("/changeUserInfo",function(req,res,next){
       next(err);
       return;
     }
+    if(!err){
+      setTimeout(function(){ res.redirect("/dashboard"); }, 100);
+      
+    }
   });
 
 
 
 
-res.redirect("/dashboard");
+
 
 
 });
