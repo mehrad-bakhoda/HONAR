@@ -63,6 +63,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+
   products:[{
     product:{
     type: mongoose.Schema.Types, ref: "product", 
@@ -71,10 +72,7 @@ const userSchema = new mongoose.Schema({
     type:String,
     }
 }],
-systemMessage:[{
-  message:String,
-  code:String
-}]
+
 });
 // userSchema.plugin(passportLocalMongoose);
 //exporting the userSchema model

@@ -101,7 +101,7 @@ router.get("/dashboard",function(req,res){
       if (found) {
         Product.find({"user.userName":found.userName})
         .exec(function(err,products){
-          res.render("dashboard",{user:found,searched:products});
+          res.render("dashboard",{user:found,searched:products,statusMessage:found.message});
         });
       }
       else {
@@ -849,11 +849,13 @@ router.post("/upload", function(req, res){
                 dateAdded:new Date(),
                
               });
-
-
+              let statusMessage=[];
+              statusMessage.push({message:`${fields.fileName} upload was succesfull`,code:"000"});
+              User.updateOne({unique_id: req.session.userId},{message:statusMessage});
               newProduct.save();
               found.products.push(newProduct);
               found.save();
+              console.log(statusMessage);
 
 
 

@@ -48,37 +48,60 @@
                 </div>
             </div>
             <div class="notifs part">
+
                 <div class="header" onClick="openContent('notifs')">
+
                     <h5>
                         پیام های شما
                         <i class="fal fa-angle-down"></i>
                     </h5>
+                    
                 </div>
                 <div class="collapseContent contentHidden">
-                    <div class="card notifCard">
-                        <div class="title">
-                            <h6> پیام  عادی</h6>
+                    <% statusMessage.forEach(function(message) { %>
+ 
+                        <%if(message.code==="000"){%>
+                            <div class="card notifCard success">
+                                <div class="title">
+                                    <h6> پیام  تایید</h6>
+                                </div>
+                                <div class="mesage">
+                                    <p> <%=message.message%></p>
+                                </div>
+                            </div>
+                            <%}%>
+ 
+                        <%if(message.code==="111"){%>
+                            <div class="card notifCard">
+                                <div class="title">
+                                    <h6> پیام  عادی</h6>
+                                </div>
+                                <div class="mesage">
+                                    <p> <%=message.message%></p>
+                                </div>
+                            </div>
+
+                            <%}%>
+                        <%if(message.code==="222"){%>
+                            <div class="card notifCard error">
+                                <div class="title">
+                                    <h6> پیام  خطا</h6>
+                                </div>
+                                <div class="mesage">
+                                    <p> <%=message.message%></p>
+                                </div>
+                            </div>
+
+                       <% }%>
+                       <% })%>
+                       <%if(statusMessage.length=1){%>
+                        <div class="card notifCard">
+                            <div class="mesage">
+                                <p> هیج پیامی ندارید</p>
+                            </div>
                         </div>
-                        <div class="mesage">
-                            <p> متن پیام ...</p>
-                        </div>
-                    </div>
-                    <div class="card notifCard success">
-                        <div class="title">
-                            <h6> پیام  تایید</h6>
-                        </div>
-                        <div class="mesage">
-                            <p> متن پیام ...</p>
-                        </div>
-                    </div>
-                    <div class="card notifCard error">
-                        <div class="title">
-                            <h6> پیام  خطا</h6>
-                        </div>
-                        <div class="mesage">
-                            <p> متن پیام ...</p>
-                        </div>
-                    </div>
+                       <%}%>
+
                 </div>
             </div>
             <div class="personalInfo part">
