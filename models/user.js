@@ -16,6 +16,12 @@ const userSchema = new mongoose.Schema({
     type:String,
     enum:["Downloader","Uploader"],
   },
+  balance:{
+    type:String,
+  },
+  creditCardConfirmation:{
+    type:Boolean
+  },
   phone: {
     type: String,
     unique: true,
