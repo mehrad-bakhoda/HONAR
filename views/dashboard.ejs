@@ -2,6 +2,73 @@
 
 
 <section class="page dashboardPage">
+    <section class="supportButton">
+        <a href="/upload" class="uploadLink" data-mdb-toggle="modal"
+           data-mdb-target="#supportModal">
+            <i class="fal fa-comment-alt-lines"></i>
+        </a>
+    </section>
+    <div class="modal fade"
+         id="supportModal"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="walletButton">
+        <a href="/upload" class="uploadLink" data-mdb-toggle="modal"
+           data-mdb-target="#walletModal">
+            <i class="fal fa-wallet"></i>
+        </a>
+    </section>
+    <div class="modal fade"
+         id="walletModal"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="credit">
+                        <label>
+                            اعتبار شما
+                        </label>
+                        <p>
+                            10000 تومان
+                        </p>
+                    </div>
+                    <div class="increase">
+
+                        <input type="text" placeholder="مقدار مورد نظر..."/>
+                        <a href="#">
+                            افزایش اعتبار
+                        </a>
+                    </div>
+                    <div class="cash">
+                        <p> <span>9999 9999 9999 9999</span> شماره حساب</p>
+                        <input type="text" placeholder="مقدار مورد نظر..." />
+                        <a href="#">
+                            دریافت
+                        </a>
+
+                        <p class="add"> افزودن کارت </p>
+                        <div class="carts hidden">
+                            <input type="text" class="creditNumber" placeholder="شماره کارت شما..." />
+                            <input type="text" class="name" placeholder="نام شما..." />
+                            <input type="text" class="ssm" placeholder="کد ملی شما..." />
+                            <button type="submit" class="submitCart"> ثیت کارت</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <%-include("headerN");-%>
     <section class="contents">
         <div class="container-fluid">
@@ -17,27 +84,27 @@
                     <div class="bottom">
 
 
-                            <div class="name">
-                                <p><%=user.userName%></p>
+                        <div class="name">
+                            <p><%=user.userName%></p>
+                        </div>
+                        <% if(user.type =="Uploader"){%>
+                        <div class="socialStats">
+                            <div class="mail">
+                                <a href="#"><i class="fal fa-envelope"></i></a>
                             </div>
-                            <% if(user.type =="Uploader"){%>
-                            <div class="socialStats">
-                                <div class="mail">
-                                    <a href="#"><i class="fal fa-envelope"></i></a>
-                                </div>
-                                <div class="instagram">
+                            <div class="instagram">
 
-                                    <a href="#"> <i class="fab fa-instagram"></i> </a>
-                                </div>
-                                <div class="twitter">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                </div>
-                                <div class="productsCount">
-                                    <label> تعداد آثار:</label>
-                                    <p> <%=searched.length%> </p>
-                                </div>
+                                <a href="#"> <i class="fab fa-instagram"></i> </a>
                             </div>
-                            <%}%>
+                            <div class="twitter">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <div class="productsCount">
+                                <label> تعداد آثار:</label>
+                                <p> <%=searched.length%> </p>
+                            </div>
+                        </div>
+                        <%}%>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-6 col-sm-12 bio">
@@ -54,51 +121,51 @@
                         پیام های شما
                         <i class="fal fa-angle-down"></i>
                     </h5>
-                    
+
                 </div>
                 <div class="collapseContent contentHidden">
                     <%if(statusMessage.length){%>
                     <% statusMessage.slice().reverse().forEach(function(message) { %>
- 
-                        <%if(message.code==="000"){%>
-                            <div class="card notifCard success">
-                                <div class="title">
-                                    <h6> پیام  تایید</h6>
-                                </div>
-                                <div class="mesage">
-                                    <p> <%=message.message%></p>
-                                </div>
-                            </div>
-                            <%}%>
- 
-                        <%if(message.code==="111"){%>
-                            <div class="card notifCard">
-                                <div class="title">
-                                    <h6> پیام  عادی</h6>
-                                </div>
-                                <div class="mesage">
-                                    <p> <%=message.message%></p>
-                                </div>
-                            </div>
 
-                            <%}%>
-                        <%if(message.code==="222"){%>
-                            <div class="card notifCard error">
-                                <div class="title">
-                                    <h6> پیام  خطا</h6>
-                                </div>
-                                <div class="mesage">
-                                    <p> <%=message.message%></p>
-                                </div>
-                            </div>
+                    <%if(message.code==="000"){%>
+                    <div class="card notifCard success">
+                        <div class="title">
+                            <h6> پیام  تایید</h6>
+                        </div>
+                        <div class="mesage">
+                            <p> <%=message.message%></p>
+                        </div>
+                    </div>
+                    <%}%>
+
+                    <%if(message.code==="111"){%>
+                    <div class="card notifCard">
+                        <div class="title">
+                            <h6> پیام  عادی</h6>
+                        </div>
+                        <div class="mesage">
+                            <p> <%=message.message%></p>
+                        </div>
+                    </div>
+
+                    <%}%>
+                    <%if(message.code==="222"){%>
+                    <div class="card notifCard error">
+                        <div class="title">
+                            <h6> پیام  خطا</h6>
+                        </div>
+                        <div class="mesage">
+                            <p> <%=message.message%></p>
+                        </div>
+                    </div>
 
 
-                       <% }%>
-                       <% })%>
-                       <%}else{%>
+                    <% }%>
+                    <% })%>
+                    <%}else{%>
 
-                                <h6> هیج پیامی ندارید</h6>
-                       <%}%>
+                    <h6> هیج پیامی ندارید</h6>
+                    <%}%>
 
 
                 </div>
@@ -112,7 +179,7 @@
                     </h5>
                 </div>
                 <div class="collapseContent contentHidden">
-                    <form  id="infoForm" name="changInformationForm" action="/changeUserInfo" enctype="multipart/form-data" method="post">
+                    <form id="infoForm" name="changInformationForm" action="/changeUserInfo" enctype="multipart/form-data" method="post">
 
 
                         <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
@@ -124,13 +191,13 @@
                         <i class="fab fa-instagram"></i>
                         <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" value="<%=user.twitter%>" />
                         <i class="fab fa-twitter"></i>
-                        <textarea name="bio" class="bio" placeholder="درباره شما..." ><%=user.bio%></textarea>
+                        <textarea name="bio" class="bio" placeholder="درباره شما..."><%=user.bio%></textarea>
                         <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
                         <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
                         <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                         <div class="buttons">
                             <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
-                            <button  type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
+                            <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
                             <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
                         </div>
                     </form>
@@ -249,25 +316,23 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <%}%>
 
                 </div>
                 <%var i=8%>
                 <% if (searched.length>i) { %>
-                   
 
-                        <div class="buttons">
-    
-                            <button type="button" class="seeMore">
-                                مشاهده بیشتر
-                                <i class="fal fa-angle-down"></i>
-                            </button>
-        
-                        </div
-                    
-                    <% i=i+8;%>
-               <% } %>
+
+                <div class="buttons">
+
+                    <button type="button" class="seeMore">
+                        مشاهده بیشتر
+                        <i class="fal fa-angle-down"></i>
+                    </button>
+
+                </div><% i=i+8;%>
+                <% } %>
 
             </div>
             <%}%>
@@ -279,6 +344,7 @@
 <%-include("scripts");-%>
 <script src="./assets/js/dashboard.js"></script>
 <script src="./assets/js/seeMore.js"></script>
+<script src="./assets/js/wallet.js"></script>
 <script type="text/javascript">
     $('.owl-carousel').owlCarousel({
         items: 1,
