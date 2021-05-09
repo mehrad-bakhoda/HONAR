@@ -11,25 +11,14 @@
                         <h4> تغییر اطلاعات اثر </h4>
                         <div class="name">
 
-                            <input name="fileName" type="text" class="nameInput" placeholder="<%=product.fileName%>" />
+                            <input name="fileName" type="text" class="nameInput" value="<%=product.fileName%>"/>
                         </div>
                         <div class="tags">
-                            <input name="tags" type="text" class="tagsInput" placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
-                            <p> <% for(var i=0; i < product.tags.length ;i++){ %>
-                                <% var tag = product.tags[i] %>
-                                <% var path = product.tags[i].replace("#","") %>
-                                <a href="/tags/<%=path%>"> <%=tag%> </a>
-                                <% } %>
-                            </p>
+                            <input name="tags" type="text" class="tagsInput" value="<%=product.tags.join(' ')%>"placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
                         </div>
                         <div class="description">
                             <textarea name="description" class="descriptionText" maxlength="100" placeholder="توضیحات اثر"><%=product.description%></textarea>
                         </div>
-                    </div>
-                    <div class="uploadPic">
-                        <input id ="productUploader"type="file" name="productFiles" />
-                        <i class="far fa-spinner-third fa-spin hidden"></i>
-                        <i class="far fa-check-circle hidden"></i>
                     </div>
                     <div class="category">
                         <lable class="title"> نوع </lable>
