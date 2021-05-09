@@ -1167,7 +1167,7 @@ router.post("/editProduct/:productId",function(req,res,next){
 
 
 
-router.post("/changeUserInfo",function(req,res,next){
+router.post("/changeUserInfoU",function(req,res,next){
 
 
 
