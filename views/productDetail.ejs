@@ -143,11 +143,13 @@
                 <div class="owl-carousel">
                     <% if(searched){%>
                     <% searched.forEach(function(product) { %>
+                        <%if(product.productId != item.productId){%>
                     <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
                         <div class="imageShadow">
                             <img src="/<%=product.coverPath%>" />
                         </div>
                     </a>
+              <%  }%>
                     <% }) %>
                     <% } %>
 
