@@ -1,3 +1,8 @@
+var addToCartButton = $(".addToCart");
+var buyButton = $(".buy");
+var downloadButton = $(".download");
+var bought = $("#bought");
+
 $(".infos .sizes label.sizeOption").click(function () {
     var sizes = $(".infos .sizes label.sizeOption");
     $(".infos .sizes label.selectedSize").text($(this).text());
@@ -19,6 +24,22 @@ $(".infos .sizes label.sizeOption").click(function () {
     $(".infos .sizes i").toggleClass("rotated");
 
     currentPrice.addClass("showPrice");
+    var price = currentPrice.children("span").text();
+    console.log(bought.val());
+    if(price == "" || currentID == bought.val())
+    {
+        downloadButton.removeAttr('hidden');
+        addToCartButton.attr("hidden",true);
+        buyButton.attr("hidden",true);
+    }
+    else{
+        downloadButton.attr("hidden",true);
+        addToCartButton.removeAttr('hidden');
+        buyButton.removeAttr('hidden');
+
+    }
+ 
+        
     var href = $('#addToCart').attr('href');
     $('#addToCart').attr('href',href.replace(href.split("/")[3],currentID))
     

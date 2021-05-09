@@ -21,6 +21,7 @@
                             <div class="name info">
                                 <label>  نام اثر </label>
                                 <p><%=item.fileName%> </p>
+                                
                             </div>
                             
                             <div class="artist info">
@@ -38,7 +39,7 @@
                             </div>
                             <div class="info downloads">
                                 <label>   تعداد دانلود </label>
-                                <p> 100 </p>
+                                <p> <%=item.downloadedCount%> </p>
                             </div>
                             <div class="type info">
                                 <label> فایل </label>
@@ -102,18 +103,18 @@
                                 <%}%>
                             </div>
                             <div class="buttons">
-
+                                <input id="bought" type="text" value=<%=size%> hidden>
                                <% if(admin==="true"){ %>
                                     <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="download"> ادیت </button></a>
                                     <button type="button" class="report"> حذف </button></a>
                                 <%}%>
                                 <%if(admin === "false"){ %>
-                                    <% if(item.orginalPrice === 0){%>
-                                        <a href="/download/<%=item.id%>/original"> <button type="button" class="download"> دانلود </button></a>
-                                        <%}else{%>
-                                        <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
-                                        <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy"> خرید </button></a>
-                                        <%}%>
+                                   
+                                        <a href="/download/<%=item.id%>/original"> <button type="button" class="download" hidden> دانلود </button></a>
+                                        
+                                        <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart" hidden> افزودن به سبد خرید </button></a>
+                                        <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy" hidden> خرید </button></a>
+                                     
                                         <button type="button" class="report"> ریپورت </button></a>
         
 

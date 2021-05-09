@@ -304,8 +304,6 @@ router.get("/about-us",function(req,res){
   router.get("/Product/:itemID/:itemName", function(req, res) {
     const link = req.params.itemID;
     Product.find({$text:{$search:req.params.itemName}})
-    // .skip(20)
-    // .limit(10)
     .exec(function(err,searchedItem){
        Product.findOne({
         productId: link
@@ -314,12 +312,31 @@ router.get("/about-us",function(req,res){
             if(found.user.unique_id==req.session.userId){
 
               res.render("productDetail", {
-                item:found,searched:searchedItem,admin:"true"
+                item:found,searched:searchedItem,admin:"true",size:"None"
               });
             }else{
-              res.render("productDetail", {
-                item:found,searched:searchedItem,admin:"false"
-              });
+              if(req.session.userId)
+              {
+                User.findOne({unique_id:req.session.userId},{"products":{$elemMatch:{"product.productId":found.productId}}},function(err,found1)
+                {
+                  if(found1.products.length > 0)
+                  {
+                    console.log(found1.products[0].size);
+                    res.render("productDetail", {
+                      item:found,searched:searchedItem,admin:"false",size:found1.products[0].size
+                    });
+                  }
+                    console.log(found1.products.length);
+                });
+              }
+              else{
+                res.render("productDetail", {
+                  item:found,searched:searchedItem,admin:"false",size:"None"
+                });
+
+              }
+              
+              
             }
             }
            else {
