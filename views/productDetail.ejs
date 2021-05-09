@@ -44,6 +44,7 @@
                                 <label> فایل </label>
                                 <p> <%=item.fileType%> </p>
                             </div>
+                            <%if(item.tags.length != 0 && item.tags != ""){%>
                             <div class="tags info">
                                 <label> تگ ها </label>
                                 <div class="tagLinks">
@@ -54,28 +55,30 @@
                                     <% } %>
                                 </div>
                             </div>
+                       <% }%>
                             <div class="sizes info">
                                 <label> سایز های موجود </label>
 
                                 <div class="options">
                                     <div class="shownSize">
                                         <label class="selectedSize">
-                                            اصلی(<span>3000*3000</span>)
+                                            اصلی
 
                                         </label>
                                         <i class="far fa-angle-down"></i>
                                     </div>
                                     <input type="radio" value="small">
-                                    <label for="small" class="sizeOption" id="small">کوچک(<span>1000*1000</span>)</label>
+                                    <label for="small" class="sizeOption" id="small">کوچک</label>
 
                                     <input type="radio" value="medium">
-                                    <label for="medium" class="sizeOption" id="medium">متوسط(<span>1500*1500</span>)</label>
+                                    <label for="medium" class="sizeOption" id="medium">متوسط</label>
 
                                     <input type="radio" value="large">
-                                    <label for="large" class="sizeOption" id="large"> بزرگ (<span>2000*2000</span>)</label>
+                                    <label for="large" class="sizeOption" id="large"> بزرگ </label>
 
                                     <input type="radio" value="original">
-                                    <label for="original" class="sizeOption selected" id="original"> اصلی(<span>3000*3000</span>)</label>
+                                    <label for="original" class="sizeOption selected" id="original"> اصلی</label>
+                                    <!-- <label for="original" class="sizeOption selected" id="original"> اصلی(<span>3000*3000</span>)</label> -->
                                 </div>
                             </div>
                             <div class="price info">
@@ -104,11 +107,11 @@
                             <div class="buttons">
 
                                <% if(admin==="true"){ %>
-                                    <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="download"> ادیت </button></a>
+                                    <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="download"> تغییر مشخصات </button></a>
                                     <button type="button" class="report"> حذف </button></a>
                                 <%}%>
                                 <%if(admin === "false"){ %>
-                                    <% if(item.orginalPrice === 0){%>
+                                    <% if(item.orginalPrice === 0 ){%>
                                         <a href="/download/<%=item.id%>/original"> <button type="button" class="download"> دانلود </button></a>
                                         <%}else{%>
                                         <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart"> افزودن به سبد خرید </button></a>
@@ -128,10 +131,13 @@
                     </div>
                 </div>
             </div>
-            <div class="description">
-                <h5 class="title"> توضیحات </h5>
-                <p><%=item.description%></p>
-            </div>
+            <%if(item.description){%>
+                <div class="description">
+                    <h5 class="title"> توضیحات </h5>
+                    <p><%=item.description%></p>
+                </div>
+           <% }%>
+
             <div class="related">
                 <h4> محصولات مرتبط </h4>
                 <div class="owl-carousel">

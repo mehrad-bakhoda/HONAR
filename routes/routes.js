@@ -984,7 +984,29 @@ router.post("/editProduct/:productId",function(req,res,next){
             
             
             
-
+                    if(found.tags && !fields.tags){
+                      tagsarr = fields.tags.split(" ");
+                      for (var i = 0; i < tagsarr.length; i++)
+                      {
+                        if((tagsarr[i].includes("#") && tagsarr[i].length == 1) || !tagsarr[i].includes("#"))
+                        {
+                          delete tagsarr[i];
+                        }
+        
+                      }
+                      tagsarr = tagsarr.filter(function(e){return e});
+        
+                      Product.updateOne({
+                        productId:req.params.productId
+                      }, {
+                        tags:fields.tags,
+                      },function(err){
+                        if(!err){
+                          console.log("sucess!");
+                        }
+                      });
+            
+                  }
             if(fields.tags != found.tags && fields.tags){
               tagsarr = fields.tags.split(" ");
               for (var i = 0; i < tagsarr.length; i++)
@@ -1028,6 +1050,19 @@ router.post("/editProduct/:productId",function(req,res,next){
 
 
             }
+            if(found.description && !fields.description){
+              Product.updateOne({
+                productId:req.params.productId
+              }, {
+                description:fields.description,
+              },function(err){
+                if(!err){
+                  console.log("sucess!");
+                }
+              });
+    
+          }
+
             if(fields.description != found.description && fields.description){
     
               Product.updateOne({
@@ -1044,6 +1079,7 @@ router.post("/editProduct/:productId",function(req,res,next){
 
 
             }
+
             if(fields.orginalPrice != found.orginalPrice && fields.orginalPrice){
     
               Product.updateOne({
@@ -1060,6 +1096,8 @@ router.post("/editProduct/:productId",function(req,res,next){
 
 
             }
+
+
             if(fields.mediumPrice != found.mediumPrice && fields.mediumPrice){
     
               Product.updateOne({
@@ -1077,6 +1115,8 @@ router.post("/editProduct/:productId",function(req,res,next){
 
             }
 
+
+
             if(fields.largePrice != found.largePrice && fields.largePrice){
     
               Product.updateOne({
@@ -1093,6 +1133,8 @@ router.post("/editProduct/:productId",function(req,res,next){
 
 
             }
+ 
+
             if(fields.smallPrice != found.smallPrice && fields.smallPrice){
     
               Product.updateOne({
@@ -1109,12 +1151,12 @@ router.post("/editProduct/:productId",function(req,res,next){
 
 
             }
-            
+
 
             if (err) {
               next(err);
               let failedUpload={message:`${fields.fileName} upload failed`,code:"222"};
-              User.updateOne({
+              Product.updateOne({
                 unique_id:req.session.userId
               },
               {
@@ -1129,7 +1171,7 @@ router.post("/editProduct/:productId",function(req,res,next){
             if(!err){
               Product.findOne({productId:req.params.productId},function(err,found){
                 if(!err){
-                  let successfulUpload={message:`${found.fileName} changed`,code:"000"};
+                  let successfulUpload={message:`${found.fileName} changed`,code:"111"};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -1142,7 +1184,7 @@ router.post("/editProduct/:productId",function(req,res,next){
                   });
                 }
               });
-              res.redirect("/");
+              res.redirect(`/Product/${found.productId}/${found.fileName}`);
             }
 
 
