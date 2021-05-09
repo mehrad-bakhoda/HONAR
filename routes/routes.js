@@ -19,6 +19,7 @@ const formidable = require('formidable');
 const path = require("path");
 const { __classPrivateFieldSet } = require('tslib');
 const user = require('../models/user');
+const product = require('../models/product');
 
 
 
@@ -965,121 +966,25 @@ router.post("/upload", function(req, res){
 
 
 
-router.post("/editProduct",function(req,res,next){
-
-  // productId:c,
-  // type:fields.types,
-  // fileName:fields.fileName,
-  // tags:tagsarr,
-  // description:fields.description,
-  
-  // orginalPrice:fields.orginalPrice,
-  // largePrice:fields.largePrice,
-  // mediumPrice:fields.mediumPrice,
-  // smallPrice:fields.smallPrice,
-  // user:found,
-  // dateAdded:new Date(),
-
-  var c;
-  User.findOne({unique_id: req.session.userId},
-    function(err,found)
-    {
-      if(!err)
-        if(found)
-        {
-          Product.findOne({}, {}, { sort: { "_id": -1 } },function(err,data)
-          {
-            if (data)
-            {
-              c = data.productId + 1;
-            }
-            else{
-              c = 1;
-            }
-            const dir=__dirname+"/../uploads/users/"+found.unique_id +"/Products/" +c;
-            if (!fs.existsSync(dir)) {
-              fs.mkdirSync(dir, {
-              recursive: true
-            });
-            }
-            const editedImageDir=__dirname+"/../public/covers/users/"+found.unique_id +"/Products/" +c;
-            if (!fs.existsSync(editedImageDir)) {
-              fs.mkdirSync(editedImageDir, {
-              recursive: true
-            });
-            }
-            console.log(__dirname+"/../uploads/users/"+found.unique_id +"/Products/" +c)
+router.post("/editProduct/:productId",function(req,res,next){
 
 
-            const form = formidable({ multiples: true, uploadDir: dir});
+
+
+
+
+            const form = formidable({ multiples: true});
             form.keepExtensions=true;
             form.maxFileSize=10*1024*1024;
-            form.parse(req, (err, fields, files) => {
-              const fileName = path.basename(files.productFiles.path);
-              const databaseDestination = "covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
-              const destination ="public/covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
-
- 
-
-
-              if(files.productFiles && files.productFiles.size!=0){
-
-                Jimp.read(files.productFiles.path)
-                .then(image =>{
-                  image.gaussian(1);
-                  image.quality(50);
-                  Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(font => {
-                  image.print(font, 0, 0, "@ART APP");
-                });
-                  image.write(destination);
-                })
-                .catch(err =>{
-                  console.log(err);
-                });
-                console.log(fields.productId);
-                Product.findOne({},function(err,found){
-                  if(!err){
-                    if(found){
-                      const removeFileDir=found.filePath;
-                      const removeCoverDir=path.join(__dirname,"/../public/",found.coverPath);
-                      fs.unlink(removeFileDir, (err) => {
-                        if (err) {
-                          console.error(err)
-                          return
-                        }
-                      
-                        console.log("file removed")
-                      });
-                      fs.unlink(removeCoverDir, (err) => {
-                        if (err) {
-                          console.error(err)
-                          return
-                        }
-                      
-                        console.log("file removed")
-                      });
-                    }
-                  }
-                });
-
-
-
-                Product.updateMany({
-                  productId:fields.productId
-                }, {
-                  filePath:files.productFiles.path,
-                  fileType:files.productFiles.type,
-                  coverPath:databaseDestination,
-                  dateAdded:new Date(),
-                },function(err){
-                  if(!err){
-
-                    console.log("sucess!");
-    
-                  }
-                });
+            form.parse(req, (err, fields, files) => { 
   
-            }
+              Product.findOne({productId:req.params.productId},function(err,found){
+                if(!err){
+                  if(found){
+            
+            
+            
+
             if(fields.tags != found.tags && fields.tags){
               tagsarr = fields.tags.split(" ");
               for (var i = 0; i < tagsarr.length; i++)
@@ -1093,7 +998,7 @@ router.post("/editProduct",function(req,res,next){
               tagsarr = tagsarr.filter(function(e){return e});
 
               Product.updateOne({
-                productId:fields.productId
+                productId:req.params.productId
               }, {
                 tags:tagsarr,
               },function(err){
@@ -1110,7 +1015,7 @@ router.post("/editProduct",function(req,res,next){
             if(fields.fileName != found.fileName && fields.fileName){
     
               Product.updateOne({
-                productId:fields.productId
+                productId:req.params.productId
               }, {
                 fileName:fields.fileName,
               },function(err){
@@ -1126,7 +1031,7 @@ router.post("/editProduct",function(req,res,next){
             if(fields.description != found.description && fields.description){
     
               Product.updateOne({
-                productId:fields.productId
+                productId:req.params.productId
               }, {
                 description:fields.description,
               },function(err){
@@ -1142,7 +1047,7 @@ router.post("/editProduct",function(req,res,next){
             if(fields.orginalPrice != found.orginalPrice && fields.orginalPrice){
     
               Product.updateOne({
-                productId:fields.productId
+                productId:req.params.productId
               }, {
                 orginalPrice:fields.orginalPrice,
               },function(err){
@@ -1158,7 +1063,7 @@ router.post("/editProduct",function(req,res,next){
             if(fields.mediumPrice != found.mediumPrice && fields.mediumPrice){
     
               Product.updateOne({
-                productId:fields.productId
+                productId:req.params.productId
               }, {
                 mediumPrice:fields.mediumPrice,
               },function(err){
@@ -1175,7 +1080,7 @@ router.post("/editProduct",function(req,res,next){
             if(fields.largePrice != found.largePrice && fields.largePrice){
     
               Product.updateOne({
-                productId:fields.productId
+                productId:req.params.productId
               }, {
                 largePrice:fields.largePrice,
               },function(err){
@@ -1191,7 +1096,7 @@ router.post("/editProduct",function(req,res,next){
             if(fields.smallPrice != found.smallPrice && fields.smallPrice){
     
               Product.updateOne({
-                productId:fields.productId
+                productId:req.params.productId
               }, {
                 smallPrice:fields.smallPrice,
               },function(err){
@@ -1222,7 +1127,7 @@ router.post("/editProduct",function(req,res,next){
               return;
             }
             if(!err){
-              Product.findOne({productId:fields.productId},function(err,found){
+              Product.findOne({productId:req.params.productId},function(err,found){
                 if(!err){
                   let successfulUpload={message:`${found.fileName} changed`,code:"000"};
                   User.updateOne({
@@ -1237,17 +1142,19 @@ router.post("/editProduct",function(req,res,next){
                   });
                 }
               });
-
+              res.redirect("/");
             }
-            res.redirect("/");
-          });
 
+
+
+
+          }
+        }
         });
-
-      }
-  });
+        
 
 
+          });
 
 
 
@@ -1263,8 +1170,6 @@ router.post("/editProduct",function(req,res,next){
 
 
 router.post("/changeUserInfo",function(req,res,next){
-
-
 
 
 

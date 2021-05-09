@@ -6,10 +6,9 @@
         <div class="container-fluid">
             <%-include("notif");-%>
             <div class="row">
-                <form action="/editProduct" enctype="multipart/form-data" method="post">
+                <form action="/editProduct/<%=product.productId%>" enctype="multipart/form-data" method="post">
                     <div class="info">
                         <h4> تغییر اطلاعات اثر </h4>
-                        <input name="productId" type="text" class="hiddenInput" value="<%=product.productId%>" />
                         <div class="name">
 
                             <input name="fileName" type="text" class="nameInput" placeholder="<%=product.fileName%>" />
