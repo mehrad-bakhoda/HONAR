@@ -1037,6 +1037,33 @@ router.post("/editProduct",function(req,res,next){
                   console.log(err);
                 });
                 console.log(fields.productId);
+                Product.findOne({},function(err,found){
+                  if(!err){
+                    if(found){
+                      const removeFileDir=found.filePath;
+                      const removeCoverDir=path.join(__dirname,"/../public/",found.coverPath);
+                      fs.unlink(removeFileDir, (err) => {
+                        if (err) {
+                          console.error(err)
+                          return
+                        }
+                      
+                        console.log("file removed")
+                      });
+                      fs.unlink(removeCoverDir, (err) => {
+                        if (err) {
+                          console.error(err)
+                          return
+                        }
+                      
+                        console.log("file removed")
+                      });
+                    }
+                  }
+                });
+
+
+
                 Product.updateMany({
                   productId:fields.productId
                 }, {
@@ -1262,6 +1289,7 @@ router.post("/changeUserInfo",function(req,res,next){
           if(found){
    
             if(files.profilePic != found.profilePic && files.profilePic && files.profilePic.size!=0){
+
               console.log("true");
               var profilePicPath = "";
               var fileName = path.basename(files.profilePic.path);
@@ -1271,6 +1299,17 @@ router.post("/changeUserInfo",function(req,res,next){
                   profilePicPath = newPath;
               else
                   profilePicPath = "no picture";
+
+                  const removeDir=path.join(__dirname,"/../public",found.profilePicPath);
+                    fs.unlink(removeDir, (err) => {
+                      if (err) {
+                        console.error(err)
+                        return
+                      }
+                    
+                      console.log("file removed")
+                    });
+                  
             
               User.updateOne({
                 unique_id:req.session.userId
