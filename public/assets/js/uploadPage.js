@@ -20,14 +20,14 @@ function chooseMoney(element) {
 $(".pricing.original label.free").click(function () {
     chooseFree(".pricing.original")
 });
-$(".pricing.original input").click(function () {
+$(".pricing.original input").focus(function () {
     chooseMoney(".pricing.original")
 });
 
 $(".pricing.large label.free").click(function () {
     chooseFree(".pricing.large")
 });
-$(".pricing.large input").click(function () {
+$(".pricing.large input").focus(function () {
     chooseMoney(".pricing.large")
 });
 
@@ -35,14 +35,14 @@ $(".pricing.large input").click(function () {
 $(".pricing.medium label.free").click(function () {
     chooseFree(".pricing.medium")
 });
-$(".pricing.medium input").click(function () {
+$(".pricing.medium input").focus(function () {
     chooseMoney(".pricing.medium")
 });
 
 $(".pricing.small label.free").click(function () {
     chooseFree(".pricing.small")
 });
-$(".pricing.small input").click(function () {
+$(".pricing.small input").focus(function () {
     chooseMoney(".pricing.small")
 });
 
