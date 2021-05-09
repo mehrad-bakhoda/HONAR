@@ -14,7 +14,7 @@
                             <input name="fileName" type="text" class="nameInput" value="<%=product.fileName%>"/>
                         </div>
                         <div class="tags">
-                            <input name="tags" type="text" class="tagsInput" value="<%=product.tags%>"placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
+                            <input name="tags" type="text" class="tagsInput" value="<%=product.tags.join(' ')%>"placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
                         </div>
                         <div class="description">
                             <textarea name="description" class="descriptionText" maxlength="100" placeholder="توضیحات اثر"><%=product.description%></textarea>
