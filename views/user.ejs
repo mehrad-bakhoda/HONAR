@@ -104,10 +104,11 @@ var clickCounter=4;
 var extra=getProductsLength%4;
 
 $(".userPage button.seeMore").click(function () {
-    if (clickCounter+extra>=getProductsLength) {
+    clickCounter=clickCounter+4;
+    if (clickCounter+extra>getProductsLength || clickCounter==getProductsLength) {
     $("#showMoreButton").fadeOut(400);
 }
-    clickCounter=clickCounter+4;
+    
 });
 
 

@@ -10,7 +10,7 @@
                     <div class="info">
                         <h4> اطلاعات اثر خود را وارد کنید </h4>
                         <div class="name">
-                            <input name="fileName" type="text" class="nameInput" placeholder="نام اثر" />
+                            <input name="fileName" type="text" class="nameInput" placeholder="نام اثر" required />
                         </div>
                         <div class="tags">
                             <input name="tags" type="text" class="tagsInput" placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="uploadPic">
-                        <input id ="productUploader"type="file" name="productFiles" />
+                        <input id ="productUploader"type="file" name="productFiles" required/>
                         <i class="far fa-spinner-third fa-spin hidden"></i>
                         <i class="far fa-check-circle hidden"></i>
                     </div>
@@ -28,7 +28,7 @@
                         <lable class="title"> نوع </lable>
 
                         <div class="options">
-                            <input type="text" id="types" name = "types" style="display:none;" />
+                            <input type="text" id="types" name = "types" style="display:none;" required/>
 
                             <label for="photography" class="radioLabel" id="photography">عکاسی</label>
 
@@ -38,22 +38,22 @@
                         </div>
                     </div>
                     <div class="pricing original">
-                        <input name ="orginalPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" />
+                        <input name ="orginalPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" required/>
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
                     <div class="pricing large">
-                        <input name ="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" />
+                        <input name ="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" required/>
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
                     <div class="pricing medium">
-                        <input name ="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" />
+                        <input name ="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" required/>
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
                     <div class="pricing small">
-                        <input name ="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" />
+                        <input name ="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" required/>
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>

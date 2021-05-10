@@ -187,28 +187,30 @@
             var extraBestSales=getbestSalesProductsLength%4;
             var extraLatest=getlatestProductsLength%4;
             var extraBestOfAll=getbestOfAllProductsLength%4;
-
+            
             $(".homePage #bestTabC button.seeMore").click(function () {
-            if (bestOfAllClickCounter+extraBestOfAll>=getbestOfAllProductsLength) {
+                bestOfAllClickCounter=bestOfAllClickCounter+4;
+            if (bestOfAllClickCounter+extraBestOfAll>getbestOfAllProductsLength || bestOfAllClickCounter==getbestOfAllProductsLength) {
                 $(".homePage #bestTabC button.seeMore").fadeOut(400);
             }
-            bestOfAllClickCounter=bestOfAllClickCounter+4;
             
             });
 
             $(".homePage #latestTabC button.seeMore").click(function () {
-            if (latestClickCounter+extraLatest>=getlatestProductsLength) {
+                latestClickCounter=latestClickCounter+4;
+            if (latestClickCounter+extraLatest>getlatestProductsLength || latestClickCounter==getlatestProductsLength) {
                 $(".homePage #latestTabC button.seeMore").fadeOut(400);
             }
-            latestClickCounter=latestClickCounter+4;
+            
             
             });
 
             $(".homePage #downTabC button.seeMore").click(function () {
-            if (bestSalesClickCounter+extraBestSales>=getbestSalesProductsLength) {
+                bestSalesClickCounter=bestSalesClickCounter+4;
+            if (bestSalesClickCounter+extraBestSales>getbestSalesProductsLength || bestSalesClickCounter==getbestSalesProductsLength) {
                 $(".homePage #downTabC button.seeMore").fadeOut(400);
             }
-            bestSalesClickCounter=bestSalesClickCounter+4;
+            
             
             });
 

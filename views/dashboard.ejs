@@ -391,9 +391,12 @@
             var extra=getProductsLength%4;
 
             $(".dashboardPage .products button.seeMore").click(function () {
-                if (clickCounter+extra>=getProductsLength) {
+                clickCounter=clickCounter+4;
+                console.log(clickCounter+extra);
+                console.log(getProductsLength);
+                if (clickCounter+extra>getProductsLength || clickCounter==getProductsLength) {
                 $("#showMoreButton").fadeOut(400);
             }
-                clickCounter=clickCounter+4;
+                
             });
         </script>
