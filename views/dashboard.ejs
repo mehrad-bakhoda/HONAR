@@ -16,7 +16,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
+                    <textarea placeholder="پیام شما..."></textarea>
+                    <div class="buttons">
+                        <button type="submit"> ارسال پیام </button>
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,6 +40,8 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="credit">
+                        <h5> کیف پول  </h5>
+
                         <label>
                             اعتبار شما
                         </label>
@@ -44,25 +50,36 @@
                         </p>
                     </div>
                     <div class="increase">
+                        <h5> افزایش اعتبار </h5>
 
-                        <input type="text" placeholder="مقدار مورد نظر..."/>
-                        <a href="#">
-                            افزایش اعتبار
-                        </a>
+                        <input type="text" placeholder="مقدار مورد نظر..." />
+                        <div class="buttons">
+                            <button type="submit">
+                                افزایش اعتبار
+                            </button>
+
+                        </div>
                     </div>
                     <div class="cash">
-                        <p> <span>9999 9999 9999 9999</span> شماره حساب</p>
+                        <h5> دریافت پول </h5>
+                        <label>
+                            شماره حساب
+                        </label>
+                        <p>9999 9999 9999 9999</p>
                         <input type="text" placeholder="مقدار مورد نظر..." />
-                        <a href="#">
-                            دریافت
-                        </a>
+                        <div class="buttons">
+                            <button type="submit" > دریافت</button>
+
+                        </div>
 
                         <p class="add"> افزودن کارت </p>
                         <div class="carts hidden">
                             <input type="text" class="creditNumber" placeholder="شماره کارت شما..." />
                             <input type="text" class="name" placeholder="نام شما..." />
                             <input type="text" class="ssm" placeholder="کد ملی شما..." />
-                            <button type="submit" class="submitCart"> ثیت کارت</button>
+                            <div class="buttons">
+                                <button type="submit" class="submitCart"> ثیت کارت</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,48 +141,108 @@
 
                 </div>
                 <div class="collapseContent contentHidden">
-                    <%if(statusMessage.length){%>
-                    <% statusMessage.slice().reverse().forEach(function(message) { %>
+                    <ul class="nav nav-tabs nav-justified mb-3" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active"
+                               id="tab-1"
+                               data-mdb-toggle="tab"
+                               href="#tabs-1"
+                               role="tab"
+                               aria-controls="tabs-1"
+                               aria-selected="true">سیستمی</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link"
+                               id="tab-2"
+                               data-mdb-toggle="tab"
+                               href="#tabs-2"
+                               role="tab"
+                               aria-controls="tabs-2"
+                               aria-selected="false">دریافتی</a>
+                        </li>
 
-                    <%if(message.code==="000"){%>
-                    <div class="card notifCard success">
-                        <div class="title">
-                            <h6> پیام  تایید</h6>
+                    </ul>
+                    <div class="tab-content" id="ex2-content">
+                        <div class="tab-pane fade show active"
+                             id="tabs-1"
+                             role="tabpanel"
+                             aria-labelledby="tab-1">
+                            <%if(statusMessage.length){%>
+                            <% statusMessage.slice().reverse().forEach(function(message) { %>
+
+                            <%if(message.code==="000"){%>
+                            <div class="card notifCard success">
+                                <div class="title">
+                                    <h6> پیام  تایید</h6>
+                                    <p class="date">
+                                        18/10/99
+                                    </p>
+                                </div>
+                                <div class="mesage">
+                                    <p> <%=message.message%></p>
+                                </div>
+                            </div>
+                            <%}%>
+
+                            <%if(message.code==="111"){%>
+                            <div class="card notifCard">
+                                <div class="title">
+                                    <h6> پیام  عادی</h6>
+                                </div>
+                                <div class="mesage">
+                                    <p> <%=message.message%></p>
+                                </div>
+                            </div>
+
+                            <%}%>
+                            <%if(message.code==="222"){%>
+                            <div class="card notifCard error">
+                                <div class="title">
+                                    <h6> پیام  خطا</h6>
+                                </div>
+                                <div class="mesage">
+                                    <p> <%=message.message%></p>
+                                </div>
+                            </div>
+
+
+                            <% }%>
+                            <% })%>
+                            <%}else{%>
+
+                            <h6> هیج پیامی ندارید</h6>
+                            <%}%>
                         </div>
-                        <div class="mesage">
-                            <p> <%=message.message%></p>
+                        <div class="tab-pane fade"
+                             id="tabs-2"
+                             role="tabpanel"
+                             aria-labelledby="tab-2">
+                            <%if(statusMessage.length){%>
+                            <% statusMessage.slice().reverse().forEach(function(message) { %>
+
+                            <%if(message.code==="000"){%>
+                            <div class="card notifCard">
+                                <div class="title">
+                                    <h6> </h6>
+                                    <p class="date">
+                                        18/10/99
+                                    </p>
+                                </div>
+                                <div class="mesage">
+                                    <p> <%=message.message%></p>
+                                </div>
+                            </div>
+                            <%}%>
+
+                            <% })%>
+                            <%}else{%>
+
+                            <h6> هیج پیامی ندارید</h6>
+                            <%}%>
                         </div>
                     </div>
-                    <%}%>
+                    <!-- Tabs content -->
 
-                    <%if(message.code==="111"){%>
-                    <div class="card notifCard">
-                        <div class="title">
-                            <h6> پیام  عادی</h6>
-                        </div>
-                        <div class="mesage">
-                            <p> <%=message.message%></p>
-                        </div>
-                    </div>
-
-                    <%}%>
-                    <%if(message.code==="222"){%>
-                    <div class="card notifCard error">
-                        <div class="title">
-                            <h6> پیام  خطا</h6>
-                        </div>
-                        <div class="mesage">
-                            <p> <%=message.message%></p>
-                        </div>
-                    </div>
-
-
-                    <% }%>
-                    <% })%>
-                    <%}else{%>
-
-                    <h6> هیج پیامی ندارید</h6>
-                    <%}%>
 
 
                 </div>
@@ -180,46 +257,44 @@
                 </div>
                 <div class="collapseContent contentHidden">
                     <% if (user.type =="Uploader"){%>
-                        <form id="infoForm" name="changInformationForm" action="/changeUserInfoU" enctype="multipart/form-data" method="post">
+                    <form id="infoForm" name="changInformationForm" action="/changeUserInfoU" enctype="multipart/form-data" method="post">
 
 
-                            <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
-                            <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
-                            <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
-                            <input name="email" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
-                            <i class="fal fa-envelope"></i>
-                            <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" value="<%=user.instagram%>" />
-                            <i class="fab fa-instagram"></i>
-                            <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" value="<%=user.twitter%>" />
-                            <i class="fab fa-twitter"></i>
-                            <textarea name="bio" class="bio" placeholder="درباره شما..."><%=user.bio%></textarea>
-                            <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
-                            <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
-                            <div class="buttons">
-                                <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
-                                <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
-                                <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
-                            </div>
-                        </form>
+                        <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
+                        <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
+                        <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
+                        <input name="email" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
+                        <i class="fal fa-envelope"></i>
+                        <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" value="<%=user.instagram%>" />
+                        <i class="fab fa-instagram"></i>
+                        <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" value="<%=user.twitter%>" />
+                        <i class="fab fa-twitter"></i>
+                        <textarea name="bio" class="bio" placeholder="درباره شما..."><%=user.bio%></textarea>
+                        <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
+                        <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                        <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                        <div class="buttons">
+                            <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
+                            <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
+                            <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
+                        </div>
+                    </form>
                     <%}else{%>
-                        <form id="infoForm" name="changInformationForm" action="/changeUserInfoD" enctype="multipart/form-data" method="post">
-
-
-                            <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
-                            <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
-                            <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
-                            <div class="buttons">
-                                <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
-                                <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
-                                <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
-                            </div>
-                        </form>
-                        <button type="button">هنرمند شو</button>
+                    <form id="infoForm" name="changInformationForm" action="/changeUserInfoD" enctype="multipart/form-data" method="post">
+                        <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
+                        <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
+                        <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                        <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                        <div class="buttons">
+                            <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
+                            <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
+                            <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
+                        </div>
+                    </form>
+                    <button type="button">هنرمند شو</button>
 
                     <%}%>
-                    
+
 
                 </div>
             </div>
@@ -240,6 +315,44 @@
                     </div>
                     <div class="bestSeller">
                         <h6> پرفروش ترین اثر شما </h6>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+            <% if(user.type =="Uploader"){%>
+            <div class="sale part">
+                <div class="header" onClick="openContent('stats')">
+                    <h5>
+                        کد تخفیف
+                        <i class="fal fa-angle-down"></i>
+                    </h5>
+                </div>
+                <div class="collapseContent contentHidden">
+                    <div class="creat">
+                        <h6> افزودن کد تخفیف</h6>
+                        <label>
+                            میزان تخفیف
+                        </label>
+                        <input type="text" placeholder="مثلا 10% یا 1000تومان"/>
+                        <div class="dates">
+                            <label> تاریخ شروع</label>
+                            <input type="date" class="start" />
+                            <label> تاریخ پایان</label>
+                            <input type="date" class="end" />
+                        </div>
+                        <div class="buttons">
+                            <button type="submit">
+                                تولید کد
+                            </button>
+                        </div>
+                    </div>
+                    <div class="history">
+                        <h6>  کدهای تخفیف شما</h6>
+                        <ul class="pastCodes">
+                            <li>
+                                code 1
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
