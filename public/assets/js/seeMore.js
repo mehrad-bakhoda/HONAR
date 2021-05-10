@@ -31,11 +31,8 @@ hideItems(".searchPage");
 showMore(".searchPage", 3);
 
 /* Show User's Art */
-$(".userPage button.seeMore").click(function () {
-    showMore(".userPage", 4);
-});
-hideItems(".userPage");
-showMore(".userPage", 4);
+
+
 
 /* Functions */
 function hideItems(tabID) {

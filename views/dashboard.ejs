@@ -89,20 +89,36 @@
                         </div>
                         <% if(user.type =="Uploader"){%>
                         <div class="socialStats">
-                            <div class="mail">
-                                <a href="mailto:<%=user.email%>"><i class="fal fa-envelope"></i></a>
-                            </div>
-                            <div class="instagram">
+                                    <%if(user.email){%>
+                                        <div class="mail">
+                                            <a href="mailto:<%=user.email%>"><i class="fal fa-envelope"></i></a>
+                                        </div>
+                                        <%}%>
+                                        <% if(user.instagram){%>
+                                        <div class="instagram">
 
-                                <a href="<%=user.instagram%>"> <i class="fab fa-instagram"></i> </a>
-                            </div>
-                            <div class="twitter">
-                                <a href="<%=user.twitter%>"><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <div class="productsCount">
-                                <label> تعداد آثار:</label>
-                                <p> <%=searched.length%> </p>
-                            </div>
+                                            <a href="<%=user.instagram%>"> <i class="fab fa-instagram"></i> </a>
+                                        </div>
+                                        <%}%>
+                                        <% if(user.twitter){%>
+                                        <div class="twitter">
+                                            <a href="<%=user.twitter%>"><i class="fab fa-twitter"></i></a>
+                                        </div>
+
+                                        <%  }%>
+                                    
+                                   
+
+                                    <div class="productsCount">
+                                        
+                                        <%if(searched.length==0){%>
+                                            <p>بدون اثر</p>
+                                            <%}else{%>
+                                            <label> تعداد آثار:</label>
+                                            <p> <%=searched.length%> </p>
+                                            <% }%>
+                                       
+                                    </div>
                         </div>
                         <%}%>
                     </div>
@@ -339,9 +355,6 @@
                     <%}%>
 
                 </div>
-                <%var i=8%>
-                <% if (searched.length>i) { %>
-
 
                 <div class="buttons">
 
@@ -350,8 +363,7 @@
                         <i class="fal fa-angle-down"></i>
                     </button>
 
-                </div><% i=i+8;%>
-                <% } %>
+                </div>
 
             </div>
             <%}%>
