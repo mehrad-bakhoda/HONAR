@@ -15,18 +15,10 @@ $(".personalInfo .buttons .edit").click(function () {
     $(".personalInfo input").removeAttr("disabled");
     $(".personalInfo textarea").removeAttr("disabled");
 });
-// $(".personalInfo .buttons .after").click(function () {
-//     $(".personalInfo input").attr({ 'disabled': 'disabled' });
-//     $(".personalInfo textarea").attr({ 'disabled': 'disabled' });
-// });
+$(".personalInfo .buttons .after").click(function () {
+    $(".personalInfo input").attr({ 'disabled': 'disabled' });
+    $(".personalInfo textarea").attr({ 'disabled': 'disabled' });
+});
 
-// function validateForm(){
-//   var password=document.forms["changInformationForm"]["password"];
-//   var passwordConfirmation=document.forms["changInformationForm"]["passwordConfirmation"];
-
-//   if(password !=passwordConfirmation){
-//     return false;
-//   }
-// }
 
 
