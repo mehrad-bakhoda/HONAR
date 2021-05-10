@@ -1351,7 +1351,24 @@ router.post("/changeUserInfoU",function(req,res,next){
             }
           });
         }if(fields.userName != found.userName && fields.userName){
-          User.updateOne({
+          User.findOne({userName:fields.userName.toLowerCase()},function(err,userNameFound){
+            if(!err){
+              if(userNameFound){
+                if(userNameFound.unique_id!=req.session.userId){
+                  let unsuccessfullUserNameChange={message:`couldnt change username | ${fields.userName.toLowerCase()} already exists`,code:"222"};
+                  User.updateOne({
+                    unique_id:req.session.userId
+                  },
+                  {
+                    $push:{message:unsuccessfullUserNameChange}
+                  },function(err){
+                    if(!err){
+                      console.log("added status");
+                    }
+                  });
+                }
+              }else{
+              User.updateOne({
             unique_id:req.session.userId
           }, {
             userName:fields.userName.toLowerCase(),
@@ -1373,6 +1390,10 @@ router.post("/changeUserInfoU",function(req,res,next){
 
           }
         });
+              }
+            }
+          });
+
       }
       if(found.instagram && !fields.instagram){
           User.updateOne({
@@ -1598,7 +1619,7 @@ if(fields.email != found.email && fields.email){
       return;
     }
     if(!err){
-      setTimeout(function(){ res.redirect("/dashboard"); }, 200);
+      setTimeout(function(){ res.redirect("/dashboard"); }, 250);
       
     }
   });
