@@ -149,10 +149,12 @@
                                 </a>
 
                             </div>
+                            
                             <% }) %>
 
 
                         </div>
+                        
                         <div class="buttons">
                             <button type="button" class="seeMore">
                                 مشاهده بیشتر
@@ -172,4 +174,45 @@
 
 <!-- Scripts -->
 <%-include("scripts");-%>
+<% var bestSalesProductsLength = bestSales.length;%>
+<% var latestProductsLength =latest.length;%>
+<% var bestOfAllProductsLength = bestOfAll.length;%>
+        <script>
+            var getbestSalesProductsLength= <%=bestSalesProductsLength%> ;
+            var getlatestProductsLength= <%=latestProductsLength%> ;
+            var getbestOfAllProductsLength= <%=bestOfAllProductsLength%> ;
+            var bestOfAllClickCounter=4;
+            var latestClickCounter=4;
+            var bestSalesClickCounter=4;
+            var extraBestSales=getbestSalesProductsLength%4;
+            var extraLatest=getlatestProductsLength%4;
+            var extraBestOfAll=getbestOfAllProductsLength%4;
+            
+            $(".homePage #bestTabC button.seeMore").click(function () {
+                bestOfAllClickCounter=bestOfAllClickCounter+4;
+            if (bestOfAllClickCounter+extraBestOfAll>getbestOfAllProductsLength || bestOfAllClickCounter==getbestOfAllProductsLength) {
+                $(".homePage #bestTabC button.seeMore").fadeOut(400);
+            }
+            
+            });
+
+            $(".homePage #latestTabC button.seeMore").click(function () {
+                latestClickCounter=latestClickCounter+4;
+            if (latestClickCounter+extraLatest>getlatestProductsLength || latestClickCounter==getlatestProductsLength) {
+                $(".homePage #latestTabC button.seeMore").fadeOut(400);
+            }
+            
+            
+            });
+
+            $(".homePage #downTabC button.seeMore").click(function () {
+                bestSalesClickCounter=bestSalesClickCounter+4;
+            if (bestSalesClickCounter+extraBestSales>getbestSalesProductsLength || bestSalesClickCounter==getbestSalesProductsLength) {
+                $(".homePage #downTabC button.seeMore").fadeOut(400);
+            }
+            
+            
+            });
+
+            </script>
 <!-- Scripts -->

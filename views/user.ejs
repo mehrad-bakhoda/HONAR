@@ -21,19 +21,35 @@
                                     <p> <%=user.userName%> </p>
                                 </div>
                                 <div class="socialStats">
-                                    <div class="mail">
-                                        <a href="mailto:<%=user.email%>"><i class="fal fa-envelope"></i></a>
-                                    </div>
-                                    <div class="instagram">
+                                    <%if(user.email){%>
+                                        <div class="mail">
+                                            <a href="mailto:<%=user.email%>"><i class="fal fa-envelope"></i></a>
+                                        </div>
+                                        <%}%>
+                                        <% if(user.instagram){%>
+                                        <div class="instagram">
 
-                                        <a href="<%=user.instagram%>"> <i class="fab fa-instagram"></i> </a>
-                                    </div>
-                                    <div class="twitter">
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                    </div>
+                                            <a href="<%=user.instagram%>"> <i class="fab fa-instagram"></i> </a>
+                                        </div>
+                                        <%}%>
+                                        <% if(user.twitter){%>
+                                        <div class="twitter">
+                                            <a href="<%=user.twitter%>"><i class="fab fa-twitter"></i></a>
+                                        </div>
+
+                                        <%  }%>
+                                    
+                                   
+
                                     <div class="productsCount">
-                                        <label> تعداد آثار:</label>
-                                        <p> <%=searched.length%> </p>
+                                        
+                                        <%if(searched.length==0){%>
+                                            <p>بدون اثر</p>
+                                            <%}else{%>
+                                            <label> تعداد آثار:</label>
+                                            <p> <%=searched.length%> </p>
+                                            <% }%>
+                                       
                                     </div>
                                 </div>
 
@@ -53,7 +69,7 @@
                     <div class="row">
                         <% for (var i = 0; i < searched.length; i++){%>
                             <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                                <a href="/Product">
+                                <a href="/Product/<%=searched[i].productId%>/<%=searched[i].fileName%>">
                                     <div class="card product">
                                         <div class="card-body">
                                             <img src="<%=searched[i].coverPath%>" />
@@ -68,7 +84,7 @@
                         
                     </div>
                     <div class="buttons">
-                        <button type="button" class="seeMore">
+                        <button type="button" class="seeMore" id="showMoreButton">
                             مشاهده بیشتر
                             <i class="fal fa-angle-down"></i>
                         </button>
@@ -81,3 +97,20 @@
 </section>
 
 <%-include("scripts");-%>
+<% var productsLength = searched.length;%>
+        <script>
+            var getProductsLength= <%=productsLength%> ;
+var clickCounter=4;
+var extra=getProductsLength%4;
+
+$(".userPage button.seeMore").click(function () {
+    clickCounter=clickCounter+4;
+    if (clickCounter+extra>getProductsLength || clickCounter==getProductsLength) {
+    $("#showMoreButton").fadeOut(400);
+}
+    
+});
+
+
+        </script>
+

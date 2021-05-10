@@ -1,6 +1,5 @@
 /* Collapse */
 function openContent(className) {
-    console.log(className);
     $("." + className + ".part .collapseContent").toggleClass("contentHidden");
     $("." + className + ".part i.fa-angle-down").toggleClass("rotated");
     $("." + className).toggleClass("opened");
@@ -29,4 +28,5 @@ $(".personalInfo .buttons .edit").click(function () {
 //     return false;
 //   }
 // }
+
 

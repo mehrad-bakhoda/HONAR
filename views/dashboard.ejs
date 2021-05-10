@@ -106,20 +106,36 @@
                         </div>
                         <% if(user.type =="Uploader"){%>
                         <div class="socialStats">
-                            <div class="mail">
-                                <a href="mailto:<%=user.email%>"><i class="fal fa-envelope"></i></a>
-                            </div>
-                            <div class="instagram">
+                                    <%if(user.email){%>
+                                        <div class="mail">
+                                            <a href="mailto:<%=user.email%>"><i class="fal fa-envelope"></i></a>
+                                        </div>
+                                        <%}%>
+                                        <% if(user.instagram){%>
+                                        <div class="instagram">
 
-                                <a href="<%=user.instagram%>"> <i class="fab fa-instagram"></i> </a>
-                            </div>
-                            <div class="twitter">
-                                <a href="<%=user.twitter%>"><i class="fab fa-twitter"></i></a>
-                            </div>
-                            <div class="productsCount">
-                                <label> تعداد آثار:</label>
-                                <p> <%=searched.length%> </p>
-                            </div>
+                                            <a href="<%=user.instagram%>"> <i class="fab fa-instagram"></i> </a>
+                                        </div>
+                                        <%}%>
+                                        <% if(user.twitter){%>
+                                        <div class="twitter">
+                                            <a href="<%=user.twitter%>"><i class="fab fa-twitter"></i></a>
+                                        </div>
+
+                                        <%  }%>
+                                    
+                                   
+
+                                    <div class="productsCount">
+                                        
+                                        <%if(searched.length==0){%>
+                                            <p>بدون اثر</p>
+                                            <%}else{%>
+                                            <label> تعداد آثار:</label>
+                                            <p> <%=searched.length%> </p>
+                                            <% }%>
+                                       
+                                    </div>
                         </div>
                         <%}%>
                     </div>
@@ -452,19 +468,15 @@
                     <%}%>
 
                 </div>
-                <%var i=8%>
-                <% if (searched.length>i) { %>
-
 
                 <div class="buttons">
 
-                    <button type="button" class="seeMore">
+                    <button type="button" class="seeMore" id="showMoreButton">
                         مشاهده بیشتر
                         <i class="fal fa-angle-down"></i>
                     </button>
 
-                </div><% i=i+8;%>
-                <% } %>
+                </div>
 
             </div>
             <%}%>
@@ -475,7 +487,6 @@
 
 <%-include("scripts");-%>
 <script src="./assets/js/dashboard.js"></script>
-<script src="./assets/js/seeMore.js"></script>
 <script src="./assets/js/wallet.js"></script>
 <script type="text/javascript">
     $('.owl-carousel').owlCarousel({
@@ -486,3 +497,19 @@
         responsiveClass: true,
     })
 </script>
+<% var productsLength = searched.length;%>
+        <script>
+            var getProductsLength= <%=productsLength%> ;
+            var clickCounter=4;
+            var extra=getProductsLength%4;
+
+            $(".dashboardPage .products button.seeMore").click(function () {
+                clickCounter=clickCounter+4;
+                console.log(clickCounter+extra);
+                console.log(getProductsLength);
+                if (clickCounter+extra>getProductsLength || clickCounter==getProductsLength) {
+                $("#showMoreButton").fadeOut(400);
+            }
+                
+            });
+        </script>
