@@ -2495,9 +2495,12 @@ section.dashboardPage {
                         input[type=text] {
                             float: left;
                         }
+
                         .buttons {
                             text-align: left;
                         }
+
+
 
                         .dates {
                             padding: 1rem 0;
@@ -2506,13 +2509,10 @@ section.dashboardPage {
 
                             @include sm {
                                 padding: 2rem 0;
-                                display: block;
-
-                                input {
-                                    display: block;
-                                }
                             }
                         }
+
+
 
                         .end {
                             display: inline-block;
@@ -2526,6 +2526,15 @@ section.dashboardPage {
 
                         .start {
                             display: inline-block;
+                        }
+
+                        @include xxs {
+                            text-align: center;
+                            input {
+                                display: block !important;
+                                float: none !important;
+                                margin: auto;
+                            }
                         }
                     }
 
@@ -2565,7 +2574,11 @@ section.dashboardPage {
 
                                         @include xs {
                                             width: 100%;
-                                            text-align: center;
+                                            text-align: right !important;
+
+                                            span {
+                                                float: left;
+                                            }
                                         }
                                     }
                                 }
@@ -2998,8 +3011,8 @@ section.dashboardPage {
                     ::-webkit-scrollbar {
                         width: 0.25rem;
                         margin-right: 0.5rem;
-/*                        background: lightgray;
-*/                        border-radius: 4px;
+                        /*                        background: lightgray;
+*/ border-radius: 4px;
                     }
 
                     ::-webkit-scrollbar-thumb {

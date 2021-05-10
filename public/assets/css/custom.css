@@ -2157,10 +2157,6 @@ section.dashboardPage section.contents .container-fluid .part.sale .create .date
 @media (max-width: 767px) {
   section.dashboardPage section.contents .container-fluid .part.sale .create .dates {
     padding: 2rem 0;
-    display: block;
-  }
-  section.dashboardPage section.contents .container-fluid .part.sale .create .dates input {
-    display: block;
   }
 }
 section.dashboardPage section.contents .container-fluid .part.sale .create .end {
@@ -2175,6 +2171,16 @@ section.dashboardPage section.contents .container-fluid .part.sale .create .end 
 }
 section.dashboardPage section.contents .container-fluid .part.sale .create .start {
   display: inline-block;
+}
+@media (max-width: 480px) {
+  section.dashboardPage section.contents .container-fluid .part.sale .create {
+    text-align: center;
+  }
+  section.dashboardPage section.contents .container-fluid .part.sale .create input {
+    display: block !important;
+    float: none !important;
+    margin: auto;
+  }
 }
 section.dashboardPage section.contents .container-fluid .part.sale .history {
   padding: 1rem 0;
@@ -2211,7 +2217,10 @@ section.dashboardPage section.contents .container-fluid .part.sale .history ul l
 @media (max-width: 580px) {
   section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label {
     width: 100%;
-    text-align: center;
+    text-align: right !important;
+  }
+  section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label span {
+    float: left;
   }
 }
 section.dashboardPage section.contents .container-fluid .part.notifs {
