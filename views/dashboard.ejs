@@ -1,4 +1,5 @@
 ﻿<%-include("head");-%>
+<%-include("notif");%>
 
 
 <section class="page dashboardPage">
@@ -196,12 +197,12 @@
                 </div>
                 <div class="collapseContent contentHidden">
                     <% if (user.type =="Uploader"){%>
-                        <form id="infoForm" name="changInformationForm" action="/changeUserInfoU" enctype="multipart/form-data" method="post">
+                        <form id="infoForm" name="changInformationForm" action="/changeUserInfoU"  enctype="multipart/form-data" method="post" onSubmit="return validateUserChangeForm ()">
 
 
                             <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
                             <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
-                            <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
+                            <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>"/>
                             <input name="email" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
                             <i class="fal fa-envelope"></i>
                             <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" value="<%=user.instagram%>" />
@@ -210,11 +211,12 @@
                             <i class="fab fa-twitter"></i>
                             <textarea name="bio" class="bio" placeholder="درباره شما..."><%=user.bio%></textarea>
                             <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
+                            <input name="oldPassword" type="password" class="passwordInput" placeholder="old password"/>
                             <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور"/>
                             <div class="buttons">
                                 <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
-                                <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
+                                <button type="submit" class="save hiddenButton after" onclick="changeForm()">ذخیره</button>
                                 <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
                             </div>
                         </form>
@@ -224,6 +226,7 @@
 
                             <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
                             <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
+                            <input name="oldPassword" type="password" class="passwordInput" placeholder="old password"/>
                             <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
                             <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
@@ -392,8 +395,6 @@
 
             $(".dashboardPage .products button.seeMore").click(function () {
                 clickCounter=clickCounter+4;
-                console.log(clickCounter+extra);
-                console.log(getProductsLength);
                 if (clickCounter+extra>getProductsLength || clickCounter==getProductsLength) {
                 $("#showMoreButton").fadeOut(400);
             }
