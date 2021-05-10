@@ -342,24 +342,28 @@
             <%}%>
             <% if(user.type =="Uploader"){%>
             <div class="sale part">
-                <div class="header" onClick="openContent('stats')">
+                <div class="header" onClick="openContent('sale')">
                     <h5>
                         کد تخفیف
                         <i class="fal fa-angle-down"></i>
                     </h5>
                 </div>
                 <div class="collapseContent contentHidden">
-                    <div class="creat">
+                    <div class="create">
                         <h6> افزودن کد تخفیف</h6>
                         <label>
                             میزان تخفیف
                         </label>
                         <input type="text" placeholder="مثلا 10% یا 1000تومان"/>
                         <div class="dates">
-                            <label> تاریخ شروع</label>
-                            <input type="date" class="start" />
-                            <label> تاریخ پایان</label>
-                            <input type="date" class="end" />
+                            <div class="start">
+                                <label> تاریخ شروع</label>
+                                <input type="date"/>
+                            </div>
+                            <div class="end">
+                                <label> تاریخ پایان</label>
+                                <input type="date" />
+                            </div>
                         </div>
                         <div class="buttons">
                             <button type="submit">
@@ -371,7 +375,20 @@
                         <h6>  کدهای تخفیف شما</h6>
                         <ul class="pastCodes">
                             <li>
-                                code 1
+                                <div class="saleCard">
+                                    <label class="amount">
+                                        مقدار <span>10%</span>
+                                    </label>
+                                    <label class="code">
+                                        کد <span> whdwu7rejgdd10</span>
+                                    </label>
+                                    <label class="start">
+                                        از تاریخ <span> 20/2/00 </span>
+                                    </label>
+                                    <label class="end">
+                                        تا تاریخ <span> 10/3/00</span>
+                                    </label>
+                                </div>
                             </li>
                         </ul>
                     </div>

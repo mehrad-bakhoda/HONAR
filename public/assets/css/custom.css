@@ -2128,6 +2128,101 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
 section.dashboardPage section.contents .container-fluid .part.top .bio p {
   text-align: justify;
 }
+section.dashboardPage section.contents .container-fluid .part.sale input {
+  background-color: #f5f5f5;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  height: 2.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.sale h6 {
+  color: #0098c5;
+  text-align: center;
+  padding: 0 1rem 1rem;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .create {
+  padding: 1rem 0;
+  border-bottom: 2px solid lightgray;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .create input[type=text] {
+  float: left;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .create .buttons {
+  text-align: left;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .create .dates {
+  padding: 1rem 0;
+  width: 100%;
+  display: inline-block;
+}
+@media (max-width: 767px) {
+  section.dashboardPage section.contents .container-fluid .part.sale .create .dates {
+    padding: 2rem 0;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.sale .create .end {
+  display: inline-block;
+  float: left;
+}
+@media (max-width: 480px) {
+  section.dashboardPage section.contents .container-fluid .part.sale .create .end {
+    float: none;
+    display: block;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.sale .create .start {
+  display: inline-block;
+}
+@media (max-width: 480px) {
+  section.dashboardPage section.contents .container-fluid .part.sale .create {
+    text-align: center;
+  }
+  section.dashboardPage section.contents .container-fluid .part.sale .create input {
+    display: block !important;
+    float: none !important;
+    margin: auto;
+  }
+}
+section.dashboardPage section.contents .container-fluid .part.sale .history {
+  padding: 1rem 0;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .history ul {
+  max-height: 20rem;
+  overflow: auto;
+  padding: 0;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .history ul li {
+  padding: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid lightgray;
+  margin: 0 auto 1rem;
+  background-color: #f5f5f5;
+  display: inline-block;
+  padding: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label {
+  width: 49%;
+  display: inline-block;
+  color: #0098c5;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label span {
+  padding-right: 1rem;
+  color: #333333;
+}
+section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label.code, section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label.end {
+  text-align: left;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label {
+    width: 100%;
+    text-align: right !important;
+  }
+  section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label span {
+    float: left;
+  }
+}
 section.dashboardPage section.contents .container-fluid .part.notifs {
   position: relative;
 }
@@ -2473,6 +2568,10 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   color: #0098c5 !important;
   border: 2px solid #0098c5;
 }
+section.dashboardPage section.contents .container-fluid .part ::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   position: relative;
   padding-top: 1rem;
@@ -2485,6 +2584,16 @@ section.dashboardPage section.contents .container-fluid .part .collapseContent {
   overflow: auto;
   overflow-x: hidden;
 }
+section.dashboardPage section.contents .container-fluid .part .collapseContent ::-webkit-scrollbar {
+  width: 0.25rem;
+  margin-right: 0.5rem;
+  /*                        background: lightgray;
+  */
+  border-radius: 4px;
+}
+section.dashboardPage section.contents .container-fluid .part .collapseContent ::-webkit-scrollbar-thumb {
+  background: #0098c5;
+}
 section.dashboardPage section.contents .container-fluid .part .contentHidden {
   padding-top: 0;
   transition: 0.4s;
@@ -2495,11 +2604,11 @@ section.dashboardPage section.contents .container-fluid .part .contentHidden {
 }
 section.dashboardPage section.contents .container-fluid .opened {
   transition: 0.4s;
-  border: 2px solid #0098c5;
+  border: 2px solid #B03066;
 }
 section.dashboardPage section.contents .container-fluid .opened .header h5 {
   transition: 0.4s;
-  color: #0098c5;
+  color: #B03066;
 }
 section.dashboardPage section.contents .container-fluid .products .buttons {
   padding-top: 4rem;
