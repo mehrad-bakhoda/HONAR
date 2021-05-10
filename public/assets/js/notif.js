@@ -40,32 +40,61 @@ $(".loginPage .login .next")
     }
 
 });
-function validateUserChangeForm(){
+function validateUploaderChangeForm(){
 
   var userName=document.forms["changInformationForm"]["userName"].value;
   var oldPassword=document.forms["changInformationForm"]["oldPassword"].value;
   var password=document.forms["changInformationForm"]["password"].value;
   var passwordConfirmation=document.forms["changInformationForm"]["passwordConfirmation"].value;
-  
   if(userName==""){
     notifError("لطفا نام کاربری را وارد کنید");
     return false;
   }else if(userName.length<5){
-    notifError("نام کاربری باید حداقل 5 کارکتر باشد");
+    notifError("نام کاربری باید حداقل 5 کارکتر باشد");  
     return false;
   }else if(oldPassword==""){
-    notifError("رمز عبور قبلی خود را وارد کنید");
+    notifError("رمز عبور  خود را وارد کنید");
     return false;
-}else if(password !== passwordConfirmation){
+}else if(password!=""){
+  if(password !== passwordConfirmation){
     notifError("رمز عبور ها با هم شباهتی ندارند");
     
     password="";
     passwordConfirmation="";
     return false;
-  }else if(password.length<8){
+  }if(password.length<8){
     notifError("رمز عبور باید حداقل 8 کارکتر باشد");
     return false;
   }
+}
+
+
+  return true;
+}
+
+function validateDownloaderChangeForm(){
+
+  var oldPassword=document.forms["changInformationForm2"]["oldPassword"].value;
+  var password=document.forms["changInformationForm2"]["password"].value;
+  var passwordConfirmation=document.forms["changInformationForm2"]["passwordConfirmation"].value;
+if(oldPassword==""){
+    notifError("رمز عبور  خود را وارد کنید");
+    return false;
+}else if(password!=""){
+  if(password !== passwordConfirmation){
+    notifError("رمز عبور ها با هم شباهتی ندارند");
+    
+    password="";
+    passwordConfirmation="";
+    return false;
+  }if(password.length<8){
+    notifError("رمز عبور باید حداقل 8 کارکتر باشد");
+    return false;
+  }
+}
+
+
+  return true;
 }
 
 
