@@ -2,6 +2,7 @@
 var showCount = 4;
 var starts = [0, 0, 0, 0, 0];
 
+
 /* Show Best */
 $(".homePage #bestTabC button.seeMore").click(function () {
     showMore("#bestTabC", 0);
@@ -30,7 +31,6 @@ $(".searchPage button.seeMore").click(function () {
 hideItems(".searchPage");
 showMore(".searchPage", 3);
 
-/* Show User's Art */
 
 
 

@@ -149,6 +149,7 @@
                                 </a>
 
                             </div>
+                            
                             <% }) %>
 
 
@@ -173,4 +174,43 @@
 
 <!-- Scripts -->
 <%-include("scripts");-%>
+<% var bestSalesProductsLength = bestSales.length;%>
+<% var latestProductsLength =latest.length;%>
+<% var bestOfAllProductsLength = bestOfAll.length;%>
+        <script>
+            var getbestSalesProductsLength= <%=bestSalesProductsLength%> ;
+            var getlatestProductsLength= <%=latestProductsLength%> ;
+            var getbestOfAllProductsLength= <%=bestOfAllProductsLength%> ;
+            var bestOfAllClickCounter=4;
+            var latestClickCounter=4;
+            var bestSalesClickCounter=4;
+            var extraBestSales=getbestSalesProductsLength%4;
+            var extraLatest=getlatestProductsLength%4;
+            var extraBestOfAll=getbestOfAllProductsLength%4;
+
+            $(".homePage #bestTabC button.seeMore").click(function () {
+            if (bestOfAllClickCounter+extraBestOfAll>=getbestOfAllProductsLength) {
+                $(".homePage #bestTabC button.seeMore").fadeOut(400);
+            }
+            bestOfAllClickCounter=bestOfAllClickCounter+4;
+            
+            });
+
+            $(".homePage #latestTabC button.seeMore").click(function () {
+            if (latestClickCounter+extraLatest>=getlatestProductsLength) {
+                $(".homePage #latestTabC button.seeMore").fadeOut(400);
+            }
+            latestClickCounter=latestClickCounter+4;
+            
+            });
+
+            $(".homePage #downTabC button.seeMore").click(function () {
+            if (bestSalesClickCounter+extraBestSales>=getbestSalesProductsLength) {
+                $(".homePage #downTabC button.seeMore").fadeOut(400);
+            }
+            bestSalesClickCounter=bestSalesClickCounter+4;
+            
+            });
+
+            </script>
 <!-- Scripts -->

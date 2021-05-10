@@ -28,16 +28,5 @@ $(".personalInfo .buttons .edit").click(function () {
 //     return false;
 //   }
 // }
-var showCount = 4;
-var starts = [0, 0, 0, 0, 0];
-
-
-$(".dashboardPage .products button.seeMore").click(function () {
-    showMore(".products", 0);
-});
-hideItems(".dashboardPage .products");
-showMore(".dashboardPage .products", 0);
-
-
 
 

@@ -358,7 +358,7 @@
 
                 <div class="buttons">
 
-                    <button type="button" class="seeMore">
+                    <button type="button" class="seeMore" id="showMoreButton">
                         مشاهده بیشتر
                         <i class="fal fa-angle-down"></i>
                     </button>
@@ -374,7 +374,6 @@
 
 <%-include("scripts");-%>
 <script src="./assets/js/dashboard.js"></script>
-<script src="./assets/js/seeMore.js"></script>
 <script src="./assets/js/wallet.js"></script>
 <script type="text/javascript">
     $('.owl-carousel').owlCarousel({
@@ -385,3 +384,23 @@
         responsiveClass: true,
     })
 </script>
+<% var productsLength = searched.length;%>
+        <script>
+            var getProductsLength= <%=productsLength%> ;
+var showCount = 4;
+var starts = [0, 0, 0, 0, 0];
+var clickCounter=4;
+var extra=getProductsLength%4;
+
+$(".dashboardPage .products button.seeMore").click(function () {
+    if (clickCounter+extra>=getProductsLength) {
+    $("#showMoreButton").fadeOut(400);
+}
+showMore(".products", 0);
+    clickCounter=clickCounter+4;
+});
+hideItems(".dashboardPage .products");
+showMore(".dashboardPage .products", 0)
+
+
+        </script>
