@@ -387,20 +387,13 @@
 <% var productsLength = searched.length;%>
         <script>
             var getProductsLength= <%=productsLength%> ;
-var showCount = 4;
-var starts = [0, 0, 0, 0, 0];
-var clickCounter=4;
-var extra=getProductsLength%4;
+            var clickCounter=4;
+            var extra=getProductsLength%4;
 
-$(".dashboardPage .products button.seeMore").click(function () {
-    if (clickCounter+extra>=getProductsLength) {
-    $("#showMoreButton").fadeOut(400);
-}
-showMore(".products", 0);
-    clickCounter=clickCounter+4;
-});
-hideItems(".dashboardPage .products");
-showMore(".dashboardPage .products", 0)
-
-
+            $(".dashboardPage .products button.seeMore").click(function () {
+                if (clickCounter+extra>=getProductsLength) {
+                $("#showMoreButton").fadeOut(400);
+            }
+                clickCounter=clickCounter+4;
+            });
         </script>

@@ -1,6 +1,6 @@
 /* Variables */
 var showCount = 4;
-var starts = [0, 0, 0, 0, 0];
+var starts = [0, 0, 0, 0, 0, 0];
 
 
 /* Show Best */
@@ -30,6 +30,19 @@ $(".searchPage button.seeMore").click(function () {
 });
 hideItems(".searchPage");
 showMore(".searchPage", 3);
+
+$(".dashboardPage .products button.seeMore").click(function () {
+    showMore(".products", 4);
+});
+hideItems(".dashboardPage .products");
+showMore(".dashboardPage .products", 4);
+
+
+$(".userPage button.seeMore").click(function () {
+    showMore(".userPage", 5);
+});
+hideItems(".userPage .products");
+showMore(".userPage .products", 5);
 
 
 
