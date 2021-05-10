@@ -635,6 +635,29 @@ section.loginPage section.contents .container-fluid .card .buttons button {
     width: 6rem;
   }
 }
+section.loginPage section.contents .container-fluid .card.login i {
+  margin: auto;
+  float: none;
+  font-size: 1.5rem;
+  color: #0098c5;
+  width: 1.5rem;
+  height: 2rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+section.loginPage section.contents .container-fluid .card.login .next {
+  position: relative;
+}
+section.loginPage section.contents .container-fluid .card.code i {
+  margin: auto;
+  float: none;
+  font-size: 1.5rem;
+  color: #0098c5;
+  width: 1.5rem;
+  height: 2rem;
+  position: absolute;
+}
 section.loginPage section.contents .container-fluid .card.code .buttons {
   padding-bottom: 0;
   float: left;
@@ -650,11 +673,22 @@ section.loginPage section.contents .container-fluid .card.code .buttons button.c
     width: 13rem;
   }
 }
+section.loginPage section.contents .container-fluid .card.code .buttons button {
+  position: relative;
+}
 section.loginPage section.contents .container-fluid .card.code .buttons .hidden {
   transition: 0.4s;
   opacity: 0;
   visibility: hidden;
   height: 0;
+}
+section.loginPage section.contents .container-fluid .card.code .buttons .next i {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+section.loginPage section.contents .container-fluid .card.code .buttons .prev i {
+  top: 0.5rem;
+  right: 0.5rem;
 }
 section.loginPage section.contents .container-fluid .card.info {
   padding: 0;

@@ -704,7 +704,35 @@ section.loginPage {
                     }
                 }
 
+                &.login {
+                    i {
+                        margin: auto;
+                        float: none;
+                        font-size: 1.5rem;
+                        color: $blue-color;
+                        width: 1.5rem;
+                        height: 2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        left: 0.5rem;
+                    }
+
+                    .next {
+                        position: relative;
+                    }
+                }
+
                 &.code {
+                    i {
+                        margin: auto;
+                        float: none;
+                        font-size: 1.5rem;
+                        color: $blue-color;
+                        width: 1.5rem;
+                        height: 2rem;
+                        position: absolute;
+                    }
+
                     .buttons {
                         padding-bottom: 0;
                         float: left;
@@ -720,11 +748,25 @@ section.loginPage {
                             }
                         }
 
+                        button {
+                            position: relative;
+                        }
+
                         .hidden {
                             transition: 0.4s;
                             opacity: 0;
                             visibility: hidden;
                             height: 0;
+                        }
+
+                        .next i {
+                            top: 0.5rem;
+                            left: 0.5rem;
+                        }
+
+                        .prev i {
+                            top: 0.5rem;
+                            right: 0.5rem;
                         }
                     }
                 }
