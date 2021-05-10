@@ -108,7 +108,7 @@
                             <div class="buttons">
                                 <input id="bought" type="text" value=<%=size%> hidden>
                                <% if(admin==="true"){ %>
-                                    <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="download"> تغییر مشخصات </button></a>
+                                    <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="changeInfo"> تغییر مشخصات </button></a>
                                     <button type="button" class="report"> حذف </button></a>
                                 <%}%>
                                 <%if(admin === "false"){ %>
