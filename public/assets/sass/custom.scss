@@ -2474,6 +2474,106 @@ section.dashboardPage {
                     }
                 }
 
+                &.sale {
+                    input {
+                        background-color: $body-color;
+                        border: 2px solid lightgray;
+                        border-radius: $radius;
+                        height: 2.5rem;
+                    }
+
+                    h6 {
+                        color: $blue-color;
+                        text-align: center;
+                        padding: 0 1rem 1rem;
+                    }
+
+                    .create {
+                        padding: 1rem 0;
+                        border-bottom: 2px solid lightgray;
+
+                        input[type=text] {
+                            float: left;
+                        }
+                        .buttons {
+                            text-align: left;
+                        }
+
+                        .dates {
+                            padding: 1rem 0;
+                            width: 100%;
+                            display: inline-block;
+
+                            @include sm {
+                                padding: 2rem 0;
+                                display: block;
+
+                                input {
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        .end {
+                            display: inline-block;
+                            float: left;
+
+                            @include xxs {
+                                float: none;
+                                display: block;
+                            }
+                        }
+
+                        .start {
+                            display: inline-block;
+                        }
+                    }
+
+                    .history {
+                        padding: 1rem 0;
+
+                        ul {
+                            max-height: 20rem;
+                            overflow: auto;
+                            padding: 0;
+
+                            li {
+                                padding: 0.5rem;
+
+                                .saleCard {
+                                    width: 100%;
+                                    border-radius: $radius;
+                                    border: 2px solid lightgray;
+                                    margin: 0 auto 1rem;
+                                    background-color: $body-color;
+                                    display: inline-block;
+                                    padding: 0.5rem;
+
+                                    label {
+                                        width: 49%;
+                                        display: inline-block;
+                                        color: $blue-color;
+
+                                        span {
+                                            padding-right: 1rem;
+                                            color: $text-color;
+                                        }
+
+                                        &.code, &.end {
+                                            text-align: left;
+                                        }
+
+                                        @include xs {
+                                            width: 100%;
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 &.notifs {
                     position: relative;
 
@@ -2878,6 +2978,11 @@ section.dashboardPage {
                     }
                 }
 
+                ::-webkit-scrollbar {
+                    width: 0;
+                    background: transparent;
+                }
+
                 .collapseContent {
                     position: relative;
                     padding-top: 1rem;
@@ -2889,6 +2994,17 @@ section.dashboardPage {
                     background-color: transparent;
                     overflow: auto;
                     overflow-x: hidden;
+
+                    ::-webkit-scrollbar {
+                        width: 0.25rem;
+                        margin-right: 0.5rem;
+/*                        background: lightgray;
+*/                        border-radius: 4px;
+                    }
+
+                    ::-webkit-scrollbar-thumb {
+                        background: $blue-color;
+                    }
                 }
 
                 .contentHidden {
@@ -2903,11 +3019,11 @@ section.dashboardPage {
 
             .opened {
                 transition: 0.4s;
-                border: 2px solid $blue-color;
+                border: 2px solid $pink-color;
 
                 .header h5 {
                     transition: 0.4s;
-                    color: $blue-color;
+                    color: $pink-color;
                 }
             }
 
