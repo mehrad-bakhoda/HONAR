@@ -524,6 +524,10 @@
             var getProductsLength= <%=productsLength%> ;
             var clickCounter=4;
             var extra=getProductsLength%4;
+            if (getProductsLength<4) {
+            $("#showMoreButton").fadeOut(400);
+}
+
 
             $(".dashboardPage .products button.seeMore").click(function () {
                 clickCounter=clickCounter+4;

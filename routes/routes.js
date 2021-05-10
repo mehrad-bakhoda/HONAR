@@ -377,7 +377,7 @@ router.get("/:userName",function(req,res){
       userName: req.params.userName.toLowerCase()
     }, function(err, found) {
       if (found) {
-        Product.find({"user.userName":found.userName})
+        Product.find({"user.unique_id":found.unique_id})
         .exec(function(err,products){
           res.render("user",{user:found,searched:products});
         });
@@ -1255,6 +1255,9 @@ router.post("/changeUserInfoU",function(req,res,next){
           if(found){
 
             if(fields && fields.oldPassword==found.password){
+
+
+              
               if(files.profilePic != found.profilePic && files.profilePic && files.profilePic.size!=0){
 
                 console.log("true");
@@ -1301,6 +1304,14 @@ router.post("/changeUserInfoU",function(req,res,next){
     
                   }
                 });
+                Product.updateMany({"user.unique_id":found.unique_id},{"user.prodilePicPath":fields.prodilePicPath},function(err){
+                  if(!err){
+                    console.log("products user updated");
+                  }
+              
+                });
+
+
   
             }
   
@@ -1327,6 +1338,12 @@ router.post("/changeUserInfoU",function(req,res,next){
   
                 }
               });
+              Product.updateMany({"user.unique_id":found.unique_id},{"user.firstName":fields.firstName},function(err){
+                if(!err){
+                  console.log("products user updated");
+                }
+            
+              });
             }if(fields.lastName != found.lastName && fields.lastName){
               User.updateOne({
                 unique_id:req.session.userId
@@ -1349,6 +1366,12 @@ router.post("/changeUserInfoU",function(req,res,next){
                 console.log("sucess!");
   
               }
+            });
+            Product.updateMany({"user.unique_id":found.unique_id},{"user.lastName":fields.lastName},function(err){
+              if(!err){
+                console.log("products user updated");
+              }
+          
             });
           }if(fields.userName != found.userName && fields.userName){
             User.findOne({userName:fields.userName.toLowerCase()},function(err,userNameFound){
@@ -1392,6 +1415,12 @@ router.post("/changeUserInfoU",function(req,res,next){
           });
                 }
               }
+            });
+            Product.updateMany({"user.unique_id":found.unique_id},{"user.userName":fields.userName.toLowerCase()},function(err){
+              if(!err){
+                console.log("products user updated");
+              }
+          
             });
   
         }
@@ -1441,6 +1470,12 @@ router.post("/changeUserInfoU",function(req,res,next){
   
           }
         });
+        Product.updateMany({"user.unique_id":found.unique_id},{"user.instagram":fields.instagram},function(err){
+          if(!err){
+            console.log("products user updated");
+          }
+      
+        });
       }
       if(found.twitter && !fields.twitter){
         User.updateOne({
@@ -1487,6 +1522,12 @@ router.post("/changeUserInfoU",function(req,res,next){
           console.log("sucess!");
   
         }
+      });
+      Product.updateMany({"user.unique_id":found.unique_id},{"user.twitter":fields.twitter},function(err){
+        if(!err){
+          console.log("products user updated");
+        }
+    
       });
     }
     if(found.bio && !fields.bio){
@@ -1536,6 +1577,12 @@ router.post("/changeUserInfoU",function(req,res,next){
   
       }
     });
+    Product.updateMany({"user.unique_id":found.unique_id},{"user.bio":fields.bio},function(err){
+      if(!err){
+        console.log("products user updated");
+      }
+  
+    });
   }
   
   if(found.email && !fields.email){
@@ -1584,6 +1631,12 @@ router.post("/changeUserInfoU",function(req,res,next){
   
     }
   });
+  Product.updateMany({"user.unique_id":found.unique_id},{"user.email":fields.email},function(err){
+    if(!err){
+      console.log("products user updated");
+    }
+
+  });
   }if(fields.password && fields.passwordConfirmation && fields.password===fields.passwordConfirmation && fields.password != found.password){
     User.updateOne({
       unique_id:req.session.userId
@@ -1606,10 +1659,16 @@ router.post("/changeUserInfoU",function(req,res,next){
   
     }
   });
+  Product.updateMany({"user.unique_id":found.unique_id},{"user.password":fields.password},function(err){
+    if(!err){
+      console.log("products user updated");
+    }
+
+  });
   
   }
         
-        
+
             }else{
               let wrongPassword={message:`wrong password`,code:"222"};
               User.updateOne({
@@ -1624,7 +1683,7 @@ router.post("/changeUserInfoU",function(req,res,next){
               });
 
             }
-    
+            
         }
         }
       });
@@ -1635,7 +1694,8 @@ router.post("/changeUserInfoU",function(req,res,next){
       return;
     }
     if(!err){
-      setTimeout(function(){ res.redirect("/dashboard"); }, 250);
+
+      setTimeout(function(){ res.redirect("/dashboard"); }, 300);
       
     }
   });
