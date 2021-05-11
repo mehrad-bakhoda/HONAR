@@ -12,8 +12,8 @@ const { check, validationResult } = require('express-validator');
 
 const fs = require("fs");
 const generateOTP = require("../localModules/generateOTP.js");
-const smsPannel = require("../localModules/smsPannel.js");
 const discountGenerator = require("../localModules/discountGenerator.js");
+const smsPannel = require("../localModules/smsPannel.js");
 const today = require("../localModules/date.js");
 const formidable = require('formidable');
 // const urlencodedParser =bodyParser.urlencoded({extended:false});
@@ -402,6 +402,13 @@ router.get("/:userName",function(req,res){
 // POST ROUTE's
 
 
+router.post("/sendAgain",function(req,res){
+
+  generateOTP.newOtp(req.body.phone);
+
+});
+
+
 router.post("/login",[
   check('loginInput','phoneNumber').isMobilePhone().isLength({min:11 , max:11}).not().isEmpty(),
 ],(req,res,next)=>{
@@ -430,36 +437,17 @@ router.post("/login",[
             if(!found.hasPassword){
 
               console.log('"' + req.body.loginInput+'"'+" is verified but hasn't set the password");
-              User.updateMany({phone: req.body.loginInput},
-              {
-
-                verifyCode: generateOTP.createNewOTP(),
-                verified: false
-              },
-              function(err, docs){
-                if (!err) {
-                  console.log('"' + req.body.loginInput+'"'+" verify code updated!");
-                }
-              });
-
-              smsPannel.sendSMS(found.verifyCode,req.body.loginInput);
+                
+              generateOTP.newOtp(req.body.loginInput);
 
               res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
             }
           }
           if(!found.verified){
             console.log('"' + req.body.loginInput+'"'+" is not verified");
-            User.updateMany({
-              phone: req.body.loginInput
-            }, {
-              verifyCode: generateOTP.createNewOTP(),
-              verified: false
-            }, function(err, docs) {
-              if (!err) {
-                console.log('"' + req.body.loginInput+'"'+" verify code updated!");
-              }
-            });
-            smsPannel.sendSMS(found.verifyCode,req.body.loginInput);
+
+            generateOTP.newOtp(req.body.loginInput);
+            
 
             res.render("login",{inputFouned:false,inputVerify:false,loginInput:req.body.loginInput,newUser:false});
           }

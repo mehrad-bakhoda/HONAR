@@ -17,8 +17,8 @@
             <% } %>
             <%if(!inputVerify){%>
             <div class="card code">
-                <form action="/register" method="post">
-                    <input hidden name="loginInput" value=<%=loginInput%> />
+                <form name="verifyCodeSubmition" action="/register" method="post">
+                    <input hidden  name="loginInput" value=<%=loginInput%> />
                     <h4> کد ارسال شده برای <%=loginInput%> را وارد کنید</h4>
                     <div class="codeInputs">
                         <input name="verifyCode1" type="text" class="codeInput" id="first" maxlength="1" />
@@ -31,7 +31,9 @@
                     <div class="buttons">
                         <button type="submit" class="next">بعدی<i class="fal fa-angle-left"></i></button>
                         <a href="/login"><button type="button" class="prev"><i class="fal fa-angle-right"></i>قبلی</button></a>
-                        <button type="button" class="codeAgain hidden">ارسال مجدد کد</button>
+                        <form action="/sendAgain"></form>
+                        <button type="button" class="hidden codeAgain">ارسال مجدد کد</button>
+                    </form>
                     </div>
                 </form>
             </div>
@@ -133,4 +135,5 @@
 <%console.log(session.errors);%>
 <!-- Custom -->
 <script src="./assets/js/codeInput.js"></script>
+<script src="./assets/js/login.js"></script>
 <!-- Scripts -->

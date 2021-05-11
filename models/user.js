@@ -61,10 +61,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  registered:{
-    type: Boolean,
-    default: false
-  },
+
   verified:{
     type: Boolean,
     default: false
