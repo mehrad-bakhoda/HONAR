@@ -83,6 +83,7 @@ const productSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types, ref: "User"
   }
+  
 
 });
 productSchema.index({type:"text",fileName:"text",artist:"text",tags:"text"});

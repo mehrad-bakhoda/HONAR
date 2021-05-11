@@ -187,6 +187,19 @@
             var extraBestSales=getbestSalesProductsLength%4;
             var extraLatest=getlatestProductsLength%4;
             var extraBestOfAll=getbestOfAllProductsLength%4;
+            if (getbestSalesProductsLength<4 ) {
+                $(".homePage #downTabC button.seeMore").fadeOut(400);
+        }
+        if (getlatestProductsLength<4) {
+            $(".homePage #latestTabC button.seeMore").fadeOut(400);
+}
+
+if (getbestOfAllProductsLength<4) {
+    
+    $(".homePage #bestTabC button.seeMore").fadeOut(400);
+}
+
+
             
             $(".homePage #bestTabC button.seeMore").click(function () {
                 bestOfAllClickCounter=bestOfAllClickCounter+4;

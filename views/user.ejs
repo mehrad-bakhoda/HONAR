@@ -102,10 +102,14 @@
             var getProductsLength= <%=productsLength%> ;
 var clickCounter=4;
 var extra=getProductsLength%4;
+if (getProductsLength<4) {
+    $("#showMoreButton").fadeOut(400);
+}
 
 $(".userPage button.seeMore").click(function () {
     clickCounter=clickCounter+4;
-    if (clickCounter+extra>getProductsLength || clickCounter==getProductsLength) {
+    if (clickCounter+extra>getProductsLength || clickCounter==getProductsLength || getProductsLength<4) {
+        console.log("i got triggered");
     $("#showMoreButton").fadeOut(400);
 }
     

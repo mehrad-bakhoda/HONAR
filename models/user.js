@@ -61,17 +61,15 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  registered:{
-    type: Boolean,
-    default: false
-  },
+
   verified:{
     type: Boolean,
     default: false
   },
   message: [{
     message:String,
-    code:String 
+    code:String ,
+    date:String
   }],
   products:[{
     product:{

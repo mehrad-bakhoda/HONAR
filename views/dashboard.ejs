@@ -184,6 +184,7 @@
                              id="tabs-1"
                              role="tabpanel"
                              aria-labelledby="tab-1">
+
                             <%if(statusMessage.length){%>
                             <% statusMessage.slice().reverse().forEach(function(message) { %>
 
@@ -192,7 +193,7 @@
                                 <div class="title">
                                     <h6> پیام  تایید</h6>
                                     <p class="date">
-                                        18/10/99
+                                        <%=message.date%>
                                     </p>
                                 </div>
                                 <div class="mesage">
@@ -205,6 +206,9 @@
                             <div class="card notifCard">
                                 <div class="title">
                                     <h6> پیام  عادی</h6>
+                                    <p class="date">
+                                        <%=message.date%>
+                                    </p>
                                 </div>
                                 <div class="mesage">
                                     <p> <%=message.message%></p>
@@ -216,6 +220,9 @@
                             <div class="card notifCard error">
                                 <div class="title">
                                     <h6> پیام  خطا</h6>
+                                    <p class="date">
+                                        <%=message.date%>
+                                    </p>
                                 </div>
                                 <div class="mesage">
                                     <p> <%=message.message%></p>
@@ -235,14 +242,16 @@
                              role="tabpanel"
                              aria-labelledby="tab-2">
                             <%if(statusMessage.length){%>
+                                <%var counter=false;%>
                             <% statusMessage.slice().reverse().forEach(function(message) { %>
 
-                            <%if(message.code==="000"){%>
+                            <%if(message.code==="333"){%>
+                                countr=true;
                             <div class="card notifCard">
                                 <div class="title">
                                     <h6> </h6>
                                     <p class="date">
-                                        18/10/99
+                                        <%=message.date%>
                                     </p>
                                 </div>
                                 <div class="mesage">
@@ -252,7 +261,7 @@
                             <%}%>
 
                             <% })%>
-                            <%}else{%>
+                            <%}if(counter==false){%>
 
                             <h6> هیج پیامی ندارید</h6>
                             <%}%>
@@ -274,7 +283,7 @@
                 </div>
                 <div class="collapseContent contentHidden">
                     <% if (user.type =="Uploader"){%>
-                        <form id="infoForm" name="changInformationForm" action="/changeUserInfoU"  enctype="multipart/form-data" method="post" onsubmit="return validateUserChangeForm()">
+                        <form id="infoForm" name="changInformationForm" action="/changeUserInfoU"  enctype="multipart/form-data" method="post" onsubmit="return validateUploaderChangeForm()">
 
 
                             <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
@@ -298,7 +307,7 @@
                             </div>
                         </form>
                     <%}else{%>
-                        <form id="infoForm" name="changInformationForm" action="/changeUserInfoD" enctype="multipart/form-data" method="post">
+                        <form id="infoForm2" name="changInformationForm2" action="/changeUserInfoD" enctype="multipart/form-data" method="post" onsubmit="return validateDownloaderChangeForm()">
 
 
                             <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
@@ -308,7 +317,7 @@
                             <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
                                 <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
-                                <button type="submit" class="save hiddenButton after" onclick="changeForm()">دخیره</button>
+                                <button type="submit" class="save hiddenButton after" onclick="changeForm()">ذخیره</button>
                                 <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
                             </div>
                         </form>
@@ -524,6 +533,10 @@
             var getProductsLength= <%=productsLength%> ;
             var clickCounter=4;
             var extra=getProductsLength%4;
+            if (getProductsLength<4) {
+            $("#showMoreButton").fadeOut(400);
+}
+
 
             $(".dashboardPage .products button.seeMore").click(function () {
                 clickCounter=clickCounter+4;
