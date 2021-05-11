@@ -216,7 +216,6 @@ section.uploadButton {
         text-align: center;
 
         img {
-            margin: auto;
             max-width: 15rem;
             width: auto;
             max-height: 12rem;
@@ -1043,6 +1042,7 @@ section.detailPage {
                             border: none;
                             box-shadow: none;
                             background-color: transparent;
+                            text-align: center;
 
                             @include md {
                                 margin-bottom: 2rem;
