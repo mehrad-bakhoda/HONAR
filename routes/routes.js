@@ -14,6 +14,7 @@ const fs = require("fs");
 const generateOTP = require("../localModules/generateOTP.js");
 const smsPannel = require("../localModules/smsPannel.js");
 const discountGenerator = require("../localModules/discountGenerator.js");
+const today = require("../localModules/date.js");
 const formidable = require('formidable');
 // const urlencodedParser =bodyParser.urlencoded({extended:false});
 const path = require("path");
@@ -113,7 +114,7 @@ router.get("/dashboard",function(req,res){
       if (found) {
         Product.find({"user.unique_id":found.unique_id})
         .exec(function(err,products){
-          res.render("dashboard",{user:found,searched:products,statusMessage:found.message});
+          res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today});
         });
       }
       else {
@@ -938,7 +939,8 @@ router.post("/upload", function(req, res){
 
               if (err) {
                 next(err);
-                let failedUpload={message:`${fields.fileName} upload failed`,code:"222"};
+ 
+                let failedUpload={message:`${fields.fileName} upload failed`,code:"222",date:today};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -952,7 +954,7 @@ router.post("/upload", function(req, res){
                 return;
               }
               if(!err){
-                let successfulUpload={message:`${fields.fileName} upload was succesfull`,code:"000"};
+                let successfulUpload={message:`${fields.fileName} upload was succesfull`,code:"000",date:today};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -1193,7 +1195,7 @@ router.post("/editProduct/:productId",function(req,res,next){
             if(!err){
               Product.findOne({productId:req.params.productId},function(err,found){
                 if(!err){
-                  let successfulUpload={message:`${found.fileName} changed`,code:"111"};
+                  let successfulUpload={message:`${found.fileName} changed`,code:"111",date:today};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -1287,7 +1289,7 @@ router.post("/changeUserInfoU",function(req,res,next){
                   profilePicPath:profilePicPath,
                 },function(err){
                   if(!err){
-                    let successfulProfilePicChange={message:`Profile picture updated`,code:"111"};
+                    let successfulProfilePicChange={message:`Profile picture updated`,code:"111",date:today};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1323,7 +1325,7 @@ router.post("/changeUserInfoU",function(req,res,next){
                 firstName:fields.firstName,
               },function(err){
                 if(!err){
-                  let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111"};
+                  let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111",date:today};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -1351,7 +1353,7 @@ router.post("/changeUserInfoU",function(req,res,next){
                 lastName:fields.lastName,
             },function(err){
               if(!err){
-                let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111"};
+                let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111",date:today};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1378,7 +1380,7 @@ router.post("/changeUserInfoU",function(req,res,next){
               if(!err){
                 if(userNameFound){
                   if(userNameFound.unique_id!=req.session.userId){
-                    let unsuccessfullUserNameChange={message:`couldnt change username | ${fields.userName.toLowerCase()} already exists`,code:"222"};
+                    let unsuccessfullUserNameChange={message:`couldnt change username | ${fields.userName.toLowerCase()} already exists`,code:"222",date:today};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1397,7 +1399,7 @@ router.post("/changeUserInfoU",function(req,res,next){
               userName:fields.userName.toLowerCase(),
           },function(err){
             if(!err){
-              let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111"};
+              let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111",date:today};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1431,7 +1433,7 @@ router.post("/changeUserInfoU",function(req,res,next){
               instagram:fields.instagram,
             },function(err){
               if(!err){
-                let successfulInstagramchange={message:`instagram link removed`,code:"111"};
+                let successfulInstagramchange={message:`instagram link removed`,code:"111",date:today};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -1455,7 +1457,7 @@ router.post("/changeUserInfoU",function(req,res,next){
             instagram:fields.instagram,
         },function(err){
           if(!err){
-            let successfullInstagramChange={message:`Instagram link updated`,code:"111"};
+            let successfullInstagramChange={message:`Instagram link updated`,code:"111",date:today};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1484,7 +1486,7 @@ router.post("/changeUserInfoU",function(req,res,next){
           twitter:fields.twitter,
         },function(err){
           if(!err){
-            let successfulTwitterchange={message:`twitter link removed`,code:"111"};
+            let successfulTwitterchange={message:`twitter link removed`,code:"111",date:today};
             User.updateOne({
               unique_id:req.session.userId
             },
@@ -1508,7 +1510,7 @@ router.post("/changeUserInfoU",function(req,res,next){
           twitter:fields.twitter,
       },function(err){
         if(!err){
-          let successfullTwitterChange={message:`Twitter link updated`,code:"111"};
+          let successfullTwitterChange={message:`Twitter link updated`,code:"111",date:today};
           User.updateOne({
             unique_id:req.session.userId
           },
@@ -1537,7 +1539,7 @@ router.post("/changeUserInfoU",function(req,res,next){
         bio:fields.bio,
       },function(err){
         if(!err){
-          let successfulBioChange={message:`bio removed`,code:"111"};
+          let successfulBioChange={message:`bio removed`,code:"111",date:today};
           User.updateOne({
             unique_id:req.session.userId
           },
@@ -1562,7 +1564,7 @@ router.post("/changeUserInfoU",function(req,res,next){
         bio:fields.bio,
     },function(err){
       if(!err){
-        let successfullBioChange={message:`bio updated`,code:"111"};
+        let successfullBioChange={message:`bio updated`,code:"111",date:today};
         User.updateOne({
           unique_id:req.session.userId
         },
@@ -1592,7 +1594,7 @@ router.post("/changeUserInfoU",function(req,res,next){
       email:fields.email,
     },function(err){
       if(!err){
-        let successfulEmailchange={message:`email removed`,code:"111"};
+        let successfulEmailchange={message:`email removed`,code:"111",date:today};
         User.updateOne({
           unique_id:req.session.userId
         },
@@ -1616,7 +1618,7 @@ router.post("/changeUserInfoU",function(req,res,next){
       email:fields.email,
   },function(err){
     if(!err){
-      let successfullEmailChange={message:`Email updated`,code:"111"};
+      let successfullEmailChange={message:`Email updated`,code:"111",date:today};
       User.updateOne({
         unique_id:req.session.userId
       },
@@ -1644,7 +1646,7 @@ router.post("/changeUserInfoU",function(req,res,next){
       password:fields.password,
   },function(err){
     if(!err){
-      let successfullPasswordChange={message:`password changed`,code:"111"};
+      let successfullPasswordChange={message:`password changed`,code:"111",date:today};
       User.updateOne({
         unique_id:req.session.userId
       },
@@ -1670,7 +1672,7 @@ router.post("/changeUserInfoU",function(req,res,next){
         
 
             }else{
-              let wrongPassword={message:`wrong password`,code:"222"};
+              let wrongPassword={message:`wrong password`,code:"222",date:today};
               User.updateOne({
                 unique_id:req.session.userId
               },
@@ -1738,7 +1740,7 @@ router.post("/changeUserInfoD",function(req,res,next){
               firstName:fields.firstName,
             },function(err){
               if(!err){
-                let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111"};
+                let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111",date:today};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -1760,7 +1762,7 @@ router.post("/changeUserInfoD",function(req,res,next){
               lastName:fields.lastName,
           },function(err){
             if(!err){
-              let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111"};
+              let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111",date:today};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -1783,7 +1785,7 @@ router.post("/changeUserInfoD",function(req,res,next){
             userName:fields.userName.toLowerCase(),
         },function(err){
           if(!err){
-            let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111"};
+            let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111",date:today};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -1807,7 +1809,7 @@ if(fields.password && fields.passwordConfirmation && fields.password===fields.pa
     password:fields.password,
 },function(err){
   if(!err){
-    let successfullPasswordChange={message:`password changed`,code:"111"};
+    let successfullPasswordChange={message:`password changed`,code:"111",date:today};
     User.updateOne({
       unique_id:req.session.userId
     },
@@ -1825,7 +1827,7 @@ if(fields.password && fields.passwordConfirmation && fields.password===fields.pa
 
 }
 }else{
-  let wrongPassword={message:`wrong password`,code:"222"};
+  let wrongPassword={message:`wrong password`,code:"222",date:today};
   User.updateOne({
     unique_id:req.session.userId
   },
