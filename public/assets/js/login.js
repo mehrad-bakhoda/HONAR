@@ -1,9 +1,11 @@
 
     setInterval(function(){ 
+        $(".loginPage .code .codeAgain").fadeIn(400);
         $(".loginPage .code .codeAgain").removeClass("hidden");
         
+        
 
-    }, 120000);
+    }, 30000);
     $( ".loginPage .code .codeAgain").on( "click", function() {
         var phoneNumber=document.forms["verifyCodeSubmition"]["loginInput"].value;
         var formData = {phone:phoneNumber}; 
@@ -14,6 +16,6 @@
             data : formData, 
             async : true, 
         });
-        $(".loginPage .code .codeAgain").addClass("hidden");
+        $(".loginPage .code .codeAgain").fadeOut(400);
       });
 
