@@ -1299,6 +1299,23 @@ section.detailPage {
                                         }
                                     }
                                 }
+
+                                .modal {
+                                    .modal-content {
+                                        width: 95%;
+                                        max-width: 40rem;
+                                        border-radius: $radius;
+                                        background-color: $body-color;
+
+                                        .modal-body {
+
+                                            .buttons {
+                                                text-align: left;
+                                                margin-bottom: 1rem;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

@@ -21,9 +21,9 @@
                             <div class="name info">
                                 <label>  نام اثر </label>
                                 <p><%=item.fileName%> </p>
-                                
+
                             </div>
-                            
+
                             <div class="artist info">
                                 <label> هنرمند</label>
 
@@ -56,7 +56,7 @@
                                     <% } %>
                                 </div>
                             </div>
-                       <% }%>
+                            <% }%>
                             <div class="sizes info">
                                 <label> سایز های موجود </label>
 
@@ -107,25 +107,38 @@
                             </div>
                             <div class="buttons">
                                 <input id="bought" type="text" value=<%=size%> hidden>
-                               <% if(admin==="true"){ %>
-                                    <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="changeInfo"> تغییر مشخصات </button></a>
-                                    <button type="button" class="report"> حذف </button></a>
+                                <% if(admin==="true"){ %>
+                                <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="changeInfo"> تغییر مشخصات </button></a>
+                                <button type="button" class="report"> حذف </button></a>
                                 <%}%>
                                 <%if(admin === "false"){ %>
-                                   
-                                        <a href="/download/<%=item.id%>/original"> <button type="button" class="download" hidden> دانلود </button></a>
-                                        
-                                        <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart" hidden> افزودن به سبد خرید </button></a>
-                                        <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy" hidden> خرید </button></a>
-                                     
-                                        <button type="button" class="report"> ریپورت </button></a>
-        
+
+                                <a href="/download/<%=item.id%>/original"> <button type="button" class="download" hidden> دانلود </button></a>
+
+                                <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart" hidden> افزودن به سبد خرید </button></a>
+                                <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy" hidden> خرید </button></a>
+
+                                <button type="button" class="report" data-mdb-toggle="modal"
+                                        data-mdb-target="#reportModal">
+                                    ریپورت
+                                </button></a>
+
 
                                 <%}%>
+                                <div class="modal fade"
+                                     id="reportModal"
+                                     tabindex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
 
-                                
 
-
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -133,24 +146,24 @@
                 </div>
             </div>
             <%if(item.description){%>
-                <div class="description">
-                    <h5 class="title"> توضیحات </h5>
-                    <p><%=item.description%></p>
-                </div>
-           <% }%>
+            <div class="description">
+                <h5 class="title"> توضیحات </h5>
+                <p><%=item.description%></p>
+            </div>
+            <% }%>
 
             <div class="related">
                 <h4> محصولات مرتبط </h4>
                 <div class="owl-carousel">
                     <% if(searched){%>
                     <% searched.forEach(function(product) { %>
-                        <%if(product.productId != item.productId){%>
+                    <%if(product.productId != item.productId){%>
                     <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
                         <div class="imageShadow">
                             <img src="/<%=product.coverPath%>" />
                         </div>
                     </a>
-              <%  }%>
+                    <%  }%>
                     <% }) %>
                     <% } %>
 
