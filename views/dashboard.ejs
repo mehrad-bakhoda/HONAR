@@ -416,65 +416,46 @@
                 </div>
                 <div class="collapseContent contentHidden">
                     <div class="owl-carousel">
-                        <div class="card item">
-                            <div class="row bottom">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                    <a href="#">
-                                        <img src="../assets/images/test0.jpg" />
-                                    </a>
+                        <% orders.forEach(function(order) { %>
+                            
+                            <% if (order.products.length == 1){%>
+                                <div class="card item">
+                                    <div class="row bottom">
+                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                            <a href="/Product/<%=order.products[0].product.productId%>/<%=order.products[0].product.fileName%>">
+                                                <img src="<%=order.products[0].product.coverPath%>" />
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                            <h6 class="name">
+                                                <%= order.products[0].product.fileName%>
+                                            </h6>
+                                            <p>
+                                                <%= order.products[0].size%>
+                                            </p>
+                                            <p class="price">
+                                                <span> <%= order.totalPrice%> </span>
+                                                تومان
+                                            </p>
+                                            <p class="date">
+                                                12/09/99
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                    <h6 class="name">
-                                        product name
-                                    </h6>
-                                    <p>
-                                        سایز اصلی
-                                    </p>
-                                    <p class="price">
-                                        <span> 12000 </span>
-                                        تومان
-                                    </p>
-                                    <p class="date">
-                                        12/09/99
-                                    </p>
+                            <% }else if (order.products.length > 1){ %>
+                                <div class="card itemPack">
+                                    <div class="background">
+                                        <img class="top" src="<%=order.products[0].product.coverPath%>" />
+                                        <img class="middle" src="<%=order.products[1].product.coverPath%>" />
+                                    </div>
+                                    <div class="detail">
+                                        <a href="/order"> مشاهده جزئیات خرید</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card item">
-                            <div class="row bottom">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                    <a href="#">
-                                        <img src="../assets/images/test0.jpg" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                    <h6 class="name">
-                                        product name
-                                    </h6>
-                                    <p>
-                                        سایز اصلی
-                                    </p>
-                                    <p class="price">
-                                        <span> 12000 </span>
-                                        تومان
-                                    </p>
-                                    <p class="date">
-                                        12/09/99
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card itemPack">
-                            <div class="background">
-                                <img class="top" src="../assets/images/test1.jpg" />
-                                <img class="middle" src="../assets/images/test2.jpg" />
-                                <img class="bottom" src="../assets/images/test3.jpg" />
-                            </div>
-                            <div class="detail">
-                                <a href="/order"> مشاهده جزئیات خرید</a>
-                            </div>
-                        </div>
+                            <% } %>
+                            
+                        <%});%>
                     </div>
 
                     <div class="buttons">
@@ -482,6 +463,7 @@
                     </div>
                 </div>
             </div>
+            
             <% if(user.type =="Uploader"){%>
             <div class="col-12 products">
                 <div class="row">
