@@ -161,9 +161,15 @@ router.get("/dashboard",function(req,res){
       unique_id: req.session.userId
     }, function(err, found) {
       if (found) {
+        
         Product.find({"user.unique_id":found.unique_id})
         .exec(function(err,products){
-          res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today});
+          Order.find({"user.unique_id":req.session.userId},function(err,orders)
+          {
+            res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders});
+
+          });
+          
         });
       }
       else {
