@@ -113,7 +113,7 @@
                                 <%}%>
                                 <%if(admin === "false"){ %>
 
-                               <a href="/download/"><button type="button" name="download" class="download" hidden> دانلود </button></a> 
+                               <a id="downloadButton" href="/download/<%=item.productId%>/original"><button type="button" name="download" class="download" hidden> دانلود </button></a> 
 
                                 <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart" hidden> افزودن به سبد خرید </button></a>
                                 <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy" hidden> خرید </button></a>

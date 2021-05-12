@@ -51,7 +51,9 @@ $(".infos .sizes label.sizeOption").click(function () {
  
         
     var href = $('#addToCart').attr('href');
+    var href1 = $('#downloadButton').attr('href');
     $('#addToCart').attr('href',href.replace(href.split("/")[3],currentID))
+    $('#downloadButton').attr('href',href1.replace(href1.split("/")[3],currentID))
     
 })
 
