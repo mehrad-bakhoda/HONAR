@@ -18,7 +18,6 @@ const today = require("../localModules/date.js");
 const formidable = require('formidable');
 // const urlencodedParser =bodyParser.urlencoded({extended:false});
 const path = require("path");
-const { __classPrivateFieldSet } = require('tslib');
 const user = require('../models/user');
 const product = require('../models/product');
 
@@ -33,6 +32,56 @@ const product = require('../models/product');
 
 
 // GET ROUTE'S
+
+
+router.post("/download/:productId/:size",function(req,res){
+  if(req.session.userId){
+ 
+  User.findOne({unique_id:req.session.userId},{"downloaded":{$elemMatch:{"product":req.params.productId,"size":req.params.size}}},function(err,found){
+    if(!err){
+      if(!found.downloaded.length){
+        let download={product:req.params.productId,size:req.params.size};
+        User.updateOne({
+          unique_id:req.session.userId
+        },
+        {
+          $push:{downloaded:download}
+        },function(err){
+          if(!err){
+            console.log("success");
+          }else{
+            console.log(err);
+          }
+        });
+
+       
+      }
+    }
+
+  });
+}else{
+  res.redirect("/login");
+}
+
+
+
+
+
+
+  
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 router.get("/",function(req,res){
