@@ -180,8 +180,24 @@ router.get("/dashboard",function(req,res){
 
 });
 
-router.get("/order", function (req, res) {
-    res.render("order");
+router.get("/dashboard/orders/:orderId", function (req, res) {
+    var orderId = req.params.orderId;
+    if(req.session.userId)
+    {
+      Order.find({"orderId":orderId},function(err,order)
+      {
+        console.log(order[0]);
+        if(order.length > 0)
+        {
+          res.render("order",{order:order[0]});
+        }
+        
+      });
+    }
+    else{
+      res.redirect('/login');
+    }
+   
 });
 router.get("/orders", function (req, res) {
     res.render("orders");
