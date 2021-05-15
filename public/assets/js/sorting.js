@@ -9,13 +9,11 @@ $(".sorting label.sortOption").click(function () {
 
     $(".sorting").toggleClass("opened");
     $(".sorting label.sortOption").toggleClass("show");
-    $(".sorting i").toggleClass("rotated");
 })
 
 $(".sorting .shownSort").click(function () {
     $(".sorting").toggleClass("opened");
     $(".sorting label.sortOption").toggleClass("show");
-    $(".sorting i").toggleClass("rotated");
     if (!$(".searchPage .advanced").hasClass("advancedHidden")) {
         $(".searchPage .advanced").addClass("advancedHidden")
     }

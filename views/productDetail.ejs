@@ -108,20 +108,44 @@
                             <div class="buttons">
                                 <input id="bought" type="text" value=<%=size%> hidden>
                                 <% if(admin==="true"){ %>
-                                <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>"> <button type="button" class="changeInfo"> تغییر مشخصات </button></a>
-                                <button type="button" class="report"> حذف </button></a>
+                                <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>">
+                                    <button type="button" class="changeInfo">
+                                        تغییر مشخصات
+                                        <i class="far fa-edit"></i>
+                                    </button>
+                                </a>
+                                <button type="button" class="pink">
+                                    حذف
+                                    <i class="fal fa-trash"></i>
+                                </button></a>
                                 <%}%>
                                 <%if(admin === "false"){ %>
 
-                                <a href="/download/<%=item.id%>/original"> <button type="button" class="download" hidden> دانلود </button></a>
+                                <a href="/download/<%=item.id%>/original">
+                                    <button type="button" class="download" hidden>
+                                        دانلود
+                                        <i class="fal fa-cloud-download"></i>
+                                    </button>
+                                </a>
 
-                                <a id="addToCart" href="/add-to-cart/<%=item.id%>/original"><button type="button" class="addToCart" hidden> افزودن به سبد خرید </button></a>
-                                <a href="/buy/<%=item.id%>/original">  <button type="button" class="buy" hidden> خرید </button></a>
+                                <a id="addToCart" href="/add-to-cart/<%=item.id%>/original">
+                                    <button type="button" class="addToCart" hidden>
+                                        افزودن به سبد خرید
+                                        <i class="fal fa-shopping-bag"></i>
+                                    </button>
+                                </a>
+                                <a href="/buy/<%=item.id%>/original">
+                                    <button type="button" class="buy" hidden>
+                                        خرید
+                                        <i class="fal fa-shopping-bag"></i>
+                                    </button>
+                                </a>
 
-                                <button type="button" class="report" data-mdb-toggle="modal"
+                                <button type="button" class="pink" data-mdb-toggle="modal"
                                         data-mdb-target="#reportModal">
-                                    ریپورت
-                                </button></a>
+                                    گزارش
+                                    <i class="fal fa-flag"></i>
+                                </button>
 
 
                                 <%}%>

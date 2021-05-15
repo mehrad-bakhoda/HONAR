@@ -7,6 +7,6 @@
     "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\public\\assets\\js\\dashboard.js",
+  "SelectedNode": "\\views\\productDetail.ejs",
   "PreviewInSolutionExplorer": false
 }

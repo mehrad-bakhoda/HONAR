@@ -6,20 +6,16 @@
         <div class="container-fluid">
             <%-include("notif");-%>
             <div class="row">
-                <img src="/<%=product.coverPath%>" style="max-height: 18rem;
-                margin: auto;
-                border-radius: 12px;
-                max-width: 100%;
-                width: auto;" />
+                <img src="/<%=product.coverPath%>" />
                 <form action="/editProduct/<%=product.productId%>" enctype="multipart/form-data" method="post">
                     <div class="info">
                         <h4> تغییر اطلاعات اثر </h4>
                         <div class="name">
 
-                            <input name="fileName" type="text" class="nameInput" value="<%=product.fileName%>" required/>
+                            <input name="fileName" type="text" class="nameInput" value="<%=product.fileName%>" required />
                         </div>
                         <div class="tags">
-                            <input name="tags" type="text" class="tagsInput" value="<%=product.tags.join(' ')%>"placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
+                            <input name="tags" type="text" class="tagsInput" value="<%=product.tags.join(' ')%>" placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
                         </div>
                         <div class="description">
                             <textarea name="description" class="descriptionText" maxlength="100" placeholder="توضیحات اثر"><%=product.description%></textarea>
@@ -29,7 +25,7 @@
                         <lable class="title"> نوع </lable>
 
                         <div class="options">
-                            <input type="text" id="types" name = "types" style="display:none;" value=<%=product.type%> required/>
+                            <input type="text" id="types" name="types" style="display:none;" value=<%=product.type%> required/>
 
                             <label for="photography" id="photography" class="radioLabel" id="photography">عکاسی</label>
 
@@ -39,27 +35,30 @@
                         </div>
                     </div>
                     <div class="pricing original">
-                        <input name ="orginalPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" value="<%=product.orginalPrice%>" required/>
+                        <input name="orginalPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" value="<%=product.orginalPrice%>" required />
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
                     <div class="pricing large">
-                        <input name ="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" value="<%=product.largePrice%>" required/>
+                        <input name="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" value="<%=product.largePrice%>" required />
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
                     <div class="pricing medium">
-                        <input name ="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" value="<%=product.mediumPrice%>" required/>
+                        <input name="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" value="<%=product.mediumPrice%>" required />
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
                     <div class="pricing small">
-                        <input name ="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" value="<%=product.smallPrice%>" required/>
+                        <input name="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" value="<%=product.smallPrice%>" required />
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
                     <div class="buttons">
-                        <button type="submit">تایید</button>
+                        <button type="submit">
+                            تایید
+                            <i class="fal fa-check"></i>
+                        </button>
                     </div>
                 </form>
             </div>

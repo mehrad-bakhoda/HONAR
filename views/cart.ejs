@@ -4,16 +4,16 @@
     <section class="contents">
         <div class="container-fluid">
             <% if(products.length == 0){%>
-                <div class="empty">
-                    
-                    <h1>
-                        <i class="fal fa-shopping-cart"></i>
-                        سبد خرید شما خالی است !
-                    </h1>
-                </div>
+            <div class="empty">
+
+                <h1>
+                    <i class="fal fa-shopping-bag"></i>
+                    سبد خرید شما خالی است !
+                </h1>
+            </div>
             <%}else{%>
             <div class="row top">
-                <div class="col-md-9 col-sm-12 items">
+                <div class="col-md-6 col-lg-9 col-sm-12 items">
                     <div class="row middle">
                         <% products.forEach(function(product) { %>
                         <div class="col-md-12 col-lg-6">
@@ -28,7 +28,8 @@
                                         <h6 class="name">
                                             <%=product.item.fileName%>
                                         </h6>
-                                        <p>سایز
+                                        <p>
+                                            سایز
                                             <% if (product.size == "original"){%>
                                             اصلی
                                             <% } %>
@@ -91,6 +92,7 @@
                                         <a href="/delete-from-cart/<%=product.item.productId%>">
                                             <button type="button" class="delete">
                                                 حذف محصول
+                                                <i class="fal fa-trash"></i>
                                             </button>
                                         </a>
                                     </div>
@@ -100,7 +102,7 @@
                         <% }); %>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-12 total">
+                <div class="col-lg-3 col-md-6 col-sm-12 total">
                     <div class="card">
                         <div class="count">
                             <h5> تعداد کالاها </h5>
@@ -120,14 +122,15 @@
                             </p>
                         </div>
                         <form class="sale">
-                            <input type="text" placeholder="کد تخفیف..."/>
-                            <button type="submit"> تایید کد </button> 
+                            <input type="text" placeholder="کد تخفیف..." />
+                            <button type="submit"> تایید کد </button>
                         </form>
                         <div class="buttons">
                             <a href="/orderConfirm">
-                            <button type="button" class="payment">
-                                پرداخت نهایی
-                            </button>
+                                <button type="button" class="payment">
+                                    پرداخت نهایی
+                                    <i class="fal fa-dollar-sign"></i>
+                                </button>
                             </a>
                         </div>
                     </div>
