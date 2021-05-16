@@ -18,7 +18,6 @@ const today = require("../localModules/date.js");
 const formidable = require('formidable');
 // const urlencodedParser =bodyParser.urlencoded({extended:false});
 const path = require("path");
-const { __classPrivateFieldSet } = require('tslib');
 const user = require('../models/user');
 const product = require('../models/product');
 
@@ -33,6 +32,56 @@ const product = require('../models/product');
 
 
 // GET ROUTE'S
+
+
+router.post("/download/:productId/:size",function(req,res){
+  if(req.session.userId){
+ 
+  User.findOne({unique_id:req.session.userId},{"downloaded":{$elemMatch:{"product":req.params.productId,"size":req.params.size}}},function(err,found){
+    if(!err){
+      if(!found.downloaded.length){
+        let download={product:req.params.productId,size:req.params.size};
+        User.updateOne({
+          unique_id:req.session.userId
+        },
+        {
+          $push:{downloaded:download}
+        },function(err){
+          if(!err){
+            console.log("success");
+          }else{
+            console.log(err);
+          }
+        });
+
+       
+      }
+    }
+
+  });
+}else{
+  res.redirect("/login");
+}
+
+
+
+
+
+
+  
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 router.get("/",function(req,res){
@@ -112,9 +161,15 @@ router.get("/dashboard",function(req,res){
       unique_id: req.session.userId
     }, function(err, found) {
       if (found) {
+        
         Product.find({"user.unique_id":found.unique_id})
         .exec(function(err,products){
-          res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today});
+          Order.find({"user.unique_id":req.session.userId},function(err,orders)
+          {
+            res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders});
+
+          });
+          
         });
       }
       else {
@@ -125,8 +180,24 @@ router.get("/dashboard",function(req,res){
 
 });
 
-router.get("/order", function (req, res) {
-    res.render("order");
+router.get("/dashboard/orders/:orderId", function (req, res) {
+    var orderId = req.params.orderId;
+    if(req.session.userId)
+    {
+      Order.find({"orderId":orderId},function(err,order)
+      {
+        console.log(order[0]);
+        if(order.length > 0)
+        {
+          res.render("order",{order:order[0]});
+        }
+        
+      });
+    }
+    else{
+      res.redirect('/login');
+    }
+   
 });
 router.get("/orders", function (req, res) {
     res.render("orders");

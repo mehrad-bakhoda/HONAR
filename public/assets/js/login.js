@@ -5,7 +5,7 @@
         
         
 
-    }, 30000);
+    }, 10000);
     $( ".loginPage .code .codeAgain").on( "click", function() {
         var phoneNumber=document.forms["verifyCodeSubmition"]["loginInput"].value;
         var formData = {phone:phoneNumber}; 

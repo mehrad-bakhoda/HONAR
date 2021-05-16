@@ -13,136 +13,43 @@
                     </div>
                     <div class="col-sm-4 col-xs-12 count">
                         <label> تعداد آثار </label>
-                        <p> 12 </p>
+                        <p> <%=order.quantity%> </p>
                     </div>
                     <div class="col-sm-4 col-xs-12 price">
                         <label> قیمت نهایی </label>
-                        <p><span> 56000 </span> تومان </p>
+                        <p><span> <%=order.totalPrice%> </span> تومان </p>
                     </div>
                 </div>
             </div>
             <div class="products">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card item">
-                            <div class="row bottom">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                    <a href="#">
-                                        <img src="../assets/images/test0.jpg" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                    <h6 class="name">
-                                        product name
-                                    </h6>
-                                    <p>
-                                        سایز اصلی
-                                    </p>
-                                    <p class="price">
-                                        <span> 12000 </span>
-                                        تومان
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card item">
-                            <div class="row bottom">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                    <a href="#">
-                                        <img src="../assets/images/test0.jpg" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                    <h6 class="name">
-                                        product name
-                                    </h6>
-                                    <p>
-                                        سایز اصلی
-                                    </p>
-                                    <p class="price">
-                                        <span> 12000 </span>
-                                        تومان
-                                    </p>
-
+                    <% order.products.forEach(function(product) { %>
+                        <% console.log(product.product.coverPath)%>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card item">
+                                <div class="row bottom">
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                        <a href="#">
+                                            <img src="/<%=product.product.coverPath%>" />
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                        <h6 class="name">
+                                            <%=product.product.fileName%>
+                                        </h6>
+                                        <p>
+                                            <%=product.size%>
+                                        </p>
+                                        <p class="price">
+                                            <span> 12000 </span>
+                                            تومان
+                                        </p>
+    
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card item">
-                            <div class="row bottom">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                    <a href="#">
-                                        <img src="../assets/images/test0.jpg" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                    <h6 class="name">
-                                        product name
-                                    </h6>
-                                    <p>
-                                        سایز اصلی
-                                    </p>
-                                    <p class="price">
-                                        <span> 12000 </span>
-                                        تومان
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card item">
-                            <div class="row bottom">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                    <a href="#">
-                                        <img src="../assets/images/test0.jpg" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                    <h6 class="name">
-                                        product name
-                                    </h6>
-                                    <p>
-                                        سایز اصلی
-                                    </p>
-                                    <p class="price">
-                                        <span> 12000 </span>
-                                        تومان
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card item">
-                            <div class="row bottom">
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                    <a href="#">
-                                        <img src="../assets/images/test0.jpg" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                    <h6 class="name">
-                                        product name
-                                    </h6>
-                                    <p>
-                                        سایز اصلی
-                                    </p>
-                                    <p class="price">
-                                        <span> 12000 </span>
-                                        تومان
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <%});%>
                 </div>
             </div>
         </div>

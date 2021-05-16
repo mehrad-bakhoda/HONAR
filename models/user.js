@@ -79,6 +79,10 @@ const userSchema = new mongoose.Schema({
     type:String,
     }
 }],
+downloaded:[{
+  product:Number,
+  size:String
+}],
 
 });
 // userSchema.plugin(passportLocalMongoose);

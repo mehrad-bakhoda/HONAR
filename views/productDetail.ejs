@@ -68,17 +68,17 @@
                                         </label>
                                         <i class="far fa-angle-down"></i>
                                     </div>
-                                    <input type="radio" value="small">
-                                    <label for="small" class="sizeOption" id="small">کوچک</label>
+                                    <input type="radio" value="small" name="size">
+                                    <label for="small" class="sizeOption size" id="small">کوچک</label>
 
-                                    <input type="radio" value="medium">
-                                    <label for="medium" class="sizeOption" id="medium">متوسط</label>
+                                    <input type="radio" value="medium" name="size">
+                                    <label for="medium" class="sizeOption size" id="medium">متوسط</label>
 
-                                    <input type="radio" value="large">
-                                    <label for="large" class="sizeOption" id="large"> بزرگ </label>
+                                    <input type="radio" value="large" name="size">
+                                    <label for="large" class="sizeOption size" id="large"> بزرگ </label>
 
-                                    <input type="radio" value="original">
-                                    <label for="original" class="sizeOption selected" id="original"> اصلی</label>
+                                    <input type="radio" value="original" name="size">
+                                    <label for="original" class="sizeOption selected size" id="original"> اصلی</label>
                                     <!-- <label for="original" class="sizeOption selected" id="original"> اصلی(<span>3000*3000</span>)</label> -->
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                         </div>
                     </a>
                     <%  }%>
-                    <% }) %>
+                    <% });%>
                     <% } %>
 
                 </div>
@@ -201,10 +201,14 @@
 
 <!-- Scripts -->
 <%-include("scripts");-%>
+
 <!-- Custom -->
 <script src="/assets/js/chooseSize.js"></script>
+
 <!-- Owl Carousel -->
+
 <script type="text/javascript">
+
     $('.owl-carousel').owlCarousel({
         items: 4,
         loop: false,
@@ -230,4 +234,3 @@
         }
     })
 </script>
-<!-- Scripts -->
