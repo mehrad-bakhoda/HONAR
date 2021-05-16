@@ -601,7 +601,7 @@ section.loginPage section.contents .container-fluid .card i.social {
   color: #333333;
   width: 2rem;
   height: 2rem;
-  margin-top: -4.25rem;
+  margin-top: -4rem;
   float: left;
 }
 section.loginPage section.contents .container-fluid .card .codeInputs {
@@ -2433,7 +2433,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   color: #333333;
   width: 2rem;
   height: 2rem;
-  margin-top: -4.25rem;
+  margin-top: -4rem;
   float: left;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons {
