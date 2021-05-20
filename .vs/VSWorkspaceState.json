@@ -1,12 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\models",
     "\\public",
     "\\public\\assets",
     "\\public\\assets\\js",
     "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\views\\productDetail.ejs",
+  "SelectedNode": "\\views\\login.ejs",
   "PreviewInSolutionExplorer": false
 }

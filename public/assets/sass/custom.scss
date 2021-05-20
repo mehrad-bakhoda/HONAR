@@ -2079,7 +2079,7 @@ section.cartPage {
                     padding: 1rem;
 
                     .row.middle {
-                        .col-md-12 {
+                        .col-sm-12 {
                             padding: 1rem;
 
                             .item {
@@ -2128,17 +2128,23 @@ section.cartPage {
                                 .detail {
                                     padding: 1rem;
 
-                                    p {
+                                    p, h6
+                                    {
+                                        width: 32%;
+                                        display: inline-block;
                                         margin-bottom: 0;
+                                        @include sm {
+                                            width: 100%;
+                                        }
                                     }
                                 }
 
                                 .buttons {
                                     padding: 0rem;
-
+                                    text-align: left;
                                     button.delete {
                                         transition: 0.4s;
-                                        float: left;
+                                        
                                         color: $error-color;
                                         border: 2px solid $error-color;
                                         &:hover {

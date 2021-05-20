@@ -16,15 +16,15 @@
                 <div class="col-md-6 col-lg-9 col-sm-12 items">
                     <div class="row middle">
                         <% products.forEach(function(product) { %>
-                        <div class="col-md-12 col-lg-6">
+                        <div class="col-sm-12">
                             <div class="card item">
                                 <div class="row bottom">
-                                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                    <div class="col-xs-12 col-sm-6 col-md-3 image">
                                         <a href="/product/<%=product.item.productId%>/<%=product.item.fileName%>">
                                             <img src="<%=product.item.coverPath%>" />
                                         </a>
                                     </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                    <div class="col-xs-12 col-sm-6 detail">
                                         <h6 class="name">
                                             <%=product.item.fileName%>
                                         </h6>
@@ -88,7 +88,7 @@
                                         </p>
 
                                     </div>
-                                    <div class="col-sm-12 buttons">
+                                    <div class="col-sm-12 col-md-3 buttons">
                                         <a href="/delete-from-cart/<%=product.item.productId%>">
                                             <button type="button" class="delete">
                                                 حذف محصول
