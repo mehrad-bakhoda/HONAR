@@ -2517,7 +2517,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   transition: 0.4s;
   max-height: 8rem;
   border-radius: 12px;
-  box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 8rem;
   width: auto;
   margin: 0;
@@ -2917,7 +2916,6 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 .i
   transition: 0.4s;
   max-height: 4rem;
   border-radius: 12px;
-  box-shadow: 10px 10px 15px 0px #06060642;
   max-width: 4rem;
   width: auto;
   margin: 0 auto;
@@ -2954,5 +2952,76 @@ section.notFoundPage section.contents .container-fluid h1.top {
 /*#endregion */
 /*#region Contact Us Page */
 /*#endregion */
+/******************************************************************************/
+/*#region Admin Page*/
+section.adminPage {
+  /*#region Home*/
+  /*#endregion*/
+  /*#region Messages*/
+  /*#endregion*/
+  /*#region Requests*/
+  /*#endregion*/
+  /*#region Users*/
+  /*#endregion*/
+  /*#region Products*/
+  /*#endregion*/
+}
+section.adminPage .sidebar {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  position: fixed;
+  right: 0;
+  top: 10vh;
+  width: 20vw;
+  height: 80vh;
+  z-index: 1000;
+  border: 2px solid lightgray;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+section.adminPage .sidebar .item {
+  display: table-cell;
+  border-radius: 12px;
+  border: 2px solid lightgray;
+  width: 100%;
+}
+section.adminPage .sidebar .item a {
+  position: relative;
+  height: 3rem;
+  display: block;
+  transition: 0.4s;
+  color: lightgray;
+  padding: 0.5rem 0.5rem 0.5rem 3rem;
+}
+section.adminPage .sidebar .item a.active {
+  background-color: #0098c5;
+  border: 2px solid #0098c5;
+  color: #f5f5f5;
+}
+section.adminPage .sidebar .item a i {
+  position: absolute;
+  left: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  top: 0.5rem;
+}
+@media (max-width: 767px) {
+  section.adminPage .sidebar {
+    width: 400px;
+    right: calc(400px - 3rem);
+  }
+}
+section.adminPage .contents {
+  padding: 2rem;
+  padding-right: calc(20vh + 2rem);
+}
+@media (max-width: 767px) {
+  section.adminPage .contents {
+    padding: 1rem 4rem 1rem 1rem;
+  }
+}
+
+/*#endregion*/
 
 /*# sourceMappingURL=custom.css.map */

@@ -46,10 +46,10 @@ section.contents {
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-    -webkit-text-fill-color: $blue-color;
-    -webkit-box-shadow: 0 0 0 1000px $gray-color inset !important;
+    -webkit-text-fill-color: $primary-color;
+    -webkit-box-shadow: 0 0 0 1000px $body-color inset !important;
     transition: background-color 400s ease-in-out 0s;
-    background-color: $gray-color;
+    background-color: $body-color;
 }
 
 input {
@@ -71,19 +71,19 @@ button, input[type=file]::before {
     padding: 0.4rem 1rem;
     border-radius: $radius;
     background-color: $body-color;
-    border: 2px solid $blue-color;
-    color: $blue-color;
+    border: 2px solid $primary-color;
+    color: $primary-color;
 }
 
 button:hover, input[type=file]:hover {
     transition: 0.4s;
-    background-color: $blue-color;
+    background-color: $primary-color;
     color: $body-color;
 
     &::before {
         transition: 0.4s;
         border: none;
-        background-color: $blue-color;
+        background-color: $primary-color;
         color: $body-color;
     }
 }
@@ -97,7 +97,7 @@ textarea:focus {
 
 textarea:focus {
     transition: 0.4s;
-    border: 2px solid $blue-color;
+    border: 2px solid $primary-color;
 }
 
 /*#endregion */
@@ -110,7 +110,7 @@ textarea:focus {
     right: -100rem;
     border-top-left-radius: $radius;
     border-bottom-left-radius: $radius;
-    background-color: $gray-color;
+    background-color: $body-color;
     z-index: 100;
 
     &.error {
@@ -161,7 +161,7 @@ section.uploadButton {
         width: 4rem;
         height: 4rem;
         padding-top: 0.5rem;
-        color: $pink-color;
+        color: $secondary-color;
         border: 2px solid lightGray;
         text-align: center;
 
@@ -171,7 +171,7 @@ section.uploadButton {
 
         &:hover {
             transition: 0.4s;
-            background-color: $pink-color;
+            background-color: $secondary-color;
             color: $body-color;
         }
     }
@@ -273,7 +273,7 @@ section.header {
 
             i:hover {
                 transition: 0.4s;
-                color: $blue-color;
+                color: $primary-color;
             }
 
             .navbar-collapse {
@@ -312,7 +312,7 @@ section.header {
                             top: 1rem;
                             height: 1rem;
                             background-color: $body-color;
-                            color: $blue-color;
+                            color: $primary-color;
                             border-radius: 2px;
                             min-width: 1rem;
                         }
@@ -355,11 +355,11 @@ section.header {
             transition: 0.4s;
             font-size: 25px;
             position: absolute;
-            color: $pink-color;
+            color: $secondary-color;
 
             &:hover {
                 transition: 0.4s;
-                color: $pink-color;
+                color: $secondary-color;
             }
         }
 
@@ -393,16 +393,16 @@ section.header {
                 width: 3.5rem;
                 left: 0rem;
                 background-color: $body-color;
-                color: $blue-color;
+                color: $primary-color;
                 border-top-left-radius: $radius;
                 border-bottom-left-radius: $radius;
-                border: 2px solid $blue-color;
+                border: 2px solid $primary-color;
                 font-size: 22px;
 
                 &:hover {
                     transition: 0.4s;
                     color: $body-color;
-                    background-color: $blue-color;
+                    background-color: $primary-color;
                 }
             }
         }
@@ -442,7 +442,7 @@ section.footer {
 
                 i:hover {
                     transition: 0.4s;
-                    color: $blue-color;
+                    color: $primary-color;
                 }
             }
         }
@@ -458,7 +458,7 @@ section.footer {
 
                 span {
                     font-weight: bold;
-                    color: $blue-color;
+                    color: $primary-color;
                 }
             }
         }
@@ -515,8 +515,8 @@ section.homePage {
 
                             &.active {
                                 transition: 0.4s;
-                                color: $blue-color;
-                                border-color: $blue-color;
+                                color: $primary-color;
+                                border-color: $primary-color;
                             }
                         }
                     }
@@ -585,7 +585,7 @@ section.loginPage {
                 margin: auto;
                 width: 100%;
                 border-radius: $radius;
-                background-color: $gray-color;
+                background-color: $body-color;
                 border: 2px solid lightgray;
 
                 &.info {
@@ -700,7 +700,7 @@ section.loginPage {
                         margin: auto;
                         float: none;
                         font-size: 1.5rem;
-                        color: $blue-color;
+                        color: $primary-color;
                         width: 1.5rem;
                         height: 2rem;
                         position: absolute;
@@ -726,7 +726,7 @@ section.loginPage {
                         margin: auto;
                         float: none;
                         font-size: 1.5rem;
-                        color: $blue-color;
+                        color: $primary-color;
                         width: 1.5rem;
                         height: 2rem;
                         position: absolute;
@@ -773,18 +773,18 @@ section.loginPage {
                         }
 
                         .prev {
-                            border: 2px solid $pink-color;
-                            color: $pink-color;
+                            border: 2px solid $secondary-color;
+                            color: $secondary-color;
 
                             i {
                                 transition: 0.4s;
-                                color: $pink-color;
+                                color: $secondary-color;
                                 top: 0.5rem;
                                 right: 0.5rem;
                             }
 
                             &:hover {
-                                background-color: $pink-color;
+                                background-color: $secondary-color;
                                 color: $body-color;
 
                                 i {
@@ -821,21 +821,21 @@ section.loginPage {
 
                             #tabDownH {
                                 border-right: 2px solid $body-color;
-                                border-bottom: 2px solid $pink-color;
+                                border-bottom: 2px solid $secondary-color;
                             }
 
                             #tabDownH.active {
-                                border: 2px solid $blue-color;
+                                border: 2px solid $primary-color;
                                 border-bottom: 0;
                             }
 
                             #tabUpH {
                                 border-left: 2px solid $body-color;
-                                border-bottom: 2px solid $blue-color;
+                                border-bottom: 2px solid $primary-color;
                             }
 
                             #tabUpH.active {
-                                border: 2px solid $pink-color;
+                                border: 2px solid $secondary-color;
                                 border-bottom: 0;
                             }
                         }
@@ -847,7 +847,7 @@ section.loginPage {
                         .tab-pane {
                             padding: 2rem;
                             border: none;
-                            background-color: $gray-color;
+                            background-color: $body-color;
                             border-bottom-left-radius: $radius;
                             border-bottom-right-radius: $radius;
 
@@ -856,35 +856,35 @@ section.loginPage {
                             }
 
                             &#tabUpC.active {
-                                border: 2px solid $pink-color;
+                                border: 2px solid $secondary-color;
 
                                 input[type=file]:hover {
 
                                     &::before {
                                         transition: 0.4s;
                                         border: none;
-                                        color: $pink-color !important;
+                                        color: $secondary-color !important;
                                         border: 2px solid lightGray;
                                     }
                                 }
 
                                 input:-webkit-autofill,
                                 input:-webkit-autofill:focus {
-                                    -webkit-text-fill-color: $pink-color;
-                                    -webkit-box-shadow: 0 0 0 1000px $gray-color inset !important;
+                                    -webkit-text-fill-color: $secondary-color;
+                                    -webkit-box-shadow: 0 0 0 1000px $body-color inset !important;
                                     transition: background-color 400s ease-in-out 0s;
-                                    background-color: $gray-color;
+                                    background-color: $body-color;
                                 }
 
                                 button {
-                                    color: $pink-color;
-                                    border: 2px solid $pink-color;
+                                    color: $secondary-color;
+                                    border: 2px solid $secondary-color;
                                 }
 
                                 button:hover {
                                     transition: 0.4s;
                                     color: $body-color;
-                                    background-color: $pink-color;
+                                    background-color: $secondary-color;
                                 }
 
                                 .uploadPic {
@@ -910,8 +910,8 @@ section.loginPage {
                                             width: 11rem;
                                             cursor: pointer;
                                             text-align: center;
-                                            color: $pink-color;
-                                            border: 2px solid $pink-color;
+                                            color: $secondary-color;
+                                            border: 2px solid $secondary-color;
                                             border-radius: $radius;
                                         }
 
@@ -919,7 +919,7 @@ section.loginPage {
                                             &::before {
                                                 transition: 0.4s;
                                                 color: $body-color !important;
-                                                background-color: $pink-color !important;
+                                                background-color: $secondary-color !important;
                                             }
                                         }
                                     }
@@ -934,7 +934,7 @@ section.loginPage {
                                         height: 1.2rem;
 
                                         &.fa-check-circle {
-                                            color: $pink-color;
+                                            color: $secondary-color;
                                         }
                                     }
 
@@ -947,7 +947,7 @@ section.loginPage {
                             }
 
                             &#tabDownC.active {
-                                border: 2px solid $blue-color;
+                                border: 2px solid $primary-color;
                             }
                         }
                     }
@@ -969,7 +969,7 @@ section.forgotPassPage {
                 margin: auto;
                 width: 100%;
                 border-radius: $radius;
-                background-color: $gray-color;
+                background-color: $body-color;
                 border: 2px solid lightGray;
 
                 h4 {
@@ -1008,7 +1008,7 @@ section.forgotPassPage {
                 input:focus {
                     transition: 0.4s;
                     outline: none;
-                    border-bottom: 2px solid $blue-color;
+                    border-bottom: 2px solid $primary-color;
                 }
 
                 .codeInputs {
@@ -1113,7 +1113,7 @@ section.detailPage {
                             border: none;
                             box-shadow: none;
                             border-radius: $radius;
-                            background-color: $gray-color;
+                            background-color: $body-color;
                             border: 2px solid lightGray;
 
                             .info {
@@ -1157,11 +1157,11 @@ section.detailPage {
 
                                 a:hover {
                                     transition: 0.4s;
-                                    color: $blue-color !important;
+                                    color: $primary-color !important;
 
                                     p {
                                         transition: 0.4s;
-                                        color: $blue-color;
+                                        color: $primary-color;
                                     }
                                 }
                             }
@@ -1227,7 +1227,7 @@ section.detailPage {
                                         padding-left: 2rem;
 
                                         &:hover {
-                                            color: $blue-color;
+                                            color: $primary-color;
                                         }
 
                                         label {
@@ -1266,7 +1266,7 @@ section.detailPage {
 
                                         &:hover {
                                             transition: 0.4s;
-                                            color: $blue-color;
+                                            color: $primary-color;
                                         }
                                     }
 
@@ -1339,12 +1339,12 @@ section.detailPage {
                                     }
 
                                     &.pink {
-                                        color: $pink-color;
-                                        border: 2px solid $pink-color;
+                                        color: $secondary-color;
+                                        border: 2px solid $secondary-color;
 
                                         &:hover {
                                             color: $body-color;
-                                            background-color: $pink-color;
+                                            background-color: $secondary-color;
                                         }
 
                                         @include sm {
@@ -1381,7 +1381,7 @@ section.detailPage {
                 border: 2px solid lightGray;
                 margin-top: 2rem;
                 border-radius: $radius;
-                background-color: $gray-color;
+                background-color: $body-color;
                 padding: 1rem;
 
                 h5 {
@@ -1450,7 +1450,7 @@ section.detailPage {
 
                                 &:hover {
                                     transition: 0.4s;
-                                    color: $blue-color;
+                                    color: $primary-color;
                                 }
                             }
                         }
@@ -1466,7 +1466,7 @@ section.detailPage {
 
                                 &:hover {
                                     transition: 0.4s;
-                                    color: $blue-color;
+                                    color: $primary-color;
                                 }
                             }
                         }
@@ -1491,7 +1491,7 @@ Section.uploadPage {
             .row {
                 border: 2px solid lightGray;
                 padding: 1rem 1rem 2rem;
-                background-color: $gray-color;
+                background-color: $body-color;
                 border-radius: $radius;
                 margin: auto;
                 width: 100%;
@@ -1591,7 +1591,7 @@ Section.uploadPage {
                             width: 11rem;
                             cursor: pointer;
                             text-align: center;
-                            color: $blue-color;
+                            color: $primary-color;
                             border-radius: $radius;
                         }
 
@@ -1599,8 +1599,8 @@ Section.uploadPage {
                             &::before {
                                 transition: 0.4s;
                                 color: $body-color !important;
-                                background-color: $blue-color !important;
-                                border: 2px solid $blue-color !important;
+                                background-color: $primary-color !important;
+                                border: 2px solid $primary-color !important;
                             }
                         }
                     }
@@ -1614,7 +1614,7 @@ Section.uploadPage {
                         top: 1rem;
 
                         &.fa-check-circle {
-                            color: $blue-color;
+                            color: $primary-color;
                         }
                     }
 
@@ -1700,7 +1700,7 @@ Section.uploadPage {
 
                     .selected {
                         transition: 0.4s;
-                        color: $blue-color;
+                        color: $primary-color;
                         font-weight: bold;
                     }
 
@@ -1746,8 +1746,8 @@ Section.uploadPage {
                 .selected {
                     transition: 0.4s;
                     border: none;
-                    color: $blue-color !important;
-                    border: 2px solid $blue-color !important;
+                    color: $primary-color !important;
+                    border: 2px solid $primary-color !important;
                     font-weight: bold;
                 }
             }
@@ -1888,7 +1888,7 @@ section.searchPage {
 
                                 &:hover {
                                     transition: 0.4s;
-                                    color: $pink-color;
+                                    color: $secondary-color;
                                 }
                             }
                         }
@@ -1941,8 +1941,8 @@ section.searchPage {
                 .selected {
                     transition: 0.4s;
                     border: none;
-                    color: $pink-color !important;
-                    border: 2px solid $pink-color !important;
+                    color: $secondary-color !important;
+                    border: 2px solid $secondary-color !important;
                     font-weight: bold;
                 }
             }
@@ -1978,7 +1978,7 @@ section.searchPage {
                     padding-left: 2rem;
 
                     &:hover {
-                        color: $blue-color;
+                        color: $primary-color;
                     }
 
                     label {
@@ -2017,7 +2017,7 @@ section.searchPage {
 
                     &:hover {
                         transition: 0.4s;
-                        color: $blue-color;
+                        color: $primary-color;
                     }
                 }
 
@@ -2059,11 +2059,11 @@ section.cartPage {
                 margin: auto;
 
                 h1 {
-                    color: $pink-color;
+                    color: $secondary-color;
                 }
 
                 i {
-                    color: $pink-color;
+                    color: $secondary-color;
                     font-size: 8rem;
                     padding: 2rem;
                     display: block;
@@ -2176,7 +2176,7 @@ section.cartPage {
                         position: absolute;
                         transition: 0.4s;
                         padding: 0.3rem 1rem;
-                        border: 2px solid $blue-color;
+                        border: 2px solid $primary-color;
                         border-top-right-radius: 0;
                         border-bottom-right-radius: 0;
                         height: 2.5rem;
@@ -2202,7 +2202,7 @@ section.cartPage {
                         button.payment {
                             transition: 0.4s;
                             padding: 0.5rem 2rem;
-                            border: 2px solid $blue-color;
+                            border: 2px solid $primary-color;
                         }
                     }
                 }
@@ -2232,7 +2232,7 @@ section.dashboardPage {
             width: 4rem;
             height: 4rem;
             padding-top: 0.5rem;
-            color: $blue-color;
+            color: $primary-color;
             border: 2px solid lightGray;
             text-align: center;
 
@@ -2242,7 +2242,7 @@ section.dashboardPage {
 
             &:hover {
                 transition: 0.4s;
-                background-color: $blue-color;
+                background-color: $primary-color;
                 color: $body-color;
             }
         }
@@ -2316,7 +2316,7 @@ section.dashboardPage {
 
             .modal-body {
                 h5 {
-                    color: $blue-color;
+                    color: $primary-color;
                     text-align: center;
                     padding: 0 1rem 1rem;
                 }
@@ -2367,13 +2367,13 @@ section.dashboardPage {
                 border-radius: $radius;
                 padding: 0.5rem 1rem;
                 transition: 0.4s;
-                color: $blue-color;
-                border: 2px solid $blue-color;
+                color: $primary-color;
+                border: 2px solid $primary-color;
 
                 &:hover {
                     transition: 0.4s;
-                    color: $pink-color;
-                    border: 2px solid $pink-color;
+                    color: $secondary-color;
+                    border: 2px solid $secondary-color;
                 }
             }
 
@@ -2409,15 +2409,15 @@ section.dashboardPage {
                     text-align: center;
                     padding: 0.5rem 1rem;
                     transition: 0.4s;
-                    color: $blue-color;
-                    border: 2px solid $blue-color;
+                    color: $primary-color;
+                    border: 2px solid $primary-color;
                     cursor: pointer;
                     float: none;
 
                     &:hover {
                         transition: 0.4s;
-                        color: $pink-color;
-                        border: 2px solid $pink-color;
+                        color: $secondary-color;
+                        border: 2px solid $secondary-color;
                     }
                 }
 
@@ -2530,7 +2530,7 @@ section.dashboardPage {
 
                                         &:hover {
                                             transition: 0.4s;
-                                            color: $blue-color;
+                                            color: $primary-color;
                                         }
                                     }
                                 }
@@ -2568,7 +2568,7 @@ section.dashboardPage {
                     }
 
                     h6 {
-                        color: $blue-color;
+                        color: $primary-color;
                         text-align: center;
                         padding: 0 1rem 1rem;
                     }
@@ -2647,7 +2647,7 @@ section.dashboardPage {
                                     label {
                                         width: 49%;
                                         display: inline-block;
-                                        color: $blue-color;
+                                        color: $primary-color;
 
                                         span {
                                             padding-right: 1rem;
@@ -2701,8 +2701,8 @@ section.dashboardPage {
 
                             &.active {
                                 transition: 0.4s;
-                                border: 2px solid $blue-color;
-                                color: $blue-color;
+                                border: 2px solid $primary-color;
+                                color: $primary-color;
                             }
                         }
                     }
@@ -2732,7 +2732,7 @@ section.dashboardPage {
 
                         .title {
                             padding: 0.5rem;
-                            color: $blue-color;
+                            color: $primary-color;
                             border-bottom: 1px solid lightgray;
                         }
 
@@ -2815,8 +2815,8 @@ section.dashboardPage {
                                 border-radius: $radius;
                             }
                             &:hover::before {
-                                background-color: $blue-color !important;
-                                border: 2px solid $blue-color !important;
+                                background-color: $primary-color !important;
+                                border: 2px solid $primary-color !important;
                             }
                         }
 
@@ -2929,7 +2929,6 @@ section.dashboardPage {
                                             transition: 0.4s;
                                             max-height: 8rem;
                                             border-radius: $radius;
-                                            box-shadow: $image-shadow;
                                             max-width: 8rem;
                                             width: auto;
                                             margin: 0;
@@ -2971,8 +2970,8 @@ section.dashboardPage {
 
                                         a {
                                             transition: 0.4s;
-                                            color: $blue-color;
-                                            border: 2px solid $blue-color;
+                                            color: $primary-color;
+                                            border: 2px solid $primary-color;
                                             background-color: $body-color;
                                             padding: 0.5rem 1rem;
                                             border-radius: $radius;
@@ -2980,7 +2979,7 @@ section.dashboardPage {
 
                                             &:hover {
                                                 transition: 0.4s;
-                                                background-color: $blue-color;
+                                                background-color: $primary-color;
                                                 color: $body-color;
                                             }
                                         }
@@ -3050,7 +3049,7 @@ section.dashboardPage {
 
                                         &:hover {
                                             transition: 0.4s;
-                                            color: $blue-color;
+                                            color: $primary-color;
                                         }
                                     }
                                 }
@@ -3066,7 +3065,7 @@ section.dashboardPage {
 
                                         &:hover {
                                             transition: 0.4s;
-                                            color: $blue-color;
+                                            color: $primary-color;
                                         }
                                     }
                                 }
@@ -3084,8 +3083,8 @@ section.dashboardPage {
                             a {
                                 text-align: center;
                                 transition: 0.4s;
-                                border: 2px solid $blue-color;
-                                color: $blue-color;
+                                border: 2px solid $primary-color;
+                                color: $primary-color;
                                 padding: 0.5rem 2rem;
                                 border-radius: $radius;
                                 background-color: transparent;
@@ -3093,7 +3092,7 @@ section.dashboardPage {
                                 &:hover {
                                     transition: 0.4s;
                                     color: $body-color !important;
-                                    background-color: $blue-color;
+                                    background-color: $primary-color;
                                 }
                             }
                         }
@@ -3125,7 +3124,7 @@ section.dashboardPage {
                     }
 
                     ::-webkit-scrollbar-thumb {
-                        background: $blue-color;
+                        background: $primary-color;
                     }
                 }
 
@@ -3141,11 +3140,11 @@ section.dashboardPage {
 
             .opened {
                 transition: 0.4s;
-                border: 2px solid $pink-color;
+                border: 2px solid $secondary-color;
 
                 .header h5 {
                     transition: 0.4s;
-                    color: $pink-color;
+                    color: $secondary-color;
                 }
             }
 
@@ -3202,7 +3201,7 @@ section.userPage {
 
                 .info {
                     border: 2px solid lightGray;
-                    background-color: $gray-color;
+                    background-color: $body-color;
                     border-radius: $radius;
                     padding: 1rem;
                     text-align: center;
@@ -3276,7 +3275,7 @@ section.userPage {
 
                                             &:hover {
                                                 transition: 0.4s;
-                                                color: $blue-color;
+                                                color: $primary-color;
                                             }
                                         }
                                     }
@@ -3414,7 +3413,6 @@ section.orderPage {
                                         transition: 0.4s;
                                         max-height: 4rem;
                                         border-radius: $radius;
-                                        box-shadow: $image-shadow;
                                         max-width: 4rem;
                                         width: auto;
                                         margin: 0 auto;
@@ -3472,3 +3470,74 @@ section.aboutUsPage {
 section.contactUsPage {
 }
 /*#endregion */
+
+
+/******************************************************************************/
+/*#region Admin Page*/
+section.adminPage {
+    .sidebar {
+        text-align: center;
+        padding: 1rem;
+        background-color: $body-color;
+        position: fixed;
+        right: 0;
+        top: 10vh;
+        width: 20vw;
+        height: 80vh;
+        z-index: 1000;
+       border: 2px solid lightgray;
+       border-top-left-radius: $radius;
+       border-bottom-left-radius: $radius;
+        .item {
+            display: table-cell;
+            border-radius: $radius;
+            border: 2px solid lightgray;
+            width: 100%;
+            a {
+                position: relative;
+                height: 3rem;
+                display: block;
+                transition: 0.4s;
+                color: lightgray;
+                padding: 0.5rem 0.5rem 0.5rem 3rem;
+                &.active {
+                    background-color: $primary-color;
+                    border: 2px solid $primary-color;
+                    color: $body-color;
+                }
+                i {
+                    position: absolute;
+                    left: 0.5rem;
+                    width: 2rem;
+                    height: 2rem;
+                    top: 0.5rem;
+
+                }
+            }
+        }
+        @include sm {
+            width: 400px;
+            right: calc(400px - 3rem);
+        }
+
+    }
+    .contents {
+        padding: 2rem;
+        padding-right: calc(20vh + 2rem);
+        @include sm {
+            padding: 1rem 4rem 1rem 1rem;
+        }
+    }
+    /*#region Home*/
+    /*#endregion*/
+    /*#region Messages*/
+    /*#endregion*/
+    /*#region Requests*/
+    /*#endregion*/
+    /*#region Users*/
+    /*#endregion*/
+    /*#region Products*/
+    /*#endregion*/
+}
+
+/*#endregion*/

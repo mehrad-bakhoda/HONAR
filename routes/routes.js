@@ -1938,7 +1938,22 @@ router.post("/search",function(req,res){
 
 
 
-
-
+///////////////////////// ADMIN ROUTES ////////////////////////
+router.get("/adminHome", function (req, res) {
+    res.render("adminHome");
+});
+router.get("/adminUsers", function (req, res) {
+    res.render("adminUsers");
+});
+router.get("/adminMessages", function (req, res) {
+    res.render("adminMessages");
+});
+router.get("/adminRequests", function (req, res) {
+    res.render("adminReq");
+});
+router.get("/adminProducts", function (req, res) {
+    res.render("adminProducts");
+});
+///////////////////////// ADMIN ROUTES ////////////////////////
 
 module.exports = router;
