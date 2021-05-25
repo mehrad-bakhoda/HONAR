@@ -3477,62 +3477,219 @@ section.contactUsPage {
 section.adminPage {
     .sidebar {
         text-align: center;
-        padding: 1rem;
-        background-color: $body-color;
+        padding: 1rem 0 1rem 1rem;
+        background-color: lightgray;
         position: fixed;
-        right: 0;
+        right: -1px;
         top: 10vh;
-        width: 20vw;
+        width: 250px;
         height: 80vh;
         z-index: 1000;
-       border: 2px solid lightgray;
-       border-top-left-radius: $radius;
-       border-bottom-left-radius: $radius;
+        border: 2px solid $body-color;
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+        display: flex;
+        flex-wrap: wrap;
+
         .item {
-            display: table-cell;
             border-radius: $radius;
-            border: 2px solid lightgray;
             width: 100%;
+            height: 3rem;
+
             a {
+                border: 2px solid $body-color;
+                border-bottom-left-radius: $radius;
+                border-top-left-radius: $radius;
                 position: relative;
                 height: 3rem;
                 display: block;
                 transition: 0.4s;
-                color: lightgray;
+                color: $text-color;
                 padding: 0.5rem 0.5rem 0.5rem 3rem;
+                height: 3rem;
+                line-height: 2rem;
+                margin-top: calc(25% - 1.5rem);
+
                 &.active {
                     background-color: $primary-color;
                     border: 2px solid $primary-color;
                     color: $body-color;
                 }
+
                 i {
                     position: absolute;
-                    left: 0.5rem;
+                    left: 0rem;
                     width: 2rem;
                     height: 2rem;
                     top: 0.5rem;
-
+                    line-height: 2rem;
                 }
             }
         }
+
         @include sm {
             width: 400px;
-            right: calc(400px - 3rem);
+            right: calc(-400px + 4rem);
+        }
+    }
+
+    .contents {
+        padding: 10vh 1rem 1rem;
+        padding-right: calc(250px + 1rem);
+
+        @include sm {
+            padding: 10vh 4rem 1rem 1rem;
         }
 
-    }
-    .contents {
-        padding: 2rem;
-        padding-right: calc(20vh + 2rem);
-        @include sm {
-            padding: 1rem 4rem 1rem 1rem;
+        .top {
+            position: relative;
+            display: flex;
+
+            @include xs {
+                display: block;
+            }
+        }
+
+        .search {
+            flex: 1;
+            max-width: 18rem;
+            position: relative;
+            @include xs {
+                margin: auto;
+            }
+
+            input[type=text] {
+                transition: 0.4s;
+                border: none;
+                background-color: transparent;
+                height: 2.5rem;
+                width: 100%;
+                padding: 0.25rem 0.5rem 0.25rem 3rem;
+                color: $text-color;
+                border-radius: $radius;
+                border: 2px solid lightGray;
+
+                &:focus {
+                    transition: 0.4s;
+                    outline: none;
+                }
+            }
+
+            i.fa-search {
+                transition: 0.4s;
+                height: 2.5rem;
+                padding-top: 0.5rem;
+                width: 2.5rem;
+                left: 0rem;
+                background-color: $body-color;
+                color: $primary-color;
+                border-top-left-radius: $radius;
+                border-bottom-left-radius: $radius;
+                border: 2px solid $primary-color;
+                font-size: 18px;
+                position: absolute;
+                text-align: center;
+
+                &:hover {
+                    transition: 0.4s;
+                    color: $body-color;
+                    background-color: $primary-color;
+                }
+            }
+        }
+
+        .sorting {
+            flex: 1;
+            background-color: $body-color;
+            border: 2px solid lightGray;
+            width: 10rem;
+            border-radius: 0.5rem;
+            border-radius: $radius;
+            position: absolute;
+            left: 0;
+
+            @include xs {
+                position: relative;
+                margin: 0.5rem auto;
+            }
+
+            .shownSort {
+                transition: 0.4s;
+                cursor: pointer;
+                position: relative;
+                padding-left: 2rem;
+
+                &:hover {
+                    color: $primary-color;
+                }
+
+                label {
+                    transition: 0.4s;
+                    display: inline-block;
+                }
+
+                i {
+                    transition: 0.4s;
+                    top: 0.5rem;
+                    position: absolute;
+                    left: 1rem;
+                    font-size: 1.4rem;
+                }
+
+                .rotated {
+                    transition: 0.4s;
+                    transform: rotate(180deg);
+                }
+            }
+
+            label {
+                cursor: pointer;
+                padding: 0.5rem;
+                position: relative;
+                display: block;
+                font-size: 0.9rem;
+
+                &.sortOption {
+                    padding: 0;
+                    transition: 0.4s;
+                    opacity: 0;
+                    overflow: hidden;
+                    max-height: 0;
+                }
+
+                &:hover {
+                    transition: 0.4s;
+                    color: $primary-color;
+                }
+            }
+
+            .show {
+                padding: 0.5rem !important;
+                opacity: 0.8 !important;
+                max-height: 2.5rem !important;
+                text-align: right;
+            }
+
+            @include xxs {
+                width: 9rem;
+
+                i {
+                    left: 0.5rem !important;
+                }
+            }
         }
     }
     /*#region Home*/
+    &.home .contents {
+    }
     /*#endregion*/
     /*#region Messages*/
+    &.messages .contents {
+    }
     /*#endregion*/
     /*#region Requests*/
+    &.users .contents {
+    }
     /*#endregion*/
     /*#region Users*/
     /*#endregion*/

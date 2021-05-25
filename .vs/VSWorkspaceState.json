@@ -8,6 +8,6 @@
     "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\views\\contactUs.ejs",
+  "SelectedNode": "\\routes\\routes.js",
   "PreviewInSolutionExplorer": false
 }

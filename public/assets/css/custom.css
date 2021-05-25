@@ -2968,31 +2968,38 @@ section.adminPage {
 }
 section.adminPage .sidebar {
   text-align: center;
-  padding: 1rem;
-  background-color: #f5f5f5;
+  padding: 1rem 0 1rem 1rem;
+  background-color: lightgray;
   position: fixed;
-  right: 0;
+  right: -1px;
   top: 10vh;
-  width: 20vw;
+  width: 250px;
   height: 80vh;
   z-index: 1000;
-  border: 2px solid lightgray;
+  border: 2px solid #f5f5f5;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
 }
 section.adminPage .sidebar .item {
-  display: table-cell;
   border-radius: 12px;
-  border: 2px solid lightgray;
   width: 100%;
+  height: 3rem;
 }
 section.adminPage .sidebar .item a {
+  border: 2px solid #f5f5f5;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
   position: relative;
   height: 3rem;
   display: block;
   transition: 0.4s;
-  color: lightgray;
+  color: #333333;
   padding: 0.5rem 0.5rem 0.5rem 3rem;
+  height: 3rem;
+  line-height: 2rem;
+  margin-top: calc(25% - 1.5rem);
 }
 section.adminPage .sidebar .item a.active {
   background-color: #0098c5;
@@ -3001,27 +3008,153 @@ section.adminPage .sidebar .item a.active {
 }
 section.adminPage .sidebar .item a i {
   position: absolute;
-  left: 0.5rem;
+  left: 0rem;
   width: 2rem;
   height: 2rem;
   top: 0.5rem;
+  line-height: 2rem;
 }
 @media (max-width: 767px) {
   section.adminPage .sidebar {
     width: 400px;
-    right: calc(400px - 3rem);
+    right: calc(-400px + 4rem);
   }
 }
 section.adminPage .contents {
-  padding: 2rem;
-  padding-right: calc(20vh + 2rem);
+  padding: 10vh 1rem 1rem;
+  padding-right: calc(250px + 1rem);
 }
 @media (max-width: 767px) {
   section.adminPage .contents {
-    padding: 1rem 4rem 1rem 1rem;
+    padding: 10vh 4rem 1rem 1rem;
   }
 }
-
+section.adminPage .contents .top {
+  position: relative;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.adminPage .contents .top {
+    display: block;
+  }
+}
+section.adminPage .contents .search {
+  flex: 1;
+  max-width: 18rem;
+  position: relative;
+}
+@media (max-width: 580px) {
+  section.adminPage .contents .search {
+    margin: auto;
+  }
+}
+section.adminPage .contents .search input[type=text] {
+  transition: 0.4s;
+  border: none;
+  background-color: transparent;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.25rem 0.5rem 0.25rem 3rem;
+  color: #333333;
+  border-radius: 12px;
+  border: 2px solid lightGray;
+}
+section.adminPage .contents .search input[type=text]:focus {
+  transition: 0.4s;
+  outline: none;
+}
+section.adminPage .contents .search i.fa-search {
+  transition: 0.4s;
+  height: 2.5rem;
+  padding-top: 0.5rem;
+  width: 2.5rem;
+  left: 0rem;
+  background-color: #f5f5f5;
+  color: #0098c5;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border: 2px solid #0098c5;
+  font-size: 18px;
+  position: absolute;
+  text-align: center;
+}
+section.adminPage .contents .search i.fa-search:hover {
+  transition: 0.4s;
+  color: #f5f5f5;
+  background-color: #0098c5;
+}
+section.adminPage .contents .sorting {
+  flex: 1;
+  background-color: #f5f5f5;
+  border: 2px solid lightGray;
+  width: 10rem;
+  border-radius: 0.5rem;
+  border-radius: 12px;
+  position: absolute;
+  left: 0;
+}
+@media (max-width: 580px) {
+  section.adminPage .contents .sorting {
+    position: relative;
+    margin: 0.5rem auto;
+  }
+}
+section.adminPage .contents .sorting .shownSort {
+  transition: 0.4s;
+  cursor: pointer;
+  position: relative;
+  padding-left: 2rem;
+}
+section.adminPage .contents .sorting .shownSort:hover {
+  color: #0098c5;
+}
+section.adminPage .contents .sorting .shownSort label {
+  transition: 0.4s;
+  display: inline-block;
+}
+section.adminPage .contents .sorting .shownSort i {
+  transition: 0.4s;
+  top: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  font-size: 1.4rem;
+}
+section.adminPage .contents .sorting .shownSort .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
+}
+section.adminPage .contents .sorting label {
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  display: block;
+  font-size: 0.9rem;
+}
+section.adminPage .contents .sorting label.sortOption {
+  padding: 0;
+  transition: 0.4s;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+}
+section.adminPage .contents .sorting label:hover {
+  transition: 0.4s;
+  color: #0098c5;
+}
+section.adminPage .contents .sorting .show {
+  padding: 0.5rem !important;
+  opacity: 0.8 !important;
+  max-height: 2.5rem !important;
+  text-align: right;
+}
+@media (max-width: 480px) {
+  section.adminPage .contents .sorting {
+    width: 9rem;
+  }
+  section.adminPage .contents .sorting i {
+    left: 0.5rem !important;
+  }
+}
 /*#endregion*/
 
 /*# sourceMappingURL=custom.css.map */
