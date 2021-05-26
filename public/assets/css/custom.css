@@ -1577,6 +1577,14 @@ section.searchPage section.contents .container-fluid .advanced {
     padding: 0.5rem;
   }
 }
+section.searchPage section.contents .container-fluid .advanced .buttons {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+section.searchPage section.contents .container-fluid .advanced .buttons button {
+  width: 100%;
+  max-width: 400px;
+}
 section.searchPage section.contents .container-fluid .advanced input[type=radio] {
   display: none;
 }

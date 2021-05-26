@@ -1825,6 +1825,16 @@ section.searchPage {
                     padding: 0.5rem;
                 }
 
+                .buttons {
+                    padding: 0.5rem 1rem;
+                    text-align: center;
+                    button {
+                        width: 100%;
+                        max-width: 400px;
+                    }
+                    
+                }
+
                 input[type=radio] {
                     display: none;
                 }
