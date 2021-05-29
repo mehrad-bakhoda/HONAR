@@ -4,10 +4,11 @@
     "\\models",
     "\\public",
     "\\public\\assets",
+    "\\public\\assets\\js",
     "\\public\\assets\\sass",
     "\\routes",
     "\\views"
   ],
-  "SelectedNode": "\\routes\\routes.js",
+  "SelectedNode": "\\views\\search.ejs",
   "PreviewInSolutionExplorer": false
 }

@@ -55,6 +55,8 @@ input:-webkit-autofill:focus {
 input {
     padding-right: 0.4rem;
     color: $text-color;
+    height: 2.5rem;
+    line-height: 2.5rem;
 }
 
 .inputError {
@@ -68,11 +70,13 @@ button, input[type=file]::before {
     transition: 0.4s;
     border: none;
     color: $body-color;
-    padding: 0.4rem 1rem;
+    padding: 0 1rem;
     border-radius: $radius;
     background-color: $body-color;
     border: 2px solid $primary-color;
     color: $primary-color;
+    height: 2.5rem;
+    line-height: 2.5rem;
 }
 
 button:hover, input[type=file]:hover {
@@ -3554,19 +3558,44 @@ section.adminPage {
         .top {
             position: relative;
             display: flex;
+            justify-content: space-between;
+
+            @include md {
+                display: block;
+                margin: auto;
+
+                > div {
+                    width: fit-content;
+                    margin: 0.5rem auto;
+                }
+            }
+        }
+
+        .second {
+            display: flex;
+
+            > div {
+                margin: 0 1rem 0 0;
+            }
+
+            @include md {
+                > div {
+                    margin: 0 0.5rem;
+                }
+            }
 
             @include xs {
                 display: block;
+
+                > div {
+                    margin: 0.5rem auto;
+                }
             }
         }
 
         .search {
-            flex: 1;
-            max-width: 18rem;
+            max-width: 22rem;
             position: relative;
-            @include xs {
-                margin: auto;
-            }
 
             input[type=text] {
                 transition: 0.4s;
@@ -3608,17 +3637,39 @@ section.adminPage {
             }
         }
 
+        .date {
+            display: flex;
+
+            input {
+                transition: 0.4s;
+                border: none;
+                background-color: transparent;
+                height: 2.5rem;
+                width: 10rem;
+                color: $text-color;
+                border-radius: 0 $radius $radius 0;
+                border: 2px solid lightGray;
+
+                &:focus {
+                    transition: 0.4s;
+                    outline: none;
+                }
+            }
+
+            button {
+                height: 2.5rem;
+                border-radius: $radius 0 0 $radius;
+            }
+        }
+
         .sorting {
-            flex: 1;
             background-color: $body-color;
             border: 2px solid lightGray;
-            width: 10rem;
+            width: 14rem;
             border-radius: 0.5rem;
             border-radius: $radius;
-            position: absolute;
-            left: 0;
 
-            @include xs {
+            @include md {
                 position: relative;
                 margin: 0.5rem auto;
             }
@@ -3679,14 +3730,6 @@ section.adminPage {
                 max-height: 2.5rem !important;
                 text-align: right;
             }
-
-            @include xxs {
-                width: 9rem;
-
-                i {
-                    left: 0.5rem !important;
-                }
-            }
         }
     }
     /*#region Home*/
@@ -3698,12 +3741,149 @@ section.adminPage {
     }
     /*#endregion*/
     /*#region Requests*/
+    /*#endregion*/
+    /*#region Users*/
     &.users .contents {
     }
     /*#endregion*/
-    /*#region Users*/
-    /*#endregion*/
     /*#region Products*/
+    &.products .contents {
+        ul.nav-tabs {
+            padding: 2rem 1rem;
+
+            @include xs {
+                padding: 1rem 0;
+            }
+
+            li.nav-item {
+
+                a.nav-link {
+                    transition: 0.4s;
+                    border-radius: $radius;
+                    background-color: transparent;
+                    font-size: 16px;
+                    height: 3rem;
+                    color: $text-color;
+                    border: 2px solid $body-color;
+
+                    &.active {
+                        transition: 0.4s;
+                        color: $primary-color;
+                        border-color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            padding: 0 1rem;
+            max-height: 50rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .col-12 {
+            .card {
+                padding: 1rem;
+                margin: auto;
+                background-color: $body-color;
+                border: 2px solid lightgray;
+                border-radius: $radius;
+                display: inline-block;
+                width: 100%;
+
+                .cardTop {
+                    display: flex;
+
+                    @include xxs {
+                        display: block;
+
+                        > div {
+                            margin: auto;
+                        }
+                    }
+                }
+
+                .picture {
+                    width: 6rem;
+                    text-align: center;
+                    padding: 0 0.5rem;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        border-radius: $radius;
+                    }
+                }
+
+                .detail {
+                    width: calc(100% - 7rem);
+
+                    @include xs {
+                        width: 100%;
+                    }
+
+                    span {
+                        padding-right: 1rem;
+                        display: block;
+                    }
+                }
+            }
+
+            .buttons {
+                padding-top: 0.5rem;
+                text-align: left;
+
+
+                i {
+                    line-height: 2.5rem;
+                }
+
+                a {
+                    text-align: center;
+                    transition: 0.4s;
+                    color: $primary-color;
+                    border: 2px solid $primary-color;
+                    border-radius: $radius;
+                    height: 2.5rem;
+                    line-height: 2.5rem;
+                    width: 7rem;
+                    display: inline-block;
+
+                    &:hover {
+                        color: $body-color;
+                        background-color: $primary-color;
+                    }
+
+                    @include xxs {
+                        width: 100%;
+                        margin: 0.25rem;
+                    }
+                }
+
+                button {
+                    transition: 0.4s;
+                    width: 7rem;
+
+                    @include xxs {
+                        width: 100%;
+                        margin: 0.25rem;
+                    }
+
+                    &.delete {
+                        color: $error-color;
+                        border: 2px solid $error-color;
+
+                        &:hover {
+                            color: $body-color;
+                            background-color: $error-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
     /*#endregion*/
 }
 
