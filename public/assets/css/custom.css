@@ -3050,6 +3050,8 @@ section.adminPage .sidebar .item a {
   height: 3rem;
   line-height: 2rem;
   margin-top: calc(25% - 1.5rem);
+  font-size: 1.1rem;
+  background-color: #f5f5f5;
 }
 section.adminPage .sidebar .item a.active {
   background-color: #0098c5;
@@ -3063,6 +3065,7 @@ section.adminPage .sidebar .item a i {
   height: 2rem;
   top: 0.5rem;
   line-height: 2rem;
+  font-weight: normal;
 }
 @media (max-width: 767px) {
   section.adminPage .sidebar {
@@ -3070,54 +3073,45 @@ section.adminPage .sidebar .item a i {
     right: calc(-400px + 4rem);
   }
 }
-section.adminPage .contents {
-  padding: 10vh 1rem 1rem;
-  padding-right: calc(250px + 1rem);
-}
-@media (max-width: 767px) {
-  section.adminPage .contents {
-    padding: 10vh 4rem 1rem 1rem;
-  }
-}
-section.adminPage .contents .top {
+section.adminPage .top {
   position: relative;
   display: flex;
   justify-content: space-between;
 }
 @media (max-width: 991px) {
-  section.adminPage .contents .top {
+  section.adminPage .top {
     display: block;
     margin: auto;
   }
-  section.adminPage .contents .top > div {
+  section.adminPage .top > div {
     width: fit-content;
     margin: 0.5rem auto;
   }
 }
-section.adminPage .contents .second {
+section.adminPage .second {
   display: flex;
 }
-section.adminPage .contents .second > div {
+section.adminPage .second > div {
   margin: 0 1rem 0 0;
 }
 @media (max-width: 991px) {
-  section.adminPage .contents .second > div {
+  section.adminPage .second > div {
     margin: 0 0.5rem;
   }
 }
 @media (max-width: 580px) {
-  section.adminPage .contents .second {
+  section.adminPage .second {
     display: block;
   }
-  section.adminPage .contents .second > div {
+  section.adminPage .second > div {
     margin: 0.5rem auto;
   }
 }
-section.adminPage .contents .search {
+section.adminPage .search {
   max-width: 22rem;
   position: relative;
 }
-section.adminPage .contents .search input[type=text] {
+section.adminPage .search input[type=text] {
   transition: 0.4s;
   border: none;
   background-color: transparent;
@@ -3128,11 +3122,11 @@ section.adminPage .contents .search input[type=text] {
   border-radius: 12px;
   border: 2px solid lightGray;
 }
-section.adminPage .contents .search input[type=text]:focus {
+section.adminPage .search input[type=text]:focus {
   transition: 0.4s;
   outline: none;
 }
-section.adminPage .contents .search i.fa-search {
+section.adminPage .search i.fa-search {
   transition: 0.4s;
   height: 2.5rem;
   padding-top: 0.5rem;
@@ -3147,15 +3141,15 @@ section.adminPage .contents .search i.fa-search {
   position: absolute;
   text-align: center;
 }
-section.adminPage .contents .search i.fa-search:hover {
+section.adminPage .search i.fa-search:hover {
   transition: 0.4s;
   color: #f5f5f5;
   background-color: #0098c5;
 }
-section.adminPage .contents .date {
+section.adminPage .date {
   display: flex;
 }
-section.adminPage .contents .date input {
+section.adminPage .date input {
   transition: 0.4s;
   border: none;
   background-color: transparent;
@@ -3165,15 +3159,15 @@ section.adminPage .contents .date input {
   border-radius: 0 12px 12px 0;
   border: 2px solid lightGray;
 }
-section.adminPage .contents .date input:focus {
+section.adminPage .date input:focus {
   transition: 0.4s;
   outline: none;
 }
-section.adminPage .contents .date button {
+section.adminPage .date button {
   height: 2.5rem;
   border-radius: 12px 0 0 12px;
 }
-section.adminPage .contents .sorting {
+section.adminPage .sorting {
   background-color: #f5f5f5;
   border: 2px solid lightGray;
   width: 14rem;
@@ -3181,58 +3175,205 @@ section.adminPage .contents .sorting {
   border-radius: 12px;
 }
 @media (max-width: 991px) {
-  section.adminPage .contents .sorting {
+  section.adminPage .sorting {
     position: relative;
     margin: 0.5rem auto;
   }
 }
-section.adminPage .contents .sorting .shownSort {
+section.adminPage .sorting .shownSort {
   transition: 0.4s;
   cursor: pointer;
   position: relative;
   padding-left: 2rem;
 }
-section.adminPage .contents .sorting .shownSort:hover {
+section.adminPage .sorting .shownSort:hover {
   color: #0098c5;
 }
-section.adminPage .contents .sorting .shownSort label {
+section.adminPage .sorting .shownSort label {
   transition: 0.4s;
   display: inline-block;
 }
-section.adminPage .contents .sorting .shownSort i {
+section.adminPage .sorting .shownSort i {
   transition: 0.4s;
   top: 0.5rem;
   position: absolute;
   left: 1rem;
   font-size: 1.4rem;
 }
-section.adminPage .contents .sorting .shownSort .rotated {
+section.adminPage .sorting .shownSort .rotated {
   transition: 0.4s;
   transform: rotate(180deg);
 }
-section.adminPage .contents .sorting label {
+section.adminPage .sorting label {
   cursor: pointer;
   padding: 0.5rem;
   position: relative;
   display: block;
   font-size: 0.9rem;
 }
-section.adminPage .contents .sorting label.sortOption {
+section.adminPage .sorting label.sortOption {
   padding: 0;
   transition: 0.4s;
   opacity: 0;
   overflow: hidden;
   max-height: 0;
 }
-section.adminPage .contents .sorting label:hover {
+section.adminPage .sorting label:hover {
   transition: 0.4s;
   color: #0098c5;
 }
-section.adminPage .contents .sorting .show {
+section.adminPage .sorting .show {
   padding: 0.5rem !important;
   opacity: 0.8 !important;
   max-height: 2.5rem !important;
   text-align: right;
+}
+section.adminPage .contents {
+  padding: 10vh 1rem 1rem;
+  padding-right: calc(250px + 1rem);
+}
+@media (max-width: 767px) {
+  section.adminPage .contents {
+    padding: 10vh 4rem 1rem 0;
+  }
+}
+section.adminPage.users .contents ul.nav-tabs {
+  padding: 0;
+  margin: 2rem 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+}
+@media (max-width: 580px) {
+  section.adminPage.users .contents ul.nav-tabs {
+    margin: 1rem auto;
+  }
+}
+section.adminPage.users .contents ul.nav-tabs li.nav-item a.nav-link {
+  border: none;
+  transition: 0.4s;
+  border-radius: 12px;
+  background-color: transparent;
+  font-size: 16px;
+  height: 3rem;
+  color: #333333;
+  border: 2px solid transparent;
+}
+section.adminPage.users .contents ul.nav-tabs li.nav-item a.nav-link.active {
+  transition: 0.4s;
+  color: #f5f5f5;
+  background-color: #0098c5;
+  border-color: #0098c5;
+}
+section.adminPage.users .contents .tab-content {
+  padding: 0 1rem;
+  max-height: 50rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+section.adminPage.users .contents .col-12 .card {
+  padding: 1rem;
+  margin: auto;
+  background-color: #f5f5f5;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  display: inline-block;
+  width: 100%;
+}
+section.adminPage.users .contents .col-12 .card .cardTop {
+  display: flex;
+}
+@media (max-width: 480px) {
+  section.adminPage.users .contents .col-12 .card .cardTop {
+    display: block;
+  }
+  section.adminPage.users .contents .col-12 .card .cardTop > div {
+    margin: auto;
+  }
+}
+section.adminPage.users .contents .col-12 .card .picture {
+  width: 6rem;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+section.adminPage.users .contents .col-12 .card .picture img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 100%;
+}
+section.adminPage.users .contents .col-12 .card .picture i {
+  width: 5rem;
+  height: 5rem;
+  line-height: 4.5rem;
+  border-radius: 100%;
+  color: #333333;
+  border: 2px solid #333333;
+}
+section.adminPage.users .contents .col-12 .card .detail {
+  width: calc(100% - 7rem);
+}
+@media (max-width: 580px) {
+  section.adminPage.users .contents .col-12 .card .detail {
+    width: 100%;
+  }
+}
+section.adminPage.users .contents .col-12 .card .detail span {
+  padding-right: 1rem;
+  display: block;
+}
+section.adminPage.users .contents .col-12 .buttons {
+  padding-top: 0.5rem;
+  text-align: left;
+}
+section.adminPage.users .contents .col-12 .buttons i {
+  line-height: 2.5rem;
+}
+section.adminPage.users .contents .col-12 .buttons a {
+  text-align: center;
+  transition: 0.4s;
+  color: #0098c5;
+  border: 2px solid #0098c5;
+  border-radius: 12px;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  width: 7rem;
+  display: inline-block;
+}
+section.adminPage.users .contents .col-12 .buttons a:hover {
+  color: #f5f5f5;
+  background-color: #0098c5;
+}
+@media (max-width: 480px) {
+  section.adminPage.users .contents .col-12 .buttons a {
+    width: 100%;
+    margin: 0.25rem;
+  }
+}
+section.adminPage.users .contents .col-12 .buttons button {
+  transition: 0.4s;
+  width: 7rem;
+}
+@media (max-width: 480px) {
+  section.adminPage.users .contents .col-12 .buttons button {
+    width: 100%;
+    margin: 0.25rem;
+  }
+}
+section.adminPage.users .contents .col-12 .buttons button.delete {
+  color: #d14774;
+  border: 2px solid #d14774;
+}
+section.adminPage.users .contents .col-12 .buttons button.delete:hover {
+  color: #f5f5f5;
+  background-color: #d14774;
+}
+section.adminPage.users .contents .col-12 .buttons button.accept {
+  color: #4caf50;
+  border: 2px solid #4caf50;
+}
+section.adminPage.users .contents .col-12 .buttons button.accept:hover {
+  color: #f5f5f5;
+  background-color: #4caf50;
 }
 section.adminPage.products .contents ul.nav-tabs {
   padding: 0;

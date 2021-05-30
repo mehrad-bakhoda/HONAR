@@ -5,66 +5,129 @@
         <div class="container-fluid">
             <div class="top">
                 <div class="search">
-                    <input type="text" placeholder="جستجوی کاربران" />
+                    <input type="text" placeholder="جستجوی کابران" />
                     <a onclick="submit_form(); return false;"><i class="fal fa-search"></i></a>
                 </div>
-                <div class="sorting">
-                    <div class="shownSort">
-                        <label class="selectedSort">
-                            جدیدترین 
-                        </label>
-                        <i class="fal fa-sort-amount-down-alt"></i>
+                <div class="second">
+                    <div class="date">
+                        <input type="date" />
+                        <div class="buttons">
+                            <button type="submit">
+                                تایید
+                            </button>
+                        </div>
                     </div>
-                    <label for="new" class="sortOption selected" id="new">جدیدترین</label>
-                    <label for="old" class="sortOption" id="old">قدیمی ترین</label>
-                </div>
-            </div>
-            <div class="advanced">               
-                <div class="filter">
-                    <label>
-                        وضعیت
-                    </label>
-                    <ul>
-                        <li>
-                            تایید شده
-                        </li>
-                        <li>
-                            در انتظار تایید
-                        </li>
-                        <li>
-                            اخیرا حذف شده
-                        </li>
-                    </ul>
-                </div>
-                <div class="date">
-                    <input type="date" />
-                </div>
-                <div class="buttons">
-                    <button type="submit">
-                        اعمال تغییرات
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <div class="card userCard">
-                        <div class="picture">
-
+                    <div class="sorting">
+                        <div class="shownSort">
+                            <label class="selectedSort">
+                                جدیدترین
+                            </label>
+                            <i class="fal fa-sort-amount-down-alt"></i>
                         </div>
-                        <div class="detail">
-                            <span class="name">
-
-                            </span>
-                            <span class="dateAdded">
-
-                            </span>
-                            <span class="status">
-
-                            </span>
-                        </div>
+                        <label for="old" class="sortOption" id="old">قدیمی ترین</label>
                     </div>
                 </div>
             </div>
+
+            <!-- Tabs navs -->
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active"
+                       id="acceptedH"
+                       data-mdb-toggle="tab"
+                       href="#acceptedC"
+                       role="tab"
+                       aria-controls="acceptedC"
+                       aria-selected="true">تایید</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       id="queueH"
+                       data-mdb-toggle="tab"
+                       href="#queueC"
+                       role="tab"
+                       aria-controls="queueC"
+                       aria-selected="false">در انتظار</a>
+                </li>
+            </ul>
+            <!-- Tabs navs -->
+            <!-- Tabs content -->
+            <div class="tab-content" id="ex2-content">
+                <div class="tab-pane fade show active"
+                     id="acceptedC"
+                     role="tabpanel"
+                     aria-labelledby="acceptedH">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="card productCard">
+                                <div class="cardTop">
+                                    <div class="picture">
+                                        <i class="fal fa-user fa-2x"></i>
+                                    </div>
+                                    <div class="detail">
+                                        <span class="name">
+                                            نام کاربر
+                                        </span>
+                                        <span class="dateAdded">
+                                            18/12/99
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="buttons">
+
+                                    <button type="submit" class="delete">
+                                        حذف
+                                        <i class="fal fa-trash"></i>
+                                    </button>
+                                    <a href="#">
+                                        مشاهده
+                                        <i class="fal fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade"
+                     id="queueC"
+                     role="tabpanel"
+                     aria-labelledby="queueH">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="card productCard">
+                                <div class="cardTop">
+                                    <div class="picture">
+                                        <img src="../assets/images/test.jpg"/>
+                                    </div>
+                                    <div class="detail">
+                                        <span class="name">
+                                            نام کاربر
+                                        </span>
+                                        <span class="dateAdded">
+                                            18/12/99
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="buttons">
+
+                                    <button type="submit" class="accept">
+                                        تایید
+                                        <i class="fal fa-check"></i>
+                                    </button>
+                                    <a href="#">
+                                        مشاهده
+                                        <i class="fal fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabs content -->
+
         </div>
     </section>
 </section>

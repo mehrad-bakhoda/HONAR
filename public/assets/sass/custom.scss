@@ -3561,7 +3561,8 @@ section.adminPage {
                 height: 3rem;
                 line-height: 2rem;
                 margin-top: calc(25% - 1.5rem);
-
+                font-size: 1.1rem;
+                background-color: $body-color;
                 &.active {
                     background-color: $primary-color;
                     border: 2px solid $primary-color;
@@ -3575,6 +3576,7 @@ section.adminPage {
                     height: 2rem;
                     top: 0.5rem;
                     line-height: 2rem;
+                    font-weight: normal;
                 }
             }
         }
@@ -3585,189 +3587,189 @@ section.adminPage {
         }
     }
 
+    .top {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        @include md {
+            display: block;
+            margin: auto;
+
+            > div {
+                width: fit-content;
+                margin: 0.5rem auto;
+            }
+        }
+    }
+
+    .second {
+        display: flex;
+
+        > div {
+            margin: 0 1rem 0 0;
+        }
+
+        @include md {
+            > div {
+                margin: 0 0.5rem;
+            }
+        }
+
+        @include xs {
+            display: block;
+
+            > div {
+                margin: 0.5rem auto;
+            }
+        }
+    }
+
+    .search {
+        max-width: 22rem;
+        position: relative;
+
+        input[type=text] {
+            transition: 0.4s;
+            border: none;
+            background-color: transparent;
+            height: 2.5rem;
+            width: 100%;
+            padding: 0.25rem 0.5rem 0.25rem 3rem;
+            color: $text-color;
+            border-radius: $radius;
+            border: 2px solid lightGray;
+
+            &:focus {
+                transition: 0.4s;
+                outline: none;
+            }
+        }
+
+        i.fa-search {
+            transition: 0.4s;
+            height: 2.5rem;
+            padding-top: 0.5rem;
+            width: 2.5rem;
+            left: 0rem;
+            background-color: $body-color;
+            color: $primary-color;
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
+            border: 2px solid $primary-color;
+            font-size: 18px;
+            position: absolute;
+            text-align: center;
+
+            &:hover {
+                transition: 0.4s;
+                color: $body-color;
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    .date {
+        display: flex;
+
+        input {
+            transition: 0.4s;
+            border: none;
+            background-color: transparent;
+            height: 2.5rem;
+            width: 10rem;
+            color: $text-color;
+            border-radius: 0 $radius $radius 0;
+            border: 2px solid lightGray;
+
+            &:focus {
+                transition: 0.4s;
+                outline: none;
+            }
+        }
+
+        button {
+            height: 2.5rem;
+            border-radius: $radius 0 0 $radius;
+        }
+    }
+
+    .sorting {
+        background-color: $body-color;
+        border: 2px solid lightGray;
+        width: 14rem;
+        border-radius: 0.5rem;
+        border-radius: $radius;
+
+        @include md {
+            position: relative;
+            margin: 0.5rem auto;
+        }
+
+        .shownSort {
+            transition: 0.4s;
+            cursor: pointer;
+            position: relative;
+            padding-left: 2rem;
+
+            &:hover {
+                color: $primary-color;
+            }
+
+            label {
+                transition: 0.4s;
+                display: inline-block;
+            }
+
+            i {
+                transition: 0.4s;
+                top: 0.5rem;
+                position: absolute;
+                left: 1rem;
+                font-size: 1.4rem;
+            }
+
+            .rotated {
+                transition: 0.4s;
+                transform: rotate(180deg);
+            }
+        }
+
+        label {
+            cursor: pointer;
+            padding: 0.5rem;
+            position: relative;
+            display: block;
+            font-size: 0.9rem;
+
+            &.sortOption {
+                padding: 0;
+                transition: 0.4s;
+                opacity: 0;
+                overflow: hidden;
+                max-height: 0;
+            }
+
+            &:hover {
+                transition: 0.4s;
+                color: $primary-color;
+            }
+        }
+
+        .show {
+            padding: 0.5rem !important;
+            opacity: 0.8 !important;
+            max-height: 2.5rem !important;
+            text-align: right;
+        }
+    }
+
     .contents {
         padding: 10vh 1rem 1rem;
         padding-right: calc(250px + 1rem);
 
         @include sm {
-            padding: 10vh 4rem 1rem 1rem;
-        }
-
-        .top {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-
-            @include md {
-                display: block;
-                margin: auto;
-
-                > div {
-                    width: fit-content;
-                    margin: 0.5rem auto;
-                }
-            }
-        }
-
-        .second {
-            display: flex;
-
-            > div {
-                margin: 0 1rem 0 0;
-            }
-
-            @include md {
-                > div {
-                    margin: 0 0.5rem;
-                }
-            }
-
-            @include xs {
-                display: block;
-
-                > div {
-                    margin: 0.5rem auto;
-                }
-            }
-        }
-
-        .search {
-            max-width: 22rem;
-            position: relative;
-
-            input[type=text] {
-                transition: 0.4s;
-                border: none;
-                background-color: transparent;
-                height: 2.5rem;
-                width: 100%;
-                padding: 0.25rem 0.5rem 0.25rem 3rem;
-                color: $text-color;
-                border-radius: $radius;
-                border: 2px solid lightGray;
-
-                &:focus {
-                    transition: 0.4s;
-                    outline: none;
-                }
-            }
-
-            i.fa-search {
-                transition: 0.4s;
-                height: 2.5rem;
-                padding-top: 0.5rem;
-                width: 2.5rem;
-                left: 0rem;
-                background-color: $body-color;
-                color: $primary-color;
-                border-top-left-radius: $radius;
-                border-bottom-left-radius: $radius;
-                border: 2px solid $primary-color;
-                font-size: 18px;
-                position: absolute;
-                text-align: center;
-
-                &:hover {
-                    transition: 0.4s;
-                    color: $body-color;
-                    background-color: $primary-color;
-                }
-            }
-        }
-
-        .date {
-            display: flex;
-
-            input {
-                transition: 0.4s;
-                border: none;
-                background-color: transparent;
-                height: 2.5rem;
-                width: 10rem;
-                color: $text-color;
-                border-radius: 0 $radius $radius 0;
-                border: 2px solid lightGray;
-
-                &:focus {
-                    transition: 0.4s;
-                    outline: none;
-                }
-            }
-
-            button {
-                height: 2.5rem;
-                border-radius: $radius 0 0 $radius;
-            }
-        }
-
-        .sorting {
-            background-color: $body-color;
-            border: 2px solid lightGray;
-            width: 14rem;
-            border-radius: 0.5rem;
-            border-radius: $radius;
-
-            @include md {
-                position: relative;
-                margin: 0.5rem auto;
-            }
-
-            .shownSort {
-                transition: 0.4s;
-                cursor: pointer;
-                position: relative;
-                padding-left: 2rem;
-
-                &:hover {
-                    color: $primary-color;
-                }
-
-                label {
-                    transition: 0.4s;
-                    display: inline-block;
-                }
-
-                i {
-                    transition: 0.4s;
-                    top: 0.5rem;
-                    position: absolute;
-                    left: 1rem;
-                    font-size: 1.4rem;
-                }
-
-                .rotated {
-                    transition: 0.4s;
-                    transform: rotate(180deg);
-                }
-            }
-
-            label {
-                cursor: pointer;
-                padding: 0.5rem;
-                position: relative;
-                display: block;
-                font-size: 0.9rem;
-
-                &.sortOption {
-                    padding: 0;
-                    transition: 0.4s;
-                    opacity: 0;
-                    overflow: hidden;
-                    max-height: 0;
-                }
-
-                &:hover {
-                    transition: 0.4s;
-                    color: $primary-color;
-                }
-            }
-
-            .show {
-                padding: 0.5rem !important;
-                opacity: 0.8 !important;
-                max-height: 2.5rem !important;
-                text-align: right;
-            }
+            padding: 10vh 4rem 1rem 0;
         }
     }
     /*#region Home*/
@@ -3782,6 +3784,166 @@ section.adminPage {
     /*#endregion*/
     /*#region Users*/
     &.users .contents {
+        ul.nav-tabs {
+            padding: 0;
+            margin: 2rem 1rem;
+            border: 2px solid lightgray;
+            border-radius: $radius;
+
+            @include xs {
+                margin: 1rem auto;
+            }
+
+            li.nav-item {
+
+                a.nav-link {
+                    border: none;
+                    transition: 0.4s;
+                    border-radius: $radius;
+                    background-color: transparent;
+                    font-size: 16px;
+                    height: 3rem;
+                    color: $text-color;
+                    border: 2px solid transparent;
+
+                    &.active {
+                        transition: 0.4s;
+                        color: $body-color;
+                        background-color: $primary-color;
+                        border-color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            padding: 0 1rem;
+            max-height: 50rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .col-12 {
+            .card {
+                padding: 1rem;
+                margin: auto;
+                background-color: $body-color;
+                border: 2px solid lightgray;
+                border-radius: $radius;
+                display: inline-block;
+                width: 100%;
+
+                .cardTop {
+                    display: flex;
+
+                    @include xxs {
+                        display: block;
+
+                        > div {
+                            margin: auto;
+                        }
+                    }
+                }
+
+                .picture {
+                    width: 6rem;
+                    
+                    text-align: center;
+                    padding: 0 0.5rem;
+
+                    img {
+                        width: 5rem;
+                        height: 5rem;
+                        object-fit: cover;
+                        border-radius: 100%;
+                    }
+
+                    i {
+                        width: 5rem;
+                        height: 5rem;
+                        line-height: 4.5rem;
+                        border-radius: 100%;
+                        color:$text-color;
+                        border: 2px solid $text-color;
+                    }
+                }
+
+                .detail {
+                    width: calc(100% - 7rem);
+
+                    @include xs {
+                        width: 100%;
+                    }
+
+                    span {
+                        padding-right: 1rem;
+                        display: block;
+                    }
+                }
+            }
+
+            .buttons {
+                padding-top: 0.5rem;
+                text-align: left;
+
+
+                i {
+                    line-height: 2.5rem;
+                }
+
+                a {
+                    text-align: center;
+                    transition: 0.4s;
+                    color: $primary-color;
+                    border: 2px solid $primary-color;
+                    border-radius: $radius;
+                    height: 2.5rem;
+                    line-height: 2.5rem;
+                    width: 7rem;
+                    display: inline-block;
+
+                    &:hover {
+                        color: $body-color;
+                        background-color: $primary-color;
+                    }
+
+                    @include xxs {
+                        width: 100%;
+                        margin: 0.25rem;
+                    }
+                }
+
+                button {
+                    transition: 0.4s;
+                    width: 7rem;
+
+                    @include xxs {
+                        width: 100%;
+                        margin: 0.25rem;
+                    }
+
+                    &.delete {
+                        color: $error-color;
+                        border: 2px solid $error-color;
+
+                        &:hover {
+                            color: $body-color;
+                            background-color: $error-color;
+                        }
+                    }
+
+                    &.accept {
+                        color: $success-color;
+                        border: 2px solid $success-color;
+
+                        &:hover {
+                            color: $body-color;
+                            background-color: $success-color;
+                        }
+                    }
+                }
+            }
+        }
     }
     /*#endregion*/
     /*#region Products*/
