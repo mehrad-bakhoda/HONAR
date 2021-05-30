@@ -26,67 +26,6 @@
             </div>
         </div>
     </div>
-    <section class="walletButton">
-        <a href="/upload" class="uploadLink" data-mdb-toggle="modal"
-           data-mdb-target="#walletModal">
-            <i class="fal fa-wallet"></i>
-        </a>
-    </section>
-    <div class="modal fade"
-         id="walletModal"
-         tabindex="-1"
-         aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="credit">
-                        <h5> کیف پول  </h5>
-
-                        <label>
-                            اعتبار شما
-                        </label>
-                        <p>
-                            10000 تومان
-                        </p>
-                    </div>
-                    <div class="increase">
-                        <h5> افزایش اعتبار </h5>
-
-                        <input type="text" placeholder="مقدار مورد نظر..." />
-                        <div class="buttons">
-                            <button type="submit">
-                                افزایش اعتبار
-                            </button>
-
-                        </div>
-                    </div>
-                    <div class="cash">
-                        <h5> دریافت پول </h5>
-                        <label>
-                            شماره حساب
-                        </label>
-                        <p>9999 9999 9999 9999</p>
-                        <input type="text" placeholder="مقدار مورد نظر..." />
-                        <div class="buttons">
-                            <button type="submit"> دریافت</button>
-
-                        </div>
-
-                        <p class="add"> افزودن کارت </p>
-                        <div class="carts hidden">
-                            <input type="text" class="creditNumber" placeholder="شماره کارت شما..." />
-                            <input type="text" class="name" placeholder="نام شما..." />
-                            <input type="text" class="ssm" placeholder="کد ملی شما..." />
-                            <div class="buttons">
-                                <button type="submit" class="submitCart"> ثیت کارت</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <%-include("headerN");-%>
     <section class="contents">
         <div class="container-fluid">
@@ -145,6 +84,55 @@
                     <p>
                         <%=user.bio%>
                     </p>
+                </div>
+            </div>
+            <div class="part wallet">
+                <div class="header" onClick="openContent('wallet')">
+
+                    <h5>
+
+                        کیف پول
+                        <span>
+                            (10000 تومان)
+                        </span>
+                        <i class="fal fa-angle-down"></i>
+                    </h5>
+
+                </div>
+                <div class="collapseContent contentHidden">
+                    <div class="increase">
+                        <h5> افزایش اعتبار </h5>
+
+                        <input type="text" placeholder="مقدار مورد نظر..." />
+                        <div class="buttons">
+                            <button type="submit">
+                                افزایش اعتبار
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="cash">
+                        <h5> دریافت پول </h5>
+                        <label>
+                            شماره حساب
+                        </label>
+                        <p>9999 9999 9999 9999</p>
+                        <input type="text" placeholder="مقدار مورد نظر..." />
+                        <div class="buttons">
+                            <button type="submit"> دریافت</button>
+
+                        </div>
+
+                        <p class="add"> افزودن کارت </p>
+                        <div class="carts hidden">
+                            <input type="text" class="creditNumber" placeholder="شماره کارت شما..." />
+                            <input type="text" class="name" placeholder="نام شما..." />
+                            <input type="text" class="ssm" placeholder="کد ملی شما..." />
+                            <div class="buttons">
+                                <button type="submit" class="submitCart"> ثیت کارت</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="notifs part">

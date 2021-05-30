@@ -150,8 +150,8 @@ textarea:focus {
   border-bottom-left-radius: 12px;
   padding: 1rem;
   margin-bottom: 0;
-  color: #4caf50;
-  border: 2px solid #4caf50;
+  color: #1a981f;
+  border: 2px solid #1a981f;
   border-right: none;
 }
 
@@ -1954,12 +1954,12 @@ section.cartPage section.contents .container-fluid .row.top .total .card {
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
   transition: 0.4s;
   padding: 0 2rem;
-  color: #4caf50;
-  border: 2px solid #4caf50;
+  color: #1a981f;
+  border: 2px solid #1a981f;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment:hover {
   color: #f5f5f5;
-  background-color: #4caf50;
+  background-color: #1a981f;
 }
 
 /*#endregion */
@@ -2072,86 +2072,6 @@ section.dashboardPage .modal .modal-content .modal-body .buttons {
   text-align: left;
   margin-bottom: 1rem;
 }
-section.dashboardPage .modal#walletModal label {
-  font-weight: bold;
-  font-size: 18px;
-}
-section.dashboardPage .modal#walletModal input {
-  transition: 0.8s;
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  border: 2px solid lightgray;
-  height: 2.5rem;
-  padding: 0.5rem;
-  width: 100%;
-  margin: 0.5rem auto;
-}
-section.dashboardPage .modal#walletModal input:focus {
-  outline: none;
-}
-section.dashboardPage .modal#walletModal a {
-  text-align: center;
-  display: block;
-  width: 8rem;
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  transition: 0.4s;
-  color: #0098c5;
-  border: 2px solid #0098c5;
-}
-section.dashboardPage .modal#walletModal a:hover {
-  transition: 0.4s;
-  color: #9c2d89;
-  border: 2px solid #9c2d89;
-}
-section.dashboardPage .modal#walletModal .credit {
-  padding: 1rem;
-  border: 2px solid lightgray;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-section.dashboardPage .modal#walletModal .credit p {
-  float: left;
-}
-section.dashboardPage .modal#walletModal .increase {
-  padding: 1rem;
-  border: 2px solid lightgray;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-section.dashboardPage .modal#walletModal .cash {
-  padding: 1rem;
-  border: 2px solid lightgray;
-  border-radius: 12px;
-}
-section.dashboardPage .modal#walletModal .cash p {
-  float: left;
-}
-section.dashboardPage .modal#walletModal .cash p.add {
-  border-radius: 12px;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  transition: 0.4s;
-  color: #0098c5;
-  border: 2px solid #0098c5;
-  cursor: pointer;
-  float: none;
-}
-section.dashboardPage .modal#walletModal .cash p.add:hover {
-  transition: 0.4s;
-  color: #9c2d89;
-  border: 2px solid #9c2d89;
-}
-section.dashboardPage .modal#walletModal .cash .carts {
-  transition: 0.4s;
-  max-height: 30rem;
-  overflow: auto;
-}
-section.dashboardPage .modal#walletModal .cash .hidden {
-  transition: 0.4s;
-  max-height: 0;
-  overflow: hidden;
-}
 section.dashboardPage section.contents .container-fluid .part {
   transition: 0.4s;
   max-width: 40rem;
@@ -2254,13 +2174,14 @@ section.dashboardPage section.contents .container-fluid .part.sale input {
   height: 2.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.sale h6 {
-  color: #0098c5;
-  text-align: center;
   padding: 0 1rem 1rem;
+  font-size: 1.2rem;
 }
 section.dashboardPage section.contents .container-fluid .part.sale .create {
-  padding: 1rem 0;
-  border-bottom: 2px solid lightgray;
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  margin-bottom: 1rem;
 }
 section.dashboardPage section.contents .container-fluid .part.sale .create input[type=text] {
   float: left;
@@ -2302,7 +2223,9 @@ section.dashboardPage section.contents .container-fluid .part.sale .create .star
   }
 }
 section.dashboardPage section.contents .container-fluid .part.sale .history {
-  padding: 1rem 0;
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
 }
 section.dashboardPage section.contents .container-fluid .part.sale .history ul {
   max-height: 20rem;
@@ -2341,6 +2264,98 @@ section.dashboardPage section.contents .container-fluid .part.sale .history ul l
   section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label span {
     float: left;
   }
+}
+section.dashboardPage section.contents .container-fluid .part.wallet label {
+  font-weight: bold;
+  font-size: 18px;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .buttons {
+  padding: 0.5rem 0;
+  text-align: left;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet input {
+  transition: 0.8s;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  border: 2px solid lightgray;
+  height: 2.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  margin: 0.5rem auto;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet input:focus {
+  outline: none;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet a {
+  text-align: center;
+  display: block;
+  width: 8rem;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  transition: 0.4s;
+  color: #1a981f;
+  border: 2px solid #1a981f;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet a:hover {
+  transition: 0.4s;
+  color: #f5f5f5;
+  background-color: #1a981f;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet button {
+  color: #1a981f;
+  border: 2px solid #1a981f;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet button:hover {
+  color: #f5f5f5;
+  background-color: #1a981f;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .credit {
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .credit p {
+  float: left;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .increase {
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .cash {
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .cash p {
+  float: left;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .cash p.add {
+  border-radius: 12px;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  transition: 0.4s;
+  color: #1a981f;
+  border: 2px solid #1a981f;
+  cursor: pointer;
+  float: none;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .cash p.add:hover {
+  transition: 0.4s;
+  color: #f5f5f5;
+  background-color: #1a981f;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .cash .carts {
+  transition: 0.4s;
+  max-height: 30rem;
+  overflow: auto;
+}
+section.dashboardPage section.contents .container-fluid .part.wallet .cash .hidden {
+  transition: 0.4s;
+  max-height: 0;
+  overflow: hidden;
 }
 section.dashboardPage section.contents .container-fluid .part.notifs {
   position: relative;
@@ -2406,7 +2421,7 @@ section.dashboardPage section.contents .container-fluid .part.notifs .card.notif
   color: #d14774;
 }
 section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard.success .title h6 {
-  color: #00ec07;
+  color: #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .part.notifs .contentHidden {
   max-height: 0;
@@ -2510,13 +2525,13 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
   transition: 0.4s;
-  color: #4caf50;
-  border: 2px solid #4caf50;
+  color: #1a981f;
+  border: 2px solid #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
   transition: 0.4s;
   color: #f5f5f5;
-  background-color: #4caf50;
+  background-color: #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel {
   transition: 0.4s;
@@ -2730,8 +2745,7 @@ section.dashboardPage section.contents .container-fluid .part .collapseContent {
 section.dashboardPage section.contents .container-fluid .part .collapseContent ::-webkit-scrollbar {
   width: 0.25rem;
   margin-right: 0.5rem;
-  /*                        background: lightgray;
-  */
+  background: lightgray;
   border-radius: 4px;
 }
 section.dashboardPage section.contents .container-fluid .part .collapseContent ::-webkit-scrollbar-thumb {
@@ -2747,11 +2761,17 @@ section.dashboardPage section.contents .container-fluid .part .contentHidden {
 }
 section.dashboardPage section.contents .container-fluid .opened {
   transition: 0.4s;
-  border: 2px solid #9c2d89;
+  border: 2px solid #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .opened .header h5 {
   transition: 0.4s;
-  color: #9c2d89;
+  color: #0098c5;
+}
+section.dashboardPage section.contents .container-fluid .opened.wallet {
+  border: 2px solid #1a981f;
+}
+section.dashboardPage section.contents .container-fluid .opened.wallet .header h5 {
+  color: #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .products .buttons {
   padding-top: 4rem;
@@ -3158,6 +3178,8 @@ section.adminPage .date input {
   color: #333333;
   border-radius: 0 12px 12px 0;
   border: 2px solid lightGray;
+  border-left: 0;
+  padding-left: 0.25rem;
 }
 section.adminPage .date input:focus {
   transition: 0.4s;
@@ -3368,12 +3390,12 @@ section.adminPage.users .contents .col-12 .buttons button.delete:hover {
   background-color: #d14774;
 }
 section.adminPage.users .contents .col-12 .buttons button.accept {
-  color: #4caf50;
-  border: 2px solid #4caf50;
+  color: #1a981f;
+  border: 2px solid #1a981f;
 }
 section.adminPage.users .contents .col-12 .buttons button.accept:hover {
   color: #f5f5f5;
-  background-color: #4caf50;
+  background-color: #1a981f;
 }
 section.adminPage.products .contents ul.nav-tabs {
   padding: 0;
@@ -3498,12 +3520,12 @@ section.adminPage.products .contents .col-12 .buttons button.delete:hover {
   background-color: #d14774;
 }
 section.adminPage.products .contents .col-12 .buttons button.accept {
-  color: #4caf50;
-  border: 2px solid #4caf50;
+  color: #1a981f;
+  border: 2px solid #1a981f;
 }
 section.adminPage.products .contents .col-12 .buttons button.accept:hover {
   color: #f5f5f5;
-  background-color: #4caf50;
+  background-color: #1a981f;
 }
 
 /*#endregion*/
