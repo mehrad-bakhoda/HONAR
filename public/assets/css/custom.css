@@ -817,7 +817,7 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   font-size: 18px;
   position: absolute;
   background-color: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   width: 11rem;
   cursor: pointer;
   text-align: center;
@@ -2466,7 +2466,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   font-size: 18px;
   position: absolute;
   background-color: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   width: 11rem;
   cursor: pointer;
   text-align: center;
@@ -2507,7 +2507,7 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button {
   transition: 0.4s;
   width: 10rem;
-  padding: 0.5rem;
+  padding: 0;
   margin-right: 1rem;
 }
 @media (max-width: 580px) {
