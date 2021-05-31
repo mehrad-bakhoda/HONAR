@@ -489,7 +489,7 @@ section.homePage {
         .container-fluid {
             .productTabs {
                 ul.nav-tabs {
-                    padding: 0;
+                    padding: 0 0 1px;
                     margin: 2rem 1rem;
                     border: 2px solid lightgray;
                     border-radius: $radius;
@@ -514,7 +514,10 @@ section.homePage {
                             color: $text-color;
                             border: 2px solid transparent;
                             border-radius: $radius;
-
+                            width: 100%;
+                            height: 3rem;
+                            line-height: 3rem;
+                            padding: 0;
 
                             @include md {
                                 font-size: 18px;
@@ -522,16 +525,6 @@ section.homePage {
 
                             @include sm {
                                 font-size: 16px;
-                            }
-
-                            @include xs {
-                                padding-left: 1rem;
-                                padding-right: 1rem;
-                                margin: auto;
-                            }
-
-                            @include xxs {
-                                width: 90%;
                             }
 
                             &.active {
@@ -3825,7 +3818,7 @@ section.adminPage {
     /*#region Users*/
     &.users .contents {
         ul.nav-tabs {
-            padding: 0;
+            padding: 0 0 1px;
             margin: 2rem 1rem;
             border: 2px solid lightgray;
             border-radius: $radius;
@@ -3845,6 +3838,9 @@ section.adminPage {
                     height: 3rem;
                     color: $text-color;
                     border: 2px solid transparent;
+                    height: 3rem;
+                    line-height: 3rem;
+                    padding: 0;
 
                     &.active {
                         transition: 0.4s;
@@ -3988,7 +3984,7 @@ section.adminPage {
     /*#region Products*/
     &.products .contents {
         ul.nav-tabs {
-            padding: 0;
+            padding: 0 0 1px;
             margin: 2rem 1rem;
             border: 2px solid lightgray;
             border-radius: $radius;
@@ -4008,6 +4004,9 @@ section.adminPage {
                     height: 3rem;
                     color: $text-color;
                     border: 2px solid transparent;
+                    height: 3rem;
+                    line-height: 3rem;
+                    padding: 0;
 
                     &.active {
                         transition: 0.4s;
