@@ -3021,7 +3021,7 @@ section.adminPage {
   /*#endregion*/
   /*#region Messages*/
   /*#endregion*/
-  /*#region Requests*/
+  /*#region Finance*/
   /*#endregion*/
   /*#region Users*/
   /*#endregion*/
@@ -3386,6 +3386,38 @@ section.adminPage.messages .contents #answerModal textarea {
 }
 section.adminPage.messages .contents #answerModal button {
   width: 9rem;
+}
+section.adminPage.finance .contents .row {
+  padding: 2rem 1rem;
+  max-height: 50rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+section.adminPage.finance .contents .col-12 .card {
+  padding: 1rem;
+  margin: auto;
+  background-color: #f5f5f5;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  width: 100%;
+}
+section.adminPage.finance .contents .col-12 .card .cardRow label {
+  color: #0098c5;
+}
+section.adminPage.finance .contents .col-12 .card .cardRow p {
+  color: #333333;
+  float: left;
+}
+section.adminPage.finance .contents .col-12 .card .cardRow a {
+  margin-bottom: 1rem;
+  float: left;
+  transition: 0.4s;
+  padding-right: 1rem;
+  color: #333333;
+}
+section.adminPage.finance .contents .col-12 .card .cardRow a:hover {
+  transition: 0.4s;
+  color: #0098c5;
 }
 section.adminPage.users .contents .col-12 .card {
   padding: 1rem;

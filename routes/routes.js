@@ -1942,6 +1942,9 @@ router.post("/search",function(req,res){
 router.get("/admin/home", function (req, res) {
     res.render("adminHome");
 });
+router.get("/admin/finance", function (req, res) {
+    res.render("adminFinance");
+});
 router.get("/admin/users", function (req, res) {
     res.render("adminUsers");
 });

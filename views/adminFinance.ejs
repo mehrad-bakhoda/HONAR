@@ -1,0 +1,69 @@
+﻿<%-include("head");-%>
+<section class="adminPage finance">
+    <%-include("adminSidebar");-%>
+    <section class="contents">
+        <div class="container-fluid">
+            <div class="top">
+                <div class="search">
+                    <input type="text" placeholder="جستجوی  تراکنش ها" />
+                    <a onclick="submit_form(); return false;"><i class="fal fa-search"></i></a>
+                </div>
+                <div class="second">
+                    <div class="date">
+                        <input type="date" />
+                        <div class="buttons">
+                            <button type="submit">
+                                تایید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sorting">
+                        <div class="shownSort">
+                            <label class="selectedSort">
+                                جدیدترین
+                            </label>
+                            <i class="fal fa-sort-amount-down-alt"></i>
+                        </div>
+                        <label for="old" class="sortOption" id="old">قدیمی ترین</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="card productCard">
+                        <div class="cardRow">
+                            <label> کد تراکنش</label>
+                            <p> 1oejh97f9f8 </p>
+                        </div>
+                        <div class="cardRow">
+                            <label> مقدار تراکنش</label>
+                            <p> <span> 10000 </span> تومان </p>
+                        </div>
+                        <div class="cardRow">
+                            <label>  تاریخ تراکنش </label>
+                            <p> 10/4/00 </p>
+                        </div>
+                        <div class="cardRow">
+                            <label>  خریدار </label>
+                            <a href="#">
+                                نام کاربر
+                                <i class="fal fa-user"></i>
+                            </a>
+                        </div>
+                        <div class="cardRow">
+                            <label>  فروشنده </label>
+                            <a href="#">
+                                نام کاربر
+                                <i class="fal fa-user"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</section>
+
+<%-include("scripts");-%>
