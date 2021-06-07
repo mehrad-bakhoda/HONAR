@@ -3293,50 +3293,32 @@ section.adminPage.messages .contents .col-12 .card {
   background-color: #f5f5f5;
   border: 2px solid lightgray;
   border-radius: 12px;
-  display: inline-block;
   width: 100%;
 }
-section.adminPage.messages .contents .col-12 .card .cardTop {
-  display: flex;
+section.adminPage.messages .contents .col-12 .card .cardRow {
+  text-align: left;
 }
-@media (max-width: 480px) {
-  section.adminPage.messages .contents .col-12 .card .cardTop {
-    display: block;
-  }
-  section.adminPage.messages .contents .col-12 .card .cardTop > div {
-    margin: auto;
-  }
+section.adminPage.messages .contents .col-12 .card .cardRow label {
+  color: #0098c5;
+  float: right;
 }
-section.adminPage.messages .contents .col-12 .card .picture {
-  width: 6rem;
-  text-align: center;
-  padding: 0 0.5rem;
+section.adminPage.messages .contents .col-12 .card .cardRow p {
+  color: #333333;
 }
-section.adminPage.messages .contents .col-12 .card .picture img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-}
-section.adminPage.messages .contents .col-12 .card .detail {
-  width: 100%;
-}
-section.adminPage.messages .contents .col-12 .card .detail span {
-  padding-right: 1rem;
-  display: block;
-}
-section.adminPage.messages .contents .col-12 .card .detail a {
+section.adminPage.messages .contents .col-12 .card .cardRow a {
+  margin-bottom: 1rem;
+  float: left;
   transition: 0.4s;
   padding-right: 1rem;
   color: #333333;
 }
-section.adminPage.messages .contents .col-12 .card .detail a:hover {
+section.adminPage.messages .contents .col-12 .card .cardRow a:hover {
   transition: 0.4s;
   color: #0098c5;
 }
 section.adminPage.messages .contents .col-12 .buttons {
-  padding-top: 0.5rem;
   text-align: left;
+  padding-top: 0.5rem;
 }
 section.adminPage.messages .contents .col-12 .buttons i {
   line-height: 2.5rem;
