@@ -108,7 +108,7 @@
                     <div class="increase">
                         <h5> افزایش اعتبار </h5>
                         <form action="/addFund" method="post">
-                        <input type="text" placeholder="مقدار مورد نظر..." />
+                        <input type="text" name="amount" placeholder="مقدار مورد نظر..." required/>
                         <div class="buttons">
                             <button type="submit">
                                 افزایش اعتبار
@@ -126,11 +126,12 @@
                             <% /* %>
                              <p><%=user.creditCard.cardNumber%></p>
                             <% */ %>
-                            <input type="text" placeholder="مقدار مورد نظر..." />
+                            <form action="/getFund" method="post">
+                            <input type="text" name="amount" placeholder="مقدار مورد نظر..." required/>
                             <div class="buttons">
                                 <button type="submit"> دریافت</button>
-    
-                            </div>
+                            </div>  
+                        </form>
                  
 
                       <%  }%>
