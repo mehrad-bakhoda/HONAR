@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     type:String,
   },
   creditCardConfirmation:{
-    type:Boolean
+    type:String
   },
   phone: {
     type: String,

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var CreditCard = require('../models/creditCard');
 var Product = require('../models/product');
 var Discount = require('../models/discount');
 var Cart = require("../cart");
@@ -32,6 +33,49 @@ const product = require('../models/product');
 
 
 // GET ROUTE'S
+
+
+router.post("/addFund",function(req,res){
+  
+});
+
+
+
+router.post("/addCard",function(req,res){
+  User.updateOne({unique_id:req.session.userId},{creditCardConfirmation:"wait"},function(err){
+    if(!err){
+      console.log("waiting for confirmation");
+    }
+  });
+  User.findOne({unique_id:req.session.userId},function(err,found){
+    if(!err){
+    if(found){
+      const creditCard = new CreditCard({
+        cardNumber:req.body.cardNumber,
+        name:req.body.name,
+        sId:req.body.sId,
+        user:found
+      });
+      creditCard.save(function(err, docs) {
+        if (!err) {
+         console.log("credirCard added");
+         res.redirect("/dashboard");
+        }
+        else{
+          console.log(err);
+          res.redirect("/dashboard");
+        }
+      });
+
+
+    }
+  }
+  });
+
+
+});
+
+
 
 
 router.post("/download/:productId/:size",function(req,res){

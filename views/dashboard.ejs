@@ -93,7 +93,12 @@
 
                         کیف پول
                         <span>
-                            (10000 تومان)
+                           <% if(user.balance==0 || !user.balance){%>
+                                (خالی)
+                           <% }if(user.balance !=0 && user.balance){%>
+                                (<%=user.balance%>)
+                          <%  }%>
+                            
                         </span>
                         <i class="fal fa-angle-down"></i>
                     </h5>
@@ -102,37 +107,56 @@
                 <div class="collapseContent contentHidden">
                     <div class="increase">
                         <h5> افزایش اعتبار </h5>
-
+                        <form action="/addFund" method="post">
                         <input type="text" placeholder="مقدار مورد نظر..." />
                         <div class="buttons">
                             <button type="submit">
                                 افزایش اعتبار
                             </button>
+                        </form>
 
                         </div>
                     </div>
                     <div class="cash">
-                        <h5> دریافت پول </h5>
-                        <label>
-                            شماره حساب
-                        </label>
-                        <p>9999 9999 9999 9999</p>
-                        <input type="text" placeholder="مقدار مورد نظر..." />
-                        <div class="buttons">
-                            <button type="submit"> دریافت</button>
+                       <% if(user.creditCardConfirmation == "true" && user.creditCardConfirmation){%>
+                            <h5> دریافت پول </h5>
+                            <label>
+                                شماره حساب
+                            </label>
+                            <p>9999 9999 9999 9999</p>
+                            <input type="text" placeholder="مقدار مورد نظر..." />
+                            <div class="buttons">
+                                <button type="submit"> دریافت</button>
+    
+                            </div>
+                 
 
-                        </div>
+                      <%  }%>
+                      <% if(user.creditCardConfirmation == "wait" && user.creditCardConfirmation){%>
+
+
+                        <p > در انتظار تایید </p>
+
+                    <%}%>
+
+
+                      <% if(user.creditCardConfirmation != "true" && user.creditCardConfirmation != "wait" || !user.creditCardConfirmation){%>
+
 
                         <p class="add"> افزودن کارت </p>
                         <div class="carts hidden">
-                            <input type="text" class="creditNumber" placeholder="شماره کارت شما..." />
-                            <input type="text" class="name" placeholder="نام شما..." />
-                            <input type="text" class="ssm" placeholder="کد ملی شما..." />
+                            <form action="/addCard" method="post">
+                            <input type="text" name="cardNumber" class="creditNumber" placeholder="شماره کارت شما..." required/>
+                            <input type="text" name="name" class="name" placeholder="نام شما..." required/>
+                            <input type="text" name="sId" class="ssm" placeholder="کد ملی شما..." required/>
                             <div class="buttons">
-                                <button type="submit" class="submitCart"> ثیت کارت</button>
+                                <button type="submit" class="submitCart"> ثبت کارت</button>
                             </div>
+                        </form>
                         </div>
+                    <%}%>
                     </div>
+
                 </div>
             </div>
             <div class="notifs part">
