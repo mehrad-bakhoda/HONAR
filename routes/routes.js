@@ -36,7 +36,6 @@ const product = require('../models/product');
 // GET ROUTE'S
 
 router.post("/generateD",function(req,res){
-  console.log(discountGenerator.getDiscount());
   var c;
   Discount.findOne({},function(err,data)
   {
@@ -485,6 +484,13 @@ router.get("/add-to-cart/:id/:size", function(req, res){
 
 router.get("/orderConfirm",function(req, res)
 {
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
+
   if(req.session.userId)
   {
     User.findOne({
@@ -501,6 +507,8 @@ router.get("/orderConfirm",function(req, res)
             user:found,
             quantity:req.session.cart.totalQty,
             totalPrice:req.session.cart.totalPrice,
+            date:newdate,
+            code:discountGenerator.getDiscount().toString()
           });
           for(var i = 0; i < cart.length;i++)
           {
@@ -2146,9 +2154,19 @@ router.get("/admin/home", function (req, res) {
 router.get("/admin/login", function (req, res) {
   res.render("adminLogin",{phone:true,password:false});
 });
+
+
+
+
 router.get("/admin/finance", function (req, res) {
-    res.render("adminFinance");
+  Order.find({},function(err,orders)
+  {
+    res.render("adminFinance",{orders:orders});
+  });
 });
+
+
+
 router.get("/admin/users", function (req, res) {
     res.render("adminUsers");
 });

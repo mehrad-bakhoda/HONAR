@@ -30,36 +30,50 @@
             </div>
 
             <div class="row">
+
+                <% orders.forEach(function(order) {%>
                 <div class="col-lg-6 col-12">
                     <div class="card productCard">
                         <div class="cardRow">
                             <label> کد تراکنش</label>
-                            <p> 1oejh97f9f8 </p>
+                            <p> <%=order.code%> </p>
                         </div>
                         <div class="cardRow">
                             <label> مقدار تراکنش</label>
-                            <p> <span> 10000 </span> تومان </p>
+                            <p> <span> <%=order.totalPrice%> </span> تومان </p>
                         </div>
                         <div class="cardRow">
                             <label>  تاریخ تراکنش </label>
-                            <p> 10/4/00 </p>
+                            <p> <%=order.date%> </p>
                         </div>
                         <div class="cardRow">
                             <label>  خریدار </label>
                             <a href="#">
-                                نام کاربر
+                                <%=order.user.userName%>
                                 <i class="fal fa-user"></i>
                             </a>
                         </div>
                         <div class="cardRow">
                             <label>  فروشنده </label>
+                            <% order.user.products.forEach(function(product) { %>
+                                <%console.log(product);%>
                             <a href="#">
-                                نام کاربر
+                                <%=product.product.user.userName%> 
                                 <i class="fal fa-user"></i>
                             </a>
+                        <%})%>
                         </div>
                     </div>
+          
                 </div>
+            <%})%>
+
+
+                
+
+
+
+
             </div>
 
         </div>
