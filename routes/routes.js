@@ -65,6 +65,17 @@ router.post("/addCard",function(req,res){
       creditCard.save(function(err, docs) {
         if (!err) {
          console.log("credirCard added");
+         let cardAdded={message:`card added`,code:"000",date:today};
+         User.updateOne({
+           unique_id:req.session.userId
+         },
+         {
+           $push:{message:cardAdded}
+         },function(err){
+           if(!err){
+             console.log("added status");
+           }
+         });
          res.redirect("/dashboard");
         }
         else{
