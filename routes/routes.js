@@ -35,7 +35,13 @@ const product = require('../models/product');
 // GET ROUTE'S
 
 
-router.post("/addFund",function(req,res){
+router.post("/addFund",function(req,res){ 
+  res.redirect("dashboard");
+  
+});
+
+router.post("/getFund",function(req,res){
+  res.redirect("dashboard");
   
 });
 
