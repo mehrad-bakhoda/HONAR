@@ -1952,7 +1952,9 @@ router.get("/admin/home", function (req, res) {
 router.get("/admin/login", function (req, res) {
   res.render("adminLogin",{phone:true,password:false});
 });
-
+router.get("/admin/finance", function (req, res) {
+    res.render("adminFinance");
+});
 router.get("/admin/users", function (req, res) {
     res.render("adminUsers");
 });

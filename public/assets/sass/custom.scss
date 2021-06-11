@@ -3804,19 +3804,7 @@ section.adminPage {
         @include sm {
             padding: 10vh 4rem 1rem 0;
         }
-    }
-    /*#region Home*/
-    &.home .contents {
-    }
-    /*#endregion*/
-    /*#region Messages*/
-    &.messages .contents {
-    }
-    /*#endregion*/
-    /*#region Requests*/
-    /*#endregion*/
-    /*#region Users*/
-    &.users .contents {
+
         ul.nav-tabs {
             padding: 0 0 1px;
             margin: 2rem 1rem;
@@ -3858,7 +3846,162 @@ section.adminPage {
             overflow-x: hidden;
             overflow-y: auto;
         }
+    }
+    /*#region Home*/
+    &.home .contents {
+    }
+    /*#endregion*/
+    /*#region Messages*/
+    &.messages .contents {
+        .col-12 {
+            .card {
+                padding: 1rem;
+                margin: auto;
+                background-color: $body-color;
+                border: 2px solid lightgray;
+                border-radius: $radius;
+                width: 100%;
 
+                .cardRow {
+                    text-align: left;
+                    label {
+                        color: $primary-color;
+                        float: right;
+                    }
+
+                    p {
+                        color: $text-color;
+                    }
+
+                    a {
+                        margin-bottom: 1rem;
+                        float: left;
+                        transition: 0.4s;
+                        padding-right: 1rem;
+                        color: $text-color;
+
+
+                        &:hover {
+                            transition: 0.4s;
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+
+            .buttons {
+                text-align: left;
+                padding-top: 0.5rem;
+
+
+                i {
+                    line-height: 2.5rem;
+                }
+
+                button {
+                    text-align: center;
+                    transition: 0.4s;
+                    color: $primary-color;
+                    border: 2px solid $primary-color;
+                    border-radius: $radius;
+                    height: 2.5rem;
+                    line-height: 2.5rem;
+                    width: 7rem;
+                    display: inline-block;
+
+                    &:hover {
+                        color: $body-color;
+                        background-color: $primary-color;
+                    }
+
+                    @include xxs {
+                        width: 100%;
+                        margin: 0.25rem;
+                    }
+                }
+            }
+        }
+
+        #answerModal {
+            .modal-content {
+                background-color: $body-color;
+                border-radius: $radius;
+                padding: 1rem;
+                max-width: 40rem;
+            }
+
+            p {
+                text-align: right;
+                max-height: 40rem;
+                padding: 1rem;
+                overflow-y: auto;
+            }
+
+            textarea {
+                background-color: $body-color;
+                border-radius: $radius;
+                border: 2px solid lightgray;
+                width: 100%;
+                padding: 0.5rem;
+                height: 10rem;
+                overflow-y: auto;
+                resize: none;
+            }
+
+            button {
+                width: 9rem;
+            }
+        }
+    }
+    /*#endregion*/
+    /*#region Finance*/
+    &.finance .contents {
+        .row {
+            padding: 2rem 1rem;
+            max-height: 50rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .col-12 {
+            .card {
+                padding: 1rem;
+                margin: auto;
+                background-color: $body-color;
+                border: 2px solid lightgray;
+                border-radius: $radius;
+                width: 100%;
+
+                .cardRow {
+                    label {
+                        color: $primary-color;
+                    }
+
+                    p {
+                        color: $text-color;
+                        float: left;
+                    }
+
+                    a {
+                        margin-bottom: 1rem;
+                        float: left;
+                        transition: 0.4s;
+                        padding-right: 1rem;
+                        color: $text-color;
+
+
+                        &:hover {
+                            transition: 0.4s;
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*#endregion*/
+    /*#region Users*/
+    &.users .contents {
         .col-12 {
             .card {
                 padding: 1rem;
@@ -3983,48 +4126,6 @@ section.adminPage {
     /*#endregion*/
     /*#region Products*/
     &.products .contents {
-        ul.nav-tabs {
-            padding: 0 0 1px;
-            margin: 2rem 1rem;
-            border: 2px solid lightgray;
-            border-radius: $radius;
-
-            @include xs {
-                margin: 1rem auto;
-            }
-
-            li.nav-item {
-
-                a.nav-link {
-                    border: none;
-                    transition: 0.4s;
-                    border-radius: $radius;
-                    background-color: transparent;
-                    font-size: 16px;
-                    height: 3rem;
-                    color: $text-color;
-                    border: 2px solid transparent;
-                    height: 3rem;
-                    line-height: 3rem;
-                    padding: 0;
-
-                    &.active {
-                        transition: 0.4s;
-                        color: $body-color;
-                        background-color: $primary-color;
-                        border-color: $primary-color;
-                    }
-                }
-            }
-        }
-
-        .tab-content {
-            padding: 0 1rem;
-            max-height: 50rem;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
         .col-12 {
             .card {
                 padding: 1rem;
