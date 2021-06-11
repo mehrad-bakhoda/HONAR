@@ -18,6 +18,9 @@ const messageSchema = new mongoose.Schema({
     type: Number,
     unique: true
   },
+  response:{
+    type:String,
+  },
 
   
 });

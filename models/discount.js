@@ -1,17 +1,26 @@
 const mongoose = require("mongoose");
 
 const discountSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types, ref: "User"
-      },
-      code: [{
-        time:Number,
-        amount:String,
-        percent:Number,
-        usage:Number,
-        discount:[type=String]
 
-      }],
+  unique_id :{
+    type: Number,
+    unique: true
+  },
+  userId: {
+    type:Number
+  },
+ amount :{
+    type: String,
+  },
+  fromDate :{
+    type: String,
+  },
+  toDate :{
+    type: String,
+  },
+  code:{
+    type:String
+  }
 
 });
 module.exports = mongoose.model("discount",discountSchema);

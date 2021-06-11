@@ -12,6 +12,9 @@ const userSchema = new mongoose.Schema({
     type: Number,
     unique: true
   },
+  income:{
+    type:String
+  },
   type:{
     type:String,
     enum:["Downloader","Uploader"],

@@ -388,19 +388,20 @@
                 </div>
                 <div class="collapseContent contentHidden">
                     <div class="create">
+                        <form action="/generateD"method="post">
                         <h6> افزودن کد تخفیف</h6>
                         <label>
                             میزان تخفیف
                         </label>
-                        <input type="text" placeholder="مثلا 10% یا 1000تومان" />
+                        <input name="amount" type="text" placeholder="مثلا 10% یا 1000تومان" />
                         <div class="dates">
                             <div class="start">
                                 <label> تاریخ شروع</label>
-                                <input type="date" />
+                                <input name="fromDate"  type="date" />
                             </div>
                             <div class="end">
                                 <label> تاریخ پایان</label>
-                                <input type="date" />
+                                <input name="toDate" type="date" />
                             </div>
                         </div>
                         <div class="buttons">
@@ -408,28 +409,38 @@
                                 تولید کد
                             </button>
                         </div>
+                        </form>
                     </div>
-                    <div class="history">
-                        <h6>  کدهای تخفیف شما</h6>
-                        <ul class="pastCodes">
-                            <li>
-                                <div class="saleCard">
-                                    <label class="amount">
-                                        مقدار <span>10%</span>
-                                    </label>
-                                    <label class="code">
-                                        کد <span> whdwu7rejgdd10</span>
-                                    </label>
-                                    <label class="start">
-                                        از تاریخ <span> 20/2/00 </span>
-                                    </label>
-                                    <label class="end">
-                                        تا تاریخ <span> 10/3/00</span>
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+
+                   <% if(discounts && discounts.length != 0){ %>
+                        <div class="history">
+                            <h6>  کدهای تخفیف شما</h6>
+                            <ul class="pastCodes">
+                     <% discounts.forEach(function(discount) { %>
+                                <li>
+                                    <div class="saleCard">
+                                        <label class="amount">
+                                            مقدار <span><%=discount.amount%>%</span>
+                                        </label>
+                                        <label class="code">
+                                            کد <span><%=discount.code%></span>
+                                        </label>
+                                        <label class="start">
+                                            از تاریخ <span> <%=discount.fromDate%> </span>
+                                        </label>
+                                        <label class="end">
+                                            تا تاریخ <span> <%=discount.toDate%></span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <%})%>
+                            </ul>
+                        </div>
+
+                    <%}%>
+
+
+
                 </div>
             </div>
             <%}%>
