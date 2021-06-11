@@ -1940,8 +1940,19 @@ router.post("/search",function(req,res){
 
 ///////////////////////// ADMIN ROUTES ////////////////////////
 router.get("/admin/home", function (req, res) {
+  if(req.session.userId){
     res.render("adminHome");
+    
+  }else{
+    res.redirect("/admin/login");
+  }
+    
 });
+
+router.get("/admin/login", function (req, res) {
+  res.render("adminLogin",{phone:true,password:false});
+});
+
 router.get("/admin/users", function (req, res) {
     res.render("adminUsers");
 });
