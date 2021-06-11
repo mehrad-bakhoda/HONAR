@@ -17,11 +17,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <textarea placeholder="پیام شما..."></textarea>
+                    <form action="/sendMessage" method="post">
+                    <textarea name="message" placeholder="پیام شما..."></textarea>
                     <div class="buttons">
                         <button type="submit"> ارسال پیام </button>
 
                     </div>
+                </form>
                 </div>
             </div>
         </div>

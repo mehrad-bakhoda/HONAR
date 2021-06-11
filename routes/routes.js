@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require('../models/user');
 var CreditCard = require('../models/creditCard');
 var Product = require('../models/product');
+var Message = require('../models/message');
 var Discount = require('../models/discount');
 var Cart = require("../cart");
 var Order = require('../models/order');
@@ -42,6 +43,55 @@ router.post("/addFund",function(req,res){
 
 router.post("/getFund",function(req,res){
   res.redirect("dashboard");
+  
+});
+router.post("/sendMessage",function(req,res){
+
+  var c;
+  Message.findOne({},function(err,data)
+  {
+    if (data)
+    {
+      c = data.unique_id + 1;
+    }
+    else{
+      c = 1;
+    }
+  User.findOne({unique_id:req.session.userId},function(err,found){
+    if(!err){
+    if(found){
+      const message = new Message({
+        message:req.body.message,
+        userId:found.unique_id,
+        unique_id: c,
+      });
+      message.save(function(err, docs) {
+        if (!err) {
+         console.log("message sent");
+         let messageSent={message:`message sent`,code:"000",date:today};
+         User.updateOne({
+           unique_id:req.session.userId
+         },
+         {
+           $push:{message:messageSent}
+         },function(err){
+           if(!err){
+             console.log("added status");
+           }
+         });
+         res.redirect("/dashboard");
+        }
+        else{
+          console.log(err);
+          res.redirect("/dashboard");
+        }
+      });
+
+
+    }
+  }
+  });
+}).sort({_id: -1}).limit(1);
   
 });
 
