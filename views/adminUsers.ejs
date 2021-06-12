@@ -74,9 +74,18 @@
                                         <%}%>
                                     </div>
                                     <div class="detail">
-                                        <span class="name">
-                                            <%=user.userName%> 
-                                        </span>
+                                       <% if(user.type=="Uploader"){%>
+                                            <span class="name">
+                                                <%=user.userName%> 
+                                            </span>
+
+                                        <%}if(user.type=="Downloader"){%>
+                                            <span class="name">
+                                                <%=user.firstName%> 
+                                                <%=user.lastName%> 
+                                            </span>
+                                      <%}%>
+
                                         <span class="dateAdded">
                                             <%=user.date%> 
                                         </span>
