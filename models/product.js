@@ -73,9 +73,12 @@ const productSchema = new mongoose.Schema({
     min: 0,
     default:0
   },
-  dateAdded:{
-    type:Date,
+  date:{
+    type:String,
 
+  },
+  confirmation:{
+    type:Boolean
   },
   comments: [{
     type: mongoose.Schema.Types.ObjectId, ref: "comment"
@@ -86,7 +89,7 @@ const productSchema = new mongoose.Schema({
   
 
 });
-productSchema.index({type:"text",fileName:"text",artist:"text",tags:"text"});
+productSchema.index({type:"text",fileName:"text","user.userName":"text",tags:"text","user.firstName":"text",fileType:"text"});
 
 //exporting noteSchema model
 module.exports =  mongoose.model("product", productSchema);

@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var CreditCard = require('../models/creditCard');
 var Product = require('../models/product');
+var Message = require('../models/message');
 var Discount = require('../models/discount');
 var Cart = require("../cart");
 var Order = require('../models/order');
@@ -20,6 +22,7 @@ const formidable = require('formidable');
 const path = require("path");
 const user = require('../models/user');
 const product = require('../models/product');
+require('dotenv').config();
 
 
 
@@ -33,32 +36,256 @@ const product = require('../models/product');
 
 // GET ROUTE'S
 
-
-router.post("/download/:productId/:size",function(req,res){
-  if(req.session.userId){
- 
-  User.findOne({unique_id:req.session.userId},{"downloaded":{$elemMatch:{"product":req.params.productId,"size":req.params.size}}},function(err,found){
-    if(!err){
-      if(!found.downloaded.length){
-        let download={product:req.params.productId,size:req.params.size};
-        User.updateOne({
-          unique_id:req.session.userId
-        },
-        {
-          $push:{downloaded:download}
-        },function(err){
-          if(!err){
-            console.log("success");
-          }else{
-            console.log(err);
-          }
-        });
-
-       
-      }
+router.post("/generateD",function(req,res){
+  var c;
+  Discount.findOne({},function(err,data)
+  {
+    if (data)
+    {
+      c = data.unique_id + 1;
     }
+    else{
+      c = 1;
+    }
+  User.findOne({unique_id:req.session.userId},function(err,found){
 
+    if(!err){
+    if(found){
+      const discount= new Discount({
+        amount :req.body.amount,
+        fromDate :req.body.fromDate,
+        toDate :req.body.toDate,
+        unique_id: c,
+        userId:found.unique_id,
+        code:discountGenerator.getDiscount().toString() 
+
+      });
+      discount.save(function(err, docs) {
+        if (!err) {
+         console.log("message sent");
+         let discountCreated={message:`discount code added`,code:"000",date:today};
+         User.updateOne({
+           unique_id:req.session.userId
+         },
+         {
+           $push:{message:discountCreated}
+         },function(err){
+           if(!err){
+             console.log("added status");
+           }
+         });
+         res.redirect("/dashboard");
+        }
+        else{
+          console.log(err);
+          res.redirect("/dashboard");
+        }
+      });
+
+
+    }
+  }
   });
+}).sort({_id: -1}).limit(1);
+  
+
+
+
+
+
+
+
+
+});
+
+
+router.post("/addFund",function(req,res){ 
+  res.redirect("dashboard");
+  
+});
+
+router.post("/getFund",function(req,res){
+  res.redirect("dashboard");
+  
+});
+router.post("/sendMessage",function(req,res){
+
+  var c;
+  Message.findOne({},function(err,data)
+  {
+    if (data)
+    {
+      c = data.unique_id + 1;
+    }
+    else{
+      c = 1;
+    }
+  User.findOne({unique_id:req.session.userId},function(err,found){
+    if(!err){
+    if(found){
+      const message = new Message({
+        message:req.body.message,
+        userId:found.unique_id,
+        unique_id: c,
+      });
+      message.save(function(err, docs) {
+        if (!err) {
+         console.log("message sent");
+         let messageSent={message:`message sent`,code:"000",date:today};
+         User.updateOne({
+           unique_id:req.session.userId
+         },
+         {
+           $push:{message:messageSent}
+         },function(err){
+           if(!err){
+             console.log("added status");
+           }
+         });
+         res.redirect("/dashboard");
+        }
+        else{
+          console.log(err);
+          res.redirect("/dashboard");
+        }
+      });
+
+
+    }
+  }
+  });
+}).sort({_id: -1}).limit(1);
+  
+});
+
+
+
+router.post("/addCard",function(req,res){
+  User.updateOne({unique_id:req.session.userId},{creditCardConfirmation:"wait"},function(err){
+    if(!err){
+      console.log("waiting for confirmation");
+    }
+  });
+  User.findOne({unique_id:req.session.userId},function(err,found){
+    if(!err){
+    if(found){
+      const creditCard = new CreditCard({
+        cardNumber:req.body.cardNumber,
+        name:req.body.name,
+        sId:req.body.sId,
+        user:found
+      });
+      creditCard.save(function(err, docs) {
+        if (!err) {
+         console.log("credirCard added");
+         let cardAdded={message:`card added`,code:"000",date:today};
+         User.updateOne({
+           unique_id:req.session.userId
+         },
+         {
+           $push:{message:cardAdded}
+         },function(err){
+           if(!err){
+             console.log("added status");
+           }
+         });
+         res.redirect("/dashboard");
+        }
+        else{
+          console.log(err);
+          res.redirect("/dashboard");
+        }
+      });
+
+
+    }
+  }
+  });
+
+
+});
+
+
+
+
+router.get("/download/:productId/:size",function(req,res){
+  if(req.session.userId){
+    var size = req.params.size;
+    var productId = req.params.productId;
+    if(size == "original" || size == "large" || size == "medium" || size == "small"){
+      Product.findOne({"_id":req.params.productId},function(err,product)
+      {
+        if(size == "original" && product.orginalPrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else if(size == "large" && product.largePrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else if(size == "medium" && product.mediumPrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else if(size == "small" && product.smallPrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else{
+          User.findOne({unique_id:req.session.userId},{"products":{$elemMatch:{"product._id":req.params.productId,"size":req.params.size}}},function(err,found){
+            if(!err){
+              res.download(found.products[0].product.filePath, function(error){
+                if(error){
+                  console.log("Error : ", error)
+                  
+                }
+                
+            });
+              
+              // if(!found.downloaded.length){
+              //   let download={product:req.params.productId,size:req.params.size};
+              //   User.updateOne({
+              //     unique_id:req.session.userId
+              //   },
+              //   {
+              //     $push:{downloaded:download}
+              //   },function(err){
+              //     if(!err){
+              //       console.log("success");
+              //     }else{
+              //       console.log(err);
+              //     }
+              //   });
+      
+              
+              // }
+            }
+      
+          });
+
+        }
+
+      });
+      
+    }
+ 
+    
 }else{
   res.redirect("/login");
 }
@@ -85,13 +312,13 @@ router.post("/download/:productId/:size",function(req,res){
 
 
 router.get("/",function(req,res){
-  Product.find({}).limit(10).sort({downloadedCount: 'desc'})
+  Product.find({"confirmation":true}).limit(10).sort({downloadedCount: 'desc'})
     .exec(function(err, bestSales)
     {
-      Product.find({}).sort({rating: 'desc'})
+      Product.find({"confirmation":true}).sort({rating: 'desc'})
       .exec(function(err, bestOfAll)
       {
-        Product.find({}).sort({dateAdded: 'desc'})
+        Product.find({"confirmation":true}).sort({dateAdded: 'desc'})
         .exec(function(err, latest)
         {
 
@@ -166,8 +393,15 @@ router.get("/dashboard",function(req,res){
         .exec(function(err,products){
           Order.find({"user.unique_id":req.session.userId},function(err,orders)
           {
-            res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders});
+            Discount.find({userId:req.session.userId},function(err,discounts){
+              if(!err){
+                if(discounts){
+                  
 
+            res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders,discounts:discounts});
+          }
+        }
+    });
           });
           
         });
@@ -289,8 +523,16 @@ router.get("/add-to-cart/:id/:size", function(req, res){
 
 });
 
+
 router.get("/orderConfirm",function(req, res)
 {
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
+
   if(req.session.userId)
   {
     User.findOne({
@@ -307,6 +549,8 @@ router.get("/orderConfirm",function(req, res)
             user:found,
             quantity:req.session.cart.totalQty,
             totalPrice:req.session.cart.totalPrice,
+            date:newdate,
+            code:discountGenerator.getDiscount().toString()
           });
           for(var i = 0; i < cart.length;i++)
           {
@@ -380,7 +624,7 @@ router.get("/about-us",function(req,res){
        Product.findOne({
         productId: link
       }, function(err, found) {
-        if (found) {
+        if (found && (found.confirmation || req.session.userId == 0)) {
             if(found.user.unique_id==req.session.userId){
 
               res.render("productDetail", {
@@ -483,6 +727,12 @@ router.post("/sendAgain",function(req,res){
 router.post("/login",[
   check('loginInput','phoneNumber').isMobilePhone().isLength({min:11 , max:11}).not().isEmpty(),
 ],(req,res,next)=>{
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
   const errors=validationResult(req).array();
   if(errors.length != 0)
   {
@@ -548,6 +798,7 @@ router.post("/login",[
               verified: "false",
               registered: "false",
               hasPassword:"false",
+              date:newdate
             });
             console.log(user.verifyCode)
             user.save(function(err, docs) {
@@ -878,6 +1129,13 @@ if(errors.isEmpty()){
 
 
 router.post("/upload", function(req, res){
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
+
   var c;
   User.findOne({unique_id: req.session.userId},
     function(err,found)
@@ -980,7 +1238,8 @@ router.post("/upload", function(req, res){
                 mediumPrice:fields.mediumPrice,
                 smallPrice:fields.smallPrice,
                 user:found,
-                dateAdded:new Date(),
+                date:newdate,
+                confirmation:false
                
               });
              
@@ -988,7 +1247,7 @@ router.post("/upload", function(req, res){
 
 
               newProduct.save();
-              found.products.push(newProduct);
+              // found.products.push(newProduct);
               found.save();
 
 
@@ -1940,22 +2199,134 @@ router.post("/search",function(req,res){
 
 ///////////////////////// ADMIN ROUTES ////////////////////////
 router.get("/admin/home", function (req, res) {
+  if(req.session.userId == 0){
     res.render("adminHome");
+    
+  }else{
+    res.redirect("/admin/login");
+  }
+    
 });
+
+router.get("/admin/login", function (req, res) {
+  if(req.session.userId==0){
+    res.redirect("/admin/home");
+  }
+  else{
+    res.render("adminLogin");
+
+  }
+  
+});
+
+router.post("/admin/login", function (req, res) {
+  if(req.body.adminUser ==process.env.ADMIN_USER && req.body.password ==process.env.ADMIN_PASSWORD)
+  {
+    req.session.userId = 0;
+    console.log("admin logged in");
+    res.redirect("/admin/home")
+  }
+  
+})
+
+
+
+
+
 router.get("/admin/finance", function (req, res) {
-    res.render("adminFinance");
+  if(req.session.userId==0){
+    Order.find({},function(err,orders)
+    {
+      res.render("adminFinance",{orders:orders});
+    });
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+  
 });
+
+
+
 router.get("/admin/users", function (req, res) {
-    res.render("adminUsers");
+  if(req.session.userId==0){
+    User.find({},function(err,users){
+
+  
+      res.render("adminUsers",{users:users});
+    });
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+  
 });
+router.post("/delete/user/:unique_id",function(req,res){
+  User.deleteOne({unique_id:req.params.unique_id},function(err){
+    if(!err){
+          res.redirect("/admin/users");
+    }
+  });
+
+  
+});
+
+
 router.get("/admin/messages", function (req, res) {
+  if(req.session.userId==0)
+  {
     res.render("adminMessages");
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+    
 });
+
+
 router.get("/admin/reqs", function (req, res) {
+  if(req.session.userId==0)
+  {
     res.render("adminReq");
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+    
 });
+
+
 router.get("/admin/products", function (req, res) {
-    res.render("adminProducts");
+  if(req.session.userId==0)
+  {
+    Product.find({confirmation:false},function(err,uProducts)
+    {
+      Product.find({confirmation:true},function(err,cProducts)
+      {
+      res.render("adminProducts",{unconfirmedProducts:uProducts,confirmedProducts:cProducts});
+      });
+    });
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+  
+});
+
+router.post("/confirm/product/:productId",function(req,res){
+  Product.updateOne({productId:req.params.productId},{confirmation:true},function(err){
+    if(!err){
+      res.redirect("/admin/products");
+    }
+  });
+});
+router.post("/delete/product/:productId",function(req,res){
+  Product.deleteOne({productId:req.params.productId},function(err){
+    if(!err){
+          res.redirect("/admin/products");
+
+    }
+  });
 });
 ///////////////////////// ADMIN ROUTES ////////////////////////
 

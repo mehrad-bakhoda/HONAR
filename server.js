@@ -69,10 +69,9 @@ const run= async()=>{
     cookie: {maxAge : 180 * 60 * 1000}
   }));
 
+
   //Adding public folder as a static source of our project
   app.use(express.static("public"));
-
-
   app.use(function(req, res, next) {
     res.locals.usersession = req.session.userId;
     res.locals.session = req.session;

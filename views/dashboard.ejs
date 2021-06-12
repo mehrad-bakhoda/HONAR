@@ -17,11 +17,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <textarea placeholder="پیام شما..."></textarea>
+                    <form action="/sendMessage" method="post">
+                    <textarea name="message" placeholder="پیام شما..."></textarea>
                     <div class="buttons">
                         <button type="submit"> ارسال پیام </button>
 
                     </div>
+                </form>
                 </div>
             </div>
         </div>
@@ -93,7 +95,12 @@
 
                         کیف پول
                         <span>
-                            (10000 تومان)
+                           <% if(user.balance==0 || !user.balance){%>
+                                (خالی)
+                           <% }if(user.balance !=0 && user.balance){%>
+                                (<%=user.balance%>)
+                          <%  }%>
+                            
                         </span>
                         <i class="fal fa-angle-down"></i>
                     </h5>
@@ -102,37 +109,62 @@
                 <div class="collapseContent contentHidden">
                     <div class="increase">
                         <h5> افزایش اعتبار </h5>
-
-                        <input type="text" placeholder="مقدار مورد نظر..." />
+                        <form action="/addFund" method="post">
+                        <input type="text" name="amount" placeholder="مقدار مورد نظر..." required/>
                         <div class="buttons">
                             <button type="submit">
                                 افزایش اعتبار
                             </button>
+                        </form>
 
                         </div>
                     </div>
+                    <%  if(user.type=="Uploader"){%>
                     <div class="cash">
-                        <h5> دریافت پول </h5>
-                        <label>
-                            شماره حساب
-                        </label>
-                        <p>9999 9999 9999 9999</p>
-                        <input type="text" placeholder="مقدار مورد نظر..." />
-                        <div class="buttons">
-                            <button type="submit"> دریافت</button>
+                       <% if(user.creditCardConfirmation == "true" && user.creditCardConfirmation){%>
+                            <h5> دریافت پول </h5>
+                            <label>
+                                شماره حساب
+                            </label>
+                            <% /* %>
+                             <p><%=user.creditCard.cardNumber%></p>
+                            <% */ %>
+                            <form action="/getFund" method="post">
+                            <input type="text" name="amount" placeholder="مقدار مورد نظر..." required/>
+                            <div class="buttons">
+                                <button type="submit"> دریافت</button>
+                            </div>  
+                        </form>
+                 
+                   
+                      <%  }%>
+                      <% if(user.creditCardConfirmation == "wait" && user.creditCardConfirmation){%>
 
-                        </div>
+
+                        <p > در انتظار تایید </p>
+
+                    <%}%>
+
+                     
+                      <% if(user.creditCardConfirmation != "true" && user.creditCardConfirmation != "wait"  || !user.creditCardConfirmation){%>
+
 
                         <p class="add"> افزودن کارت </p>
                         <div class="carts hidden">
-                            <input type="text" class="creditNumber" placeholder="شماره کارت شما..." />
-                            <input type="text" class="name" placeholder="نام شما..." />
-                            <input type="text" class="ssm" placeholder="کد ملی شما..." />
+                            <form action="/addCard" method="post">
+                            <input type="text" name="cardNumber" class="creditNumber" placeholder="شماره کارت شما..." required/>
+                            <input type="text" name="name" class="name" placeholder="نام شما..." required/>
+                            <input type="text" name="sId" class="ssm" placeholder="کد ملی شما..." required/>
                             <div class="buttons">
-                                <button type="submit" class="submitCart"> ثیت کارت</button>
+                                <button type="submit" class="submitCart"> ثبت کارت</button>
                             </div>
+                        </form>
                         </div>
+                    <%}%>
+                        
                     </div>
+                    <%}%>
+
                 </div>
             </div>
             <div class="notifs part">
@@ -359,19 +391,20 @@
                 </div>
                 <div class="collapseContent contentHidden">
                     <div class="create">
+                        <form action="/generateD"method="post">
                         <h6> افزودن کد تخفیف</h6>
                         <label>
                             میزان تخفیف
                         </label>
-                        <input type="text" placeholder="مثلا 10% یا 1000تومان" />
+                        <input name="amount" type="text" placeholder="مثلا 10% یا 1000تومان" required/>
                         <div class="dates">
                             <div class="start">
                                 <label> تاریخ شروع</label>
-                                <input type="date" />
+                                <input name="fromDate"  type="date" required/>
                             </div>
                             <div class="end">
                                 <label> تاریخ پایان</label>
-                                <input type="date" />
+                                <input name="toDate" type="date" required/>
                             </div>
                         </div>
                         <div class="buttons">
@@ -379,28 +412,38 @@
                                 تولید کد
                             </button>
                         </div>
+                        </form>
                     </div>
-                    <div class="history">
-                        <h6>  کدهای تخفیف شما</h6>
-                        <ul class="pastCodes">
-                            <li>
-                                <div class="saleCard">
-                                    <label class="amount">
-                                        مقدار <span>10%</span>
-                                    </label>
-                                    <label class="code">
-                                        کد <span> whdwu7rejgdd10</span>
-                                    </label>
-                                    <label class="start">
-                                        از تاریخ <span> 20/2/00 </span>
-                                    </label>
-                                    <label class="end">
-                                        تا تاریخ <span> 10/3/00</span>
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+
+                   <% if(discounts && discounts.length != 0){ %>
+                        <div class="history">
+                            <h6>  کدهای تخفیف شما</h6>
+                            <ul class="pastCodes">
+                     <% discounts.forEach(function(discount) { %>
+                                <li>
+                                    <div class="saleCard">
+                                        <label class="amount">
+                                            مقدار <span><%=discount.amount%>%</span>
+                                        </label>
+                                        <label class="code">
+                                            کد <span><%=discount.code%></span>
+                                        </label>
+                                        <label class="start">
+                                            از تاریخ <span> <%=discount.fromDate%> </span>
+                                        </label>
+                                        <label class="end">
+                                            تا تاریخ <span> <%=discount.toDate%></span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <%})%>
+                            </ul>
+                        </div>
+
+                    <%}%>
+
+
+
                 </div>
             </div>
             <%}%>

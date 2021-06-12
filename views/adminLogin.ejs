@@ -1,0 +1,28 @@
+<%-include("head");-%>
+<%-include("notif");%>
+<section class="page loginPage">
+    <%-include("headerN");-%>
+    <section class="contents">
+        <div class="container-fluid">
+            
+            <div class="card login">
+                <form action="/admin/login" method="post">
+                    <h4> پنل ادمین</h4>
+                    <input type="text" name="adminUser" placeholder="نام کاربری" />
+                    <input name ="password" type="password" class="adminPassword" placeholder="رمز عبور " />
+                    <div class="buttons">
+                        <button type="submit" >ورود</i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- Scripts -->
+<%-include("scripts");-%>
+<%console.log(session.errors);%>
+<!-- Custom -->
+<script src="./assets/js/codeInput.js"></script>
+<script src="./assets/js/login.js"></script>
+<!-- Scripts -->
