@@ -58,18 +58,27 @@
                      role="tabpanel"
                      aria-labelledby="acceptedH">
                     <div class="row">
+                        
+
                         <div class="col-lg-6 col-12">
+                            <% users.forEach(function(user) {%>
+                                <form action="/delete/<%=user.unique_id%>" method="post">
+    
                             <div class="card productCard">
                                 <div class="cardTop">
                                     <div class="picture">
+                                        <%if(user.profilePicPath && user.profilePicPath.length != 0){%>
+                                            <img src="<%=user.profilePicPath%>" />
+                                       <% }if(!user.profilePicPath || user.profilePicPath.length ==0 ){%>
                                         <i class="fal fa-user fa-2x"></i>
+                                        <%}%>
                                     </div>
                                     <div class="detail">
                                         <span class="name">
-                                            نام کاربر
+                                            <%=user.userName%> 
                                         </span>
                                         <span class="dateAdded">
-                                            18/12/99
+                                            <%=user.date%> 
                                         </span>
 
                                     </div>
@@ -80,13 +89,18 @@
                                         حذف
                                         <i class="fal fa-trash"></i>
                                     </button>
-                                    <a href="#">
+                                    <a href="/<%=user.userName%>">
                                         مشاهده
                                         <i class="fal fa-eye"></i>
                                     </a>
                                 </div>
                             </div>
+                            </form>
+                            
+                    <%})%>
                         </div>
+
+
                     </div>
                 </div>
                 <div class="tab-pane fade"

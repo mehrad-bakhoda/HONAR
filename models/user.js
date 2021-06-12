@@ -69,6 +69,9 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  date:{
+    type:String
+  },
   message: [{
     message:String,
     code:String ,

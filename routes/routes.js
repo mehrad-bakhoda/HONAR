@@ -685,6 +685,12 @@ router.post("/sendAgain",function(req,res){
 router.post("/login",[
   check('loginInput','phoneNumber').isMobilePhone().isLength({min:11 , max:11}).not().isEmpty(),
 ],(req,res,next)=>{
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
   const errors=validationResult(req).array();
   if(errors.length != 0)
   {
@@ -750,6 +756,7 @@ router.post("/login",[
               verified: "false",
               registered: "false",
               hasPassword:"false",
+              date:newdate
             });
             console.log(user.verifyCode)
             user.save(function(err, docs) {
@@ -1080,6 +1087,13 @@ if(errors.isEmpty()){
 
 
 router.post("/upload", function(req, res){
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
+
   var c;
   User.findOne({unique_id: req.session.userId},
     function(err,found)
@@ -1182,7 +1196,8 @@ router.post("/upload", function(req, res){
                 mediumPrice:fields.mediumPrice,
                 smallPrice:fields.smallPrice,
                 user:found,
-                dateAdded:new Date(),
+                date:newdate,
+                confirmation:false
                
               });
              
@@ -2158,6 +2173,8 @@ router.get("/admin/login", function (req, res) {
 
 
 
+
+
 router.get("/admin/finance", function (req, res) {
   Order.find({},function(err,orders)
   {
@@ -2168,16 +2185,56 @@ router.get("/admin/finance", function (req, res) {
 
 
 router.get("/admin/users", function (req, res) {
-    res.render("adminUsers");
+  User.find({},function(err,users){
+
+  
+    res.render("adminUsers",{users:users});
+  });
 });
+router.post("/delete/:unique_id",function(req,res){
+  User.deleteOne({unique_id:req.params.unique_id},function(err){
+    if(!err){
+          res.redirect("/admin/users");
+    }
+  });
+
+  
+});
+
+
 router.get("/admin/messages", function (req, res) {
     res.render("adminMessages");
 });
+
+
 router.get("/admin/reqs", function (req, res) {
     res.render("adminReq");
 });
+
+
 router.get("/admin/products", function (req, res) {
-    res.render("adminProducts");
+  Product.find({confirmation:false},function(err,uProducts)
+  {
+    Product.find({confirmation:true},function(err,cProducts)
+    {
+    res.render("adminProducts",{unconfirmedProducts:uProducts,confirmedProducts:cProducts});
+    });
+  });
+});
+
+router.post("/confirm/:productId",function(req,res){
+  Product.updateOne({productId:req.params.productId},{confirmation:true},function(err){
+    if(!err){
+      res.redirect("/admin/products");
+    }
+  });
+});
+router.post("/delete/:productId",function(req,res){
+  Product.deleteOne({productId:req.params.productId},function(err){
+    if(!err){
+      res.redirect("/admin/products");
+    }
+  });
 });
 ///////////////////////// ADMIN ROUTES ////////////////////////
 
