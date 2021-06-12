@@ -271,13 +271,13 @@ router.get("/download/:productId/:size",function(req,res){
 
 
 router.get("/",function(req,res){
-  Product.find({}).limit(10).sort({downloadedCount: 'desc'})
+  Product.find({"confirmation":true}).limit(10).sort({downloadedCount: 'desc'})
     .exec(function(err, bestSales)
     {
-      Product.find({}).sort({rating: 'desc'})
+      Product.find({"confirmation":true}).sort({rating: 'desc'})
       .exec(function(err, bestOfAll)
       {
-        Product.find({}).sort({dateAdded: 'desc'})
+        Product.find({"confirmation":true}).sort({dateAdded: 'desc'})
         .exec(function(err, latest)
         {
 
@@ -583,7 +583,7 @@ router.get("/about-us",function(req,res){
        Product.findOne({
         productId: link
       }, function(err, found) {
-        if (found) {
+        if (found && (found.confirmation || req.session.userId == 0)) {
             if(found.user.unique_id==req.session.userId){
 
               res.render("productDetail", {
@@ -2193,20 +2193,32 @@ router.post("/admin/login", function (req, res) {
 
 
 router.get("/admin/finance", function (req, res) {
-  Order.find({},function(err,orders)
-  {
-    res.render("adminFinance",{orders:orders});
-  });
+  if(req.session.userId==0){
+    Order.find({},function(err,orders)
+    {
+      res.render("adminFinance",{orders:orders});
+    });
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+  
 });
 
 
 
 router.get("/admin/users", function (req, res) {
-  User.find({},function(err,users){
+  if(req.session.userId==0){
+    User.find({},function(err,users){
 
   
-    res.render("adminUsers",{users:users});
-  });
+      res.render("adminUsers",{users:users});
+    });
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+  
 });
 router.post("/delete/user/:unique_id",function(req,res){
   User.deleteOne({unique_id:req.params.unique_id},function(err){
@@ -2220,23 +2232,44 @@ router.post("/delete/user/:unique_id",function(req,res){
 
 
 router.get("/admin/messages", function (req, res) {
+  if(req.session.userId==0)
+  {
     res.render("adminMessages");
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+    
 });
 
 
 router.get("/admin/reqs", function (req, res) {
+  if(req.session.userId==0)
+  {
     res.render("adminReq");
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+    
 });
 
 
 router.get("/admin/products", function (req, res) {
-  Product.find({confirmation:false},function(err,uProducts)
+  if(req.session.userId==0)
   {
-    Product.find({confirmation:true},function(err,cProducts)
+    Product.find({confirmation:false},function(err,uProducts)
     {
-    res.render("adminProducts",{unconfirmedProducts:uProducts,confirmedProducts:cProducts});
+      Product.find({confirmation:true},function(err,cProducts)
+      {
+      res.render("adminProducts",{unconfirmedProducts:uProducts,confirmedProducts:cProducts});
+      });
     });
-  });
+  }
+  else{
+    res.redirect("/admin/login")
+  }
+  
 });
 
 router.post("/confirm/product/:productId",function(req,res){
