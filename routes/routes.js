@@ -215,7 +215,7 @@ router.get("/download/:productId/:size",function(req,res){
     if(size == "original" || size == "large" || size == "medium" || size == "small"){
       User.findOne({unique_id:req.session.userId},{"products":{$elemMatch:{"product._id":req.params.productId,"size":req.params.size}}},function(err,found){
         if(!err){
-          res.download(found.products[0].product.filePath,"hello", function(error){
+          res.download(found.products[0].product.filePath, function(error){
             if(error){
               console.log("Error : ", error)
             }
