@@ -1247,7 +1247,7 @@ router.post("/upload", function(req, res){
 
 
               newProduct.save();
-              found.products.push(newProduct);
+              // found.products.push(newProduct);
               found.save();
 
 
@@ -2261,7 +2261,7 @@ router.get("/admin/users", function (req, res) {
   }
   
 });
-router.post("/delete/:unique_id",function(req,res){
+router.post("/delete/user/:unique_id",function(req,res){
   User.deleteOne({unique_id:req.params.unique_id},function(err){
     if(!err){
           res.redirect("/admin/users");
@@ -2313,17 +2313,18 @@ router.get("/admin/products", function (req, res) {
   
 });
 
-router.post("/confirm/:productId",function(req,res){
+router.post("/confirm/product/:productId",function(req,res){
   Product.updateOne({productId:req.params.productId},{confirmation:true},function(err){
     if(!err){
       res.redirect("/admin/products");
     }
   });
 });
-router.post("/delete/:productId",function(req,res){
+router.post("/delete/product/:productId",function(req,res){
   Product.deleteOne({productId:req.params.productId},function(err){
     if(!err){
-      res.redirect("/admin/products");
+          res.redirect("/admin/products");
+
     }
   });
 });

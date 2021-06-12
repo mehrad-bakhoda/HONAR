@@ -63,7 +63,7 @@
                     <div class="row">
 
                         <% confirmedProducts.forEach(function(cProduct) {%>
-                        <form action="/delete/<%=cProduct.productId%>" method="POST">
+                        <form action="/delete/product/<%=cProduct.productId%>" method="POST">
                         <div class="col-lg-6 col-12">
                             <div class="card productCard">
                                 <div class="cardTop">
@@ -107,7 +107,7 @@
 
 
                         <% unconfirmedProducts.forEach(function(uProduct) {%>
-                        <form action="/confirm/<%=uProduct.productId%>" method="post">
+                        <form action="/confirm/product/<%=uProduct.productId%>" method="post">
                         <div class="col-lg-6 col-12">
                             <div class="card productCard">
                                 <div class="cardTop">
