@@ -213,35 +213,76 @@ router.get("/download/:productId/:size",function(req,res){
     var size = req.params.size;
     var productId = req.params.productId;
     if(size == "original" || size == "large" || size == "medium" || size == "small"){
-      User.findOne({unique_id:req.session.userId},{"products":{$elemMatch:{"product._id":req.params.productId,"size":req.params.size}}},function(err,found){
-        if(!err){
-          res.download(found.products[0].product.filePath,"hello", function(error){
+      Product.findOne({"_id":req.params.productId},function(err,product)
+      {
+        if(size == "original" && product.orginalPrice == 0)
+        {
+          res.download(product.filePath, function(error){
             if(error){
               console.log("Error : ", error)
-            }
-            
+            } 
         });
-          
-          // if(!found.downloaded.length){
-          //   let download={product:req.params.productId,size:req.params.size};
-          //   User.updateOne({
-          //     unique_id:req.session.userId
-          //   },
-          //   {
-          //     $push:{downloaded:download}
-          //   },function(err){
-          //     if(!err){
-          //       console.log("success");
-          //     }else{
-          //       console.log(err);
-          //     }
-          //   });
-  
-          
-          // }
         }
-  
+        else if(size == "large" && product.largePrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else if(size == "medium" && product.mediumPrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else if(size == "small" && product.smallPrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else{
+          User.findOne({unique_id:req.session.userId},{"products":{$elemMatch:{"product._id":req.params.productId,"size":req.params.size}}},function(err,found){
+            if(!err){
+              res.download(found.products[0].product.filePath, function(error){
+                if(error){
+                  console.log("Error : ", error)
+                  
+                }
+                
+            });
+              
+              // if(!found.downloaded.length){
+              //   let download={product:req.params.productId,size:req.params.size};
+              //   User.updateOne({
+              //     unique_id:req.session.userId
+              //   },
+              //   {
+              //     $push:{downloaded:download}
+              //   },function(err){
+              //     if(!err){
+              //       console.log("success");
+              //     }else{
+              //       console.log(err);
+              //     }
+              //   });
+      
+              
+              // }
+            }
+      
+          });
+
+        }
+
       });
+      
     }
  
     
