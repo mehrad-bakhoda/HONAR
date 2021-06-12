@@ -58,6 +58,9 @@
                      role="tabpanel"
                      aria-labelledby="acceptedH">
                     <div class="row">
+
+
+                        <% rMessages.forEach(function(rMessage) {%>
                         <div class="col-lg-6 col-12">
                             <div class="card productCard">
                                 <div class="cardTop">
@@ -66,7 +69,7 @@
                                             عنوان پیام
                                         </label>
                                         <p>
-                                            عنوان پیام
+                                            <%=rMessage.title%> 
                                         </p>
                                     </div>
                                     <div class="cardRow">
@@ -74,18 +77,34 @@
                                             تاریخ پیام
                                         </label>
                                         <p>
-                                            18/12/99
+                                            <%= rMessage.date%>
                                         </p>
                                     </div>
-                                    <div class="cardRow">
-                                        <label>
-                                            کاربر
-                                        </label>
-                                        <a href="#">
-                                            نام کاربر
-                                            <i class="fal fa-user"></i>
-                                        </a>
-                                    </div>
+                                    <%if(rMessage.user.type == "Uploader"){%>
+                                        <div class="cardRow">
+                                            <label>
+                                                کاربر
+                                            </label>
+                                            <a href="/<%=rMessage.user.userName%>">
+                                                <%= rMessage.user.userName%> 
+                                                <i class="fal fa-user"></i>
+                                            </a>
+                                        </div>
+
+                                   <% }%>
+                                    <%if(rMessage.user.type=="Downloader"){%>
+                                        <div class="cardRow">
+                                            <label>
+                                                کاربر
+                                            </label>
+                                            <a>
+                                                <%= rMessage.user.firstName%> 
+                                                <%= rMessage.user.lastName%> 
+                                                <i class="fal fa-user"></i>
+                                            </a>
+                                        </div>
+                                        
+                                   <% }%>
 
                                 </div>
                                 <div class="buttons">
@@ -103,16 +122,10 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                    <p>
-                                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                                    </p>
-                                                    <textarea placeholder="پاسخ شما"></textarea>
-                                                    <div class="buttons">
-                                                        <button type="submit">
-                                                            ارسال پاسخ
-                                                            <i class="fal fa-check"></i>
-                                                        </button>
-                                                    </div>
+                                                        <p><%=rMessage.message%></p>  
+                                                        <form action="/send/message/<%=rMessage.unique_id%>" method="POST">
+                                                    <textarea name="response" placeholder="پاسخ شما"><%=rMessage.response%></textarea>
+                                                </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,12 +134,18 @@
                             </div>
                         </div>
                     </div>
+
+                    <%})%>
                 </div>
                 <div class="tab-pane fade"
                      id="queueC"
                      role="tabpanel"
                      aria-labelledby="queueH">
                     <div class="row">
+
+
+                        <% messages.forEach(function(message) {%>
+
                         <div class="col-lg-6 col-12">
                             <div class="card productCard">
                                 <div class="cardTop">
@@ -135,7 +154,7 @@
                                             عنوان پیام
                                         </label>
                                         <p>
-                                            عنوان پیام
+                                            <%=message.title%> 
                                         </p>
                                     </div>
                                     <div class="cardRow">
@@ -143,20 +162,38 @@
                                             تاریخ پیام
                                         </label>
                                         <p>
-                                            18/12/99
+                                           <%= message.date%>
                                         </p>
                                     </div>
-                                    <div class="cardRow">
-                                        <label>
-                                            کاربر
-                                        </label>
-                                        <a href="#">
-                                            نام کاربر
-                                            <i class="fal fa-user"></i>
-                                        </a>
-                                    </div>
+                                    <%if(message.user.type=="Uploader"){%>
+                                        <div class="cardRow">
+                                            <label>
+                                                کاربر
+                                            </label>
+                                            <a href="/<%=message.user.userName%>">
+                                                <%= message.user.userName%> 
+                                                <i class="fal fa-user"></i>
+                                            </a>
+                                        </div>
+
+                                   <% }%>
+                                    <%if(message.user.type=="Downloader"){%>
+                                        <div class="cardRow">
+                                            <label>
+                                                کاربر
+                                            </label>
+                                            <a>
+                                                <%= message.user.firstName%> 
+                                                <%= message.user.lastName%> 
+                                                <i class="fal fa-user"></i>
+                                            </a>
+                                        </div>
+                                        
+                                   <% }%>
+
 
                                 </div>
+
                                 <div class="buttons">
                                     <button type="button"
                                             data-mdb-toggle="modal"
@@ -172,9 +209,8 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                    <p>
-                                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                                    </p>
+                                                    <p><%=message.message%></p>
+                                                    <form action="/send/message/<%=message.unique_id%>" method="POST">
                                                     <textarea placeholder="پاسخ شما" resize="none"></textarea>
                                                     <div class="buttons">
                                                         <button type="submit">
@@ -182,6 +218,7 @@
                                                             <i class="fal fa-check"></i>
                                                         </button>
                                                     </div>
+                                                </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,6 +226,10 @@
                                 </div>
                             </div>
                         </div>
+
+                   <% })%>
+
+
                     </div>
                 </div>
             </div>

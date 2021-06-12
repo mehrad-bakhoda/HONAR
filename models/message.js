@@ -11,9 +11,9 @@ const messageSchema = new mongoose.Schema({
    message:{
         type:String,
       },
-  userId: {
-    type:Number
-  },
+      user: {
+        type: mongoose.Schema.Types, ref: "User"
+      },
   unique_id :{
     type: Number,
     unique: true
@@ -21,6 +21,14 @@ const messageSchema = new mongoose.Schema({
   response:{
     type:String,
   },
+  date:{
+    type:String
+  },
+  title:{
+    type:String
+  },answered:{
+    type:Boolean
+  }
 
   
 });

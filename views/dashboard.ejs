@@ -261,32 +261,28 @@
                              id="tabs-2"
                              role="tabpanel"
                              aria-labelledby="tab-2">
-                            <%if(statusMessage.length){%>
-                            <%var counter=false;%>
-                            <% statusMessage.slice().reverse().forEach(function(message) { %>
 
-                            <%if(message.code==="333"){%>
-                            countr=true;
-                            <div class="card notifCard">
-                                <div class="title">
-                                    <h6> </h6>
-                                    <p class="date">
-                                        <%=message.date%>
-                                    </p>
-                                </div>
-                                <div class="mesage">
-                                    <p> <%=message.message%></p>
-                                </div>
-                            </div>
-                            <%}%>
+                             <% messages.slice().reverse().forEach(function(message) { %>
+                               <% if(message.response && message.response != ""){%>
+                                    <div class="card notifCard">
+                                        <div class="title">
+                                            <h6><%=message.title%></h6>
+                                            <p class="date">
+                                                <%=message.date%>
+                                            </p>
+                                        </div>
+                                        <div class="mesage">
+                                            <p> <%=message.message%></p>
+                                        </div>
+                                        <div class="mesage">
+                                            <p> <%=message.response%></p>
+                                        </div>
+                                    </div>
+                                <%}%>
 
-                            <% })%>
-                            <%}if(counter==false){%>
+                       <% })%>
 
-                            <h6> هیج پیامی ندارید</h6>
-                            <%}if(!statusMessage.length){%>
-                            <h6> هیج پیامی ندارید</h6>
-                            <%}%>
+
 
                         </div>
                     </div>

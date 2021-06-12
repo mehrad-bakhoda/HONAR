@@ -109,6 +109,12 @@ router.post("/getFund",function(req,res){
   
 });
 router.post("/sendMessage",function(req,res){
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
 
   var c;
   Message.findOne({},function(err,data)
@@ -125,8 +131,10 @@ router.post("/sendMessage",function(req,res){
     if(found){
       const message = new Message({
         message:req.body.message,
-        userId:found.unique_id,
+        user:found,
         unique_id: c,
+        date:newdate,
+        answered:false
       });
       message.save(function(err, docs) {
         if (!err) {
@@ -213,35 +221,76 @@ router.get("/download/:productId/:size",function(req,res){
     var size = req.params.size;
     var productId = req.params.productId;
     if(size == "original" || size == "large" || size == "medium" || size == "small"){
-      User.findOne({unique_id:req.session.userId},{"products":{$elemMatch:{"product._id":req.params.productId,"size":req.params.size}}},function(err,found){
-        if(!err){
-          res.download(found.products[0].product.filePath, function(error){
+      Product.findOne({"_id":req.params.productId},function(err,product)
+      {
+        if(size == "original" && product.orginalPrice == 0)
+        {
+          res.download(product.filePath, function(error){
             if(error){
               console.log("Error : ", error)
-            }
-            
+            } 
         });
-          
-          // if(!found.downloaded.length){
-          //   let download={product:req.params.productId,size:req.params.size};
-          //   User.updateOne({
-          //     unique_id:req.session.userId
-          //   },
-          //   {
-          //     $push:{downloaded:download}
-          //   },function(err){
-          //     if(!err){
-          //       console.log("success");
-          //     }else{
-          //       console.log(err);
-          //     }
-          //   });
-  
-          
-          // }
         }
-  
+        else if(size == "large" && product.largePrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else if(size == "medium" && product.mediumPrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else if(size == "small" && product.smallPrice == 0)
+        {
+          res.download(product.filePath, function(error){
+            if(error){
+              console.log("Error : ", error)
+            } 
+        });
+        }
+        else{
+          User.findOne({unique_id:req.session.userId},{"products":{$elemMatch:{"product._id":req.params.productId,"size":req.params.size}}},function(err,found){
+            if(!err){
+              res.download(found.products[0].product.filePath, function(error){
+                if(error){
+                  console.log("Error : ", error)
+                  
+                }
+                
+            });
+              
+              // if(!found.downloaded.length){
+              //   let download={product:req.params.productId,size:req.params.size};
+              //   User.updateOne({
+              //     unique_id:req.session.userId
+              //   },
+              //   {
+              //     $push:{downloaded:download}
+              //   },function(err){
+              //     if(!err){
+              //       console.log("success");
+              //     }else{
+              //       console.log(err);
+              //     }
+              //   });
+      
+              
+              // }
+            }
+      
+          });
+
+        }
+
       });
+      
     }
  
     
@@ -355,9 +404,15 @@ router.get("/dashboard",function(req,res){
             Discount.find({userId:req.session.userId},function(err,discounts){
               if(!err){
                 if(discounts){
+                Message.find({"user.unique_id":req.session.userId},function(err,messages){
+                  if(!err){
+                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders,discounts:discounts,messages:messages});
+                  }
+
+                });
                   
 
-            res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders,discounts:discounts});
+            
           }
         }
     });
@@ -2232,15 +2287,28 @@ router.post("/delete/user/:unique_id",function(req,res){
 
 
 router.get("/admin/messages", function (req, res) {
-  if(req.session.userId==0)
-  {
-    res.render("adminMessages");
+  if(req.session.userId==0){
+    Message.find({answered:true},function(err,rMessages){
+      Message.find({answered:false},function(err,messages){
+  
+      res.render("adminMessages",{messages:messages,rMessages:rMessages});
+      });
+    });
   }
   else{
-    res.redirect("/admin/login")
+    res.redirect("/admin/messages");
   }
-    
 });
+router.post("/send/message/:messageId",function(req,res){
+  Message.updateOne({unique_id:req.params.messageId},{response:req.body.response,answered:true},function(err){
+    if(!err){
+      res.redirect("/admin/messages");
+    }
+  })
+
+});
+
+
 
 
 router.get("/admin/reqs", function (req, res) {
