@@ -4,30 +4,17 @@
     <%-include("headerN");-%>
     <section class="contents">
         <div class="container-fluid">
-            <% if(password==false phone==true){%>
+            
             <div class="card login">
-                <form action="/login" method="post">
-                    <h4> شماره تماس خود را وارد کنید</h4>
-                    <input type="text" class="phoneInput" name="loginInput" placeholder="شماره تماس" />
+                <form action="/admin/login" method="post">
+                    <h4> پنل ادمین</h4>
+                    <input type="text" name="adminUser" placeholder="نام کاربری" />
+                    <input name ="password" type="password" class="adminPassword" placeholder="رمز عبور " />
                     <div class="buttons">
-                        <button type="submit" class="next">بعدی<i class="fal fa-angle-left"></i></button>
+                        <button type="submit" >ورود</i></button>
                     </div>
                 </form>
             </div>
-            <% } %>
-
-            <%if(password==true && phone==false){%>
-            <div class="card password">
-                <form action="/signIn" enctype="multipart/form-data" method="post">
-                    <h4> رمز عبور خود را وارد کنید </h4>
-                    <input hidden name="loginInput" value=<%=loginInput%> />
-                    <input name ="password" type="password" class="passwordInput" placeholder="رمز عبور " />
-                    <div class="buttons">
-                        <button type="submit" class="next">ورود</button>
-                    </div>
-                </form>
-            </div>
-            <% } %>
         </div>
     </section>
 </section>

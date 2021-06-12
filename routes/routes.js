@@ -22,6 +22,7 @@ const formidable = require('formidable');
 const path = require("path");
 const user = require('../models/user');
 const product = require('../models/product');
+require('dotenv').config();
 
 
 
@@ -2157,7 +2158,7 @@ router.post("/search",function(req,res){
 
 ///////////////////////// ADMIN ROUTES ////////////////////////
 router.get("/admin/home", function (req, res) {
-  if(req.session.userId){
+  if(req.session.userId == 0){
     res.render("adminHome");
     
   }else{
@@ -2167,9 +2168,25 @@ router.get("/admin/home", function (req, res) {
 });
 
 router.get("/admin/login", function (req, res) {
-  res.render("adminLogin",{phone:true,password:false});
+  if(req.session.userId==0){
+    res.redirect("/admin/home");
+  }
+  else{
+    res.render("adminLogin");
+
+  }
+  
 });
 
+router.post("/admin/login", function (req, res) {
+  if(req.body.adminUser ==process.env.ADMIN_USER && req.body.password ==process.env.ADMIN_PASSWORD)
+  {
+    req.session.userId = 0;
+    console.log("admin logged in");
+    res.redirect("/admin/home")
+  }
+  
+})
 
 
 
