@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require('../models/user');
 var CreditCard = require('../models/creditCard');
 var Product = require('../models/product');
+var Message = require('../models/message');
 var Discount = require('../models/discount');
 var Cart = require("../cart");
 var Order = require('../models/order');
@@ -34,6 +35,68 @@ const product = require('../models/product');
 
 // GET ROUTE'S
 
+router.post("/generateD",function(req,res){
+  var c;
+  Discount.findOne({},function(err,data)
+  {
+    if (data)
+    {
+      c = data.unique_id + 1;
+    }
+    else{
+      c = 1;
+    }
+  User.findOne({unique_id:req.session.userId},function(err,found){
+
+    if(!err){
+    if(found){
+      const discount= new Discount({
+        amount :req.body.amount,
+        fromDate :req.body.fromDate,
+        toDate :req.body.toDate,
+        unique_id: c,
+        userId:found.unique_id,
+        code:discountGenerator.getDiscount().toString() 
+
+      });
+      discount.save(function(err, docs) {
+        if (!err) {
+         console.log("message sent");
+         let discountCreated={message:`discount code added`,code:"000",date:today};
+         User.updateOne({
+           unique_id:req.session.userId
+         },
+         {
+           $push:{message:discountCreated}
+         },function(err){
+           if(!err){
+             console.log("added status");
+           }
+         });
+         res.redirect("/dashboard");
+        }
+        else{
+          console.log(err);
+          res.redirect("/dashboard");
+        }
+      });
+
+
+    }
+  }
+  });
+}).sort({_id: -1}).limit(1);
+  
+
+
+
+
+
+
+
+
+});
+
 
 router.post("/addFund",function(req,res){ 
   res.redirect("dashboard");
@@ -42,6 +105,55 @@ router.post("/addFund",function(req,res){
 
 router.post("/getFund",function(req,res){
   res.redirect("dashboard");
+  
+});
+router.post("/sendMessage",function(req,res){
+
+  var c;
+  Message.findOne({},function(err,data)
+  {
+    if (data)
+    {
+      c = data.unique_id + 1;
+    }
+    else{
+      c = 1;
+    }
+  User.findOne({unique_id:req.session.userId},function(err,found){
+    if(!err){
+    if(found){
+      const message = new Message({
+        message:req.body.message,
+        userId:found.unique_id,
+        unique_id: c,
+      });
+      message.save(function(err, docs) {
+        if (!err) {
+         console.log("message sent");
+         let messageSent={message:`message sent`,code:"000",date:today};
+         User.updateOne({
+           unique_id:req.session.userId
+         },
+         {
+           $push:{message:messageSent}
+         },function(err){
+           if(!err){
+             console.log("added status");
+           }
+         });
+         res.redirect("/dashboard");
+        }
+        else{
+          console.log(err);
+          res.redirect("/dashboard");
+        }
+      });
+
+
+    }
+  }
+  });
+}).sort({_id: -1}).limit(1);
   
 });
 
@@ -239,8 +351,15 @@ router.get("/dashboard",function(req,res){
         .exec(function(err,products){
           Order.find({"user.unique_id":req.session.userId},function(err,orders)
           {
-            res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders});
+            Discount.find({userId:req.session.userId},function(err,discounts){
+              if(!err){
+                if(discounts){
+                  
 
+            res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:today,orders:orders,discounts:discounts});
+          }
+        }
+    });
           });
           
         });
@@ -365,6 +484,13 @@ router.get("/add-to-cart/:id/:size", function(req, res){
 
 router.get("/orderConfirm",function(req, res)
 {
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
+
   if(req.session.userId)
   {
     User.findOne({
@@ -381,6 +507,8 @@ router.get("/orderConfirm",function(req, res)
             user:found,
             quantity:req.session.cart.totalQty,
             totalPrice:req.session.cart.totalPrice,
+            date:newdate,
+            code:discountGenerator.getDiscount().toString()
           });
           for(var i = 0; i < cart.length;i++)
           {
@@ -557,6 +685,12 @@ router.post("/sendAgain",function(req,res){
 router.post("/login",[
   check('loginInput','phoneNumber').isMobilePhone().isLength({min:11 , max:11}).not().isEmpty(),
 ],(req,res,next)=>{
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
   const errors=validationResult(req).array();
   if(errors.length != 0)
   {
@@ -622,6 +756,7 @@ router.post("/login",[
               verified: "false",
               registered: "false",
               hasPassword:"false",
+              date:newdate
             });
             console.log(user.verifyCode)
             user.save(function(err, docs) {
@@ -952,6 +1087,13 @@ if(errors.isEmpty()){
 
 
 router.post("/upload", function(req, res){
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; 
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  var newdate = year + "/" + month + "/" + day;
+
   var c;
   User.findOne({unique_id: req.session.userId},
     function(err,found)
@@ -1054,7 +1196,8 @@ router.post("/upload", function(req, res){
                 mediumPrice:fields.mediumPrice,
                 smallPrice:fields.smallPrice,
                 user:found,
-                dateAdded:new Date(),
+                date:newdate,
+                confirmation:false
                
               });
              
@@ -2026,20 +2169,72 @@ router.get("/admin/home", function (req, res) {
 router.get("/admin/login", function (req, res) {
   res.render("adminLogin",{phone:true,password:false});
 });
+
+
+
+
+
+
 router.get("/admin/finance", function (req, res) {
-    res.render("adminFinance");
+  Order.find({},function(err,orders)
+  {
+    res.render("adminFinance",{orders:orders});
+  });
 });
+
+
+
 router.get("/admin/users", function (req, res) {
-    res.render("adminUsers");
+  User.find({},function(err,users){
+
+  
+    res.render("adminUsers",{users:users});
+  });
 });
+router.post("/delete/:unique_id",function(req,res){
+  User.deleteOne({unique_id:req.params.unique_id},function(err){
+    if(!err){
+          res.redirect("/admin/users");
+    }
+  });
+
+  
+});
+
+
 router.get("/admin/messages", function (req, res) {
     res.render("adminMessages");
 });
+
+
 router.get("/admin/reqs", function (req, res) {
     res.render("adminReq");
 });
+
+
 router.get("/admin/products", function (req, res) {
-    res.render("adminProducts");
+  Product.find({confirmation:false},function(err,uProducts)
+  {
+    Product.find({confirmation:true},function(err,cProducts)
+    {
+    res.render("adminProducts",{unconfirmedProducts:uProducts,confirmedProducts:cProducts});
+    });
+  });
+});
+
+router.post("/confirm/:productId",function(req,res){
+  Product.updateOne({productId:req.params.productId},{confirmation:true},function(err){
+    if(!err){
+      res.redirect("/admin/products");
+    }
+  });
+});
+router.post("/delete/:productId",function(req,res){
+  Product.deleteOne({productId:req.params.productId},function(err){
+    if(!err){
+      res.redirect("/admin/products");
+    }
+  });
 });
 ///////////////////////// ADMIN ROUTES ////////////////////////
 

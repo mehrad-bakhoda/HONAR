@@ -12,6 +12,9 @@ const userSchema = new mongoose.Schema({
     type: Number,
     unique: true
   },
+  income:{
+    type:String
+  },
   type:{
     type:String,
     enum:["Downloader","Uploader"],
@@ -65,6 +68,9 @@ const userSchema = new mongoose.Schema({
   verified:{
     type: Boolean,
     default: false
+  },
+  date:{
+    type:String
   },
   message: [{
     message:String,

@@ -25,6 +25,12 @@ const orderSchema = new mongoose.Schema({
       },
     status:{
         type:String,
-    }
+    },
+    date:{
+      type:String,
+  },
+  code:{
+    type:String,
+}
 });
 module.exports = mongoose.model("order",orderSchema);
