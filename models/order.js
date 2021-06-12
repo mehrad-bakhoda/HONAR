@@ -33,4 +33,5 @@ const orderSchema = new mongoose.Schema({
     type:String,
 }
 });
+orderSchema.index({code: 'text', 'user.userName': 'text'});
 module.exports = mongoose.model("order",orderSchema);

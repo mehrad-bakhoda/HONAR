@@ -89,7 +89,7 @@ const productSchema = new mongoose.Schema({
   
 
 });
-productSchema.index({type:"text",fileName:"text",artist:"text",tags:"text"});
+productSchema.index({type:"text",fileName:"text","user.userName":"text",tags:"text","user.firstName":"text",fileType:"text"});
 
 //exporting noteSchema model
 module.exports =  mongoose.model("product", productSchema);
