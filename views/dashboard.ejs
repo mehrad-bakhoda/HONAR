@@ -119,6 +119,7 @@
 
                         </div>
                     </div>
+                    <%  if(user.type=="Uploader"){%>
                     <div class="cash">
                        <% if(user.creditCardConfirmation == "true" && user.creditCardConfirmation){%>
                             <h5> دریافت پول </h5>
@@ -135,7 +136,7 @@
                             </div>  
                         </form>
                  
-
+                   
                       <%  }%>
                       <% if(user.creditCardConfirmation == "wait" && user.creditCardConfirmation){%>
 
@@ -144,8 +145,8 @@
 
                     <%}%>
 
-
-                      <% if(user.creditCardConfirmation != "true" && user.creditCardConfirmation != "wait" || !user.creditCardConfirmation){%>
+                     
+                      <% if(user.creditCardConfirmation != "true" && user.creditCardConfirmation != "wait"  || !user.creditCardConfirmation){%>
 
 
                         <p class="add"> افزودن کارت </p>
@@ -160,7 +161,9 @@
                         </form>
                         </div>
                     <%}%>
+                        
                     </div>
+                    <%}%>
 
                 </div>
             </div>

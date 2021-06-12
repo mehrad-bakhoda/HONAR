@@ -67,9 +67,9 @@
                             <div class="card productCard">
                                 <div class="cardTop">
                                     <div class="picture">
-                                        <%if(user.profilePicPath && user.profilePicPath.length != 0){%>
+                                        <%if(user.profilePicPath && user.profilePicPath.length != 0 && user.profilePicPath != "no picture"){%>
                                             <img src="<%=user.profilePicPath%>" />
-                                       <% }if(!user.profilePicPath || user.profilePicPath.length ==0 ){%>
+                                       <% }if(!user.profilePicPath || user.profilePicPath.length ==0 || user.profilePicPath == "no picture"){%>
                                         <i class="fal fa-user fa-2x"></i>
                                         <%}%>
                                     </div>
