@@ -11,7 +11,12 @@ const purchasesSchema = new mongoose.Schema({
     },
     size:[{
         type:String,
-    }]
+    }],
+    date:{
+        type:Date
+    }
 
 });
+
+
 module.exports = mongoose.model("purchases",purchasesSchema);

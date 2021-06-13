@@ -2187,26 +2187,33 @@ if(fields.password && fields.passwordConfirmation && fields.password===fields.pa
 
 });
 
+// not found routh
+
+router.get('*', function(req, res) {
+  res.render("notFound");
+});
 
 
 
-// ...........................
+
+
+// searches
 
 
 
-router.post("/search",function(req,res){
-  if(req.body.searchedItem == "")
+router.post("/search/home",function(req,res){
+  if(req.body.searchedItem == "" || req.body.searchedItem == " ")
   {
     res.redirect("/");
   }
   else{
-    res.redirect("/search/" + req.body.searchedItem);
+    res.redirect("/search/home/" + req.body.searchedItem);
   }
 
 });
 
 
-router.get("/search/:searchedItem",function(req,res){
+router.get("/search/home/:searchedItem",function(req,res){
 //   Product.search(req.params.searchedItem, function(err, found) {
 //     res.render("search",{searched:found});
 //  });
@@ -2223,6 +2230,154 @@ Product.find({
   res.render("search",{searched:found});
 });
 }); 
+
+
+//finances page search
+
+router.post("/search/admin/finance",function(req,res){
+
+    if(req.body.searchedItem == "" || req.body.searchedItem == " ")
+    {
+      res.redirect("/admin/finance");
+    }
+    else{
+      res.redirect("/search/admin/finance/" + req.body.searchedItem);
+    }  
+
+  });
+    
+
+router.get("/search/admin/finance/:searchedItem",function(req,res){
+//   Product.search(req.params.searchedItem, function(err, found) {
+//     res.render("search",{searched:found});
+//  });
+if(req.session.userId == 0){
+Order.find({
+  $or: [
+    { "products.fileName": new RegExp(req.params.searchedItem, "gi") },
+    { "user.userName": new RegExp(req.params.searchedItem, "gi") },
+    { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
+]
+},function(err,found){
+  res.render("adminFinanceSearch",{searched:found});
+});
+}else{
+  res.redirect("/admin/login");
+}
+}); 
+
+//users page search
+
+router.post("/search/admin/users",function(req,res){
+
+    if(req.body.searchedItem == "" || req.body.searchedItem == " ")
+    {
+      res.redirect("/admin/users");
+    }
+    else{
+      res.redirect("/search/admin/users/" + req.body.searchedItem);
+    }  
+
+  });
+    
+
+router.get("/search/admin/users/:searchedItem",function(req,res){
+//   Product.search(req.params.searchedItem, function(err, found) {
+//     res.render("search",{searched:found});
+//  });
+if(req.session.userId == 0){
+User.find({
+  $or: [
+    { "userName": new RegExp(req.params.searchedItem, "gi") },
+    { "firstName": new RegExp(req.params.searchedItem, "gi") },
+    { "lastName": new RegExp(req.params.searchedItem, "gi") },
+    { "phone": new RegExp(req.params.searchedItem, "gi") },
+    { "email": new RegExp(req.params.searchedItem, "gi") },
+]
+},function(err,found){
+  res.render("adminUsersSearch",{searched:found});
+});
+}else{
+  res.redirect("/admin/login");
+}
+}); 
+
+//products page search
+
+router.post("/search/admin/products",function(req,res){
+
+    if(req.body.searchedItem == "" || req.body.searchedItem == " ")
+    {
+      res.redirect("/admin/products");
+    }
+    else{
+      res.redirect("/search/admin/products/" + req.body.searchedItem);
+    }  
+ 
+
+  });
+    
+
+router.get("/search/admin/products/:searchedItem",function(req,res){
+//   Product.search(req.params.searchedItem, function(err, found) {
+//     res.render("search",{searched:found});
+//  });
+if(req.session.userId == 0){
+Product.find({
+  $or: [
+    { "fileName": new RegExp(req.params.searchedItem, "gi") },
+    { "user.userName": new RegExp(req.params.searchedItem, "gi") },
+    { "tags": new RegExp(req.params.searchedItem, "gi") },
+    { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
+    { "fileType": new RegExp(req.params.searchedItem, "gi") },
+    { "type": new RegExp(req.params.searchedItem, "gi") },
+]
+},function(err,found){
+  res.render("adminProductsSearch",{searched:found});
+});
+}else{
+  res.redirect("/admin/login");
+}
+}); 
+
+//messages page search
+
+router.post("/search/admin/messages",function(req,res){
+
+    if(req.body.searchedItem == "" || req.body.searchedItem == " ")
+    {
+      res.redirect("/admin/messages");
+    }
+    else{
+      res.redirect("/search/admin/messages/" + req.body.searchedItem);
+    }  
+
+  });
+    
+
+router.get("/search/admin/messages/:searchedItem",function(req,res){
+//   Product.search(req.params.searchedItem, function(err, found) {
+//     res.render("search",{searched:found});
+//  });
+if(req.session.userId == 0){
+Message.find({
+  $or: [
+    { "message": new RegExp(req.params.searchedItem, "gi") },
+    { "title": new RegExp(req.params.searchedItem, "gi") },
+    { "response": new RegExp(req.params.searchedItem, "gi") },
+    { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
+    { "user.lastName": new RegExp(req.params.searchedItem, "gi") },
+    { "user.userName": new RegExp(req.params.searchedItem, "gi") },
+    
+]
+},function(err,found){
+  res.render("adminMessagesSearch",{searched:found});
+});
+}else{
+  res.redirect("/admin/login");
+}
+}); 
+
 
 
 

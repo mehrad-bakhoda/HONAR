@@ -33,5 +33,5 @@ const orderSchema = new mongoose.Schema({
     type:String,
 }
 });
-orderSchema.index({code: 'text', 'user.userName': 'text'});
+orderSchema.index({"products.fileName":"text","user.userName":"text","user.firstName":"text"},{weights:{"product.fileName":3,"user.userName":2,"user.firstName":1}});
 module.exports = mongoose.model("order",orderSchema);

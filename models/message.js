@@ -34,4 +34,6 @@ const messageSchema = new mongoose.Schema({
 });
 // userSchema.plugin(passportLocalMongoose);
 //exporting the userSchema model
+messageSchema.index({title:"text","message":"text","response":"text"},{weights:{title:6,"user.userName":5,"user.firstName":4,"user.lastName":3,message:2,response:1}});
+
 module.exports = mongoose.model("message",messageSchema);

@@ -93,4 +93,6 @@ downloaded:[{
 });
 // userSchema.plugin(passportLocalMongoose);
 //exporting the userSchema model
+userSchema.index({phone:"text","userName":"text","firstName":"text","lastName":"text","email":"text"},{weights:{phone:5,userName:4,firstName:3,lastName:2,email:1}});
+
 module.exports = mongoose.model("user",userSchema);
