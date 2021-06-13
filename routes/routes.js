@@ -357,15 +357,6 @@ router.get("/",function(req,res){
 
 
 
-router.get("/search/:searchedItem",function(req,res){
-
-  Product.find({$text:{$search:req.params.searchedItem}})
-  // .skip(20)
-  // .limit(10)
-  .exec(function(err,found){
-    res.render("search",{searched:found});
-  });
-});
 
 
 
@@ -2196,6 +2187,13 @@ if(fields.password && fields.passwordConfirmation && fields.password===fields.pa
 
 });
 
+
+
+
+// ...........................
+
+
+
 router.post("/search",function(req,res){
   if(req.body.searchedItem == "")
   {
@@ -2207,7 +2205,34 @@ router.post("/search",function(req,res){
 
 });
 
-// END OF POST ROUTE'S
+
+router.get("/search/:searchedItem",function(req,res){
+//   Product.search(req.params.searchedItem, function(err, found) {
+//     res.render("search",{searched:found});
+//  });
+Product.find({
+  $or: [
+    { "fileName": new RegExp(req.params.searchedItem, "gi") },
+    { "user.userName": new RegExp(req.params.searchedItem, "gi") },
+    { "tags": new RegExp(req.params.searchedItem, "gi") },
+    { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
+    { "fileType": new RegExp(req.params.searchedItem, "gi") },
+    { "type": new RegExp(req.params.searchedItem, "gi") },
+]
+},function(err,found){
+  res.render("search",{searched:found});
+});
+}); 
+
+
+
+
+
+
+
+
+
+
 
 
 

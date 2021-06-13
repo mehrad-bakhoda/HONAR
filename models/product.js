@@ -89,7 +89,38 @@ const productSchema = new mongoose.Schema({
   
 
 });
-productSchema.index({type:"text",fileName:"text","user.userName":"text",tags:"text","user.firstName":"text",fileType:"text"});
+
+
+
+productSchema.index({type:"text",fileName:"text","user.userName":"text",tags:"text","user.firstName":"text",fileType:"text"},{weights:{fileName:6,tags:5,fileType:4,type:3,"user.userName":2,"user.firstName":1}});
+// productSchema.statics = {
+//   searchPartial: function(q, callback) {
+//       return this.find({
+//           $or: [
+//               { "fileName": new RegExp(q, "gi") },
+//               { "user.userName": new RegExp(q, "gi") },
+//               { "tags": new RegExp(q, "gi") },
+//               { "user.firstName": new RegExp(q, "gi") },
+//               { "fileType": new RegExp(q, "gi") },
+//               { "type": new RegExp(q, "gi") },
+//           ]
+//       }, callback);
+//   },
+
+//   searchFull: function (q, callback) {
+//       return this.find({
+//           $text: { $search: q, $caseSensitive: false }
+//       }, callback)
+//   },
+
+//   search: function(q, callback) {
+//       this.searchFull(q, (err, data) => {
+//           if (err) return callback(err, data);
+//           if (!err && data.length) return callback(err, data);
+//           if (!err && data.length === 0) return this.searchPartial(q, callback);
+//       });
+//   },
+// }
 
 //exporting noteSchema model
 module.exports =  mongoose.model("product", productSchema);
