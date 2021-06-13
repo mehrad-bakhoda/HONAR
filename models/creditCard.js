@@ -17,6 +17,9 @@ const creditCardSchema = new mongoose.Schema({
       sId:{
         type:String,
       },
+      date:{
+        type:String
+      },
 
   user: {
     type: mongoose.Schema.Types, ref: "User"

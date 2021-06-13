@@ -92,7 +92,7 @@
                                             تاریخ پیام
                                         </label>
                                         <p>
-                                            <%= rMessage.date%>
+                                            <%= rMessage.date.getMonth()%>/<%=rMessage.date.getDay()%> | <%=rMessage.date.getHours()%>:<%=rMessage.date.getMinutes()%>:<%=rMessage.date.getSeconds()%>
                                         </p>
                                     </div>
                                     <%if(rMessage.user.type == "Uploader"){%>
@@ -187,9 +187,7 @@
                                         <label>
                                             تاریخ پیام
                                         </label>
-                                        <p>
-                                           <%= message.date%>
-                                        </p>
+                                        <p> <%=message.date%></p>
                                     </div>
                                     <%if(message.user.type=="Uploader"){%>
                                         <div class="cardRow">
