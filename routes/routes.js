@@ -2296,15 +2296,27 @@ router.get("/admin/messages", function (req, res) {
     });
   }
   else{
-    res.redirect("/admin/messages");
+    res.redirect("/admin/login");
   }
 });
-router.post("/send/message/:messageId",function(req,res){
+router.post("/send/message/:messageId/:userId",function(req,res){
+  
   Message.updateOne({unique_id:req.params.messageId},{response:req.body.response,answered:true},function(err){
     if(!err){
-      res.redirect("/admin/messages");
+      let messageRecieved={message:`you have recieved a new message`,code:"000",date:today};
+      User.updateOne({unique_id:req.params.userId },{$push:{message:messageRecieved}},function(err){
+        if(!err){
+          console.log("added status");
+          res.redirect("/admin/messages");
+        }
+      });
+      
+
     }
-  })
+
+     
+
+  });
 
 });
 

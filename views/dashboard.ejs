@@ -261,26 +261,35 @@
                              id="tabs-2"
                              role="tabpanel"
                              aria-labelledby="tab-2">
+                                          <%let empty = true;%>
+                                         <% if(messages.length != 0 ){%>
+                                            
+                                            <% messages.slice().reverse().forEach(function(message) { %>
+                                                <% if(message.response && message.response != ""){%>
+                                                     <div class="card notifCard">
+                                                         <div class="title">
+                                                             <h6><%=message.title%></h6>
+                                                             <p class="date">
+                                                                 <%=message.date%>
+                                                             </p>
+                                                         </div>
+                                                         <div class="mesage">
+                                                             <p> <%=message.message%></p>
+                                                         </div>
+                                                         <div class="mesage">
+                                                             <p> <%=message.response%></p>
+                                                         </div>
+                                                     </div>
+                                                     <%empty=false;%>
+                                                 <%}%>
+                 
+                                        <% })%>
+                 
+                                        <%  }%>
+                                      <%  if(empty==true || messages.length == 0){%>
+                                            <h6> هیج پیامی ندارید</h6>  
+                                        <%}%>
 
-                             <% messages.slice().reverse().forEach(function(message) { %>
-                               <% if(message.response && message.response != ""){%>
-                                    <div class="card notifCard">
-                                        <div class="title">
-                                            <h6><%=message.title%></h6>
-                                            <p class="date">
-                                                <%=message.date%>
-                                            </p>
-                                        </div>
-                                        <div class="mesage">
-                                            <p> <%=message.message%></p>
-                                        </div>
-                                        <div class="mesage">
-                                            <p> <%=message.response%></p>
-                                        </div>
-                                    </div>
-                                <%}%>
-
-                       <% })%>
 
 
 

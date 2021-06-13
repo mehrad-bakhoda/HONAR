@@ -38,7 +38,7 @@
                        href="#acceptedC"
                        role="tab"
                        aria-controls="acceptedC"
-                       aria-selected="true">دیده شده</a>
+                       aria-selected="true">پاسخ داده شده</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link"
@@ -122,10 +122,10 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                        <p><%=rMessage.message%></p>  
-                                                        <form action="/send/message/<%=rMessage.unique_id%>" method="POST">
-                                                    <textarea name="response" placeholder="پاسخ شما"><%=rMessage.response%></textarea>
-                                                </form>
+                                                    <div> <p><%=rMessage.message%></p> </div>
+                                                    <div>   <p><%=rMessage.response%></p></div>
+                                                        
+                                               
                                                 </div>
                                             </div>
                                         </div>
@@ -210,8 +210,8 @@
                                             <div class="modal-content">
                                                 <div class="modal-body">
                                                     <p><%=message.message%></p>
-                                                    <form action="/send/message/<%=message.unique_id%>" method="POST">
-                                                    <textarea placeholder="پاسخ شما" resize="none"></textarea>
+                                                    <form action="/send/message/<%=message.unique_id%>/<%=message.user.unique_id%>" method="POST">
+                                                    <textarea name="response" placeholder="پاسخ شما" resize="none"></textarea>
                                                     <div class="buttons">
                                                         <button type="submit">
                                                             ارسال پاسخ
