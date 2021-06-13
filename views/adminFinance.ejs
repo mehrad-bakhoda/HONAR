@@ -39,6 +39,17 @@
 
            
             <div class="row">
+                <%if(orders.length == 0){%>
+                    <div class="empty">
+
+                        <h1>
+                            <i class="fal fa-search"></i>
+                            نتیجه ای یافت نشد !
+                        </h1>
+                    </div>
+
+                <%}if(orders.length != 0){%>
+
 
                 <% orders.forEach(function(order) {%>
                 <div class="col-lg-6 col-12">
@@ -96,6 +107,7 @@
           
                 </div>
             <%})%>
+                <%}%>
 
             </div>
 

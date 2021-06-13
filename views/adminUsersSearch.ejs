@@ -36,10 +36,19 @@
             <!-- Tabs content -->
 
                     <div class="row">
-                        
-
-                        <div class="col-lg-6 col-12">
+                        <%if(searched.length == 0){%>
+                            <div class="empty">
+        
+                                <h1>
+                                    <i class="fal fa-search"></i>
+                                    نتیجه ای یافت نشد !
+                                </h1>
+                            </div>
+        
+                        <%}if(searched.length != 0){%>
                             <% searched.forEach(function(user) {%>
+                        <div class="col-lg-6 col-12">
+                            
                                 <form action="/delete/user/<%=user.unique_id%>" method="post">
     
                             <div class="card productCard">
@@ -84,8 +93,10 @@
                             </div>
                             </form>
                             
-                    <%})%>
+                    
                         </div>
+                        <%})%>
+                    <%}%>
 
 
                     </div>

@@ -37,6 +37,16 @@
             </div>
 
                     <div class="row">
+                        <%if(searched.length == 0){%>
+                            <div class="empty">
+        
+                                <h1>
+                                    <i class="fal fa-search"></i>
+                                    نتیجه ای یافت نشد !
+                                </h1>
+                            </div>
+        
+                        <%}if(searched.length != 0){%>
 
                         <% searched.forEach(function(cProduct) {%>
                         <form action="/delete/product/<%=cProduct.productId%>" method="POST">
@@ -71,6 +81,7 @@
                         </div>
                     </form>
                     <%})%>
+                <%}%>
                     </div>
                 </div>
 

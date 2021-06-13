@@ -90,27 +90,44 @@
                 </div>
             </div>
             <div class="row">
-                <% searched.forEach(function(product) { %>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
-                    <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                        <div class="card product">
-                            <div class="card-body">
-                                <div class="imageShadow">
-                                    <img src="/<%=product.coverPath%>" />
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <p> <%=product.fileName%> </p>
-                                <p>
-                                    <%=product.user.userName%>
-                                    <i class="fal fa-user"></i>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
 
-                <% }) %>
+                <%if(searched.length == 0){%>
+                    <div class="empty">
+
+                        <h1>
+                            <i class="fal fa-search"></i>
+                            نتیجه ای یافت نشد !
+                        </h1>
+                    </div>
+
+                <%}if(searched.length != 0){%>
+                    <% searched.forEach(function(product) { %>
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
+                            <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
+                                <div class="card product">
+                                    <div class="card-body">
+                                        <div class="imageShadow">
+                                            <img src="/<%=product.coverPath%>" />
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p> <%=product.fileName%> </p>
+                                        <p>
+                                            <%=product.user.userName%>
+                                            <i class="fal fa-user"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+        
+                        <% }) %>
+        
+
+               <% }%>
+
+
+
             </div>
         </div>
     </section>

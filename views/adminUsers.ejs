@@ -62,10 +62,21 @@
                      role="tabpanel"
                      aria-labelledby="acceptedH">
                     <div class="row">
-                        
+
+                        <%if(users.length == 0){%>
+                            <div class="empty">
+        
+                                <h1>
+                                    <i class="fal fa-search"></i>
+                                    نتیجه ای یافت نشد !
+                                </h1>
+                            </div>
+        
+                        <%}if(users.length != 0){%>
+                        <% users.forEach(function(user) {%>
 
                         <div class="col-lg-6 col-12">
-                            <% users.forEach(function(user) {%>
+                           
                                 <form action="/delete/user/<%=user.unique_id%>" method="post">
     
                             <div class="card productCard">
@@ -110,8 +121,10 @@
                             </div>
                             </form>
                             
-                    <%})%>
+                    
                         </div>
+                        <%})%>
+                    <%}%>
 
 
                     </div>
@@ -121,35 +134,10 @@
                      role="tabpanel"
                      aria-labelledby="queueH">
                     <div class="row">
-                        <div class="col-lg-6 col-12">
-                            <div class="card productCard">
-                                <div class="cardTop">
-                                    <div class="picture">
-                                        <img src="../assets/images/test.jpg"/>
-                                    </div>
-                                    <div class="detail">
-                                        <span class="name">
-                                            نام کاربر
-                                        </span>
-                                        <span class="dateAdded">
-                                            18/12/99
-                                        </span>
 
-                                    </div>
-                                </div>
-                                <div class="buttons">
 
-                                    <button type="submit" class="accept">
-                                        تایید
-                                        <i class="fal fa-check"></i>
-                                    </button>
-                                    <a href="#">
-                                        مشاهده
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
+
                     </div>
                 </div>
             </div>

@@ -36,7 +36,16 @@
 
                     <div class="row">
 
-
+                        <%if(searched.length == 0){%>
+                            <div class="empty">
+        
+                                <h1>
+                                    <i class="fal fa-search"></i>
+                                    نتیجه ای یافت نشد !
+                                </h1>
+                            </div>
+        
+                        <%}if(searched.length != 0){%>
                         <% searched.forEach(function(message) {%>
 
                         <div class="col-lg-6 col-12">
@@ -119,9 +128,9 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                    <% })%>
-
+                   <%}%>
 
                     </div>
                 </div>

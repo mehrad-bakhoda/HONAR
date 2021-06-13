@@ -2187,13 +2187,6 @@ if(fields.password && fields.passwordConfirmation && fields.password===fields.pa
 
 });
 
-// not found routh
-
-router.get('*', function(req, res) {
-  res.render("notFound");
-});
-
-
 
 
 
@@ -2227,7 +2220,10 @@ Product.find({
     { "type": new RegExp(req.params.searchedItem, "gi") },
 ]
 },function(err,found){
-  res.render("search",{searched:found});
+  if(found){
+    res.render("search",{searched:found});
+  }
+  
 });
 }); 
 
@@ -2548,5 +2544,13 @@ router.post("/delete/product/:productId",function(req,res){
   });
 });
 ///////////////////////// ADMIN ROUTES ////////////////////////
+
+
+router.get('*', function(req, res) {
+  res.render("notFound");
+});
+
+
+
 
 module.exports = router;
