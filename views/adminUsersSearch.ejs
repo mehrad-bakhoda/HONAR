@@ -7,8 +7,8 @@
                 <div class="search">
                     <form name="searchForm" action="/search/admin/users" method="POST">
                         <div class="general">
-                            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />   
-                            <a onclick="submit_form();return false;"><i class="fal fa-search"></i></a>                        
+                            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />
+                            <a onclick="submit_form();return false;"><i class="fal fa-search"></i></a>
                         </div>
                     </form>
                 </div>
@@ -35,86 +35,79 @@
 
             <!-- Tabs content -->
 
-                    <div class="row">
-                        <%if(searched.length == 0){%>
-                            <div class="empty">
-        
-                                <h1>
-                                    <i class="fal fa-search"></i>
-                                    نتیجه ای یافت نشد !
-                                </h1>
-                            </div>
-        
-                        <%}if(searched.length != 0){%>
-                            <% searched.forEach(function(user) {%>
-                        <div class="col-lg-6 col-12">
-                            
-                                <form action="/delete/user/<%=user.unique_id%>" method="post">
-    
-                            <div class="card productCard">
-                                <div class="cardTop">
-                                    <div class="picture">
-                                        <%if(user.profilePicPath && user.profilePicPath.length != 0 && user.profilePicPath != "no picture"){%>
-                                            <img src="<%=user.profilePicPath%>" />
-                                       <% }if(!user.profilePicPath || user.profilePicPath.length ==0 || user.profilePicPath == "no picture"){%>
-                                        <i class="fal fa-user fa-2x"></i>
-                                        <%}%>
-                                    </div>
-                                    <div class="detail">
-                                       <% if(user.type=="Uploader"){%>
-                                            <span class="name">
-                                                <%=user.userName%> 
-                                            </span>
+            <div class="row">
+                <%if(searched.length == 0){%>
+                <div class="empty">
 
-                                        <%}if(user.type=="Downloader"){%>
-                                            <span class="name">
-                                                <%=user.firstName%> 
-                                                <%=user.lastName%> 
-                                            </span>
-                                      <%}%>
+                    <h2>
+                        <i class="fal fa-search"></i>
+                        نتیجه ای یافت نشد !
+                    </h2>
+                </div>
 
-                                        <span class="dateAdded">
-                                            <%=date(user.date)%> 
-                                        </span>
+                <%}if(searched.length != 0){%>
+                <% searched.forEach(function(user) {%>
+                <div class="col-lg-6 col-12">
 
-                                    </div>
+                    <form action="/delete/user/<%=user.unique_id%>" method="post">
+
+                        <div class="card productCard">
+                            <div class="cardTop">
+                                <div class="picture">
+                                    <%if(user.profilePicPath && user.profilePicPath.length != 0 && user.profilePicPath != "no picture"){%>
+                                    <img src="<%=user.profilePicPath%>" />
+                                    <% }if(!user.profilePicPath || user.profilePicPath.length ==0 || user.profilePicPath == "no picture"){%>
+                                    <i class="fal fa-user fa-2x"></i>
+                                    <%}%>
                                 </div>
-                                <div class="buttons">
+                                <div class="detail">
+                                    <% if(user.type=="Uploader"){%>
+                                    <span class="name">
+                                        <%=user.userName%>
+                                    </span>
 
-                                    <button type="submit" class="delete">
-                                        حذف
-                                        <i class="fal fa-trash"></i>
-                                    </button>
-                                    <a href="/<%=user.userName%>">
-                                        مشاهده
-                                        <i class="fal fa-eye"></i>
-                                    </a>
+                                    <%}if(user.type=="Downloader"){%>
+                                    <span class="name">
+                                        <%=user.firstName%>
+                                        <%=user.lastName%>
+                                    </span>
+                                    <%}%>
+
+                                    <span class="dateAdded">
+                                        <%=date(user.date)%>
+                                    </span>
+
                                 </div>
                             </div>
-                            </form>
-                            
-                    
+                            <div class="buttons">
+
+                                <button type="submit" class="delete">
+                                    حذف
+                                    <i class="fal fa-trash"></i>
+                                </button>
+                                <a href="/<%=user.userName%>">
+                                    مشاهده
+                                    <i class="fal fa-eye"></i>
+                                </a>
+                            </div>
                         </div>
-                        <%})%>
-                    <%}%>
+                    </form>
 
-
-                    </div>
-                </div>
 
                 </div>
+                <%})%>
+                <%}%>
+
+
             </div>
-            <!-- Tabs content -->
-
         </div>
     </section>
 </section>
 <script>
-    function submit_form()
-    {
-      document.searchForm.submit();
+    function submit_form() {
+        document.searchForm.submit();
     }
-    </script>
-    
+</script>
+
 
 <%-include("scripts");-%>

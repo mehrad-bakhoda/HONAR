@@ -66,10 +66,10 @@
                         <%if(rMessages.length == 0){%>
                             <div class="empty">
         
-                                <h1>
+                                <h2>
                                     <i class="fal fa-search"></i>
                                     نتیجه ای یافت نشد !
-                                </h1>
+                                </h2>
                             </div>
         
                         <%}if(rMessages.length != 0){%>
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="cardRow">
                                         <label>
-                                            تاریخ پیام
+                                            تاریخ ارسال
                                         </label>
                                         <p>
                                             <%=date(rMessage.date)%>
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="cardRow">
                                         <label>
-                                            تاریخ پاسخ داده شده
+                                            تاریخ پاسخ  
                                         </label>
                                         <p> <%=date(rMessage.answeredDate)%></p>
                                     </div>
@@ -143,10 +143,13 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                    <div> <p><%=rMessage.message%></p> </div>
-                                                    <div>   <p><%=rMessage.response%></p></div>
-                                                        
-                                               
+                                                    <p class="yourMessage"><%=message.message%></p>
+                                                    <div class="adminMessage">
+                                                        <label> پاسخ </label>
+                                                        <p><%=message.response%></p>
+                                                    </div>
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -168,10 +171,10 @@
                         <%if(messages.length == 0){%>
                             <div class="empty">
         
-                                <h1>
+                                <h2>
                                     <i class="fal fa-search"></i>
                                     نتیجه ای یافت نشد !
-                                </h1>
+                                </h2>
                             </div>
         
                         <%}if(messages.length != 0){%>
@@ -191,7 +194,7 @@
                                     </div>
                                     <div class="cardRow">
                                         <label>
-                                            تاریخ پیام
+                                            تاریخ ارسال
                                         </label>
                                         <p> <%=date(message.date)%></p>
                                     </div>

@@ -4036,6 +4036,17 @@ section.adminPage {
         }
 
         #answerModal {
+            .yourMessage {
+                border-bottom: 2px solid lightgray;
+            }
+
+            .adminMessage {
+                lable {
+                    color: $primary-color;
+                    display: block;
+                }
+            }
+
             .modal-content {
                 background-color: $body-color;
                 border-radius: $radius;

@@ -7,8 +7,8 @@
                 <div class="search">
                     <form name="searchForm" action="/search/admin/messages" method="POST">
                         <div class="general">
-                            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />   
-                            <a onclick="submit_form();return false;"><i class="fal fa-search"></i></a>                        
+                            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />
+                            <a onclick="submit_form();return false;"><i class="fal fa-search"></i></a>
                         </div>
                     </form>
                 </div>
@@ -34,202 +34,199 @@
             </div>
 
 
-                    <div class="row">
+            <div class="row">
 
-                        <%if(searched.length == 0){%>
-                            <div class="empty">
-        
-                                <h1>
-                                    <i class="fal fa-search"></i>
-                                    نتیجه ای یافت نشد !
-                                </h1>
+                <%if(searched.length == 0){%>
+                <div class="empty">
+
+                    <h2>
+                        <i class="fal fa-search"></i>
+                        نتیجه ای یافت نشد !
+                    </h2>
+                </div>
+
+                <%}if(searched.length != 0){%>
+                <% searched.forEach(function(message) {%>
+                <%if(message.answered===true){%>
+                <div class="col-lg-6 col-12">
+                    <div class="card productCard">
+                        <div class="cardTop">
+                            <div class="cardRow">
+                                <label>
+                                    عنوان پیام
+                                </label>
+                                <p>
+                                    <%=message.title%>
+                                </p>
                             </div>
-        
-                        <%}if(searched.length != 0){%>
-                        <% searched.forEach(function(message) {%>
-                            <%if(message.answered===true){%>
-                                <div class="col-lg-6 col-12">
-                                    <div class="card productCard">
-                                        <div class="cardTop">
-                                            <div class="cardRow">
-                                                <label>
-                                                    عنوان پیام
-                                                </label>
-                                                <p>
-                                                    <%=message.title%> 
-                                                </p>
-                                            </div>
-                                            <div class="cardRow">
-                                                <label>
-                                                    تاریخ پیام
-                                                </label>
-                                                <p>
-                                                   <%= date(message.date)%>
-                                                </p>
-                                            </div>
-                                            <div class="cardRow">
-                                                <label>
-                                                    تاریخ پیام
-                                                </label>
-                                                <p>
-                                                   <%= date(message.answeredDate)%>
-                                                </p>
-                                            </div>
-                                            <%if(message.user.type=="Uploader"){%>
-                                                <div class="cardRow">
-                                                    <label>
-                                                        کاربر
-                                                    </label>
-                                                    <a href="/<%=message.user.userName%>">
-                                                        <%= message.user.userName%> 
-                                                        <i class="fal fa-user"></i>
-                                                    </a>
-                                                </div>
-        
-                                           <% }%>
-                                            <%if(message.user.type=="Downloader"){%>
-                                                <div class="cardRow">
-                                                    <label>
-                                                        کاربر
-                                                    </label>
-                                                    <a>
-                                                        <%= message.user.firstName%> 
-                                                        <%= message.user.lastName%> 
-                                                        <i class="fal fa-user"></i>
-                                                    </a>
-                                                </div>
-                                                
-                                           <% }%>
-        
-        
-                                        </div>
-        
-                                        <div class="buttons">
-                                            <button type="button"
-                                                    data-mdb-toggle="modal"
-                                                    data-mdb-target="#answerModal">
-                                                مشاهده
-                                                <i class="fal fa-eye"></i>
-                                            </button>
-                                            <div class="modal fade"
-                                                 id="answerModal"
-                                                 tabindex="-1"
-                                                 aria-labelledby="exampleModalLabel"
-                                                 aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body">
-                                                            <p><%=message.message%></p>
-                                                            <p><%=message.response%></p>
+                            <div class="cardRow">
+                                <label>
+                                    تاریخ ارسال
+                                </label>
+                                <p>
+                                    <%= date(message.date)%>
+                                </p>
+                            </div>
+                            <div class="cardRow">
+                                <label>
+                                    تاریخ پاسخ
+                                </label>
+                                <p>
+                                    <%= date(message.answeredDate)%>
+                                </p>
+                            </div>
+                            <%if(message.user.type=="Uploader"){%>
+                            <div class="cardRow">
+                                <label>
+                                    کاربر
+                                </label>
+                                <a href="/<%=message.user.userName%>">
+                                    <%= message.user.userName%>
+                                    <i class="fal fa-user"></i>
+                                </a>
+                            </div>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <%}if(message.answered===false){%>
+                            <% }%>
+                            <%if(message.user.type=="Downloader"){%>
+                            <div class="cardRow">
+                                <label>
+                                    کاربر
+                                </label>
+                                <a>
+                                    <%= message.user.firstName%>
+                                    <%= message.user.lastName%>
+                                    <i class="fal fa-user"></i>
+                                </a>
+                            </div>
 
-                        <div class="col-lg-6 col-12">
-                            <div class="card productCard">
-                                <div class="cardTop">
-                                    <div class="cardRow">
-                                        <label>
-                                            عنوان پیام
-                                        </label>
-                                        <p>
-                                            <%=message.title%> 
-                                        </p>
-                                    </div>
-                                    <div class="cardRow">
-                                        <label>
-                                            تاریخ پیام
-                                        </label>
-                                        <p>
-                                           <%= date(message.date)%>
-                                        </p>
-                                    </div>
-                                    <%if(message.user.type=="Uploader"){%>
-                                        <div class="cardRow">
-                                            <label>
-                                                کاربر
-                                            </label>
-                                            <a href="/<%=message.user.userName%>">
-                                                <%= message.user.userName%> 
-                                                <i class="fal fa-user"></i>
-                                            </a>
-                                        </div>
-
-                                   <% }%>
-                                    <%if(message.user.type=="Downloader"){%>
-                                        <div class="cardRow">
-                                            <label>
-                                                کاربر
-                                            </label>
-                                            <a>
-                                                <%= message.user.firstName%> 
-                                                <%= message.user.lastName%> 
-                                                <i class="fal fa-user"></i>
-                                            </a>
-                                        </div>
-                                        
-                                   <% }%>
+                            <% }%>
 
 
-                                </div>
+                        </div>
 
-                                <div class="buttons">
-                                    <button type="button"
-                                            data-mdb-toggle="modal"
-                                            data-mdb-target="#answerModal">
-                                        مشاهده
-                                        <i class="fal fa-eye"></i>
-                                    </button>
-                                    <div class="modal fade"
-                                         id="answerModal"
-                                         tabindex="-1"
-                                         aria-labelledby="exampleModalLabel"
-                                         aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <p><%=message.message%></p>
-                                                    <form action="/send/message/<%=message.unique_id%>/<%=message.user.unique_id%>" method="POST">
-                                                    <textarea name="response" placeholder="پاسخ شما" resize="none"></textarea>
-                                                    <div class="buttons">
-                                                        <button type="submit">
-                                                            ارسال پاسخ
-                                                            <i class="fal fa-check"></i>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                                </div>
+                        <div class="buttons">
+                            <button type="button"
+                                    data-mdb-toggle="modal"
+                                    data-mdb-target="#answerModal">
+                                مشاهده
+                                <i class="fal fa-eye"></i>
+                            </button>
+                            <div class="modal fade"
+                                 id="answerModal"
+                                 tabindex="-1"
+                                 aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <p class="yourMessage"><%=message.message%></p>
+                                            <div class="adminMessage">
+                                                <label> پاسخ </label>
+                                                <p><%=message.response%></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <%}%>
-                   <% })%>
-                   <%}%>
-
                     </div>
                 </div>
-            </div>
-            <!-- Tabs content -->
+                <%}if(message.answered===false){%>
 
+                <div class="col-lg-6 col-12">
+                    <div class="card productCard">
+                        <div class="cardTop">
+                            <div class="cardRow">
+                                <label>
+                                    عنوان پیام
+                                </label>
+                                <p>
+                                    <%=message.title%>
+                                </p>
+                            </div>
+                            <div class="cardRow">
+                                <label>
+                                    تاریخ ارسال
+                                </label>
+                                <p>
+                                    <%= date(message.date)%>
+                                </p>
+                            </div>
+                            <%if(message.user.type=="Uploader"){%>
+                            <div class="cardRow">
+                                <label>
+                                    کاربر
+                                </label>
+                                <a href="/<%=message.user.userName%>">
+                                    <%= message.user.userName%>
+                                    <i class="fal fa-user"></i>
+                                </a>
+                            </div>
+
+                            <% }%>
+                            <%if(message.user.type=="Downloader"){%>
+                            <div class="cardRow">
+                                <label>
+                                    کاربر
+                                </label>
+                                <a>
+                                    <%= message.user.firstName%>
+                                    <%= message.user.lastName%>
+                                    <i class="fal fa-user"></i>
+                                </a>
+                            </div>
+
+                            <% }%>
+
+
+                        </div>
+
+                        <div class="buttons">
+                            <button type="button"
+                                    data-mdb-toggle="modal"
+                                    data-mdb-target="#answerModal">
+                                مشاهده
+                                <i class="fal fa-eye"></i>
+                            </button>
+                            <div class="modal fade"
+                                 id="answerModal"
+                                 tabindex="-1"
+                                 aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <p><%=message.message%></p>
+                                            <form action="/send/message/<%=message.unique_id%>/<%=message.user.unique_id%>" method="POST">
+                                                <textarea name="response" placeholder="پاسخ شما" resize="none"></textarea>
+                                                <div class="buttons">
+                                                    <button type="submit">
+                                                        ارسال پاسخ
+                                                        <i class="fal fa-check"></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+                <% })%>
+                <%}%>
+
+            </div>
         </div>
     </section>
 </section>
 <script>
-    function submit_form()
-    {
-      document.searchForm.submit();
+    function submit_form() {
+        document.searchForm.submit();
     }
-    </script>
-    
+</script>
+
 
 
 <%-include("scripts");-%>

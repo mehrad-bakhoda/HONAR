@@ -3438,6 +3438,13 @@ section.adminPage.messages .contents .col-12 .buttons button:hover {
     margin: 0.25rem;
   }
 }
+section.adminPage.messages .contents #answerModal .yourMessage {
+  border-bottom: 2px solid lightgray;
+}
+section.adminPage.messages .contents #answerModal .adminMessage lable {
+  color: #0098c5;
+  display: block;
+}
 section.adminPage.messages .contents #answerModal .modal-content {
   background-color: #f5f5f5;
   border-radius: 12px;
