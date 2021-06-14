@@ -3141,7 +3141,7 @@ section.adminPage .sidebar .item a {
   padding: 0.5rem 0.5rem 0.5rem 3rem;
   height: 3rem;
   line-height: 2rem;
-  margin-top: calc(25% - 1.5rem);
+  margin-top: calc(22% - 1.5rem);
   font-size: 1.1rem;
   background-color: #f5f5f5;
 }
@@ -3163,6 +3163,9 @@ section.adminPage .sidebar .item a i {
   section.adminPage .sidebar {
     width: 400px;
     right: calc(-400px + 4rem);
+  }
+  section.adminPage .sidebar .item a {
+    margin-top: calc(14% - 1.5rem);
   }
 }
 section.adminPage .top {
