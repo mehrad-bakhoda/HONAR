@@ -95,6 +95,12 @@
                                             <%=date(rMessage.date)%>
                                         </p>
                                     </div>
+                                    <div class="cardRow">
+                                        <label>
+                                            تاریخ پاسخ داده شده
+                                        </label>
+                                        <p> <%=date(rMessage.answeredDate)%></p>
+                                    </div>
                                     <%if(rMessage.user.type == "Uploader"){%>
                                         <div class="cardRow">
                                             <label>

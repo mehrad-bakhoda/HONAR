@@ -24,6 +24,9 @@ const messageSchema = new mongoose.Schema({
   date:{
     type:Date
   },
+  answeredDate:{
+    type:Date
+  },
 
   title:{
     type:String
