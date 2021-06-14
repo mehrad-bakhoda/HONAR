@@ -2213,7 +2213,7 @@ Product.find({
 ]
 },function(err,found){
   if(found){
-    res.render("search",{searched:found});
+    res.render("search",{searched:found,searchedItem:req.params.searchedItem});
   }
   
 });
@@ -2469,7 +2469,7 @@ router.get("/admin/messages", function (req, res) {
 });
 router.post("/send/message/:messageId/:userId",function(req,res){
   
-  Message.updateOne({unique_id:req.params.messageId},{response:req.body.response,answered:true,answeredDate:new Date()},function(err){
+  Message.updateOne({unique_id:req.params.messageId},{response:req.body.response,answered:true,answeredDate:new Date},function(err){
     if(!err){
       let messageRecieved={message:`you have recieved a new message`,code:"000",date:newDate(new Date())};
       User.updateOne({unique_id:req.params.userId },{$push:{message:messageRecieved}},function(err){

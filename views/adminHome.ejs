@@ -2,7 +2,71 @@
 <section class="adminPage home">
     <%-include("adminSidebar");-%>
     <section class="contents">
+        <div>
+        <canvas id="line-chart" width="800" height="450"></canvas>
+    </div>
+    <div>
+    <canvas id="doughnut-chart" width="800" height="450"></canvas>
+</div>
+
     </section>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: [1,2,3,4,5,6,7,8,9,10,11,12],
+    datasets: [{ 
+        data: [100000,500000,550000,600000,650000],
+        label: "پول دریافتی",
+        borderColor: "#3e95cd",
+        fill: false
+      }, { 
+        data: [20000,100000,110000,150000,170000],
+        label: "سود",
+        borderColor: "#8e5ea2",
+        fill: false
+      },{ 
+        data: [75500,390000,430000,440000,470000],
+        label: "پول پرداختی",
+        borderColor: "#3cba9f",
+        fill: false
+      },{ 
+        data: [4500,10000,10000,10000,10000],
+        label: "مالیات",
+        borderColor: "#e8c3b9",
+        fill: false
+      },
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'میزان درآمد'
+    }
+  }
+});
+
+// new Chart(document.getElementById("doughnut-chart"), {
+//     type: 'doughnut',
+//     data: {
+//         labels: ["ماه اول","ماه دوم","ماه سوم","ماه چهارم","ماه پنجم","ماه ششم","ماه هفتم","ماه هشتم","ماه نهم","ماه دهم","ماه یازدهم","ماه دوازدهم"],
+//       datasets: [
+//         {
+//           label: "پول دریافتی",
+//           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+//           data: [100000,500000,550000,600000,650000],
+//         }
+//       ]
+//     },
+//     options: {
+//       title: {
+//         display: true,
+//         text: 'Predicted world population (millions) in 2050'
+//       }
+//     }
+// });
+    </script>
 
 <%-include("scripts");-%>
