@@ -3711,6 +3711,8 @@ section.adminPage {
         @include sm {
             width: 400px;
             right: calc(-400px + 4rem);
+            top: 5vh;
+            height: 90vh;
 
             .item a {
                 margin-top: calc(14% - 1.5rem);
@@ -3902,7 +3904,7 @@ section.adminPage {
         padding-right: calc(250px + 1rem);
 
         @include sm {
-            padding: 10vh 4rem 1rem 0;
+            padding: 5vh 4rem 1rem 0;
         }
 
         .empty {
@@ -3950,7 +3952,7 @@ section.adminPage {
 
         .tab-content {
             padding: 0 1rem;
-            max-height: 50rem;
+            max-height: calc(100vh - 21rem);
             overflow-x: hidden;
             overflow-y: auto;
         }

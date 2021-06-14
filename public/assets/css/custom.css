@@ -3163,6 +3163,8 @@ section.adminPage .sidebar .item a i {
   section.adminPage .sidebar {
     width: 400px;
     right: calc(-400px + 4rem);
+    top: 5vh;
+    height: 90vh;
   }
   section.adminPage .sidebar .item a {
     margin-top: calc(14% - 1.5rem);
@@ -3331,7 +3333,7 @@ section.adminPage .contents {
 }
 @media (max-width: 767px) {
   section.adminPage .contents {
-    padding: 10vh 4rem 1rem 0;
+    padding: 5vh 4rem 1rem 0;
   }
 }
 section.adminPage .contents .empty {
@@ -3372,7 +3374,7 @@ section.adminPage .contents ul.nav-tabs li.nav-item a.nav-link.active {
 }
 section.adminPage .contents .tab-content {
   padding: 0 1rem;
-  max-height: 50rem;
+  max-height: calc(100vh - 21rem);
   overflow-x: hidden;
   overflow-y: auto;
 }
