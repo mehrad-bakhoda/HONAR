@@ -74,9 +74,10 @@ const productSchema = new mongoose.Schema({
     default:0
   },
   date:{
-    type:String,
+    type:Date,
 
   },
+
   confirmation:{
     type:Boolean
   },

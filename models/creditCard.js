@@ -18,7 +18,7 @@ const creditCardSchema = new mongoose.Schema({
         type:String,
       },
       date:{
-        type:String
+        type:Date
       },
 
   user: {

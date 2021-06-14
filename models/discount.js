@@ -20,6 +20,9 @@ const discountSchema = new mongoose.Schema({
   },
   code:{
     type:String
+  },
+  date:{
+    type:String
   }
 
 });

@@ -58,13 +58,14 @@ router.post("/generateD",function(req,res){
         toDate :req.body.toDate,
         unique_id: c,
         userId:found.unique_id,
-        code:discountGenerator.getDiscount().toString() 
+        code:discountGenerator.getDiscount().toString() ,
+        date:new Date()
 
       });
       discount.save(function(err, docs) {
         if (!err) {
          console.log("message sent");
-         let discountCreated={message:`discount code added`,code:"000",date:newDate};
+         let discountCreated={message:`discount code added`,code:"000",date:newDate(new Date())};
          User.updateOne({
            unique_id:req.session.userId
          },
@@ -128,13 +129,13 @@ router.post("/sendMessage",function(req,res){
         message:req.body.message,
         user:found,
         unique_id: c,
-        date:newDate,
+        date:new Date(),
         answered:false
       });
       message.save(function(err, docs) {
         if (!err) {
          console.log("message sent");
-         let messageSent={message:`message sent`,code:"000",date:newDate};
+         let messageSent={message:`message sent`,code:"000",date:newDate(new Date())};
          User.updateOne({
            unique_id:req.session.userId
          },
@@ -178,12 +179,12 @@ router.post("/addCard",function(req,res){
         name:req.body.name,
         sId:req.body.sId,
         user:found,
-        date:newDate
+        date:new Date(),
       });
       creditCard.save(function(err, docs) {
         if (!err) {
          console.log("credirCard added");
-         let cardAdded={message:`card added`,code:"000",date:newDate};
+         let cardAdded={message:`card added`,code:"000",date:newDate(new Date())};
          User.updateOne({
            unique_id:req.session.userId
          },
@@ -394,7 +395,7 @@ router.get("/dashboard",function(req,res){
                 if(discounts){
                 Message.find({"user.unique_id":req.session.userId},function(err,messages){
                   if(!err){
-                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:newDate,orders:orders,discounts:discounts,messages:messages});
+                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:newDate(new Date()),orders:orders,discounts:discounts,messages:messages});
                   }
 
                 });
@@ -797,7 +798,7 @@ router.post("/login",[
               verified: "false",
               registered: "false",
               hasPassword:"false",
-              date:newDate
+              date:new Date(),
             });
             console.log(user.verifyCode)
             user.save(function(err, docs) {
@@ -1232,7 +1233,7 @@ router.post("/upload", function(req, res){
                 mediumPrice:fields.mediumPrice,
                 smallPrice:fields.smallPrice,
                 user:found,
-                date:newDate,
+                date:new Date(),
                 confirmation:false
                
               });
@@ -1252,7 +1253,7 @@ router.post("/upload", function(req, res){
               if (err) {
                 next(err);
  
-                let failedUpload={message:`${fields.fileName} upload failed`,code:"222",date:newDate};
+                let failedUpload={message:`${fields.fileName} upload failed`,code:"222",date:newDate(new Date())};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -1266,7 +1267,7 @@ router.post("/upload", function(req, res){
                 return;
               }
               if(!err){
-                let successfulUpload={message:`${fields.fileName} upload was succesfull`,code:"000",date:newDate};
+                let successfulUpload={message:`${fields.fileName} upload was succesfull`,code:"000",date:newDate(new Date())};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -1492,7 +1493,7 @@ router.post("/editProduct/:productId",function(req,res,next){
 
             if (err) {
               next(err);
-              let failedUpload={message:`${fields.fileName} upload failed`,code:"222",date:newDate};
+              let failedUpload={message:`${fields.fileName} upload failed`,code:"222",date:newDate(new Date())};
               Product.updateOne({
                 unique_id:req.session.userId
               },
@@ -1603,7 +1604,7 @@ router.post("/changeUserInfoU",function(req,res,next){
                   profilePicPath:profilePicPath,
                 },function(err){
                   if(!err){
-                    let successfulProfilePicChange={message:`Profile picture updated`,code:"111",date:newDate};
+                    let successfulProfilePicChange={message:`Profile picture updated`,code:"111",date:newDate(new Date())};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1639,7 +1640,7 @@ router.post("/changeUserInfoU",function(req,res,next){
                 firstName:fields.firstName,
               },function(err){
                 if(!err){
-                  let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111",date:newDate};
+                  let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111",date:newDate(new Date())};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -1667,7 +1668,7 @@ router.post("/changeUserInfoU",function(req,res,next){
                 lastName:fields.lastName,
             },function(err){
               if(!err){
-                let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111",date:newDate};
+                let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111",date:newDate(new Date())};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1694,7 +1695,7 @@ router.post("/changeUserInfoU",function(req,res,next){
               if(!err){
                 if(userNameFound){
                   if(userNameFound.unique_id!=req.session.userId){
-                    let unsuccessfullUserNameChange={message:`couldnt change username | ${fields.userName.toLowerCase()} already exists`,code:"222",date:newDate};
+                    let unsuccessfullUserNameChange={message:`couldnt change username | ${fields.userName.toLowerCase()} already exists`,code:"222",date:newDate(new Date())};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1713,7 +1714,7 @@ router.post("/changeUserInfoU",function(req,res,next){
               userName:fields.userName.toLowerCase(),
           },function(err){
             if(!err){
-              let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111",date:newDate};
+              let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111",date:newDate(new Date())};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1747,7 +1748,7 @@ router.post("/changeUserInfoU",function(req,res,next){
               instagram:fields.instagram,
             },function(err){
               if(!err){
-                let successfulInstagramchange={message:`instagram link removed`,code:"111",date:newDate};
+                let successfulInstagramchange={message:`instagram link removed`,code:"111",date:newDate(new Date())};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -1771,7 +1772,7 @@ router.post("/changeUserInfoU",function(req,res,next){
             instagram:fields.instagram,
         },function(err){
           if(!err){
-            let successfullInstagramChange={message:`Instagram link updated`,code:"111",date:newDate};
+            let successfullInstagramChange={message:`Instagram link updated`,code:"111",date:newDate(new Date())};
                     User.updateOne({
                       unique_id:req.session.userId
                     },
@@ -1800,7 +1801,7 @@ router.post("/changeUserInfoU",function(req,res,next){
           twitter:fields.twitter,
         },function(err){
           if(!err){
-            let successfulTwitterchange={message:`twitter link removed`,code:"111",date:newDate};
+            let successfulTwitterchange={message:`twitter link removed`,code:"111",date:newDate(new Date())};
             User.updateOne({
               unique_id:req.session.userId
             },
@@ -1824,7 +1825,7 @@ router.post("/changeUserInfoU",function(req,res,next){
           twitter:fields.twitter,
       },function(err){
         if(!err){
-          let successfullTwitterChange={message:`Twitter link updated`,code:"111",date:newDate};
+          let successfullTwitterChange={message:`Twitter link updated`,code:"111",date:newDate(new Date())};
           User.updateOne({
             unique_id:req.session.userId
           },
@@ -1853,7 +1854,7 @@ router.post("/changeUserInfoU",function(req,res,next){
         bio:fields.bio,
       },function(err){
         if(!err){
-          let successfulBioChange={message:`bio removed`,code:"111",date:newDate};
+          let successfulBioChange={message:`bio removed`,code:"111",date:newDate(new Date())};
           User.updateOne({
             unique_id:req.session.userId
           },
@@ -1878,7 +1879,7 @@ router.post("/changeUserInfoU",function(req,res,next){
         bio:fields.bio,
     },function(err){
       if(!err){
-        let successfullBioChange={message:`bio updated`,code:"111",date:newDate};
+        let successfullBioChange={message:`bio updated`,code:"111",date:newDate(new Date())};
         User.updateOne({
           unique_id:req.session.userId
         },
@@ -1908,7 +1909,7 @@ router.post("/changeUserInfoU",function(req,res,next){
       email:fields.email,
     },function(err){
       if(!err){
-        let successfulEmailchange={message:`email removed`,code:"111",date:newDate};
+        let successfulEmailchange={message:`email removed`,code:"111",date:newDate(new Date())};
         User.updateOne({
           unique_id:req.session.userId
         },
@@ -1932,7 +1933,7 @@ router.post("/changeUserInfoU",function(req,res,next){
       email:fields.email,
   },function(err){
     if(!err){
-      let successfullEmailChange={message:`Email updated`,code:"111",date:newDate};
+      let successfullEmailChange={message:`Email updated`,code:"111",date:newDate(new Date())};
       User.updateOne({
         unique_id:req.session.userId
       },
@@ -1960,7 +1961,7 @@ router.post("/changeUserInfoU",function(req,res,next){
       password:fields.password,
   },function(err){
     if(!err){
-      let successfullPasswordChange={message:`password changed`,code:"111",date:newDate};
+      let successfullPasswordChange={message:`password changed`,code:"111",date:newDate(new Date())};
       User.updateOne({
         unique_id:req.session.userId
       },
@@ -1986,7 +1987,7 @@ router.post("/changeUserInfoU",function(req,res,next){
         
 
             }else{
-              let wrongPassword={message:`wrong password`,code:"222",date:newDate};
+              let wrongPassword={message:`wrong password`,code:"222",date:newDate(new Date())};
               User.updateOne({
                 unique_id:req.session.userId
               },
@@ -2054,7 +2055,7 @@ router.post("/changeUserInfoD",function(req,res,next){
               firstName:fields.firstName,
             },function(err){
               if(!err){
-                let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111",date:newDate};
+                let successfulNamechange={message:`FirstName changed from ${found.firstName} to ${fields.firstName}`,code:"111",date:newDate(new Date())};
                 User.updateOne({
                   unique_id:req.session.userId
                 },
@@ -2076,7 +2077,7 @@ router.post("/changeUserInfoD",function(req,res,next){
               lastName:fields.lastName,
           },function(err){
             if(!err){
-              let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111",date:newDate};
+              let successfullLastNameChange={message:`LastName changed from ${found.lastName} to ${fields.lastName}`,code:"111",date:newDate(new Date())};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -2099,7 +2100,7 @@ router.post("/changeUserInfoD",function(req,res,next){
             userName:fields.userName.toLowerCase(),
         },function(err){
           if(!err){
-            let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111",date:newDate};
+            let successfullUserNameChange={message:`UserName changed from ${found.userName} to ${fields.userName}`,code:"111",date:newDate(new Date())};
                   User.updateOne({
                     unique_id:req.session.userId
                   },
@@ -2123,7 +2124,7 @@ if(fields.password && fields.passwordConfirmation && fields.password===fields.pa
     password:fields.password,
 },function(err){
   if(!err){
-    let successfullPasswordChange={message:`password changed`,code:"111",date:newDate};
+    let successfullPasswordChange={message:`password changed`,code:"111",date:newDate(new Date())};
     User.updateOne({
       unique_id:req.session.userId
     },
@@ -2141,7 +2142,7 @@ if(fields.password && fields.passwordConfirmation && fields.password===fields.pa
 
 }
 }else{
-  let wrongPassword={message:`wrong password`,code:"222",date:newDate};
+  let wrongPassword={message:`wrong password`,code:"222",date:newDate(new Date())};
   User.updateOne({
     unique_id:req.session.userId
   },
@@ -2246,7 +2247,7 @@ Order.find({
     { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
 ]
 },function(err,found){
-  res.render("adminFinanceSearch",{searched:found});
+  res.render("adminFinanceSearch",{searched:found,date:newDate});
 });
 }else{
   res.redirect("/admin/login");
@@ -2282,7 +2283,7 @@ User.find({
     { "email": new RegExp(req.params.searchedItem, "gi") },
 ]
 },function(err,found){
-  res.render("adminUsersSearch",{searched:found});
+  res.render("adminUsersSearch",{searched:found,date:newDate});
 });
 }else{
   res.redirect("/admin/login");
@@ -2320,7 +2321,7 @@ Product.find({
     { "type": new RegExp(req.params.searchedItem, "gi") },
 ]
 },function(err,found){
-  res.render("adminProductsSearch",{searched:found});
+  res.render("adminProductsSearch",{searched:found,date:newDate});
 });
 }else{
   res.redirect("/admin/login");
@@ -2358,7 +2359,7 @@ Message.find({
     
 ]
 },function(err,found){
-  res.render("adminMessagesSearch",{searched:found});
+  res.render("adminMessagesSearch",{searched:found,date:newDate});
 });
 }else{
   res.redirect("/admin/login");
@@ -2418,7 +2419,7 @@ router.get("/admin/finance", function (req, res) {
   if(req.session.userId==0){
     Order.find({},function(err,orders)
     {
-      res.render("adminFinance",{orders:orders});
+      res.render("adminFinance",{orders:orders,date:newDate});
     });
   }
   else{
@@ -2434,7 +2435,7 @@ router.get("/admin/users", function (req, res) {
     User.find({},function(err,users){
 
   
-      res.render("adminUsers",{users:users});
+      res.render("adminUsers",{users:users,date:newDate});
     });
   }
   else{
@@ -2458,7 +2459,7 @@ router.get("/admin/messages", function (req, res) {
     Message.find({answered:true},function(err,rMessages){
       Message.find({answered:false},function(err,messages){
   
-      res.render("adminMessages",{messages:messages,rMessages:rMessages});
+      res.render("adminMessages",{messages:messages,rMessages:rMessages,date:newDate});
       });
     });
   }
@@ -2470,7 +2471,7 @@ router.post("/send/message/:messageId/:userId",function(req,res){
   
   Message.updateOne({unique_id:req.params.messageId},{response:req.body.response,answered:true},function(err){
     if(!err){
-      let messageRecieved={message:`you have recieved a new message`,code:"000",date:newDate};
+      let messageRecieved={message:`you have recieved a new message`,code:"000",date:newDate(new Date())};
       User.updateOne({unique_id:req.params.userId },{$push:{message:messageRecieved}},function(err){
         if(!err){
           console.log("added status");
@@ -2509,7 +2510,7 @@ router.get("/admin/products", function (req, res) {
     {
       Product.find({confirmation:true},function(err,cProducts)
       {
-      res.render("adminProducts",{unconfirmedProducts:uProducts,confirmedProducts:cProducts});
+      res.render("adminProducts",{unconfirmedProducts:uProducts,confirmedProducts:cProducts,date:newDate});
       });
     });
   }

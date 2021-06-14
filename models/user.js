@@ -70,8 +70,9 @@ const userSchema = new mongoose.Schema({
     default: false
   },
   date:{
-    type:String
+    type:Date
   },
+
   message: [{
     message:String,
     code:String ,
