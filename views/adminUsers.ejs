@@ -37,30 +37,30 @@
             <ul class="nav nav-tabs nav-justified" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active"
-                       id="acceptedH"
+                       id="uploaderH"
                        data-mdb-toggle="tab"
-                       href="#acceptedC"
+                       href="#uploaderC"
                        role="tab"
-                       aria-controls="acceptedC"
-                       aria-selected="true">تایید</a>
+                       aria-controls="uploaderC"
+                       aria-selected="true">فروشنده</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link"
-                       id="queueH"
+                       id="downloaderH"
                        data-mdb-toggle="tab"
-                       href="#queueC"
+                       href="#downloaderC"
                        role="tab"
-                       aria-controls="queueC"
-                       aria-selected="false">در انتظار</a>
+                       aria-controls="downloaderC"
+                       aria-selected="false"> خریدار</a>
                 </li>
             </ul>
             <!-- Tabs navs -->
             <!-- Tabs content -->
-            <div class="tab-content" id="ex2-content">
+            <div class="tab-content">
                 <div class="tab-pane fade show active"
-                     id="acceptedC"
+                     id="uploaderC"
                      role="tabpanel"
-                     aria-labelledby="acceptedH">
+                     aria-labelledby="uploaderH">
                     <div class="row">
 
                         <%if(users.length == 0){%>
@@ -130,9 +130,9 @@
                     </div>
                 </div>
                 <div class="tab-pane fade"
-                     id="queueC"
+                     id="downloaderC"
                      role="tabpanel"
-                     aria-labelledby="queueH">
+                     aria-labelledby="downloaderH">
                     <div class="row">
 
 

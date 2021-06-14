@@ -19,16 +19,34 @@
                             <textarea name="description" class="descriptionText" maxlength="100" placeholder="توضیحات اثر"></textarea>
                         </div>
                     </div>
-                    <div class="uploadPic">
-                        <input id ="productUploader"type="file" name="productFiles" required/>
+                    <div class="uploadFile">
+                        <input id="productUploader" type="file" name="productFiles" required />
                         <i class="far fa-spinner-third fa-spin hidden"></i>
                         <i class="far fa-check-circle hidden"></i>
+                    </div>
+                    <div class="uploadCover">
+                        <input id="coverUploader" type="file" name="productCover" required />
+                        <i class="far fa-spinner-third fa-spin hidden"></i>
+                        <i class="far fa-check-circle hidden"></i>
+                    </div>
+                    <div class="type">
+                        <lable class="title"> دیگر فایل های مورد نظر </lable>
+
+                        <div class="options">
+                            <input type="text" id="file" name="file" style="display:none;" required />
+
+                            <label for="png" class="radioLabel" id="png">PNG</label>
+
+                            <label for="jpeg" class="radioLabel" id="jpeg">JPEG</label>
+
+                            <label for="psd" class="radioLabel" id="psd">PSD</label>
+                        </div>
                     </div>
                     <div class="category">
                         <lable class="title"> نوع </lable>
 
                         <div class="options">
-                            <input type="text" id="types" name = "types" style="display:none;" required/>
+                            <input type="text" id="types" name="types" style="display:none;" required />
 
                             <label for="photography" class="radioLabel" id="photography">عکاسی</label>
 
@@ -38,27 +56,52 @@
                         </div>
                     </div>
                     <div class="pricing original">
-                        <input name ="orginalPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" required/>
+                        <input name="orginalPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز اصلی" maxlength="11" required />
                         <label class="toman"> تومان </label>
                         <label class="free"> رایگان </label>
                     </div>
-                    <div class="pricing large">
-                        <input name ="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" required/>
-                        <label class="toman"> تومان </label>
-                        <label class="free"> رایگان </label>
+                    <div class="accordion" id="accorionPrice">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-mdb-toggle="collapse"
+                                        data-mdb-target="#other"
+                                        aria-expanded="true"
+                                        aria-controls="other">
+                                    انتشار با سایزهای دیگر
+                                </button>
+                            </h2>
+                            <div id="other"
+                                 class="accordion-collapse collapse"
+                                 aria-labelledby="other"
+                                 data-mdb-parent="#accorionPrice">
+                                <div class="accordion-body">
+                                    <div class="pricing large">
+                                        <input name="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" />
+                                        <label class="toman"> تومان </label>
+                                        <label class="free"> رایگان </label>
+                                    </div>
+                                    <div class="pricing medium">
+                                        <input name="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" />
+                                        <label class="toman"> تومان </label>
+                                        <label class="free"> رایگان </label>
+                                    </div>
+                                    <div class="pricing small">
+                                        <input name="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" />
+                                        <label class="toman"> تومان </label>
+                                        <label class="free"> رایگان </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pricing medium">
-                        <input name ="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" required/>
-                        <label class="toman"> تومان </label>
-                        <label class="free"> رایگان </label>
-                    </div>
-                    <div class="pricing small">
-                        <input name ="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" required/>
-                        <label class="toman"> تومان </label>
-                        <label class="free"> رایگان </label>
-                    </div>
+                    
                     <div class="buttons">
-                        <button type="submit">تایید</button>
+                        <button type="submit">
+                            تایید
+                        <i class="fal fa-check"></i>
+                        </button>
                     </div>
                 </form>
             </div>

@@ -1338,7 +1338,7 @@ Section.uploadPage section.contents .container-fluid .row .info label {
 }
 Section.uploadPage section.contents .container-fluid .row .info input {
   display: block;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   transition: 0.4s;
   height: 2.5rem;
   width: 100%;
@@ -1364,59 +1364,105 @@ Section.uploadPage section.contents .container-fluid .row .info textarea {
   border: none;
   border-radius: 12px;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding: 0.5rem;
   color: #333333;
   border: 2px solid lightGray;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic {
-  margin-bottom: 3rem;
+Section.uploadPage section.contents .container-fluid .row .uploadFile {
   position: relative;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic label {
+Section.uploadPage section.contents .container-fluid .row .uploadFile label {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file] {
+Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file] {
   padding: 0;
   visibility: hidden;
-  width: 14rem;
+  width: 16rem;
   margin-right: -1rem;
   height: 3.5rem;
   position: relative;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]::before {
+Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file]::before {
   visibility: visible;
   margin-right: 1rem;
   transition: 0.4s;
-  content: "اثر خود را آپلود کنید";
-  font-size: 18px;
+  content: "فایل خود را آپلود کنید";
+  font-size: 16px;
   position: absolute;
   background-color: transparent;
-  padding: 0.5rem 1rem;
-  width: 11rem;
+  width: 14rem;
   cursor: pointer;
   text-align: center;
   color: #0098c5;
   border-radius: 12px;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic input[type=file]:hover::before {
+Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file]:hover::before {
   transition: 0.4s;
   color: #f5f5f5 !important;
   background-color: #0098c5 !important;
   border: 2px solid #0098c5 !important;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic i {
+Section.uploadPage section.contents .container-fluid .row .uploadFile i {
+  position: absolute;
+  right: 15rem;
+  color: #0098c5;
+  font-size: 1.2rem;
+  top: 0.75rem;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadFile .hidden {
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadCover {
+  margin-bottom: 2rem;
+  position: relative;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadCover label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadCover input[type=file] {
+  padding: 0;
+  visibility: hidden;
+  width: 16rem;
+  margin-right: -1rem;
+  height: 3.5rem;
+  position: relative;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadCover input[type=file]::before {
+  visibility: visible;
+  margin-right: 1rem;
+  transition: 0.4s;
+  content: "کاور اثر خود را آپلود کنید";
+  font-size: 16px;
+  position: absolute;
+  background-color: transparent;
+  width: 14rem;
+  cursor: pointer;
+  text-align: center;
+  color: #0098c5;
+  border-radius: 12px;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadCover input[type=file]:hover::before {
+  transition: 0.4s;
+  color: #f5f5f5 !important;
+  background-color: #0098c5 !important;
+  border: 2px solid #0098c5 !important;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadCover i {
   position: absolute;
   right: 12rem;
   color: #333333;
   font-size: 1.2rem;
   top: 1rem;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic i.fa-check-circle {
+Section.uploadPage section.contents .container-fluid .row .uploadCover i.fa-check-circle {
   color: #0098c5;
 }
-Section.uploadPage section.contents .container-fluid .row .uploadPic .hidden {
+Section.uploadPage section.contents .container-fluid .row .uploadCover .hidden {
   transition: 0.4s;
   opacity: 0;
   visibility: hidden;
@@ -1441,9 +1487,6 @@ Section.uploadPage section.contents .container-fluid .row .pricing input {
 Section.uploadPage section.contents .container-fluid .row .pricing input:focus {
   transition: 0.4s;
   outline: none;
-}
-Section.uploadPage section.contents .container-fluid .row .pricing.small {
-  margin-bottom: 3rem;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label {
   color: #333333;
@@ -1472,22 +1515,55 @@ Section.uploadPage section.contents .container-fluid .row .pricing .shown {
   transition: 0.4s;
   opacity: 1 !important;
 }
-Section.uploadPage section.contents .container-fluid .row .category {
+Section.uploadPage section.contents .container-fluid .row .accordion {
   max-width: 20rem;
-  display: flex;
-  margin-bottom: 3rem;
 }
-Section.uploadPage section.contents .container-fluid .row .category .title {
-  padding-top: 0.5rem;
-  width: 3rem;
+Section.uploadPage section.contents .container-fluid .row .accordion .accordion-button {
+  text-align: center;
+  transition: 0.4s;
+  border: none;
+  color: #f5f5f5;
+  padding: 0 1rem;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  border: 2px solid #0098c5;
+  color: #0098c5;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  box-shadow: none;
+}
+Section.uploadPage section.contents .container-fluid .row .accordion .accordion-button:hover {
+  transition: 0.4s;
+  background-color: #0098c5;
+  color: #f5f5f5;
+}
+Section.uploadPage section.contents .container-fluid .row .accordion .accordion-button::after {
+  position: absolute;
+  left: 1rem;
+  top: 0rem;
+  height: 2rem;
+}
+Section.uploadPage section.contents .container-fluid .row .accordion #other {
+  border: 2px solid #0098c5;
+  border-radius: 0 0 12px 12px;
+  border-top: 0;
+  margin-top: -0.5rem;
+  padding-top: 1rem;
+}
+Section.uploadPage section.contents .container-fluid .category, Section.uploadPage section.contents .container-fluid .type {
+  max-width: 20rem;
+}
+Section.uploadPage section.contents .container-fluid .category .title, Section.uploadPage section.contents .container-fluid .type .title {
+  padding: 1rem 0 0.5rem;
+  display: block;
   text-align: right;
 }
-Section.uploadPage section.contents .container-fluid .row .category .selected {
+Section.uploadPage section.contents .container-fluid .category .selected, Section.uploadPage section.contents .container-fluid .type .selected {
   transition: 0.4s;
   color: #0098c5;
   font-weight: bold;
 }
-Section.uploadPage section.contents .container-fluid .row .category label.radioLabel {
+Section.uploadPage section.contents .container-fluid .category label.radioLabel, Section.uploadPage section.contents .container-fluid .type label.radioLabel {
   margin: 0 0.5rem 0 0;
   cursor: pointer;
   width: 100%;
@@ -1497,32 +1573,36 @@ Section.uploadPage section.contents .container-fluid .row .category label.radioL
   border: none;
   border: 2px solid lightGray;
   color: #333333;
-  padding: 0.5rem 0.4rem;
+  padding: 0.25rem 0.4rem;
   border-radius: 12px;
   background-color: transparent;
+  font-size: 0.9rem;
 }
-Section.uploadPage section.contents .container-fluid .row .category .options {
+Section.uploadPage section.contents .container-fluid .category .options, Section.uploadPage section.contents .container-fluid .type .options {
   text-align: right;
   display: flex;
   width: 100%;
 }
-Section.uploadPage section.contents .container-fluid .row .buttons {
+Section.uploadPage section.contents .container-fluid .category {
+  margin-bottom: 2rem;
+}
+Section.uploadPage section.contents .container-fluid .buttons {
   padding: 2rem 1rem 0;
   text-align: center;
 }
-Section.uploadPage section.contents .container-fluid .row .buttons button {
+Section.uploadPage section.contents .container-fluid .buttons button {
   float: left;
   font-size: 20px;
   display: block;
   width: 10rem;
 }
 @media (max-width: 580px) {
-  Section.uploadPage section.contents .container-fluid .row .buttons button {
+  Section.uploadPage section.contents .container-fluid .buttons button {
     font-size: 18px;
     width: 8rem;
   }
 }
-Section.uploadPage section.contents .container-fluid .row .selected {
+Section.uploadPage section.contents .container-fluid .selected {
   transition: 0.4s;
   border: none;
   color: #0098c5 !important;
@@ -3251,6 +3331,12 @@ section.adminPage .contents {
     padding: 10vh 4rem 1rem 0;
   }
 }
+section.adminPage .contents .empty {
+  text-align: center;
+}
+section.adminPage .contents .empty h2 {
+  color: #0098c5;
+}
 section.adminPage .contents ul.nav-tabs {
   padding: 0 0 1px;
   margin: 2rem 1rem;
@@ -3286,6 +3372,9 @@ section.adminPage .contents .tab-content {
   max-height: 50rem;
   overflow-x: hidden;
   overflow-y: auto;
+}
+section.adminPage.messages .contents .col-12 {
+  padding: 1rem;
 }
 section.adminPage.messages .contents .col-12 .card {
   padding: 1rem;
@@ -3375,6 +3464,9 @@ section.adminPage.finance .contents .row {
   overflow-x: hidden;
   overflow-y: auto;
 }
+section.adminPage.finance .contents .col-12 {
+  padding: 1rem;
+}
 section.adminPage.finance .contents .col-12 .card {
   padding: 1rem;
   margin: auto;
@@ -3400,6 +3492,9 @@ section.adminPage.finance .contents .col-12 .card .cardRow a {
 section.adminPage.finance .contents .col-12 .card .cardRow a:hover {
   transition: 0.4s;
   color: #0098c5;
+}
+section.adminPage.users .contents .col-12 {
+  padding: 1rem;
 }
 section.adminPage.users .contents .col-12 .card {
   padding: 1rem;
@@ -3505,6 +3600,9 @@ section.adminPage.users .contents .col-12 .buttons button.accept {
 section.adminPage.users .contents .col-12 .buttons button.accept:hover {
   color: #f5f5f5;
   background-color: #1a981f;
+}
+section.adminPage.products .contents .col-12 {
+  padding: 1rem;
 }
 section.adminPage.products .contents .col-12 .card {
   padding: 1rem;

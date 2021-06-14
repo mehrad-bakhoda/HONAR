@@ -7,8 +7,8 @@
                 <div class="search">
                     <form name="searchForm" action="/search/admin/products" method="POST">
                         <div class="general">
-                            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />   
-                            <a onclick="submit_form();return false;"><i class="fal fa-search"></i></a>                        
+                            <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />
+                            <a onclick="submit_form();return false;"><i class="fal fa-search"></i></a>
                         </div>
                     </form>
                 </div>
@@ -59,56 +59,58 @@
             </ul>
             <!-- Tabs navs -->
             <!-- Tabs content -->
-            <div class="tab-content" id="ex2-content">
+            <div class="tab-content">
                 <div class="tab-pane fade show active"
                      id="acceptedC"
                      role="tabpanel"
                      aria-labelledby="acceptedH">
                     <div class="row">
                         <%if(confirmedProducts.length == 0){%>
-                            <div class="empty">
-        
-                                <h1>
-                                    <i class="fal fa-search"></i>
-                                    نتیجه ای یافت نشد !
-                                </h1>
-                            </div>
-        
+                        <div class="empty">
+
+                            <h2>
+                                <i class="fal fa-search"></i>
+                                نتیجه ای یافت نشد !
+                            </h2>
+                        </div>
+
                         <%}if(confirmedProducts.length != 0){%>
                         <% confirmedProducts.forEach(function(cProduct) {%>
-                        <form action="/delete/product/<%=cProduct.productId%>" method="POST">
+
                         <div class="col-lg-6 col-12">
-                            <div class="card productCard">
-                                <div class="cardTop">
-                                    <div class="picture">
-                                        <img src="\<%=cProduct.coverPath%>" />
-                                    </div>
-                                    <div class="detail">
-                                        <span class="name">
-                                            <%=cProduct.fileName%>
-                                        </span>
-                                        <span class="dateAdded">
-                                            <%=date(cProduct.date)%>
-                                        </span>
+                            <form action="/delete/product/<%=cProduct.productId%>" method="POST">
+                                <div class="card productCard">
+                                    <div class="cardTop">
+                                        <div class="picture">
+                                            <img src="\<%=cProduct.coverPath%>" />
+                                        </div>
+                                        <div class="detail">
+                                            <span class="name">
+                                                <%=cProduct.fileName%>
+                                            </span>
+                                            <span class="dateAdded">
+                                                <%=date(cProduct.date)%>
+                                            </span>
 
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+
+                                        <button type="submit" class="delete">
+                                            حذف
+                                            <i class="fal fa-trash"></i>
+                                        </button>
+                                        <a href="/Product/<%=cProduct.productId%>/<%=cProduct.fileName%>">
+                                            مشاهده
+                                            <i class="fal fa-eye"></i>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="buttons">
-
-                                    <button type="submit" class="delete">
-                                        حذف
-                                        <i class="fal fa-trash"></i>
-                                    </button>
-                                    <a href="/Product/<%=cProduct.productId%>/<%=cProduct.fileName%>">
-                                        مشاهده
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                    </form>
-                    <%})%>
-                <%}%>
+
+                        <%})%>
+                        <%}%>
 
 
                     </div>
@@ -118,74 +120,75 @@
                      role="tabpanel"
                      aria-labelledby="queueH">
                     <div class="row">
-                        
+
 
                         <%if(unconfirmedProducts.length == 0){%>
-                            <div class="empty">
-        
-                                <h1>
-                                    <i class="fal fa-search"></i>
-                                    نتیجه ای یافت نشد !
-                                </h1>
-                            </div>
-        
+                        <div class="empty">
+
+                            <h2>
+                                <i class="fal fa-search"></i>
+                                نتیجه ای یافت نشد !
+                            </h2>
+                        </div>
+
                         <%}if(unconfirmedProducts.length != 0){%>
                         <% unconfirmedProducts.forEach(function(uProduct) {%>
-                        <form action="/confirm/product/<%=uProduct.productId%>" method="post">
+
                         <div class="col-lg-6 col-12">
-                            <div class="card productCard">
-                                <div class="cardTop">
-                                    <div class="picture">
-                                        <img src="\<%=uProduct.coverPath%>" />
-                                        <%console.log(uProduct.coverPath);%>
-                                    </div>
-                                    <div class="detail">
-                                        <span class="name">
-                                            <%=uProduct.fileName%>
-                                        </span>
-                                        <span class="dateAdded">
-                                            <%=date(uProduct.date)%>
-                                        </span>
+                            <form action="/confirm/product/<%=uProduct.productId%>" method="post">
+                                <div class="card productCard">
+                                    <div class="cardTop">
+                                        <div class="picture">
+                                            <img src="\<%=uProduct.coverPath%>" />
+                                            <%console.log(uProduct.coverPath);%>
+                                        </div>
+                                        <div class="detail">
+                                            <span class="name">
+                                                <%=uProduct.fileName%>
+                                            </span>
+                                            <span class="dateAdded">
+                                                <%=date(uProduct.date)%>
+                                            </span>
 
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <button type="submit" class="accept">
+                                            تایید
+                                            <i class="fal fa-check"></i>
+                                        </button>
+                                        <button type="submit" class="delete">
+                                            حذف
+                                            <i class="fal fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="buttons">
-                                    <button type="submit" class="accept">
-                                        تایید
-                                        <i class="fal fa-check"></i>
-                                    </button>
-                                   </form>
-                                    <a href="/Product/<%=uProduct.productId%>/<%=uProduct.fileName%>">
-                                        مشاهده
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                    <%})%>
-                        <%}%>
 
-
-
-
+                        <a href="/Product/<%=uProduct.productId%>/<%=uProduct.fileName%>">
+                            مشاهده
+                            <i class="fal fa-eye"></i>
+                        </a>
                     </div>
-
-
-
                 </div>
             </div>
-            <!-- Tabs content -->
+            <%})%>
+            <%}%>
+
+
+
 
         </div>
+        <!-- Tabs content -->
     </section>
 </section>
 <script>
-    function submit_form()
-    {
-      document.searchForm.submit();
+    function submit_form() {
+        document.searchForm.submit();
     }
-    </script>
-    
+</script>
+
 
 
 <%-include("scripts");-%>

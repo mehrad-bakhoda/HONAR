@@ -60,6 +60,16 @@ $(".category .options label.radioLabel").click(function () {
         $("#types").val("photo");
     if($(this).text() === "کلیپ")
         $("#types").val("clip");
+});
 
-
+/* File Type */
+$(".type .options label.radioLabel").click(function () {
+    var labels = $(".type .options label.radioLabel");
+    $(this).toggleClass("selected");
+    if ($(this).text() === "PNG")
+        $("#types").val("png");
+    if ($(this).text() === "JPEG")
+        $("#types").val("jpeg");
+    if ($(this).text() === "PSD")
+        $("#types").val("psd");
 });

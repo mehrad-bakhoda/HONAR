@@ -1542,7 +1542,7 @@ Section.uploadPage {
 
                     input {
                         display: block;
-                        margin-bottom: 3rem;
+                        margin-bottom: 1rem;
                         transition: 0.4s;
                         height: 2.5rem;
                         width: 100%;
@@ -1571,15 +1571,14 @@ Section.uploadPage {
                         border: none;
                         border-radius: $radius;
                         width: 100%;
-                        margin-bottom: 3rem;
+                        margin-bottom: 2rem;
                         padding: 0.5rem;
                         color: $text-color;
                         border: 2px solid lightGray;
                     }
                 }
 
-                .uploadPic {
-                    margin-bottom: 3rem;
+                .uploadFile {
                     position: relative;
 
                     label {
@@ -1590,7 +1589,7 @@ Section.uploadPage {
                     input[type=file] {
                         padding: 0;
                         visibility: hidden;
-                        width: 14rem;
+                        width: 16rem;
                         margin-right: -1rem;
                         height: 3.5rem;
                         position: relative;
@@ -1599,12 +1598,69 @@ Section.uploadPage {
                             visibility: visible;
                             margin-right: 1rem;
                             transition: 0.4s;
-                            content: "اثر خود را آپلود کنید";
-                            font-size: 18px;
+                            content: "فایل خود را آپلود کنید";
+                            font-size: 16px;
                             position: absolute;
                             background-color: transparent;
-                            padding: 0.5rem 1rem;
-                            width: 11rem;
+                            width: 14rem;
+                            cursor: pointer;
+                            text-align: center;
+                            color: $primary-color;
+                            border-radius: $radius;
+                        }
+
+                        &:hover {
+                            &::before {
+                                transition: 0.4s;
+                                color: $body-color !important;
+                                background-color: $primary-color !important;
+                                border: 2px solid $primary-color !important;
+                            }
+                        }
+                    }
+
+
+                    i {
+                        position: absolute;
+                        right: 15rem;
+                        color: $primary-color;
+                        font-size: 1.2rem;
+                        top: 0.75rem;
+                    }
+
+                    .hidden {
+                        transition: 0.4s;
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
+
+                .uploadCover {
+                    margin-bottom: 2rem;
+                    position: relative;
+
+                    label {
+                        font-size: 1.2rem;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    input[type=file] {
+                        padding: 0;
+                        visibility: hidden;
+                        width: 16rem;
+                        margin-right: -1rem;
+                        height: 3.5rem;
+                        position: relative;
+
+                        &::before {
+                            visibility: visible;
+                            margin-right: 1rem;
+                            transition: 0.4s;
+                            content: "کاور اثر خود را آپلود کنید";
+                            font-size: 16px;
+                            position: absolute;
+                            background-color: transparent;
+                            width: 14rem;
                             cursor: pointer;
                             text-align: center;
                             color: $primary-color;
@@ -1663,11 +1719,6 @@ Section.uploadPage {
                             outline: none;
                         }
                     }
-
-                    &.small {
-                        margin-bottom: 3rem;
-                    }
-
                     label {
                         color: $text-color;
                         transition: 0.4s;
@@ -1703,73 +1754,117 @@ Section.uploadPage {
                     }
                 }
 
-                .category {
+                .accordion {
                     max-width: 20rem;
-                    display: flex;
-                    margin-bottom: 3rem;
 
-                    .title {
-                        padding-top: 0.5rem;
-                        width: 3rem;
-                        text-align: right;
-                    }
-
-                    .selected {
-                        transition: 0.4s;
-                        color: $primary-color;
-                        font-weight: bold;
-                    }
-
-                    label.radioLabel {
-                        margin: 0 0.5rem 0 0;
-                        cursor: pointer;
-                        width: 100%;
-                        margin: 0 0.5rem;
+                    .accordion-button {
                         text-align: center;
                         transition: 0.4s;
                         border: none;
-                        border: 2px solid lightGray;
-                        color: $text-color;
-                        padding: 0.5rem 0.4rem;
+                        color: $body-color;
+                        padding: 0 1rem;
                         border-radius: $radius;
-                        background-color: transparent;
-                    }
+                        background-color: $body-color;
+                        border: 2px solid $primary-color;
+                        color: $primary-color;
+                        height: 2.5rem;
+                        line-height: 2.5rem;
+                        box-shadow: none;
 
-                    .options {
-                        text-align: right;
-                        display: flex;
-                        width: 100%;
-                    }
-                }
+                        &:hover {
+                            transition: 0.4s;
+                            background-color: $primary-color;
+                            color: $body-color;
+                        }
 
-                .buttons {
-                    padding: 2rem 1rem 0;
-                    text-align: center;
-
-                    button {
-                        float: left;
-                        font-size: 20px;
-                        display: block;
-                        width: 10rem;
-
-                        @include xs {
-                            font-size: 18px;
-                            width: 8rem;
+                        &::after {
+                            position: absolute;
+                            left: 1rem;
+                            top: 0rem;
+                            height: 2rem;
                         }
                     }
+
+                    #other {
+                        border: 2px solid $primary-color;
+                        border-radius: 0 0 $radius $radius;
+                        border-top: 0;
+                        margin-top: -0.5rem;
+                        padding-top: 1rem;
+                    }
+                }
+            }
+
+            .category, .type {
+                max-width: 20rem;
+
+                .title {
+                    padding: 1rem 0 0.5rem;
+                    display: block;
+                    text-align: right;
                 }
 
                 .selected {
                     transition: 0.4s;
-                    border: none;
-                    color: $primary-color !important;
-                    border: 2px solid $primary-color !important;
+                    color: $primary-color;
                     font-weight: bold;
                 }
+
+                label.radioLabel {
+                    margin: 0 0.5rem 0 0;
+                    cursor: pointer;
+                    width: 100%;
+                    margin: 0 0.5rem;
+                    text-align: center;
+                    transition: 0.4s;
+                    border: none;
+                    border: 2px solid lightGray;
+                    color: $text-color;
+                    padding: 0.25rem 0.4rem;
+                    border-radius: $radius;
+                    background-color: transparent;
+                    font-size: 0.9rem;
+                }
+
+                .options {
+                    text-align: right;
+                    display: flex;
+                    width: 100%;
+                }
+            }
+
+            .category {
+                margin-bottom: 2rem;
+            }
+
+            .buttons {
+                padding: 2rem 1rem 0;
+                text-align: center;
+
+                button {
+                    float: left;
+                    font-size: 20px;
+                    display: block;
+                    width: 10rem;
+
+                    @include xs {
+                        font-size: 18px;
+                        width: 8rem;
+                    }
+                }
+            }
+
+            .selected {
+                transition: 0.4s;
+                border: none;
+                color: $primary-color !important;
+                border: 2px solid $primary-color !important;
+                font-weight: bold;
             }
         }
     }
 }
+
 /*#endregion */
 
 /*#region Search Page */
@@ -3805,6 +3900,14 @@ section.adminPage {
             padding: 10vh 4rem 1rem 0;
         }
 
+        .empty {
+            text-align: center;
+
+            h2 {
+                color: $primary-color;
+            }
+        }
+
         ul.nav-tabs {
             padding: 0 0 1px;
             margin: 2rem 1rem;
@@ -3854,6 +3957,8 @@ section.adminPage {
     /*#region Messages*/
     &.messages .contents {
         .col-12 {
+            padding: 1rem;
+
             .card {
                 padding: 1rem;
                 margin: auto;
@@ -3864,6 +3969,7 @@ section.adminPage {
 
                 .cardRow {
                     text-align: left;
+
                     label {
                         color: $primary-color;
                         float: right;
@@ -3964,6 +4070,8 @@ section.adminPage {
         }
 
         .col-12 {
+            padding: 1rem;
+
             .card {
                 padding: 1rem;
                 margin: auto;
@@ -4003,6 +4111,8 @@ section.adminPage {
     /*#region Users*/
     &.users .contents {
         .col-12 {
+            padding: 1rem;
+
             .card {
                 padding: 1rem;
                 margin: auto;
@@ -4127,6 +4237,8 @@ section.adminPage {
     /*#region Products*/
     &.products .contents {
         .col-12 {
+            padding: 1rem;
+
             .card {
                 padding: 1rem;
                 margin: auto;
