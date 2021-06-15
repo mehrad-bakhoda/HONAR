@@ -1191,11 +1191,13 @@ router.post("/upload", function(req, res){
             form.keepExtensions=true;
             form.maxFileSize=10*1024*1024;
             form.parse(req, (err, fields, files) => {
-              const fileName = path.basename(files.productFiles.path);
+              console.log(fields);
+              console.log(files);
+              const fileName = path.basename(files.productCover.path);
               const databaseDestination = "covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
               const destination ="public/covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
 
-              Jimp.read(files.productFiles.path)
+              Jimp.read(files.productCover.path)
               .then(image =>{
                 image.gaussian(1);
                 image.quality(50);
