@@ -2203,6 +2203,7 @@ router.get("/search/home/:searchedItem",function(req,res){
 //     res.render("search",{searched:found});
 //  });
 Product.find({
+  confirmation:true,
   $or: [
     { "fileName": new RegExp(req.params.searchedItem, "gi") },
     { "user.userName": new RegExp(req.params.searchedItem, "gi") },
@@ -2213,6 +2214,7 @@ Product.find({
 ]
 },function(err,found){
   if(found){
+    console.log(found);
     res.render("search",{searched:found,searchedItem:req.params.searchedItem});
   }
   
