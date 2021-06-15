@@ -2434,10 +2434,14 @@ router.get("/admin/finance", function (req, res) {
 
 router.get("/admin/users", function (req, res) {
   if(req.session.userId==0){
-    User.find({},function(err,users){
+    User.find({"type":"Uploader"},function(err,uploader){
+      User.find({"type":"Downloader"},function(err,downloader)
+      {
+        res.render("adminUsers",{uploader:uploader,downloader:downloader,date:newDate});
+      });
 
   
-      res.render("adminUsers",{users:users,date:newDate});
+      
     });
   }
   else{

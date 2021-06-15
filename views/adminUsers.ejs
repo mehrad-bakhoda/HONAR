@@ -63,7 +63,7 @@
                      aria-labelledby="uploaderH">
                     <div class="row">
 
-                        <%if(users.length == 0){%>
+                        <%if(uploader.length == 0){%>
                             <div class="empty">
         
                                 <h2>
@@ -72,8 +72,8 @@
                                 </h2>
                             </div>
         
-                        <%}if(users.length != 0){%>
-                        <% users.forEach(function(user) {%>
+                        <%}if(uploader.length != 0){%>
+                        <% uploader.forEach(function(user) {%>
 
                         <div class="col-lg-6 col-12">
                            
@@ -133,9 +133,70 @@
                      id="downloaderC"
                      role="tabpanel"
                      aria-labelledby="downloaderH">
-                    <div class="row">
+                     <div class="row">
 
+                        <%if(downloader.length == 0){%>
+                            <div class="empty">
+        
+                                <h2>
+                                    <i class="fal fa-search"></i>
+                                    نتیجه ای یافت نشد !
+                                </h2>
+                            </div>
+        
+                        <%}if(downloader.length != 0){%>
+                        <% downloader.forEach(function(user) {%>
 
+                        <div class="col-lg-6 col-12">
+                           
+                                <form action="/delete/user/<%=user.unique_id%>" method="post">
+    
+                            <div class="card productCard">
+                                <div class="cardTop">
+                                    <div class="picture">
+                                        <%if(user.profilePicPath && user.profilePicPath.length != 0 && user.profilePicPath != "no picture"){%>
+                                            <img src="<%=user.profilePicPath%>" />
+                                       <% }if(!user.profilePicPath || user.profilePicPath.length ==0 || user.profilePicPath == "no picture"){%>
+                                        <i class="fal fa-user fa-2x"></i>
+                                        <%}%>
+                                    </div>
+                                    <div class="detail">
+                                       <% if(user.type=="Uploader"){%>
+                                            <span class="name">
+                                                <%=user.userName%> 
+                                            </span>
+
+                                        <%}if(user.type=="Downloader"){%>
+                                            <span class="name">
+                                                <%=user.firstName%> 
+                                                <%=user.lastName%> 
+                                            </span>
+                                      <%}%>
+
+                                        <span class="dateAdded">
+                                            <%=date(user.date)%> 
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="buttons">
+
+                                    <button type="submit" class="delete">
+                                        حذف
+                                        <i class="fal fa-trash"></i>
+                                    </button>
+                                    <a href="/<%=user.userName%>">
+                                        مشاهده
+                                        <i class="fal fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            </form>
+                            
+                    
+                        </div>
+                        <%})%>
+                    <%}%>
 
 
                     </div>
