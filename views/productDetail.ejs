@@ -42,6 +42,7 @@
                                 <p> <%=item.downloadedCount%> </p>
                             </div>
                             <div class="type info">
+                                
                                 <label> فایل </label>
                                 <p> <%=item.fileType%> </p>
                             </div>
@@ -68,15 +69,18 @@
                                         </label>
                                         <i class="far fa-angle-down"></i>
                                     </div>
+                                    <% if (item.smallPrice != undefined){%>
                                     <input type="radio" value="small" name="size">
                                     <label for="small" class="sizeOption size" id="small">کوچک</label>
-
+                                    <%}%>
+                                    <% if (item.mediumPrice != undefined){%>
                                     <input type="radio" value="medium" name="size">
                                     <label for="medium" class="sizeOption size" id="medium">متوسط</label>
-
+                                    <%}%>
+                                    <% if (item.largePrice != undefined){%>
                                     <input type="radio" value="large" name="size">
                                     <label for="large" class="sizeOption size" id="large"> بزرگ </label>
-
+                                    <%}%>
                                     <input type="radio" value="original" name="size">
                                     <label for="original" class="sizeOption selected size" id="original"> اصلی</label>
                                     <!-- <label for="original" class="sizeOption selected" id="original"> اصلی(<span>3000*3000</span>)</label> -->
@@ -87,7 +91,7 @@
                                 <% if(item.orginalPrice === 0){%>
                                 <p class="original showPrice">رایگان </p>
                                 <%  }else{%>
-                                <p class="original showPrice"> <span><%=item.orginalPrice%></span> تومان </p>
+                                <p class="original showPrice"> <span><%=item.orginalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                 <%} %>
                                 <% if(item.largePrice === 0){%>
                                 <p class="large">رایگان </p>

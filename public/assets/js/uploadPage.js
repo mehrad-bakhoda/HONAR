@@ -61,15 +61,38 @@ $(".category .options label.radioLabel").click(function () {
     if($(this).text() === "کلیپ")
         $("#types").val("clip");
 });
-
+var png = false;
+var jpeg = false;
+var psd = false;
 /* File Type */
 $(".type .options label.radioLabel").click(function () {
     var labels = $(".type .options label.radioLabel");
+    
     $(this).toggleClass("selected");
     if ($(this).text() === "PNG")
-        $("#types").val("png");
+        if ($(this).hasClass("selected"))
+            png = true;
+        else
+            png = false;
     if ($(this).text() === "JPEG")
-        $("#types").val("jpeg");
+        if ($(this).hasClass("selected"))
+            jpeg = true;
+        else
+            jpeg = false;
     if ($(this).text() === "PSD")
-        $("#types").val("psd");
+        if ($(this).hasClass("selected"))
+            psd = true;
+        else
+            psd = false;
+    var fileTypes = ""
+    if (png)
+        fileTypes = fileTypes.concat("png&")
+    if (jpeg)
+        fileTypes = fileTypes.concat("jpeg&")
+    if (psd)
+        fileTypes = fileTypes.concat("psd&")
+
+    $("#fileTypes").val(fileTypes);
+
+    
 });

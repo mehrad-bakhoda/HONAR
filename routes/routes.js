@@ -363,7 +363,7 @@ router.get("/tags/:tag",function(req,res){
   console.log(tagss);
   Product.find({tags:{$in:tagss}})
   .exec(function(err,found){
-    res.render("search",{searched:found});
+    res.render("search",{searched:found,searchedItem:req.params.tag});
   });
 });
 
@@ -1191,8 +1191,6 @@ router.post("/upload", function(req, res){
             form.keepExtensions=true;
             form.maxFileSize=10*1024*1024;
             form.parse(req, (err, fields, files) => {
-              console.log(fields);
-              console.log(files);
               const fileName = path.basename(files.productCover.path);
               const databaseDestination = "covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
               const destination ="public/covers/users/"+ found.unique_id +"/Products/" + c+"/"+fileName;
@@ -1219,8 +1217,12 @@ router.post("/upload", function(req, res){
                 }
 
               }
+              console.log(fields.fileTypes.split('&').pop());
+              var fileTypes = fields.fileTypes.split('&');
+              fileTypes.pop();
+              console.log("injaaaaaaaaaaaaaaaaaaaa");
+              console.log(fileTypes);
               tagsarr = tagsarr.filter(function(e){return e});
-              console.log(files);
               const newProduct = new Product({
                 productId:c,
                 type:fields.types,
@@ -1229,6 +1231,7 @@ router.post("/upload", function(req, res){
                 description:fields.description,
                 filePath:files.productFiles.path,
                 fileType:files.productFiles.type,
+                fileTypes:fileTypes,
                 coverPath:databaseDestination,
                 orginalPrice:fields.orginalPrice,
                 largePrice:fields.largePrice,

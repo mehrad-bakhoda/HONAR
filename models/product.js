@@ -77,10 +77,15 @@ const productSchema = new mongoose.Schema({
     type:Date,
 
   },
-
+  fileTypes:[
+    {
+      type:String,
+    }
+  ],
   confirmation:{
     type:Boolean
   },
+
   comments: [{
     type: mongoose.Schema.Types.ObjectId, ref: "comment"
   }],
