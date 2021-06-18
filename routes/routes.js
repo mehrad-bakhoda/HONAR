@@ -416,6 +416,45 @@ router.get("/dashboard",function(req,res){
   }
 
 });
+router.get("/dashboard:error",function(req,res){
+  console.log(req.params.error === undefined);
+  if(req.session.userId)
+  {
+    User.findOne({
+      unique_id: req.session.userId
+    }, function(err, found) {
+      if (found) {
+        
+        Product.find({"user.unique_id":found.unique_id})
+        .exec(function(err,products){
+          Order.find({"user.unique_id":req.session.userId},function(err,orders)
+          {
+            Discount.find({userId:req.session.userId},function(err,discounts){
+              if(!err){
+                if(discounts){
+                Message.find({"user.unique_id":req.session.userId},function(err,messages){
+                  if(!err){
+                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:newDate(new Date()),orders:orders,discounts:discounts,messages:messages});
+                  }
+
+                });
+                  
+
+            
+          }
+        }
+    });
+          });
+          
+        });
+      }
+      else {
+        res.render("notFound");
+      }
+    });
+  }
+
+});
 
 router.get("/dashboard/orders/:orderId", function (req, res) {
     var orderId = req.params.orderId;
@@ -452,7 +491,7 @@ router.get("/upload",function(req,res){
       if(user.type == "Uploader")
         res.render("upload");
       else{
-        res.redirect("/dashboard");
+        res.redirect("/dashboard/error=notUploader");
       }
 
     });

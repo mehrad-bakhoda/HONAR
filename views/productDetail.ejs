@@ -41,6 +41,23 @@
                                 <label>   تعداد دانلود </label>
                                 <p> <%=item.downloadedCount%> </p>
                             </div>
+                            <div class="sizes info">
+                                <label> نوع فایل </label>
+
+                                <div class="options">
+                                    <div class="shownSize">
+                                        <label class="selectedSize">
+                                            <%=item.fileType%>
+                                        </label>
+                                        <i class="far fa-angle-down"></i>
+                                    </div>
+                                    <% item.fileTypes.forEach(function(t){%>
+                                        <input type="radio" value=<%=t%> name="size">
+                                        <label for=<%=t%> class="sizeOption size" id="small"><%=t%></label>
+                                    <%})%>
+                                    
+                                </div>
+                            </div>
                             <div class="type info">
                                 
                                 <label> فایل </label>
@@ -95,18 +112,18 @@
                                 <%} %>
                                 <% if(item.largePrice === 0){%>
                                 <p class="large">رایگان </p>
-                                <% }else{%>
-                                <p class="large"> <span><%=item.largePrice%></span> تومان </p>
+                                <% }if(item.largePrice !== null){%>
+                                <p class="large"> <span><%=item.largePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                 <%}%>
                                 <% if(item.mediumPrice === 0){%>
                                 <p class="medium">رایگان </p>
-                                <%}else{%>
-                                <p class="medium"><span><%=item.mediumPrice%></span> تومان </p>
-                                <%}%>
+                                <% }if(item.mediumPrice !== null){%>
+                                    <p class="large"> <span><%=item.mediumPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
+                                    <%}%>
                                 <% if(item.smallPrice === 0){%>
                                 <p class="small">رایگان </p>
-                                <%}else{%>
-                                <p class="small "> <span><%=item.smallPrice%></span> تومان </p>
+                                <% }if(item.smallPrice !== null){%>
+                                <p class="large"> <span><%=item.smallPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                 <%}%>
                             </div>
                             <div class="buttons">
