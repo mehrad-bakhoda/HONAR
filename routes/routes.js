@@ -387,7 +387,7 @@ router.get("/dashboard",function(req,res){
       if (found) {
         
         Product.find({"user.unique_id":found.unique_id})
-        .exec(function(err,products){
+        .exec(function(err,products){ 
           Order.find({"user.unique_id":req.session.userId},function(err,orders)
           {
             Discount.find({userId:req.session.userId},function(err,discounts){
@@ -395,7 +395,7 @@ router.get("/dashboard",function(req,res){
                 if(discounts){
                 Message.find({"user.unique_id":req.session.userId},function(err,messages){
                   if(!err){
-                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:newDate(new Date()),orders:orders,discounts:discounts,messages:messages});
+                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:newDate(new Date()),orders:orders,discounts:discounts,messages:messages,error1:null});
                   }
 
                 });
@@ -417,8 +417,10 @@ router.get("/dashboard",function(req,res){
 
 });
 router.get("/dashboard:error",function(req,res){
-  console.log(req.params.error === undefined);
-  if(req.session.userId)
+  var error = req.params.error.split("&error=")[1]
+  if (error === "notUploader")
+  {
+    if(req.session.userId)
   {
     User.findOne({
       unique_id: req.session.userId
@@ -434,7 +436,7 @@ router.get("/dashboard:error",function(req,res){
                 if(discounts){
                 Message.find({"user.unique_id":req.session.userId},function(err,messages){
                   if(!err){
-                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:newDate(new Date()),orders:orders,discounts:discounts,messages:messages});
+                    res.render("dashboard",{user:found,searched:products,statusMessage:found.message,date:newDate(new Date()),orders:orders,discounts:discounts,messages:messages,error1:error});
                   }
 
                 });
@@ -448,11 +450,15 @@ router.get("/dashboard:error",function(req,res){
           
         });
       }
-      else {
-        res.render("notFound");
-      }
+      
     });
   }
+
+  }
+  else {
+    res.render("notFound");
+  }
+  
 
 });
 
@@ -491,7 +497,7 @@ router.get("/upload",function(req,res){
       if(user.type == "Uploader")
         res.render("upload");
       else{
-        res.redirect("/dashboard/error=notUploader");
+        res.redirect("/dashboard&error=notUploader");
       }
 
     });

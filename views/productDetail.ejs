@@ -118,12 +118,12 @@
                                 <% if(item.mediumPrice === 0){%>
                                 <p class="medium">رایگان </p>
                                 <% }if(item.mediumPrice !== null){%>
-                                    <p class="large"> <span><%=item.mediumPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
+                                    <p class="medium"> <span><%=item.mediumPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                     <%}%>
                                 <% if(item.smallPrice === 0){%>
                                 <p class="small">رایگان </p>
                                 <% }if(item.smallPrice !== null){%>
-                                <p class="large"> <span><%=item.smallPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
+                                <p class="small"> <span><%=item.smallPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                 <%}%>
                             </div>
                             <div class="buttons">
@@ -255,3 +255,5 @@
         }
     })
 </script>
+
+
