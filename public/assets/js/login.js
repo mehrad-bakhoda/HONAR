@@ -58,5 +58,42 @@ password.change(function(){
         strengthBadge.style.display = 'none'
     }
 });
-    
+
+
+function checkConfirm(e) {
+    const cPass = e;
+    const pass = cPass.parentElement.querySelector(".passwordInput");
+    console.log(cPass.value + " and " + pass.value)
+    if (cPass.value !== pass.value) {
+        cPass.classList.add("notSame");
+        cPass.classList.remove("same");
+    }
+    if (cPass.value === pass.value) {
+        cPass.classList.remove("notSame");
+        cPass.classList.add("same");
+    }
+    if (cPass.value === "") {
+        cPass.classList.remove("notSame");
+        cPass.classList.remove("same");
+    }
+}
+
+const eyes = Array.from(document.querySelectorAll(".loginPage .password i"));
+for (eye of eyes) {
+    eye.onclick = () => {
+
+        const input = document.querySelector(".loginPage .password .passwordInput");
+        if (input.type == "password") {
+            input.type = "text";
+            document.querySelector(".loginPage .fa-eye").classList.remove("hidden");
+            document.querySelector(".loginPage .fa-eye-slash").classList.add("hidden");
+        }
+        else if (input.type == "text") {
+            input.type = "password";
+            document.querySelector(".loginPage .fa-eye-slash").classList.remove("hidden");
+            document.querySelector(".loginPage .fa-eye").classList.add("hidden");
+        }
+    }  
+}
+  
 

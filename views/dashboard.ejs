@@ -330,7 +330,7 @@
                         <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
                         <input name="oldPassword" type="password" class="passwordInput" placeholder="old password" />
                         <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                        <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                        <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)"/>
                         <div class="buttons">
                             <button type="button" class="edit" onclick="changeForm()">
                                 ویرایش

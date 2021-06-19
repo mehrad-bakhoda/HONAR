@@ -20,5 +20,23 @@ $(".personalInfo .buttons .edit").click(function () {
 //     $(".personalInfo textarea").attr({ 'disabled': 'disabled' });
 // });
 
+/* check pass */
+function checkConfirm(e) {
+    const cPass = e;
+    const pass = cPass.parentElement.querySelector(".passwordInput");
+    console.log(cPass.value + " and " + pass.value)
+    if (cPass.value !== pass.value) {
+        cPass.classList.add("notSame");
+        cPass.classList.remove("same");
+    }
+    if (cPass.value === pass.value) {
+        cPass.classList.remove("notSame");
+        cPass.classList.add("same");
+    }
+    if (cPass.value === "") {
+        cPass.classList.remove("notSame");
+        cPass.classList.remove("same");
+    }
+}
 
 

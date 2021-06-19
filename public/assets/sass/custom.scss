@@ -240,6 +240,7 @@ section.uploadButton {
             max-height: 12rem;
             width: 100%;
             border-radius: $radius;
+            object-fit: contain;
 
             &:hover {
                 transition: 0.4s;
@@ -837,7 +838,7 @@ section.loginPage {
 
                             #tabDownH {
                                 border-right: 2px solid $body-color;
-                                border-bottom: 2px solid $secondary-color;
+                                border-bottom: 2px solid $primary-color;
                             }
 
                             #tabDownH.active {
@@ -851,7 +852,7 @@ section.loginPage {
                             }
 
                             #tabUpH.active {
-                                border: 2px solid $secondary-color;
+                                border: 2px solid $primary-color;
                                 border-bottom: 0;
                             }
                         }
@@ -872,35 +873,35 @@ section.loginPage {
                             }
 
                             &#tabUpC.active {
-                                border: 2px solid $secondary-color;
+                                border: 2px solid $primary-color;
 
                                 input[type=file]:hover {
 
                                     &::before {
                                         transition: 0.4s;
                                         border: none;
-                                        color: $secondary-color !important;
+                                        color: $primary-color !important;
                                         border: 2px solid lightGray;
                                     }
                                 }
 
                                 input:-webkit-autofill,
                                 input:-webkit-autofill:focus {
-                                    -webkit-text-fill-color: $secondary-color;
+                                    -webkit-text-fill-color: $primary-color;
                                     -webkit-box-shadow: 0 0 0 1000px $body-color inset !important;
                                     transition: background-color 400s ease-in-out 0s;
                                     background-color: $body-color;
                                 }
 
                                 button {
-                                    color: $secondary-color;
-                                    border: 2px solid $secondary-color;
+                                    color: $primary-color;
+                                    border: 2px solid $primary-color;
                                 }
 
                                 button:hover {
                                     transition: 0.4s;
                                     color: $body-color;
-                                    background-color: $secondary-color;
+                                    background-color: $primary-color;
                                 }
 
                                 .uploadPic {
@@ -926,8 +927,8 @@ section.loginPage {
                                             width: 11rem;
                                             cursor: pointer;
                                             text-align: center;
-                                            color: $secondary-color;
-                                            border: 2px solid $secondary-color;
+                                            color: $primary-color;
+                                            border: 2px solid $primary-color;
                                             border-radius: $radius;
                                         }
 
@@ -935,7 +936,7 @@ section.loginPage {
                                             &::before {
                                                 transition: 0.4s;
                                                 color: $body-color !important;
-                                                background-color: $secondary-color !important;
+                                                background-color: $primary-color !important;
                                             }
                                         }
                                     }
@@ -950,7 +951,7 @@ section.loginPage {
                                         height: 1.2rem;
 
                                         &.fa-check-circle {
-                                            color: $secondary-color;
+                                            color: $primary-color;
                                         }
                                     }
 
@@ -966,6 +967,29 @@ section.loginPage {
                                 border: 2px solid $primary-color;
                             }
                         }
+                    }
+
+                    input.notSame {
+                        border: 2px solid $error-color !important;
+                    }
+
+                    input.same {
+                        border: 2px solid $success-color !important;
+                    }
+                }
+
+                &.password {
+                    i {
+                        position: absolute;
+                        color: $text-color;
+                        left: 2.5rem;
+                        margin-top: 1rem;
+                        cursor: pointer;
+
+                    }
+                    i.hidden {
+                        opacity: 0;
+                        visibility: hidden;
                     }
                 }
             }

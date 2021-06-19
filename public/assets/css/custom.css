@@ -236,6 +236,7 @@ section.uploadButton a:hover {
   max-height: 12rem;
   width: 100%;
   border-radius: 12px;
+  object-fit: contain;
 }
 .card.product .card-body img:hover {
   transition: 0.4s;
@@ -744,7 +745,7 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabDownH {
   border-right: 2px solid #f5f5f5;
-  border-bottom: 2px solid #9c2d89;
+  border-bottom: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabDownH.active {
   border: 2px solid #0098c5;
@@ -755,7 +756,7 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
   border-bottom: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item #tabUpH.active {
-  border: 2px solid #9c2d89;
+  border: 2px solid #0098c5;
   border-bottom: 0;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content {
@@ -774,29 +775,29 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   }
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active {
-  border: 2px solid #9c2d89;
+  border: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input[type=file]:hover::before {
   transition: 0.4s;
   border: none;
-  color: #9c2d89 !important;
+  color: #0098c5 !important;
   border: 2px solid lightGray;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill,
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #9c2d89;
+  -webkit-text-fill-color: #0098c5;
   -webkit-box-shadow: 0 0 0 1000px #f5f5f5 inset !important;
   transition: background-color 400s ease-in-out 0s;
   background-color: #f5f5f5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button {
-  color: #9c2d89;
-  border: 2px solid #9c2d89;
+  color: #0098c5;
+  border: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
   transition: 0.4s;
   color: #f5f5f5;
-  background-color: #9c2d89;
+  background-color: #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic {
   position: relative;
@@ -821,14 +822,14 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   width: 11rem;
   cursor: pointer;
   text-align: center;
-  color: #9c2d89;
-  border: 2px solid #9c2d89;
+  color: #0098c5;
+  border: 2px solid #0098c5;
   border-radius: 12px;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic input[type=file]:hover::before {
   transition: 0.4s;
   color: #f5f5f5 !important;
-  background-color: #9c2d89 !important;
+  background-color: #0098c5 !important;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic i {
   position: absolute;
@@ -840,7 +841,7 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   height: 1.2rem;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic i.fa-check-circle {
-  color: #9c2d89;
+  color: #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic .hidden {
   transition: 0.4s;
@@ -849,6 +850,23 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabDownC.active {
   border: 2px solid #0098c5;
+}
+section.loginPage section.contents .container-fluid .card.info input.notSame {
+  border: 2px solid #d14774 !important;
+}
+section.loginPage section.contents .container-fluid .card.info input.same {
+  border: 2px solid #1a981f !important;
+}
+section.loginPage section.contents .container-fluid .card.password i {
+  position: absolute;
+  color: #333333;
+  left: 2.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+section.loginPage section.contents .container-fluid .card.password i.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /*#endregion */

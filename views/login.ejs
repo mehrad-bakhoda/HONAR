@@ -75,7 +75,7 @@
                             <input name="firstName" class="firstNameInput" type="firstName" placeholder="نام" />
                             <input name="lastName"  type="lastName" placeholder="نام خانوادگی" />
                             <input name="password"  type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <input name="passwordConfirmation"  type="password" class="passwordConfirmationInput" placeholder="تکرار رمز عبور" />
+                            <input name="passwordConfirmation"  type="password" class="passwordConfirmationInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)"/>
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
                             </div>
@@ -104,9 +104,9 @@
                                 <i class="far fa-spinner-third fa-spin hidden"></i>
                                 <i class="far fa-check-circle hidden"></i>
                             </div>
-                            <input class="passwordInput" name ="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <span id="StrengthDisp" class="badge displayBadge">Weak</span>
-                            <input class="passwordConfirmationInput" name ="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <input class="passwordInput" name ="password" type="password" placeholder="رمز عبور دلخواه" />
+                            <!--<span id="StrengthDisp" class="badge displayBadge">Weak</span>-->
+                            <input class="passwordConfirmationInput passwordInput" name ="passwordConfirmation" type="password" placeholder="تکرار رمز عبور" onkeyup ="checkConfirm(this)" />
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
                             </div>
@@ -120,7 +120,9 @@
                 <form action="/signIn" enctype="multipart/form-data" method="post">
                     <h4> رمز عبور خود را وارد کنید </h4>
                     <input hidden name="loginInput" value=<%=loginInput%> />
-                    <input name ="password" type="password" class="passwordInput" placeholder="رمز عبور " />
+                    <input name="password" type="password" class="passwordInput" placeholder="رمز عبور " />
+                    <i class="fal fa-eye-slash"></i>
+                    <i class="fal fa-eye hidden"></i>
                     <div class="buttons">
                         <button type="submit" class="next">ورود</button>
                     </div>
