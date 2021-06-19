@@ -1329,6 +1329,95 @@ section.detailPage {
                                 }
                             }
 
+                            .fileTypes {
+                                margin-top: 0.5rem;
+                                margin-bottom: 0.5rem;
+
+                                .options {
+                                    margin-top: -0.5rem;
+                                    max-height: 2.5rem;
+                                    display: block;
+                                    float: left;
+                                    width: fit-content;
+                                    transition: 0.4s;
+                                    border: 2px solid lightGray;
+                                    padding: 0 0 0 2rem;
+                                    border-radius: $radius;
+
+                                    @include sm {
+                                        float: none;
+                                        margin: 1rem auto;
+                                    }
+
+                                    .shownType {
+                                        transition: 0.4s;
+                                        cursor: pointer;
+                                        position: relative;
+                                        padding-left: 2rem;
+
+                                        &:hover {
+                                            color: $primary-color;
+                                        }
+
+                                        label {
+                                            transition: 0.4s;
+                                            display: inline-block;
+                                        }
+
+                                        i {
+                                            transition: 0.4s;
+                                            top: 0.5rem;
+                                            position: absolute;
+                                            left: -1rem;
+                                            font-size: 1.5rem;
+                                        }
+
+                                        .rotated {
+                                            transition: 0.4s;
+                                            transform: rotate(180deg);
+                                        }
+                                    }
+
+                                    label {
+                                        cursor: pointer;
+                                        padding: 0.5rem;
+                                        position: relative;
+                                        display: block;
+                                        font-size: 0.9rem;
+
+                                        &.typeOption {
+                                            padding: 0;
+                                            transition: 0.4s;
+                                            opacity: 0;
+                                            overflow: hidden;
+                                            max-height: 0;
+                                        }
+
+                                        &:hover {
+                                            transition: 0.4s;
+                                            color: $primary-color;
+                                        }
+                                    }
+
+                                    .show {
+                                        padding: 0.5rem !important;
+                                        opacity: 0.8 !important;
+                                        max-height: 2.5rem !important;
+                                        text-align: right;
+                                    }
+
+                                    input[type=radio] {
+                                        display: none;
+                                    }
+                                }
+
+                                .opened {
+                                    transition: 0.4s;
+                                    max-height: 100%;
+                                    padding-bottom: 0.5rem;
+                                }
+                            }
+
                             .price {
                                 padding-left: 1rem;
                                 position: relative;

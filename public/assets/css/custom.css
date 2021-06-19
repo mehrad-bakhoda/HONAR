@@ -1156,6 +1156,83 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   max-height: 100%;
   padding-bottom: 0.5rem;
 }
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options {
+  margin-top: -0.5rem;
+  max-height: 2.5rem;
+  display: block;
+  float: left;
+  width: fit-content;
+  transition: 0.4s;
+  border: 2px solid lightGray;
+  padding: 0 0 0 2rem;
+  border-radius: 12px;
+}
+@media (max-width: 767px) {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options {
+    float: none;
+    margin: 1rem auto;
+  }
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType {
+  transition: 0.4s;
+  cursor: pointer;
+  position: relative;
+  padding-left: 2rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType:hover {
+  color: #0098c5;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType label {
+  transition: 0.4s;
+  display: inline-block;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType i {
+  transition: 0.4s;
+  top: 0.5rem;
+  position: absolute;
+  left: -1rem;
+  font-size: 1.5rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options label {
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  display: block;
+  font-size: 0.9rem;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options label.typeOption {
+  padding: 0;
+  transition: 0.4s;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options label:hover {
+  transition: 0.4s;
+  color: #0098c5;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .show {
+  padding: 0.5rem !important;
+  opacity: 0.8 !important;
+  max-height: 2.5rem !important;
+  text-align: right;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options input[type=radio] {
+  display: none;
+}
+section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .opened {
+  transition: 0.4s;
+  max-height: 100%;
+  padding-bottom: 0.5rem;
+}
 section.detailPage section.contents .container-fluid .top .row .infos .card .price {
   padding-left: 1rem;
   position: relative;

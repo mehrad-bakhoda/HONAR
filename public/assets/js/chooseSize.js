@@ -62,3 +62,30 @@ $(".infos .sizes .shownSize").click(function () {
     $(".infos .sizes label.sizeOption").toggleClass("show");
     $(".infos .sizes i").toggleClass("rotated");
 });
+
+
+//////////////////////////////////////////// File Types ////////////////////////////////////////////
+$(".infos .fileTypes label.typeOption").click(function () {
+    var sizes = $(".infos .sizes label.typeOption");
+    $(".infos .fileTypes label.selectedType").text($(this).text());
+
+    for (var i = 0; i < sizes.length; i++) {
+        $(sizes[i]).removeClass("selected");
+    }
+    $(this).toggleClass("selected");
+
+    for (var i = 0; i < prices.length; i++) {
+        $(prices[i]).removeClass("showPrice");
+    }
+
+    $(".infos .fileTypes .options").toggleClass("opened");
+    $(".infos .fileTypes label.sizeOption").toggleClass("show");
+    $(".infos .fileTypes i").toggleClass("rotated");
+
+})
+
+$(".infos .fileTypes .shownType").click(function () {
+    $(".infos .fileTypes .options").toggleClass("opened");
+    $(".infos .fileTypes label.typeOption").toggleClass("show");
+    $(".infos .fileTypes i").toggleClass("rotated");
+});
