@@ -76,7 +76,7 @@
                             <input name="lastName"  type="lastName" placeholder="نام خانوادگی" />
                             <input id ="downloaderPassword" name="password"  type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
                             <span id="StrengthDispD" class="badge displayBadge" style="display:none;">Weak</span>
-                            <input name="passwordConfirmation"  type="password" class="passwordConfirmationInput" placeholder="تکرار رمز عبور" />
+                            <input name="passwordConfirmation"  type="password" class="passwordConfirmationInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)"/>
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
                             </div>
@@ -107,7 +107,7 @@
                             </div>
                             <input id="uploaderPassword" class="passwordInput" name ="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
                             <span id="StrengthDisp" class="badge displayBadge" style="display:none;">Weak</span>
-                            <input class="passwordConfirmationInput" name ="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                            <input class="passwordConfirmationInput" name ="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)"/>
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
                             </div>
