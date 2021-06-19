@@ -63,6 +63,7 @@ section.contents {
 /*#region Buttons and Inputs*/
 ::placeholder {
   opacity: 0.8;
+  transition: 0.4s;
 }
 
 input:-webkit-autofill,
@@ -122,6 +123,25 @@ textarea:focus {
 textarea:focus {
   transition: 0.4s;
   border: 2px solid #0098c5;
+}
+
+label.goTop {
+  transition: 0.4s;
+  position: absolute;
+  margin-right: 1rem;
+  margin-top: -0.5rem;
+  font-size: 0 !important;
+  color: lightgray;
+  background-color: #f5f5f5;
+}
+label.goTop.show {
+  transition: 0.4s;
+  font-size: 0.9rem !important;
+}
+
+input.noPh::placeholder {
+  transition: 0.4s;
+  font-size: 0;
 }
 
 /*#endregion */
@@ -317,12 +337,15 @@ section.header .navbar .container-fluid .leftSide a.cart span {
   border-radius: 2px;
   min-width: 1rem;
 }
-section.header .navbar .container-fluid .leftSide a.profile {
+section.header .navbar .container-fluid .leftSide a.uploadLink {
   left: 2.5rem;
+}
+section.header .navbar .container-fluid .leftSide a.profile {
+  left: 5.5rem;
 }
 section.header .navbar .container-fluid .leftSide a.signOut {
   padding-top: 0.2rem;
-  left: 5rem;
+  left: 8rem;
 }
 section.header .searchSection {
   z-index: 100;

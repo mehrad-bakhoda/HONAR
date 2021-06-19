@@ -50,11 +50,14 @@ section.contents {
     background: $primary-color;
     border-radius: 5px;
 }
+
+
 /*#endregion */
 
 /*#region Buttons and Inputs*/
 ::placeholder {
     opacity: 0.8;
+    transition: 0.4s;
 }
 
 input:-webkit-autofill,
@@ -115,6 +118,26 @@ textarea:focus {
 textarea:focus {
     transition: 0.4s;
     border: 2px solid $primary-color;
+}
+
+label.goTop {
+    transition: 0.4s;
+    position: absolute;
+    margin-right: 1rem;
+    margin-top: -0.5rem;
+    font-size: 0 !important;
+    color: lightgray;
+    background-color: $body-color;
+
+    &.show {
+        transition: 0.4s;
+        font-size: 0.9rem !important;
+    }
+}
+
+input.noPh::placeholder {
+    transition: 0.4s;
+    font-size: 0;
 }
 
 /*#endregion */
@@ -336,13 +359,18 @@ section.header {
                         }
                     }
 
-                    &.profile {
+
+                    &.uploadLink {
                         left: 2.5rem;
+                    }
+
+                    &.profile {
+                        left: 5.5rem;
                     }
 
                     &.signOut {
                         padding-top: 0.2rem;
-                        left: 5rem;
+                        left: 8rem;
                     }
                 }
             }

@@ -7,43 +7,32 @@
             <%-include("notif");-%>
             <div class="row">
                 <form action="/upload" enctype="multipart/form-data" method="post">
+                    
                     <div class="info">
                         <h4> اطلاعات اثر خود را وارد کنید </h4>
+                        <div class="uploadFile">
+                            <input id="productUploader" type="file" name="productFiles" required />
+                            <i class="far fa-spinner-third fa-spin hidden"></i>
+                            <i class="far fa-check-circle hidden"></i>
+                        </div>
+                        <div class="uploadCover">
+                            <input id="coverUploader" type="file" name="productCover" required />
+                            <i class="far fa-spinner-third fa-spin hidden"></i>
+                            <i class="far fa-check-circle hidden"></i>
+                        </div>
                         <div class="name">
+                            <label class="goTop">  نام اثر</label>
                             <input name="fileName" type="text" class="nameInput" placeholder="نام اثر" required />
                         </div>
                         <div class="tags">
+                            <label class="goTop">  تگ ها</label>
                             <input name="tags" type="text" class="tagsInput" placeholder="با استفاده از تگ ها بیشتر دیده شوید" />
                         </div>
                         <div class="description">
                             <textarea name="description" class="descriptionText" maxlength="100" placeholder="توضیحات اثر"></textarea>
                         </div>
                     </div>
-                    <div class="uploadFile">
-                        <input id="productUploader" type="file" name="productFiles" required />
-                        <i class="far fa-spinner-third fa-spin hidden"></i>
-                        <i class="far fa-check-circle hidden"></i>
-                    </div>
-                    <div class="uploadCover">
-                        <input id="coverUploader" type="file" name="productCover" required />
-                        <i class="far fa-spinner-third fa-spin hidden"></i>
-                        <i class="far fa-check-circle hidden"></i>
-                    </div>
-                    <div class="type">
-                        <lable class="title"> دیگر فایل های مورد نظر </lable>
 
-                        <div class="options">
-                            <input type="text" id="fileTypes" name="fileTypes" style="display:none;"  />
-
-                            <input type="text" id="file" name="file" style="display:none;"  />
-
-                            <label for="png" class="radioLabel" id="png">PNG</label>
-
-                            <label for="jpeg" class="radioLabel" id="jpeg">JPEG</label>
-
-                            <label for="psd" class="radioLabel" id="psd">PSD</label>
-                        </div>
-                    </div>
                     <div class="category">
                         <lable class="title"> نوع </lable>
 
@@ -98,11 +87,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="buttons">
                         <button type="submit">
                             تایید
-                        <i class="fal fa-check"></i>
+                            <i class="fal fa-check"></i>
                         </button>
                     </div>
                 </form>

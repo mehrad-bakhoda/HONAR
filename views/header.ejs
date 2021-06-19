@@ -15,21 +15,24 @@
             <!-- Collapsible wrapper -->
 
             <div class="leftSide">
+                <a href="/upload" class="uploadLink">
+                    <i class="fal fa-cloud-upload"></i>
+                </a>
                 <a href="/login" class="profile">
                     <i class="fal fa-user"></i>
                 </a>
                 <% if(usersession) {%>
-                    <a href="/logout" class="signOut" title="خروج">
-                        <i class="fal fa-sign-out"></i>
-                    </a>
+                <a href="/logout" class="signOut" title="خروج">
+                    <i class="fal fa-sign-out"></i>
+                </a>
                 <%}%>
-                
+
                 <a href="/cart" class="cart" title="سبد خرید">
                     <i class="fal fa-shopping-bag"></i>
                     <% if(session.cart && session.cart.totalQty!=0) {%>
-                        <span class="cartCount"><%=session.cart.totalQty%></span>
+                    <span class="cartCount"><%=session.cart.totalQty%></span>
                     <%} %>
-                    
+
                 </a>
             </div>
         </div>
