@@ -1,4 +1,4 @@
-
+﻿
     setInterval(function(){ 
         $(".loginPage .code .codeAgain").fadeIn(400);
         $(".loginPage .code .codeAgain").removeClass("hidden");
@@ -29,14 +29,14 @@ let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z
 function StrengthChecker(strengthBadge,PasswordParameter){
 
     if(strongPassword.test(PasswordParameter)) {
-        strengthBadge.style.backgroundColor = "#1a981f"
-        strengthBadge.textContent = 'Strong'
+        strengthBadge.style.color = "#1a981f"
+        strengthBadge.textContent = 'قوی'
     } else if(mediumPassword.test(PasswordParameter)){
-        strengthBadge.style.backgroundColor = '#0098c5'
-        strengthBadge.textContent = 'Medium'
+        strengthBadge.style.color = '#0098c5'
+        strengthBadge.textContent = 'معمولی'
     } else{
-        strengthBadge.style.backgroundColor = '#d14774'
-        strengthBadge.textContent = 'Weak'
+        strengthBadge.style.color = '#d14774'
+        strengthBadge.textContent = 'ضعیف'
     }
 }
 password.on('input',() => {

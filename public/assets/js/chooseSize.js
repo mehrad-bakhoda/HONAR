@@ -74,12 +74,9 @@ $(".infos .fileTypes label.typeOption").click(function () {
     }
     $(this).toggleClass("selected");
 
-    for (var i = 0; i < prices.length; i++) {
-        $(prices[i]).removeClass("showPrice");
-    }
 
     $(".infos .fileTypes .options").toggleClass("opened");
-    $(".infos .fileTypes label.sizeOption").toggleClass("show");
+    $(".infos .fileTypes label.typeOption").toggleClass("show");
     $(".infos .fileTypes i").toggleClass("rotated");
 
 })

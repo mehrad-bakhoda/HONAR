@@ -946,7 +946,7 @@ section.loginPage {
                                         right: 12rem;
                                         color: $text-color;
                                         font-size: 1.2rem;
-                                        top: 5rem;
+                                        top: 1rem;
                                         width: 1.2rem;
                                         height: 1.2rem;
 
@@ -985,12 +985,19 @@ section.loginPage {
                         left: 2.5rem;
                         margin-top: 1rem;
                         cursor: pointer;
-
                     }
+
                     i.hidden {
                         opacity: 0;
                         visibility: hidden;
                     }
+                }
+
+                .badge {
+                    margin-top: -2rem;
+                    text-align: right;
+                    margin-bottom: 1rem;
+                    font-size: 1rem;
                 }
             }
         }
