@@ -74,7 +74,8 @@
                             <h4> اطلاعات خود را وارد کنید </h4>
                             <input name="firstName" class="firstNameInput" type="firstName" placeholder="نام" />
                             <input name="lastName"  type="lastName" placeholder="نام خانوادگی" />
-                            <input name="password"  type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <input id ="downloaderPassword" name="password"  type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <span id="StrengthDispD" class="badge displayBadge" style="display:none;">Weak</span>
                             <input name="passwordConfirmation"  type="password" class="passwordConfirmationInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>
@@ -104,8 +105,8 @@
                                 <i class="far fa-spinner-third fa-spin hidden"></i>
                                 <i class="far fa-check-circle hidden"></i>
                             </div>
-                            <input class="passwordInput" name ="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                            <span id="StrengthDisp" class="badge displayBadge">Weak</span>
+                            <input id="uploaderPassword" class="passwordInput" name ="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                            <span id="StrengthDisp" class="badge displayBadge" style="display:none;">Weak</span>
                             <input class="passwordConfirmationInput" name ="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
                             <div class="buttons">
                                 <button type="submit" class="next">ثبت نام</button>

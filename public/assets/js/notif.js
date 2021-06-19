@@ -28,7 +28,7 @@ function validateEmail(input) {
 //login notif
 $(".loginPage .login .next")
 .on('click', function(e) {
-
+    
     var input = $(".phoneInput").val();
     $(".phoneInput").val(input);
     if (!validateEmail(input))
@@ -134,6 +134,7 @@ function validateUploaderForm(){
   var userName=document.forms["uploaderForm"]["userName"].value;
   var password=document.forms["uploaderForm"]["password"].value;
   var passwordConfirmation=document.forms["uploaderForm"]["passwordConfirmation"].value;
+  let strengthBadge = document.getElementById('StrengthDisp');
 
 
   if(password=="" || passwordConfirmation=="" || userName==""){
@@ -160,6 +161,10 @@ else if(passwordConfirmation==""){
     placeholderError(".passwordConfirmationInput","رمز عبور ها با هم شباهتی ندارند");
     password="";
     passwordConfirmation="";
+    return false;
+  }
+  if(strengthBadge.textContent === 'Weak'){
+    notifError("پسوورد شما امن نیست");
     return false;
   }
 }

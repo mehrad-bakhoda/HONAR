@@ -19,28 +19,27 @@
         $(".loginPage .code .codeAgain").fadeOut(400);
       });
 let timeout;
-let password = $(".passwordInput");
+let password = $("#uploaderPassword");
+let passwordD = $("#downloaderPassword")
 let strengthBadge = document.getElementById('StrengthDisp');
+let strengthBadgeD = document.getElementById('StrengthDispD');
 let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
 let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))');
 
-function StrengthChecker(PasswordParameter){
+function StrengthChecker(strengthBadge,PasswordParameter){
 
     if(strongPassword.test(PasswordParameter)) {
-        strengthBadge.style.backgroundColor = "green"
+        strengthBadge.style.backgroundColor = "#1a981f"
         strengthBadge.textContent = 'Strong'
     } else if(mediumPassword.test(PasswordParameter)){
-        strengthBadge.style.backgroundColor = 'blue'
+        strengthBadge.style.backgroundColor = '#0098c5'
         strengthBadge.textContent = 'Medium'
     } else{
-        strengthBadge.style.backgroundColor = 'red'
+        strengthBadge.style.backgroundColor = '#d14774'
         strengthBadge.textContent = 'Weak'
     }
 }
-password.change(function(){
-    console.log(password.value);
-    console.log($("passwordInput").val());
-    console.log(password.val());
+password.on('input',() => {
     //The badge is hidden by default, so we show it
 
     strengthBadge.style.display= 'block'
@@ -48,14 +47,25 @@ password.change(function(){
 
     //We then call the StrengChecker function as a callback then pass the typed password to it
 
-    timeout = setTimeout(() => StrengthChecker(password.value), 500);
+    timeout = setTimeout(() => StrengthChecker(strengthBadge,password.val()), 500);
 
     //Incase a user clears the text, the badge is hidden again
 
-    if(password.value.length !== 0){
+    if(password.val().length !== 0){
         strengthBadge.style.display != 'block'
     } else{
         strengthBadge.style.display = 'none'
+    }
+});
+passwordD.on('input',() => {
+
+    strengthBadgeD.style.display= 'block'
+    clearTimeout(timeout);
+    timeout = setTimeout(() => StrengthChecker(strengthBadgeD,passwordD.val()), 500);
+    if(passwordD.val().length !== 0){
+        strengthBadgeD.style.display != 'block'
+    } else{
+        strengthBadgeD.style.display = 'none'
     }
 });
     
