@@ -116,17 +116,17 @@
                                 <%} %>
                                 <% if(item.largePrice === 0){%>
                                 <p class="large">رایگان </p>
-                                <% }if(item.largePrice !== null){%>
+                                <% }if(item.largePrice !== null && item.largePrice !== 0){%>
                                 <p class="large"> <span><%=item.largePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                 <%}%>
                                 <% if(item.mediumPrice === 0){%>
                                 <p class="medium">رایگان </p>
-                                <% }if(item.mediumPrice !== null){%>
+                                <% }if(item.mediumPrice !== null && item.mediumPrice !== 0){%>
                                     <p class="medium"> <span><%=item.mediumPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                     <%}%>
                                 <% if(item.smallPrice === 0){%>
                                 <p class="small">رایگان </p>
-                                <% }if(item.smallPrice !== null){%>
+                                <% }if(item.smallPrice !== null && item.smallPrice !== 0){%>
                                 <p class="small"> <span><%=item.smallPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></span> تومان </p>
                                 <%}%>
                             </div>
