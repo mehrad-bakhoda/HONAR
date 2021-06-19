@@ -77,14 +77,17 @@ function checkConfirm(e) {
     if (cPass.value !== pass.value) {
         cPass.classList.add("notSame");
         cPass.classList.remove("same");
+        pass.classList.remove("same");
     }
     if (cPass.value === pass.value) {
         cPass.classList.remove("notSame");
         cPass.classList.add("same");
+        pass.classList.add("same");
     }
     if (cPass.value === "") {
         cPass.classList.remove("notSame");
         cPass.classList.remove("same");
+        pass.classList.remove("same");
     }
 }
 
