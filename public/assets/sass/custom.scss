@@ -123,8 +123,9 @@ textarea:focus {
 label.goTop {
     transition: 0.4s;
     position: absolute;
+    padding: 0 0.25rem;
     margin-right: 1rem;
-    margin-top: -0.5rem;
+    margin-top: -0.8rem;
     font-size: 0 !important;
     color: lightgray;
     background-color: $body-color;
@@ -1734,23 +1735,49 @@ Section.uploadPage {
                         margin-bottom: 0.5rem;
                     }
 
+                    ul {
+                        padding: 1rem;
+                        border: 2px solid lightgray;
+                        border-radius: $radius;
+                        list-style: none;
+
+                        li {
+                            text-align: center;
+                            padding: 0.5rem;
+                            display: inline-block;
+                            vertical-align: top;
+
+                            i {
+                                color: $primary-color;
+                                font-size: 2rem !important;
+                                position: relative !important;
+                                right: 0 !important;
+                                top: 0 !important;
+                            }
+
+                            p {
+                                font-size: 1.2rem;
+                                color: $primary-color;
+                                margin: 0;
+                            }
+                        }
+                    }
+
                     input[type=file] {
                         padding: 0;
                         visibility: hidden;
-                        width: 16rem;
-                        margin-right: -1rem;
+                        width: 4.5rem;
                         height: 3.5rem;
                         position: relative;
 
                         &::before {
                             visibility: visible;
-                            margin-right: 1rem;
                             transition: 0.4s;
-                            content: "فایل خود را آپلود کنید";
+                            content: "+";
                             font-size: 16px;
                             position: absolute;
                             background-color: transparent;
-                            width: 14rem;
+                            width: 3.5rem;
                             cursor: pointer;
                             text-align: center;
                             color: $primary-color;
@@ -2030,6 +2057,17 @@ section.searchPage {
         padding-top: 8rem;
 
         .container-fluid {
+            .empty {
+                text-align: center;
+                h2 {
+                    color: $primary-color;
+                }
+            }
+            .topFilters {
+                position: relative;
+                max-width:40rem;
+                margin: auto;
+            }
             .advancedSection {
                 text-align: right;
                 width: fit-content;
