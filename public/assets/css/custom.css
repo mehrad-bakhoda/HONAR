@@ -2272,7 +2272,7 @@ section.dashboardPage .modal .modal-content .modal-body .buttons {
   text-align: left;
   margin-bottom: 1rem;
 }
-section.dashboardPage section.contents .container-fluid wallet {
+section.dashboardPage section.contents .container-fluid .wallet {
   transition: 0.4s;
   max-width: 40rem;
   margin: 1rem auto;
@@ -2280,25 +2280,25 @@ section.dashboardPage section.contents .container-fluid wallet {
   padding: 1rem;
   border-radius: 12px;
 }
-section.dashboardPage section.contents .container-fluid wallet .header {
+section.dashboardPage section.contents .container-fluid .wallet .header {
   text-align: center;
   background-color: transparent;
 }
-section.dashboardPage section.contents .container-fluid wallet .header h5 {
+section.dashboardPage section.contents .container-fluid .wallet .header h5 {
   transition: 0.4s;
   color: #1a981f;
   margin-bottom: 0;
   text-align: right;
 }
-section.dashboardPage section.contents .container-fluid wallet label {
+section.dashboardPage section.contents .container-fluid .wallet label {
   font-weight: bold;
   font-size: 18px;
 }
-section.dashboardPage section.contents .container-fluid wallet .buttons {
+section.dashboardPage section.contents .container-fluid .wallet .buttons {
   padding: 0.5rem 0;
   text-align: left;
 }
-section.dashboardPage section.contents .container-fluid wallet input {
+section.dashboardPage section.contents .container-fluid .wallet input {
   transition: 0.8s;
   background-color: #f5f5f5;
   border-radius: 12px;
@@ -2308,10 +2308,10 @@ section.dashboardPage section.contents .container-fluid wallet input {
   width: 100%;
   margin: 0.5rem auto;
 }
-section.dashboardPage section.contents .container-fluid wallet input:focus {
+section.dashboardPage section.contents .container-fluid .wallet input:focus {
   outline: none;
 }
-section.dashboardPage section.contents .container-fluid wallet a {
+section.dashboardPage section.contents .container-fluid .wallet a {
   text-align: center;
   display: block;
   width: 8rem;
@@ -2321,43 +2321,43 @@ section.dashboardPage section.contents .container-fluid wallet a {
   color: #1a981f;
   border: 2px solid #1a981f;
 }
-section.dashboardPage section.contents .container-fluid wallet a:hover {
+section.dashboardPage section.contents .container-fluid .wallet a:hover {
   transition: 0.4s;
   color: #f5f5f5;
   background-color: #1a981f;
 }
-section.dashboardPage section.contents .container-fluid wallet button {
+section.dashboardPage section.contents .container-fluid .wallet button {
   color: #1a981f;
   border: 2px solid #1a981f;
 }
-section.dashboardPage section.contents .container-fluid wallet button:hover {
+section.dashboardPage section.contents .container-fluid .wallet button:hover {
   color: #f5f5f5;
   background-color: #1a981f;
 }
-section.dashboardPage section.contents .container-fluid wallet .credit {
+section.dashboardPage section.contents .container-fluid .wallet .credit {
   padding: 1rem;
   border: 2px solid lightgray;
   border-radius: 12px;
   margin-bottom: 1rem;
 }
-section.dashboardPage section.contents .container-fluid wallet .credit p {
+section.dashboardPage section.contents .container-fluid .wallet .credit p {
   float: left;
 }
-section.dashboardPage section.contents .container-fluid wallet .increase {
+section.dashboardPage section.contents .container-fluid .wallet .increase {
   padding: 1rem;
   border: 2px solid lightgray;
   border-radius: 12px;
   margin-bottom: 1rem;
 }
-section.dashboardPage section.contents .container-fluid wallet .cash {
+section.dashboardPage section.contents .container-fluid .wallet .cash {
   padding: 1rem;
   border: 2px solid lightgray;
   border-radius: 12px;
 }
-section.dashboardPage section.contents .container-fluid wallet .cash p {
+section.dashboardPage section.contents .container-fluid .wallet .cash p {
   float: left;
 }
-section.dashboardPage section.contents .container-fluid wallet .cash p.add {
+section.dashboardPage section.contents .container-fluid .wallet .cash p.add {
   border-radius: 12px;
   text-align: center;
   padding: 0.5rem 1rem;
@@ -2367,17 +2367,17 @@ section.dashboardPage section.contents .container-fluid wallet .cash p.add {
   cursor: pointer;
   float: none;
 }
-section.dashboardPage section.contents .container-fluid wallet .cash p.add:hover {
+section.dashboardPage section.contents .container-fluid .wallet .cash p.add:hover {
   transition: 0.4s;
   color: #f5f5f5;
   background-color: #1a981f;
 }
-section.dashboardPage section.contents .container-fluid wallet .cash .carts {
+section.dashboardPage section.contents .container-fluid .wallet .cash .carts {
   transition: 0.4s;
   max-height: 30rem;
   overflow: auto;
 }
-section.dashboardPage section.contents .container-fluid wallet .cash .hidden {
+section.dashboardPage section.contents .container-fluid .wallet .cash .hidden {
   transition: 0.4s;
   max-height: 0;
   overflow: hidden;
