@@ -365,14 +365,17 @@
 
                     <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
 
-                    <label class="goTop"> رمز عبور فعلی</label>
-                    <input name="oldPassword" type="password" class="passwordInput" placeholder="رمز عبور فعلی" />
+                    <div class="password">
+                        <p class="change"> تغییر رمز عبور </p>
+                        <label class="goTop"> رمز عبور فعلی</label>
+                        <input name="oldPassword" type="password" class="passwordInput" placeholder="رمز عبور فعلی" />
 
-                    <label class="goTop"> رمز عبور دلخواه</label>
-                    <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                        <label class="goTop"> رمز عبور دلخواه</label>
+                        <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
 
-                    <label class="goTop"> تکرار رمز عبور</label>
-                    <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)" />
+                        <label class="goTop"> تکرار رمز عبور</label>
+                        <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)" />
+                    </div>
                     <div class="buttons">
                         <button type="button" class="edit" onclick="changeForm()">
                             ویرایش

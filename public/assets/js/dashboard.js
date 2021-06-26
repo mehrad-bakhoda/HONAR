@@ -40,3 +40,7 @@ function checkConfirm(e) {
 }
 
 
+document.querySelector(".personalInfo .change").onclick = () => {
+    document.querySelector(".personalInfo .password").classList.toggle("open");
+}
+

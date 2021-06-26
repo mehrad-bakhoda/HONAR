@@ -4,7 +4,7 @@ const inputs = Array.from(document.querySelectorAll("input"));
 document.onclick = () => {
     for (input of inputs) {
         let label = input.previousElementSibling;
-        if (input === document.activeElement && label.classList.contains("goTop")) {
+        if (input === document.activeElement && label.classList.contains("goTop") || input.value != "") {
             label.classList.add("show");
             input.classList.add("noPh");
         }
