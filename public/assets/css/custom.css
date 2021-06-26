@@ -2292,6 +2292,7 @@ section.dashboardPage section.contents .container-fluid .wallet {
 section.dashboardPage section.contents .container-fluid .wallet .header {
   text-align: center;
   background-color: transparent;
+  padding-bottom: 1rem;
 }
 section.dashboardPage section.contents .container-fluid .wallet .header h5 {
   transition: 0.4s;
