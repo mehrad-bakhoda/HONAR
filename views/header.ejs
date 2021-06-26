@@ -1,4 +1,5 @@
-﻿<section class="header">
+﻿<%-include("uploadButton");-%>
+<section class="header">
     <nav class="navbar">
         <div class="container-fluid">
             <!-- Collapsible wrapper -->
@@ -42,17 +43,16 @@
             <div class="general">
                 <a onclick="submit_form(); return false;"><i class="fal fa-search"></i></a>
                 <input type="text" name="searchedItem" placeholder="به دنبال چه هستید..." />
-                
+
             </div>
 
         </form>
-        
+
     </div>
 </section>
 
 <script>
-function submit_form()
-{
-  document.searchForm.submit();
-}
+    function submit_form() {
+        document.searchForm.submit();
+    }
 </script>
