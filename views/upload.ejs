@@ -1,7 +1,7 @@
 ﻿<%-include("head");-%>
 
 <section class="page uploadPage">
-    <%-include("headerN");-%>
+    <%-include("header");-%>
     <section class="contents">
         <div class="container-fluid">
             <%-include("notif");-%>
@@ -91,16 +91,19 @@
                                  data-mdb-parent="#accorionPrice">
                                 <div class="accordion-body">
                                     <div class="pricing large">
+                                        <input type="checkbox" />
                                         <input name="largePrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز بزرگ " maxlength="11" />
                                         <label class="toman"> تومان </label>
                                         <label class="free"> رایگان </label>
                                     </div>
                                     <div class="pricing medium">
+                                        <input type="checkbox" />
                                         <input name="mediumPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز متوسط" maxlength="11" />
                                         <label class="toman"> تومان </label>
                                         <label class="free"> رایگان </label>
                                     </div>
                                     <div class="pricing small">
+                                        <input type="checkbox" />
                                         <input name="smallPrice" type="text" class="price" onkeypress="return isNumberKey(event)" placeholder="قیمت سایز کوچک" maxlength="11" />
                                         <label class="toman"> تومان </label>
                                         <label class="free"> رایگان </label>

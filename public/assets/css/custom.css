@@ -1619,7 +1619,11 @@ Section.uploadPage section.contents .container-fluid .row .pricing {
   max-width: 20rem;
   font-size: 0.9rem;
 }
-Section.uploadPage section.contents .container-fluid .row .pricing input {
+Section.uploadPage section.contents .container-fluid .row .pricing input[type=checkbox] {
+  width: 1rem;
+  height: 1rem;
+}
+Section.uploadPage section.contents .container-fluid .row .pricing input[type=text] {
   transition: 0.4s;
   background-color: transparent;
   border: none;
@@ -1631,7 +1635,7 @@ Section.uploadPage section.contents .container-fluid .row .pricing input {
   border-radius: 12px;
   padding-left: 3rem;
 }
-Section.uploadPage section.contents .container-fluid .row .pricing input:focus {
+Section.uploadPage section.contents .container-fluid .row .pricing input[type=text]:focus {
   transition: 0.4s;
   outline: none;
 }

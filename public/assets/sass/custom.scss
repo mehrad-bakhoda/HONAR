@@ -1876,8 +1876,11 @@ Section.uploadPage {
                     margin-bottom: 1rem;
                     max-width: 20rem;
                     font-size: 0.9rem;
-
-                    input {
+                    input[type=checkbox] {
+                        width: 1rem;
+                        height: 1rem;
+                    }
+                    input[type=text] {
                         transition: 0.4s;
                         background-color: transparent;
                         border: none;
