@@ -13,17 +13,27 @@
                     <form action="/search/advanced/home/<%=searchedItem%>" method="POST">
                         <div class="advanced advancedHidden">
                             <div class="category">
-                                <lable class="title"> نوع </lable>
+                                <lable class="title"> دسته </lable>
 
                                 <div class="options">
                                     <input name="photography" type="radio" id="photography" value="photography">
-                                    <label for="photography" class="radioLabel">عکاسی</label>
+                                    <label for="photography" class="radioLabel">عکس</label>
 
                                     <input name="graphic" type="radio" id="graphic" value="graphic">
                                     <label for="graphic" class="radioLabel">گرافیک</label>
 
                                     <input name="clip" type="radio" id="clip" value="clip">
-                                    <label for="clip" class="radioLabel">کلیپ</label>
+                                    <label for="clip" class="radioLabel">ویدیو</label>
+
+                                    <input name="gif" type="radio" id="gif" value="gif">
+                                    <label for="gif" class="radioLabel">GIF</label>
+
+                                    <input name="psd" type="radio" id="psd" value="psd">
+                                    <label for="psd" class="radioLabel">PSD</label>
+
+
+                                    <input name="png" type="radio" id="png" value="png">
+                                    <label for="png" class="radioLabel">PNG</label>
                                 </div>
                             </div>
                             <div class="orientation">
@@ -37,23 +47,6 @@
 
                                     <input name="square" type="radio" id="square" value="square">
                                     <label for="square" class="radioLabel">مربع</label>
-                                </div>
-                            </div>
-                            <div class="type">
-                                <lable class="title"> فایل </lable>
-                                <div class="options">
-                                    <input value="jpg" type="radio" id="portate" value="jpg">
-                                    <label for="jpg" class="radioLabel">jpg</label>
-
-                                    <input value="png" type="radio" id="portate" value="png">
-                                    <label for="png" class="radioLabel">png</label>
-
-                                    <input value="svg" type="radio" id="portate" value="svg">
-                                    <label for="svg" class="radioLabel">svg</label>
-
-                                    <input value="psd" type="radio" id="portate" value="psd">
-                                    <label for="psd" class="radioLabel">psd</label>
-
                                 </div>
                             </div>
                             <div class="price">

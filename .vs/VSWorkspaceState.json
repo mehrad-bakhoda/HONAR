@@ -1,14 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\models",
     "\\public",
     "\\public\\assets",
-    "\\public\\assets\\js",
-    "\\public\\assets\\sass",
-    "\\routes",
-    "\\views"
+    "\\public\\assets\\sass"
   ],
-  "SelectedNode": "\\public\\assets\\js\\login.js",
+  "SelectedNode": "\\public\\assets\\images",
   "PreviewInSolutionExplorer": false
 }

@@ -1799,7 +1799,7 @@ section.searchPage section.contents .container-fluid .advancedSection .seeAdvanc
   font-size: 0.9rem;
 }
 section.searchPage section.contents .container-fluid .advancedSection .seeAdvanced i.sliders {
-  left: 1rem;
+  left: 0.5rem;
   top: 0.7rem;
   font-size: 20px;
   position: absolute;
@@ -1923,6 +1923,16 @@ section.searchPage section.contents .container-fluid .advanced .orientation .tit
   section.searchPage section.contents .container-fluid .advanced .category .title,
 section.searchPage section.contents .container-fluid .advanced .orientation .title, section.searchPage section.contents .container-fluid .advanced .type .title {
     margin-right: 0;
+  }
+}
+@media (max-width: 480px) {
+  section.searchPage section.contents .container-fluid .advanced .category .options {
+    display: inline-block;
+  }
+  section.searchPage section.contents .container-fluid .advanced .category .options label {
+    display: inline-block;
+    width: calc(32% - 1rem);
+    margin-bottom: 0.5rem;
   }
 }
 section.searchPage section.contents .container-fluid .advanced .price {
@@ -2237,46 +2247,6 @@ section.dashboardPage .supportButton a:hover {
     font-size: 2rem;
   }
 }
-section.dashboardPage .walletButton {
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  text-align: center;
-  z-index: 100;
-}
-section.dashboardPage .walletButton a {
-  transition: 0.4s;
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  display: block;
-  width: 4rem;
-  height: 4rem;
-  padding-top: 0.5rem;
-  color: green;
-  border: 2px solid lightGray;
-  text-align: center;
-}
-section.dashboardPage .walletButton a i {
-  font-size: 2.5rem;
-}
-section.dashboardPage .walletButton a:hover {
-  transition: 0.4s;
-  background-color: green;
-  color: #f5f5f5;
-}
-@media (max-width: 767px) {
-  section.dashboardPage .walletButton {
-    bottom: 1rem;
-    left: 1rem;
-  }
-  section.dashboardPage .walletButton a {
-    width: 3rem;
-    height: 3rem;
-  }
-  section.dashboardPage .walletButton a i {
-    font-size: 2rem;
-  }
-}
 section.dashboardPage .modal .modal-content {
   width: 95%;
   max-width: 40rem;
@@ -2301,6 +2271,116 @@ section.dashboardPage .modal .modal-content .modal-body textarea {
 section.dashboardPage .modal .modal-content .modal-body .buttons {
   text-align: left;
   margin-bottom: 1rem;
+}
+section.dashboardPage section.contents .container-fluid wallet {
+  transition: 0.4s;
+  max-width: 40rem;
+  margin: 1rem auto;
+  border: 2px solid #1a981f;
+  padding: 1rem;
+  border-radius: 12px;
+}
+section.dashboardPage section.contents .container-fluid wallet .header {
+  text-align: center;
+  background-color: transparent;
+}
+section.dashboardPage section.contents .container-fluid wallet .header h5 {
+  transition: 0.4s;
+  color: #1a981f;
+  margin-bottom: 0;
+  text-align: right;
+}
+section.dashboardPage section.contents .container-fluid wallet label {
+  font-weight: bold;
+  font-size: 18px;
+}
+section.dashboardPage section.contents .container-fluid wallet .buttons {
+  padding: 0.5rem 0;
+  text-align: left;
+}
+section.dashboardPage section.contents .container-fluid wallet input {
+  transition: 0.8s;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  border: 2px solid lightgray;
+  height: 2.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  margin: 0.5rem auto;
+}
+section.dashboardPage section.contents .container-fluid wallet input:focus {
+  outline: none;
+}
+section.dashboardPage section.contents .container-fluid wallet a {
+  text-align: center;
+  display: block;
+  width: 8rem;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  transition: 0.4s;
+  color: #1a981f;
+  border: 2px solid #1a981f;
+}
+section.dashboardPage section.contents .container-fluid wallet a:hover {
+  transition: 0.4s;
+  color: #f5f5f5;
+  background-color: #1a981f;
+}
+section.dashboardPage section.contents .container-fluid wallet button {
+  color: #1a981f;
+  border: 2px solid #1a981f;
+}
+section.dashboardPage section.contents .container-fluid wallet button:hover {
+  color: #f5f5f5;
+  background-color: #1a981f;
+}
+section.dashboardPage section.contents .container-fluid wallet .credit {
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+section.dashboardPage section.contents .container-fluid wallet .credit p {
+  float: left;
+}
+section.dashboardPage section.contents .container-fluid wallet .increase {
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+section.dashboardPage section.contents .container-fluid wallet .cash {
+  padding: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+}
+section.dashboardPage section.contents .container-fluid wallet .cash p {
+  float: left;
+}
+section.dashboardPage section.contents .container-fluid wallet .cash p.add {
+  border-radius: 12px;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  transition: 0.4s;
+  color: #1a981f;
+  border: 2px solid #1a981f;
+  cursor: pointer;
+  float: none;
+}
+section.dashboardPage section.contents .container-fluid wallet .cash p.add:hover {
+  transition: 0.4s;
+  color: #f5f5f5;
+  background-color: #1a981f;
+}
+section.dashboardPage section.contents .container-fluid wallet .cash .carts {
+  transition: 0.4s;
+  max-height: 30rem;
+  overflow: auto;
+}
+section.dashboardPage section.contents .container-fluid wallet .cash .hidden {
+  transition: 0.4s;
+  max-height: 0;
+  overflow: hidden;
 }
 section.dashboardPage section.contents .container-fluid .part {
   transition: 0.4s;
@@ -2494,98 +2574,6 @@ section.dashboardPage section.contents .container-fluid .part.sale .history ul l
   section.dashboardPage section.contents .container-fluid .part.sale .history ul li .saleCard label span {
     float: left;
   }
-}
-section.dashboardPage section.contents .container-fluid .part.wallet label {
-  font-weight: bold;
-  font-size: 18px;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .buttons {
-  padding: 0.5rem 0;
-  text-align: left;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet input {
-  transition: 0.8s;
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  border: 2px solid lightgray;
-  height: 2.5rem;
-  padding: 0.5rem;
-  width: 100%;
-  margin: 0.5rem auto;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet input:focus {
-  outline: none;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet a {
-  text-align: center;
-  display: block;
-  width: 8rem;
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  transition: 0.4s;
-  color: #1a981f;
-  border: 2px solid #1a981f;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet a:hover {
-  transition: 0.4s;
-  color: #f5f5f5;
-  background-color: #1a981f;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet button {
-  color: #1a981f;
-  border: 2px solid #1a981f;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet button:hover {
-  color: #f5f5f5;
-  background-color: #1a981f;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .credit {
-  padding: 1rem;
-  border: 2px solid lightgray;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .credit p {
-  float: left;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .increase {
-  padding: 1rem;
-  border: 2px solid lightgray;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .cash {
-  padding: 1rem;
-  border: 2px solid lightgray;
-  border-radius: 12px;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .cash p {
-  float: left;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .cash p.add {
-  border-radius: 12px;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  transition: 0.4s;
-  color: #1a981f;
-  border: 2px solid #1a981f;
-  cursor: pointer;
-  float: none;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .cash p.add:hover {
-  transition: 0.4s;
-  color: #f5f5f5;
-  background-color: #1a981f;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .cash .carts {
-  transition: 0.4s;
-  max-height: 30rem;
-  overflow: auto;
-}
-section.dashboardPage section.contents .container-fluid .part.wallet .cash .hidden {
-  transition: 0.4s;
-  max-height: 0;
-  overflow: hidden;
 }
 section.dashboardPage section.contents .container-fluid .part.notifs {
   position: relative;
@@ -2997,12 +2985,6 @@ section.dashboardPage section.contents .container-fluid .opened .header h5 {
   transition: 0.4s;
   color: #0098c5;
 }
-section.dashboardPage section.contents .container-fluid .opened.wallet {
-  border: 2px solid #1a981f;
-}
-section.dashboardPage section.contents .container-fluid .opened.wallet .header h5 {
-  color: #1a981f;
-}
 section.dashboardPage section.contents .container-fluid .products .buttons {
   padding-top: 4rem;
   text-align: center;
@@ -3027,6 +3009,277 @@ section.dashboardPage section.contents .container-fluid .products .buttons butto
 section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore:focus {
   transition: 0.4s;
   outline: none;
+}
+section.dashboardPage section.contents .container-fluid .products .topFilters {
+  position: relative;
+  max-width: 40rem;
+  margin: auto;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection {
+  max-height: 2.5rem;
+  display: block;
+  margin: 1rem auto 1rem 0;
+  width: fit-content;
+  transition: 0.4s;
+  z-index: 50;
+  position: relative;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting {
+  background-color: #f5f5f5;
+  border: 2px solid lightGray;
+  width: 10rem;
+  border-radius: 0.5rem;
+  border-radius: 12px;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort {
+  transition: 0.4s;
+  cursor: pointer;
+  position: relative;
+  padding-left: 2rem;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort:hover {
+  color: #0098c5;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort label {
+  transition: 0.4s;
+  display: inline-block;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort i {
+  transition: 0.4s;
+  top: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  font-size: 1.4rem;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting label {
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  display: block;
+  font-size: 0.9rem;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting label.sortOption {
+  padding: 0;
+  transition: 0.4s;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting label:hover {
+  transition: 0.4s;
+  color: #0098c5;
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .show {
+  padding: 0.5rem !important;
+  opacity: 0.8 !important;
+  max-height: 2.5rem !important;
+  text-align: right;
+}
+@media (max-width: 480px) {
+  section.dashboardPage section.contents .container-fluid .products .sortSection .sorting {
+    width: 9rem;
+  }
+  section.dashboardPage section.contents .container-fluid .products .sortSection .sorting i {
+    left: 0.5rem !important;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .sortSection .opened {
+  transition: 0.4s;
+  max-height: 100%;
+  padding-bottom: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .products .advancedSection {
+  text-align: right;
+  width: fit-content;
+  float: right;
+  margin-bottom: -1rem;
+}
+section.dashboardPage section.contents .container-fluid .products .advancedSection .seeAdvanced {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  cursor: pointer;
+}
+section.dashboardPage section.contents .container-fluid .products .advancedSection .seeAdvanced p {
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  padding: 0.5rem 0.5rem 0.5rem 3rem;
+  font-size: 0.9rem;
+}
+section.dashboardPage section.contents .container-fluid .products .advancedSection .seeAdvanced i.sliders {
+  left: 0.5rem;
+  top: 0.7rem;
+  font-size: 20px;
+  position: absolute;
+}
+section.dashboardPage section.contents .container-fluid .products .advancedSection .rotated {
+  transition: 0.4s;
+  transform: rotate(180deg);
+}
+@media (max-width: 480px) {
+  section.dashboardPage section.contents .container-fluid .products .advancedSection p {
+    padding: 0.5rem 0.5rem 0.5rem 2rem !important;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .advanced {
+  background-color: #f5f5f5;
+  transition: 0.4s;
+  max-width: 40rem;
+  margin: auto;
+  position: absolute;
+  max-height: 40rem;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+  z-index: 100;
+}
+@media (max-width: 767px) {
+  section.dashboardPage section.contents .container-fluid .products .advanced {
+    width: calc(100% - 1.7rem);
+    padding: 0.5rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .buttons {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .buttons button {
+  width: 100%;
+  max-width: 400px;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced input[type=radio] {
+  display: none;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced label.radioLabel {
+  cursor: pointer;
+  width: 100%;
+  margin: 0 0.5rem;
+  text-align: center;
+  transition: 0.4s;
+  border: none;
+  border: 2px solid lightGray;
+  color: #333333;
+  padding: 0.5rem 0.4rem;
+  border-radius: 12px;
+  background-color: transparent;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .options {
+  text-align: right;
+  display: flex;
+  width: 100%;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .tag {
+  margin: 1rem auto;
+  padding: 0 2rem 0 1rem;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .products .advanced .tag {
+    padding: 0 0.5rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .tag input {
+  padding: 0 0.1rem;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .tag .usedTags {
+  text-align: right;
+  display: inline-block;
+  padding-top: 1rem;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .tag .usedTags p {
+  display: inline-block;
+  display: inline-block;
+  border: 2px solid lightGray;
+  color: #333333;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+  border-radius: 12px;
+  background-color: transparent;
+  margin: 0rem 0.25rem 1rem;
+  position: relative;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .tag .usedTags p i {
+  transition: 0.4s;
+  color: #333333;
+  font-size: 20px;
+  position: relative;
+  font-weight: 500;
+  position: absolute;
+  right: 0.5rem;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .tag .usedTags p i:hover {
+  transition: 0.4s;
+  color: #9c2d89;
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .category,
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation, section.dashboardPage section.contents .container-fluid .products .advanced .type {
+  padding: 1.5rem 0;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .products .advanced .category,
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation, section.dashboardPage section.contents .container-fluid .products .advanced .type {
+    display: block;
+    padding: 0.5rem 0 1.5rem 0;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .category .title,
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation .title, section.dashboardPage section.contents .container-fluid .products .advanced .type .title {
+  padding-top: 0.5rem;
+  width: 6rem;
+  text-align: right;
+  margin-right: 2rem;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .products .advanced .category .title,
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation .title, section.dashboardPage section.contents .container-fluid .products .advanced .type .title {
+    margin-right: 0;
+  }
+}
+@media (max-width: 480px) {
+  section.dashboardPage section.contents .container-fluid .products .advanced .category .options {
+    display: inline-block;
+  }
+  section.dashboardPage section.contents .container-fluid .products .advanced .category .options label {
+    display: inline-block;
+    width: calc(32% - 1rem);
+    margin-bottom: 0.5rem;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .price {
+  padding: 1.5rem 0;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .products .advanced .price {
+    display: block;
+    padding: 0.5rem 0 1.5rem 0;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .price .title {
+  padding-top: 0.5rem;
+  width: 6rem;
+  text-align: right;
+  margin-right: 2rem;
+}
+@media (max-width: 580px) {
+  section.dashboardPage section.contents .container-fluid .products .advanced .price .title {
+    margin-right: 0;
+  }
+}
+section.dashboardPage section.contents .container-fluid .products .advanced .selected {
+  transition: 0.4s;
+  border: none;
+  color: #9c2d89 !important;
+  border: 2px solid #9c2d89 !important;
+  font-weight: bold;
+}
+section.dashboardPage section.contents .container-fluid .products .advancedHidden {
+  transition: 0.4s;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
 }
 
 /*#endregion */
