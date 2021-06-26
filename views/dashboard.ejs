@@ -18,13 +18,15 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <form action="/sendMessage" method="post">
-                    <input class="title" placeholder="عنوان پیام..." type="text" />
-                    <textarea name="message" placeholder="پیام شما..."></textarea>
-                    <div class="buttons">
-                        <button type="submit"> ارسال پیام </button>
 
-                    </div>
-                </form>
+                        <label class="goTop"> عنوان پیام</label>
+                        <input class="title" placeholder="عنوان پیام..." type="text" />
+                        <textarea name="message" placeholder="پیام شما..."></textarea>
+                        <div class="buttons">
+                            <button type="submit"> ارسال پیام </button>
+
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -96,12 +98,12 @@
 
                         کیف پول
                         <span>
-                           <% if(user.balance==0 || !user.balance){%>
-                                (خالی)
-                           <% }if(user.balance !=0 && user.balance){%>
-                                (<%=user.balance%>)
-                          <%  }%>
-                            
+                            <% if(user.balance==0 || !user.balance){%>
+                            (خالی)
+                            <% }if(user.balance !=0 && user.balance){%>
+                            (<%=user.balance%>)
+                            <%  }%>
+
                         </span>
                         <i class="fal fa-angle-down"></i>
                     </h5>
@@ -111,301 +113,328 @@
                     <div class="increase">
                         <h5> افزایش اعتبار </h5>
                         <form action="/addFund" method="post">
-                        <input type="text" name="amount" placeholder="مقدار مورد نظر..." required/>
-                        <div class="buttons">
-                            <button type="submit">
-                                افزایش اعتبار
-                            </button>
-                        </form>
 
-                        </div>
-                    </div>
-                    <%  if(user.type=="Uploader"){%>
-                    <div class="cash">
-                       <% if(user.creditCardConfirmation == "true" && user.creditCardConfirmation){%>
-                            <h5> دریافت پول </h5>
-                            <label>
-                                شماره حساب
-                            </label>
-                            <% /* %>
-                             <p><%=user.creditCard.cardNumber%></p>
-                            <% */ %>
-                            <form action="/getFund" method="post">
-                            <input type="text" name="amount" placeholder="مقدار مورد نظر..." required/>
+                            <label class="goTop"> مقدار مورد نظر</label>
+                            <input type="text" name="amount" placeholder="مقدار مورد نظر..." required />
                             <div class="buttons">
-                                <button type="submit"> دریافت</button>
-                            </div>  
+                                <button type="submit">
+                                    افزایش اعتبار
+                                </button>
                         </form>
-                 
-                   
-                      <%  }%>
-                      <% if(user.creditCardConfirmation == "wait" && user.creditCardConfirmation){%>
+
+                    </div>
+                </div>
+                <%  if(user.type=="Uploader"){%>
+                <div class="cash">
+                    <% if(user.creditCardConfirmation == "true" && user.creditCardConfirmation){%>
+                    <h5> دریافت پول </h5>
+                    <label>
+                        شماره حساب
+                    </label>
+                    <% /* %>
+                    <p><%=user.creditCard.cardNumber%></p>
+                    <% */ %>
+                    <form action="/getFund" method="post">
+                        <label class="goTop"> مقدار مورد نظر</label>
+                        <input type="text" name="amount" placeholder="مقدار مورد نظر..." required />
+                        <div class="buttons">
+                            <button type="submit"> دریافت</button>
+                        </div>
+                    </form>
 
 
-                        <p > در انتظار تایید </p>
+                    <%  }%>
+                    <% if(user.creditCardConfirmation == "wait" && user.creditCardConfirmation){%>
+
+
+                    <p> در انتظار تایید </p>
 
                     <%}%>
 
-                     
-                      <% if(user.creditCardConfirmation != "true" && user.creditCardConfirmation != "wait"  || !user.creditCardConfirmation){%>
+
+                    <% if(user.creditCardConfirmation != "true" && user.creditCardConfirmation != "wait"  || !user.creditCardConfirmation){%>
 
 
-                        <p class="add"> افزودن کارت </p>
-                        <div class="carts hidden">
-                            <form action="/addCard" method="post">
-                            <input type="text" name="cardNumber" class="creditNumber" placeholder="شماره کارت شما..." required/>
-                            <input type="text" name="name" class="name" placeholder="نام شما..." required/>
-                            <input type="text" name="sId" class="ssm" placeholder="کد ملی شما..." required/>
+                    <p class="add"> افزودن کارت </p>
+                    <div class="carts hidden">
+                        <form action="/addCard" method="post">
+                            <label class="goTop"> شماره کارت شما</label>
+                            <input type="text" name="cardNumber" class="creditNumber" placeholder="شماره کارت شما..." required />
+
+                            <label class="goTop"> نام شما</label>
+                            <input type="text" name="name" class="name" placeholder="نام شما..." required />
+
+                            <label class="goTop"> کد ملی شما</label>
+                            <input type="text" name="sId" class="ssm" placeholder="کد ملی شما..." required />
                             <div class="buttons">
                                 <button type="submit" class="submitCart"> ثبت کارت</button>
                             </div>
                         </form>
-                        </div>
-                    <%}%>
-                        
                     </div>
                     <%}%>
 
                 </div>
+                <%}%>
+
             </div>
-            <div class="notifs part">
+        </div>
+        <div class="notifs part">
 
-                <div class="header" onClick="openContent('notifs')">
+            <div class="header" onClick="openContent('notifs')">
 
-                    <h5>
-                        پیام های شما
-                        <i class="fal fa-angle-down"></i>
-                    </h5>
+                <h5>
+                    پیام های شما
+                    <i class="fal fa-angle-down"></i>
+                </h5>
 
-                </div>
-                <div class="collapseContent contentHidden">
-                    <ul class="nav nav-tabs nav-justified mb-3" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active"
-                               id="tab-1"
-                               data-mdb-toggle="tab"
-                               href="#tabs-1"
-                               role="tab"
-                               aria-controls="tabs-1"
-                               aria-selected="true">سیستمی</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link"
-                               id="tab-2"
-                               data-mdb-toggle="tab"
-                               href="#tabs-2"
-                               role="tab"
-                               aria-controls="tabs-2"
-                               aria-selected="false">ادمین</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link"
-                               id="tab-3"
-                               data-mdb-toggle="tab"
-                               href="#tabs-3"
-                               role="tab"
-                               aria-controls="tabs-3"
-                               aria-selected="false">مالی</a>
-                        </li>
+            </div>
+            <div class="collapseContent contentHidden">
+                <ul class="nav nav-tabs nav-justified mb-3" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active"
+                           id="tab-1"
+                           data-mdb-toggle="tab"
+                           href="#tabs-1"
+                           role="tab"
+                           aria-controls="tabs-1"
+                           aria-selected="true">سیستمی</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link"
+                           id="tab-2"
+                           data-mdb-toggle="tab"
+                           href="#tabs-2"
+                           role="tab"
+                           aria-controls="tabs-2"
+                           aria-selected="false">ادمین</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link"
+                           id="tab-3"
+                           data-mdb-toggle="tab"
+                           href="#tabs-3"
+                           role="tab"
+                           aria-controls="tabs-3"
+                           aria-selected="false">مالی</a>
+                    </li>
 
-                    </ul>
-                    <div class="tab-content" id="ex2-content">
-                        <div class="tab-pane fade show active"
-                             id="tabs-1"
-                             role="tabpanel"
-                             aria-labelledby="tab-1">
+                </ul>
+                <div class="tab-content" id="ex2-content">
+                    <div class="tab-pane fade show active"
+                         id="tabs-1"
+                         role="tabpanel"
+                         aria-labelledby="tab-1">
 
-                            <%if(statusMessage.length){%>
-                            <% statusMessage.slice().reverse().forEach(function(message) { %>
+                        <%if(statusMessage.length){%>
+                        <% statusMessage.slice().reverse().forEach(function(message) { %>
 
-                            <%if(message.code==="000"){%>
-                            <div class="card notifCard success">
-                                <div class="title">
-                                    <h6> پیام  تایید</h6>
-                                    <p class="date">
-                                        <%=message.date%>
-                                    </p>
-                                </div>
-                                <div class="mesage">
-                                    <p> <%=message.message%></p>
-                                </div>
+                        <%if(message.code==="000"){%>
+                        <div class="card notifCard success">
+                            <div class="title">
+                                <h6> پیام  تایید</h6>
+                                <p class="date">
+                                    <%=message.date%>
+                                </p>
                             </div>
-                            <%}%>
-
-                            <%if(message.code==="111"){%>
-                            <div class="card notifCard">
-                                <div class="title">
-                                    <h6> پیام  عادی</h6>
-                                    <p class="date">
-                                        <%=message.date%>
-                                    </p>
-                                </div>
-                                <div class="mesage">
-                                    <p> <%=message.message%></p>
-                                </div>
+                            <div class="mesage">
+                                <p> <%=message.message%></p>
                             </div>
-
-                            <%}%>
-                            <%if(message.code==="222"){%>
-                            <div class="card notifCard error">
-                                <div class="title">
-                                    <h6> پیام  خطا</h6>
-                                    <p class="date">
-                                        <%=message.date%>
-                                    </p>
-                                </div>
-                                <div class="mesage">
-                                    <p> <%=message.message%></p>
-                                </div>
-                            </div>
-
-
-                            <% }%>
-                            <% })%>
-                            <%}else{%>
-
-                            <h6 style="margin: auto;"> هیج پیامی ندارید</h6>
-                            <%}%>
                         </div>
-                        <div class="tab-pane fade"
-                             id="tabs-2"
-                             role="tabpanel"
-                             aria-labelledby="tab-2">
-                            <%let empty = true;%>
-                            <% if(messages.length != 0 ){%>
+                        <%}%>
 
-                            <% messages.slice().reverse().forEach(function(message) { %>
-                            <% if(message.response && message.response != ""){%>
-                            <div class="card notifCard">
-                                <div class="title">
-                                    <h6><%=message.title%></h6>
-                                    <p class="date">
-                                        <%=message.date%>
-                                    </p>
-                                </div>
-                                <div class="yourMessage">
-
-                                    <p> <%=message.message%></p>
-                                </div>
-                                <div class="adminMessage">
-                                    <label> پاسخ </label>
-                                    <p> <%=message.response%></p>
-                                </div>
+                        <%if(message.code==="111"){%>
+                        <div class="card notifCard">
+                            <div class="title">
+                                <h6> پیام  عادی</h6>
+                                <p class="date">
+                                    <%=message.date%>
+                                </p>
                             </div>
-                            <%empty=false;%>
-                            <%}%>
-
-                            <% })%>
-
-                            <%  }%>
-                            <%  if(empty==true || messages.length == 0){%>
-                            <h6> هیج پیامی ندارید</h6>
-                            <%}%>
-
-
-
-
+                            <div class="mesage">
+                                <p> <%=message.message%></p>
+                            </div>
                         </div>
-                        <div class="tab-pane fade"
-                             id="tabs-3"
-                             role="tabpanel"
-                             aria-labelledby="tab-3">
+
+                        <%}%>
+                        <%if(message.code==="222"){%>
+                        <div class="card notifCard error">
+                            <div class="title">
+                                <h6> پیام  خطا</h6>
+                                <p class="date">
+                                    <%=message.date%>
+                                </p>
+                            </div>
+                            <div class="mesage">
+                                <p> <%=message.message%></p>
+                            </div>
                         </div>
+
+
+                        <% }%>
+                        <% })%>
+                        <%}else{%>
+
+                        <h6 style="margin: auto;"> هیج پیامی ندارید</h6>
+                        <%}%>
                     </div>
-                    <!-- Tabs content -->
+                    <div class="tab-pane fade"
+                         id="tabs-2"
+                         role="tabpanel"
+                         aria-labelledby="tab-2">
+                        <%let empty = true;%>
+                        <% if(messages.length != 0 ){%>
 
+                        <% messages.slice().reverse().forEach(function(message) { %>
+                        <% if(message.response && message.response != ""){%>
+                        <div class="card notifCard">
+                            <div class="title">
+                                <h6><%=message.title%></h6>
+                                <p class="date">
+                                    <%=message.date%>
+                                </p>
+                            </div>
+                            <div class="yourMessage">
 
-
-                </div>
-            </div>
-
-            <div class="personalInfo part">
-                <div class="header" onClick="openContent('personalInfo')">
-                    <h5>
-                        مشخصات شما
-                        <i class="fal fa-angle-down"></i>
-                    </h5>
-                </div>
-                <div class="collapseContent contentHidden">
-                    <% if (user.type =="Uploader"){%>
-                    <form id="infoForm" name="changInformationForm" action="/changeUserInfoU" enctype="multipart/form-data" method="post" onsubmit="return validateUploaderChangeForm()">
-
-
-                        <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
-                        <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
-                        <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
-                        <input name="email" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
-                        <i class="social fal fa-envelope"></i>
-                        <input name="instagram" type="url" class="instagram" placeholder="لینک اینستاگرام شما" value="<%=user.instagram%>" />
-                        <i class="social fab fa-instagram"></i>
-                        <input name="twitter" type="url" class="twitter" placeholder="لینک توئیتر شما" value="<%=user.twitter%>" />
-                        <i class="social fab fa-twitter"></i>
-                        <textarea name="bio" class="bio" placeholder="درباره شما..."><%=user.bio%></textarea>
-                        <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
-                        <input name="oldPassword" type="password" class="passwordInput" placeholder="old password" />
-                        <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                        <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)"/>
-                        <div class="buttons">
-                            <button type="button" class="edit" onclick="changeForm()">
-                                ویرایش
-                                <i class="far fa-edit"></i>
-                            </button>
-                            <button type="submit" class="save hiddenButton after" onclick="changeForm()">
-                                ذخیره
-                                <i class="fal fa-check"></i>
-                            </button>
-                            <button type="button" class="cancel hiddenButton after" onclick="changeForm()">
-                                لغو
-                                <i class="fal fa-times"></i>
-                            </button>
+                                <p> <%=message.message%></p>
+                            </div>
+                            <div class="adminMessage">
+                                <label> پاسخ </label>
+                                <p> <%=message.response%></p>
+                            </div>
                         </div>
-                    </form>
-                    <%}else{%>
-                    <form id="infoForm2" name="changInformationForm2" action="/changeUserInfoD" enctype="multipart/form-data" method="post" onsubmit="return validateDownloaderChangeForm()">
+                        <%empty=false;%>
+                        <%}%>
+
+                        <% })%>
+
+                        <%  }%>
+                        <%  if(empty==true || messages.length == 0){%>
+                        <h6> هیج پیامی ندارید</h6>
+                        <%}%>
 
 
-                        <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
-                        <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
-                        <input name="oldPassword" type="password" class="passwordInput" placeholder="old password" />
-                        <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
-                        <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
-                        <div class="buttons">
-                            <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
-                            <button type="submit" class="save hiddenButton after" onclick="changeForm()">ذخیره</button>
-                            <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
-                        </div>
-                    </form>
-                    <button type="button">هنرمند شو</button>
-
-                    <%}%>
 
 
+                    </div>
+                    <div class="tab-pane fade"
+                         id="tabs-3"
+                         role="tabpanel"
+                         aria-labelledby="tab-3">
+                    </div>
                 </div>
+                <!-- Tabs content -->
+
+
+
             </div>
-            <% if(user.type =="Uploader"){%>
-            <div class="sale part">
-                <div class="header" onClick="openContent('sale')">
-                    <h5>
-                         کد تخفیف 
-                        <i class="fal fa-angle-down"></i>
-                    </h5>
-                </div>
-                <div class="collapseContent contentHidden">
-                    <div class="create">
-                        <form action="/generateD"method="post">
+        </div>
+
+        <div class="personalInfo part">
+            <div class="header" onClick="openContent('personalInfo')">
+                <h5>
+                    مشخصات شما
+                    <i class="fal fa-angle-down"></i>
+                </h5>
+            </div>
+            <div class="collapseContent contentHidden">
+                <% if (user.type =="Uploader"){%>
+                <form id="infoForm" name="changInformationForm" action="/changeUserInfoU" enctype="multipart/form-data" method="post" onsubmit="return validateUploaderChangeForm()">
+
+                    <label class="goTop"> نام</label>
+                    <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
+
+                    <label class="goTop"> نام خانوادگی</label>
+                    <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
+
+                    <label class="goTop"> نام کاربری</label>
+                    <input name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>" />
+
+                    <label class="goTop"> ایمیل شما</label>
+                    <input name="email" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>" />
+                    <i class="social fal fa-envelope"></i>
+
+                    <label class="goTop"> اینستاگرام شما</label>
+                    <input name="instagram" type="url" class="instagram" placeholder=" اینستاگرام شما" value="<%=user.instagram%>" />
+                    <i class="social fab fa-instagram"></i>
+
+                    <label class="goTop"> توئیتر شما</label>
+                    <input name="twitter" type="url" class="twitter" placeholder=" توئیتر شما" value="<%=user.twitter%>" />
+                    <i class="social fab fa-twitter"></i>
+
+
+                    <textarea name="bio" class="bio" placeholder="درباره شما..."><%=user.bio%></textarea>
+
+                    <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
+
+                    <label class="goTop"> رمز عبور فعلی</label>
+                    <input name="oldPassword" type="password" class="passwordInput" placeholder="رمز عبور فعلی" />
+
+                    <label class="goTop"> رمز عبور دلخواه</label>
+                    <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+
+                    <label class="goTop"> تکرار رمز عبور</label>
+                    <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" onkeyup="checkConfirm(this)" />
+                    <div class="buttons">
+                        <button type="button" class="edit" onclick="changeForm()">
+                            ویرایش
+                            <i class="far fa-edit"></i>
+                        </button>
+                        <button type="submit" class="save hiddenButton after" onclick="changeForm()">
+                            ذخیره
+                            <i class="fal fa-check"></i>
+                        </button>
+                        <button type="button" class="cancel hiddenButton after" onclick="changeForm()">
+                            لغو
+                            <i class="fal fa-times"></i>
+                        </button>
+                    </div>
+                </form>
+                <%}else{%>
+                <form id="infoForm2" name="changInformationForm2" action="/changeUserInfoD" enctype="multipart/form-data" method="post" onsubmit="return validateDownloaderChangeForm()">
+
+
+                    <input name="firstName" type="text" placeholder="نام" value="<%=user.firstName%>" />
+                    <input name="lastName" type="text" placeholder="نام خانوادگی" value="<%=user.lastName%>" />
+                    <input name="oldPassword" type="password" class="passwordInput" placeholder="old password" />
+                    <input name="password" type="password" class="passwordInput" placeholder="رمز عبور دلخواه" />
+                    <input name="passwordConfirmation" type="password" class="passwordInput" placeholder="تکرار رمز عبور" />
+                    <div class="buttons">
+                        <button type="button" class="edit" onclick="changeForm()">ویرایش</button>
+                        <button type="submit" class="save hiddenButton after" onclick="changeForm()">ذخیره</button>
+                        <button type="button" class="cancel hiddenButton after" onclick="changeForm()">لغو</button>
+                    </div>
+                </form>
+                <button type="button">هنرمند شو</button>
+
+                <%}%>
+
+
+            </div>
+        </div>
+        <% if(user.type =="Uploader"){%>
+        <div class="sale part">
+            <div class="header" onClick="openContent('sale')">
+                <h5>
+                    کد تخفیف
+                    <i class="fal fa-angle-down"></i>
+                </h5>
+            </div>
+            <div class="collapseContent contentHidden">
+                <div class="create">
+                    <form action="/generateD" method="post">
                         <h6> افزودن کد تخفیف</h6>
                         <label>
                             میزان تخفیف
                         </label>
-                        <input name="amount" type="text" placeholder="مثلا 10% یا 1000تومان" required/>
+                        <input name="amount" type="text" placeholder="مثلا 10% یا 1000تومان" required />
                         <div class="dates">
                             <div class="start">
                                 <label> تاریخ شروع</label>
-                                <input name="fromDate"  type="date" required/>
+                                <input name="fromDate" type="date" required />
                             </div>
                             <div class="end">
                                 <label> تاریخ پایان</label>
-                                <input name="toDate" type="date" required/>
+                                <input name="toDate" type="date" required />
                             </div>
                         </div>
                         <div class="buttons">
@@ -413,131 +442,131 @@
                                 تولید کد
                             </button>
                         </div>
-                        </form>
-                    </div>
-
-                   <% if(discounts && discounts.length != 0){ %>
-                        <div class="history">
-                            <h6>  کدهای تخفیف شما</h6>
-                            <ul class="pastCodes">
-                     <% discounts.forEach(function(discount) { %>
-                                <li>
-                                    <div class="saleCard">
-                                        <label class="amount">
-                                            مقدار <span><%=discount.amount%>%</span>
-                                        </label>
-                                        <label class="code">
-                                            کد <span><%=discount.code%></span>
-                                        </label>
-                                        <label class="start">
-                                            از تاریخ <span> <%=discount.fromDate%> </span>
-                                        </label>
-                                        <label class="end">
-                                            تا تاریخ <span> <%=discount.toDate%></span>
-                                        </label>
-                                    </div>
-                                </li>
-                                <%})%>
-                            </ul>
-                        </div>
-
-                    <%}%>
-
-
-
+                    </form>
                 </div>
-            </div>
-            <%}%>
-            <div class="downloads part">
-                <div class="header" onClick="openContent('downloads')">
-                    <h5>
-                        سفارشات شما
-                        <i class="fal fa-angle-down"></i>
-                    </h5>
-                </div>
-                <div class="collapseContent contentHidden">
-                    <div class="owl-carousel">
-                        <% orders.forEach(function(order) { %>
-                            
-                            <% if (order.products.length == 1){%>
-                                <div class="card item">
-                                    <div class="row bottom">
-                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
-                                            <a href="/Product/<%=order.products[0].product.productId%>/<%=order.products[0].product.fileName%>">
-                                                <img src="<%=order.products[0].product.coverPath%>" />
-                                            </a>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
-                                            <h6 class="name">
-                                                <%= order.products[0].product.fileName%>
-                                            </h6>
-                                            <p>
-                                                <%= order.products[0].size%>
-                                            </p>
-                                            <p class="price">
-                                                <span> <%= order.totalPrice%> </span>
-                                                تومان
-                                            </p>
-                                            <p class="date">
-                                                12/09/99
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <% }else if (order.products.length > 1){ %>
-                                <div class="card itemPack">
-                                    <div class="background">
-                                        <img class="top" src="<%=order.products[0].product.coverPath%>" />
-                                        <img class="middle" src="<%=order.products[1].product.coverPath%>" />
-                                    </div>
-                                    <div class="detail">
-                                        <a href="/dashboard/orders/<%=order.orderId%>"> مشاهده جزئیات خرید</a>
-                                    </div>
-                                </div>
-                            <% } %>
-                            
-                        <%});%>
-                    </div>
 
-                    <div class="buttons">
-                        <a href="/orders"> مشاهده همه </a>
-                    </div>
-                </div>
-            </div>
-            
-            <% if(user.type =="Uploader"){%>
-            <div class="col-12 products">
-
-                <div class="row">
-                    <% for (var i = 0; i < searched.length; i++){%>
-                    <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
-                        <a href="/Product/<%=searched[i].productId%>/<%=searched[i].fileName%>">
-                            <div class="card product">
-                                <div class="card-body">
-                                    <img src="<%=searched[i].coverPath%>" />
-                                </div>
-                                <div class="card-footer">
-                                    <p> <%=searched[i].fileName%> </p>
-                                </div>
+                <% if(discounts && discounts.length != 0){ %>
+                <div class="history">
+                    <h6>  کدهای تخفیف شما</h6>
+                    <ul class="pastCodes">
+                        <% discounts.forEach(function(discount) { %>
+                        <li>
+                            <div class="saleCard">
+                                <label class="amount">
+                                    مقدار <span><%=discount.amount%>%</span>
+                                </label>
+                                <label class="code">
+                                    کد <span><%=discount.code%></span>
+                                </label>
+                                <label class="start">
+                                    از تاریخ <span> <%=discount.fromDate%> </span>
+                                </label>
+                                <label class="end">
+                                    تا تاریخ <span> <%=discount.toDate%></span>
+                                </label>
                             </div>
-                        </a>
+                        </li>
+                        <%})%>
+                    </ul>
+                </div>
+
+                <%}%>
+
+
+
+            </div>
+        </div>
+        <%}%>
+        <div class="downloads part">
+            <div class="header" onClick="openContent('downloads')">
+                <h5>
+                    سفارشات شما
+                    <i class="fal fa-angle-down"></i>
+                </h5>
+            </div>
+            <div class="collapseContent contentHidden">
+                <div class="owl-carousel">
+                    <% orders.forEach(function(order) { %>
+
+                    <% if (order.products.length == 1){%>
+                    <div class="card item">
+                        <div class="row bottom">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image">
+                                <a href="/Product/<%=order.products[0].product.productId%>/<%=order.products[0].product.fileName%>">
+                                    <img src="<%=order.products[0].product.coverPath%>" />
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 detail">
+                                <h6 class="name">
+                                    <%= order.products[0].product.fileName%>
+                                </h6>
+                                <p>
+                                    <%= order.products[0].size%>
+                                </p>
+                                <p class="price">
+                                    <span> <%= order.totalPrice%> </span>
+                                    تومان
+                                </p>
+                                <p class="date">
+                                    12/09/99
+                                </p>
+                            </div>
+                        </div>
                     </div>
+                    <% }else if (order.products.length > 1){ %>
+                    <div class="card itemPack">
+                        <div class="background">
+                            <img class="top" src="<%=order.products[0].product.coverPath%>" />
+                            <img class="middle" src="<%=order.products[1].product.coverPath%>" />
+                        </div>
+                        <div class="detail">
+                            <a href="/dashboard/orders/<%=order.orderId%>"> مشاهده جزئیات خرید</a>
+                        </div>
+                    </div>
+                    <% } %>
 
-                    <%}%>
-
+                    <%});%>
                 </div>
 
                 <div class="buttons">
+                    <a href="/orders"> مشاهده همه </a>
+                </div>
+            </div>
+        </div>
 
-                    <button type="button" class="seeMore" id="showMoreButton">
-                        مشاهده بیشتر
-                        <i class="fal fa-angle-down"></i>
-                    </button>
+        <% if(user.type =="Uploader"){%>
+        <div class="col-12 products">
 
+            <div class="row">
+                <% for (var i = 0; i < searched.length; i++){%>
+                <div class="col-lg-4 col-sm-6 col-xs-12 col-xl-3">
+                    <a href="/Product/<%=searched[i].productId%>/<%=searched[i].fileName%>">
+                        <div class="card product">
+                            <div class="card-body">
+                                <img src="<%=searched[i].coverPath%>" />
+                            </div>
+                            <div class="card-footer">
+                                <p> <%=searched[i].fileName%> </p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
+                <%}%>
+
             </div>
-            <%}%>
+
+            <div class="buttons">
+
+                <button type="button" class="seeMore" id="showMoreButton">
+                    مشاهده بیشتر
+                    <i class="fal fa-angle-down"></i>
+                </button>
+
+            </div>
+
+        </div>
+        <%}%>
         </div>
     </section>
     <%-include("footer");-%>
@@ -574,8 +603,8 @@
     });
 </script>
 <script>
-    var error1 = "<%=error1%>" ;
+    var error1 = "<%=error1%>";
     console.log("hello");
-    if(error1 === "notUploader")
+    if (error1 === "notUploader")
         notifError("برای آپلود کردن فایل ، شما باید هنرمند باشید")
 </script>
