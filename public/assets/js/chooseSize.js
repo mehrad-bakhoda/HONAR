@@ -21,7 +21,7 @@ $(".infos .sizes label.sizeOption").click(function () {
     for (var i = 0; i < sizes.length; i++) {
         $(sizes[i]).removeClass("selected");
     }
-    $(this).toggleClass("selected");
+    $(this).addClass("selected");
 
     var prices = $(".infos .price p");
     var currentID = $(this).attr("id");
@@ -66,11 +66,11 @@ $(".infos .sizes .shownSize").click(function () {
 
 //////////////////////////////////////////// File Types ////////////////////////////////////////////
 $(".infos .fileTypes label.typeOption").click(function () {
-    var sizes = $(".infos .sizes label.typeOption");
+    var types = $(".infos .fileTypes label.typeOption");
     $(".infos .fileTypes label.selectedType").text($(this).text());
 
-    for (var i = 0; i < sizes.length; i++) {
-        $(sizes[i]).removeClass("selected");
+    for (var i = 0; i < types.length; i++) {
+        $(types[i]).removeClass("selected");
     }
     $(this).toggleClass("selected");
 

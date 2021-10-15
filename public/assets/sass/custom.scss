@@ -42,13 +42,13 @@ section.contents {
 }
 
 ::-webkit-scrollbar-track {
-    background: lightgray;
-    border-radius: 5px;
+    background: #eee;
+    border-radius: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $primary-color;
-    border-radius: 5px;
+    background: gray;
+    border-radius: 0.25rem;
 }
 
 
@@ -521,7 +521,7 @@ section.homePage {
                 ul.nav-tabs {
                     padding: 0 0 1px;
                     margin: 2rem 1rem;
-                    border: 2px solid lightgray;
+                    background-color: lightgray;
                     border-radius: $radius;
 
                     @include xs {

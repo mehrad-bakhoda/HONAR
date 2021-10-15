@@ -50,13 +50,13 @@ section.contents {
 }
 
 ::-webkit-scrollbar-track {
-  background: lightgray;
-  border-radius: 5px;
+  background: #eee;
+  border-radius: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0098c5;
-  border-radius: 5px;
+  background: gray;
+  border-radius: 0.25rem;
 }
 
 /*#endregion */
@@ -470,7 +470,7 @@ section.footer .container-fluid .designedBy p span {
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs {
   padding: 0 0 1px;
   margin: 2rem 1rem;
-  border: 2px solid lightgray;
+  background-color: lightgray;
   border-radius: 12px;
 }
 @media (max-width: 580px) {
