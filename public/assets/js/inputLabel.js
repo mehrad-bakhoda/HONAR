@@ -1,16 +1,22 @@
 const inputs = Array.from(document.querySelectorAll("input"));
+const labels = Array.from(document.querySelectorAll("label.goTop"));
 
-
-document.onclick = () => {
-    for (input of inputs) {
-        let label = input.previousElementSibling;
-        if (input === document.activeElement && label.classList.contains("goTop") || input.value != "") {
-            label.classList.add("show");
-            input.classList.add("noPh");
-        }
-        else if (input.value === ""){
-            input.classList.remove("noPh");
-            label.classList.remove("show");
-        }
+document.onclick = (e) => {
+  for (let input of inputs) {
+    if (input === e.target) {
+      let currInput = e.target;
+      let label = currInput.previousElementSibling;
+      if (label.classList.contains("goTop") || currInput.value != "") {
+        label.classList.add("show");
+        currInput.classList.add("noPh");
+      }
+      break;
     }
-}
+    else {
+        for (let other of inputs)
+            other.classList.remove("noPh");
+        for (let other of labels)
+            other.classList.remove("show");
+    }
+  }
+};
