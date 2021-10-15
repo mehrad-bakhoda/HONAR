@@ -1290,6 +1290,7 @@ section.detailPage {
                                     border: 2px solid lightGray;
                                     padding: 0 0 0 2rem;
                                     border-radius: $radius;
+                                    overflow: hidden;
 
                                     @include sm {
                                         float: none;
@@ -1333,24 +1334,16 @@ section.detailPage {
                                         font-size: 0.9rem;
 
                                         &.sizeOption {
-                                            padding: 0;
                                             transition: 0.4s;
-                                            opacity: 0;
-                                            overflow: hidden;
-                                            max-height: 0;
+                                            padding: 0.5rem;
+                                            opacity: 0.8;
+                                            text-align: right;
                                         }
 
                                         &:hover {
                                             transition: 0.4s;
                                             color: $primary-color;
                                         }
-                                    }
-
-                                    .show {
-                                        padding: 0.5rem !important;
-                                        opacity: 0.8 !important;
-                                        max-height: 2.5rem !important;
-                                        text-align: right;
                                     }
 
                                     input[type=radio] {
@@ -1379,6 +1372,7 @@ section.detailPage {
                                     border: 2px solid lightGray;
                                     padding: 0 0 0 2rem;
                                     border-radius: $radius;
+                                    overflow: hidden;
 
                                     @include sm {
                                         float: none;
@@ -1422,24 +1416,15 @@ section.detailPage {
                                         font-size: 0.9rem;
 
                                         &.typeOption {
-                                            padding: 0;
-                                            transition: 0.4s;
-                                            opacity: 0;
-                                            overflow: hidden;
-                                            max-height: 0;
+                                            padding: 0.5rem;
+                                            opacity: 0.8;
+                                            text-align: right;
                                         }
 
                                         &:hover {
                                             transition: 0.4s;
                                             color: $primary-color;
                                         }
-                                    }
-
-                                    .show {
-                                        padding: 0.5rem !important;
-                                        opacity: 0.8 !important;
-                                        max-height: 2.5rem !important;
-                                        text-align: right;
                                     }
 
                                     input[type=radio] {

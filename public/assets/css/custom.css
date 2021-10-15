@@ -1123,6 +1123,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   border: 2px solid lightGray;
   padding: 0 0 0 2rem;
   border-radius: 12px;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options {
@@ -1162,21 +1163,14 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   font-size: 0.9rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label.sizeOption {
-  padding: 0;
   transition: 0.4s;
-  opacity: 0;
-  overflow: hidden;
-  max-height: 0;
+  padding: 0.5rem;
+  opacity: 0.8;
+  text-align: right;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label:hover {
   transition: 0.4s;
   color: #0098c5;
-}
-section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .show {
-  padding: 0.5rem !important;
-  opacity: 0.8 !important;
-  max-height: 2.5rem !important;
-  text-align: right;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options input[type=radio] {
   display: none;
@@ -1200,6 +1194,7 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .fil
   border: 2px solid lightGray;
   padding: 0 0 0 2rem;
   border-radius: 12px;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
   section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options {
@@ -1239,21 +1234,13 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .fil
   font-size: 0.9rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options label.typeOption {
-  padding: 0;
-  transition: 0.4s;
-  opacity: 0;
-  overflow: hidden;
-  max-height: 0;
+  padding: 0.5rem;
+  opacity: 0.8;
+  text-align: right;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options label:hover {
   transition: 0.4s;
   color: #0098c5;
-}
-section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .show {
-  padding: 0.5rem !important;
-  opacity: 0.8 !important;
-  max-height: 2.5rem !important;
-  text-align: right;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options input[type=radio] {
   display: none;
