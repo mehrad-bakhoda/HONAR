@@ -41,29 +41,29 @@
                                 <label>   تعداد دانلود </label>
                                 <p> <%=item.downloadedCount%> </p>
                             </div>
-                            <%if(item.fileTypes.length !==0){%>
+                            <%if(item.filePath !==1){%>
                             <div class="fileTypes info">
                                 <label> نوع فایل </label>
 
                                 <div class="options">
                                     <div class="shownType">
                                         <label class="selectedType">
-                                            <%=item.fileType%>
+                                            <%=item.filePath[0].fileType%>
                                         </label>
                                         <i class="far fa-angle-down"></i>
                                     </div>
-                                    <% item.fileTypes.forEach(function(t){%>
-                                        <label for=<%=t%> class="typeOption type" id="small"><%=t%></label>
+                                    <% item.filePath.forEach(function(t){%>
+                                        <label for=<%=t.fileType%> class="typeOption type" id="small"><%=t.fileType%></label>
                                     <%})%>
                                     
                                 </div>
                             </div>
                             <%}%>
-                            <%if(item.fileTypes.length ===0){%>
+                            <%if(item.fileTypes.length ===1){%>
                             <div class="type info">
                                 
                                 <label> فایل </label>
-                                <p> <%=item.fileType%> </p>
+                                <p> <%=item.filePath[0].fileType%> </p>
                             </div>
                             <%}%> 
                             <%if(item.tags.length != 0 && item.tags != ""){%>

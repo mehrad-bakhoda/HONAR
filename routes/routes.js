@@ -1706,7 +1706,7 @@ router.post("/editProduct/:productId", function (req, res, next) {
                   let successfulUpload = {
                     message: `${found.fileName} changed`,
                     code: "111",
-                    date: newDate,
+                    date: newDate(new Date()),
                   };
                   User.updateOne(
                     {
