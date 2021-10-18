@@ -6,99 +6,121 @@ const mongoose = require("mongoose");
 
 //course notes data base Schema
 const productSchema = new mongoose.Schema({
-  productId : {
-    type:Number,
-    unique: true
+  productId: {
+    type: Number,
+    unique: true,
   },
-  fileName : {
-    type :String,
-    required : true
+  fileName: {
+    type: String,
+    required: true,
   },
-  type:{
-    type:String,
-    enum:["graphic","clip","photo"]
+  type: {
+    type: String,
+    enum: ["graphic", "clip", "photo", "gif"],
   },
-  dimensions:{
-    type:String,
-
-  },
-  session:{
+  dimensions: {
     type: String,
   },
-  tags: [{
-    type: String,
-  }],
-  description:{
+  session: {
     type: String,
   },
-  artist:{
+  tags: [
+    {
+      type: String,
+    },
+  ],
+  description: {
     type: String,
   },
-  filePath:{
+  artist: {
     type: String,
   },
-  fileType:{
+  filePath: [
+    {
+      filePath: String,
+      fileType: String,
+    },
+  ],
+  fileType: {
     type: String,
   },
-  coverPath:{
+  coverPath: {
     type: String,
   },
   rating: {
     type: Number,
     //rating method for our Course note 1 is the worst and 5 is the best
     min: 1,
-    max: 5
+    max: 5,
   },
   downloadedCount: {
-    type:Number,
-    default:0
+    type: Number,
+    default: 0,
   },
   orginalPrice: {
     type: Number,
     min: 0,
-    default:0
+    default: 0,
   },
   largePrice: {
     type: Number,
     min: 0,
-    default:0
+    default: 0,
   },
   mediumPrice: {
     type: Number,
     min: 0,
-    default:0
+    default: 0,
   },
   smallPrice: {
     type: Number,
     min: 0,
-    default:0
+    default: 0,
   },
-  date:{
-    type:Date,
-
+  date: {
+    type: Date,
   },
-  fileTypes:[
+  fileTypes: [
     {
-      type:String,
-    }
+      type: String,
+    },
   ],
-  confirmation:{
-    type:Boolean
+  confirmation: {
+    type: Boolean,
   },
 
-  comments: [{
-    type: mongoose.Schema.Types.ObjectId, ref: "comment"
-  }],
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "comment",
+    },
+  ],
   user: {
-    type: mongoose.Schema.Types, ref: "User"
-  }
-  
-
+    type: mongoose.Schema.Types,
+    ref: "User",
+  },
 });
 
-
-
-productSchema.index({type:"text",fileName:"text","user.userName":"text",tags:"text","user.firstName":"text",fileType:"text"},{weights:{fileName:6,tags:5,fileType:4,type:3,"user.userName":2,"user.firstName":1}});
+productSchema.index(
+  {
+    type: "text",
+    fileName: "text",
+    "user.userName": "text",
+    tags: "text",
+    "user.firstName": "text",
+    fileType: "text",
+  },
+  {
+    weights: {
+      fileName: 6,
+      tags: 5,
+      fileType: 4,
+      type: 3,
+      "user.userName": 2,
+      "user.firstName": 1,
+    },
+  }
+);
 // productSchema.statics = {
 //   searchPartial: function(q, callback) {
 //       return this.find({
@@ -129,4 +151,4 @@ productSchema.index({type:"text",fileName:"text","user.userName":"text",tags:"te
 // }
 
 //exporting noteSchema model
-module.exports =  mongoose.model("product", productSchema);
+module.exports = mongoose.model("product", productSchema);
