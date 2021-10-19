@@ -2564,6 +2564,33 @@ router.post("/changeUserInfoD", function (req, res, next) {
 
 // searches
 
+
+router.post("/search/advanced/home",function(req,res){
+
+  Object.entries(req.body).forEach(
+    ([key,value]) =>{
+      Product
+      .find({})
+      .where(value).equals(key)
+      .exec(function(err,data){
+        if(err){
+          console.log(err);
+  
+        }else{
+          console.log(data);
+          console.log("============");
+        }
+      });
+  
+      
+    }
+  );
+  
+   
+  
+  });
+
+
 router.post("/search/home", function (req, res) {
   if (req.body.searchedItem == "" || req.body.searchedItem == " ") {
     res.redirect("/");
