@@ -23,6 +23,7 @@ const path = require("path");
 const user = require("../models/user");
 const product = require("../models/product");
 const date = require("../localModules/date.js");
+const { type } = require("os");
 require("dotenv").config();
 
 // GET ROUTE'S
@@ -287,7 +288,7 @@ router.get("/", function (req, res) {
         .sort({ rating: "desc" })
         .exec(function (err, bestOfAll) {
           Product.find({ confirmation: true })
-            .sort({ dateAdded: "desc" })
+            .sort({ date: "desc" })
             .exec(function (err, latest) {
               if (req.session.userId) {
                 User.findOne(
@@ -2590,6 +2591,66 @@ router.get("/search/home/:searchedItem", function (req, res) {
     function (err, found) {
       if (found) {
         console.log(found);
+        res.render("search", {
+          searched: found,
+          searchedItem: req.params.searchedItem,
+        });
+      }
+    }
+  );
+});
+router.post("/search/advanced/home/:searchedItem", function (req, res) {
+  //   Product.search(req.params.searchedItem, function(err, found) {
+  //     res.render("search",{searched:found});
+  //  });
+  console.log(req.body);
+  var fileTypeArray = [];
+  var types = [];
+  var dimensions = [];
+  var price = [];
+  Object.entries(req.body).map((key) => {
+    if (key[1] == "type") {
+      types.push(key[0]);
+    }
+    if (key[1] == "fileType") {
+      fileTypeArray.push(key[0]);
+    }
+    if (key[1] == "dimension") {
+      dimensions.push(key[0]);
+    }
+    if (key[1] == "free" || key[1] == "non-free") {
+      price.push(key[0]);
+    }
+  });
+  if (fileTypeArray.length == 0) {
+    fileTypeArray = ["image/png", "image/jpeg", "video/mp4", "file/psd"];
+  }
+  if (types.length == 0) {
+    fileTypeArray = ["clip", "graphic", "photo", "gif"];
+  }
+
+  Product.find(
+    {
+      confirmation: true,
+      $and: [
+        {
+          $or: [
+            { fileName: new RegExp(req.params.searchedItem, "gi") },
+            { "user.userName": new RegExp(req.params.searchedItem, "gi") },
+            { tags: new RegExp(req.params.searchedItem, "gi") },
+            { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
+            { fileType: new RegExp(req.params.searchedItem, "gi") },
+            { type: new RegExp(req.params.searchedItem, "gi") },
+          ],
+        },
+
+        { filePath: { $elemMatch: { fileType: { $in: fileTypeArray } } } },
+
+        { type: { $in: types } },
+      ],
+    },
+    function (err, found) {
+      if (found) {
         res.render("search", {
           searched: found,
           searchedItem: req.params.searchedItem,

@@ -1,134 +1,154 @@
-﻿<%-include("head");-%>
-
-<%-include("uploadButton");-%>
+﻿<%-include("head");-%> <%-include("uploadButton");-%>
 <section class="page searchPage">
-    <%-include("header");-%>
-    <section class="contents">
-        <div class="container-fluid">
-            <div class="topFilters">
-                <div class="advancedSection">
-                    <div class="seeAdvanced">
-                        <p>فیلتر  <i class="sliders fal fa-sliders-h"></i></p>
-                    </div>
-                    <form action="/search/advanced/home/<%=searchedItem%>" method="POST">
-                        <div class="advanced advancedHidden">
-                            <div class="category">
-                                <lable class="title"> دسته </lable>
+  <%-include("header");-%>
+  <section class="contents">
+    <div class="container-fluid">
+      <div class="topFilters">
+        <div class="advancedSection">
+          <div class="seeAdvanced">
+            <p>فیلتر <i class="sliders fal fa-sliders-h"></i></p>
+          </div>
+          <form action="/search/advanced/home/<%=searchedItem%>" method="POST">
+            <div class="advanced advancedHidden">
+              <div class="category">
+                <lable class="title"> دسته </lable>
 
-                                <div class="options">
-                                    <input name="photography" type="radio" id="photography" value="photography">
-                                    <label for="photography" class="radioLabel">عکس</label>
+                <div class="options">
+                  <input
+                    name="photography"
+                    type="radio"
+                    id="photography"
+                    value="type"
+                  />
+                  <label for="photography" class="radioLabel">عکس</label>
 
-                                    <input name="graphic" type="radio" id="graphic" value="graphic">
-                                    <label for="graphic" class="radioLabel">گرافیک</label>
+                  <input
+                    name="graphic"
+                    type="radio"
+                    id="graphic"
+                    value="type"
+                  />
+                  <label for="graphic" class="radioLabel">گرافیک</label>
 
-                                    <input name="clip" type="radio" id="clip" value="clip">
-                                    <label for="clip" class="radioLabel">ویدیو</label>
+                  <input name="clip" type="radio" id="clip" value="type" />
+                  <label for="clip" class="radioLabel">ویدیو</label>
 
-                                    <input name="gif" type="radio" id="gif" value="gif">
-                                    <label for="gif" class="radioLabel">GIF</label>
+                  <input name="gif" type="radio" id="gif" value="type" />
+                  <label for="gif" class="radioLabel">GIF</label>
 
-                                    <input name="psd" type="radio" id="psd" value="psd">
-                                    <label for="psd" class="radioLabel">PSD</label>
+                  <input name="psd" type="radio" id="psd" value="fileType" />
+                  <label for="psd" class="radioLabel">PSD</label>
 
-
-                                    <input name="png" type="radio" id="png" value="png">
-                                    <label for="png" class="radioLabel">PNG</label>
-                                </div>
-                            </div>
-                            <div class="orientation">
-                                <lable class="title"> نسبت‌ابعاد </lable>
-                                <div class="options">
-                                    <input name="portrate" type="radio" id="portate" value="portrate">
-                                    <label for="portrate" class="radioLabel">عمودی</label>
-
-                                    <input name="landscape" type="radio" id="landscape" value="landscape">
-                                    <label for="landscape" class="radioLabel">افقی</label>
-
-                                    <input name="square" type="radio" id="square" value="square">
-                                    <label for="square" class="radioLabel">مربع</label>
-                                </div>
-                            </div>
-                            <div class="price">
-                                <lable class="title"> قیمت </lable>
-                                <div class="options">
-                                    <input name="free" type="radio" id="free" value="free">
-                                    <label for="free" class="radioLabel">رایگان</label>
-
-                                    <input name="money" type="radio" id="money" value="money">
-                                    <label for="money" class="radioLabel">غیر رایگان</label>
-                                </div>
-                            </div>
-                            <div class="buttons">
-                                <button type="submit">
-                                    اعمال تغییرات
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
+                  <input name="png" type="radio" id="png" value="fileType" />
+                  <label for="png" class="radioLabel">PNG</label>
                 </div>
-                <div class="sortSection">
-                    <div class="sorting">
-                        <div class="shownSort">
-                            <label class="selectedSort">
-                                بیشترین بازدید
-                            </label>
-                            <i class="fal fa-sort-amount-down-alt"></i>
-                        </div>
-                        <label for="cheap" class="sortOption" id="cheap">ارزان ترین</label>
+              </div>
+              <div class="orientation">
+                <lable class="title"> نسبت‌ابعاد </lable>
+                <div class="options">
+                  <input
+                    name="portrate"
+                    type="radio"
+                    id="portate"
+                    value="dimension"
+                  />
+                  <label for="portrate" class="radioLabel">عمودی</label>
 
-                        <label for="expensive" class="sortOption" id="expensive">گرانترین</label>
+                  <input
+                    name="landscape"
+                    type="radio"
+                    id="landscape"
+                    value="dimension"
+                  />
+                  <label for="landscape" class="radioLabel">افقی</label>
 
-                        <label for="related" class="sortOption" id="related"> مرتبط ترین</label>
-
-                        <label for="best" class="sortOption selected" id="best">  بیشترین بازدید</label>
-                    </div>
+                  <input
+                    name="square"
+                    type="radio"
+                    id="square"
+                    value="dimension"
+                  />
+                  <label for="square" class="radioLabel">مربع</label>
                 </div>
+              </div>
+              <div class="price">
+                <lable class="title"> قیمت </lable>
+                <div class="options">
+                  <input name="free" type="radio" id="free" value="free" />
+                  <label for="free" class="radioLabel">رایگان</label>
+
+                  <input
+                    name="non-free"
+                    type="radio"
+                    id="money"
+                    value="non-free"
+                  />
+                  <label for="money" class="radioLabel">غیر رایگان</label>
+                </div>
+              </div>
+              <div class="buttons">
+                <button type="submit">اعمال تغییرات</button>
+              </div>
             </div>
-            <div class="row">
-
-                <%if(searched.length == 0){%>
-                <div class="empty">
-
-                    <h2>
-                        <i class="fal fa-search"></i>
-                        نتیجه ای یافت نشد !
-                    </h2>
-                </div>
-
-                <%}if(searched.length != 0){%>
-                <% searched.forEach(function(product) { %>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
-                    <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
-                        <div class="card product">
-                            <div class="card-body">
-                                <div class="imageShadow">
-                                    <img src="/<%=product.coverPath%>" />
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <p> <%=product.fileName%> </p>
-                                <p>
-                                    <%=product.user.userName%>
-                                    <i class="fal fa-user"></i>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <% }) %>
-
-
-                <% }%>
-
-
-
-            </div>
+          </form>
         </div>
-    </section>
-    <%-include("footer");-%>
+        <div class="sortSection">
+          <div class="sorting">
+            <div class="shownSort">
+              <label class="selectedSort"> بیشترین بازدید </label>
+              <i class="fal fa-sort-amount-down-alt"></i>
+            </div>
+            <label for="cheap" class="sortOption" id="cheap">ارزان ترین</label>
+
+            <label for="expensive" class="sortOption" id="expensive"
+              >گرانترین</label
+            >
+
+            <label for="related" class="sortOption" id="related">
+              مرتبط ترین</label
+            >
+
+            <label for="best" class="sortOption selected" id="best">
+              بیشترین بازدید</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <%if(searched.length == 0){%>
+        <div class="empty">
+          <h2>
+            <i class="fal fa-search"></i>
+            نتیجه ای یافت نشد !
+          </h2>
+        </div>
+
+        <%}if(searched.length != 0){%> <% searched.forEach(function(product) {
+        %>
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 result">
+          <a href="/Product/<%=product.productId%>/<%=product.fileName%>">
+            <div class="card product">
+              <div class="card-body">
+                <div class="imageShadow">
+                  <img src="/<%=product.coverPath%>" />
+                </div>
+              </div>
+              <div class="card-footer">
+                <p><%=product.fileName%></p>
+                <p>
+                  <%=product.user.userName%>
+                  <i class="fal fa-user"></i>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <% }) %> <% }%>
+      </div>
+    </div>
+  </section>
+  <%-include("footer");-%>
 </section>
 <!-- Scripts -->
 <%-include("scripts");-%>
