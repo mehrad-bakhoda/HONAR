@@ -95,21 +95,30 @@
         <div class="sortSection">
           <div class="sorting">
             <div class="shownSort">
-              <label class="selectedSort"> بیشترین بازدید </label>
+              <label class="selectedSort"> <%=sortby%> </label>
               <i class="fal fa-sort-amount-down-alt"></i>
             </div>
-            <label for="cheap" class="sortOption" id="cheap">ارزان ترین</label>
-
-            <label for="expensive" class="sortOption" id="expensive"
-              >گرانترین</label
+            <a href="<%=link%><%=searchedItem%>?sortby=lowPrice">
+              <label for="cheap" class="sortOption" id="cheap"
+                >ارزان ترین</label
+              ></a
+            >
+            <a href="<%=link%><%=searchedItem%>?sortby=highPrice"
+              ><label for="expensive" class="sortOption" id="expensive"
+                >گرانترین</label
+              ></a
             >
 
-            <label for="related" class="sortOption" id="related">
-              مرتبط ترین</label
+            <a href="<%=link%><%=searchedItem%>?sortby=0"
+              ><label for="related" class="sortOption" id="related">
+                مرتبط ترین</label
+              ></a
             >
 
-            <label for="best" class="sortOption selected" id="best">
-              بیشترین بازدید</label
+            <a href="<%=link%><%=searchedItem%>?sortby=mostView"
+              ><label for="best" class="sortOption selected" id="best">
+                بیشترین بازدید</label
+              ></a
             >
           </div>
         </div>
