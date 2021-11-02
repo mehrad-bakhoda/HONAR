@@ -1412,18 +1412,45 @@ router.post("/upload", function (req, res) {
               "/" +
               fileName;
 
-            Jimp.read(files.productCover.path)
-              .then((image) => {
-                image.gaussian(1);
-                image.quality(50);
-                Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then((font) => {
-                  image.print(font, 0, 0, "@ART APP");
-                });
-                image.write(destination);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
+              const width = 750;
+              const height = 483;
+              const text = "Axgraphy";
+          
+              const svgImage = `
+              <svg width="${width}" height="${height}">
+                <style>
+                .title { fill: #001; font-size: 70px; font-weight: bold;}
+                </style>
+                <text x="50%" y="50%" text-anchor="middle" class="title" style="color:red;">${text}</text>
+              </svg>
+              `;
+             const svgBuffer = Buffer.from(svgImage);
+              sharp(files.productCover.path)
+               .composite([
+                 {
+                   input: svgBuffer,
+                   bottom: 0,
+                   right: 0,
+                 },
+               ])
+              .webp({lossless: true,quality: 60,alphaQuality: 80, force: false})
+              .toFile(`${destination.split(".")[0]}.webp`)
+              .then(info => { console.log(info); })
+              .catch(err => { console.log(err); });
+
+
+            // Jimp.read(files.productCover.path)
+            //   .then((image) => {
+            //     image.gaussian(1);
+            //     image.quality(50);
+            //     Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then((font) => {
+            //       image.print(font, 0, 0, "@ART APP");
+            //     });
+            //     image.write(destination);
+            //   })
+            //   .catch((err) => {
+            //     console.log(err);
+            //   });
 
             tagsarr = fields.tags.split(" ");
             for (var i = 0; i < tagsarr.length; i++) {
