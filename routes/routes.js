@@ -1441,14 +1441,22 @@ router.post("/upload", function (req, res) {
               return e;
             });
             var filepath = [];
-            files.productFiles.map((file) => {
-              var item = {
-                filePath: file.path,
-                fileType: file.type,
-              };
+            try {
+              files.productFiles.map((file) => {
+                var item = {
+                  filePath: file.path,
+                  fileType: file.type,
+                };
 
+                filepath.push(item);
+              });
+            } catch (error) {
+              var item = {
+                filePath: files.productFiles.path,
+                fileType: files.productFiles.type,
+              };
               filepath.push(item);
-            });
+            }
 
             const newProduct = new Product({
               productId: c,
@@ -2666,7 +2674,7 @@ router.post("/search/advanced/home/:searchedItem", function (req, res) {
   //   Product.search(req.params.searchedItem, function(err, found) {
   //     res.render("search",{searched:found});
   //  });
-  console.log(req.body);
+  console.log(req.query);
   var fileTypeArray = [];
   var types = [];
   var dimensions = [];
