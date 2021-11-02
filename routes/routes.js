@@ -8,6 +8,7 @@ var Discount = require("../models/discount");
 var Cart = require("../cart");
 var Order = require("../models/order");
 const Jimp = require("jimp");
+const sharp = require("sharp");
 
 // const bodyParser=require("body-parser");
 const { check, validationResult } = require("express-validator");
@@ -1439,7 +1440,6 @@ router.post("/upload", function (req, res) {
             tagsarr = tagsarr.filter(function (e) {
               return e;
             });
-
             var filepath = [];
             files.productFiles.map((file) => {
               var item = {
