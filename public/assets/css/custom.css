@@ -9,14 +9,16 @@
 /*#region General */
 body {
   background-color: #f5f5f5;
-  /*background: url("../images/background.jpg") center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;*/
   color: #333333;
   margin: 0;
   padding: 0;
   font-family: IRANSans;
+}
+body * {
+  transition: 0.4s;
+}
+body *:hover, body *::after, body *::before {
+  transition: 0.4s;
 }
 
 .owl-carousel {
@@ -63,7 +65,6 @@ section.contents {
 /*#region Buttons and Inputs*/
 ::placeholder {
   opacity: 0.8;
-  transition: 0.4s;
 }
 
 input:-webkit-autofill,
@@ -82,14 +83,13 @@ input {
 }
 
 .inputError {
-  transition: 0.4s;
   border-bottom: 2px solid #d14774;
   color: #d14774;
 }
 
-button, input[type=file]::before {
+button,
+input[type=file]::before {
   text-align: center;
-  transition: 0.4s;
   border: none;
   color: #f5f5f5;
   padding: 0 1rem;
@@ -101,13 +101,13 @@ button, input[type=file]::before {
   line-height: 2.5rem;
 }
 
-button:hover, input[type=file]:hover {
-  transition: 0.4s;
+button:hover,
+input[type=file]:hover {
   background-color: #0098c5;
   color: #f5f5f5;
 }
-button:hover::before, input[type=file]:hover::before {
-  transition: 0.4s;
+button:hover::before,
+input[type=file]:hover::before {
   border: none;
   background-color: #0098c5;
   color: #f5f5f5;
@@ -116,17 +116,14 @@ button:hover::before, input[type=file]:hover::before {
 button:focus,
 input:focus,
 textarea:focus {
-  transition: 0.4s;
   outline: none;
 }
 
 textarea:focus {
-  transition: 0.4s;
   border: 2px solid #0098c5;
 }
 
 label.goTop {
-  transition: 0.4s;
   position: absolute;
   padding: 0 0.25rem;
   margin-right: 1rem;
@@ -136,19 +133,16 @@ label.goTop {
   background-color: #f5f5f5;
 }
 label.goTop.show {
-  transition: 0.4s;
   font-size: 0.9rem !important;
 }
 
 input.noPh::placeholder {
-  transition: 0.4s;
   font-size: 0;
 }
 
 /*#endregion */
 /*#region Notification*/
 .notif {
-  transition: 0.4s;
   position: fixed;
   top: 5rem;
   right: -100rem;
@@ -177,7 +171,6 @@ input.noPh::placeholder {
 }
 
 .showNotif {
-  transition: 0.4s;
   right: 0;
 }
 
@@ -192,7 +185,6 @@ section.uploadButton {
   z-index: 100;
 }
 section.uploadButton a {
-  transition: 0.4s;
   background-color: #f5f5f5;
   border-radius: 12px;
   display: block;
@@ -207,7 +199,6 @@ section.uploadButton a i {
   font-size: 2.5rem;
 }
 section.uploadButton a:hover {
-  transition: 0.4s;
   background-color: #9c2d89;
   color: #f5f5f5;
 }
@@ -228,7 +219,6 @@ section.uploadButton a:hover {
 /*#endregion */
 /*#region Product Cards */
 .hiddenItem {
-  transition: 0.4s;
   opacity: 0;
   visibility: hidden;
   height: 0 !important;
@@ -236,7 +226,6 @@ section.uploadButton a:hover {
 }
 
 .card.product {
-  transition: 0.4s;
   box-shadow: none;
   background-color: transparent;
   height: 16rem;
@@ -251,7 +240,6 @@ section.uploadButton a:hover {
   text-align: center;
 }
 .card.product .card-body img {
-  transition: 0.4s;
   max-width: 15rem;
   width: auto;
   max-height: 12rem;
@@ -260,7 +248,6 @@ section.uploadButton a:hover {
   object-fit: contain;
 }
 .card.product .card-body img:hover {
-  transition: 0.4s;
   transform: scale(1.05);
 }
 .card.product .card-footer {
@@ -295,12 +282,10 @@ section.header .navbar .container-fluid {
   padding: 0;
 }
 section.header .navbar .container-fluid i {
-  transition: 0.4s;
   font-size: 25px;
   color: #333333;
 }
 section.header .navbar .container-fluid i:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.header .navbar .container-fluid .navbar-collapse ul.navbar-nav {
@@ -323,7 +308,6 @@ section.header .navbar .container-fluid .leftSide {
 }
 section.header .navbar .container-fluid .leftSide a {
   position: absolute;
-  transition: 0.4s;
 }
 section.header .navbar .container-fluid .leftSide a.cart {
   left: 0rem;
@@ -367,17 +351,14 @@ section.header .searchSection form {
 }
 section.header .searchSection i {
   cursor: pointer;
-  transition: 0.4s;
   font-size: 25px;
   position: absolute;
   color: #9c2d89;
 }
 section.header .searchSection i:hover {
-  transition: 0.4s;
   color: #9c2d89;
 }
 section.header .searchSection input[type=text] {
-  transition: 0.4s;
   border: none;
   background-color: transparent;
   height: 3rem;
@@ -388,7 +369,6 @@ section.header .searchSection input[type=text] {
   border: 2px solid lightGray;
 }
 section.header .searchSection input[type=text]:focus {
-  transition: 0.4s;
   outline: none;
 }
 section.header .searchSection .general {
@@ -398,7 +378,6 @@ section.header .searchSection .general {
   padding: 0;
 }
 section.header .searchSection .general i.fa-search {
-  transition: 0.4s;
   height: 3rem;
   padding-top: 0.75rem;
   width: 3.5rem;
@@ -411,7 +390,6 @@ section.header .searchSection .general i.fa-search {
   font-size: 22px;
 }
 section.header .searchSection .general i.fa-search:hover {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #0098c5;
 }
@@ -443,12 +421,10 @@ section.footer .container-fluid .social a {
   }
 }
 section.footer .container-fluid .social a i {
-  transition: 0.4s;
   font-size: 25px;
   color: #333333;
 }
 section.footer .container-fluid .social a i:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.footer .container-fluid .designedBy {
@@ -489,7 +465,6 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs {
   }
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link {
-  transition: 0.4s;
   background-color: transparent;
   font-size: 20px;
   color: #333333;
@@ -511,7 +486,6 @@ section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.n
   }
 }
 section.homePage section.contents .container-fluid .productTabs ul.nav-tabs li.nav-item a.nav-link.active {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #0098c5;
   border-color: #0098c5;
@@ -528,7 +502,6 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
   display: flex;
   margin: auto;
   font-size: 16px;
-  transition: 0.4s;
 }
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore i {
   width: 1rem;
@@ -536,11 +509,7 @@ section.homePage section.contents .container-fluid .productTabs .tab-content .ta
   font-size: 24px;
   line-height: 2.5rem;
 }
-section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore:hover {
-  transition: 0.4s;
-}
 section.homePage section.contents .container-fluid .productTabs .tab-content .tab-pane .buttons button.seeMore:focus {
-  transition: 0.4s;
   outline: none;
 }
 
@@ -589,7 +558,6 @@ section.loginPage section.contents .container-fluid .card h4 {
   }
 }
 section.loginPage section.contents .container-fluid .card input {
-  transition: 0.4s;
   border: none;
   border: 2px solid lightgray;
   color: #333333;
@@ -617,11 +585,9 @@ section.loginPage section.contents .container-fluid .card input.mail, section.lo
   padding-left: 2.5rem;
 }
 section.loginPage section.contents .container-fluid .card input:focus {
-  transition: 0.4s;
   outline: none;
 }
 section.loginPage section.contents .container-fluid .card textarea {
-  transition: 0.4s;
   height: 9rem;
   resize: none;
   background-color: #f5f5f5;
@@ -660,6 +626,9 @@ section.loginPage section.contents .container-fluid .card .buttons button {
   font-size: 18px;
   display: block;
   width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 580px) {
   section.loginPage section.contents .container-fluid .card .buttons button {
@@ -668,32 +637,20 @@ section.loginPage section.contents .container-fluid .card .buttons button {
   }
 }
 section.loginPage section.contents .container-fluid .card.login i {
-  margin: auto;
-  float: none;
   font-size: 1.5rem;
   color: #0098c5;
   width: 1.5rem;
-  height: 2rem;
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
 }
 section.loginPage section.contents .container-fluid .card.login button:hover i {
-  transition: 0.4s;
   color: #f5f5f5;
 }
 section.loginPage section.contents .container-fluid .card.login .next {
   position: relative;
 }
 section.loginPage section.contents .container-fluid .card.code i {
-  transition: 0.4s;
-  margin: auto;
-  float: none;
   font-size: 1.5rem;
   color: #0098c5;
   width: 1.5rem;
-  height: 2rem;
-  position: absolute;
 }
 section.loginPage section.contents .container-fluid .card.code .buttons {
   padding-bottom: 0;
@@ -701,7 +658,6 @@ section.loginPage section.contents .container-fluid .card.code .buttons {
   max-width: 20rem;
 }
 section.loginPage section.contents .container-fluid .card.code .buttons button.codeAgain {
-  transition: 0.4s;
   margin-top: 1rem;
   width: 17rem;
 }
@@ -714,11 +670,9 @@ section.loginPage section.contents .container-fluid .card.code .buttons button {
   position: relative;
 }
 section.loginPage section.contents .container-fluid .card.code .buttons button:hover i {
-  transition: 0.4s;
   color: #f5f5f5;
 }
 section.loginPage section.contents .container-fluid .card.code .buttons .hidden {
-  transition: 0.4s;
   opacity: 0;
   visibility: hidden;
   height: 0;
@@ -732,7 +686,6 @@ section.loginPage section.contents .container-fluid .card.code .buttons .prev {
   color: #9c2d89;
 }
 section.loginPage section.contents .container-fluid .card.code .buttons .prev i {
-  transition: 0.4s;
   color: #9c2d89;
   top: 0.5rem;
   right: 0.5rem;
@@ -742,7 +695,6 @@ section.loginPage section.contents .container-fluid .card.code .buttons .prev:ho
   color: #f5f5f5;
 }
 section.loginPage section.contents .container-fluid .card.code .buttons .prev:hover i {
-  transition: 0.4s;
   color: #f5f5f5;
 }
 section.loginPage section.contents .container-fluid .card.info {
@@ -761,7 +713,6 @@ section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.na
 section.loginPage section.contents .container-fluid .card.info ul.nav-tabs li.nav-item a.nav-link {
   color: #333333;
   font-size: 20px;
-  transition: 0.4s;
   background-color: transparent;
   border-bottom: none;
   border-top-left-radius: 12px;
@@ -804,7 +755,6 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   border: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active input[type=file]:hover::before {
-  transition: 0.4s;
   border: none;
   color: #0098c5 !important;
   border: 2px solid lightGray;
@@ -821,7 +771,6 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   border: 2px solid #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active button:hover {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #0098c5;
 }
@@ -839,7 +788,6 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic input[type=file]::before {
   visibility: visible;
   margin-right: 1rem;
-  transition: 0.4s;
   content: "آپلود تصویر کاربری";
   font-size: 18px;
   position: absolute;
@@ -853,7 +801,6 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   border-radius: 12px;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic input[type=file]:hover::before {
-  transition: 0.4s;
   color: #f5f5f5 !important;
   background-color: #0098c5 !important;
 }
@@ -870,7 +817,6 @@ section.loginPage section.contents .container-fluid .card.info .tab-content .tab
   color: #0098c5;
 }
 section.loginPage section.contents .container-fluid .card.info .tab-content .tab-pane#tabUpC.active .uploadPic .hidden {
-  transition: 0.4s;
   opacity: 0;
   visibility: hidden;
 }
@@ -922,7 +868,6 @@ section.forgotPassPage section.contents .container-fluid .card h4 {
   }
 }
 section.forgotPassPage section.contents .container-fluid .card input {
-  transition: 0.4s;
   border: none;
   border-bottom: 2px solid #333333;
   color: #333333;
@@ -946,7 +891,6 @@ section.forgotPassPage section.contents .container-fluid .card input.codeInput {
   }
 }
 section.forgotPassPage section.contents .container-fluid .card input:focus {
-  transition: 0.4s;
   outline: none;
   border-bottom: 2px solid #0098c5;
 }
@@ -979,7 +923,6 @@ section.forgotPassPage section.contents .container-fluid .card.code .buttons {
   max-width: 20rem;
 }
 section.forgotPassPage section.contents .container-fluid .card.code .buttons button.codeAgain {
-  transition: 0.4s;
   margin-top: 1rem;
   width: 17rem;
 }
@@ -989,7 +932,6 @@ section.forgotPassPage section.contents .container-fluid .card.code .buttons but
   }
 }
 section.forgotPassPage section.contents .container-fluid .card.code .buttons .hidden {
-  transition: 0.4s;
   opacity: 0;
   visibility: hidden;
   height: 0;
@@ -1063,27 +1005,27 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .inf
     text-align: center;
   }
 }
-section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
-  transition: 0.4s;
+section.detailPage section.contents .container-fluid .top .row .infos .card .info a,
+section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
   color: #333333;
   float: left;
 }
 @media (max-width: 767px) {
-  section.detailPage section.contents .container-fluid .top .row .infos .card .info a, section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
+  section.detailPage section.contents .container-fluid .top .row .infos .card .info a,
+section.detailPage section.contents .container-fluid .top .row .infos .card .info p {
     float: none !important;
     text-align: center;
   }
 }
-section.detailPage section.contents .container-fluid .top .row .infos .card .info a i, section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
+section.detailPage section.contents .container-fluid .top .row .infos .card .info a i,
+section.detailPage section.contents .container-fluid .top .row .infos .card .info p i {
   margin-right: 0.5rem;
   font-weight: 500;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a:hover {
-  transition: 0.4s;
   color: #0098c5 !important;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .info a:hover p {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .tags label {
@@ -1098,7 +1040,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .tag
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .tags .tagLinks a {
-  transition: 0.4s;
   float: left;
   color: #333333;
   margin: 0 1rem 0.5rem 0;
@@ -1121,7 +1062,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   display: block;
   float: left;
   width: fit-content;
-  transition: 0.4s;
   border: 2px solid lightGray;
   padding: 0 0 0 2rem;
   border-radius: 12px;
@@ -1134,7 +1074,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .shownSize {
-  transition: 0.4s;
   cursor: pointer;
   position: relative;
   padding-left: 2rem;
@@ -1143,18 +1082,15 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   color: #0098c5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .shownSize label {
-  transition: 0.4s;
   display: inline-block;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .shownSize i {
-  transition: 0.4s;
   top: 0.5rem;
   position: absolute;
   left: -1rem;
   font-size: 1.5rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options .shownSize .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label {
@@ -1165,20 +1101,17 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .siz
   font-size: 0.9rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label.sizeOption {
-  transition: 0.4s;
   padding: 0.5rem;
   opacity: 0.8;
   text-align: right;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options label:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .options input[type=radio] {
   display: none;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .sizes .opened {
-  transition: 0.4s;
   max-height: 100%;
   padding-bottom: 0.5rem;
 }
@@ -1192,7 +1125,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .fil
   display: block;
   float: left;
   width: fit-content;
-  transition: 0.4s;
   border: 2px solid lightGray;
   padding: 0 0 0 2rem;
   border-radius: 12px;
@@ -1205,7 +1137,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .fil
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType {
-  transition: 0.4s;
   cursor: pointer;
   position: relative;
   padding-left: 2rem;
@@ -1214,18 +1145,15 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .fil
   color: #0098c5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType label {
-  transition: 0.4s;
   display: inline-block;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType i {
-  transition: 0.4s;
   top: 0.5rem;
   position: absolute;
   left: -1rem;
   font-size: 1.5rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options .shownType .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options label {
@@ -1241,14 +1169,12 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .fil
   text-align: right;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options label:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .options input[type=radio] {
   display: none;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .fileTypes .opened {
-  transition: 0.4s;
   max-height: 100%;
   padding-bottom: 0.5rem;
 }
@@ -1262,7 +1188,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .pri
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price p {
-  transition: 0.4s;
   font-size: 1rem;
   opacity: 0;
   visibility: hidden;
@@ -1271,7 +1196,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .pri
   left: 1rem;
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .price .showPrice {
-  transition: 0.4s;
   opacity: 1;
   visibility: visible;
   height: auto;
@@ -1290,7 +1214,6 @@ section.detailPage section.contents .container-fluid .top .row .infos .card .but
   }
 }
 section.detailPage section.contents .container-fluid .top .row .infos .card .buttons button {
-  transition: 0.4s;
   position: relative;
   margin: auto 1rem 1rem auto;
   font-size: 16px;
@@ -1356,7 +1279,6 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
   height: 16rem;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-item img {
-  transition: 0.4s;
   max-height: 12rem;
   margin: auto;
   border-radius: 12px;
@@ -1369,7 +1291,6 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
   transform: translate(-50%, -50%);
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-item img:hover {
-  transition: 0.4s;
   top: 49%;
   left: 49%;
   transform: translate(-50%, -50%);
@@ -1385,11 +1306,9 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
   left: -1.5rem;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev span {
-  transition: 0.4s;
   font-size: 4rem;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-prev span:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next {
@@ -1398,11 +1317,9 @@ section.detailPage section.contents .container-fluid .related .owl-carousel .owl
   right: -1.5rem;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next span {
-  transition: 0.4s;
   font-size: 4rem;
 }
 section.detailPage section.contents .container-fluid .related .owl-carousel .owl-nav .owl-next span:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 
@@ -1453,7 +1370,6 @@ Section.uploadPage section.contents .container-fluid .row .info label {
 Section.uploadPage section.contents .container-fluid .row .info input {
   display: block;
   margin-bottom: 1rem;
-  transition: 0.4s;
   height: 2.5rem;
   width: 100%;
   padding-right: 0.4rem;
@@ -1464,14 +1380,12 @@ Section.uploadPage section.contents .container-fluid .row .info input {
   border-radius: 12px;
 }
 Section.uploadPage section.contents .container-fluid .row .info input:focus {
-  transition: 0.4s;
   outline: none;
 }
 Section.uploadPage section.contents .container-fluid .row .info input.nameInput {
   max-width: 20rem;
 }
 Section.uploadPage section.contents .container-fluid .row .info textarea {
-  transition: 0.4s;
   height: 9rem;
   resize: none;
   background-color: #f5f5f5;
@@ -1523,7 +1437,6 @@ Section.uploadPage section.contents .container-fluid .row .uploadFile input[type
 }
 Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file]::before {
   visibility: visible;
-  transition: 0.4s;
   content: "+";
   font-size: 16px;
   position: absolute;
@@ -1536,7 +1449,6 @@ Section.uploadPage section.contents .container-fluid .row .uploadFile input[type
   border-radius: 12px;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file]:hover::before {
-  transition: 0.4s;
   color: #f5f5f5 !important;
   background-color: #0098c5 !important;
   border: 2px solid #0098c5 !important;
@@ -1549,7 +1461,6 @@ Section.uploadPage section.contents .container-fluid .row .uploadFile i {
   top: 0.75rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadFile .hidden {
-  transition: 0.4s;
   opacity: 0;
   visibility: hidden;
 }
@@ -1572,7 +1483,6 @@ Section.uploadPage section.contents .container-fluid .row .uploadCover input[typ
 Section.uploadPage section.contents .container-fluid .row .uploadCover input[type=file]::before {
   visibility: visible;
   margin-right: 1rem;
-  transition: 0.4s;
   content: "کاور اثر خود را آپلود کنید";
   font-size: 16px;
   position: absolute;
@@ -1584,7 +1494,6 @@ Section.uploadPage section.contents .container-fluid .row .uploadCover input[typ
   border-radius: 12px;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadCover input[type=file]:hover::before {
-  transition: 0.4s;
   color: #f5f5f5 !important;
   background-color: #0098c5 !important;
   border: 2px solid #0098c5 !important;
@@ -1600,7 +1509,6 @@ Section.uploadPage section.contents .container-fluid .row .uploadCover i.fa-chec
   color: #0098c5;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadCover .hidden {
-  transition: 0.4s;
   opacity: 0;
   visibility: hidden;
 }
@@ -1614,7 +1522,6 @@ Section.uploadPage section.contents .container-fluid .row .pricing input[type=ch
   height: 1rem;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing input[type=text] {
-  transition: 0.4s;
   background-color: transparent;
   border: none;
   border: 2px solid lightgray;
@@ -1626,12 +1533,10 @@ Section.uploadPage section.contents .container-fluid .row .pricing input[type=te
   padding-left: 3rem;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing input[type=text]:focus {
-  transition: 0.4s;
   outline: none;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label {
   color: #333333;
-  transition: 0.4s;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing label.toman {
   margin-right: -2.5rem;
@@ -1642,7 +1547,6 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   cursor: pointer;
   margin: 0 0.5rem;
   text-align: center;
-  transition: 0.4s;
   border: none;
   border: 2px solid lightGray;
   color: #333333;
@@ -1653,7 +1557,6 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   float: left;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing .shown {
-  transition: 0.4s;
   opacity: 1 !important;
 }
 Section.uploadPage section.contents .container-fluid .row .accordion {
@@ -1661,7 +1564,6 @@ Section.uploadPage section.contents .container-fluid .row .accordion {
 }
 Section.uploadPage section.contents .container-fluid .row .accordion .accordion-button {
   text-align: center;
-  transition: 0.4s;
   border: none;
   color: #f5f5f5;
   padding: 0 1rem;
@@ -1674,7 +1576,6 @@ Section.uploadPage section.contents .container-fluid .row .accordion .accordion-
   box-shadow: none;
 }
 Section.uploadPage section.contents .container-fluid .row .accordion .accordion-button:hover {
-  transition: 0.4s;
   background-color: #0098c5;
   color: #f5f5f5;
 }
@@ -1691,26 +1592,28 @@ Section.uploadPage section.contents .container-fluid .row .accordion #other {
   margin-top: -0.5rem;
   padding-top: 1rem;
 }
-Section.uploadPage section.contents .container-fluid .category, Section.uploadPage section.contents .container-fluid .type {
+Section.uploadPage section.contents .container-fluid .category,
+Section.uploadPage section.contents .container-fluid .type {
   max-width: 20rem;
 }
-Section.uploadPage section.contents .container-fluid .category .title, Section.uploadPage section.contents .container-fluid .type .title {
+Section.uploadPage section.contents .container-fluid .category .title,
+Section.uploadPage section.contents .container-fluid .type .title {
   padding: 1rem 0 0.5rem;
   display: block;
   text-align: right;
 }
-Section.uploadPage section.contents .container-fluid .category .selected, Section.uploadPage section.contents .container-fluid .type .selected {
-  transition: 0.4s;
+Section.uploadPage section.contents .container-fluid .category .selected,
+Section.uploadPage section.contents .container-fluid .type .selected {
   color: #0098c5;
   font-weight: bold;
 }
-Section.uploadPage section.contents .container-fluid .category label.radioLabel, Section.uploadPage section.contents .container-fluid .type label.radioLabel {
+Section.uploadPage section.contents .container-fluid .category label.radioLabel,
+Section.uploadPage section.contents .container-fluid .type label.radioLabel {
   margin: 0 0.5rem 0 0;
   cursor: pointer;
   width: 100%;
   margin: 0 0.5rem;
   text-align: center;
-  transition: 0.4s;
   border: none;
   border: 2px solid lightGray;
   color: #333333;
@@ -1719,7 +1622,8 @@ Section.uploadPage section.contents .container-fluid .category label.radioLabel,
   background-color: transparent;
   font-size: 0.9rem;
 }
-Section.uploadPage section.contents .container-fluid .category .options, Section.uploadPage section.contents .container-fluid .type .options {
+Section.uploadPage section.contents .container-fluid .category .options,
+Section.uploadPage section.contents .container-fluid .type .options {
   text-align: right;
   display: flex;
   width: 100%;
@@ -1744,7 +1648,6 @@ Section.uploadPage section.contents .container-fluid .buttons button {
   }
 }
 Section.uploadPage section.contents .container-fluid .selected {
-  transition: 0.4s;
   border: none;
   color: #0098c5 !important;
   border: 2px solid #0098c5 !important;
@@ -1799,7 +1702,6 @@ section.searchPage section.contents .container-fluid .advancedSection .seeAdvanc
   position: absolute;
 }
 section.searchPage section.contents .container-fluid .advancedSection .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 @media (max-width: 480px) {
@@ -1809,7 +1711,6 @@ section.searchPage section.contents .container-fluid .advancedSection .rotated {
 }
 section.searchPage section.contents .container-fluid .advanced {
   background-color: #f5f5f5;
-  transition: 0.4s;
   max-width: 40rem;
   margin: auto;
   position: absolute;
@@ -1840,7 +1741,6 @@ section.searchPage section.contents .container-fluid .advanced label.radioLabel 
   width: 100%;
   margin: 0 0.5rem;
   text-align: center;
-  transition: 0.4s;
   border: none;
   border: 2px solid lightGray;
   color: #333333;
@@ -1882,7 +1782,6 @@ section.searchPage section.contents .container-fluid .advanced .tag .usedTags p 
   position: relative;
 }
 section.searchPage section.contents .container-fluid .advanced .tag .usedTags p i {
-  transition: 0.4s;
   color: #333333;
   font-size: 20px;
   position: relative;
@@ -1891,23 +1790,25 @@ section.searchPage section.contents .container-fluid .advanced .tag .usedTags p 
   right: 0.5rem;
 }
 section.searchPage section.contents .container-fluid .advanced .tag .usedTags p i:hover {
-  transition: 0.4s;
   color: #9c2d89;
 }
 section.searchPage section.contents .container-fluid .advanced .category,
-section.searchPage section.contents .container-fluid .advanced .orientation, section.searchPage section.contents .container-fluid .advanced .type {
+section.searchPage section.contents .container-fluid .advanced .orientation,
+section.searchPage section.contents .container-fluid .advanced .type {
   padding: 1.5rem 0;
   display: flex;
 }
 @media (max-width: 580px) {
   section.searchPage section.contents .container-fluid .advanced .category,
-section.searchPage section.contents .container-fluid .advanced .orientation, section.searchPage section.contents .container-fluid .advanced .type {
+section.searchPage section.contents .container-fluid .advanced .orientation,
+section.searchPage section.contents .container-fluid .advanced .type {
     display: block;
     padding: 0.5rem 0 1.5rem 0;
   }
 }
 section.searchPage section.contents .container-fluid .advanced .category .title,
-section.searchPage section.contents .container-fluid .advanced .orientation .title, section.searchPage section.contents .container-fluid .advanced .type .title {
+section.searchPage section.contents .container-fluid .advanced .orientation .title,
+section.searchPage section.contents .container-fluid .advanced .type .title {
   padding-top: 0.5rem;
   width: 6rem;
   text-align: right;
@@ -1915,7 +1816,8 @@ section.searchPage section.contents .container-fluid .advanced .orientation .tit
 }
 @media (max-width: 580px) {
   section.searchPage section.contents .container-fluid .advanced .category .title,
-section.searchPage section.contents .container-fluid .advanced .orientation .title, section.searchPage section.contents .container-fluid .advanced .type .title {
+section.searchPage section.contents .container-fluid .advanced .orientation .title,
+section.searchPage section.contents .container-fluid .advanced .type .title {
     margin-right: 0;
   }
 }
@@ -1951,14 +1853,12 @@ section.searchPage section.contents .container-fluid .advanced .price .title {
   }
 }
 section.searchPage section.contents .container-fluid .advanced .selected {
-  transition: 0.4s;
   border: none;
   color: #9c2d89 !important;
   border: 2px solid #9c2d89 !important;
   font-weight: bold;
 }
 section.searchPage section.contents .container-fluid .advancedHidden {
-  transition: 0.4s;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -1968,7 +1868,6 @@ section.searchPage section.contents .sortSection {
   display: block;
   margin: 1rem auto 1rem 0;
   width: fit-content;
-  transition: 0.4s;
   z-index: 50;
   position: relative;
 }
@@ -1980,7 +1879,6 @@ section.searchPage section.contents .sortSection .sorting {
   border-radius: 12px;
 }
 section.searchPage section.contents .sortSection .sorting .shownSort {
-  transition: 0.4s;
   cursor: pointer;
   position: relative;
   padding-left: 2rem;
@@ -1989,18 +1887,15 @@ section.searchPage section.contents .sortSection .sorting .shownSort:hover {
   color: #0098c5;
 }
 section.searchPage section.contents .sortSection .sorting .shownSort label {
-  transition: 0.4s;
   display: inline-block;
 }
 section.searchPage section.contents .sortSection .sorting .shownSort i {
-  transition: 0.4s;
   top: 0.5rem;
   position: absolute;
   left: 1rem;
   font-size: 1.4rem;
 }
 section.searchPage section.contents .sortSection .sorting .shownSort .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 section.searchPage section.contents .sortSection .sorting label {
@@ -2012,13 +1907,11 @@ section.searchPage section.contents .sortSection .sorting label {
 }
 section.searchPage section.contents .sortSection .sorting label.sortOption {
   padding: 0;
-  transition: 0.4s;
   opacity: 0;
   overflow: hidden;
   max-height: 0;
 }
 section.searchPage section.contents .sortSection .sorting label:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.searchPage section.contents .sortSection .sorting .show {
@@ -2036,7 +1929,6 @@ section.searchPage section.contents .sortSection .sorting .show {
   }
 }
 section.searchPage section.contents .sortSection .opened {
-  transition: 0.4s;
   max-height: 100%;
   padding-bottom: 0.5rem;
 }
@@ -2100,7 +1992,6 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   transform: translate(-50%, -50%);
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .image a img {
-  transition: 0.4s;
   max-height: 4rem;
   border-radius: 12px;
   max-width: 4rem;
@@ -2116,13 +2007,15 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail {
   padding: 1rem;
 }
-section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail p, section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail h6 {
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail p,
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail h6 {
   width: 32%;
   display: inline-block;
   margin-bottom: 0;
 }
 @media (max-width: 991px) {
-  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail p, section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail h6 {
+  section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail p,
+section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .detail h6 {
     width: 100%;
   }
 }
@@ -2131,7 +2024,6 @@ section.cartPage section.contents .container-fluid .row.top .items .row.middle .
   text-align: left;
 }
 section.cartPage section.contents .container-fluid .row.top .items .row.middle .col-sm-12 .item .buttons button.delete {
-  transition: 0.4s;
   color: #d14774;
   border: 2px solid #d14774;
   line-height: unset;
@@ -2157,24 +2049,22 @@ section.cartPage section.contents .container-fluid .row.top .sale input {
 section.cartPage section.contents .container-fluid .row.top .sale button {
   left: 0;
   position: absolute;
-  transition: 0.4s;
   padding: 0 1rem;
   border: 2px solid #0098c5;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   height: 2.5rem;
 }
-section.cartPage section.contents .container-fluid .row.top .sale button:hover {
-  transition: 0.4s;
-}
 section.cartPage section.contents .container-fluid .row.top .total {
   padding: 1rem;
 }
-section.cartPage section.contents .container-fluid .row.top .total .count, section.cartPage section.contents .container-fluid .row.top .total .cost {
+section.cartPage section.contents .container-fluid .row.top .total .count,
+section.cartPage section.contents .container-fluid .row.top .total .cost {
   justify-content: space-between;
   display: flex;
 }
-section.cartPage section.contents .container-fluid .row.top .total .count h5, section.cartPage section.contents .container-fluid .row.top .total .cost h5 {
+section.cartPage section.contents .container-fluid .row.top .total .count h5,
+section.cartPage section.contents .container-fluid .row.top .total .cost h5 {
   color: #0098c5;
   font-size: 1.1rem;
 }
@@ -2186,7 +2076,6 @@ section.cartPage section.contents .container-fluid .row.top .total .card {
   border-radius: 12px;
 }
 section.cartPage section.contents .container-fluid .row.top .total .buttons button.payment {
-  transition: 0.4s;
   padding: 0 2rem;
   color: #1a981f;
   border: 2px solid #1a981f;
@@ -2206,7 +2095,6 @@ section.dashboardPage .supportButton {
   z-index: 100;
 }
 section.dashboardPage .supportButton a {
-  transition: 0.4s;
   background-color: #f5f5f5;
   border-radius: 12px;
   display: block;
@@ -2221,7 +2109,6 @@ section.dashboardPage .supportButton a i {
   font-size: 2.5rem;
 }
 section.dashboardPage .supportButton a:hover {
-  transition: 0.4s;
   background-color: #0098c5;
   color: #f5f5f5;
 }
@@ -2235,6 +2122,44 @@ section.dashboardPage .supportButton a:hover {
     height: 3rem;
   }
   section.dashboardPage .supportButton a i {
+    font-size: 2rem;
+  }
+}
+section.dashboardPage .artistButton {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  text-align: center;
+  z-index: 100;
+}
+section.dashboardPage .artistButton a {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 0.5rem;
+  color: #9c2d89;
+  border: 2px solid lightGray;
+  text-align: center;
+}
+section.dashboardPage .artistButton a i {
+  font-size: 2.5rem;
+}
+section.dashboardPage .artistButton a:hover {
+  background-color: #9c2d89;
+  color: #f5f5f5;
+}
+@media (max-width: 767px) {
+  section.dashboardPage .artistButton {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  section.dashboardPage .artistButton a {
+    width: 3rem;
+    height: 3rem;
+  }
+  section.dashboardPage .artistButton a i {
     font-size: 2rem;
   }
 }
@@ -2273,7 +2198,6 @@ section.dashboardPage .modal .modal-content .modal-body .buttons {
   margin-bottom: 1rem;
 }
 section.dashboardPage section.contents .container-fluid .wallet {
-  transition: 0.4s;
   max-width: 40rem;
   margin: 1rem auto;
   border: 2px solid #1a981f;
@@ -2286,7 +2210,6 @@ section.dashboardPage section.contents .container-fluid .wallet .header {
   padding-bottom: 1rem;
 }
 section.dashboardPage section.contents .container-fluid .wallet .header h5 {
-  transition: 0.4s;
   color: #1a981f;
   margin-bottom: 0;
   text-align: right;
@@ -2318,12 +2241,10 @@ section.dashboardPage section.contents .container-fluid .wallet a {
   width: 8rem;
   border-radius: 12px;
   padding: 0.5rem 1rem;
-  transition: 0.4s;
   color: #1a981f;
   border: 2px solid #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .wallet a:hover {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #1a981f;
 }
@@ -2362,29 +2283,24 @@ section.dashboardPage section.contents .container-fluid .wallet .cash p.add {
   border-radius: 12px;
   text-align: center;
   padding: 0.5rem 1rem;
-  transition: 0.4s;
   color: #1a981f;
   border: 2px solid #1a981f;
   cursor: pointer;
   float: none;
 }
 section.dashboardPage section.contents .container-fluid .wallet .cash p.add:hover {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .wallet .cash .carts {
-  transition: 0.4s;
   max-height: 30rem;
   overflow: auto;
 }
 section.dashboardPage section.contents .container-fluid .wallet .cash .hidden {
-  transition: 0.4s;
   max-height: 0;
   overflow: hidden;
 }
 section.dashboardPage section.contents .container-fluid .part {
-  transition: 0.4s;
   max-width: 40rem;
   margin: 1rem auto;
   border: 2px solid lightGray;
@@ -2397,18 +2313,15 @@ section.dashboardPage section.contents .container-fluid .part .header {
   background-color: transparent;
 }
 section.dashboardPage section.contents .container-fluid .part .header h5 {
-  transition: 0.4s;
   color: #333333;
   margin-bottom: 0;
   text-align: right;
 }
 section.dashboardPage section.contents .container-fluid .part .header h5 i.fa-angle-down {
   float: left;
-  transition: 0.4s;
   font-weight: 500;
 }
 section.dashboardPage section.contents .container-fluid .part .header h5 .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .picture {
@@ -2457,22 +2370,23 @@ section.dashboardPage section.contents .container-fluid .part.top .summary .bott
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i {
   padding: 0.5rem;
-  transition: 0.4s;
   color: #333333;
   font-size: 1.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats a i:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
-section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .mail,
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .instagram,
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .twitter {
   width: fit-content;
   padding-top: 0.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount {
   display: inline-flex;
 }
-section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount label, section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount p {
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount label,
+section.dashboardPage section.contents .container-fluid .part.top .summary .bottom .socialStats .productsCount p {
   padding: 1rem 0.25rem;
 }
 section.dashboardPage section.contents .container-fluid .part.top .bio p {
@@ -2597,17 +2511,16 @@ section.dashboardPage section.contents .container-fluid .part.notifs ul.nav-tabs
 section.dashboardPage section.contents .container-fluid .part.notifs ul.nav-tabs a.nav-link {
   border-radius: 12px;
   font-size: 16px;
-  transition: 0.4s;
   background-color: #f5f5f5;
   border: 2px solid #f5f5f5;
   color: #333333;
 }
 section.dashboardPage section.contents .container-fluid .part.notifs ul.nav-tabs a.nav-link.active {
-  transition: 0.4s;
   border: 2px solid #0098c5;
   color: #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .part.notifs .tab-pane {
+  padding: 1rem;
   max-height: 40rem;
   overflow: auto;
   margin-top: 4rem;
@@ -2618,7 +2531,8 @@ section.dashboardPage section.contents .container-fluid .part.notifs .card.notif
   margin: 1rem auto;
   background-color: #f5f5f5;
 }
-section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard h6, section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard p {
+section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard h6,
+section.dashboardPage section.contents .container-fluid .part.notifs .card.notifCard p {
   width: fit-content;
   display: inline-block;
   color: #333333;
@@ -2646,7 +2560,6 @@ section.dashboardPage section.contents .container-fluid .part.notifs .contentHid
   max-height: 0;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input {
-  transition: 0.4s;
   border: none;
   border: 2px solid lightgray;
   color: #333333;
@@ -2674,7 +2587,6 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   padding-left: 2.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input:focus {
-  transition: 0.4s;
   outline: none;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input[type=file] {
@@ -2689,7 +2601,6 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent input[type=file]::before {
   visibility: visible;
   margin-right: 1rem;
-  transition: 0.4s;
   content: "آپلود تصویر کاربری";
   font-size: 18px;
   position: absolute;
@@ -2705,7 +2616,6 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   border: 2px solid #0098c5 !important;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent textarea {
-  transition: 0.4s;
   height: 9rem;
   resize: none;
   background-color: #f5f5f5;
@@ -2729,7 +2639,6 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   float: left;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .password {
-  transition: 0.4s;
   border: 2px solid lightgray;
   max-height: 5rem;
   margin-bottom: 2rem;
@@ -2737,7 +2646,6 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   overflow: hidden;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .password p.change {
-  transition: 0.4s;
   color: #0098c5;
   cursor: pointer;
   line-height: 2.5rem;
@@ -2750,13 +2658,11 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   margin: 1rem auto 1.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .password.open {
-  transition: 0.4s;
   overflow: auto;
   max-height: 20rem;
   padding: 0 0.5rem;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .password.open p.change {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #0098c5;
 }
@@ -2765,7 +2671,6 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   position: relative;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button {
-  transition: 0.4s;
   width: 10rem;
   padding: 0;
   margin-right: 1rem;
@@ -2776,35 +2681,27 @@ section.dashboardPage section.contents .container-fluid .part.personalInfo .coll
   }
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save {
-  transition: 0.4s;
   color: #1a981f;
   border: 2px solid #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.save:hover {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #1a981f;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel {
-  transition: 0.4s;
   color: #d14774;
   border: 2px solid #d14774;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons button.cancel:hover {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #d14774;
 }
 section.dashboardPage section.contents .container-fluid .part.personalInfo .collapseContent .buttons .hiddenButton {
-  transition: 0.4s;
   width: 0;
   position: absolute;
   left: 0;
   opacity: 0;
   visibility: hidden;
-}
-section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel {
-  transition: 0.4s;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item {
   direction: rtl;
@@ -2831,7 +2728,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   filter: blur(3px);
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .background img {
-  transition: 0.4s;
   max-height: 8rem;
   border-radius: 12px;
   max-width: 8rem;
@@ -2869,7 +2765,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   z-index: 50;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a {
-  transition: 0.4s;
   color: #0098c5;
   border: 2px solid #0098c5;
   background-color: #f5f5f5;
@@ -2878,7 +2773,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   display: block;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .itemPack .detail a:hover {
-  transition: 0.4s;
   background-color: #0098c5;
   color: #f5f5f5;
 }
@@ -2905,7 +2799,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   transform: translate(-50%, -50%);
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-item .item .image a img {
-  transition: 0.4s;
   max-height: 4rem;
   border-radius: 12px;
   max-width: 4rem;
@@ -2935,11 +2828,9 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   left: 0;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span {
-  transition: 0.4s;
   font-size: 4rem;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-prev span:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next {
@@ -2948,11 +2839,9 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   right: 0;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span {
-  transition: 0.4s;
   font-size: 4rem;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .owl-carousel .owl-nav .owl-next span:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons {
@@ -2966,7 +2855,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a {
   text-align: center;
-  transition: 0.4s;
   border: 2px solid #0098c5;
   color: #0098c5;
   padding: 0.5rem 2rem;
@@ -2974,7 +2862,6 @@ section.dashboardPage section.contents .container-fluid .part.downloads .collaps
   background-color: transparent;
 }
 section.dashboardPage section.contents .container-fluid .part.downloads .collapseContent .buttons a:hover {
-  transition: 0.4s;
   color: #f5f5f5 !important;
   background-color: #0098c5;
 }
@@ -2985,7 +2872,6 @@ section.dashboardPage section.contents .container-fluid .part ::-webkit-scrollba
 section.dashboardPage section.contents .container-fluid .part .collapseContent {
   position: relative;
   padding-top: 1rem;
-  transition: 0.4s;
   max-width: 40rem;
   margin: auto;
   position: relative;
@@ -3005,18 +2891,15 @@ section.dashboardPage section.contents .container-fluid .part .collapseContent :
 }
 section.dashboardPage section.contents .container-fluid .part .contentHidden {
   padding-top: 0;
-  transition: 0.4s;
   max-height: 0;
   visibility: hidden;
   opacity: 0;
   overflow: hidden;
 }
 section.dashboardPage section.contents .container-fluid .opened {
-  transition: 0.4s;
   border: 2px solid #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .opened .header h5 {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .products .buttons {
@@ -3028,7 +2911,6 @@ section.dashboardPage section.contents .container-fluid .products .buttons butto
   display: flex;
   margin: auto;
   font-size: 20px;
-  transition: 0.4s;
   background-color: transparent;
 }
 section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore i {
@@ -3037,11 +2919,7 @@ section.dashboardPage section.contents .container-fluid .products .buttons butto
   width: 2rem;
   font-size: 30px;
 }
-section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore:hover {
-  transition: 0.4s;
-}
 section.dashboardPage section.contents .container-fluid .products .buttons button.seeMore:focus {
-  transition: 0.4s;
   outline: none;
 }
 section.dashboardPage section.contents .container-fluid .products .topFilters {
@@ -3054,7 +2932,6 @@ section.dashboardPage section.contents .container-fluid .products .sortSection {
   display: block;
   margin: 1rem auto 1rem 0;
   width: fit-content;
-  transition: 0.4s;
   z-index: 50;
   position: relative;
 }
@@ -3066,7 +2943,6 @@ section.dashboardPage section.contents .container-fluid .products .sortSection .
   border-radius: 12px;
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort {
-  transition: 0.4s;
   cursor: pointer;
   position: relative;
   padding-left: 2rem;
@@ -3075,18 +2951,15 @@ section.dashboardPage section.contents .container-fluid .products .sortSection .
   color: #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort label {
-  transition: 0.4s;
   display: inline-block;
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort i {
-  transition: 0.4s;
   top: 0.5rem;
   position: absolute;
   left: 1rem;
   font-size: 1.4rem;
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .shownSort .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting label {
@@ -3098,13 +2971,11 @@ section.dashboardPage section.contents .container-fluid .products .sortSection .
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting label.sortOption {
   padding: 0;
-  transition: 0.4s;
   opacity: 0;
   overflow: hidden;
   max-height: 0;
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting label:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .sorting .show {
@@ -3122,7 +2993,6 @@ section.dashboardPage section.contents .container-fluid .products .sortSection .
   }
 }
 section.dashboardPage section.contents .container-fluid .products .sortSection .opened {
-  transition: 0.4s;
   max-height: 100%;
   padding-bottom: 0.5rem;
 }
@@ -3151,7 +3021,6 @@ section.dashboardPage section.contents .container-fluid .products .advancedSecti
   position: absolute;
 }
 section.dashboardPage section.contents .container-fluid .products .advancedSection .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 @media (max-width: 480px) {
@@ -3161,7 +3030,6 @@ section.dashboardPage section.contents .container-fluid .products .advancedSecti
 }
 section.dashboardPage section.contents .container-fluid .products .advanced {
   background-color: #f5f5f5;
-  transition: 0.4s;
   max-width: 40rem;
   margin: auto;
   position: absolute;
@@ -3192,7 +3060,6 @@ section.dashboardPage section.contents .container-fluid .products .advanced labe
   width: 100%;
   margin: 0 0.5rem;
   text-align: center;
-  transition: 0.4s;
   border: none;
   border: 2px solid lightGray;
   color: #333333;
@@ -3234,7 +3101,6 @@ section.dashboardPage section.contents .container-fluid .products .advanced .tag
   position: relative;
 }
 section.dashboardPage section.contents .container-fluid .products .advanced .tag .usedTags p i {
-  transition: 0.4s;
   color: #333333;
   font-size: 20px;
   position: relative;
@@ -3243,23 +3109,25 @@ section.dashboardPage section.contents .container-fluid .products .advanced .tag
   right: 0.5rem;
 }
 section.dashboardPage section.contents .container-fluid .products .advanced .tag .usedTags p i:hover {
-  transition: 0.4s;
   color: #9c2d89;
 }
 section.dashboardPage section.contents .container-fluid .products .advanced .category,
-section.dashboardPage section.contents .container-fluid .products .advanced .orientation, section.dashboardPage section.contents .container-fluid .products .advanced .type {
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation,
+section.dashboardPage section.contents .container-fluid .products .advanced .type {
   padding: 1.5rem 0;
   display: flex;
 }
 @media (max-width: 580px) {
   section.dashboardPage section.contents .container-fluid .products .advanced .category,
-section.dashboardPage section.contents .container-fluid .products .advanced .orientation, section.dashboardPage section.contents .container-fluid .products .advanced .type {
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation,
+section.dashboardPage section.contents .container-fluid .products .advanced .type {
     display: block;
     padding: 0.5rem 0 1.5rem 0;
   }
 }
 section.dashboardPage section.contents .container-fluid .products .advanced .category .title,
-section.dashboardPage section.contents .container-fluid .products .advanced .orientation .title, section.dashboardPage section.contents .container-fluid .products .advanced .type .title {
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation .title,
+section.dashboardPage section.contents .container-fluid .products .advanced .type .title {
   padding-top: 0.5rem;
   width: 6rem;
   text-align: right;
@@ -3267,7 +3135,8 @@ section.dashboardPage section.contents .container-fluid .products .advanced .ori
 }
 @media (max-width: 580px) {
   section.dashboardPage section.contents .container-fluid .products .advanced .category .title,
-section.dashboardPage section.contents .container-fluid .products .advanced .orientation .title, section.dashboardPage section.contents .container-fluid .products .advanced .type .title {
+section.dashboardPage section.contents .container-fluid .products .advanced .orientation .title,
+section.dashboardPage section.contents .container-fluid .products .advanced .type .title {
     margin-right: 0;
   }
 }
@@ -3303,17 +3172,197 @@ section.dashboardPage section.contents .container-fluid .products .advanced .pri
   }
 }
 section.dashboardPage section.contents .container-fluid .products .advanced .selected {
-  transition: 0.4s;
   border: none;
   color: #9c2d89 !important;
   border: 2px solid #9c2d89 !important;
   font-weight: bold;
 }
 section.dashboardPage section.contents .container-fluid .products .advancedHidden {
-  transition: 0.4s;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
+}
+
+/*#endregion */
+/*#region Become Artist */
+section.becomeArtistPage section.contents > .container-fluid .card {
+  margin-top: 5rem;
+  padding: 2rem;
+  max-width: 40rem;
+  margin: auto;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  border: 2px solid lightgray;
+}
+section.becomeArtistPage section.contents > .container-fluid .card.info {
+  box-shadow: none;
+  top: 0;
+  transform: translate(-50%, 0);
+}
+@media (max-width: 767px) {
+  section.becomeArtistPage section.contents > .container-fluid .card {
+    padding: 2rem 1rem;
+  }
+}
+section.becomeArtistPage section.contents > .container-fluid .card h4 {
+  padding: 2rem 0;
+}
+@media (max-width: 480px) {
+  section.becomeArtistPage section.contents > .container-fluid .card h4 {
+    font-size: 1.3rem;
+  }
+}
+section.becomeArtistPage section.contents > .container-fluid .card input {
+  border: none;
+  border: 2px solid lightgray;
+  color: #333333;
+  background-color: transparent;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+section.becomeArtistPage section.contents > .container-fluid .card input.codeInput {
+  padding: 0;
+  text-align: center;
+  font-size: 25px;
+  width: 2.5rem;
+  margin: 0 0.5rem;
+  display: flex;
+}
+@media (max-width: 580px) {
+  section.becomeArtistPage section.contents > .container-fluid .card input.codeInput {
+    width: 1.8rem;
+    margin: 0 0.3rem;
+  }
+}
+section.becomeArtistPage section.contents > .container-fluid .card input.mail, section.becomeArtistPage section.contents > .container-fluid .card input.twitter, section.becomeArtistPage section.contents > .container-fluid .card input.instagram {
+  padding-left: 2.5rem;
+}
+section.becomeArtistPage section.contents > .container-fluid .card input:focus {
+  outline: none;
+}
+section.becomeArtistPage section.contents > .container-fluid .card textarea {
+  height: 9rem;
+  resize: none;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 12px;
+  border: 2px solid lightGray;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  color: #333333;
+}
+section.becomeArtistPage section.contents > .container-fluid .card textarea:focus {
+  outline: none;
+}
+section.becomeArtistPage section.contents > .container-fluid .card i.social {
+  font-size: 1.5rem;
+  color: #333333;
+  width: 2rem;
+  height: 2rem;
+  margin-top: -4.25rem;
+  float: left;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .buttons {
+  position: relative;
+  padding: 3rem 0;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .buttons button {
+  float: left;
+  margin-right: 1rem;
+  font-size: 18px;
+  display: block;
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 580px) {
+  section.becomeArtistPage section.contents > .container-fluid .card .buttons button {
+    font-size: 16px;
+    width: 6rem;
+  }
+}
+section.becomeArtistPage section.contents > .container-fluid .card input[type=file]:hover::before {
+  border: none;
+  color: #0098c5 !important;
+  border: 2px solid lightGray;
+}
+section.becomeArtistPage section.contents > .container-fluid .card input:-webkit-autofill,
+section.becomeArtistPage section.contents > .container-fluid .card input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #0098c5;
+  -webkit-box-shadow: 0 0 0 1000px #f5f5f5 inset !important;
+  transition: background-color 400s ease-in-out 0s;
+  background-color: #f5f5f5;
+}
+section.becomeArtistPage section.contents > .container-fluid .card button {
+  color: #0098c5;
+  border: 2px solid #0098c5;
+}
+section.becomeArtistPage section.contents > .container-fluid .card button:hover {
+  color: #f5f5f5;
+  background-color: #0098c5;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .uploadPic {
+  position: relative;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .uploadPic input[type=file] {
+  padding: 0;
+  visibility: hidden;
+  width: 14rem;
+  margin-right: -1rem;
+  height: 3.5rem;
+  position: relative;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .uploadPic input[type=file]::before {
+  visibility: visible;
+  margin-right: 1rem;
+  content: "آپلود تصویر کاربری";
+  font-size: 18px;
+  position: absolute;
+  background-color: transparent;
+  padding: 0 1rem;
+  width: 11rem;
+  cursor: pointer;
+  text-align: center;
+  color: #0098c5;
+  border: 2px solid #0098c5;
+  border-radius: 12px;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .uploadPic input[type=file]:hover::before {
+  color: #f5f5f5 !important;
+  background-color: #0098c5 !important;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .uploadPic i {
+  position: absolute;
+  right: 12rem;
+  color: #333333;
+  font-size: 1.2rem;
+  top: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .uploadPic i.fa-check-circle {
+  color: #0098c5;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .uploadPic .hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+section.becomeArtistPage section.contents > .container-fluid .card input.notSame {
+  border: 2px solid #d14774 !important;
+}
+section.becomeArtistPage section.contents > .container-fluid .card input.same {
+  border: 2px solid #1a981f !important;
+}
+section.becomeArtistPage section.contents > .container-fluid .card .badge {
+  margin-top: -2rem;
+  text-align: right;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 /*#endregion */
@@ -3396,22 +3445,23 @@ section.userPage section.contents .container-fluid .row.top .info .row .summary 
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i {
   padding: 0.5rem;
-  transition: 0.4s;
   color: #333333;
   font-size: 1.5rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats a i:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .mail,
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .instagram,
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .twitter {
   width: fit-content;
   padding-top: 0.5rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount {
   display: inline-flex;
 }
-section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount label, section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount p {
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount label,
+section.userPage section.contents .container-fluid .row.top .info .row .summary .bottom .socialStats .productsCount p {
   padding: 1rem 0.25rem;
 }
 section.userPage section.contents .container-fluid .row.top .info .row .bio p {
@@ -3429,7 +3479,6 @@ section.userPage section.contents .container-fluid .row.top .products .buttons b
   display: flex;
   margin: auto;
   font-size: 20px;
-  transition: 0.4s;
   background-color: transparent;
 }
 section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore i {
@@ -3438,11 +3487,7 @@ section.userPage section.contents .container-fluid .row.top .products .buttons b
   width: 2rem;
   font-size: 30px;
 }
-section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore:hover {
-  transition: 0.4s;
-}
 section.userPage section.contents .container-fluid .row.top .products .buttons button.seeMore:focus {
-  transition: 0.4s;
   outline: none;
 }
 
@@ -3471,7 +3516,8 @@ section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 
     float: right;
   }
 }
-section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 label, section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 p {
+section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 label,
+section.orderPage section.contents .container-fluid .details .row.top .col-sm-4 p {
   color: #333333;
 }
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 {
@@ -3500,7 +3546,6 @@ section.orderPage section.contents .container-fluid .products .row .col-sm-12 .i
   transform: translate(-50%, -50%);
 }
 section.orderPage section.contents .container-fluid .products .row .col-sm-12 .item .image a img {
-  transition: 0.4s;
   max-height: 4rem;
   border-radius: 12px;
   max-width: 4rem;
@@ -3581,7 +3626,6 @@ section.adminPage .sidebar .item a {
   position: relative;
   height: 3rem;
   display: block;
-  transition: 0.4s;
   color: #333333;
   padding: 0.5rem 0.5rem 0.5rem 3rem;
   height: 3rem;
@@ -3654,7 +3698,6 @@ section.adminPage .search {
   position: relative;
 }
 section.adminPage .search input[type=text] {
-  transition: 0.4s;
   border: none;
   background-color: transparent;
   height: 2.5rem;
@@ -3665,11 +3708,9 @@ section.adminPage .search input[type=text] {
   border: 2px solid lightGray;
 }
 section.adminPage .search input[type=text]:focus {
-  transition: 0.4s;
   outline: none;
 }
 section.adminPage .search i.fa-search {
-  transition: 0.4s;
   height: 2.5rem;
   padding-top: 0.5rem;
   width: 2.5rem;
@@ -3684,7 +3725,6 @@ section.adminPage .search i.fa-search {
   text-align: center;
 }
 section.adminPage .search i.fa-search:hover {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #0098c5;
 }
@@ -3692,7 +3732,6 @@ section.adminPage .date {
   display: flex;
 }
 section.adminPage .date input {
-  transition: 0.4s;
   border: none;
   background-color: transparent;
   height: 2.5rem;
@@ -3704,7 +3743,6 @@ section.adminPage .date input {
   padding-left: 0.25rem;
 }
 section.adminPage .date input:focus {
-  transition: 0.4s;
   outline: none;
 }
 section.adminPage .date button {
@@ -3725,7 +3763,6 @@ section.adminPage .sorting {
   }
 }
 section.adminPage .sorting .shownSort {
-  transition: 0.4s;
   cursor: pointer;
   position: relative;
   padding-left: 2rem;
@@ -3734,18 +3771,15 @@ section.adminPage .sorting .shownSort:hover {
   color: #0098c5;
 }
 section.adminPage .sorting .shownSort label {
-  transition: 0.4s;
   display: inline-block;
 }
 section.adminPage .sorting .shownSort i {
-  transition: 0.4s;
   top: 0.5rem;
   position: absolute;
   left: 1rem;
   font-size: 1.4rem;
 }
 section.adminPage .sorting .shownSort .rotated {
-  transition: 0.4s;
   transform: rotate(180deg);
 }
 section.adminPage .sorting label {
@@ -3757,13 +3791,11 @@ section.adminPage .sorting label {
 }
 section.adminPage .sorting label.sortOption {
   padding: 0;
-  transition: 0.4s;
   opacity: 0;
   overflow: hidden;
   max-height: 0;
 }
 section.adminPage .sorting label:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.adminPage .sorting .show {
@@ -3800,7 +3832,6 @@ section.adminPage .contents ul.nav-tabs {
 }
 section.adminPage .contents ul.nav-tabs li.nav-item a.nav-link {
   border: none;
-  transition: 0.4s;
   border-radius: 12px;
   background-color: transparent;
   font-size: 16px;
@@ -3812,7 +3843,6 @@ section.adminPage .contents ul.nav-tabs li.nav-item a.nav-link {
   padding: 0;
 }
 section.adminPage .contents ul.nav-tabs li.nav-item a.nav-link.active {
-  transition: 0.4s;
   color: #f5f5f5;
   background-color: #0098c5;
   border-color: #0098c5;
@@ -3847,12 +3877,10 @@ section.adminPage.messages .contents .col-12 .card .cardRow p {
 section.adminPage.messages .contents .col-12 .card .cardRow a {
   margin-bottom: 1rem;
   float: left;
-  transition: 0.4s;
   padding-right: 1rem;
   color: #333333;
 }
 section.adminPage.messages .contents .col-12 .card .cardRow a:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.adminPage.messages .contents .col-12 .buttons {
@@ -3864,7 +3892,6 @@ section.adminPage.messages .contents .col-12 .buttons i {
 }
 section.adminPage.messages .contents .col-12 .buttons button {
   text-align: center;
-  transition: 0.4s;
   color: #0098c5;
   border: 2px solid #0098c5;
   border-radius: 12px;
@@ -3942,12 +3969,10 @@ section.adminPage.finance .contents .col-12 .card .cardRow p {
 section.adminPage.finance .contents .col-12 .card .cardRow a {
   margin-bottom: 1rem;
   float: left;
-  transition: 0.4s;
   padding-right: 1rem;
   color: #333333;
 }
 section.adminPage.finance .contents .col-12 .card .cardRow a:hover {
-  transition: 0.4s;
   color: #0098c5;
 }
 section.adminPage.users .contents .col-12 {
@@ -4013,7 +4038,6 @@ section.adminPage.users .contents .col-12 .buttons i {
 }
 section.adminPage.users .contents .col-12 .buttons a {
   text-align: center;
-  transition: 0.4s;
   color: #0098c5;
   border: 2px solid #0098c5;
   border-radius: 12px;
@@ -4033,7 +4057,6 @@ section.adminPage.users .contents .col-12 .buttons a:hover {
   }
 }
 section.adminPage.users .contents .col-12 .buttons button {
-  transition: 0.4s;
   width: 7rem;
 }
 @media (max-width: 480px) {
@@ -4113,7 +4136,6 @@ section.adminPage.products .contents .col-12 .buttons i {
 }
 section.adminPage.products .contents .col-12 .buttons a {
   text-align: center;
-  transition: 0.4s;
   color: #0098c5;
   border: 2px solid #0098c5;
   border-radius: 12px;
@@ -4133,7 +4155,6 @@ section.adminPage.products .contents .col-12 .buttons a:hover {
   }
 }
 section.adminPage.products .contents .col-12 .buttons button {
-  transition: 0.4s;
   width: 7rem;
 }
 @media (max-width: 480px) {

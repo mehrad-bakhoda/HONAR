@@ -28,6 +28,15 @@ const { type } = require("os");
 require("dotenv").config();
 
 // GET ROUTE'S
+router.get("/becomeartist", function (req, res) {
+  res.render("becomeArtist", {
+    inputFouned: true,
+    inputVerify: true,
+    loginInput: req.body.loginInput,
+    newUser: false,
+    back: true,
+  });
+});
 
 router.post("/generateD", function (req, res) {
   var c;
@@ -3040,6 +3049,7 @@ router.post("/delete/product/:productId", function (req, res) {
     }
   });
 });
+
 ///////////////////////// ADMIN ROUTES ////////////////////////
 
 router.get("*", function (req, res) {

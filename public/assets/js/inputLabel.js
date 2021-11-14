@@ -11,12 +11,10 @@ document.onclick = (e) => {
         currInput.classList.add("noPh");
       }
       break;
-    }
-    else {
-        for (let other of inputs)
-            other.classList.remove("noPh");
-        for (let other of labels)
-            other.classList.remove("show");
+    } else {
+      for (let other of inputs) other.classList.remove("noPh");
+
+      for (let other of labels) other.classList.remove("show");
     }
   }
 };

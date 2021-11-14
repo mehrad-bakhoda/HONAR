@@ -1,0 +1,51 @@
+<%-include("head");-%>
+
+<%-include("uploadButton");-%>
+<section class="page becomeArtistPage">
+    <%-include("header");-%>
+    <section class="contents">
+        <div class="container-fluid">
+            <div class="card">
+                <form name="uploaderForm" onsubmit="return validateUploaderForm()" action="/signUpU"
+                    enctype="multipart/form-data" method="post">
+                    <input hidden name="loginInput" value=<%=loginInput%> />
+                    <input hidden name="userType" value="Uploader" />
+                    <h4> اطلاعات خود را وارد کنید </h4>
+                    <label class="goTop">نام</label>
+                    <input class="firstNameInput" name="firstName" type="firstName" placeholder="نام" />
+
+                    <label class="goTop">نام خانوادگی</label>
+                    <input name="lastName" type="lastName" placeholder="نام خانوادگی" />
+
+                    <label class="goTop">نام کاربری</label>
+                    <input class="userNameInput" name="userName" type="text" placeholder="نام کاربری" />
+
+                    <label class="goTop">ایمیل شما</label>
+                    <input name="email" type="email" class="mail" placeholder="ایمیل شما" />
+                    <i class="fal fa-envelope social"></i>
+
+                    <label class="goTop"> اینستاگرام شما</label>
+                    <input name="instagram" type="url" class="instagram" placeholder=" اینستاگرام شما" />
+                    <i class="fab fa-instagram social"></i>
+
+                    <label class="goTop"> توئیتر شما</label>
+                    <input name="twitter" type="url" class="twitter" placeholder=" توئیتر شما" />
+                    <i class="fab fa-twitter social"></i>
+                    <textarea name="bio" class="bio" placeholder="درباره شما..."></textarea>
+                    <div class="uploadPic">
+                        <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
+                        <i class="far fa-spinner-third fa-spin hidden"></i>
+                        <i class="far fa-check-circle hidden"></i>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="next"> هنرمند بشم</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <%-include("footer");-%>
+</section>
+<script src="./assets/js/codeInput.js"></script>
+<script src="./assets/js/login.js"></script>
+<%-include("scripts");-%>

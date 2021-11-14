@@ -1,14 +1,14 @@
 const filesArrow = document.querySelector(".fileTypes .shownType i");
 const fileOptions = document.querySelector(".fileTypes .options");
-const fOptions = document.querySelectorAll(".fileTypes .fileOption");
+const fOptions = document.querySelectorAll(".fileTypes .typeOption");
 filesArrow.onclick = () => {
     fileOptions.classList.toggle("opened");
     filesArrow.classList.toggle("rotated");
-
 }
 for (let fOption of fOptions) {
     fOption.onclick = () => {
-        document.querySelector(".fileOptions .shownType label").innerText = fOption.innerText;
+        console.log("type clicked!");
+        document.querySelector(".fileTypes .shownType label").innerText = fOption.innerText;
         fOption.classList.add("selected");
         fileOptions.classList.toggle("opened");
         filesArrow.classList.toggle("rotated");
