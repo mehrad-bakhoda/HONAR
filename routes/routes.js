@@ -334,22 +334,42 @@ router.get("/", function (req, res) {
 router.get("/tags/:tag", function (req, res) {
   var sort = {};
   var sortby = "مرتبط ترین";
-  switch (req.query.sortby) {
-    case "lowPrice":
-      sort = { orginalPrice: "asc" };
-      sortby = "ارزان ترین";
-      break;
-    case "highPrice":
-      sort = { orginalPrice: "desc" };
-      sortby = "گرانترین";
-      break;
-    case "mostView":
-      sort = { downloadedCount: "desc" };
-      sortby = "بیشترین بازدید";
-      break;
-    default:
-      sort = {};
-      sortby = "مرتبط ترین";
+  if (!Array.isArray(req.query.sortby)) {
+    switch (req.query.sortby) {
+      case "lowPrice":
+        sort = { orginalPrice: "asc" };
+        sortby = "ارزان ترین";
+        break;
+      case "highPrice":
+        sort = { orginalPrice: "desc" };
+        sortby = "گرانترین";
+        break;
+      case "mostView":
+        sort = { downloadedCount: "desc" };
+        sortby = "بیشترین بازدید";
+        break;
+      default:
+        sort = {};
+        sortby = "مرتبط ترین";
+    }
+  } else {
+    switch (req.query.sortby[req.query.sortby.length - 1]) {
+      case "lowPrice":
+        sort = { orginalPrice: "asc" };
+        sortby = "ارزان ترین";
+        break;
+      case "highPrice":
+        sort = { orginalPrice: "desc" };
+        sortby = "گرانترین";
+        break;
+      case "mostView":
+        sort = { downloadedCount: "desc" };
+        sortby = "بیشترین بازدید";
+        break;
+      default:
+        sort = {};
+        sortby = "مرتبط ترین";
+    }
   }
   tagss = "#" + req.params.tag;
 
@@ -360,7 +380,7 @@ router.get("/tags/:tag", function (req, res) {
         searched: found,
         searchedItem: req.params.tag,
         sortby: sortby,
-        link: "/tags/",
+        link: req.url,
       });
     });
 });
@@ -1421,11 +1441,11 @@ router.post("/upload", function (req, res) {
               "/" +
               fileName;
 
-              const width = 750;
-              const height = 483;
-              const text = "Axgraphy";
-          
-              const svgImage = `
+            const width = 750;
+            const height = 483;
+            const text = "Axgraphy";
+
+            const svgImage = `
               <svg width="${width}" height="${height}">
                 <style>
                 .title { fill: #001; font-size: 70px; font-weight: bold;}
@@ -1433,20 +1453,28 @@ router.post("/upload", function (req, res) {
                 <text x="50%" y="50%" text-anchor="middle" class="title" style="color:red;">${text}</text>
               </svg>
               `;
-             const svgBuffer = Buffer.from(svgImage);
-              sharp(files.productCover.path)
-               .composite([
-                 {
-                   input: svgBuffer,
-                   bottom: 0,
-                   right: 0,
-                 },
-               ])
-              .webp({lossless: true,quality: 60,alphaQuality: 80, force: false})
+            const svgBuffer = Buffer.from(svgImage);
+            sharp(files.productCover.path)
+              .composite([
+                {
+                  input: svgBuffer,
+                  bottom: 0,
+                  right: 0,
+                },
+              ])
+              .webp({
+                lossless: true,
+                quality: 60,
+                alphaQuality: 80,
+                force: false,
+              })
               .toFile(`${destination.split(".")[0]}.webp`)
-              .then(info => { console.log(info); })
-              .catch(err => { console.log(err); });
-
+              .then((info) => {
+                console.log(info);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
 
             // Jimp.read(files.productCover.path)
             //   .then((image) => {
@@ -1503,7 +1531,7 @@ router.post("/upload", function (req, res) {
               filePath: filepath,
               fileType: files.productFiles.type,
               fileTypes: fileTypes,
-              coverPath: databaseDestination,
+              coverPath: databaseDestination.split(".")[0] + ".webp",
               orginalPrice: fields.orginalPrice,
               largePrice: fields.largePrice,
               mediumPrice: fields.mediumPrice,
@@ -2662,36 +2690,71 @@ router.get("/search/home/:searchedItem", function (req, res) {
   //   Product.search(req.params.searchedItem, function(err, found) {
   //     res.render("search",{searched:found});
   //  });
-  console.log(req.query.sortby);
+  console.log(req.query);
   var sort = {};
   var sortby = "مرتبط ترین";
-  switch (req.query.sortby) {
-    case "lowPrice":
-      sort = { orginalPrice: "asc" };
-      sortby = "ارزان ترین";
-      break;
-    case "highPrice":
-      sort = { orginalPrice: "desc" };
-      sortby = "گرانترین";
-      break;
-    case "mostView":
-      sort = { downloadedCount: "desc" };
-      sortby = "بیشترین بازدید";
-      break;
-    default:
-      sort = {};
-      sortby = "مرتبط ترین";
+  if (!Array.isArray(req.query.sortby)) {
+    switch (req.query.sortby) {
+      case "lowPrice":
+        sort = { orginalPrice: "asc" };
+        sortby = "ارزان ترین";
+        break;
+      case "highPrice":
+        sort = { orginalPrice: "desc" };
+        sortby = "گرانترین";
+        break;
+      case "mostView":
+        sort = { downloadedCount: "desc" };
+        sortby = "بیشترین بازدید";
+        break;
+      default:
+        sort = {};
+        sortby = "مرتبط ترین";
+    }
+  } else {
+    switch (req.query.sortby[req.query.sortby.length - 1]) {
+      case "lowPrice":
+        sort = { orginalPrice: "asc" };
+        sortby = "ارزان ترین";
+        break;
+      case "highPrice":
+        sort = { orginalPrice: "desc" };
+        sortby = "گرانترین";
+        break;
+      case "mostView":
+        sort = { downloadedCount: "desc" };
+        sortby = "بیشترین بازدید";
+        break;
+      default:
+        sort = {};
+        sortby = "مرتبط ترین";
+    }
   }
 
+  var typesFilter =
+    req.query.types !== undefined
+      ? { $in: req.query.types }
+      : { $not: { $in: [] } };
+  var fileTypesFilter =
+    req.query.fileTypes !== undefined
+      ? { $in: req.query.fileTypes }
+      : { $not: { $in: [] } };
   Product.find({
     confirmation: true,
-    $or: [
-      { fileName: new RegExp(req.params.searchedItem, "gi") },
-      { "user.userName": new RegExp(req.params.searchedItem, "gi") },
-      { tags: new RegExp(req.params.searchedItem, "gi") },
-      { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
-      { fileType: new RegExp(req.params.searchedItem, "gi") },
-      { type: new RegExp(req.params.searchedItem, "gi") },
+    $and: [
+      {
+        $or: [
+          { fileName: new RegExp(req.params.searchedItem, "gi") },
+          { "user.userName": new RegExp(req.params.searchedItem, "gi") },
+          { tags: new RegExp(req.params.searchedItem, "gi") },
+          { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
+          { fileType: new RegExp(req.params.searchedItem, "gi") },
+          { type: new RegExp(req.params.searchedItem, "gi") },
+        ],
+      },
+      { filePath: { $elemMatch: { fileType: fileTypesFilter } } },
+
+      { type: typesFilter },
     ],
   })
     .sort(sort)
@@ -2701,7 +2764,7 @@ router.get("/search/home/:searchedItem", function (req, res) {
           searched: found,
           searchedItem: req.params.searchedItem,
           sortby: sortby,
-          link: "/search/home/",
+          link: req.url,
         });
       }
     });
@@ -2710,63 +2773,70 @@ router.post("/search/advanced/home/:searchedItem", function (req, res) {
   //   Product.search(req.params.searchedItem, function(err, found) {
   //     res.render("search",{searched:found});
   //  });
-  console.log(req.query);
-  var fileTypeArray = [];
-  var types = [];
-  var dimensions = [];
-  var price = [];
+  console.log(req.body);
+  var fileTypes = "";
+  var types = "";
+  var dimensions = "";
+  var price = "";
+  var link = "";
   Object.entries(req.body).map((key) => {
     if (key[1] == "type") {
-      types.push(key[0]);
+      types = types.concat("types[]=" + key[0] + "&");
     }
     if (key[1] == "fileType") {
-      fileTypeArray.push(key[0]);
+      fileTypes = fileTypes.concat("fileTypes[]=" + key[0] + "&");
     }
     if (key[1] == "dimension") {
-      dimensions.push(key[0]);
+      dimensions = dimensions.concat("dimensions[]=" + key[0] + "&");
     }
     if (key[1] == "free" || key[1] == "non-free") {
-      price.push(key[0]);
+      price = price.concat("price[]=" + key[0] + "&");
     }
   });
-  if (fileTypeArray.length == 0) {
-    fileTypeArray = ["image/png", "image/jpeg", "video/mp4", "file/psd"];
-  }
-  if (types.length == 0) {
-    fileTypeArray = ["clip", "graphic", "photo", "gif"];
-  }
+  link = link.concat(types);
+  link = link.concat(fileTypes);
+  link = link.concat(dimensions);
+  link = link.concat(price);
 
-  Product.find(
-    {
-      confirmation: true,
-      $and: [
-        {
-          $or: [
-            { fileName: new RegExp(req.params.searchedItem, "gi") },
-            { "user.userName": new RegExp(req.params.searchedItem, "gi") },
-            { tags: new RegExp(req.params.searchedItem, "gi") },
-            { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
-            { fileType: new RegExp(req.params.searchedItem, "gi") },
-            { type: new RegExp(req.params.searchedItem, "gi") },
-          ],
-        },
+  res.redirect(`/search/home/${req.params.searchedItem}?${link}`);
+  // if (fileTypeArray.length == 0) {
+  //   fileTypeArray = ["image/png", "image/jpeg", "video/mp4", "file/psd"];
+  // }
+  // if (types.length == 0) {
+  //   fileTypeArray = ["clip", "graphic", "photo", "gif"];
+  // }
 
-        { filePath: { $elemMatch: { fileType: { $in: fileTypeArray } } } },
+  // Product.find(
+  //   {
+  //     confirmation: true,
+  //     $and: [
+  //       {
+  //         $or: [
+  //           { fileName: new RegExp(req.params.searchedItem, "gi") },
+  //           { "user.userName": new RegExp(req.params.searchedItem, "gi") },
+  //           { tags: new RegExp(req.params.searchedItem, "gi") },
+  //           { "user.firstName": new RegExp(req.params.searchedItem, "gi") },
+  //           { fileType: new RegExp(req.params.searchedItem, "gi") },
+  //           { type: new RegExp(req.params.searchedItem, "gi") },
+  //         ],
+  //       },
 
-        { type: { $in: types } },
-      ],
-    },
-    function (err, found) {
-      if (found) {
-        res.render("search", {
-          searched: found,
-          searchedItem: req.params.searchedItem,
-          sortby: "مرتبط ترین",
-          link: "/search/advanced/home/",
-        });
-      }
-    }
-  );
+  //       { filePath: { $elemMatch: { fileType: { $in: fileTypeArray } } } },
+
+  //       { type: { $in: types } },
+  //     ],
+  //   },
+  //   function (err, found) {
+  //     if (found) {
+  //       res.render("search", {
+  //         searched: found,
+  //         searchedItem: req.params.searchedItem,
+  //         sortby: "مرتبط ترین",
+  //         link: "/search/advanced/home/",
+  //       });
+  //     }
+  //   }
+  // );
 });
 
 //finances page search
