@@ -14,13 +14,8 @@
                 <lable class="title"> دسته </lable>
 
                 <div class="options">
-                  <input
-                    name="photography"
-                    type="radio"
-                    id="photography"
-                    value="type"
-                  />
-                  <label for="photography" class="radioLabel">عکس</label>
+                  <input name="photo" type="radio" id="photo" value="type" />
+                  <label for="photo" class="radioLabel">عکس</label>
 
                   <input
                     name="graphic"
@@ -98,24 +93,24 @@
               <label class="selectedSort"> <%=sortby%> </label>
               <i class="fal fa-sort-amount-down-alt"></i>
             </div>
-            <a href="<%=link%><%=searchedItem%>?sortby=lowPrice">
+            <a href="<%=link%>?&sortby=lowPrice">
               <label for="cheap" class="sortOption" id="cheap"
                 >ارزان ترین</label
               ></a
             >
-            <a href="<%=link%><%=searchedItem%>?sortby=highPrice"
+            <a href="<%=link%>?&sortby=highPrice"
               ><label for="expensive" class="sortOption" id="expensive"
                 >گرانترین</label
               ></a
             >
 
-            <a href="<%=link%><%=searchedItem%>?sortby=0"
+            <a href="<%=link%>?&sortby=0"
               ><label for="related" class="sortOption" id="related">
                 مرتبط ترین</label
               ></a
             >
 
-            <a href="<%=link%><%=searchedItem%>?sortby=mostView"
+            <a href="<%=link%>?&sortby=mostView"
               ><label for="best" class="sortOption selected" id="best">
                 بیشترین بازدید</label
               ></a
