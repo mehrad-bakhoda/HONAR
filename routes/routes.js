@@ -205,85 +205,88 @@ router.post("/addCard", function (req, res) {
   });
 });
 
-router.get("/download/:productId/:size", function (req, res) {
+router.get("/download/:productId/:type", function (req, res) {
   if (req.session.userId) {
-    var size = req.params.size;
+    var type = req.params.type;
     var productId = req.params.productId;
-    if (
-      size == "original" ||
-      size == "large" ||
-      size == "medium" ||
-      size == "small"
-    ) {
-      Product.findOne({ _id: req.params.productId }, function (err, product) {
-        if (size == "original" && product.orginalPrice == 0) {
-          res.download(product.filePath, function (error) {
-            if (error) {
-              console.log("Error : ", error);
-            }
-          });
-        } else if (size == "large" && product.largePrice == 0) {
-          res.download(product.filePath, function (error) {
-            if (error) {
-              console.log("Error : ", error);
-            }
-          });
-        } else if (size == "medium" && product.mediumPrice == 0) {
-          res.download(product.filePath, function (error) {
-            if (error) {
-              console.log("Error : ", error);
-            }
-          });
-        } else if (size == "small" && product.smallPrice == 0) {
-          res.download(product.filePath, function (error) {
-            if (error) {
-              console.log("Error : ", error);
-            }
-          });
-        } else {
-          User.findOne(
-            { unique_id: req.session.userId },
-            {
-              products: {
-                $elemMatch: {
-                  "product._id": req.params.productId,
-                  size: req.params.size,
-                },
-              },
-            },
-            function (err, found) {
-              if (!err) {
-                res.download(
-                  found.products[0].product.filePath,
-                  function (error) {
-                    if (error) {
-                      console.log("Error : ", error);
-                    }
-                  }
-                );
 
-                // if(!found.downloaded.length){
-                //   let download={product:req.params.productId,size:req.params.size};
-                //   User.updateOne({
-                //     unique_id:req.session.userId
-                //   },
-                //   {
-                //     $push:{downloaded:download}
-                //   },function(err){
-                //     if(!err){
-                //       console.log("success");
-                //     }else{
-                //       console.log(err);
-                //     }
-                //   });
-
-                // }
-              }
-            }
-          );
+    Product.findOne({ _id: productId }, function (err, product) {
+      if (product.orginalPrice === 0) {
+        for (var i = 0; i < product.filePath.length; i++) {
+          if (product.filePath[i].fileType === type) {
+            res.download(product.filePath[i].filePath, function (err) {
+              if (err) console.log(`Error: ${err}`);
+            });
+          }
         }
-      });
-    }
+      }
+      // if (size == "original" && product.orginalPrice == 0) {
+      //   res.download(product.filePath, function (error) {
+      //     if (error) {
+      //       console.log("Error : ", error);
+      //     }
+      //   });
+      // } else if (size == "large" && product.largePrice == 0) {
+      //   res.download(product.filePath, function (error) {
+      //     if (error) {
+      //       console.log("Error : ", error);
+      //     }
+      //   });
+      // } else if (size == "medium" && product.mediumPrice == 0) {
+      //   res.download(product.filePath, function (error) {
+      //     if (error) {
+      //       console.log("Error : ", error);
+      //     }
+      //   });
+      // } else if (size == "small" && product.smallPrice == 0) {
+      //   res.download(product.filePath, function (error) {
+      //     if (error) {
+      //       console.log("Error : ", error);
+      //     }
+      //   });
+      // } else {
+      //   User.findOne(
+      //     { unique_id: req.session.userId },
+      //     {
+      //       products: {
+      //         $elemMatch: {
+      //           "product._id": req.params.productId,
+      //           size: req.params.size,
+      //         },
+      //       },
+      //     },
+      //     function (err, found) {
+      //       if (!err) {
+      //         res.download(
+      //           found.products[0].product.filePath,
+      //           function (error) {
+      //             if (error) {
+      //               console.log("Error : ", error);
+      //             }
+      //           }
+      //         );
+
+      //         // if(!found.downloaded.length){
+      //         //   let download={product:req.params.productId,size:req.params.size};
+      //         //   User.updateOne({
+      //         //     unique_id:req.session.userId
+      //         //   },
+      //         //   {
+      //         //     $push:{downloaded:download}
+      //         //   },function(err){
+      //         //     if(!err){
+      //         //       console.log("success");
+      //         //     }else{
+      //         //       console.log(err);
+      //         //     }
+      //         //   });
+
+      //         // }
+      //       }
+      //     }
+      //   );
+      // }
+    });
   } else {
     res.redirect("/login");
   }
@@ -1507,9 +1510,11 @@ router.post("/upload", function (req, res) {
             var filepath = [];
             try {
               files.productFiles.map((file) => {
+                var fileType = file.type.split("/")[1];
+                if (fileType === "octet-stream") fileType = "psd";
                 var item = {
                   filePath: file.path,
-                  fileType: file.type,
+                  fileType: fileType,
                 };
 
                 filepath.push(item);
