@@ -1,144 +1,85 @@
 ﻿<%-include("head");-%>
 <section class="page cartPage">
-    <%-include("header");-%>
-    <section class="contents">
-        <div class="container-fluid">
-            <% if(products.length == 0){%>
-            <div class="empty">
-
-                <h1>
-                    <i class="fal fa-shopping-bag"></i>
-                    سبد خرید شما خالی است !
-                </h1>
-            </div>
-            <%}else{%>
-            <div class="row top">
-                <div class="col-md-6 col-lg-9 col-sm-12 items">
-                    <div class="row middle">
-                        <% products.forEach(function(product) { %>
-                        <div class="col-sm-12">
-                            <div class="card item">
-                                <div class="row bottom">
-                                    <div class="col-xs-12 col-sm-6 col-md-3 image">
-                                        <a href="/product/<%=product.item.productId%>/<%=product.item.fileName%>">
-                                            <img src="<%=product.item.coverPath%>" />
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 detail">
-                                        <h6 class="name">
-                                            <%=product.item.fileName%>
-                                        </h6>
-                                        <p>
-                                            سایز
-                                            <% if (product.size == "original"){%>
-                                            اصلی
-                                            <% } %>
-                                            <% if (product.size == "large"){%>
-                                            بزرگ
-                                            <% } %>
-                                            <% if (product.size == "medium"){%>
-                                            متوسط
-                                            <% } %>
-                                            <% if (product.size == "small"){%>
-                                            کوچک
-                                            <% } %>
-                                        </p>
-                                        <p class="price">
-                                            <% if (product.size == "original"){%>
-                                            <% if(product.item.orginalPrice == 0){%>
-                                            رایگان
-                                            <% } %>
-                                            <% if(product.item.orginalPrice != 0){%>
-                                            <span><%=product.item.orginalPrice%></span>
-                                            تومان
-                                            <% } %>
-
-                                            <%} %>
-                                            <% if (product.size == "large"){%>
-                                            <% if(product.item.largePrice == 0){%>
-                                            رایگان
-                                            <% } %>
-                                            <% if(product.item.largePrice != 0){%>
-                                            <span><%=product.item.largePrice%></span>
-                                            تومان
-                                            <% } %>
-
-                                            <%} %>
-                                            <% if (product.size == "medium"){%>
-                                            <% if(product.item.mediumPrice == 0){%>
-                                            رایگان
-                                            <% } %>
-                                            <% if(product.item.mediumPrice != 0){%>
-                                            <span><%=product.item.mediumPrice%></span>
-                                            تومان
-                                            <% } %>
-
-                                            <%} %>
-                                            <% if (product.size == "small"){%>
-                                            <% if(product.item.smallPrice == 0){%>
-                                            رایگان
-                                            <% } %>
-                                            <% if(product.item.smallPrice != 0){%>
-                                            <span><%=product.item.smallPrice%></span>
-                                            تومان
-                                            <% } %>
-
-                                            <%} %>
-
-                                        </p>
-
-                                    </div>
-                                    <div class="col-sm-12 col-md-3 buttons">
-                                        <a href="/delete-from-cart/<%=product.item.productId%>">
-                                            <button type="button" class="delete">
-                                                حذف 
-                                                <i class="fal fa-trash"></i>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <% }); %>
-                    </div>
+  <%-include("header");-%>
+  <section class="contents">
+    <div class="container-fluid">
+      <% if(products.length == 0){%>
+      <div class="empty">
+        <h1>
+          <i class="fal fa-shopping-bag"></i>
+          سبد خرید شما خالی است !
+        </h1>
+      </div>
+      <%}else{%>
+      <div class="row top">
+        <div class="col-md-6 col-lg-9 col-sm-12 items">
+          <div class="row middle">
+            <% products.forEach(function(product) { %>
+            <div class="col-sm-12">
+              <div class="card item">
+                <div class="row bottom">
+                  <div class="col-xs-12 col-sm-6 col-md-3 image">
+                    <a
+                      href="/product/<%=product.item.productId%>/<%=product.item.fileName%>"
+                    >
+                      <img src="<%=product.item.coverPath%>" />
+                    </a>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 detail">
+                    <h6 class="name"><%=product.item.fileName%></h6>
+                    <p>نوع فایل: <%=product.type%></p>
+                    <p class="price">
+                      <span><%=product.item.orginalPrice%></span>
+                      تومان
+                    </p>
+                  </div>
+                  <div class="col-sm-12 col-md-3 buttons">
+                    <a href="/delete-from-cart/<%=product.item.productId%>">
+                      <button type="button" class="delete">
+                        حذف
+                        <i class="fal fa-trash"></i>
+                      </button>
+                    </a>
+                  </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 total">
-                    <div class="card">
-                        <div class="count">
-                            <h5> تعداد کالاها </h5>
-                            <p> <%=totalQty%> </p>
-                        </div>
-                        <div class="cost">
-                            <h5> قیمت نهایی </h5>
-                            <p>
-                                <% if(totalPrice == 0){%>
-                                رایگان
-                                <% } %>
-                                <% if(totalPrice != 0){%>
-                                <%=totalPrice %>
-                                <span> تومان </span>
-                                <% } %>
-
-                            </p>
-                        </div>
-                        <form class="sale">
-                            <input type="text" placeholder="کد تخفیف..." />
-                            <button type="submit"> تایید کد </button>
-                        </form>
-                        <div class="buttons">
-                            <a href="/orderConfirm">
-                                <button type="button" class="payment">
-                                    پرداخت نهایی
-                                    <i class="fal fa-dollar-sign"></i>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <%}%>
+            <% }); %>
+          </div>
         </div>
-    </section>
-    <%-include("footer");-%>
+        <div class="col-lg-3 col-md-6 col-sm-12 total">
+          <div class="card">
+            <div class="count">
+              <h5>تعداد کالاها</h5>
+              <p><%=totalQty%></p>
+            </div>
+            <div class="cost">
+              <h5>قیمت نهایی</h5>
+              <p>
+                <% if(totalPrice == 0){%> رایگان <% } %> <% if(totalPrice !=
+                0){%> <%=totalPrice %>
+                <span> تومان </span>
+                <% } %>
+              </p>
+            </div>
+            <form class="sale">
+              <input type="text" placeholder="کد تخفیف..." />
+              <button type="submit">تایید کد</button>
+            </form>
+            <div class="buttons">
+              <a href="/orderConfirm">
+                <button type="button" class="payment">
+                  پرداخت نهایی
+                  <i class="fal fa-dollar-sign"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+    </div>
+  </section>
+  <%-include("footer");-%>
 </section>
 <%-include("scripts");-%>

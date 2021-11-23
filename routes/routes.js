@@ -568,37 +568,35 @@ router.get("/delete-from-cart/:id", function (req, res) {
     res.redirect("/cart");
   }
 });
-router.get("/add-to-cart/:id/:size", function (req, res) {
+router.get("/add-to-cart/:id/:type", function (req, res) {
   if (req.session.userId) {
     var productId = req.params.id;
-    var size = req.params.size;
-    if (
-      size == "original" ||
-      size == "large" ||
-      size == "medium" ||
-      size == "small"
-    ) {
-      console.log(req.session.cart);
-      var cart = new Cart(req.session.cart ? req.session.cart : {});
-      let product = Product.findOne(
-        {
-          _id: productId,
-        },
-        function (err, product) {
-          if (err) {
-            console.log("item adding failed");
-            return;
-          }
-          cart.add(product, product.productId, size);
-          req.session.cart = cart;
-          req.session.save();
+    var type = req.params.type;
 
-          res.redirect("/cart");
+    console.log(req.session.cart);
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    let product = Product.findOne(
+      {
+        _id: productId,
+      },
+      function (err, product) {
+        if (err) {
+          console.log("item adding failed");
+          return;
         }
-      );
-    } else {
-      res.render("notFound");
-    }
+        product.filePath.forEach((file) => {
+          if (file.fileType === type) {
+            console.log(type);
+            cart.add(product, product.productId, type);
+            req.session.cart = cart;
+            req.session.save();
+            res.redirect("/cart");
+          }
+        });
+
+        res.render("notFound");
+      }
+    );
   } else {
     res.redirect("/login");
   }

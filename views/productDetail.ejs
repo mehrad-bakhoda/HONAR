@@ -148,13 +148,19 @@
                                             </button>
                                         </a>
                                         <%}else{%>
-                                            <a id="addToCart" href="/add-to-cart/<%=item.id%>/original">
+                                            <a class="downloadLink" href="/download/<%=item.id%>/<%=item.filePath[0].fileType%>" hidden>
+                                                <button type="button" class="download" >
+                                                    دانلود
+                                                    <i class="fal fa-cloud-download"></i>
+                                                </button>
+                                            </a>
+                                            <a class="addToCartLink" href="/add-to-cart/<%=item.id%>/<%=item.filePath[0].fileType%>">
                                                 <button type="button" class="addToCart" >
                                                     افزودن به سبد خرید
                                                     <i class="fal fa-shopping-bag"></i>
                                                 </button>
                                             </a>
-                                            <a href="/buy/<%=item.id%>/original">
+                                            <a class="buyLink" href="/buy/<%=item.id%>/<%=item.filePath[0].fileType%>">
                                                 <button type="button" class="buy" >
                                                     خرید
                                                     <i class="fal fa-shopping-bag"></i>
