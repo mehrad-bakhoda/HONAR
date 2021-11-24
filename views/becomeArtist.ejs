@@ -6,39 +6,37 @@
     <section class="contents">
         <div class="container-fluid">
             <div class="card">
-                <form name="uploaderForm" onsubmit="return validateUploaderForm()" action="/signUpU"
+                <form name="uploaderForm"  onsubmit="return validateDownloaderForm()" action="/becomeArtist"
                     enctype="multipart/form-data" method="post">
-                    <input hidden name="loginInput" value=<%=loginInput%> />
-                    <input hidden name="userType" value="Uploader" />
                     <h4> اطلاعات خود را وارد کنید </h4>
                     <label class="goTop">نام</label>
-                    <input class="firstNameInput" name="firstName" type="firstName" placeholder="نام" />
+                    <input class="firstNameInput" name="firstName" type="firstName" value="<%=user.firstName%>" placeholder="نام" />
 
                     <label class="goTop">نام خانوادگی</label>
-                    <input name="lastName" type="lastName" placeholder="نام خانوادگی" />
+                    <input name="lastName" type="lastName" placeholder="نام خانوادگی" value="<%=user.lastName%>"/>
 
                     <label class="goTop">نام کاربری</label>
-                    <input class="userNameInput" name="userName" type="text" placeholder="نام کاربری" />
+                    <input class="userNameInput" name="userName" type="text" placeholder="نام کاربری" value="<%=user.userName%>"/>
 
                     <label class="goTop">ایمیل شما</label>
-                    <input name="email" type="email" class="mail" placeholder="ایمیل شما" />
+                    <input name="email" type="email" class="mail" placeholder="ایمیل شما" value="<%=user.email%>"/>
                     <i class="fal fa-envelope social"></i>
 
                     <label class="goTop"> اینستاگرام شما</label>
-                    <input name="instagram" type="url" class="instagram" placeholder=" اینستاگرام شما" />
+                    <input name="instagram" type="url" class="instagram" placeholder=" اینستاگرام شما" value="<%=user.instagram%>" />
                     <i class="fab fa-instagram social"></i>
 
                     <label class="goTop"> توئیتر شما</label>
-                    <input name="twitter" type="url" class="twitter" placeholder=" توئیتر شما" />
+                    <input name="twitter" type="url" class="twitter" placeholder=" توئیتر شما" value="<%=user.twitter%>"/>
                     <i class="fab fa-twitter social"></i>
-                    <textarea name="bio" class="bio" placeholder="درباره شما..."></textarea>
+                    <textarea name="bio" class="bio" placeholder="درباره شما..."><%=user.bio%></textarea>
                     <div class="uploadPic">
                         <input name="profilePic" id="fileUploader" type="file" class="profilePic" accept="image/*" />
                         <i class="far fa-spinner-third fa-spin hidden"></i>
                         <i class="far fa-check-circle hidden"></i>
                     </div>
                     <div class="buttons">
-                        <button type="submit" class="next"> هنرمند بشم</button>
+                        <button type="submit" class="next"> هنرمند شو</button>
                     </div>
                 </form>
             </div>
