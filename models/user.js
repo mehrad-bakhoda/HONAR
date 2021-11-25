@@ -1,92 +1,106 @@
-
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  unique_id :{
+  unique_id: {
     type: Number,
-    unique: true
+    unique: true,
   },
-  income:{
-    type:String
+  income: {
+    type: String,
   },
-  type:{
-    type:String,
-    enum:["Downloader","Uploader"],
+  type: {
+    type: String,
+    enum: ["Downloader", "Uploader"],
   },
-  balance:{
-    type:String,
+  balance: {
+    type: String,
   },
-  creditCardConfirmation:{
-    type:String
+  creditCardConfirmation: {
+    type: String,
   },
   phone: {
     type: String,
     unique: true,
-    sparse: true
+    sparse: true,
   },
   firstName: {
-    type: String
+    type: String,
   },
-  userName:{
-    type:String
+  userName: {
+    type: String,
   },
   lastName: {
-    type: String
+    type: String,
   },
   email: {
     type: String,
     unique: true,
-    sparse:true
+    sparse: true,
   },
-  password:{
-    type:String
+  password: {
+    type: String,
   },
-  bio:{
-    type:String
+  bio: {
+    type: String,
   },
   profilePicPath: {
-      type: String,
-    },
-  twitter:{
-    type:String
+    type: String,
   },
-  instagram:{
-    type:String
+  twitter: {
+    type: String,
+  },
+  instagram: {
+    type: String,
   },
   verifyCode: String,
-  hasPassword:{
+  hasPassword: {
     type: Boolean,
-    default: false
+    default: false,
   },
 
-  verified:{
+  verified: {
     type: Boolean,
-    default: false
+    default: false,
   },
-  date:{
-    type:Date
+  date: {
+    type: Date,
   },
 
-  message: [{
-    message:String,
-    code:String ,
-    date:String
-  }],
-  products:[{
-    product:{
-    type: mongoose.Schema.Types, ref: "product", 
+  message: [
+    {
+      message: String,
+      code: String,
+      date: String,
     },
-    size:{
-    type:String,
-    }
-}],
-downloaded:[{
-  product:Number,
-  size:String
-}],
-
+  ],
+  products: [
+    {
+      product: {
+        type: mongoose.Schema.Types,
+        ref: "product",
+      },
+      type: {
+        type: String,
+      },
+    },
+  ],
+  downloaded: [
+    {
+      product: Number,
+      size: String,
+    },
+  ],
 });
 
-userSchema.index({phone:"text","userName":"text","firstName":"text","lastName":"text","email":"text"},{weights:{phone:5,userName:4,firstName:3,lastName:2,email:1}});
+userSchema.index(
+  {
+    phone: "text",
+    userName: "text",
+    firstName: "text",
+    lastName: "text",
+    email: "text",
+  },
+  { weights: { phone: 5, userName: 4, firstName: 3, lastName: 2, email: 1 } }
+);
 
-module.exports = mongoose.model("user",userSchema);
+module.exports = mongoose.model("user", userSchema);

@@ -1,18 +1,32 @@
+const downloadLink = document.querySelector(".downloadLink");
+const addToCartLink = document.querySelector(".addToCartLink");
+const buyLink = document.querySelector(".buyLink");
 const filesArrow = document.querySelector(".fileTypes .shownType i");
 const fileOptions = document.querySelector(".fileTypes .options");
 const fOptions = document.querySelectorAll(".fileTypes .typeOption");
-const addToCartLink = document.querySelector(".addToCartLink");
-const buyLink = document.querySelector(".buyLink");
+if (fOptions[0].classList.contains("bought")) {
+  downloadLink.removeAttribute("hidden");
+  addToCartLink.setAttribute("hidden", true);
+  buyLink.setAttribute("hidden", true);
+}
 filesArrow.onclick = () => {
   fileOptions.classList.toggle("opened");
   filesArrow.classList.toggle("rotated");
 };
+
 for (let fOption of fOptions) {
   fOption.onclick = () => {
-    const downloadLink = document.querySelector(".downloadLink");
-    const addToCartLink = document.querySelector(".addToCartLink");
-    const buyLink = document.querySelector(".buyLink");
+    if (fOption.classList.contains("bought")) {
+      downloadLink.removeAttribute("hidden");
+      addToCartLink.setAttribute("hidden", true);
+      buyLink.setAttribute("hidden", true);
+    } else {
+      downloadLink.setAttribute("hidden", true);
+      addToCartLink.removeAttribute("hidden");
+      buyLink.removeAttribute("hidden");
+    }
     var oldLink = downloadLink.getAttribute("href").split("/");
+
     var newLink = `${oldLink[2]}/${fOption.innerText}`;
     downloadLink.href = `/download/${newLink}`;
     buyLink.href = `/buy/${newLink}`;

@@ -53,7 +53,11 @@
                                         <i class="far fa-angle-down"></i>
                                     </div>
                                     <% item.filePath.forEach(function(t){%>
-                                        <label for=<%=t.fileType%> class="typeOption type" id="small"><%=t.fileType%></label>
+                                        <%if(boughtTypes.includes(t.fileType)){%>
+                                        <label for=<%=t.fileType%> class="typeOption type bought" id="small"><%=t.fileType%></label>
+                                        <%}else{%>
+                                            <label for=<%=t.fileType%> class="typeOption type" id="small"><%=t.fileType%></label>
+                                            <%}%>
                                     <%})%>
                                     
                                 </div>
@@ -126,7 +130,7 @@
                                 <%}%> -->
                             </div>
                             <div class="buttons">
-                                <input id="bought" type="text" value=<%=size%> hidden>
+                                <input id="bought" type="text" value=<%=boughtTypes%> hidden>
                                 <% if(admin==="true"){ %>
                                 <a href="/edit/<%=item.user.unique_id%>/<%=item.productId%>/<%=item.fileName%>">
                                     <button type="button" class="changeInfo">

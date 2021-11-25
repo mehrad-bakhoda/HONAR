@@ -26,24 +26,21 @@ const product = require("../models/product");
 const date = require("../localModules/date.js");
 const { type } = require("os");
 require("dotenv").config();
-const bcrypt = require('bcryptjs');
-
+const bcrypt = require("bcryptjs");
 
 // GET ROUTE'S
 router.get("/become-artist", function (req, res) {
-  if(req.session.userId){
+  if (req.session.userId) {
     User.findOne({ unique_id: req.session.userId }, function (err, found) {
-      if(!err){
-        if(found){
-          res.render("becomeArtist",{user:found});
+      if (!err) {
+        if (found) {
+          res.render("becomeArtist", { user: found });
         }
       }
     });
-    
   }
 });
-router.post("/becomeArtist",async(req,res,next)=>{
-  
+router.post("/becomeArtist", async (req, res, next) => {
   const dir = path.join(__dirname, "/../public/profilePic/users/");
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, {
@@ -62,544 +59,545 @@ router.post("/becomeArtist",async(req,res,next)=>{
       function (err, found) {
         if (!err) {
           if (found) {
-            
-            User.updateMany({unique_id: found.unique_id },{type: "Uploader"},function(err){
-              if (!err) {
-                console.log("user Type updated");
+            User.updateMany(
+              { unique_id: found.unique_id },
+              { type: "Uploader" },
+              function (err) {
+                if (!err) {
+                  console.log("user Type updated");
+                }
               }
-            });
-              if (
-                files.profilePic != found.profilePic &&
-                files.profilePic &&
-                files.profilePic.size != 0
-              ) {
-                console.log("true");
-                var profilePicPath = "";
-                var fileName = path.basename(files.profilePic.path);
-                var newPath = path.join("/profilePic/users/", fileName);
+            );
+            if (
+              files.profilePic != found.profilePic &&
+              files.profilePic &&
+              files.profilePic.size != 0
+            ) {
+              console.log("true");
+              var profilePicPath = "";
+              var fileName = path.basename(files.profilePic.path);
+              var newPath = path.join("/profilePic/users/", fileName);
 
-                if (files.profilePic.size != 0) profilePicPath = newPath;
-                else profilePicPath = "no picture";
+              if (files.profilePic.size != 0) profilePicPath = newPath;
+              else profilePicPath = "no picture";
 
-                const removeDir = path.join(
-                  __dirname,
-                  "/../public",
-                  found.profilePicPath
-                );
-                fs.unlink(removeDir, (err) => {
-                  if (err) {
-                    console.error(err);
-                    return;
-                  }
+              const removeDir = path.join(
+                __dirname,
+                "/../public",
+                found.profilePicPath
+              );
+              fs.unlink(removeDir, (err) => {
+                if (err) {
+                  console.error(err);
+                  return;
+                }
 
-                  console.log("file removed");
-                });
+                console.log("file removed");
+              });
 
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    profilePicPath: profilePicPath,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfulProfilePicChange = {
-                        message: `Profile picture updated`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfulProfilePicChange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  profilePicPath: profilePicPath,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfulProfilePicChange = {
+                      message: `Profile picture updated`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfulProfilePicChange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
                         }
-                      );
+                      }
+                    );
 
-                      console.log("sucess!");
-                    }
+                    console.log("sucess!");
                   }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.prodilePicPath": fields.profilePicPath },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.prodilePicPath": fields.profilePicPath },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
                   }
-                );
-              }
+                }
+              );
+            }
 
-              if (fields.firstName != found.firstName && fields.firstName) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    firstName: fields.firstName,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfulNamechange = {
-                        message: `FirstName changed from ${found.firstName} to ${fields.firstName}`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfulNamechange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
+            if (fields.firstName != found.firstName && fields.firstName) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  firstName: fields.firstName,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfulNamechange = {
+                      message: `FirstName changed from ${found.firstName} to ${fields.firstName}`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfulNamechange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
                         }
-                      );
-                      console.log("sucess!");
-                    }
+                      }
+                    );
+                    console.log("sucess!");
                   }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.firstName": fields.firstName },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.firstName": fields.firstName },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
                   }
-                );
-              }
-              if (fields.lastName != found.lastName && fields.lastName) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    lastName: fields.lastName,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfullLastNameChange = {
-                        message: `LastName changed to ${fields.lastName}`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfullLastNameChange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
+                }
+              );
+            }
+            if (fields.lastName != found.lastName && fields.lastName) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  lastName: fields.lastName,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfullLastNameChange = {
+                      message: `LastName changed to ${fields.lastName}`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfullLastNameChange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
                         }
-                      );
+                      }
+                    );
 
-                      console.log("sucess!");
-                    }
+                    console.log("sucess!");
                   }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.lastName": fields.lastName },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.lastName": fields.lastName },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
                   }
-                );
-              }
-              if (fields.userName != found.userName && fields.userName) {
-                User.findOne(
-                  { userName: fields.userName.toLowerCase() },
-                  function (err, userNameFound) {
-                    if (!err) {
-                      if (userNameFound) {
-                        if (userNameFound.unique_id != req.session.userId) {
-                          let unsuccessfullUserNameChange = {
-                            message: `couldnt change username | ${fields.userName.toLowerCase()} already exists`,
-                            code: "222",
-                            date: newDate(new Date()),
-                          };
-                          User.updateOne(
-                            {
-                              unique_id: req.session.userId,
-                            },
-                            {
-                              $push: { message: unsuccessfullUserNameChange },
-                            },
-                            function (err) {
-                              if (!err) {
-                                console.log("added status");
-                              }
-                            }
-                          );
-                        }
-                      } else {
+                }
+              );
+            }
+            if (fields.userName != found.userName && fields.userName) {
+              User.findOne(
+                { userName: fields.userName.toLowerCase() },
+                function (err, userNameFound) {
+                  if (!err) {
+                    if (userNameFound) {
+                      if (userNameFound.unique_id != req.session.userId) {
+                        let unsuccessfullUserNameChange = {
+                          message: `couldnt change username | ${fields.userName.toLowerCase()} already exists`,
+                          code: "222",
+                          date: newDate(new Date()),
+                        };
                         User.updateOne(
                           {
                             unique_id: req.session.userId,
                           },
                           {
-                            userName: fields.userName.toLowerCase(),
+                            $push: { message: unsuccessfullUserNameChange },
                           },
                           function (err) {
                             if (!err) {
-                              let successfullUserNameChange = {
-                                message: `UserName changed to ${fields.userName}`,
-                                code: "111",
-                                date: newDate(new Date()),
-                              };
-                              User.updateOne(
-                                {
-                                  unique_id: req.session.userId,
-                                },
-                                {
-                                  $push: { message: successfullUserNameChange },
-                                },
-                                function (err) {
-                                  if (!err) {
-                                    console.log("added status");
-                                  }
-                                }
-                              );
-
-                              console.log("sucess!");
+                              console.log("added status");
                             }
                           }
                         );
                       }
-                    }
-                  }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.userName": fields.userName.toLowerCase() },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
-                  }
-                );
-              }
-              if (found.instagram && !fields.instagram) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    instagram: fields.instagram,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfulInstagramchange = {
-                        message: `instagram link removed`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
+                    } else {
                       User.updateOne(
                         {
                           unique_id: req.session.userId,
                         },
                         {
-                          $push: { message: successfulInstagramchange },
+                          userName: fields.userName.toLowerCase(),
                         },
                         function (err) {
                           if (!err) {
-                            console.log("added status");
-                          }
-                        }
-                      );
-                      console.log("sucess!");
-                    }
-                  }
-                );
-              }
-              if (fields.instagram != found.instagram && fields.instagram) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    instagram: fields.instagram,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfullInstagramChange = {
-                        message: `Instagram link updated`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfullInstagramChange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
-                        }
-                      );
-                      console.log("sucess!");
-                    }
-                  }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.instagram": fields.instagram },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
-                  }
-                );
-              }
-              if (found.twitter && !fields.twitter) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    twitter: fields.twitter,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfulTwitterchange = {
-                        message: `twitter link removed`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfulTwitterchange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
-                        }
-                      );
-                      console.log("sucess!");
-                    }
-                  }
-                );
-              }
-              if (fields.twitter != found.twitter && fields.twitter) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    twitter: fields.twitter,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfullTwitterChange = {
-                        message: `Twitter link updated`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfullTwitterChange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
-                        }
-                      );
-                      console.log("sucess!");
-                    }
-                  }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.twitter": fields.twitter },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
-                  }
-                );
-              }
-              if (found.bio && !fields.bio) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    bio: fields.bio,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfulBioChange = {
-                        message: `bio removed`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfulBioChange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
-                        }
-                      );
-                      console.log("sucess!");
-                    }
-                  }
-                );
-              }
+                            let successfullUserNameChange = {
+                              message: `UserName changed to ${fields.userName}`,
+                              code: "111",
+                              date: newDate(new Date()),
+                            };
+                            User.updateOne(
+                              {
+                                unique_id: req.session.userId,
+                              },
+                              {
+                                $push: { message: successfullUserNameChange },
+                              },
+                              function (err) {
+                                if (!err) {
+                                  console.log("added status");
+                                }
+                              }
+                            );
 
-              if (fields.bio != found.bio && fields.bio) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    bio: fields.bio,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfullBioChange = {
-                        message: `bio updated`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfullBioChange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
+                            console.log("sucess!");
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.bio": fields.bio },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.userName": fields.userName.toLowerCase() },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
                   }
-                );
-              }
-
-              if (found.email && !fields.email) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    email: fields.email,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfulEmailchange = {
-                        message: `email removed`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfulEmailchange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
+                }
+              );
+            }
+            if (found.instagram && !fields.instagram) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  instagram: fields.instagram,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfulInstagramchange = {
+                      message: `instagram link removed`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfulInstagramchange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
                         }
-                      );
-                      console.log("sucess!");
-                    }
+                      }
+                    );
+                    console.log("sucess!");
                   }
-                );
-              }
-              if (fields.email != found.email && fields.email) {
-                User.updateOne(
-                  {
-                    unique_id: req.session.userId,
-                  },
-                  {
-                    email: fields.email,
-                  },
-                  function (err) {
-                    if (!err) {
-                      let successfullEmailChange = {
-                        message: `Email updated`,
-                        code: "111",
-                        date: newDate(new Date()),
-                      };
-                      User.updateOne(
-                        {
-                          unique_id: req.session.userId,
-                        },
-                        {
-                          $push: { message: successfullEmailChange },
-                        },
-                        function (err) {
-                          if (!err) {
-                            console.log("added status");
-                          }
+                }
+              );
+            }
+            if (fields.instagram != found.instagram && fields.instagram) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  instagram: fields.instagram,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfullInstagramChange = {
+                      message: `Instagram link updated`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfullInstagramChange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
                         }
-                      );
-                      console.log("sucess!");
-                    }
+                      }
+                    );
+                    console.log("sucess!");
                   }
-                );
-                Product.updateMany(
-                  { "user.unique_id": found.unique_id },
-                  { "user.email": fields.email },
-                  function (err) {
-                    if (!err) {
-                      console.log("products user updated");
-                    }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.instagram": fields.instagram },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
                   }
-                );
-              }
+                }
+              );
+            }
+            if (found.twitter && !fields.twitter) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  twitter: fields.twitter,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfulTwitterchange = {
+                      message: `twitter link removed`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfulTwitterchange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
+                        }
+                      }
+                    );
+                    console.log("sucess!");
+                  }
+                }
+              );
+            }
+            if (fields.twitter != found.twitter && fields.twitter) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  twitter: fields.twitter,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfullTwitterChange = {
+                      message: `Twitter link updated`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfullTwitterChange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
+                        }
+                      }
+                    );
+                    console.log("sucess!");
+                  }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.twitter": fields.twitter },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
+                  }
+                }
+              );
+            }
+            if (found.bio && !fields.bio) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  bio: fields.bio,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfulBioChange = {
+                      message: `bio removed`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfulBioChange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
+                        }
+                      }
+                    );
+                    console.log("sucess!");
+                  }
+                }
+              );
+            }
 
+            if (fields.bio != found.bio && fields.bio) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  bio: fields.bio,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfullBioChange = {
+                      message: `bio updated`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfullBioChange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
+                        }
+                      }
+                    );
+                    console.log("sucess!");
+                  }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.bio": fields.bio },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
+                  }
+                }
+              );
+            }
 
+            if (found.email && !fields.email) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  email: fields.email,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfulEmailchange = {
+                      message: `email removed`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfulEmailchange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
+                        }
+                      }
+                    );
+                    console.log("sucess!");
+                  }
+                }
+              );
+            }
+            if (fields.email != found.email && fields.email) {
+              User.updateOne(
+                {
+                  unique_id: req.session.userId,
+                },
+                {
+                  email: fields.email,
+                },
+                function (err) {
+                  if (!err) {
+                    let successfullEmailChange = {
+                      message: `Email updated`,
+                      code: "111",
+                      date: newDate(new Date()),
+                    };
+                    User.updateOne(
+                      {
+                        unique_id: req.session.userId,
+                      },
+                      {
+                        $push: { message: successfullEmailChange },
+                      },
+                      function (err) {
+                        if (!err) {
+                          console.log("added status");
+                        }
+                      }
+                    );
+                    console.log("sucess!");
+                  }
+                }
+              );
+              Product.updateMany(
+                { "user.unique_id": found.unique_id },
+                { "user.email": fields.email },
+                function (err) {
+                  if (!err) {
+                    console.log("products user updated");
+                  }
+                }
+              );
+            }
           }
         }
       }
@@ -616,9 +614,8 @@ router.post("/becomeArtist",async(req,res,next)=>{
     }
   });
 });
-  
 
-router.post("/generateD", async (req, res)=>{
+router.post("/generateD", async (req, res) => {
   var c;
   Discount.findOne({}, function (err, data) {
     if (data) {
@@ -672,68 +669,67 @@ router.post("/generateD", async (req, res)=>{
     .sort({ _id: -1 })
     .limit(1);
 });
-router.post("/removeFund", async (req, res)=>{
-
-      User.findOne({unique_id: req.session.userId},function(err,user){
-
-        if(user.balance && user.balance >= req.body.price){
-          const currentAmount=(parseFloat(user.balance)-parseFloat(req.body.price)).toString();
-          User.updateOne({ unique_id: req.session.userId },{balance:currentAmount}, function (err) {
-            if(!err){
-                res.redirect("home");
-            }
-          });
-        }else{
-          res.redirect("home");
-
-      }
-    });
-  
-
-
-
-
-
-});
-
-router.post("/addFund", async (req, res)=>{
-
-  function isNumeric(num){
-    return !isNaN(num)
-  }
-    if(isNumeric(req.body.amount)){
-      User.findOne({unique_id: req.session.userId},function(err,user){
-
-        if(!user.balance || user.balance === undefined){
-          User.updateOne({ unique_id: req.session.userId },{balance:parseFloat(req.body.amount).toString()}, function (err) {
-            if(!err){
-                res.redirect("dashboard");
-            }
-          });
-        }else{
-        const currentAmount=(parseFloat(user.balance)+parseFloat(req.body.amount)).toString();
-        User.updateOne({ unique_id: req.session.userId },{balance:currentAmount}, function (err) {
-          if(!err){
-              res.redirect("dashboard");
+router.post("/removeFund", async (req, res) => {
+  User.findOne({ unique_id: req.session.userId }, function (err, user) {
+    if (user.balance && user.balance >= req.body.price) {
+      const currentAmount = (
+        parseFloat(user.balance) - parseFloat(req.body.price)
+      ).toString();
+      User.updateOne(
+        { unique_id: req.session.userId },
+        { balance: currentAmount },
+        function (err) {
+          if (!err) {
+            res.redirect("home");
           }
-        });
-    
-      }
-    });
-  
-    }else{
-      res.redirect("dashboard");
+        }
+      );
+    } else {
+      res.redirect("home");
     }
-
-
-
-
+  });
 });
 
-router.post("/getFund", async (req, res)=>{
+router.post("/addFund", async (req, res) => {
+  function isNumeric(num) {
+    return !isNaN(num);
+  }
+  if (isNumeric(req.body.amount)) {
+    User.findOne({ unique_id: req.session.userId }, function (err, user) {
+      if (!user.balance || user.balance === undefined) {
+        User.updateOne(
+          { unique_id: req.session.userId },
+          { balance: parseFloat(req.body.amount).toString() },
+          function (err) {
+            if (!err) {
+              res.redirect("dashboard");
+            }
+          }
+        );
+      } else {
+        const currentAmount = (
+          parseFloat(user.balance) + parseFloat(req.body.amount)
+        ).toString();
+        User.updateOne(
+          { unique_id: req.session.userId },
+          { balance: currentAmount },
+          function (err) {
+            if (!err) {
+              res.redirect("dashboard");
+            }
+          }
+        );
+      }
+    });
+  } else {
+    res.redirect("dashboard");
+  }
+});
+
+router.post("/getFund", async (req, res) => {
   res.redirect("dashboard");
 });
-router.post("/sendMessage", async (req, res)=>{
+router.post("/sendMessage", async (req, res) => {
   var c;
   Message.findOne({}, function (err, data) {
     if (data) {
@@ -786,7 +782,7 @@ router.post("/sendMessage", async (req, res)=>{
     .limit(1);
 });
 
-router.post("/addCard", async (req, res)=>{
+router.post("/addCard", async (req, res) => {
   User.updateOne(
     { unique_id: req.session.userId },
     { creditCardConfirmation: "wait" },
@@ -852,6 +848,26 @@ router.get("/download/:productId/:type", function (req, res) {
             });
           }
         }
+      } else {
+        User.findOne(
+          {
+            unique_id: req.session.userId,
+            "products.product._id": productId,
+            "products.type": type,
+          },
+          {},
+          function (err, found) {
+            if (found) {
+              for (var i = 0; i < product.filePath.length; i++) {
+                if (product.filePath[i].fileType === type) {
+                  res.download(product.filePath[i].filePath, function (err) {
+                    if (err) console.log(`Error: ${err}`);
+                  });
+                }
+              }
+            } else res.render("notFound");
+          }
+        );
       }
       // if (size == "original" && product.orginalPrice == 0) {
       //   res.download(product.filePath, function (error) {
@@ -1215,7 +1231,7 @@ router.get("/add-to-cart/:id/:type", function (req, res) {
       function (err, product) {
         if (err) {
           console.log("item adding failed");
-          return;
+          res.render("notFound");
         }
         product.filePath.forEach((file) => {
           if (file.fileType === type) {
@@ -1223,15 +1239,13 @@ router.get("/add-to-cart/:id/:type", function (req, res) {
             cart.add(product, product.productId, type);
             req.session.cart = cart;
             req.session.save((err, savedCart) => {
-              if (err) res.render("notFound");
+              if (err) console.log(err);
               else {
                 res.redirect("/cart");
               }
             });
           }
         });
-
-        res.render("notFound");
       }
     );
   } else {
@@ -1267,7 +1281,7 @@ router.get("/orderConfirm", function (req, res) {
             for (var i = 0; i < cart.length; i++) {
               var product = {
                 product: cart[i].item,
-                size: cart[i].size,
+                type: cart[i].type,
               };
               console.log(product);
               order.products.push(product);
@@ -1332,32 +1346,35 @@ router.get("/Product/:itemID/:itemName", function (req, res) {
               item: found,
               searched: searchedItem,
               admin: "true",
-              size: "None",
+              boughtTypes: ["None"],
             });
           } else {
             if (req.session.userId) {
               User.findOne(
-                { unique_id: req.session.userId },
                 {
-                  products: {
-                    $elemMatch: { "product.productId": found.productId },
-                  },
+                  unique_id: req.session.userId,
+                  "products.product.productId": found.productId,
                 },
+                {},
                 function (err, found1) {
                   if (found1.products.length > 0) {
-                    console.log(found1.products[0].size);
+                    var boughtTypes = [];
+                    found1.products.forEach(function (product) {
+                      boughtTypes.push(product.type);
+                    });
+                    console.log(boughtTypes);
                     res.render("productDetail", {
                       item: found,
                       searched: searchedItem,
                       admin: "false",
-                      size: found1.products[0].size,
+                      boughtTypes: boughtTypes,
                     });
                   } else {
                     res.render("productDetail", {
                       item: found,
                       searched: searchedItem,
                       admin: "false",
-                      size: "None",
+                      boughtTypes: ["None"],
                     });
                   }
                   console.log(found1.products.length);
@@ -1368,7 +1385,7 @@ router.get("/Product/:itemID/:itemName", function (req, res) {
                 item: found,
                 searched: searchedItem,
                 admin: "false",
-                size: "None",
+                boughtTypes: ["None"],
               });
             }
           }
@@ -1420,7 +1437,7 @@ router.get("/:userName", function (req, res) {
 
 // POST ROUTE's
 
-router.post("/sendAgain", async (req, res)=>{
+router.post("/sendAgain", async (req, res) => {
   generateOTP.newOtp(req.body.phone);
 });
 
@@ -1433,7 +1450,7 @@ router.post(
       .not()
       .isEmpty(),
   ],
-  async(req, res, next) => {
+  async (req, res, next) => {
     const errors = validationResult(req).array();
     if (errors.length != 0) {
       req.session.errors = errors;
@@ -1568,7 +1585,7 @@ router.post(
 );
 
 //verify Code register
-router.post("/register", async (req, res)=>{
+router.post("/register", async (req, res) => {
   var verifyCode = req.body.verifyCode1.concat(
     req.body.verifyCode2,
     req.body.verifyCode3,
@@ -1724,7 +1741,7 @@ router.post("/register", async (req, res)=>{
   }
 });
 
-router.post("/signUpD", async (req, res)=>{
+router.post("/signUpD", async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const form = formidable({ multiples: true });
   form.keepExtensions = true;
@@ -1743,12 +1760,12 @@ router.post("/signUpD", async (req, res)=>{
       {
         phone: fields.loginInput,
       },
-      async(err, found)=>{
+      async (err, found) => {
         if (!err) {
           if (found) {
             if (!found.hasPassword) {
               console.log("he's a Downloader");
-              
+
               User.updateMany(
                 {
                   phone: fields.loginInput,
@@ -1757,7 +1774,7 @@ router.post("/signUpD", async (req, res)=>{
                   type: "Downloader",
                   firstName: fields.firstName,
                   lastName: fields.lastName,
-                  password:await bcrypt.hash(fields.password, salt),
+                  password: await bcrypt.hash(fields.password, salt),
                   hasPassword: true,
                 },
                 function (err, docs) {
@@ -1793,7 +1810,7 @@ router.post("/signUpD", async (req, res)=>{
     }
   });
 });
-router.post("/signUpU", async (req, res)=>{
+router.post("/signUpU", async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const dir = path.join(__dirname, "/../public/profilePic/users/");
   console.log(dir);
@@ -1810,7 +1827,7 @@ router.post("/signUpU", async (req, res)=>{
       {
         phone: fields.loginInput,
       },
-      async(err, found)=> {
+      async (err, found) => {
         if (!err) {
           if (found) {
             if (!found.hasPassword) {
@@ -1820,7 +1837,6 @@ router.post("/signUpU", async (req, res)=>{
 
               if (files.profilePic.size != 0) profilePicPath = newPath;
               else profilePicPath = "no picture";
-              
 
               User.updateMany(
                 {
@@ -1881,7 +1897,7 @@ router.post(
   //
   // }),
 
-  async(req, res) => {
+  async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -1899,12 +1915,14 @@ router.post(
           {
             email: fields.loginInput,
           },
-          async(err, found)=>{
+          async (err, found) => {
             if (!err) {
               if (found) {
-                
                 if (found.verified && found.hasPassword) {
-                  const validPassword = await bcrypt.compare(fields.password, found.password );
+                  const validPassword = await bcrypt.compare(
+                    fields.password,
+                    found.password
+                  );
                   if (validPassword) {
                     console.log(
                       '"' + fields.loginInput + '"' + " login was successful!"
@@ -1957,11 +1975,14 @@ router.post(
           {
             phone: fields.loginInput,
           },
-          async(err, found)=>{
+          async (err, found) => {
             if (!err) {
               if (found) {
                 if (found.verified && found.hasPassword) {
-                  const validPassword = await bcrypt.compare(fields.password, found.password );
+                  const validPassword = await bcrypt.compare(
+                    fields.password,
+                    found.password
+                  );
 
                   if (validPassword) {
                     console.log(
@@ -2020,7 +2041,7 @@ router.post(
   }
 );
 
-router.post("/upload", async (req, res)=>{
+router.post("/upload", async (req, res) => {
   var c;
   User.findOne({ unique_id: req.session.userId }, function (err, found) {
     if (!err)
@@ -2245,7 +2266,7 @@ router.post("/upload", async (req, res)=>{
   });
 });
 
-router.post("/editProduct/:productId", async (req, res, next)=>{
+router.post("/editProduct/:productId", async (req, res, next) => {
   const form = formidable({ multiples: true });
   form.keepExtensions = true;
   form.maxFileSize = 10 * 1024 * 1024;
@@ -2480,7 +2501,7 @@ router.post("/editProduct/:productId", async (req, res, next)=>{
   });
 });
 
-router.post("/changeUserInfoU", async (req, res, next)=>{
+router.post("/changeUserInfoU", async (req, res, next) => {
   const dir = path.join(__dirname, "/../public/profilePic/users/");
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, {
@@ -2496,10 +2517,13 @@ router.post("/changeUserInfoU", async (req, res, next)=>{
       {
         unique_id: req.session.userId,
       },
-      async(err, found)=>{
+      async (err, found) => {
         if (!err) {
           if (found) {
-            const validPassword = await bcrypt.compare(ields.oldPassword, found.password);
+            const validPassword = await bcrypt.compare(
+              ields.oldPassword,
+              found.password
+            );
             if (fields && validPassword) {
               if (
                 files.profilePic != found.profilePic &&
@@ -3024,14 +3048,17 @@ router.post("/changeUserInfoU", async (req, res, next)=>{
                 Product.updateMany(
                   { "user.unique_id": found.unique_id },
                   { "user.email": fields.email },
-                  async (err) =>{
+                  async (err) => {
                     if (!err) {
                       console.log("products user updated");
                     }
                   }
                 );
               }
-              const validPassword = await bcrypt.compare(fields.password, found.password);
+              const validPassword = await bcrypt.compare(
+                fields.password,
+                found.password
+              );
 
               if (
                 fields.password &&
@@ -3116,7 +3143,7 @@ router.post("/changeUserInfoU", async (req, res, next)=>{
     }
   });
 });
-router.post("/changeUserInfoD", async (req, res, next)=>{
+router.post("/changeUserInfoD", async (req, res, next) => {
   const dir = path.join(__dirname, "/../public/profilePic/users/");
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, {
@@ -3132,10 +3159,13 @@ router.post("/changeUserInfoD", async (req, res, next)=>{
       {
         unique_id: req.session.userId,
       },
-      async (err, found)=>{
+      async (err, found) => {
         if (!err) {
           if (found) {
-            const validPassword = await bcrypt.compare(fields.oldPassword, found.password);
+            const validPassword = await bcrypt.compare(
+              fields.oldPassword,
+              found.password
+            );
             if (fields && validPassword) {
               if (fields.firstName != found.firstName && fields.firstName) {
                 User.updateOne(
@@ -3238,7 +3268,10 @@ router.post("/changeUserInfoD", async (req, res, next)=>{
                   }
                 );
               }
-              const validPassword = await bcrypt.compare(fields.password, found.password);
+              const validPassword = await bcrypt.compare(
+                fields.password,
+                found.password
+              );
               if (
                 fields.password &&
                 fields.passwordConfirmation &&
@@ -3316,7 +3349,7 @@ router.post("/changeUserInfoD", async (req, res, next)=>{
 
 // searches
 
-router.post("/search/advanced/home", async (req, res)=>{
+router.post("/search/advanced/home", async (req, res) => {
   Object.entries(req.body).forEach(([key, value]) => {
     Product.find({})
       .where(value)
@@ -3332,7 +3365,7 @@ router.post("/search/advanced/home", async (req, res)=>{
   });
 });
 
-router.post("/search/home", async (req, res)=>{
+router.post("/search/home", async (req, res) => {
   if (req.body.searchedItem == "" || req.body.searchedItem == " ") {
     res.redirect("/");
   } else {
@@ -3423,7 +3456,7 @@ router.get("/search/home/:searchedItem", function (req, res) {
       }
     });
 });
-router.post("/search/advanced/home/:searchedItem", async (req, res)=>{
+router.post("/search/advanced/home/:searchedItem", async (req, res) => {
   //   Product.search(req.params.searchedItem, function(err, found) {
   //     res.render("search",{searched:found});
   //  });
@@ -3495,7 +3528,7 @@ router.post("/search/advanced/home/:searchedItem", async (req, res)=>{
 
 //finances page search
 
-router.post("/search/admin/finance", async (req, res)=>{
+router.post("/search/admin/finance", async (req, res) => {
   if (req.body.searchedItem == "" || req.body.searchedItem == " ") {
     res.redirect("/admin/finance");
   } else {
@@ -3527,7 +3560,7 @@ router.get("/search/admin/finance/:searchedItem", function (req, res) {
 
 //users page search
 
-router.post("/search/admin/users", async (req, res)=>{
+router.post("/search/admin/users", async (req, res) => {
   if (req.body.searchedItem == "" || req.body.searchedItem == " ") {
     res.redirect("/admin/users");
   } else {
@@ -3561,7 +3594,7 @@ router.get("/search/admin/users/:searchedItem", function (req, res) {
 
 //products page search
 
-router.post("/search/admin/products", async (req, res)=>{
+router.post("/search/admin/products", async (req, res) => {
   if (req.body.searchedItem == "" || req.body.searchedItem == " ") {
     res.redirect("/admin/products");
   } else {
@@ -3596,7 +3629,7 @@ router.get("/search/admin/products/:searchedItem", function (req, res) {
 
 //messages page search
 
-router.post("/search/admin/messages", async (req, res)=>{
+router.post("/search/admin/messages", async (req, res) => {
   if (req.body.searchedItem == "" || req.body.searchedItem == " ") {
     res.redirect("/admin/messages");
   } else {
@@ -3646,7 +3679,7 @@ router.get("/admin/login", function (req, res) {
   }
 });
 
-router.post("/admin/login", async (req, res)=>{
+router.post("/admin/login", async (req, res) => {
   if (
     req.body.adminUser == process.env.ADMIN_USER &&
     req.body.password == process.env.ADMIN_PASSWORD
@@ -3682,7 +3715,7 @@ router.get("/admin/users", function (req, res) {
     res.redirect("/admin/login");
   }
 });
-router.post("/delete/user/:unique_id", async (req, res)=>{
+router.post("/delete/user/:unique_id", async (req, res) => {
   User.deleteOne({ unique_id: req.params.unique_id }, function (err) {
     if (!err) {
       res.redirect("/admin/users");
@@ -3705,7 +3738,7 @@ router.get("/admin/messages", function (req, res) {
     res.redirect("/admin/login");
   }
 });
-router.post("/send/message/:messageId/:userId", async (req, res)=>{
+router.post("/send/message/:messageId/:userId", async (req, res) => {
   Message.updateOne(
     { unique_id: req.params.messageId },
     { response: req.body.response, answered: true, answeredDate: new Date() },
@@ -3755,7 +3788,7 @@ router.get("/admin/products", function (req, res) {
   }
 });
 
-router.post("/confirm/product/:productId", async (req, res)=>{
+router.post("/confirm/product/:productId", async (req, res) => {
   Product.updateOne(
     { productId: req.params.productId },
     { confirmation: true, date: new Date() },
@@ -3766,7 +3799,7 @@ router.post("/confirm/product/:productId", async (req, res)=>{
     }
   );
 });
-router.post("/delete/product/:productId", async (req, res)=>{
+router.post("/delete/product/:productId", async (req, res) => {
   Product.deleteOne({ productId: req.params.productId }, function (err) {
     if (!err) {
       res.redirect("/admin/products");
