@@ -9,11 +9,14 @@
             <i class="fal fa-comment-alt-lines"></i>
         </a>
     </section>
-    <section class="artistButton">
-        <a href="/becomeArtist" class="artistButton">
-            <i class="fal fa-pencil-paintbrush"></i>
-        </a>
-    </section>
+    <%if(user.type==="Downloader"){%>
+        <section class="artistButton">
+            <a href="/become-artist" class="artistButton">
+                <i class="fal fa-pencil-paintbrush"></i>
+            </a>
+        </section>
+  <%  }%>
+
     <div class="modal fade"
          id="supportModal"
          tabindex="-1"

@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 3000;
 
 const run = async () => {
   await mongoose.connect(
-    "mongodb+srv://erfanrmz:Erfan26kh79@cluster0.waub8.mongodb.net/Art?retryWrites=true&w=majority",
+    process.env.DATABASE_ADDRESS,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

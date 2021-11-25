@@ -1,17 +1,22 @@
 const filesArrow = document.querySelector(".fileTypes .shownType i");
 const fileOptions = document.querySelector(".fileTypes .options");
 const fOptions = document.querySelectorAll(".fileTypes .typeOption");
-const downloadLink = document.querySelector(".downloadLink");
+const addToCartLink = document.querySelector(".addToCartLink");
+const buyLink = document.querySelector(".buyLink");
 filesArrow.onclick = () => {
   fileOptions.classList.toggle("opened");
   filesArrow.classList.toggle("rotated");
 };
 for (let fOption of fOptions) {
   fOption.onclick = () => {
+    const downloadLink = document.querySelector(".downloadLink");
+    const addToCartLink = document.querySelector(".addToCartLink");
+    const buyLink = document.querySelector(".buyLink");
     var oldLink = downloadLink.getAttribute("href").split("/");
     var newLink = `${oldLink[2]}/${fOption.innerText}`;
     downloadLink.href = `/download/${newLink}`;
-
+    buyLink.href = `/buy/${newLink}`;
+    addToCartLink.href = `/add-to-cart/${newLink}`;
     document.querySelector(".fileTypes .shownType label").innerText =
       fOption.innerText;
     fOption.classList.add("selected");
