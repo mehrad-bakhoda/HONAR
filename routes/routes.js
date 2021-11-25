@@ -589,8 +589,12 @@ router.get("/add-to-cart/:id/:type", function (req, res) {
             console.log(type);
             cart.add(product, product.productId, type);
             req.session.cart = cart;
-            req.session.save();
-            res.redirect("/cart");
+            req.session.save((err, savedCart) => {
+              if (err) res.render("notFound");
+              else {
+                res.redirect("/cart");
+              }
+            });
           }
         });
 
