@@ -670,9 +670,62 @@ router.post("/generateD", function (req, res) {
     .sort({ _id: -1 })
     .limit(1);
 });
+router.post("/removeFund", function (req, res) {
+
+      User.findOne({unique_id: req.session.userId},function(err,user){
+
+        if(user.balance && user.balance >= req.body.price){
+          const currentAmount=(parseFloat(user.balance)-parseFloat(req.body.price)).toString();
+          User.updateOne({ unique_id: req.session.userId },{balance:currentAmount}, function (err) {
+            if(!err){
+                res.redirect("home");
+            }
+          });
+        }else{
+          res.redirect("home");
+
+      }
+    });
+  
+
+
+
+
+
+});
 
 router.post("/addFund", function (req, res) {
-  res.redirect("dashboard");
+
+  function isNumeric(num){
+    return !isNaN(num)
+  }
+    if(isNumeric(req.body.amount)){
+      User.findOne({unique_id: req.session.userId},function(err,user){
+
+        if(!user.balance || user.balance === undefined){
+          User.updateOne({ unique_id: req.session.userId },{balance:parseFloat(req.body.amount).toString()}, function (err) {
+            if(!err){
+                res.redirect("dashboard");
+            }
+          });
+        }else{
+        const currentAmount=(parseFloat(user.balance)+parseFloat(req.body.amount)).toString();
+        User.updateOne({ unique_id: req.session.userId },{balance:currentAmount}, function (err) {
+          if(!err){
+              res.redirect("dashboard");
+          }
+        });
+    
+      }
+    });
+  
+    }else{
+      res.redirect("dashboard");
+    }
+
+
+
+
 });
 
 router.post("/getFund", function (req, res) {
