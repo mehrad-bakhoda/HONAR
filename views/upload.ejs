@@ -72,6 +72,9 @@
               />
               <i class="far fa-spinner-third fa-spin hidden"></i>
               <i class="far fa-check-circle hidden"></i>
+              <div class="preview">
+                <img style="max-width: 12rem; border-radius: 1rem; width: 100%;"/>
+              </div>
             </div>
             <div class="name">
               <label class="goTop"> نام اثر</label>
@@ -195,4 +198,11 @@
 
 <%-include("scripts");-%>
 <!-- Custom -->
+<script>
+  const coverButton = document.querySelector(".uploadCover input");
+  coverButton.onchange = (event) => {
+    const coverImage = document.querySelector(".uploadCover img");
+    coverImage.src = URL.createObjectURL(event.target.files[0]);
+  }
+</script>
 <script src="/assets/js/uploadPage.js"></script>
