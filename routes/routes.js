@@ -1357,7 +1357,7 @@ router.get("/Product/:itemID/:itemName", function (req, res) {
                 },
                 {},
                 function (err, found1) {
-                  if (found1.products.length > 0) {
+                  if (found1) {
                     var boughtTypes = [];
                     found1.products.forEach(function (product) {
                       boughtTypes.push(product.type);
@@ -1377,7 +1377,6 @@ router.get("/Product/:itemID/:itemName", function (req, res) {
                       boughtTypes: ["None"],
                     });
                   }
-                  console.log(found1.products.length);
                 }
               );
             } else {
