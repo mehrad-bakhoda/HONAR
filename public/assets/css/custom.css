@@ -228,38 +228,39 @@ section.uploadButton a:hover {
 .card.product {
   box-shadow: none;
   background-color: transparent;
-  height: 16rem;
+  height: 100%;
   padding: 0;
   border-radius: 12px;
   position: relative;
-  margin: 1rem 0.5rem;
 }
 .card.product .card-body {
   padding: 0;
   position: relative;
   text-align: center;
+  max-width: 15rem;
+  max-height: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card.product .card-body img {
-  max-width: 15rem;
-  width: auto;
-  max-height: 12rem;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 12px;
   object-fit: contain;
+  box-shadow: 0px 0px 7px -4px #d3d3d3;
 }
 .card.product .card-body img:hover {
   transform: scale(1.05);
 }
 .card.product .card-footer {
-  height: 4rem;
   background-color: transparent;
   border: none;
-  padding: 1rem 0 0;
+  padding: 0.5rem 0 2rem;
 }
 .card.product .card-footer p {
   color: #333333;
   text-align: center;
-  height: 1.5rem;
   margin: 0;
 }
 .card.product .card-footer p i {
@@ -1904,6 +1905,7 @@ section.searchPage section.contents .sortSection .sorting label {
   position: relative;
   display: block;
   font-size: 0.9rem;
+  color: #333333;
 }
 section.searchPage section.contents .sortSection .sorting label.sortOption {
   padding: 0;
