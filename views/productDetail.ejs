@@ -53,7 +53,7 @@
                                         <i class="far fa-angle-down"></i>
                                     </div>
                                     <% item.filePath.forEach(function(t){%>
-                                        <%if(boughtTypes.includes(t.fileType)){%>
+                                        <%if(boughtTypes.includes(t.fileType) ||item.orginalPrice==0){%>
                                         <label for=<%=t.fileType%> class="typeOption type bought" id="small"><%=t.fileType%></label>
                                         <%}else{%>
                                             <label for=<%=t.fileType%> class="typeOption type" id="small"><%=t.fileType%></label>
