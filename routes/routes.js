@@ -842,7 +842,11 @@ router.get("/download/:productId/:type", function (req, res) {
   if (req.session.userId) {
     var type = req.params.type;
     var productId = req.params.productId;
-
+    Product.findOneAndUpdate({_id:productId},{$inc :{downloadedCount:1}},(err)=>{
+      if(err){
+        console.log(err);
+      }
+    });
     Product.findOne({ _id: productId }, function (err, product) {
       if (product.orginalPrice === 0) {
         for (var i = 0; i < product.filePath.length; i++) {
@@ -1368,6 +1372,7 @@ router.get("/orderConfirm", function (req, res) {
   var year = dateObj.getUTCFullYear();
 
   var newdate = year + "/" + month + "/" + day;
+  
 
   if (req.session.userId) {
     User.findOne(
@@ -1378,7 +1383,14 @@ router.get("/orderConfirm", function (req, res) {
         if (found) {
           if (req.session.cart) {
             const cart = new Cart(req.session.cart).generateArray();
-            console.log(cart.length);
+            cart.forEach(item=>{
+              Product.findOneAndUpdate({productId:item.item.productId},{$inc :{downloadedCount:1}},(err)=>{
+                if(err){
+                  console.log(err);
+                }
+              });
+            });
+
             const order = new Order({
               user: found,
               quantity: req.session.cart.totalQty,
