@@ -144,14 +144,46 @@
               </div>
             </div>
           </a>
+          
         </div>
+        
 
         <% }) %> <% }%>
+        
       </div>
+      <div class="buttons">
+        <button type="button" class="seeMore">
+            مشاهده بیشتر
+            <i class="fal fa-angle-down"></i>
+        </button>
     </div>
+      
+    </div>
+    
   </section>
   <%-include("footer");-%>
 </section>
 <!-- Scripts -->
 <%-include("scripts");-%>
+<% var searchedLength = searched.length;%>
+
+        <script>
+          var getsearchedLength= <%=searchedLength%> ;
+          var searchedCounter=4;
+          var extraSearched=getsearchedLength%4;
+          if(getsearchedLength<4){
+            $("button.seeMore").fadeOut(400);
+          }
+
+            
+            $("button.seeMore").click(function () {
+                searchedCounter=searchedCounter+4;
+            if (searchedCounter+extraSearched>getsearchedLength  || searchedCounter==getsearchedLength) {
+                $("button.seeMore").fadeOut(400);
+            }
+            
+            });
+
+
+            </script>
 <!-- Scripts -->
