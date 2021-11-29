@@ -1,6 +1,8 @@
 ﻿<%-include("head");-%>
+<%-include("notif");%>
 <section class="page cartPage">
   <%-include("header");-%>
+
   <section class="contents">
     <div class="container-fluid">
       <% if(products.length == 0){%>
@@ -19,9 +21,7 @@
               <div class="card item">
                 <div class="row bottom">
                   <div class="col-xs-12 col-sm-6 col-md-3 image">
-                    <a
-                      href="/product/<%=product.item.productId%>/<%=product.item.fileName%>"
-                    >
+                    <a href="/product/<%=product.item.productId%>/<%=product.item.fileName%>">
                       <img src="<%=product.item.coverPath%>" />
                     </a>
                   </div>
@@ -56,16 +56,44 @@
             <div class="cost">
               <h5>قیمت نهایی</h5>
               <p>
-                <% if(totalPrice == 0){%> رایگان <% } %> <% if(totalPrice !=
-                0){%> <%=totalPrice %>
+                <% if(discountIsValid === true && discountDate === true && discountForProduct === true){%>
+                <% if(totalPrice == 0){%> رایگان <% } %> 
+                <% if(totalPrice !=0){%>
+                <% if(discount.amount.includes("%")){%>
+                <%=totalPrice-(parseInt(discount.amount.slice(0,-1))/100)*totalPrice %>
                 <span> تومان </span>
                 <% } %>
+                <% if(!discount.amount.includes("%")){%>
+                <%=totalPrice-parseInt(discount.amount)%>
+                <span> تومان </span>
+                <% } %>
+                <%}%>
+                  <%}%>
+
+
+                <% if(discountIsValid !== true || discountDate !== true || discountForProduct !== true){%>
+                <% if(totalPrice == 0){%> رایگان <% } %> 
+                <% if(totalPrice !=0){%> 
+                  <%=totalPrice %>
+                <span> تومان </span>
+                <% } %>
+                <%}%>
               </p>
             </div>
-            <form class="sale">
-              <input type="text" placeholder="کد تخفیف..." />
-              <button type="submit">تایید کد</button>
-            </form>
+            
+            <% if(discountIsValid === true && discountDate === true && discountForProduct === true){%>
+              <form class="sale" action="/useDiscount%>" method="post">
+                <input type="text" name="discountCode" value="<%=discount.code%>" readonly />
+              </form>
+              <%}%>
+
+          <% if(discountIsValid !== true || discountDate !== true || discountForProduct !== true){%>
+              <form class="sale" action="/useDiscount%>" method="post">
+                <input type="text" name="discountCode" value="" placeholder="کد تخفیف..." />
+                <button type="submit">تایید کد</button>
+              </form>
+              <%}%>
+
             <div class="buttons">
               <a href="/orderConfirm">
                 <button type="button" class="payment">
@@ -78,8 +106,30 @@
         </div>
       </div>
       <%}%>
-    </div>
+            </div>
+
   </section>
+
   <%-include("footer");-%>
 </section>
 <%-include("scripts");-%>
+<script>
+  var valid = "<%=discountIsValid%>";
+  var date = "<%=discountDate%>";
+  var product = "<%=discountForProduct%>";
+  var entered = "<%=discountEntered%>";
+  if (entered== "true" ) {
+    if (valid=="true") {
+    if (product=="true") {
+      if (date!="true" ) {
+        notifError("زمان كد تخفيف شما تمام شده");
+      }
+    } else {
+      notifError("كد تخفيف شما قابل استفاده نمي باشد");
+    }
+  } else {
+    notifError("كد تخفيف شما اشتباه است");
+  }
+  }
+
+</script>
