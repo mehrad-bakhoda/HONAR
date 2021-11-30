@@ -1179,7 +1179,16 @@ router.get("/dashboard/orders/:orderId", function (req, res) {
   }
 });
 router.get("/orders", function (req, res) {
-  res.render("orders");
+  if (req.session.userId) {
+    User.findOne({ unique_id: req.session.userId }, function (err, user) {
+      if(!err,user){
+        res.render("orders",{orders:user.products});
+      }
+    });
+  
+  }else{
+    res.redirect("/login");
+  }
 });
 
 router.get("/user", function (req, res) {
