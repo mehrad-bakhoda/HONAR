@@ -50,7 +50,7 @@ router.post("/becomeArtist", async (req, res, next) => {
 
   const form = formidable({ multiples: true, uploadDir: dir });
   form.keepExtensions = true;
-  form.maxFileSize = 300 * 1024 * 1024;
+  form.maxFileSize = 100 * 1024 * 1024;
   form.parse(req, (err, fields, files) => {
     User.findOne(
       {
@@ -1864,7 +1864,7 @@ router.post("/signUpD", async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const form = formidable({ multiples: true });
   form.keepExtensions = true;
-  form.maxFileSize = 300 * 1024 * 1024;
+  form.maxFileSize = 100 * 1024 * 1024;
   form.parse(req, (err, fields, files) => {
     console.log(check(fields.firstName).not().isEmpty());
 
@@ -1940,7 +1940,7 @@ router.post("/signUpU", async (req, res) => {
   }
   const form = formidable({ multiples: true, uploadDir: dir });
   form.keepExtensions = true;
-  form.maxFileSize = 300 * 1024 * 1024;
+  form.maxFileSize = 100 * 1024 * 1024;
   form.parse(req, (err, fields, files) => {
     User.findOne(
       {
@@ -2026,7 +2026,7 @@ router.post(
     var dir = "public/covers/users/";
     const form = formidable({ multiples: true, uploadDir: dir });
     form.keepExtensions = true;
-    form.maxFileSize = 300 * 1024 * 1024;
+    form.maxFileSize = 100 * 1024 * 1024;
     form.parse(req, (err, fields, files) => {
       console.log(files.profilePic);
       if (fields.loginInput.includes("@") === true) {
@@ -2210,7 +2210,7 @@ router.post("/upload", async (req, res) => {
 
           const form = formidable({ multiples: true, uploadDir: dir });
           form.keepExtensions = true;
-          form.maxFileSize = 300 * 1024 * 1024;
+          form.maxFileSize = 100 * 1024 * 1024;
           form.parse(req, (err, fields, files) => {
             const fileName = path.basename(files.productCover.path);
             const databaseDestination =
@@ -2388,7 +2388,7 @@ router.post("/upload", async (req, res) => {
 router.post("/editProduct/:productId", async (req, res, next) => {
   const form = formidable({ multiples: true });
   form.keepExtensions = true;
-  form.maxFileSize = 300 * 1024 * 1024;
+  form.maxFileSize = 100 * 1024 * 1024;
   form.parse(req, (err, fields, files) => {
     Product.findOne({ productId: req.params.productId }, function (err, found) {
       if (!err) {
@@ -2630,7 +2630,7 @@ router.post("/changeUserInfoU", async (req, res, next) => {
 
   const form = formidable({ multiples: true, uploadDir: dir });
   form.keepExtensions = true;
-  form.maxFileSize = 300 * 1024 * 1024;
+  form.maxFileSize = 100 * 1024 * 1024;
   form.parse(req, (err, fields, files) => {
     User.findOne(
       {
@@ -3272,7 +3272,7 @@ router.post("/changeUserInfoD", async (req, res, next) => {
 
   const form = formidable({ multiples: true, uploadDir: dir });
   form.keepExtensions = true;
-  form.maxFileSize =300 * 1024 * 1024;
+  form.maxFileSize =100 * 1024 * 1024;
   form.parse(req, (err, fields, files) => {
     User.findOne(
       {
