@@ -242,6 +242,7 @@ section.uploadButton a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 .card.product .card-body img {
   max-width: 100%;
@@ -1410,12 +1411,26 @@ Section.uploadPage section.contents .container-fluid .row .uploadFile ul {
   border: 2px solid lightgray;
   border-radius: 12px;
   list-style: none;
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadFile ul li {
   text-align: center;
   padding: 0.5rem;
-  display: inline-block;
-  vertical-align: top;
+  overflow: hidden;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadFile ul li.loading {
+  max-width: 0;
+  padding: 0.5rem 0;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadFile ul li.file {
+  max-width: 0;
+  padding: 0.5rem 0;
+}
+Section.uploadPage section.contents .container-fluid .row .uploadFile ul li.show {
+  max-width: 5rem;
+  padding: 0.5rem;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadFile ul li i {
   color: #0098c5;
@@ -1430,6 +1445,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadFile ul li p {
   margin: 0;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file] {
+  margin: 0;
   padding: 0;
   visibility: hidden;
   width: 3rem;
@@ -1439,7 +1455,7 @@ Section.uploadPage section.contents .container-fluid .row .uploadFile input[type
 Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file]::before {
   visibility: visible;
   content: "+";
-  font-size: 16px;
+  font-size: 2rem;
   position: absolute;
   background-color: transparent;
   width: 100%;
@@ -1448,6 +1464,9 @@ Section.uploadPage section.contents .container-fluid .row .uploadFile input[type
   text-align: center;
   color: #0098c5;
   border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 Section.uploadPage section.contents .container-fluid .row .uploadFile input[type=file]:hover::before {
   color: #f5f5f5 !important;
@@ -1514,24 +1533,25 @@ Section.uploadPage section.contents .container-fluid .row .uploadCover .hidden {
   visibility: hidden;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
   max-width: 20rem;
   font-size: 0.9rem;
-}
-Section.uploadPage section.contents .container-fluid .row .pricing input[type=checkbox] {
-  width: 1rem;
-  height: 1rem;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing input[type=text] {
   background-color: transparent;
   border: none;
   border: 2px solid lightgray;
-  width: 11rem;
+  max-width: 15rem;
+  margin-left: 1rem;
   height: 100%;
   height: 2.5rem;
   padding: 0.5rem;
   border-radius: 12px;
   padding-left: 3rem;
+  width: 100%;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing input[type=text]:focus {
   outline: none;
@@ -1555,7 +1575,6 @@ Section.uploadPage section.contents .container-fluid .row .pricing label.free {
   border-radius: 12px;
   background-color: transparent;
   padding: 0.4rem 0.3rem;
-  float: left;
 }
 Section.uploadPage section.contents .container-fluid .row .pricing .shown {
   opacity: 1 !important;

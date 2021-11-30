@@ -35,23 +35,33 @@
               </div>
             </div>
             <div class="uploadFile">
-              <!--
-                            <i class="far fa-spinner-third fa-spin hidden"></i>
-                            <i class="far fa-check-circle hidden"></i>-->
               <label> فایل خود را آپلود کنید </label>
               <ul>
-                <li class="file">
+                <li class="loading">
+                    <i class="far fa-spinner-third fa-spin"></i>
+                </li>
+                <li class="file png">
                   <i class="fal fa-image"></i>
                   <p>PNG</p>
                 </li>
-                <li class="file">
-                  <i class="fal fa-image"></i>
-                  <p>PSD</p>
-                </li>
-                <li class="file">
+                
+                <li class="file jpeg">
                   <i class="fal fa-image"></i>
                   <p>JPEG</p>
                 </li>
+                <li class="file jpg">
+                  <i class="fal fa-image"></i>
+                  <p>JPG</p>
+                </li>
+                <li class="file psd">
+                  <i class="fal fa-image"></i>
+                  <p>PSD</p>
+                </li>
+                <li class="file svg">
+                  <i class="fal fa-image"></i>
+                  <p>SVG</p>
+                </li>
+
                 <li class="button">
                   <input
                     id="productUploader"
@@ -111,76 +121,12 @@
               type="text"
               class="price"
               onkeypress="return isNumberKey(event)"
-              placeholder="قیمت سایز اصلی"
+              placeholder="قیمت  "
               maxlength="11"
               required
             />
             <label class="toman"> تومان </label>
             <label class="free"> رایگان </label>
-          </div>
-          <div class="accordion" id="accorionPrice">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-mdb-toggle="collapse"
-                  data-mdb-target="#other"
-                  aria-expanded="true"
-                  aria-controls="other"
-                >
-                  انتشار با سایزهای دیگر
-                </button>
-              </h2>
-              <div
-                id="other"
-                class="accordion-collapse collapse"
-                aria-labelledby="other"
-                data-mdb-parent="#accorionPrice"
-              >
-                <div class="accordion-body">
-                  <div class="pricing large">
-                    <input type="checkbox" />
-                    <input
-                      name="largePrice"
-                      type="text"
-                      class="price"
-                      onkeypress="return isNumberKey(event)"
-                      placeholder="قیمت سایز بزرگ "
-                      maxlength="11"
-                    />
-                    <label class="toman"> تومان </label>
-                    <label class="free"> رایگان </label>
-                  </div>
-                  <div class="pricing medium">
-                    <input type="checkbox" />
-                    <input
-                      name="mediumPrice"
-                      type="text"
-                      class="price"
-                      onkeypress="return isNumberKey(event)"
-                      placeholder="قیمت سایز متوسط"
-                      maxlength="11"
-                    />
-                    <label class="toman"> تومان </label>
-                    <label class="free"> رایگان </label>
-                  </div>
-                  <div class="pricing small">
-                    <input type="checkbox" />
-                    <input
-                      name="smallPrice"
-                      type="text"
-                      class="price"
-                      onkeypress="return isNumberKey(event)"
-                      placeholder="قیمت سایز کوچک"
-                      maxlength="11"
-                    />
-                    <label class="toman"> تومان </label>
-                    <label class="free"> رایگان </label>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="buttons">
@@ -203,6 +149,28 @@
   coverButton.onchange = (event) => {
     const coverImage = document.querySelector(".uploadCover img");
     coverImage.src = URL.createObjectURL(event.target.files[0]);
+  }
+
+  const uploadButton = document.querySelector("#productUploader");
+  uploadButton.onchange = (event) => {
+    const loadingCirdcle = document.querySelector("li.loading");
+    loadingCirdcle.classList.remove("show");
+
+    let fileType = "";
+    const inputValue = uploadButton.value;
+    for (let i = inputValue.length - 1; i > 0; i--) {
+      if (inputValue[i] != '.')
+        fileType += inputValue[i];
+      else 
+        break;
+    }
+    fileType = fileType.split("").reverse().join("").toLocaleLowerCase();
+    
+    const fileTypes = document.querySelectorAll(".uploadFile li.file");
+    for (let ft of fileTypes)
+      if (ft.classList.contains(fileType))
+        ft.classList.add("show");
+    
   }
 </script>
 <script src="/assets/js/uploadPage.js"></script>
