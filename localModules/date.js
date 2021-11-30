@@ -1,5 +1,5 @@
 function newDate(tDate){
-getPersianDate = (format) => { 
+let getPersianDate = (format) => { 
   let week = new Array("يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه", "شنبه")
   let months = new Array("فروردين", "ارديبهشت", "خرداد", "تير", "مرداد", "شهريور", "مهر", "آبان", "آذر", "دي", "بهمن", "اسفند");
   let today = new Date(tDate);
@@ -14,13 +14,13 @@ getPersianDate = (format) => {
   if (year < 100) {
       year += 1900;
   }
-  y = 1;
-  for (i = 0; i < 3000; i += 4) {
+  var y = 1;
+  for (var i = 0; i < 3000; i += 4) {
       if (year == i) {
           y = 2;
       }
   }
-  for (i = 1; i < 3000; i += 4) {
+  for (var i = 1; i < 3000; i += 4) {
       if (year == i) {
           y = 3;
       }
@@ -147,7 +147,7 @@ getPersianDate = (format) => {
 
 }
 
-  today=new Date(tDate);
+  var today=new Date(tDate);
   var h=today.getHours();
   var m=today.getMinutes();
   var s=today.getSeconds();

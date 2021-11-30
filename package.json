@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "build": "babel index.js -d dist",
+    "start": "nodemon --exec babel-node ./index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/BlueShdw/HONAR#readme",
   "dependencies": {
+    "babel-install": "^2.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "chart.js": "^3.3.2",
@@ -48,6 +50,10 @@
     "voucher-code-generator": "^1.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@rollup/plugin-replace": "^2.4.2"
   }
 }
