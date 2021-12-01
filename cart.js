@@ -6,7 +6,6 @@ module.exports = function Cart(oldCart) {
   this.add = function (item, id, type) {
     var storedItem = this.items[id];
     if (!storedItem) {
-      console.log("adding");
       storedItem = this.items[id] = {
         item: item,
         qty: 0,
@@ -40,7 +39,6 @@ module.exports = function Cart(oldCart) {
   this.delete = function (id) {
     var storedItem = this.items[id];
     if (storedItem) {
-      console.log("deleting");
       //   if (storedItem.size == "original")
       this.totalPrice -= storedItem.item.orginalPrice;
       //   else if (storedItem.size == "large")

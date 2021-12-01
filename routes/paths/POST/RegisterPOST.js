@@ -5,6 +5,7 @@ const generateOTP = require("../../../localModules/generateOTP.js");
 
 //Public Modules
 var express = require("express");
+const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 //Database models
@@ -12,7 +13,9 @@ var User = require("../../../models/user");
 
 //Code
 
-export default(req,res)=>{
+
+export default async(req,res)=>{
+  const salt = await bcrypt.genSalt(10);
     var verifyCode = req.body.verifyCode1.concat(
         req.body.verifyCode2,
         req.body.verifyCode3,
@@ -25,9 +28,13 @@ export default(req,res)=>{
           {
             email: req.body.loginInput,
           },
-          function (err, found) {
+          async(err, found)=>{
             if (!err) {
-              if (found.verifyCode == verifyCode) {
+              const validVerifyCode = await bcrypt.compare(
+                verifyCode,
+                found.verifyCode
+              );
+              if (validVerifyCode) {
                 User.updateOne(
                   {
                     email: req.body.loginInput,
@@ -53,7 +60,7 @@ export default(req,res)=>{
                     email: req.body.loginInput,
                   },
                   {
-                    verifyCode: generateOTP.createNewOTP(),
+                    verifyCode: await bcrypt.hash(generateOTP.createNewOTP(), salt),
                     verified: false,
                   },
                   function (err, docs) {
@@ -86,9 +93,13 @@ export default(req,res)=>{
           {
             phone: req.body.loginInput,
           },
-          function (err, found) {
+          async(err, found)=>{
             if (!err) {
-              if (found.verifyCode == verifyCode) {
+              const validVerifyCode = await bcrypt.compare(
+                verifyCode,
+                found.verifyCode
+              );
+              if (validVerifyCode) {
                 User.updateOne(
                   {
                     phone: req.body.loginInput,
@@ -109,12 +120,13 @@ export default(req,res)=>{
                   newUser: true,
                 });
               } else {
+                let hash=
                 User.updateMany(
                   {
                     phone: req.body.loginInput,
                   },
                   {
-                    verifyCode: generateOTP.createNewOTP(),
+                    verifyCode: await bcrypt.hash(generateOTP.createNewOTP(), salt),
                     verified: false,
                   },
                   function (err, docs) {

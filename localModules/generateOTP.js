@@ -38,7 +38,6 @@ const generateOTP={
       function(err, docs){
         if (!err) {
           smsPannel.sendSMS(otp,phoneInput);
-          console.log('"' + phoneInput+'"'+" verify code generated!");
         }
               
  

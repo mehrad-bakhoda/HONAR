@@ -9,8 +9,6 @@ var i=0;
 $(".userPage button.seeMore").click(function () {
     showMore(".userPage", 0);
     i=i+4;
-    console.log(i);
-    console.log(searched.length);
 });
 hideItems(".userPage");
 showMore(".userPage", 0);

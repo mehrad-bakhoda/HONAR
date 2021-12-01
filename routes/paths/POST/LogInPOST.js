@@ -7,6 +7,7 @@ const smsPannel = require("../../../localModules/smsPannel.js");
 //Public Modules
 var express = require("express");
 const { check, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 //Database models
@@ -14,7 +15,8 @@ var User = require("../../../models/user");
 
 //Code
 
-export default (req,res,next)=>{
+export default async(req,res,next)=>{
+  const salt = await bcrypt.genSalt(10);
     const errors = validationResult(req).array();
     if (errors.length != 0) {
       req.session.errors = errors;
@@ -26,7 +28,7 @@ export default (req,res,next)=>{
       {
         phone: req.body.loginInput,
       },
-      function (err, found) {
+      async (err, found)=>{
         if (!err) {
           if (found) {
             if (found.verified) {
@@ -42,31 +44,51 @@ export default (req,res,next)=>{
 
               if (!found.hasPassword) {
 
-                generateOTP.newOtp(req.body.loginInput);
+                let verification = generateOTP.createNewOTP();
 
-                res.render("login", {
-                  inputFouned: false,
-                  inputVerify: false,
-                  loginInput: req.body.loginInput,
-                  newUser: false,
+                smsPannel.sendSMS(verification, req.body.loginInput);
+                User.updateOne({phone: req.body.loginInput},{verifyCode:await bcrypt.hash(verification, salt)},async (err)=>{
+                  if(err){
+                    console.log(err);
+                  }
+                  if(!err){
+                    res.render("login", {
+                      inputFouned: false,
+                      inputVerify: false,
+                      loginInput: req.body.loginInput,
+                      newUser: false,
+                    });
+                  }
                 });
+
+
               }
             }
             if (!found.verified) {
 
-              generateOTP.newOtp(req.body.loginInput);
+              let verification = generateOTP.createNewOTP();
 
-              res.render("login", {
-                inputFouned: false,
-                inputVerify: false,
-                loginInput: req.body.loginInput,
-                newUser: false,
+              smsPannel.sendSMS(verification, req.body.loginInput);
+              User.updateOne({phone: req.body.loginInput},{verifyCode:await bcrypt.hash(verification, salt)},async(err)=>{
+                if(err){
+                  console.log(err);
+                }
+                if(!err){
+                  res.render("login", {
+                    inputFouned: false,
+                    inputVerify: false,
+                    loginInput: req.body.loginInput,
+                    newUser: false,
+                  });
+                }
               });
+
+
             }
           }
           if (!found) {
             var c;
-            User.findOne({}, function (err, data) {
+            User.findOne({}, async(err, data)=>{
               if (data) {
                 c = data.unique_id + 1;
               } else {
@@ -79,7 +101,7 @@ export default (req,res,next)=>{
               const user = new User({
                 unique_id: c,
                 phone: req.body.loginInput,
-                verifyCode: verification,
+                verifyCode: await bcrypt.hash(verification, salt),
                 verified: "false",
                 registered: "false",
                 hasPassword: "false",

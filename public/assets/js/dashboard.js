@@ -24,7 +24,6 @@ $(".personalInfo .buttons .edit").click(function () {
 function checkConfirm(e) {
     const cPass = e;
     const pass = cPass.parentElement.querySelector(".passwordInput");
-    console.log(cPass.value + " and " + pass.value)
     if (cPass.value !== pass.value) {
         cPass.classList.add("notSame");
         cPass.classList.remove("same");

@@ -21,12 +21,9 @@ const generateOTP = require("./generateOTP.js");
         },
                             json: true,
                         }, function (error, response, body) {
-                            if (!error && response.statusCode === 200) {
+                            if (error || response.statusCode !== 200) {
         //YOU‌ CAN‌ CHECK‌ THE‌ RESPONSE‌ AND SEE‌ ERROR‌ OR‌ SUCCESS‌ MESSAGE
-                                console.log(response.body);
-                            } else {
-        console.log("failed");
-
+                                console.log(error);
                             }
                         });
     }
