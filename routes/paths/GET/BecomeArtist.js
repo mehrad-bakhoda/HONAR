@@ -13,9 +13,19 @@ export default (req,res)=>{
         User.findOne({ unique_id: req.session.userId }, function (err, found) {
           if (!err) {
             if (found) {
-              res.render("becomeArtist", { user: found });
+              if(found.type=="Downloader"){
+                res.render("becomeArtist", { user: found });
+              }
+              if(found.type=="Uploader"){
+                res.redirect("/dashboard");
+              }
+              
             }
           }
+          if(err){console.log(err);res.redirect('/dashboard');}
+          if(!found){res.redirect('/dashboard');}
         });
+      }else{
+        res.redirect("/login");
       }
 };

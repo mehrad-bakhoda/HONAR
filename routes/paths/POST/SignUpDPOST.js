@@ -18,7 +18,6 @@ export default async(req,res)=>{
     form.keepExtensions = true;
     form.maxFileSize = 100 * 1024 * 1024;
     form.parse(req, (err, fields, files) => {
-      console.log(check(fields.firstName).not().isEmpty());
   
       const errors = validationResult(req).array();
       if (errors.length != 0) {
@@ -26,7 +25,6 @@ export default async(req,res)=>{
         res.redirect("/login");
         return next();
       }
-      console.log(files.profilePic);
       User.findOne(
         {
           phone: fields.loginInput,
@@ -35,7 +33,6 @@ export default async(req,res)=>{
           if (!err) {
             if (found) {
               if (!found.hasPassword) {
-                console.log("he's a Downloader");
   
                 User.updateMany(
                   {
@@ -51,21 +48,8 @@ export default async(req,res)=>{
                   },
                   function (err, docs) {
                     if (!err) {
-                      console.log(
-                        '"' + fields.loginInput + '"' + " now has a password!"
-                      );
                       req.session.userId = found.unique_id;
                       req.session.save();
-                      console.log(
-                        "Session created for" + '"' + fields.loginInput + '"'
-                      );
-                      console.log(
-                        "Redirecting " +
-                          '"' +
-                          fields.loginInput +
-                          '"' +
-                          " to home!"
-                      );
                       res.redirect("/");
                     }
                   }

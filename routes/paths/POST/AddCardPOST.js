@@ -18,8 +18,8 @@ export default (req,res)=>{
         { unique_id: req.session.userId },
         { creditCardConfirmation: "wait" },
         function (err) {
-          if (!err) {
-            console.log("waiting for confirmation");
+          if (err) {
+            console.log(err);
           }
         }
       );
@@ -35,7 +35,6 @@ export default (req,res)=>{
             });
             creditCard.save(function (err, docs) {
               if (!err) {
-                console.log("credirCard added");
                 let cardAdded = {
                   message: `card added`,
                   code: "000",
@@ -49,8 +48,8 @@ export default (req,res)=>{
                     $push: { message: cardAdded },
                   },
                   function (err) {
-                    if (!err) {
-                      console.log("added status");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );

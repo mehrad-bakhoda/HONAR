@@ -208,8 +208,8 @@ export default async(req,res)=>{
                     $push: { message: failedUpload },
                   },
                   function (err) {
-                    if (!err) {
-                      console.log("added status");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -229,8 +229,8 @@ export default async(req,res)=>{
                     $push: { message: successfulUpload },
                   },
                   function (err) {
-                    if (!err) {
-                      console.log("added status");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );

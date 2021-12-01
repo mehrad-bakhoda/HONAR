@@ -43,7 +43,6 @@ export default(req,res)=>{
                       found1.products.forEach(function (product) {
                         boughtTypes.push(product.type);
                       });
-                      console.log(boughtTypes);
                       res.render("productDetail", {
                         item: found,
                         searched: searchedItem,

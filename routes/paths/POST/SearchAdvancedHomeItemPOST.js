@@ -10,7 +10,6 @@ export default (req,res)=>{
       //   Product.search(req.params.searchedItem, function(err, found) {
   //     res.render("search",{searched:found});
   //  });
-  console.log(req.body);
   var fileTypes = "";
   var types = "";
   var dimensions = "";

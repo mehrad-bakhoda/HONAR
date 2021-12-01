@@ -22,9 +22,6 @@ export default (req,res,next)=>{
       return next();
     }
 
-    console.log(
-      "Phone Number " + '"' + req.body.loginInput + '"' + " received"
-    );
     User.findOne(
       {
         phone: req.body.loginInput,
@@ -34,12 +31,6 @@ export default (req,res,next)=>{
           if (found) {
             if (found.verified) {
               if (found.hasPassword) {
-                console.log(
-                  '"' +
-                    req.body.loginInput +
-                    '"' +
-                    " is verified and has password"
-                );
 
                 res.render("login", {
                   inputFouned: true,
@@ -50,12 +41,6 @@ export default (req,res,next)=>{
               }
 
               if (!found.hasPassword) {
-                console.log(
-                  '"' +
-                    req.body.loginInput +
-                    '"' +
-                    " is verified but hasn't set the password"
-                );
 
                 generateOTP.newOtp(req.body.loginInput);
 
@@ -68,7 +53,6 @@ export default (req,res,next)=>{
               }
             }
             if (!found.verified) {
-              console.log('"' + req.body.loginInput + '"' + " is not verified");
 
               generateOTP.newOtp(req.body.loginInput);
 
@@ -81,13 +65,6 @@ export default (req,res,next)=>{
             }
           }
           if (!found) {
-            console.log(
-              "---------------------- " +
-                '"' +
-                req.body.loginInput +
-                '"' +
-                " is a new User ----------------------"
-            );
             var c;
             User.findOne({}, function (err, data) {
               if (data) {
@@ -108,11 +85,8 @@ export default (req,res,next)=>{
                 hasPassword: "false",
                 date: new Date(),
               });
-              console.log(user.verifyCode);
               user.save(function (err, docs) {
-                if (!err) {
-                  console.log("verify Code initiated!");
-                } else {
+                if (err) {
                   console.log(err);
                 }
               });
@@ -131,9 +105,6 @@ export default (req,res,next)=>{
             //     }
             //   });
             // }, 60000);
-            console.log(
-              "Created a user for " + '"' + req.body.loginInput + '"'
-            );
 
             res.render("login", {
               inputVerify: false,

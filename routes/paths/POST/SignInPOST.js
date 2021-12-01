@@ -24,7 +24,6 @@ export default async(req,res)=>{
     form.keepExtensions = true;
     form.maxFileSize = 100 * 1024 * 1024;
     form.parse(req, (err, fields, files) => {
-      console.log(files.profilePic);
       if (fields.loginInput.includes("@") === true) {
         User.findOne(
           {
@@ -39,31 +38,12 @@ export default async(req,res)=>{
                     found.password
                   );
                   if (validPassword) {
-                    console.log(
-                      '"' + fields.loginInput + '"' + " login was successful!"
-                    );
                     req.session.userId = found.unique_id;
                     req.session.save();
-                    console.log(
-                      "Session created for" + '"' + fields.loginInput + '"'
-                    );
 
-                    console.log(
-                      "Redirecting " +
-                        '"' +
-                        fields.loginInput +
-                        '"' +
-                        " to home!"
-                    );
                     res.redirect("/");
                   }
                   if (!validPassword) {
-                    console.log(
-                      '"' +
-                        fields.loginInput +
-                        '"' +
-                        " entered the wrong password!"
-                    );
                     req.session.errors = [
                       {
                         value: fields.password,
@@ -100,31 +80,12 @@ export default async(req,res)=>{
                   );
 
                   if (validPassword) {
-                    console.log(
-                      '"' + fields.loginInput + '"' + " login was successful!"
-                    );
                     req.session.userId = found.unique_id;
                     req.session.save();
-                    console.log(
-                      "Session created for" + '"' + fields.loginInput + '"'
-                    );
 
-                    console.log(
-                      "Redirecting " +
-                        '"' +
-                        fields.loginInput +
-                        '"' +
-                        " to home!"
-                    );
                     res.redirect("/");
                   }
                   if (!validPassword) {
-                    console.log(
-                      '"' +
-                        fields.loginInput +
-                        '"' +
-                        " entered the wrong password!"
-                    );
                     req.session.errors = [
                       {
                         value: fields.password,

@@ -63,12 +63,11 @@ export default async(req,res,next)=>{
                             $push: { message: successfulNamechange },
                           },
                           function (err) {
-                            if (!err) {
-                              console.log("added status");
+                            if (err) {
+                              console.log(err);
                             }
                           }
                         );
-                        console.log("sucess!");
                       }
                     }
                   );
@@ -96,13 +95,12 @@ export default async(req,res,next)=>{
                             $push: { message: successfullLastNameChange },
                           },
                           function (err) {
-                            if (!err) {
-                              console.log("added status");
+                            if (err) {
+                              console.log(err);
                             }
                           }
                         );
   
-                        console.log("sucess!");
                       }
                     }
                   );
@@ -130,13 +128,12 @@ export default async(req,res,next)=>{
                             $push: { message: successfullUserNameChange },
                           },
                           function (err) {
-                            if (!err) {
-                              console.log("added status");
+                            if (err) {
+                              console.log(err);
                             }
                           }
                         );
   
-                        console.log("sucess!");
                       }
                     }
                   );
@@ -173,12 +170,11 @@ export default async(req,res,next)=>{
                             $push: { message: successfullPasswordChange },
                           },
                           function (err) {
-                            if (!err) {
-                              console.log("added status");
+                            if (err) {
+                              console.log(err);
                             }
                           }
                         );
-                        console.log("sucess!");
                       }
                     }
                   );
@@ -197,8 +193,8 @@ export default async(req,res,next)=>{
                     $push: { message: wrongPassword },
                   },
                   function (err) {
-                    if (!err) {
-                      console.log("added status");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );

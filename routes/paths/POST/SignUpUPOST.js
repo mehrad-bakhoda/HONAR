@@ -16,7 +16,6 @@ var User = require("../../../models/user");
 export default async(req,res)=>{
     const salt = await bcrypt.genSalt(10);
     const dir = path.join(__dirname, "/../../../public/profilePic/users/");
-    console.log(dir);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, {
         recursive: true,
@@ -59,21 +58,8 @@ export default async(req,res)=>{
                   },
                   function (err, docs) {
                     if (!err) {
-                      console.log(
-                        '"' + fields.loginInput + '"' + " now has a password!"
-                      );
                       req.session.userId = found.unique_id;
                       req.session.save();
-                      console.log(
-                        "Session created for" + '"' + fields.loginInput + '"'
-                      );
-                      console.log(
-                        "Redirecting " +
-                          '"' +
-                          fields.loginInput +
-                          '"' +
-                          " to home!"
-                      );
                       res.redirect("/");
                     }
                   }

@@ -13,8 +13,6 @@ export default(req,res)=>{
     if (req.session.userId) {
         var productId = req.params.id;
         var type = req.params.type;
-    
-        console.log(req.session.cart);
         var cart = new Cart(req.session.cart ? req.session.cart : {});
         let product = Product.findOne(
           {
@@ -22,12 +20,11 @@ export default(req,res)=>{
           },
           function (err, product) {
             if (err) {
-              console.log("item adding failed");
+              console.log("item adding failed",err);
               res.render("notFound");
             }
             product.filePath.forEach((file) => {
               if (file.fileType === type) {
-                console.log(type);
                 cart.add(product, product.productId, type);
                 req.session.cart = cart;
                 req.session.save((err, savedCart) => {

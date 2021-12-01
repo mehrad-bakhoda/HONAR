@@ -17,5 +17,7 @@ export default(req,res)=>{
         req.session.cart = cart;
         req.session.save();
         res.redirect("/cart");
+      }else{
+        res.redirect("/cart");
       }
 };

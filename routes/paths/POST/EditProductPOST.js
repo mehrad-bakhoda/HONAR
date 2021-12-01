@@ -44,8 +44,8 @@ export default async(req,res,next)=>{
                   tags: fields.tags,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -72,8 +72,8 @@ export default async(req,res,next)=>{
                   tags: tagsarr,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -88,8 +88,8 @@ export default async(req,res,next)=>{
                   fileName: fields.fileName,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -103,8 +103,8 @@ export default async(req,res,next)=>{
                   description: fields.description,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -119,8 +119,8 @@ export default async(req,res,next)=>{
                   description: fields.description,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -138,8 +138,8 @@ export default async(req,res,next)=>{
                   orginalPrice: fields.orginalPrice,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -154,8 +154,8 @@ export default async(req,res,next)=>{
                   mediumPrice: fields.mediumPrice,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -170,8 +170,8 @@ export default async(req,res,next)=>{
                   largePrice: fields.largePrice,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -186,8 +186,8 @@ export default async(req,res,next)=>{
                   smallPrice: fields.smallPrice,
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("sucess!");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -208,8 +208,8 @@ export default async(req,res,next)=>{
                   $push: { message: failedUpload },
                 },
                 function (err) {
-                  if (!err) {
-                    console.log("added status");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -233,8 +233,8 @@ export default async(req,res,next)=>{
                         $push: { message: successfulUpload },
                       },
                       function (err) {
-                        if (!err) {
-                          console.log("added status");
+                        if (err) {
+                          console.log(err);
                         }
                       }
                     );

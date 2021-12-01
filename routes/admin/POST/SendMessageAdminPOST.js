@@ -31,7 +31,6 @@ export default(req,res)=>{
               { $push: { message: messageRecieved } },
               function (err) {
                 if (!err) {
-                  console.log("added status");
                   res.redirect("/admin/messages");
                 }
               }

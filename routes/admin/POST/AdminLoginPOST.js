@@ -12,7 +12,6 @@ export default(req,res)=>{
         req.body.password == process.env.ADMIN_PASSWORD
       ) {
         req.session.userId = 0;
-        console.log("admin logged in");
         res.redirect("/admin/home");
       }
 };

@@ -53,7 +53,6 @@ export default(req,res)=>{
                   product: cart[i].item,
                   type: cart[i].type,
                 };
-                console.log(product);
                 order.products.push(product);
                 found.products.push(product);
               }
@@ -68,5 +67,7 @@ export default(req,res)=>{
           }
         }
       );
+    }else{
+      res.redirect("/login");
     }
 };

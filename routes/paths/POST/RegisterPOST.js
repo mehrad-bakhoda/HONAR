@@ -28,12 +28,6 @@ export default(req,res)=>{
           function (err, found) {
             if (!err) {
               if (found.verifyCode == verifyCode) {
-                console.log(
-                  '"' +
-                    req.body.loginInput +
-                    '"' +
-                    " entered the verify code correctly"
-                );
                 User.updateOne(
                   {
                     email: req.body.loginInput,
@@ -42,10 +36,8 @@ export default(req,res)=>{
                     verified: true,
                   },
                   function (err, docs) {
-                    if (!err) {
-                      console.log(
-                        '"' + req.body.loginInput + '"' + " is now verified!"
-                      );
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -56,12 +48,6 @@ export default(req,res)=>{
                   newUser: true,
                 });
               } else {
-                console.log(
-                  '"' +
-                    req.body.loginInput +
-                    '"' +
-                    " entered the wrong verify code!"
-                );
                 User.updateMany(
                   {
                     email: req.body.loginInput,
@@ -71,10 +57,8 @@ export default(req,res)=>{
                     verified: false,
                   },
                   function (err, docs) {
-                    if (!err) {
-                      console.log(
-                        '"' + req.body.loginInput + '"' + " verify code updated!"
-                      );
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -105,12 +89,6 @@ export default(req,res)=>{
           function (err, found) {
             if (!err) {
               if (found.verifyCode == verifyCode) {
-                console.log(
-                  '"' +
-                    req.body.loginInput +
-                    '"' +
-                    " entered the verify code correctly"
-                );
                 User.updateOne(
                   {
                     phone: req.body.loginInput,
@@ -119,10 +97,8 @@ export default(req,res)=>{
                     verified: true,
                   },
                   function (err, docs) {
-                    if (!err) {
-                      console.log(
-                        '"' + req.body.loginInput + '"' + " is now verified!"
-                      );
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -133,12 +109,6 @@ export default(req,res)=>{
                   newUser: true,
                 });
               } else {
-                console.log(
-                  '"' +
-                    req.body.loginInput +
-                    '"' +
-                    " entered the wrong verify code!"
-                );
                 User.updateMany(
                   {
                     phone: req.body.loginInput,
@@ -148,10 +118,8 @@ export default(req,res)=>{
                     verified: false,
                   },
                   function (err, docs) {
-                    if (!err) {
-                      console.log(
-                        '"' + req.body.loginInput + '"' + " verify code updated!"
-                      );
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );

@@ -16,5 +16,7 @@ export default(req,res)=>{
             return res.redirect("/");
           }
         });
+      }else{
+        res.redirect("/");
       }
 };

@@ -33,7 +33,6 @@ export default(req,res)=>{
             });
             message.save(function (err, docs) {
               if (!err) {
-                console.log("message sent");
                 let messageSent = {
                   message: `message sent`,
                   code: "000",
@@ -47,8 +46,8 @@ export default(req,res)=>{
                     $push: { message: messageSent },
                   },
                   function (err) {
-                    if (!err) {
-                      console.log("added status");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );

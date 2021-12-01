@@ -1,5 +1,7 @@
 //Modules
 
+import { errorMonitor } from "events";
+
 //Local modules
 const newDate = require("../../../localModules/date.js");
 
@@ -39,8 +41,8 @@ export default (req,res,next)=>{
                 { unique_id: found.unique_id },
                 { type: "Uploader" },
                 function (err) {
-                  if (!err) {
-                    console.log("user Type updated");
+                  if (err) {
+                    console.log(err);
                   }
                 }
               );
@@ -63,7 +65,7 @@ export default (req,res,next)=>{
                     return;
                   }
   
-                  console.log("file removed");
+                  console.log(err);
                 });
   
                 User.updateOne(
@@ -88,13 +90,12 @@ export default (req,res,next)=>{
                           $push: { message: successfulProfilePicChange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
   
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -102,8 +103,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.prodilePicPath": fields.profilePicPath },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -132,12 +133,11 @@ export default (req,res,next)=>{
                           $push: { message: successfulNamechange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -145,8 +145,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.firstName": fields.firstName },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -174,13 +174,12 @@ export default (req,res,next)=>{
                           $push: { message: successfullLastNameChange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
   
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -188,8 +187,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.lastName": fields.lastName },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -214,8 +213,8 @@ export default (req,res,next)=>{
                               $push: { message: unsuccessfullUserNameChange },
                             },
                             function (err) {
-                              if (!err) {
-                                console.log("added status");
+                              if (err) {
+                                console.log(err);
                               }
                             }
                           );
@@ -243,13 +242,12 @@ export default (req,res,next)=>{
                                   $push: { message: successfullUserNameChange },
                                 },
                                 function (err) {
-                                  if (!err) {
-                                    console.log("added status");
+                                  if (err) {
+                                    console.log(err);
                                   }
                                 }
                               );
   
-                              console.log("sucess!");
                             }
                           }
                         );
@@ -261,8 +259,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.userName": fields.userName.toLowerCase() },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -290,12 +288,11 @@ export default (req,res,next)=>{
                           $push: { message: successfulInstagramchange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -323,12 +320,11 @@ export default (req,res,next)=>{
                           $push: { message: successfullInstagramChange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -336,8 +332,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.instagram": fields.instagram },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -365,12 +361,11 @@ export default (req,res,next)=>{
                           $push: { message: successfulTwitterchange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -398,12 +393,11 @@ export default (req,res,next)=>{
                           $push: { message: successfullTwitterChange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -411,8 +405,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.twitter": fields.twitter },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -440,12 +434,11 @@ export default (req,res,next)=>{
                           $push: { message: successfulBioChange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -474,12 +467,11 @@ export default (req,res,next)=>{
                           $push: { message: successfullBioChange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -487,8 +479,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.bio": fields.bio },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );
@@ -517,12 +509,11 @@ export default (req,res,next)=>{
                           $push: { message: successfulEmailchange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -550,12 +541,11 @@ export default (req,res,next)=>{
                           $push: { message: successfullEmailChange },
                         },
                         function (err) {
-                          if (!err) {
-                            console.log("added status");
+                          if (err) {
+                            console.log(err);
                           }
                         }
                       );
-                      console.log("sucess!");
                     }
                   }
                 );
@@ -563,8 +553,8 @@ export default (req,res,next)=>{
                   { "user.unique_id": found.unique_id },
                   { "user.email": fields.email },
                   function (err) {
-                    if (!err) {
-                      console.log("products user updated");
+                    if (err) {
+                      console.log(err);
                     }
                   }
                 );

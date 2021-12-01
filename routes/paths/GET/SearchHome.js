@@ -13,7 +13,6 @@ export default (req,res)=>{
       //   Product.search(req.params.searchedItem, function(err, found) {
   //     res.render("search",{searched:found});
   //  });
-  console.log(req.query);
   var sort = {};
   var sortby = "مرتبط ترین";
   if (!Array.isArray(req.query.sortby)) {

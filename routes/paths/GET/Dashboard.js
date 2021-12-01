@@ -21,14 +21,26 @@ export default(req,res)=>{
             unique_id: req.session.userId,
           },
           function (err, found) {
+            if(err){
+              console.log(err);
+              res.redirect("/dashboard");
+            }
             if (found) {
               Product.find({ "user.unique_id": found.unique_id }).exec(function (
                 err,
                 products
               ) {
+                if(err){
+                  console.log(err);
+                  res.redirect("/dashboard");
+                }
                 Order.find(
                   { "user.unique_id": req.session.userId },
                   function (err, orders) {
+                    if(err){
+                      console.log(err);
+                      res.redirect("/dashboard");
+                    }
                     Discount.find(
                       { userId: req.session.userId },
                       function (err, discounts) {
@@ -53,6 +65,10 @@ export default(req,res)=>{
                             );
                           }
                         }
+                        if(err){
+                          console.log(err);
+                          res.redirect("/dashboard");
+                        }
                       }
                     );
                   }
@@ -63,5 +79,7 @@ export default(req,res)=>{
             }
           }
         );
+      }else{
+        res.redirect("/login");
       }
 };
