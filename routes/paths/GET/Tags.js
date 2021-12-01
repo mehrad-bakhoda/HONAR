@@ -49,7 +49,7 @@ export default (req,res)=>{
           sortby = "مرتبط ترین";
       }
     }
-    tagss = "#" + req.params.tag;
+    var tagss = "#" + req.params.tag;
   
     Product.find({ tags: { $in: tagss } })
       .sort(sort)
